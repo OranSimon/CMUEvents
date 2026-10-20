@@ -1,0 +1,51 @@
+{
+  "verified_on": "2026-10-20",
+  "requirements": {
+    "columns": ["Department", "Org", "link"],
+    "scope": "Publicly readable event indexes, calendars, recurring series, newsletter indexes and subscription sources affiliated with CMU. Individual event-detail links are excluded from the delivered list.",
+    "public_meaning": "Anonymous read access to the source. Event registration, attendance and location visibility may have additional conditions."
+  },
+  "school_coverage": [
+    "College of Engineering",
+    "College of Fine Arts",
+    "Dietrich College of Humanities and Social Sciences",
+    "Heinz College",
+    "Mellon College of Science",
+    "School of Computer Science",
+    "Tepper School of Business"
+  ],
+  "directory_coverage": {
+    "official_unit_calendars_found_and_checked": 73,
+    "tartanconnect_organization_event_pages_checked": 499,
+    "tartanconnect_organization_event_pages_verified": 364,
+    "pittsburgh_platform_public_feed_links_checked": 536,
+    "pittsburgh_platform_valid_calendar_files": 360,
+    "qatar_platform_public_feed_links_checked": 40,
+    "qatar_platform_valid_calendar_files": 39,
+    "primary_organizational_home_pages_checked": 55,
+    "additional_center_home_pages_checked": 55,
+    "independent_organization_websites_checked": 151,
+    "curated_independent_source_candidates_checked": 178
+  },
+  "browser_seed_resolution": [
+    {"seed": "HCII upcoming seminars", "resolution": "Included the evergreen upcoming seminar list."},
+    {"seed": "RI seminar month view for April 2025", "resolution": "Included evergreen RI events, seminar lists and working subscription feeds."},
+    {"seed": "LTI Colloquium", "resolution": "Included the current public series page."},
+    {"seed": "Swartz events and Luma", "resolution": "Included both calendars, CONNECTS index and Weekly Bulletin archive."},
+    {"seed": "School of Music", "resolution": "Included concerts and events index."},
+    {"seed": "School of Drama", "resolution": "Included What's Happening; excluded the advertised ICS because it returned an empty body."},
+    {"seed": "Robotics Club 2024-2025 recap", "resolution": "Used the club's public calendar instead of a one-year recap."},
+    {"seed": "Activities Board", "resolution": "Included the public organization events page and verified public calendar feed."},
+    {"seed": "ETC Fall Festival", "resolution": "Included the ETC unit calendar; excluded the individual festival page."},
+    {"seed": "CONNECTS Fall 2026 flyer PDF", "resolution": "Used the persistent CONNECTS workshop index instead of a semester-specific document."},
+    {"seed": "Liberty Magic", "resolution": "Excluded because the source is not a CMU department or organization."},
+    {"seed": "OIE Friday Greetings", "resolution": "Included the public newsletter index explicitly requested by the user."}
+  ],
+  "remaining_visibility_limits": [
+    "CALCM and Graphics seminar endpoints timed out during direct verification and remain in the unverified candidate ledger.",
+    "Two Constant Contact subscription pages returned an anti-bot response; the owning public department sources are included.",
+    "The old Monday Mailer lectures page redirects to authentication and is excluded.",
+    "The Miami home page returned HTTP 403; no independent public event index was verified.",
+    "Unadvertised, newly created, social-only and login-only sources cannot be claimed as exhaustively covered by public-directory discovery."
+  ]
+}
