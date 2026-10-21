@@ -109,3 +109,17 @@ test('partial extraction adds valid events without deleting prior records or cla
   assert.equal(source.lastSuccess, '2026-10-01T00:00:00.000Z');
   assert.match(source.error, /previous records retained/);
 });
+
+test('syndicated copies merge only with identical substantial descriptions, titles, times and physical venues', t => {
+  const store = openStore(':memory:');
+  t.after(() => store.close());
+  store.registerPlans(plans);
+  const original = event({ title: '2026 Teaching and Learning Summit',
+    description: 'Learn about the teaching and learning strategies your CMU colleagues are using in their classrooms. Share evidence and discuss new approaches.',
+    location: 'Rangos Ballroom, Cohon University Center' });
+  store.replaceSource('a', [original]);
+  store.replaceSource('c', [{ ...original, uid: 'syndicated-copy', url: 'https://example.edu/copy' },
+    { ...original, uid: 'distinct', url: 'https://example.edu/other', description: 'A distinct event using the same title and venue, with a separate program, audience, speakers and organizers.' }]);
+  assert.equal(store.rebuildEvents(plans), 2);
+  assert.equal(store.listEvents({ from: '2026-11-01' }).events.find(item => item.description === original.description).sources.length, 3);
+});

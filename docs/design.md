@@ -78,7 +78,7 @@ Timed starts/ends are ISO UTC instants. Date-only values are `YYYY-MM-DD`; their
 
 Canonical events add `id`, `departments[]`, `orgs[]`, primary `department`/`org`, `sources[]`, topic labels, `campus`, `mode`, `timezone` (UI alias), and `endExclusive`. Each provenance record retains the catalog URL and the original event URL. Covered-source associations participate in all filters.
 
-Identity includes occurrence start plus source UID, with a secondary normalized URL/title/start key to merge cross-format copies. Tracking parameters are removed only for matching. Preserve the richest description, distinct provenance and cancellation markers. Equal titles and times on unrelated pages are insufficient to merge events. This conservative policy can leave duplicates when publishers change UIDs, links or wording.
+Identity includes occurrence start plus source UID, with a secondary normalized URL/title/start key to merge cross-format copies. Identical syndicated copies with different IDs can also merge when a substantial description (at least 80 characters), title (at least 20 characters), start and physical venue all match; generic online/unknown locations cannot use this key. Tracking parameters are removed only for matching. Preserve the richest description, distinct provenance and cancellation markers. Equal titles and times on unrelated pages are insufficient to merge events. This conservative policy can leave duplicates when publishers change UIDs, links or wording.
 
 ## Persistence and search
 

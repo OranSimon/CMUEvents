@@ -52,7 +52,7 @@ Plan status and live health are separate. `active` means an implemented extracti
 
 The app ingests a rolling window from 30 days ago through the next 365 days, expands recurring calendars within that window, and retains source cancellation markers. Newsletter issue dates are never used as event dates; contextual years are used only when stated by the issue. Image-only posters, undated listings, inaccessible pages and private events cannot be reliably extracted. Some bounded pagination/detail limits can reduce coverage and are exposed as warnings. No source is guaranteed exhaustive or permanently available.
 
-Source descriptions are rendered as plain text. Summaries are short source excerpts; missing content is identified rather than invented. Duplicate matching uses occurrence UID and normalized original link/title/start. Different source IDs or differently worded titles can still leave duplicates; equal titles alone never cause unrelated events to merge. Campus and topic inference can be imperfect, so source details remain authoritative.
+Source descriptions are rendered as plain text. Summaries are short source excerpts; missing content is identified rather than invented. Duplicate matching uses occurrence UID and normalized original link/title/start. Syndicated copies can also merge when their substantial descriptions, titles, start times and physical venues match exactly. Differently worded listings can still leave duplicates; equal titles alone never cause unrelated events to merge. Campus and topic inference can be imperfect, so source details remain authoritative.
 
 ## Project documents and catalog
 

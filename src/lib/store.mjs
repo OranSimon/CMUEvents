@@ -36,6 +36,12 @@ function occurrenceKeys(event) {
   const title = event.title.toLocaleLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
   const keys = [`url:${canonicalUrl(event.url)}|${event.start}|${title}`];
   if (event.uid) keys.unshift(`uid:${event.uid}|${event.start}`);
+  const description = String(event.description || '').toLocaleLowerCase().replace(/\s+/g, ' ').trim();
+  const location = String(event.location || '').toLocaleLowerCase().replace(/\s+/g, ' ').trim();
+  if (title.length >= 20 && description.length >= 80 && location.length >= 5
+    && !/^(?:zoom|online|virtual|tba|tbd|to be announced|sign in|https?:)/i.test(location)) {
+    keys.push(`copy:${identifier(`${title}|${event.start}|${location}|${description}`)}`);
+  }
   return keys;
 }
 
