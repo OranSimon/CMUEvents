@@ -76,6 +76,7 @@ test('classification retains uncertainty and does not infer online from incident
   assert.equal(inferMode(event({ location: '' })), 'Unspecified');
   assert.equal(inferCampus(event({ location: 'Unknown building' }), []), 'Other / unspecified');
   assert.equal(inferCampus(event({ location: 'Doha, Qatar' }), []), 'Qatar');
+  assert.equal(inferCampus(event({ location: 'Newell-Simon Hall 3305' }), []), 'Pittsburgh');
   assert.ok(classifyEvent({ ...event(), sources: plans }).tags.includes('Research & Talks'));
   assert.equal(parseDate('2026-02-30T12:00:00'), null);
   assert.equal(parseDate('2026-02-30T12:00:00-05:00'), null);

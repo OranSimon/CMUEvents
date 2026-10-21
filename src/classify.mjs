@@ -46,7 +46,7 @@ export function inferCampus(event, sources) {
   if (/kigali|rwanda|cmu.?africa/.test(text)) return 'Africa';
   if (/silicon valley|mountain view|moffett|sv\.cmu/.test(text)) return 'Silicon Valley';
   if (/miami/.test(text)) return 'Miami';
-  if (/pittsburgh|tartanconnect\.cmu\.edu|pa 152\d\d|5000 forbes|wean|gates|hillman|doherty|baker hall|porter hall|scott hall|purnell|tepper|cohon|rangos|merson|posner|hamerschlag|margaret morrison|hunt library|mellon institute/.test(text)) return 'Pittsburgh';
+  if (/pittsburgh|tartanconnect\.cmu\.edu|pa 152\d\d|5000 forbes|wean|gates|hillman|newell.?simon|\bghc\b|tcs hall|doherty|baker hall|porter hall|scott hall|purnell|tepper|cohon|rangos|merson|posner|hamerschlag|margaret morrison|hunt library|mellon institute/.test(text)) return 'Pittsburgh';
   return 'Other / unspecified';
 }
 
