@@ -1,5 +1,19 @@
 import ICAL from 'ical.js';
-import { normalizeEvent, inWindow, zonedToIso } from '../lib/normalize.mjs';
+import { absoluteUrl, isPlaceholderTitle, normalizeEvent, inWindow, plainText, zonedToIso } from '../lib/normalize.mjs';
+
+/**
+ * Validate calendar components before JavaScript can normalize invalid dates.
+ * @param {ICAL.Time} time Source calendar date/time.
+ * @return {boolean} Whether its wall-clock components represent a real date.
+ */
+function validCalendarTime(time) {
+  if (!time) return false;
+  const checked = new Date(Date.UTC(time.year, time.month - 1, time.day,
+    time.hour || 0, time.minute || 0, time.second || 0));
+  return checked.getUTCFullYear() === time.year && checked.getUTCMonth() + 1 === time.month
+    && checked.getUTCDate() === time.day && checked.getUTCHours() === (time.hour || 0)
+    && checked.getUTCMinutes() === (time.minute || 0) && checked.getUTCSeconds() === (time.second || 0);
+}
 
 /**
  * Convert an ICAL wall time using its declared zone or the source default.
@@ -9,7 +23,7 @@ import { normalizeEvent, inWindow, zonedToIso } from '../lib/normalize.mjs';
  * @return {string|null} ISO UTC timestamp or date-only value.
  */
 function timeValue(time, declaredZone, fallbackZone) {
-  if (!time) return null;
+  if (!validCalendarTime(time)) return null;
   if (time.isDate) return time.toString().slice(0, 10);
   if (time.zone?.tzid === 'UTC' || time.zone?.tzid === 'Z') return time.toJSDate().toISOString();
   const timeZone = declaredZone || (time.zone?.tzid !== 'floating' && time.zone?.tzid) || fallbackZone;
@@ -18,6 +32,80 @@ function timeValue(time, declaredZone, fallbackZone) {
   // Vendor VTIMEZONE definitions may use non-IANA TZIDs; ICAL owns those rules.
   if (time.zone?.component) return time.toJSDate().toISOString();
   return null;
+}
+
+/**
+ * Explain an invalid source time without combining unrelated failure causes.
+ * @param {ICAL.Time|null} time Source calendar date/time.
+ * @param {string} field Calendar property name, such as DTSTART.
+ * @param {string} zone Declared or fallback timezone.
+ * @return {string} Precise missing-date, invalid-date or timezone diagnostic.
+ */
+function timeIssue(time, field, zone) {
+  if (!time) return `${field} is missing`;
+  if (!validCalendarTime(time)) return `${field} has invalid calendar components: ${time.toString()}`;
+  try {
+    new Intl.DateTimeFormat('en-US', { timeZone: zone });
+    return `${field}=${time.toString()} is a nonexistent local time in ${zone}`;
+  } catch {
+    return `${field} declares unsupported TZID "${zone}" without a usable VTIMEZONE`;
+  }
+}
+
+/**
+ * Explain the exact fields that prevent one calendar occurrence from rendering.
+ * @param {ICAL.Event} item Source master or exception.
+ * @param {ICAL.Time} start Occurrence start.
+ * @param {ICAL.Time} end Occurrence end.
+ * @param {Object} plan Source defaults and public URL.
+ * @param {ICAL.Event} master Master used for sparse exception inheritance.
+ * @return {string[]} Specific field-level validation failures.
+ */
+function occurrenceIssues(item, start, end, plan, master = item) {
+  const issues = [];
+  if (!plainText(item.summary || master.summary).trim()) issues.push('SUMMARY is missing or empty');
+  const zone = item.component.getFirstProperty('dtstart')?.getParameter('tzid')
+    || master.component.getFirstProperty('dtstart')?.getParameter('tzid') || plan.options?.timezone || 'America/New_York';
+  const endZone = item.component.getFirstProperty('dtend')?.getParameter('tzid') || zone;
+  const startValue = timeValue(start, zone, zone);
+  const endValue = timeValue(end, endZone, zone);
+  if (!startValue) issues.push(timeIssue(start, 'DTSTART', zone));
+  if (end && !endValue) issues.push(timeIssue(end, 'DTEND', endZone));
+  if (startValue && endValue && Date.parse(endValue) < Date.parse(startValue)) issues.push('DTEND precedes DTSTART');
+  const rawUrl = item.component.getFirstPropertyValue('url') || master.component.getFirstPropertyValue('url');
+  if (!absoluteUrl(rawUrl || plan.url, plan.fetchUrl || plan.url) && !absoluteUrl(plan.url, plan.fetchUrl || plan.url)) issues.push('Source has no public HTTP(S) fallback URL');
+  return issues;
+}
+
+/**
+ * Prove a non-recurring record is outside the requested ingestion window.
+ * Unknown dates/zones or recurrence rules remain unproven and cannot suppress
+ * an extraction error for a potentially current event.
+ * @param {ICAL.Component} component Source VEVENT.
+ * @param {Object} plan Source timezone defaults.
+ * @param {Object} bounds Explicit ingestion-window bounds.
+ * @return {boolean} Whether the entire non-recurring event is outside the window.
+ */
+function outsideWindow(component, plan, bounds) {
+  if (component.hasProperty('rrule') || component.hasProperty('rdate')) return false;
+  try {
+    const item = new ICAL.Event(component, { exceptions: [] });
+    const zone = component.getFirstProperty('dtstart')?.getParameter('tzid') || plan.options?.timezone || 'America/New_York';
+    const start = timeValue(item.startDate, zone, zone);
+    const end = timeValue(item.endDate, component.getFirstProperty('dtend')?.getParameter('tzid') || zone, zone);
+    return Boolean(start && end && Date.parse(end) >= Date.parse(start) && !inWindow({ start, end }, bounds));
+  } catch { return false; }
+}
+
+/**
+ * Describe source dates for an excluded-record diagnostic.
+ * @param {ICAL.Component} component Source VEVENT.
+ * @return {string} DTSTART/DTEND values and recurrence presence.
+ */
+function dateEvidence(component) {
+  const start = component.getFirstPropertyValue('dtstart');
+  const end = component.getFirstPropertyValue('dtend');
+  return `DTSTART=${start?.toString() || '(missing)'}; DTEND=${end?.toString() || '(not specified)'}; ${component.hasProperty('rrule') || component.hasProperty('rdate') ? 'recurrence present' : 'no RRULE/RDATE'}`;
 }
 
 /**
@@ -44,6 +132,7 @@ function occurrence(item, start, end, recurrenceKey, plan, master = item) {
   const component = item.component;
   const zone = component.getFirstProperty('dtstart')?.getParameter('tzid')
     || master.component.getFirstProperty('dtstart')?.getParameter('tzid');
+  const endZone = component.getFirstProperty('dtend')?.getParameter('tzid') || zone;
   const fallback = plan.options?.timezone || 'America/New_York';
   const categories = component.getAllProperties('categories').flatMap(property => property.getValues());
   const rawUrl = component.getFirstPropertyValue('url') || master.component.getFirstPropertyValue('url');
@@ -51,9 +140,9 @@ function occurrence(item, start, end, recurrenceKey, plan, master = item) {
     uid: recurrenceKey ? `${master.uid}::${recurrenceKey}` : master.uid,
     title: item.summary || master.summary,
     description: item.description || master.description,
-    start: timeValue(start, zone, fallback), end: timeValue(end, zone, fallback),
+    start: timeValue(start, zone, fallback), end: timeValue(end, endZone, fallback),
     allDay: start?.isDate, timeZone: zone || fallback,
-    location: item.location || master.location, url: rawUrl || plan.url,
+    location: item.location || master.location, url: rawUrl ? absoluteUrl(rawUrl, plan.fetchUrl || plan.url) || plan.url : plan.url,
     organizer: organizerValue(component) || organizerValue(master.component),
     status: component.getFirstPropertyValue('status') || master.component.getFirstPropertyValue('status'),
     tags: categories,
@@ -75,17 +164,23 @@ export function parseIcs(text, plan = {}, context = {}) {
   const warnings = [];
   let partial = false;
   const components = calendar.getAllSubcomponents('vevent');
+  const now = new Date(context.now || Date.now());
+  const upper = Date.parse(context.windowEnd || new Date(now.getTime() + 370 * 864e5).toISOString());
+  const lower = context.windowStart || new Date(now.getTime() - 31 * 864e5).toISOString();
+  const bounds = { windowStart: lower, windowEnd: new Date(upper).toISOString() };
   // ICAL resolves embedded VTIMEZONE definitions through this component tree.
   const records = new Map();
   for (const component of components) {
     const uid = component.getFirstPropertyValue('uid');
-    if (!uid) { partial = true; warnings.push('Skipped VEVENT with no UID'); continue; }
+    if (!uid) {
+      const outside = outsideWindow(component, plan, bounds);
+      if (!outside) partial = true;
+      warnings.push(`${outside ? 'Excluded out-of-window' : 'Skipped'} VEVENT: UID is missing; ${dateEvidence(component)}`);
+      continue;
+    }
     if (!records.has(uid)) records.set(uid, { masters: [], exceptions: [] });
     records.get(uid)[component.hasProperty('recurrence-id') ? 'exceptions' : 'masters'].push(component);
   }
-  const now = new Date(context.now || Date.now());
-  const upper = Date.parse(context.windowEnd || new Date(now.getTime() + 370 * 864e5).toISOString());
-  const lower = context.windowStart || new Date(now.getTime() - 31 * 864e5).toISOString();
   const events = new Map();
   const add = (event) => { if (event && inWindow(event, { windowStart: lower, windowEnd: new Date(upper).toISOString() })) events.set(event.uid, event); };
   for (const [uid, group] of records) {
@@ -98,7 +193,12 @@ export function parseIcs(text, plan = {}, context = {}) {
           const item = new ICAL.Event(component);
           const event = item.startDate ? occurrence(item, item.startDate, item.endDate, item.recurrenceId.toString(), plan) : null;
           if (event) add(event);
-          else { partial = true; warnings.push(`Skipped detached exception ${uid}: missing usable event fields`); }
+          else {
+            const outside = outsideWindow(component, plan, bounds);
+            if (!outside) partial = true;
+            const issues = occurrenceIssues(item, item.startDate, item.endDate, plan);
+            warnings.push(`${outside ? 'Excluded out-of-window' : 'Skipped'} detached exception ${uid}: ${issues.join('; ') || 'event normalization rejected the source record'}; ${dateEvidence(component)}`);
+          }
         } catch (error) { partial = true; warnings.push(`Skipped detached exception ${uid}: ${error.message}`); }
       }
       continue;
@@ -106,10 +206,22 @@ export function parseIcs(text, plan = {}, context = {}) {
     try {
       const master = new ICAL.Event(masterComponent, { strictExceptions: true, exceptions: [] });
       if (!master.startDate) { partial = true; warnings.push(`Skipped ${uid}: missing DTSTART`); continue; }
-      if (!occurrence(master, master.startDate, master.endDate, '', plan)) {
-        partial = true;
-        warnings.push(`Skipped ${uid}: missing usable title, timezone or explicit date`);
+      if (isPlaceholderTitle(master.summary)) {
+        warnings.push(`Ignored schedule placeholder ${uid}: SUMMARY="${plainText(master.summary)}"; ${dateEvidence(masterComponent)}`);
         continue;
+      }
+      const issues = occurrenceIssues(master, master.startDate, master.endDate, plan);
+      if (issues.length || !occurrence(master, master.startDate, master.endDate, '', plan)) {
+        const outside = outsideWindow(masterComponent, plan, bounds)
+          && group.exceptions.every(component => outsideWindow(component, plan, bounds));
+        if (!outside) partial = true;
+        warnings.push(`${outside ? 'Excluded out-of-window' : 'Skipped'} ${uid}: ${issues.join('; ') || 'event normalization rejected the source record'}; ${dateEvidence(masterComponent)}`);
+        continue;
+      }
+      const rawUrl = masterComponent.getFirstPropertyValue('url');
+      if (rawUrl && !absoluteUrl(rawUrl, plan.fetchUrl || plan.url)) {
+        const scheme = String(rawUrl).match(/^([a-z][a-z\d+.-]*):/i)?.[1] || 'invalid';
+        warnings.push(`Ignored non-web URL scheme "${scheme}:" for ${uid}; public source URL used instead; ${dateEvidence(masterComponent)}`);
       }
       const exceptions = new Map();
       for (const component of group.exceptions) {

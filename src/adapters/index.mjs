@@ -12,9 +12,11 @@ import { fetchTepper } from './tepper.mjs';
  * @return {Promise<{events:Object[],warnings:string[]}>} Normalized source result.
  */
 async function fetchEndpoint(plan, context) {
+  if (plan.options?.format === 'wrct') return (await import('./wrct.mjs')).fetchWrct(plan, context);
   if (plan.options?.format === 'tepper') return fetchTepper(plan, context);
   switch (plan.adapter) {
-    case 'ics': case 'trumba': return fetchIcs(plan, context);
+    case 'ics': return fetchIcs(plan, context);
+    case 'trumba': return plan.options?.format === 'trumba-json' ? fetchJsonEvents(plan, context) : fetchIcs(plan, context);
     case 'rss': return fetchRss(plan, context);
     case 'livewhale': case 'wordpress': return fetchJsonEvents(plan, context);
     case 'campusgroups':
@@ -56,6 +58,6 @@ export async function fetchEvents(plan, context) {
 export { parseIcs } from './ics.mjs';
 export { parseHtml, parseNewsletter, explicitTextDate } from './html.mjs';
 export { parseRss } from './rss.mjs';
-export { parseLiveWhale, parseWordPress } from './json.mjs';
+export { parseLiveWhale, parseWordPress, parseTrumba } from './json.mjs';
 export { parseNewsletterText } from './newsletter.mjs';
 export { parseTepper } from './tepper.mjs';

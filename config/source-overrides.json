@@ -7,36 +7,55 @@
       "fetchUrl": "https://www.cmu.edu/engage/events",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Keep the overview and observed child calendar link; add a staged alumni adapter only after verifying a working public dated-list endpoint.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:54.497206+00:00",
+        "checkedAt": "2026-10-21T17:56:37.814Z",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "Fresh overview HTTP 200 and linked https://community.cmu.edu/s/events HTTP 200 were both inspected. The child contains only the application/error shell, so publisher events cannot be paired with dates from these responses.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "The failed/unverified dynamic calendar is not classified as a publisher-empty event list."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://community.cmu.edu/s/events",
+            "httpStatus": 200,
+            "finalUrl": "https://community.cmu.edu/s/events",
+            "title": "CMU Alumni"
+          }
+        ]
       },
       "status": "unsupported",
-      "reason": "The overview links external/child event lists but exposes no event dates supported by the current extractor; a verified staged alumni-list adapter is required."
+      "reason": "The overview links to the alumni community calendar rather than exposing a dated event list. The observed calendar response is a Salesforce JavaScript shell with a CSS Error message, without event records or a verified anonymous feed."
     },
     "https://www.cmu.edu/engage/events/online-events": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/engage/events/online-events",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Retain the online-events overview and linked alumni calendar; require a verified anonymously accessible event-list contract before staged ingestion.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:54.507908+00:00",
+        "checkedAt": "2026-10-21T17:56:37.663Z",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "Both official overview pages direct readers to the public alumni community. The actual linked calendar returned HTTP 200 but only 42 readable characters and no event data in the inspected response.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "HTTP 200 does not verify that the JavaScript alumni calendar or its underlying event API is usable. This is an unverified dynamic list, not evidence of zero alumni events."
+        ],
+        "observedChildUrls": []
       },
       "status": "unsupported",
-      "reason": "The public overview contains no individually dated events supported by the current extractor."
+      "reason": "The online-events overview has no independently dated occurrence list. Its linked community.cmu.edu/s/events destination returns a Salesforce client shell with “Sorry to interrupt / CSS Error / Refresh” text and no server-rendered event records or verified public feed."
     },
     "https://www.cmu.edu/osher/index.html": {
       "adapter": "ics",
@@ -59,20 +78,28 @@
     "https://www.cmu.edu/environment/events/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/environment/events/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "eventSelector": ".sidebar .events li",
+        "titleSelector": "i",
+        "titleRemoveSelector": "span",
+        "dateSelector": ":scope",
+        "timeSelector": ":scope",
+        "yearSelector": ".sidebar .events h1",
+        "academicYearStartMonth": 8
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "Only the explicitly labeled recurring-meeting schedule is parsed; main-column announcements lacking a verifiable year remain excluded.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:54.140216+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.230307+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "Dates and event titles are interleaved in prose, with missing years and recurring-meeting lists; a verified section-specific parser is required."
+        "structure": "The sidebar explicitly labels 2026–27 recurring meetings and separately lists month/day and clock ranges. Only those anchored dates are used; undated orientation/poster descriptions are excluded."
+      }
     },
     "https://events.cmu.edu/carnegiebosch/all": {
       "adapter": "livewhale",
@@ -345,19 +372,20 @@
     "https://egon.cheme.cmu.edu/ewo/seminars.html": {
       "adapter": "manual",
       "fetchUrl": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "status": "unsupported",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false
       },
-      "strategy": "Keep this source as an archive and revisit when dated future sessions are published.",
+      "strategy": "Retain the public source and exact inspected limitation; enable ingestion only when occurrence dates can be grounded.",
+      "reason": "The public page lists seminar/tutorial slides and recordings without explicit occurrence dates; it is an undated resource archive.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:46:31.458614+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.149006+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records."
-      },
-      "status": "unsupported",
-      "reason": "The public page currently lists presentation slides without dates; inventing event dates would be incorrect."
+        "structure": "The public page lists seminar/tutorial slides and recordings without explicit occurrence dates; it is an undated resource archive."
+      }
     },
     "https://events.cmu.edu/cerca/all": {
       "adapter": "livewhale",
@@ -443,38 +471,48 @@
     "https://www.dssc.ece.cmu.edu/news/Events.html": {
       "adapter": "html",
       "fetchUrl": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "status": "unsupported",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Retain the public source and exact inspected limitation; enable ingestion only when occurrence dates can be grounded.",
+      "reason": "Dated child pages exist, but the 2026 Japan review heading says June 30, 2025 and the 2026 Spring review heading says June 9, 2025 while its agenda says June 9, 2026. Conflicting source years are not resolved by guessing from titles.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:08.932503+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:14.991835+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "This is an archive index of yearly review meetings; the current adapter cannot follow and normalize its child review pages."
+        "structure": "Dated child pages exist, but the 2026 Japan review heading says June 30, 2025 and the 2026 Spring review heading says June 9, 2025 while its agenda says June 9, 2026. Conflicting source years are not resolved by guessing from titles."
+      }
     },
     "https://www.ece.cmu.edu/news-and-events/seminars.html": {
       "adapter": "html",
       "fetchUrl": "https://www.ece.cmu.edu/news-and-events/seminars.html",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
+        "preferFeed": false,
         "detailLinks": true,
-        "maxDetails": 8
+        "maxDetails": 12,
+        "detailSemesterWindow": true,
+        "detailLinkSelector": ".sidebar a[href*=\"seminar-archives/\"]",
+        "detailOptions": {
+          "eventSelector": ".content table tbody tr",
+          "dateSelector": "td:first-child",
+          "titleSelector": "td:nth-child(3)",
+          "yearSelector": ".content h1"
+        }
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "The current seminar block contains no dated rows. Latest published archives are parsed; historical events outside the ingestion window count as supported empty.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:46:31.376968+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.275220+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The page links semester archives but does not expose individual seminar dates in the initial HTML."
+        "structure": "The current graduate-seminar block is empty and links semester archives. Follow advertised schedules that can overlap the current window, using table month/day with the explicit Spring/Fall year h1."
+      }
     },
     "https://events.cmu.edu/ece/all": {
       "adapter": "livewhale",
@@ -527,64 +565,72 @@
     "https://epp.engineering.cmu.edu/events/seminar-series.html": {
       "adapter": "html",
       "fetchUrl": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+      "status": "unsupported",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Retain the public source and exact inspected limitation; enable ingestion only when occurrence dates can be grounded.",
+      "reason": "The faculty seminar page is an undated list of recorded talks and speaker information. No full event occurrence dates are printed, so recording/publication dates cannot be used as seminar dates.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:52.967807+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.238034+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The inspected page has no dated event records supported by the current extractor."
+        "structure": "The faculty seminar page is an undated list of recorded talks and speaker information. No full event occurrence dates are printed, so recording/publication dates cannot be used as seminar dates."
+      }
     },
     "https://www.cmu.edu/ini/events/index.html": {
       "adapter": "html",
       "fetchUrl": "https://gradadmissions.engineering.cmu.edu/portal/widget/event?portal_id=56444d20-4d1d-445a-a173-fc9efd42fcd9&part=7d2fa81f-2696-4a9b-a7fd-0a12f6ef02ab&cmd=event_list",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Read the public Slate event widget and its verified additional widgets as the occurrence authority; the event rows already supply explicit title, datetime and public registration link.",
+      "reason": "",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes.",
+        "sourceReview": "2026-10-21: widget rows independently normalize successfully; registration forms are not event-discovery children.",
+        "runtimeWindowVerified": true
+      },
       "options": {
         "timezone": "America/New_York",
         "eventSelector": ".event[data-date]",
         "titleSelector": "a",
         "linkSelector": "a",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
         "additionalFetchUrls": [],
         "maxPages": 10
-      },
-      "strategy": "Fetch the public Slate event_list HTML endpoints advertised in the page data-service attributes; parse .event data-date in the source timezone and retain register detail URLs.",
-      "evidence": {
-        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
-        "httpStatus": 200,
-        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes."
-      },
-      "status": "active",
-      "reason": ""
+      }
     },
     "https://www.cmu.edu/ini/admissions/connectwithadmissions.html": {
       "adapter": "html",
       "fetchUrl": "https://gradadmissions.engineering.cmu.edu/portal/widget/event?portal_id=0a71cc88-a924-49d7-9ab1-19df8c99e9e6&part=fa819c6c-9725-4077-8f47-293878458cb6&cmd=event_list",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Read the public Slate event widget and its verified additional widgets as the occurrence authority; the event rows already supply explicit title, datetime and public registration link.",
+      "reason": "",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes.",
+        "sourceReview": "2026-10-21: widget rows independently normalize successfully; registration forms are not event-discovery children.",
+        "runtimeWindowVerified": true
+      },
       "options": {
         "timezone": "America/New_York",
         "eventSelector": ".event[data-date]",
         "titleSelector": "a",
         "linkSelector": "a",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
         "additionalFetchUrls": [],
         "maxPages": 10
-      },
-      "strategy": "Fetch the public Slate event_list HTML endpoints advertised in the page data-service attributes; parse .event data-date in the source timezone and retain register detail URLs.",
-      "evidence": {
-        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
-        "httpStatus": 200,
-        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes."
-      },
-      "status": "active",
-      "reason": ""
+      }
     },
     "https://events.cmu.edu/mse/all": {
       "adapter": "livewhale",
@@ -670,20 +716,40 @@
     "https://studioforcreativeinquiry.org/events": {
       "adapter": "html",
       "fetchUrl": "https://studioforcreativeinquiry.org/events",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Discover all twelve event-detail links from the publisher’s thumbnail list and parse actual occurrences from the verified child header/body selectors; ignore news/sidebar widgets. Child AM/PM markers take precedence over abbreviated shared-marker listing times. Full repeated date ranges retain the inclusive last event day.",
+      "reason": "",
+      "evidence": {
+        "checkedAt": "2026-10-21T18:28:30.993Z",
+        "httpStatus": 200,
+        "structure": "All five flagged child responses expose their actual event title and full date/time in .site__main__header; the event body and venue are separate, while sidebar dates are unrelated. Exact selectors now parse the real child content. Meshwork prints February25–28,2027, a four-day festival range.",
+        "anonymousAccessVerified": true,
+        "reviewLimitations": [
+          "The observed second archive page contains April2026 and older records, entirely before the current lookback window; it is not added as an ongoing current-event route. The source advertises no more precise clock for Meshwork, so its four-day range retains date precision."
+        ],
+        "reviewMethod": "Fresh shared safe fetch with read-only SQLite cache access; all refreshed bytes stored only in transient memory/review fixtures.",
+        "adapterAudit": "Live safe-fetch replay returned 8 current-window events; unsupported=false; partial=false."
+      },
       "options": {
         "timezone": "America/New_York",
         "detailLinks": true,
-        "maxDetails": 8,
-        "eventSelector": "li:has(a.thumbnail)",
-        "dateSelector": ".thumbnail__caption p:nth-child(2)",
-        "titleSelector": ".thumbnail__caption p:first-child",
-        "linkSelector": "a.thumbnail"
-      },
-      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
-      "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.547050+00:00",
-        "httpStatus": 200,
-        "structure": "Server-rendered thumbnail event list includes full dates and time ranges."
+        "maxDetails": 12,
+        "eventSelector": "main .site__main__header",
+        "dateSelector": "p:first-of-type",
+        "titleSelector": "h1",
+        "linkSelector": "a.thumbnail",
+        "detailLinkSelector": "main .site__main__content a.thumbnail",
+        "detailOptions": {
+          "eventSelector": "main",
+          "titleSelector": ".site__main__header h1",
+          "dateSelector": ".site__main__header > p:first-of-type",
+          "descriptionSelector": ".site__main__header,.site__main__content",
+          "locationSelector": ".site__main__header p:contains(\"Street\"),.site__main__header p:contains(\"Melwood\"),.site__main__header p:contains(\"Avenue\")",
+          "linkSelector": ":scope",
+          "detailLinks": false
+        }
       }
     },
     "https://events.cmu.edu/studio/all": {
@@ -704,20 +770,25 @@
     "https://ica.cmu.edu/updates/": {
       "adapter": "html",
       "fetchUrl": "https://ica.cmu.edu/updates/",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "eventSelector": "article:has(.post-thumbnail__excerpt),article.category-events",
+        "titleSelector": "h2,h3",
+        "dateSelector": ".post-thumbnail__excerpt,.block-title-sidebar-text__sidebar-text",
+        "linkSelector": ".block-title-sidebar-text a:has(h2),.post-thumbnail__link a"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.615432+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.049807+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "Event announcements are mixed with news, article dates and narrative date ranges; an event-only card/block parser is required."
+        "structure": "Event announcements have explicit dates in excerpts/sidebar event text, distinct from publication metadata. Office Hours prints October 22–23, 2026; symposium prints September 30, 2025."
+      }
     },
     "https://events.cmu.edu/ica/all": {
       "adapter": "livewhale",
@@ -752,20 +823,32 @@
     "https://www.cmu.edu/cas/events/": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/cas/events/",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "reason": "The three current event cards independently print October 21, October 28 and November 12, 2026. Detail tables confirm these dates. Follow eligible academic-year archives conservatively; submission-only calls for papers are excluded.",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T18:23:09.787231+00:00",
+        "httpStatus": 200,
+        "structure": "The three current event cards independently print October 21, October 28 and November 12, 2026. Detail tables confirm these dates. Follow eligible academic-year archives conservatively; submission-only calls for papers are excluded."
+      },
       "options": {
         "timezone": "America/New_York",
         "detailLinks": true,
         "maxDetails": 8,
-        "eventSelector": ".grid.news .filterable",
+        "eventSelector": ".grid.news .filterable:not(:has(h2.name:contains(\"Call for Papers\")))",
         "titleSelector": "h2.name",
         "linkSelector": "a",
-        "dateSelector": "span"
-      },
-      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
-      "evidence": {
-        "checkedAt": "2026-10-20T21:46:31.748787+00:00",
-        "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific .grid.news .filterable containers with independent dates and titles."
+        "dateSelector": "span",
+        "detailSemesterWindow": true,
+        "detailOptions": {
+          "eventSelector": ".content > div:has(>h1)",
+          "titleSelector": "h1",
+          "dateSelector": "tr:contains(\"Date\") td:last-child",
+          "linkSelector": "a[data-event-link]"
+        }
       }
     },
     "https://events.cmu.edu/cas/all": {
@@ -786,22 +869,45 @@
     "https://www.architecture.cmu.edu/events": {
       "adapter": "html",
       "fetchUrl": "https://www.architecture.cmu.edu/events",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Read both observed event-list pages and enrich their exact event-title/date/time/body blocks; preserve the list and detail occurrence identity.",
+      "reason": "",
+      "evidence": {
+        "checkedAt": "2026-10-21T18:28:30.998Z",
+        "httpStatus": 200,
+        "structure": "The first page publishes10 dated events; its observed final page ?page=1 contains one additional January29,2027 event. Detail pages expose the authoritative event metadata and full body. The old eight-detail cap omitted enrichment and the second page was not scheduled.",
+        "anonymousAccessVerified": true,
+        "reviewLimitations": [
+          "The pagination route was observed in the publisher’s Last/Page2 links; the plan does not synthesize undiscovered page numbers."
+        ],
+        "reviewMethod": "Fresh shared safe fetch with read-only SQLite cache access; all refreshed bytes stored only in transient memory/review fixtures.",
+        "adapterAudit": "Live safe-fetch replay returned 11 current-window events; unsupported=false; partial=false."
+      },
       "options": {
         "timezone": "America/New_York",
         "detailLinks": true,
-        "maxDetails": 8,
+        "maxDetails": 12,
         "eventSelector": "article.article-card",
         "dateSelector": ".date-wrapper",
         "titleSelector": "h3 a",
         "linkSelector": "h3 a",
         "timeSelector": ".time-tag .time",
-        "locationSelector": ".location"
-      },
-      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
-      "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.197293+00:00",
-        "httpStatus": 200,
-        "structure": "Drupal article.article-card entries with date-wrapper and event detail URLs."
+        "locationSelector": ".time-tag .tag",
+        "additionalFetchUrls": [
+          "https://www.architecture.cmu.edu/events?page=1"
+        ],
+        "detailOptions": {
+          "eventSelector": "main",
+          "titleSelector": ".c--event-hero h1",
+          "dateSelector": ".event-meta .date",
+          "timeSelector": ".event-meta > .time:nth-child(2)",
+          "locationSelector": ".event-meta > .time:nth-child(3)",
+          "descriptionSelector": ".content-main .f--wysiwyg",
+          "linkSelector": ":scope",
+          "detailLinks": false
+        }
       }
     },
     "https://events.cmu.edu/architecture/all": {
@@ -882,20 +988,24 @@
     "https://design.cmu.edu/design-events": {
       "adapter": "html",
       "fetchUrl": "https://design.cmu.edu/design-events",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "eventSelector": ".cards-container .card,.cards-container article",
+        "emptySelector": ".cards-container .no-results",
+        "emptyPattern": "^No results match your search or filter criteria\\."
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "The current public Design event list is explicitly empty.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.332649+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.040138+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The inspected Design listing has no event records recognized by the current structured-data/card extractor; its Drupal listing contract needs review."
+        "structure": "The unfiltered Design Events view currently contains its scoped no-results notice; this is a verified empty listing, not a parser failure."
+      }
     },
     "https://events.cmu.edu/design/all": {
       "adapter": "livewhale",
@@ -915,20 +1025,26 @@
     "https://transitiondesigninstitute.net/news-events/": {
       "adapter": "html",
       "fetchUrl": "https://transitiondesigninstitute.net/news-events/",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "eventSelector": ".post-item:has(.eyebrow:contains(\"Event\"))",
+        "titleSelector": "h3",
+        "dateSelector": "h3",
+        "yearWithinCardSelector": "h3,img",
+        "linkSelector": ".read-more a"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "Only cards with explicit event-year evidence are parsed. Some event cards, including the Dialogues recording detail, omit a year and remain excluded.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.313887+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.230560+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The inspected page mixes news and events without a verified event-date extraction contract."
+        "structure": "Event-tagged cards carry title dates; the year comes only from an explicit event title or descriptive poster alt text in that same card. Yearless Dialogues detail is not assigned an upload/publication year."
+      }
     },
     "https://events.cmu.edu/drama/all": {
       "adapter": "livewhale",
@@ -981,20 +1097,23 @@
     "https://www.cmu.edu/cfa/music/preparatory-summer-programs/preparatory-school/prep-school-calendar.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/cfa/music/preparatory-summer-programs/preparatory-school/prep-school-calendar.html",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "pdfLinkSelector": "a[href*=\"cmu-prep-school-calendar\"][href$=\".pdf\"]",
+        "pdfSectionPattern": "^(Fall|Spring|Summer) (?:Piano|String) Recitals$"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "Only explicitly dated recital sections are ingested. Color-coded Saturday class/cancellation grids require layout-aware interpretation and are intentionally excluded.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:08.783007+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.170229+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The detailed calendar is supplied as a linked PDF; the current HTML adapter does not extract this calendar format."
+        "structure": "The currently linked one-page PDF prints seasonal years and 18 independent recital start times. Visual inspection confirmed that colored class/no-school grids must be excluded; only allowed recital headings are parsed."
+      }
     },
     "https://events.cmu.edu/music/all": {
       "adapter": "livewhale",
@@ -1045,20 +1164,27 @@
     "https://www.carvt.org/carvt-events/": {
       "adapter": "html",
       "fetchUrl": "https://www.carvt.org/carvt-events/",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "eventSelector": ".jet-listing-grid__item",
+        "dateSelector": "span.elementor-heading-title",
+        "titleSelector": "h4",
+        "linkSelector": "a.raven-button[href]",
+        "emptySelector": ".jet-listing-not-found",
+        "emptyPattern": "^There are no upcoming CARVt events at this time\\."
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "The upcoming CARVt widget is explicitly empty. Independently dated historical cards remain parseable.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.155535+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.376595+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The page explicitly shows no upcoming events, while its historical Elementor event blocks lack a verified extractor; preserve the source for layout-specific review."
+        "structure": "The JetEngine upcoming widget explicitly reports no upcoming CARVt events; historical cards separately expose full dates, h4 titles and original links."
+      }
     },
     "https://www.cmu.edu/cbdr/seminars/index.html": {
       "adapter": "ics",
@@ -1079,19 +1205,29 @@
     "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "reason": "The main conference is explicitly October 12–14, 2026. Linked seminar archives have some dated historical cards, but the virtual monthly seminar has no exact upcoming dates and the Hewlett series page is undated. The January 23–24, 2025 AI summit uses a prose date list that the configured extractor does not yet parse. These required-child limits remain explicit partial diagnostics; they are not declared empty. The policy-series page has explicit 2022 dates but uses a different prose/card layout that remains a selector gap.",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T18:23:09.787415+00:00",
+        "httpStatus": 200,
+        "structure": "The main conference is explicitly October 12–14, 2026. Linked seminar archives have some dated historical cards, but the virtual monthly seminar has no exact upcoming dates and the Hewlett series page is undated. The January 23–24, 2025 AI summit uses a prose date list that the configured extractor does not yet parse. These required-child limits remain explicit partial diagnostics; they are not declared empty. The policy-series page has explicit 2022 dates but uses a different prose/card layout that remains a selector gap."
+      },
       "options": {
         "timezone": "America/New_York",
         "detailLinks": true,
         "maxDetails": 8,
         "eventSelector": ".grid.boxes > div,.grid.photos > .photo",
         "titleSelector": "h2,h3",
-        "linkSelector": "h2 a,h3 a,a.cta,a.btn"
-      },
-      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
-      "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.024781+00:00",
-        "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific .grid.boxes > div,.grid.photos > .photo containers with independent dates and titles."
+        "linkSelector": "h2 a,h3 a,a.cta,a.btn",
+        "detailOptions": {
+          "eventSelector": ".grid.photos > .photo",
+          "titleSelector": "h2,h3",
+          "linkSelector": "a.btn,a.cta"
+        }
       }
     },
     "https://events.cmu.edu/computational-humanities/all": {
@@ -1127,6 +1263,17 @@
     "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Parse dated parent event cards; follow undated detail summaries using reviewed title/date containers and accessible poster date text with its explicit semester header.",
+      "reason": "The list includes dated historical events plus two undated summaries. Constitution Day is explicitly September 17, 2026 on its detail page. The faculty series is Fall 2025/Spring 2026; workshop 4 has a January 28 date in accessible image alt text and a printed Spring 2026 header. Other historical workshop dates remain image-only. Legacy archive links with yearless parent summaries still require separate section/poster parsing; the required-child limit remains an explicit partial result rather than being suppressed.",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T18:21:47.375185+00:00",
+        "httpStatus": 200,
+        "structure": "The list includes dated historical events plus two undated summaries. Constitution Day is explicitly September 17, 2026 on its detail page. The faculty series is Fall 2025/Spring 2026; workshop 4 has a January 28 date in accessible image alt text and a printed Spring 2026 header. Other historical workshop dates remain image-only. Legacy archive links with yearless parent summaries still require separate section/poster parsing; the required-child limit remains an explicit partial result rather than being suppressed."
+      },
       "options": {
         "timezone": "America/New_York",
         "detailLinks": true,
@@ -1134,13 +1281,15 @@
         "eventSelector": ".grid.news .filterable",
         "titleSelector": "h2.name",
         "linkSelector": "a",
-        "dateSelector": "span"
-      },
-      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
-      "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.155183+00:00",
-        "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific .grid.news .filterable containers with independent dates and titles."
+        "dateSelector": "span",
+        "detailOptions": {
+          "eventSelector": ".content > div:has(>h1),.grid.boxes > div:has(img[alt^=\"Join us on\"])",
+          "titleSelector": "h1,strong",
+          "dateSelector": "img[alt^=\"Join us on\"]",
+          "dateAttribute": "alt",
+          "yearSelector": ".grid.boxes:has(img[alt^=\"Join us on\"]) > h1",
+          "linkSelector": "a.btn[href],a.cta[href]"
+        }
       }
     },
     "https://www.cmu.edu/dietrich/hsp/events/index.html": {
@@ -1182,20 +1331,20 @@
     "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+      "status": "unsupported",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Retain the public source and exact inspected limitation; enable ingestion only when occurrence dates can be grounded.",
+      "reason": "The page states first-Thursday-of-month timing and lists past month/year speakers, but supplies no exact dated upcoming occurrences or recurrence start/end anchors. A monthly schedule cannot be materialized without inventing calendar bounds.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.045761+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.333205+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The archive gives speakers by month/year but often omits exact event days; those entries cannot be placed on a date calendar reliably."
+        "structure": "The page states first-Thursday-of-month timing and lists past month/year speakers, but supplies no exact dated upcoming occurrences or recurrence start/end anchors. A monthly schedule cannot be materialized without inventing calendar bounds."
+      }
     },
     "https://www.cmu.edu/dietrich/social-dynamics/events/index.html": {
       "adapter": "ics",
@@ -1246,20 +1395,20 @@
     "https://www.cmu.edu/history/cause/events/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/history/cause/events/index.html",
+      "status": "unsupported",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Retain the public source and exact inspected limitation; enable ingestion only when occurrence dates can be grounded.",
+      "reason": "Full dates exist in historical announcements and poster alt text, but title/date/time sections are interleaved with reception schedules, biographies and image-only posters. Reliable section pairing remains an extractor gap; this is not a claim that the source has no dates.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:08.955427+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.329677+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "Historical event announcements span several incompatible prose and archive layouts; a verified title/date section parser is required."
+        "structure": "Full dates exist in historical announcements and poster alt text, but title/date/time sections are interleaved with reception schedules, biographies and image-only posters. Reliable section pairing remains an extractor gap; this is not a claim that the source has no dates."
+      }
     },
     "https://www.cmu.edu/dietrich/history/calendar/index.html": {
       "adapter": "livewhale",
@@ -1297,54 +1446,72 @@
     "https://www.cmu.edu/dietrich/history/centers-seminars/ehrs-seminar.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/dietrich/history/centers-seminars/ehrs-seminar.html",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "eventSelector": ".content > div:has(>h2)",
+        "titleSelector": "h2",
+        "titlePattern": "lecture, entitled\\s*[\"“]([^\"”]+)",
+        "dateSelector": ":scope",
+        "linkSelector": "a[href*=\"forms\"]"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.004769+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:14.905068+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The source contains prose announcements rather than event cards; current extraction cannot reliably pair each lecture title with its date and original detail link."
+        "structure": "A named lecture has October 27, 2025, 12:30 PM printed next to its location and RSVP; the old event lies outside the current window."
+      }
     },
     "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "status": "unsupported",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Retain the public source and exact inspected limitation; enable ingestion only when occurrence dates can be grounded.",
+      "reason": "The current Fall 2026 and Spring 2026 schedules are poster images/PDF embeds with no event-row dates in accessible HTML. Runtime poster OCR with verified date-speaker pairing is not implemented.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.012249+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.035557+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The source links semester schedules instead of exposing individual dated event records; a verified child-schedule parser is required."
+        "structure": "The current Fall 2026 and Spring 2026 schedules are poster images/PDF embeds with no event-row dates in accessible HTML. Runtime poster OCR with verified date-speaker pairing is not implemented."
+      }
     },
     "https://www.cmu.edu/dietrich/lcal/cbesa/events/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/dietrich/lcal/cbesa/events/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "reason": "Black Europe October 2–3, 2026 and Diaspora Salon February 8–11, 2026 are dated in the parent. The FLUP card omits a year; its linked page explicitly identifies FLUP 2025 and separately dated November 19–30 day sections, so no current-year inference is used.",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T18:23:09.787474+00:00",
+        "httpStatus": 200,
+        "structure": "Black Europe October 2–3, 2026 and Diaspora Salon February 8–11, 2026 are dated in the parent. The FLUP card omits a year; its linked page explicitly identifies FLUP 2025 and separately dated November 19–30 day sections, so no current-year inference is used."
+      },
       "options": {
         "timezone": "America/New_York",
         "detailLinks": true,
         "maxDetails": 8,
         "eventSelector": ".grid.boxes > div",
-        "titleSelector": "h2,h3"
-      },
-      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
-      "evidence": {
-        "checkedAt": "2026-10-20T21:53:08.985737+00:00",
-        "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific .grid.boxes > div containers with independent dates and titles."
+        "titleSelector": "h2,h3",
+        "detailOptions": {
+          "eventSelector": ".content > div:has(>h1),.content > div:has(>h2)",
+          "titleSelector": "h1,h2",
+          "dateSelector": "h2",
+          "yearSelector": ".hero h1",
+          "linkSelector": "a[data-event-link]"
+        }
       }
     },
     "https://events.cmu.edu/lcal/all": {
@@ -1431,20 +1598,25 @@
     "https://www.cmu.edu/dietrich/philosophy/events/workshops-conferences/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/dietrich/philosophy/events/workshops-conferences/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "eventSelector": ".content > div:has(>h2)",
+        "titleSelector": "h2",
+        "emptySelector": ".content strong",
+        "emptyPattern": "More PFEW workshops will be posted next semester"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "Upcoming PFEW workshops are explicitly empty. Older archives mix headings and prose; only independently dated blocks are parsed.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.079228+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:14.904987+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "Conference titles, dates and programs span nonuniform heading/prose sections; no reliable per-event extraction contract is configured."
+        "structure": "The upcoming section explicitly says more workshops will be posted next semester; historical separately headed conference blocks carry full event dates."
+      }
     },
     "https://events.cmu.edu/psychology/all": {
       "adapter": "livewhale",
@@ -1534,38 +1706,56 @@
     "https://www.cmu.edu/dietrich/statistics-datascience/cmsac/events/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/dietrich/statistics-datascience/cmsac/events/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "eventSelector": ".content > div:has(>h3)",
+        "titleSelector": "h3",
+        "titlePattern": "Events\\s*(.+?)(?=(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\\b)",
+        "dateSelector": "h3",
+        "linkSelector": "a.cta"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.089378+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.185071+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The page combines event names and dates inside custom prose headings; a verified event heading parser is required."
+        "structure": "A current named NFL Draft event prints Wednesday April 22, 2026, 5–6 PM and its public detail/registration link; no publication timestamp is used."
+      }
     },
     "https://www.cmu.edu/dietrich/statistics-datascience/stamps/events/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/dietrich/statistics-datascience/stamps/events/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
+        "preferFeed": false,
         "detailLinks": true,
-        "maxDetails": 8
+        "maxDetails": 3,
+        "detailLinkSelector": ".grid.boxes a[href*=\"seminars/index\"],.grid.boxes a[href*=\"center-meetings/index\"],.grid.boxes a[href*=\"launch-event/index\"]",
+        "detailOptions": {
+          "embeddedGoogleCalendarSelector": "iframe[src*=\"calendar.google.com/calendar/embed\"]",
+          "eventSelector": ".grid.boxes > div,.content > div:has(>p.h2)",
+          "dateSelector": ":scope",
+          "titleSelector": "h3",
+          "linkSelector": "a[href*=\"registration\"],a[href*=\"register\"]",
+          "titleFromPage": ".content h1",
+          "contextTimeSelector": ".content p:contains(\"Unless otherwise stated\")"
+        }
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "Dates are parsed from scoped child schedules. Local-meeting and seminar Google calendar identities are discovered from their advertised iframe src and refreshed through the shared ICS parser.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.100989+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.016208+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "This is an event-series directory; individual dated seminars require following its linked schedules."
+        "structure": "The events directory links its own seminar, local-meeting and launch schedules. Follow scoped child pages, retaining the broad center association; seminar cards print November/December 2026 dates and the launch has September 20, 2024."
+      }
     },
     "https://www.cmu.edu/dietrich/statistics-datascience/stamps/events/seminars/index.html": {
       "adapter": "ics",
@@ -1649,12 +1839,24 @@
     "https://admission.cmu.edu/portal/tte-fall-events": {
       "adapter": "html",
       "fetchUrl": "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=dcd31a6b-3550-47fc-b017-a3da7621233e&cmd=event_list",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Read the public Slate event widget and its verified additional widgets as the occurrence authority; the event rows already supply explicit title, datetime and public registration link.",
+      "reason": "",
+      "evidence": {
+        "checkedAt": "2026-10-21T18:00:36.996Z",
+        "httpStatus": 200,
+        "structure": "Freshly checked all 15 advertised Slate widgets: ten show exact There are no upcoming events to display state; five contain fourteen dated event cards. The provider empty-state parser needs a narrow fix.",
+        "sourceReview": "2026-10-21: widget rows independently normalize successfully; registration forms are not event-discovery children.",
+        "runtimeWindowVerified": true
+      },
       "options": {
         "timezone": "America/New_York",
         "eventSelector": ".event[data-date]",
         "titleSelector": "a",
         "linkSelector": "a",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
         "additionalFetchUrls": [
           "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=82519ec8-e178-497a-8c34-7bb0af7b61d7&cmd=event_list",
@@ -1673,15 +1875,7 @@
           "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=514d0c42-b0f9-494b-bbc0-64cc91f1eef3&cmd=event_list"
         ],
         "maxPages": 10
-      },
-      "strategy": "Fetch the public Slate event_list HTML endpoints advertised in the page data-service attributes; parse .event data-date in the source timezone and retain register detail URLs.",
-      "evidence": {
-        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
-        "httpStatus": 200,
-        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes."
-      },
-      "status": "active",
-      "reason": ""
+      }
     },
     "https://events.cmu.edu/admitted-students/all": {
       "adapter": "livewhale",
@@ -1828,19 +2022,32 @@
       "adapter": "html",
       "fetchUrl": "https://www.sv.cmu.edu/events/index.html",
       "options": {
-        "timezone": "America/New_York",
-        "detailLinks": true,
+        "timezone": "America/Los_Angeles",
+        "detailLinks": false,
         "maxDetails": 8
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Retain the current and observed next-month pages as publisher-content evidence; verify the actual event-card or explicit empty-state contract when the publisher exposes it.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:54.496939+00:00",
+        "checkedAt": "2026-10-21T17:56:38.100Z",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "Both current and next-month URLs return HTTP 200 and their month headings, but no actual events. The current parser cannot prove a healthy empty state from navigation-only HTML.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "No events were observed in these two month pages; this does not prove the campus has no events elsewhere."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://www.sv.cmu.edu/events/2026/11/index.html",
+            "httpStatus": 200,
+            "finalUrl": "https://www.sv.cmu.edu/events/2026/11/index.html",
+            "title": "November - Carnegie Mellon University Silicon ValleySearch"
+          }
+        ]
       },
       "status": "unsupported",
-      "reason": "The inspected page does not expose dated event records supported by the current adapter."
+      "reason": "The October 2026 index and its advertised November 2026 page contain only month navigation and no event cards, dated event links, explicit no-events marker, structured Events, or advertised feed. A reusable populated/empty contract cannot yet be validated."
     },
     "https://events.cmu.edu/sv/all": {
       "adapter": "livewhale",
@@ -1926,20 +2133,20 @@
     "https://www.cmu.edu/risk-reg-center/news-and-events/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+      "status": "unsupported",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Retain the public source and exact inspected limitation; enable ingestion only when occurrence dates can be grounded.",
+      "reason": "The page is an archive of the 2024 University Exchange, April 2023 exchange, and 2020 summer program. It supplies year/month descriptions and posters, but no reliable full event-day records in accessible text.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.149137+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.112772+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The public page mixes special programs and news without a verified per-event date/title contract."
+        "structure": "The page is an archive of the 2024 University Exchange, April 2023 exchange, and 2020 summer program. It supplies year/month descriptions and posters, but no reliable full event-day records in accessible text."
+      }
     },
     "https://www.cmu.edu/hr/calendar/index.html": {
       "adapter": "livewhale",
@@ -1995,27 +2202,35 @@
     "https://www.cmu.edu/ai-sdm/seminars/": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/ai-sdm/seminars/",
+      "status": "unsupported",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8,
-        "eventSelector": ".grid.boxes > div,.grid.photos > .photo",
-        "titleSelector": "h2,h3",
-        "linkSelector": "h2 a,h3 a,a.cta,a.btn"
+        "detailLinks": false
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Retain the public source and exact inspected limitation; enable ingestion only when occurrence dates can be grounded.",
+      "reason": "This seminar page is a collection of speaker video recordings without explicit occurrence dates. Video names and publication metadata do not establish seminar dates.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:46:32.055470+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.137500+00:00",
         "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific .grid.boxes > div,.grid.photos > .photo containers with independent dates and titles.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The inspected page is an undated seminar-recording archive. Video upload dates must not be substituted for event dates."
+        "structure": "This seminar page is a collection of speaker video recordings without explicit occurrence dates. Video names and publication metadata do not establish seminar dates."
+      }
     },
     "https://www.cmu.edu/aimsec/news-and-events/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/aimsec/news-and-events/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Parse only AIMSEC cards explicitly classified as events; read the event timestamp, title, summary and original event link.",
+      "reason": "The event-classified card and linked workshop description agree on October 22–23, 2026. The reviewed detail container supplies the event description without using speaker biographies or publication dates.",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T18:23:09.787511+00:00",
+        "httpStatus": 200,
+        "structure": "The event-classified card and linked workshop description agree on October 22–23, 2026. The reviewed detail container supplies the event description without using speaker biographies or publication dates."
+      },
       "options": {
         "timezone": "America/New_York",
         "eventSelector": ".anm-card[data-type=\"event\"]",
@@ -2024,16 +2239,14 @@
         "linkSelector": ".anm-title",
         "descriptionSelector": ".anm-desc",
         "detailLinks": true,
-        "maxDetails": 6
-      },
-      "strategy": "Parse only AIMSEC cards explicitly classified as events; read the event timestamp, title, summary and original event link.",
-      "evidence": {
-        "checkedAt": "2026-10-21T02:22:30.198112+00:00",
-        "httpStatus": 200,
-        "structure": "Live .anm-card data-type=event cards contain .anm-timestamp/.anm-title/.anm-desc; exclude news/blog/video cards."
-      },
-      "status": "active",
-      "reason": ""
+        "maxDetails": 6,
+        "detailOptions": {
+          "eventSelector": ".content > div:has(>h1)",
+          "titleSelector": "h1",
+          "dateSelector": "p:contains(\"On October\")",
+          "linkSelector": "a[data-event-link]"
+        }
+      }
     },
     "https://events.cmu.edu/ai-sdm/all": {
       "adapter": "livewhale",
@@ -2083,20 +2296,27 @@
     "https://www.cmu.edu/ceic/events-seminars/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/ceic/events-seminars/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "eventSelector": ".events li:has(a)",
+        "titleSelector": "a",
+        "titleRemoveSelector": "span",
+        "linkSelector": "a",
+        "dateFromUrl": true,
+        "timeSelector": ":scope"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.759490+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.223679+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "Sidebar event links omit the year in visible dates; a child-event parser must verify full dates and times before enabling ingestion."
+        "structure": "CEIC sidebar event links encode explicit YYYY-MM-DD paths and print talk title/speaker and local time. Date spans are removed from titles; current dated detail pages confirm the encoded year."
+      }
     },
     "https://www.cmu.edu/ai4bio/seminar/index.html": {
       "adapter": "html",
@@ -2184,35 +2404,51 @@
     "https://icarm.io/events/": {
       "adapter": "html",
       "fetchUrl": "https://icarm.io/events/",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Use the complete, server-rendered event list as date authority: each organization event anchor contains its own title, explicit calendar date/range, and original public detail URL.",
+      "reason": "",
+      "evidence": {
+        "checkedAt": "2026-10-21T18:28:30.999Z",
+        "httpStatus": 200,
+        "structure": "The list contains14 independently dated occurrences with4 upcoming and10 past, explicit years, and inclusive ranges. Child JSON-LD represents advertised date-only events as UTC-midnight timestamps, while visible text supplies dates without clocks; generic child extraction can create previous-local-day duplicates.",
+        "anonymousAccessVerified": true,
+        "reviewLimitations": [
+          "Clock times are not advertised in the list. Preserve date precision rather than treating publisher UTC-midnight placeholders as real evening events; readers retain the full original event link. No list pagination is advertised."
+        ],
+        "reviewMethod": "Fresh shared safe fetch with read-only SQLite cache access; all refreshed bytes stored only in transient memory/review fixtures.",
+        "adapterAudit": "Live safe-fetch replay returned 5 current-window events; unsupported=false; partial=false."
+      },
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
-      },
-      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
-      "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.200375+00:00",
-        "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records."
+        "detailLinks": false,
+        "maxDetails": 8,
+        "eventSelector": "main .events-list > a.event",
+        "titleSelector": "h3",
+        "dateSelector": ".range",
+        "linkSelector": ":scope",
+        "dateOnly": true
       }
     },
     "https://www.cmu.edu/iii/admissions/events/index.html": {
       "adapter": "html",
-      "fetchUrl": "https://www.cmu.edu/iii/admissions/events/index.html",
+      "fetchUrl": "https://tockify.com/cmuinnovation/pinboard",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:08.694290+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:14.905119+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The events are rendered by the public Tockify calendar cmuinnovation; its public feed/API contract is not implemented."
+        "structure": "The advertised cmuinnovation Tockify pinboard exposes Event JSON-LD with public title, explicit offset datetime, description and original links."
+      }
     },
     "https://events.cmu.edu/ni/all": {
       "adapter": "livewhale",
@@ -2281,39 +2517,53 @@
     "https://www.sei.cmu.edu/events/": {
       "adapter": "html",
       "fetchUrl": "https://www.sei.cmu.edu/events/",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Parse every independently dated SEI listing card directly, keeping all separate training offerings and advertised webcast clocks. Retain original event/course links and source excerpts; do not generate extra occurrences from generic child descriptions.",
+      "reason": "",
+      "evidence": {
+        "checkedAt": "2026-10-21T18:28:31.000Z",
+        "httpStatus": 200,
+        "structure": "The list publishes31 separately dated event/training occurrences, including multiple offerings pointing to the same course page. Every listing occurrence already supplies its own title/date/URL and excerpt. Generic training descriptions are not individual schedule occurrences; child enrichment is not required to obtain the occurrence list. One external AFCEA event is already independently dated in the official SEI listing.",
+        "anonymousAccessVerified": true,
+        "reviewLimitations": [
+          "Training offering clocks not printed in the listing remain date precision. External event pages are retained as original links; optional enrichment does not expand source scope to an external event portal. The public listing currently exposes no pagination link."
+        ],
+        "reviewMethod": "Fresh shared safe fetch with read-only SQLite cache access; all refreshed bytes stored only in transient memory/review fixtures.",
+        "adapterAudit": "Live safe-fetch replay returned 28 current-window events; unsupported=false; partial=false."
+      },
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
         "eventSelector": ".flex.flex-col:has(> h4.card-title)",
         "titleSelector": "h4.card-title",
         "dateSelector": "h6",
         "linkSelector": "h4.card-title a"
-      },
-      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
-      "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.816142+00:00",
-        "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific .flex.flex-col:has(> h4.card-title) containers with independent dates and titles."
       }
     },
     "https://www.cmu.edu/steinbrenner/events/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/steinbrenner/events/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "eventSelector": ".grid.boxes > div",
+        "titlePattern": "(Environmental and Sustainability Studies \\(ESS\\) program)",
+        "dateSelector": ":scope"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.799781+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.010690+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The advertised Google public export returned HTTP 404; remaining prose/program blocks have no verified extractor."
+        "structure": "Current prose explicitly invites attendees on October 6, 2026, 5–6 PM in CUC Danforth Lounge. The advertised Google public ICS still returns 404; use dated HTML."
+      }
     },
     "https://www.cmu.edu/swartz-center-for-entrepreneurship/events-new/connects/index.html": {
       "adapter": "html",
@@ -2367,17 +2617,40 @@
       "fetchUrl": "https://www.cmu.edu/swartz-center-for-entrepreneurship/community-and-news/news/weekly-bulletin.html",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
         "maxIssues": 2,
-        "issueLinkSelector": "a[href*=\"t.e2ma.net/message/\"]"
+        "issueLinkSelector": "a[href*=\"t.e2ma.net/message/\"]",
+        "emailLayout": "emma"
       },
-      "strategy": "Discover the newest public newsletter issues; extract explicitly dated event sections and links from issue content, never from the issue publication date.",
+      "strategy": "Parse separately dated Emma content blocks in the two newest public weekly bulletins; keep explicit ET/Pacific times and original registration links.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:08.860342+00:00",
+        "checkedAt": "2026-10-21T17:56:38.221Z",
         "httpStatus": 200,
-        "structure": "Dated archive links point to public Emma newsletter HTML."
-      }
+        "structure": "October 16 and October 9 issues expose Date/Time text inside .e2ma-content-block. Some event names exist only inside posters; readable prose excerpts are retained only when they identify the event.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "A dated poster with only an application-form label and no readable event name is omitted with a diagnostic. Cross-month newsletter ranges are diagnosed and declined; same-month ranges preserve their inclusive last day. Undated Hack-a-Startup promotion is not assigned the issue publication date."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://t.e2ma.net/message/lncgek/dhqcd57b",
+            "httpStatus": 200,
+            "finalUrl": "https://t.e2ma.net/message/lncgek/dhqcd57b",
+            "title": "email : Webview : CMU Swartz Center Weekly Bulletin"
+          },
+          {
+            "url": "https://t.e2ma.net/message/pq5rek/dhqcd57b",
+            "httpStatus": 200,
+            "finalUrl": "https://t.e2ma.net/message/pq5rek/dhqcd57b",
+            "title": "email : Webview : CMU Swartz Center Weekly Bulletin"
+          }
+        ],
+        "adapterAudit": "Reviewed-fixture replay: 19 events in the 30-day lookback/365-day lookahead window; 19 distinct events in the explicit 2018–2027 diagnostic window; unsupported=false; partial=false."
+      },
+      "status": "active",
+      "reason": ""
     },
     "https://events.cmu.edu/energy/all": {
       "adapter": "livewhale",
@@ -2810,20 +3083,27 @@
     "https://www.cmu.edu/teaching/facultyprograms/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/teaching/facultyprograms/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "eventSelector": ".content > div > div > ul > li",
+        "dateSelector": ":scope",
+        "titleSelector": "strong",
+        "titlePattern": "\\d{1,2}/\\d{1,2}/\\d{2}\\s*[-–]\\s*(.+)",
+        "yearSelector": ".content p:contains(\"topics in the first half\")",
+        "contextTimeSelector": ".content > div > div > p:first-of-type"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:54.091820+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:14.904748+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The current program page uses nested recurring/topic lists and context-dependent short dates; extraction needs a verified series-date parser."
+        "structure": "Nested faculty-series lists: nine explicitly numbered MM/DD/YY topics plus two named seminars use the printed Fall 2026 context; shared Tuesday time is printed in the series introduction."
+      }
     },
     "https://seminars.eberly.cmu.edu/": {
       "adapter": "html",
@@ -2840,9 +3120,9 @@
       },
       "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:54:16.813188+00:00",
+        "checkedAt": "2026-10-21T18:00:36.996Z",
         "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific #seminars > .item containers with independent dates and titles."
+        "structure": "Five explicitly dated seminar cards fetched with hostname/certificate verification enabled after supplying a reviewed missing intermediate."
       }
     },
     "https://www.cmu.edu/graduate/news-and-events/graduate-news/index.html": {
@@ -2850,17 +3130,51 @@
       "fetchUrl": "https://www.cmu.edu/graduate/news-and-events/graduate-news/index.html",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
         "maxIssues": 2,
-        "issueLinkSelector": "a[href*=\"/ay-\"]"
+        "issueLinkSelector": "a[href*=\"ay-\"]",
+        "issueContentLinkSelector": "a[href*=\"conta.cc/\"]",
+        "emailLayout": "constant-contact"
       },
-      "strategy": "Discover the newest public newsletter issues; extract explicitly dated event sections and links from issue content, never from the issue publication date.",
+      "strategy": "Follow the two newest relative academic-year issue links and their public Constant Contact webviews; parse separate event list items/cards using the explicit issue year only.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:54.108467+00:00",
+        "checkedAt": "2026-10-21T17:56:37.380Z",
         "httpStatus": 200,
-        "structure": "Dated archive links point to public academic-year issue HTML."
-      }
+        "structure": "Archive links use relative ay-26-27 paths; issue wrappers link to public Constant Contact emails. Workshop and competition dates are local to event sections; publication dates and application deadlines are excluded.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "The bounded run reads the newest two issues. Only accessible event text with an independently dated section is ingested; article publication dates are never events."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://www.cmu.edu/graduate/news-and-events/graduate-news/ay-26-27/september.html",
+            "httpStatus": 200,
+            "finalUrl": "https://www.cmu.edu/graduate/news-and-events/graduate-news/ay-26-27/september.html",
+            "title": "\n            The Graduate Student News: September 2026 - \n                Office of Graduate and Postdoctoral Affairs - Carnegie Mellon University\n        "
+          },
+          {
+            "url": "https://www.cmu.edu/graduate/news-and-events/graduate-news/ay-26-27/october.html",
+            "httpStatus": 200,
+            "finalUrl": "https://www.cmu.edu/graduate/news-and-events/graduate-news/ay-26-27/october.html",
+            "title": "\n            The Graduate Student News: October 2026 - \n                Office of Graduate and Postdoctoral Affairs - Carnegie Mellon University\n        "
+          },
+          {
+            "url": "https://conta.cc/4yP009M",
+            "httpStatus": 200,
+            "finalUrl": "https://myemail.constantcontact.com/Office-of-Graduate---Postdoctoral-Affairs-Newsletter.html?soid=1133865905679&aid=nV2b8nJiQzw"
+          },
+          {
+            "url": "https://conta.cc/4A65q1V",
+            "httpStatus": 200,
+            "finalUrl": "https://myemail.constantcontact.com/Office-of-Graduate---Postdoctoral-Affairs-Newsletter.html?soid=1133865905679&aid=3mlO8FAhHSM"
+          }
+        ],
+        "adapterAudit": "Reviewed-fixture replay: 5 events in the 30-day lookback/365-day lookahead window; 6 distinct events in the explicit 2018–2027 diagnostic window; unsupported=false; partial=false."
+      },
+      "status": "active",
+      "reason": ""
     },
     "https://events.cmu.edu/faculty-office/all": {
       "adapter": "livewhale",
@@ -2882,38 +3196,69 @@
       "fetchUrl": "https://www.cmu.edu/graduate/news-and-events/postdoc-post/index.html",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
         "maxIssues": 2,
-        "issueLinkSelector": "a[href*=\"/ay-\"]"
+        "issueLinkSelector": "a[href*=\"ay-\"]",
+        "issueContentLinkSelector": "a[href*=\"conta.cc/\"]",
+        "emailLayout": "constant-contact"
       },
-      "strategy": "Discover the newest public newsletter issues; extract explicitly dated event sections and links from issue content, never from the issue publication date.",
+      "strategy": "Follow the two newest relative academic-year issue wrappers to the public email, then extract dated Postdoc event paragraphs/list items.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:54.111546+00:00",
+        "checkedAt": "2026-10-21T17:56:38.255Z",
         "httpStatus": 200,
-        "structure": "Dated archive links point to public academic-year issue HTML."
-      }
+        "structure": "The October Postdoc Talk Competition explicitly occurs November 13. Its separate October 15 application deadline supplies neither the competition day nor a clock time.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "Only independently dated event content in the newest two issues is collected. An event without an advertised clock is date precision, not all day."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://www.cmu.edu/graduate/news-and-events/postdoc-post/ay-26-27/october.html",
+            "httpStatus": 200,
+            "finalUrl": "https://www.cmu.edu/graduate/news-and-events/postdoc-post/ay-26-27/october.html",
+            "title": "\n            The Postdoc Post: October 2026 - \n                Office of Graduate and Postdoctoral Affairs - Carnegie Mellon University\n        "
+          },
+          {
+            "url": "https://www.cmu.edu/graduate/news-and-events/postdoc-post/ay-26-27/september.html",
+            "httpStatus": 200,
+            "finalUrl": "https://www.cmu.edu/graduate/news-and-events/postdoc-post/ay-26-27/september.html",
+            "title": "\n            The Postdoc Post: September 2026 - \n                Office of Graduate and Postdoctoral Affairs - Carnegie Mellon University\n        "
+          },
+          {
+            "url": "https://conta.cc/4yyIK97",
+            "httpStatus": 200,
+            "finalUrl": "https://myemail.constantcontact.com/Office-of-Graduate---Postdoctoral-Affairs-Postdoc-Newsletter.html?soid=1133865905679&aid=ogcMF7dKjcw"
+          },
+          {
+            "url": "https://conta.cc/4gsgDSy",
+            "httpStatus": 200,
+            "finalUrl": "https://myemail.constantcontact.com/Office-of-Graduate---Postdoctoral-Affairs-Postdoc-Newsletter.html?soid=1133865905679&aid=j7tIl9KTDVE"
+          }
+        ],
+        "adapterAudit": "Reviewed-fixture replay: 5 events in the 30-day lookback/365-day lookahead window; 6 distinct events in the explicit 2018–2027 diagnostic window; unsupported=false; partial=false."
+      },
+      "status": "active",
+      "reason": ""
     },
     "https://www.cmu.edu/ctp/workshops/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/ctp/workshops/index.html",
+      "status": "unsupported",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8,
-        "eventSelector": ".grid.boxes > div,.grid.photos > .photo",
-        "titleSelector": "h2,h3",
-        "linkSelector": "h2 a,h3 a,a.cta,a.btn"
+        "detailLinks": false
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Retain the public source and exact inspected limitation; enable ingestion only when occurrence dates can be grounded.",
+      "reason": "Both inspected workshop detail pages say workshops are available for group booking and provide no scheduled occurrence date. These are on-demand offerings, not dated events.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.263108+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:14.974876+00:00",
         "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific .grid.boxes > div,.grid.photos > .photo containers with independent dates and titles.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "Workshop cards link separate descriptions but contain no dates; the current child-page extractor could not establish reliable scheduled occurrences."
+        "structure": "Both inspected workshop detail pages say workshops are available for group booking and provide no scheduled occurrence date. These are on-demand offerings, not dated events."
+      }
     },
     "https://www.cmu.edu/flame/events/index.html": {
       "adapter": "html",
@@ -2933,38 +3278,40 @@
     "https://www.cmu.edu/real/news-and-events/index.html": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/real/news-and-events/index.html",
+      "status": "unsupported",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Retain the public source and exact inspected limitation; enable ingestion only when occurrence dates can be grounded.",
+      "reason": "The REAL page describes recurring discussion series and an example workshop timetable without calendar dates. Its advertised manipulation public Google ICS is unavailable; the linked Learning and Control site is public but its next seminar is TBD and its dated archive ends in May 2024; its separate public ICS is reachable and contains four independently dated 2024 events. The manipulation feed remains unavailable, so this does not supply complete current REAL coverage. No example timetable is converted into events.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.275332+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.079570+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The page advertises a Google calendar whose public export returned HTTP 404 and provides no dated event announcements in HTML."
+        "structure": "The REAL page describes recurring discussion series and an example workshop timetable without calendar dates. Its advertised manipulation public Google ICS is unavailable; the linked Learning and Control site is public but its next seminar is TBD and its dated archive ends in May 2024; its separate public ICS is reachable and contains four independently dated 2024 events. The manipulation feed remains unavailable, so this does not supply complete current REAL coverage. No example timetable is converted into events."
+      }
     },
     "https://www.cs.cmu.edu/scs-distinguished-lecture-series": {
-      "adapter": "html",
-      "fetchUrl": "https://www.cs.cmu.edu/scs-distinguished-lecture-series",
+      "adapter": "trumba",
+      "fetchUrl": "https://www.cs.cmu.edu/calendar/api?filter2=_Distinguished%20Lecture%20Series_SCS%20Distinguished%20Lectures_",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "format": "trumba-json"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "",
       "evidence": {
-        "checkedAt": "2026-10-20T21:46:31.053468+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.281440+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The inspected lecture-series page has no dated event records supported by the current extractor; individual events may also appear in the separately ingested SCS calendar."
+        "structure": "The page JS advertises SCS calendar/api?filter2 with its distinguished-lecture filter; the scoped response has four events. The export.ics endpoint ignores that filter and returned 75 unrelated events, so it is deliberately rejected."
+      }
     },
     "https://www.cs.cmu.edu/calendar/": {
       "adapter": "html",
@@ -2984,38 +3331,43 @@
     "https://www.cs.cmu.edu/events/scs-seminar-series": {
       "adapter": "html",
       "fetchUrl": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "status": "unsupported",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Retain the public source and exact inspected limitation; enable ingestion only when occurrence dates can be grounded.",
+      "reason": "The live SCS data source is a seminar-series directory with weekday/time/contact columns, not dated occurrences. Exact event dates must come from the individually linked series sources; the directory cannot ground a recurring event calendar.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:46:31.053227+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:14.972110+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "This page is a directory of seminar series rather than a dated event list. Linked series and the SCS feed have separate source plans."
+        "structure": "The live SCS data source is a seminar-series directory with weekday/time/contact columns, not dated occurrences. Exact event dates must come from the individually linked series sources; the directory cannot ground a recurring event calendar."
+      }
     },
     "https://pdl.cmu.edu/SDI/index.html": {
       "adapter": "html",
-      "fetchUrl": "https://pdl.cmu.edu/SDI/index.html",
+      "fetchUrl": "https://pdl.cmu.edu/SDI/index.shtml",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "eventSelector": "table tr td:last-child a[href*=\"/talk-series/\"]",
+        "titleSelector": ":scope",
+        "linkSelector": ":scope",
+        "dateFromUrl": true
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "",
       "evidence": {
-        "checkedAt": "2026-10-20T21:46:31.431392+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.054512+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The inspected series landing page does not expose current dated event records supported by the extractor."
+        "structure": "The index.html JavaScript redirect explicitly points to index.shtml. Seminar title links encode matching YYYY/MMDDYY.shtml dates; separate links preserve multiple talks on one date."
+      }
     },
     "https://events.cmu.edu/cbd/all": {
       "adapter": "livewhale",
@@ -3050,20 +3402,32 @@
     "https://db.cs.cmu.edu/seminars/": {
       "adapter": "html",
       "fetchUrl": "https://db.cs.cmu.edu/seminars/",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
+        "preferFeed": false,
         "detailLinks": true,
-        "maxDetails": 8
+        "maxDetails": 12,
+        "detailSemesterWindow": true,
+        "detailLinkSelector": "a.read-more[href*=\"/seminars/\"]",
+        "detailOptions": {
+          "eventSelector": "table.seminar-schedule tbody tr",
+          "dateSelector": "td:nth-child(2)",
+          "titleSelector": "td:nth-child(4)",
+          "linkSelector": "td:nth-child(4) a",
+          "yearSelector": "h1",
+          "cancelledPattern": "\\bCANCELLED\\b"
+        }
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "Advertised semester schedules that can overlap the date window are refreshed dynamically, with conservative boundary overlap and a 12-page cap. Rows without a fully named talk are excluded; dates retain day precision where no row-specific clock is supplied.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:46:31.169085+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.185306+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The source is a directory of semester schedules; a staged parser for the current semester table and talk details is required."
+        "structure": "The index links current semester schedules. Follow scoped semester pages that can overlap the current window; table date columns inherit only the explicit semester h1 year and talk links provide original event URLs."
+      }
     },
     "https://www.cs.cmu.edu/~pop/seminar/": {
       "adapter": "html",
@@ -3131,9 +3495,9 @@
       },
       "strategy": "Retain the public LTI Colloquium link and flag its image-only schedule for OCR review before automatic ingestion.",
       "evidence": {
-        "checkedAt": "2026-10-21T02:22:30.198112+00:00",
+        "checkedAt": "2026-10-21T18:05:52.996Z",
         "httpStatus": 200,
-        "structure": "Upcoming Speaker uses sewon-min-poster.png; Fall 2026 Schedule uses colloquium-series-fall-2026.png; HTML contains no event dates."
+        "structure": "Fresh HTML, current speaker PNG and Fall 2026 schedule PNG verified. Visual reading is clear, but default English OCR misreads the Oct 23/Sewon Min row and Sep 11. No production OCR adapter was enabled from this unreliable result."
       },
       "status": "unsupported",
       "reason": "The live source publishes the upcoming speaker and Fall 2026 schedule only inside PNG posters. The portable Node adapters do not perform image OCR, so dates and titles cannot be reliably extracted from this HTML."
@@ -3325,18 +3689,28 @@
       "fetchUrl": "https://www.cmu.edu/career/employers/calendar.html",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false,
+        "maxDetails": 8,
+        "eventSelector": "table tr:has(td:nth-child(2) strong)",
+        "titleSelector": "td:nth-child(2) h6,td:nth-child(2)>p:first-child>strong",
+        "dateSelector": "td:first-child p:first-child",
+        "yearSelector": "h1:contains(\"Fall Event Information\")"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Pair each recruiting-table row with its own date and title; resolve abbreviated month/day values only against the explicitly printed Fall Event Information 2026 header.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:54.003361+00:00",
+        "checkedAt": "2026-10-21T17:56:37.640Z",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "The page publishes five September 2026 recruiting events. The final Tepper MBA row uses a paragraph/strong title while the first four use h6.",
+        "adapterAudit": "Reviewed-fixture replay: 0 events in the 30-day lookback/365-day lookahead window; 5 distinct events in the explicit 2018–2027 diagnostic window; unsupported=false; partial=false.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "All currently published rows precede the ingestion lookback window; a healthy empty current result is expected. No future-year dates are inferred from the page footer."
+        ],
+        "observedChildUrls": []
       },
-      "status": "unsupported",
-      "reason": "The inspected employer overview does not expose a verified machine-readable dated event list."
+      "status": "active",
+      "reason": ""
     },
     "https://www.cmu.edu/student-diversity/events/index.html": {
       "adapter": "livewhale",
@@ -3442,18 +3816,30 @@
       "fetchUrl": "https://www.cmu.edu/uls/",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false,
+        "maxDetails": 8,
+        "eventSelector": "div:has(>h2):has(>p>img),div:has(>h2):has(>p>a>img)",
+        "titleSelector": "h2",
+        "dateSelector": "p:has(em),p:has(i)",
+        "yearSelector": "h1:contains(\"University Lecture Series\"):contains(\"20\")",
+        "academicYearStartMonth": 8,
+        "locationSelector": "em,i"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Parse each speaker schedule block and resolve dates against the explicitly printed 2026–2027 academic season; months before August belong to the second printed year.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:54.078853+00:00",
+        "checkedAt": "2026-10-21T17:56:37.654Z",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "Four speaker blocks publish September/October 2026 and February/March 2027 dates, times, and venues. Academic-year rollover is grounded in the season header.",
+        "adapterAudit": "Reviewed-fixture replay: 3 events in the 30-day lookback/365-day lookahead window; 4 distinct events in the explicit 2018–2027 diagnostic window; unsupported=false; partial=false.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "The speaker heading is used as the event title; the published lecture name and full text remain in the description."
+        ],
+        "observedChildUrls": []
       },
-      "status": "unsupported",
-      "reason": "Lecture information is distributed across narrative/hero blocks and linked material without a verified current schedule extractor."
+      "status": "active",
+      "reason": ""
     },
     "https://www.cmu.edu/wellbeing/calendar/index.html": {
       "adapter": "livewhale",
@@ -3478,18 +3864,24 @@
       "fetchUrl": "https://www.alluniversityorchestra.org/concerts",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Retain the public concerts page and image-poster evidence; an accessible dated schedule, documented public feed, or separately reviewed OCR contract is required before automatic event ingestion.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.418748+00:00",
+        "checkedAt": "2026-10-21T17:56:37.380Z",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "Season year alone is available as text. The actual concert schedule is embedded in /assets/concert_posters/AUO_Fall_2026_Poster.png rather than independently dated HTML event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "Image-only dates cannot be safely read by the current text adapters."
+        ],
+        "observedChildUrls": []
       },
       "status": "unsupported",
-      "reason": "The inspected page has no dated event records recognized by the current structured-data/card extractor."
+      "reason": "The 2026–2027 concerts page publishes its Fall concert as an image poster with alt=\"Fall Poster\" and a Spring placeholder; the HTML has no event day/time text, accessible poster date, structured Event, or advertised calendar feed."
     },
     "https://cmubdc.com/lessons/calendar": {
       "adapter": "html",
@@ -3526,18 +3918,28 @@
       "fetchUrl": "https://cmu-cmba.weebly.com/events.html",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false,
+        "maxDetails": 8,
+        "eventSelector": ".simple-table tr",
+        "titleSelector": "td:nth-child(2)",
+        "dateSelector": "td:first-child",
+        "yearSelector": ".paragraph:contains(\"Spring Semester\")"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Parse date/title cells from the published schedule table and expand M/D only against the explicit Spring Semester 2019 heading.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.734163+00:00",
+        "checkedAt": "2026-10-21T17:56:38.788Z",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "Nine dated schedule rows belong to Spring Semester 2019. Their dates are historical and are filtered out of the current ingestion window.",
+        "adapterAudit": "Reviewed-fixture replay: 0 events in the 30-day lookback/365-day lookahead window; 9 distinct events in the explicit 2018–2027 diagnostic window; unsupported=false; partial=false.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "This page currently publishes only a 2019 schedule; the current year is never substituted for the explicit historic year."
+        ],
+        "observedChildUrls": []
       },
-      "status": "unsupported",
-      "reason": "The inspected page has no individually dated event records supported by the current extractor."
+      "status": "active",
+      "reason": ""
     },
     "https://cmudsc.com/events": {
       "adapter": "html",
@@ -3574,18 +3976,32 @@
       "fetchUrl": "https://cmupokerclub.com/events.html",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false,
+        "maxDetails": 8,
+        "eventSelector": "article.tournament[data-date]",
+        "dateSelector": ":scope",
+        "titleSelector": "h2",
+        "titleRemoveSelector": ".tournament__badge",
+        "timeSelector": ".tournament__time",
+        "locationSelector": ".tournament__meta",
+        "emptySelector": "[data-schedule-empty]",
+        "emptyPattern": "^No upcoming events\\. Check back later\\.$"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read the tournament data-date attribute and its local advertised clock range; keep the explicit no-upcoming-events marker as a supported empty layout.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.771587+00:00",
+        "checkedAt": "2026-10-21T17:56:37.472Z",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "The server HTML includes data-date=\"2026-09-27\" on the GTS tournament. The visual month/day omits its year, but the public semantic attribute supplies the exact year; the hidden empty marker is controlled by the page script.",
+        "adapterAudit": "Reviewed-fixture replay: 1 events in the 30-day lookback/365-day lookahead window; 1 distinct events in the explicit 2018–2027 diagnostic window; unsupported=false; partial=false.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "The published tournament is past as of review. A hidden no-upcoming marker alone is not used to manufacture dates; independently dated cards remain authoritative."
+        ],
+        "observedChildUrls": []
       },
-      "status": "unsupported",
-      "reason": "The inspected page has no explicit, independently dated event records supported by the current extractor."
+      "status": "active",
+      "reason": ""
     },
     "https://cmuwushu.org/events": {
       "adapter": "html",
@@ -3654,22 +4070,35 @@
       }
     },
     "https://cmuquant.com/events.html": {
-      "adapter": "html",
-      "fetchUrl": "https://cmuquant.com/events.html",
+      "adapter": "ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/c_85dd93d7420e432326c20b6d87124a07100e9d95cb27ba93299f065fc4cd8880%40group.calendar.google.com/public/basic.ics",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Follow the published Calendar page and calendar.js calendar ID to its anonymous public Google iCalendar export; no API key or credentials are used.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.936756+00:00",
+        "checkedAt": "2026-10-21T17:56:38.854Z",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "The events page links its public calendar page; calendar.js declares the organization calendar. Its public ICS export returns 15 VEVENT components.",
+        "adapterAudit": "Reviewed-fixture replay: 8 events in the 30-day lookback/365-day lookahead window; 15 distinct events in the explicit 2018–2027 diagnostic window; unsupported=false; partial=false.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "Historical competition writeups are not treated as upcoming events; only the organization calendar supplies occurrences."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://cmuquant.com/calendar.html",
+            "httpStatus": 200,
+            "finalUrl": "https://cmuquant.com/calendar.html",
+            "title": "Calendar — CMU Quant Club"
+          }
+        ]
       },
-      "status": "unsupported",
-      "reason": "The inspected page has no explicit, independently dated event records supported by the current extractor."
+      "status": "active",
+      "reason": ""
     },
     "https://roboclub.org/calendar/": {
       "adapter": "ics",
@@ -3710,57 +4139,78 @@
       "fetchUrl": "https://cmussa.org/events/",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
-        "eventSelector": ".row > div:has(> h3),.row > div:has(> h2)",
-        "titleSelector": "h2,h3",
-        "linkSelector": "h2 a,h3 a"
+        "eventSelector": ".row > div:has(>h4)",
+        "titleSelector": "h4",
+        "linkSelector": "h2 a,h3 a",
+        "dateSelector": "p:nth-child(3)",
+        "yearWithinCardSelector": "p:nth-child(3)",
+        "dateOnly": true
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Parse each h4 event card independently, using only explicit event years or the same card’s printed year; keep calendar-date precision because the schedule mixes Singapore and Pittsburgh clocks.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:10.050626+00:00",
+        "checkedAt": "2026-10-21T17:56:37.557Z",
         "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific .row > div:has(> h3),.row > div:has(> h2) containers with independent dates and titles.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "The published schedule contains 2025–2026 events only, including Singapore send-off and Pittsburgh activities. Clock zones are not consistently labeled, so source clocks remain in descriptions and dates are not assigned a guessed zone.",
+        "adapterAudit": "Reviewed-fixture replay: 0 events in the 30-day lookback/365-day lookahead window; 8 distinct events in the explicit 2018–2027 diagnostic window; unsupported=false; partial=false.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "The schedule is historical; no new 2026–2027 future schedule is currently published. Date precision is deliberately retained when the event clock timezone cannot be grounded."
+        ],
+        "observedChildUrls": []
       },
-      "status": "unsupported",
-      "reason": "Event descriptions contain old dates and varied nested layout; the current selector did not reliably pair dates with event titles."
+      "status": "active",
+      "reason": ""
     },
     "https://cmuswe.org/calendar": {
-      "adapter": "html",
-      "fetchUrl": "https://cmuswe.org/calendar",
+      "adapter": "ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/c_931782beeffa8aa758df9c96fec43afabd697c90546ae33219ff3409ab75579b%40group.calendar.google.com/public/basic.ics",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read the anonymous public Google iCalendar feed advertised by the calendar widget configuration in the public page script.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:09.994089+00:00",
+        "checkedAt": "2026-10-21T17:56:37.368Z",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "The landing HTML is a GoDaddy widget shell. Its loaded script contains the calendar widget ical feed URL; the feed returns 116 VEVENT components, including the current November GBM.",
+        "adapterAudit": "Reviewed-fixture replay: 1 events in the 30-day lookback/365-day lookahead window; 118 distinct events in the explicit 2018–2027 diagnostic window; unsupported=false; partial=false.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "Calendar availability depends on the organization maintaining its public Google feed."
+        ],
+        "observedChildUrls": []
       },
-      "status": "unsupported",
-      "reason": "The inspected page does not expose a public calendar/feed or dated records supported by the current adapter."
+      "status": "active",
+      "reason": ""
     },
     "https://www.tartansalsa.com/goodies/events": {
       "adapter": "html",
       "fetchUrl": "https://www.tartansalsa.com/goodies/events",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Keep the organization’s event information link; enable dated ingestion only when the publisher supplies actual dated occurrences or an organization-scoped public calendar.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:10.099984+00:00",
+        "checkedAt": "2026-10-21T17:56:38.201Z",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "Fresh HTML has event categories and historic year labels, without event-local calendar dates. External Salsa Pittsburgh links describe a broader city community and are not verified as a CMU organization calendar.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "A year heading or generic recurring activity does not identify a dated event occurrence."
+        ],
+        "observedChildUrls": []
       },
       "status": "unsupported",
-      "reason": "The inspected page does not expose independently dated event records supported by the current adapter."
+      "reason": "The page contains general class/social/community descriptions and Past Events year headings (2018–2022), but no independently advertised event month/day/time or public organization calendar feed."
     },
     "https://tedxcmu.org/events.html": {
       "adapter": "html",
@@ -3779,65 +4229,97 @@
     },
     "https://www.wrct.org/events": {
       "adapter": "html",
-      "fetchUrl": "https://www.wrct.org/events",
+      "fetchUrl": "https://www.wrct.org/events/radio-calendar/",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "detailLinks": false,
+        "maxDetails": 8,
+        "format": "wrct",
+        "yearCentury": 2000,
+        "additionalFetchUrls": [
+          "https://www.wrct.org/events/music-calendar/"
+        ]
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Follow the two public WRCT calendar links. Parse explicit MM-DD-YY music date-group rows and separately dated current-community announcements; use only the printed Updated year as context.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:10.159109+00:00",
+        "checkedAt": "2026-10-21T17:56:38.428Z",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "The landing page is an index. Music table date headings apply to multiple performance rows; radio current-event sections expose event-local month/day/ranges and an explicit update year.",
+        "adapterAudit": "Reviewed-fixture replay: 60 events in the 30-day lookback/365-day lookahead window; 61 distinct events in the explicit 2018–2027 diagnostic window; unsupported=false; partial=false.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "Undated ongoing weekly/monthly notices are omitted instead of generating guessed recurrence dates. The public community calendar contains Pittsburgh community events as curated by WRCT, beyond CMU-hosted events."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://www.wrct.org/events/music-calendar/",
+            "httpStatus": 200,
+            "finalUrl": "https://www.wrct.org/events/music-calendar/",
+            "title": "\n\t\t WRCT: Made of matchbooks\t\t // Music Calendar\t"
+          },
+          {
+            "url": "https://www.wrct.org/events/radio-calendar/",
+            "httpStatus": 200,
+            "finalUrl": "https://www.wrct.org/events/radio-calendar/",
+            "title": "\n\t\t WRCT: Now for something completely\t\t // Radio Calendar\t"
+          }
+        ]
       },
-      "status": "unsupported",
-      "reason": "The inspected page has no dated event records supported by the current adapter."
+      "status": "active",
+      "reason": ""
     },
     "https://apply.tepper.cmu.edu/portal/MBA_Tepper_Events?tab=home": {
       "adapter": "html",
       "fetchUrl": "https://apply.tepper.cmu.edu/portal/widget/event?portal_id=26fc1097-67cd-4172-bc11-b2d0d8f7bccf&part=74cef263-509a-4509-a850-309796c1d6ed&cmd=event_list",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Read the public Slate event widget and its verified additional widgets as the occurrence authority; the event rows already supply explicit title, datetime and public registration link.",
+      "reason": "",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes.",
+        "sourceReview": "2026-10-21: widget rows independently normalize successfully; registration forms are not event-discovery children.",
+        "runtimeWindowVerified": true
+      },
       "options": {
         "timezone": "America/New_York",
         "eventSelector": ".event[data-date]",
         "titleSelector": "a",
         "linkSelector": "a",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
         "additionalFetchUrls": [],
         "maxPages": 10
-      },
-      "strategy": "Fetch the public Slate event_list HTML endpoints advertised in the page data-service attributes; parse .event data-date in the source timezone and retain register detail URLs.",
-      "evidence": {
-        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
-        "httpStatus": 200,
-        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes."
-      },
-      "status": "active",
-      "reason": ""
+      }
     },
     "https://apply.mscf.cmu.edu/portal/AdmissionsEvents": {
       "adapter": "html",
       "fetchUrl": "https://apply.mscf.cmu.edu/portal/widget/event?portal_id=680cb783-63e1-4972-9599-0fbf444bc42a&part=9e860a70-aa9b-4177-9bc9-d383ded24351&cmd=event_list",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Read the public Slate event widget and its verified additional widgets as the occurrence authority; the event rows already supply explicit title, datetime and public registration link.",
+      "reason": "",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes.",
+        "sourceReview": "2026-10-21: widget rows independently normalize successfully; registration forms are not event-discovery children.",
+        "runtimeWindowVerified": true
+      },
       "options": {
         "timezone": "America/New_York",
         "eventSelector": ".event[data-date]",
         "titleSelector": "a",
         "linkSelector": "a",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
         "additionalFetchUrls": [],
         "maxPages": 10
-      },
-      "strategy": "Fetch the public Slate event_list HTML endpoints advertised in the page data-service attributes; parse .event data-date in the source timezone and retain register detail URLs.",
-      "evidence": {
-        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
-        "httpStatus": 200,
-        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes."
-      },
-      "status": "active",
-      "reason": ""
+      }
     },
     "https://seminartracker.tepper.cmu.edu/": {
       "adapter": "html",
@@ -3859,6 +4341,16 @@
     "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences": {
       "adapter": "html",
       "fetchUrl": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Ingest independently dated conference cards and inspect advertised conference children; retain a partial-source diagnostic when a required child cannot establish a reliable occurrence.",
+      "reason": "The directory dates Child Welfare Operations Symposium explicitly. Other linked conference pages mix multi-year archives; Sustainability Forum provides recording years without full occurrence dates. These required children remain visibly incomplete until scoped section extraction is verified.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.702012+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .paragraph--type--up-panel-card containers with independent dates and titles."
+      },
       "options": {
         "timezone": "America/New_York",
         "detailLinks": true,
@@ -3866,12 +4358,6 @@
         "eventSelector": ".paragraph--type--up-panel-card",
         "titleSelector": "h3",
         "linkSelector": "h3 a"
-      },
-      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
-      "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.702012+00:00",
-        "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific .paragraph--type--up-panel-card containers with independent dates and titles."
       }
     },
     "https://events.cmu.edu/tepper/all": {
@@ -3897,83 +4383,147 @@
         "maxPages": 30,
         "maxIssues": 2,
         "maxDetails": 8,
-        "detailLinks": true,
-        "issueLinkSelector": "a[href*=\"view.connect.cmu.edu\"]"
+        "detailLinks": false,
+        "issueLinkSelector": "a[href*=\"view.connect.cmu.edu\"]",
+        "emailLayout": "piper"
       },
-      "strategy": "Discover the newest public newsletter issues; extract explicitly dated event sections and links from issue content, never from the issue publication date.",
+      "strategy": "Read the two newest public Piper emails; align event links with accessible calendar-image date labels and parse dated shared town-hall list occurrences.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:54.129419+00:00",
+        "checkedAt": "2026-10-21T17:56:37.623Z",
         "httpStatus": 200,
-        "structure": "Dated archive links point to public CMU newsletter HTML."
-      }
+        "structure": "October 8 email dates are image alt labels, including two labels beside two links in one outer row. October 2 special issue has two town-hall date list items. Issue date provides year only.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "Requires accessible date-image labels or dated list items. A poster with no accessible date/title is not guessed."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://view.connect.cmu.edu/?vawpToken=IYW3O7O66FHEFBQRHAJGPP7A5A.100228",
+            "httpStatus": 200,
+            "finalUrl": "https://view.connect.cmu.edu/?vawpToken=IYW3O7O66FHEFBQRHAJGPP7A5A.100228",
+            "title": ""
+          },
+          {
+            "url": "https://view.connect.cmu.edu/?vawpToken=IQORVXQGHAEEDMF3XVYTDGQIPY.100229",
+            "httpStatus": 200,
+            "finalUrl": "https://view.connect.cmu.edu/?vawpToken=IQORVXQGHAEEDMF3XVYTDGQIPY.100229",
+            "title": ""
+          }
+        ],
+        "adapterAudit": "Reviewed-fixture replay: 7 events in the 30-day lookback/365-day lookahead window; 7 distinct events in the explicit 2018–2027 diagnostic window; unsupported=false; partial=false."
+      },
+      "status": "active",
+      "reason": ""
     },
     "https://www.huntbotanical.org/exhibitions/": {
       "adapter": "html",
       "fetchUrl": "https://www.huntbotanical.org/exhibitions/",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
+        "preferFeed": false,
         "detailLinks": true,
-        "maxDetails": 8
+        "eventSelector": ".section.clickbox",
+        "dateSelector": ".date",
+        "titleSelector": "h5",
+        "linkSelector": "h5 a",
+        "maxDetails": 1,
+        "detailLinkSelector": "a[href=\"/exhibitions/past/\"]",
+        "detailOptions": {
+          "eventSelector": ".section.clickbox",
+          "dateSelector": ".date",
+          "titleSelector": "h5",
+          "linkSelector": "h5 a"
+        }
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
+      "reason": "Dated exhibitions are parsed from the scoped archive. Announced 2029 exhibition dates are TBD; submission deadlines are excluded.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:53:08.831555+00:00",
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.265057+00:00",
         "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
-      },
-      "status": "unsupported",
-      "reason": "The source links exhibition series and detail pages; the current adapter cannot establish complete exhibition date ranges from the overview."
+        "structure": "Follow the advertised past-exhibitions schedule; event rows print day-first cross-month ranges with explicit years. The next 2029 international exhibition says dates TBD; its 2028 submission deadline is not an exhibition date."
+      }
     },
     "https://www.library.cmu.edu/about/news/events": {
-      "adapter": "html",
-      "fetchUrl": "https://cmu.libcal.com/",
+      "adapter": "ics",
+      "fetchUrl": "https://cmu.libcal.com/ical_subscribe.php?src=p&cid=7168",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "strategy": "Follow the library overview’s verified public LibCal calendar route and combine only the three library calendars explicitly advertised by that homepage; use their public ICS feeds for complete date/time/details instead of the ten-card preview.",
+      "reason": "",
+      "evidence": {
+        "checkedAt": "2026-10-21T18:28:31.000Z",
+        "httpStatus": 200,
+        "structure": "The official library overview links the LibCal homepage. Its Browse by Calendar menu explicitly contains Events7168, OpenScience16480, Workshops9148. Each observed calendar page confirms that exact ID and iCal subscribe base. Exact feeds return38,0,66 VEVENT components, preserving the homepage’s library-only scope.",
+        "anonymousAccessVerified": true,
+        "reviewLimitations": [
+          "OpenScience’s verified ICS response is a valid empty calendar at review. The Workshops feed also has its own catalog entry; normal cross-source event deduplication preserves both provenance links. The route does not expand to unrelated university calendars."
+        ],
+        "reviewMethod": "Fresh shared safe fetch with read-only SQLite cache access; all refreshed bytes stored only in transient memory/review fixtures.",
+        "adapterAudit": "Live safe-fetch replay returned 104 current-window events; unsupported=false; partial=false."
+      },
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
         "eventSelector": ".s-lc-c-evt",
         "dateSelector": "dl dd:first-of-type",
         "titleSelector": "h3 a",
         "linkSelector": "h3 a",
         "timeSelector": "dl dd:nth-of-type(2)",
-        "locationSelector": "dl dd:nth-of-type(3)"
-      },
-      "strategy": "Follow the library overview’s explicit View all upcoming events and workshops link to the public LibCal calendar; reuse its verified event-card extractor.",
-      "evidence": {
-        "checkedAt": "2026-10-21T02:22:30.198112+00:00",
-        "httpStatus": 200,
-        "structure": "Overview links its public upcoming event/workshop calendar on cmu.libcal.com."
-      },
-      "reason": ""
+        "locationSelector": "dl dd:nth-of-type(3)",
+        "additionalFetchUrls": [
+          "https://cmu.libcal.com/ical_subscribe.php?src=p&cid=16480",
+          "https://cmu.libcal.com/ical_subscribe.php?src=p&cid=9148"
+        ]
+      }
     },
     "https://cmu.libcal.com/": {
-      "adapter": "html",
-      "fetchUrl": "https://cmu.libcal.com/",
+      "adapter": "ics",
+      "fetchUrl": "https://cmu.libcal.com/ical_subscribe.php?src=p&cid=7168",
+      "status": "covered",
+      "canonicalSourceId": "491df87feb08",
+      "refreshHours": 6,
+      "strategy": "Reuse the same three public library calendars already fetched for the official Libraries events overview; retain the LibCal homepage as original provenance.",
+      "reason": "The reviewed homepage advertises exactly Events 7168, Open Science 16480 and Workshops 9148, matching the canonical combined source.",
+      "evidence": {
+        "checkedAt": "2026-10-21T18:28:31.000Z",
+        "httpStatus": 200,
+        "structure": "The official library overview links the LibCal homepage. Its Browse by Calendar menu explicitly contains Events7168, OpenScience16480, Workshops9148. Each observed calendar page confirms that exact ID and iCal subscribe base. Exact feeds return38,0,66 VEVENT components, preserving the homepage’s library-only scope.",
+        "anonymousAccessVerified": true,
+        "reviewLimitations": [
+          "OpenScience’s verified ICS response is a valid empty calendar at review. The Workshops feed also has its own catalog entry; normal cross-source event deduplication preserves both provenance links. The route does not expand to unrelated university calendars."
+        ],
+        "reviewMethod": "Fresh shared safe fetch with read-only SQLite cache access; all refreshed bytes stored only in transient memory/review fixtures.",
+        "adapterAudit": "Live safe-fetch replay returned 104 current-window events; unsupported=false; partial=false.",
+        "aliasScopeVerifiedAt": "2026-10-21T18:30:11.818Z"
+      },
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
         "eventSelector": ".s-lc-c-evt",
         "dateSelector": "dl dd:first-of-type",
         "titleSelector": "h3 a",
         "linkSelector": "h3 a",
         "timeSelector": "dl dd:nth-of-type(2)",
-        "locationSelector": "dl dd:nth-of-type(3)"
-      },
-      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
-      "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.910274+00:00",
-        "httpStatus": 200,
-        "structure": "LibCal server-rendered .s-lc-c-evt cards with labeled date/time/location."
+        "locationSelector": "dl dd:nth-of-type(3)",
+        "additionalFetchUrls": [
+          "https://cmu.libcal.com/ical_subscribe.php?src=p&cid=16480",
+          "https://cmu.libcal.com/ical_subscribe.php?src=p&cid=9148"
+        ]
       }
     },
     "https://cmu.libcal.com/calendar/workshops": {
-      "adapter": "html",
-      "fetchUrl": "https://cmu.libcal.com/calendar/workshops",
+      "adapter": "ics",
+      "fetchUrl": "https://cmu.libcal.com/ical_subscribe.php?src=p&cid=9148",
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
         "eventSelector": ".s-lc-c-evt",
         "dateSelector": "dl dd:first-of-type",
@@ -3982,15 +4532,21 @@
         "timeSelector": "dl dd:nth-of-type(2)",
         "locationSelector": "dl dd:nth-of-type(3)"
       },
-      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "strategy": "Use the anonymous LibCal iCalendar subscription endpoint with cid=9148, the Workshops calendar ID printed in the selected calendar widget.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:48:53.949772+00:00",
+        "checkedAt": "2026-10-21T17:56:37.688Z",
         "httpStatus": 200,
-        "structure": "LibCal server-rendered .s-lc-c-evt cards with labeled date/time/location.",
-        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+        "structure": "The HTML advertises RSS and the iCal subscribe base; its baseCalendarId and selected Workshops option both identify 9148. The scoped ICS responds with 66 VEVENT components.",
+        "adapterAudit": "Reviewed-fixture replay: 66 events in the 30-day lookback/365-day lookahead window; 66 distinct events in the explicit 2018–2027 diagnostic window; unsupported=false; partial=false.",
+        "anonymousAccessVerified": true,
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "The endpoint is restricted to Workshops; unrelated library calendars are not silently substituted."
+        ],
+        "observedChildUrls": []
       },
-      "status": "unsupported",
-      "reason": "The workshop calendar view loads through a separate LibCal calendar interface; only the separately planned LibCal homepage card contract has been verified."
+      "status": "active",
+      "reason": ""
     },
     "https://events.cmu.edu/library/all": {
       "adapter": "livewhale",
@@ -4032,9 +4588,155 @@
       "strategy": "Retain the public Chess Club source and flag its legacy announcement for review; enable ingestion only when a dated public calendar or an explicit event year is available.",
       "reason": "The page exposes a legacy First Meeting announcement for Thursday September 15, 5–7pm in UC McKenna, but gives no event year. The footer year is not event evidence and conflicts with the stated weekday in 2026, so an event date cannot be inferred reliably.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:45:05.976867+00:00",
+        "checkedAt": "2026-10-21T18:00:36.996Z",
         "httpStatus": 200,
         "structure": "Legacy text announcement without an event year or a verified upcoming-empty state; calendar dates are not inferred from the footer."
+      }
+    },
+    "https://tartanconnect.cmu.edu/junto/events/": {
+      "status": "unsupported",
+      "adapter": "campusgroups",
+      "canonicalSourceId": null,
+      "fetchUrl": "https://tartanconnect.cmu.edu/junto/events/",
+      "options": {
+        "timezone": "America/New_York",
+        "preferFeed": false
+      },
+      "strategy": "Preserve the public source and re-enable extraction when the general annual schedule states an event year or links an exact dated public listing.",
+      "reason": "The page contains a general annual schedule (September 3, 5, 6, 8, 13–14) and weekly-meeting text without a year or exact recurring dates. The copyright year is not an event date.",
+      "evidence": {
+        "checkedAt": "2026-10-21T18:00:36.996Z",
+        "httpStatus": 200,
+        "structure": "General Events Throughout The Year with month/day entries and no event year; no machine-readable calendar or explicit empty-event state."
+      }
+    },
+    "https://tartanconnect.cmu.edu/ifa/events/": {
+      "status": "active",
+      "adapter": "html",
+      "canonicalSourceId": null,
+      "fetchUrl": "https://tartanconnect.cmu.edu/ifa/events/",
+      "options": {
+        "timezone": "America/New_York",
+        "eventSelector": ".wpb_wrapper:has(>h1)",
+        "titleSelector": ">h1",
+        "dateSelector": ">p",
+        "detailLinks": false,
+        "preferFeed": false
+      },
+      "strategy": "Parse the explicitly dated CampusGroups announcement inside its own content wrapper. Keep the event title separate from the descriptive subheading; accept the printed event year and skip occurrences outside the rolling window.",
+      "reason": "The public Church Fair announcement has an explicit August 31, 2026 date; it is a successfully parsed historical event, not an extraction failure.",
+      "evidence": {
+        "checkedAt": "2026-10-21T18:00:36.996Z",
+        "httpStatus": 200,
+        "structure": "One title/date announcement with explicit event year; August 31, 2026 is outside the current rolling window."
+      }
+    },
+    "https://mailman.srv.cs.cmu.edu/mailman/listinfo/theory-announce": {
+      "status": "subscription_only",
+      "adapter": "manual",
+      "options": {
+        "detailLinks": false
+      },
+      "reason": "The public mailing-list information page links to its private archive, which requires a subscriber email address and password; no anonymous event archive is offered by the inspected links.",
+      "strategy": "Keep the public subscription link discoverable; do not subscribe, authenticate, or treat mailing-list metadata as event content.",
+      "evidence": {
+        "checkedAt": "2026-10-21T17:56:37.521Z",
+        "httpStatus": 200,
+        "anonymousAccessVerified": true,
+        "structure": "The public information page and its actual Archives link both returned HTTP 200. The child title explicitly says Private Archives Authentication and the form asks for subscriber credentials.",
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "The source content is access restricted to subscribers; a new parser cannot obtain the private messages anonymously."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://mailman.srv.cs.cmu.edu/mailman/private/theory-announce/",
+            "httpStatus": 200,
+            "finalUrl": "https://mailman.srv.cs.cmu.edu/mailman/private/theory-announce/",
+            "title": "Theory-announce Private Archives Authentication"
+          }
+        ]
+      }
+    },
+    "https://mailman.srv.cs.cmu.edu/mailman/listinfo/s3d-seminar": {
+      "status": "subscription_only",
+      "adapter": "manual",
+      "options": {
+        "detailLinks": false
+      },
+      "reason": "The public mailing-list information page links to its private archive, which requires a subscriber email address and password; no anonymous event archive is offered by the inspected links.",
+      "strategy": "Keep the public subscription link discoverable; do not subscribe, authenticate, or treat mailing-list metadata as event content.",
+      "evidence": {
+        "checkedAt": "2026-10-21T17:56:38.139Z",
+        "httpStatus": 200,
+        "anonymousAccessVerified": true,
+        "structure": "The public information page and its actual Archives link both returned HTTP 200. The child title explicitly says Private Archives Authentication and the form asks for subscriber credentials.",
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "The source content is access restricted to subscribers; a new parser cannot obtain the private messages anonymously."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://mailman.srv.cs.cmu.edu/mailman/private/s3d-seminar/",
+            "httpStatus": 200,
+            "finalUrl": "https://mailman.srv.cs.cmu.edu/mailman/private/s3d-seminar/",
+            "title": "s3d-seminar Private Archives Authentication"
+          }
+        ]
+      }
+    },
+    "https://list.pitt.edu/mailman/listinfo/environmental_humanities_research_seminar": {
+      "status": "subscription_only",
+      "adapter": "manual",
+      "options": {
+        "detailLinks": false
+      },
+      "reason": "The public mailing-list information page links to its private archive, which requires a subscriber email address and password; no anonymous event archive is offered by the inspected links.",
+      "strategy": "Keep the public subscription link discoverable; do not subscribe, authenticate, or treat mailing-list metadata as event content.",
+      "evidence": {
+        "checkedAt": "2026-10-21T17:56:38.286Z",
+        "httpStatus": 200,
+        "anonymousAccessVerified": true,
+        "structure": "The public information page and its actual Archives link both returned HTTP 200. The child title explicitly says Private Archives Authentication and the form asks for subscriber credentials.",
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "The source content is access restricted to subscribers; a new parser cannot obtain the private messages anonymously."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://list.pitt.edu/mailman/private/environmental_humanities_research_seminar/",
+            "httpStatus": 200,
+            "finalUrl": "https://list.pitt.edu/mailman/private/environmental_humanities_research_seminar/",
+            "title": "Environmental_humanities_research_seminar Private Archives\nAuthentication"
+          }
+        ]
+      }
+    },
+    "https://mailman.srv.cs.cmu.edu/mailman/listinfo/ml-ai-seminar": {
+      "status": "subscription_only",
+      "adapter": "manual",
+      "options": {
+        "detailLinks": false
+      },
+      "reason": "The public mailing-list information page links to its private archive, which requires a subscriber email address and password; no anonymous event archive is offered by the inspected links.",
+      "strategy": "Keep the public subscription link discoverable; do not subscribe, authenticate, or treat mailing-list metadata as event content.",
+      "evidence": {
+        "checkedAt": "2026-10-21T17:56:38.759Z",
+        "httpStatus": 200,
+        "anonymousAccessVerified": true,
+        "structure": "The public information page and its actual Archives link both returned HTTP 200. The child title explicitly says Private Archives Authentication and the form asks for subscriber credentials.",
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "The source content is access restricted to subscribers; a new parser cannot obtain the private messages anonymously."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://mailman.srv.cs.cmu.edu/mailman/private/ml-ai-seminar/",
+            "httpStatus": 200,
+            "finalUrl": "https://mailman.srv.cs.cmu.edu/mailman/private/ml-ai-seminar/",
+            "title": "Ml-ai-seminar Private Archives Authentication"
+          }
+        ]
       }
     }
   }

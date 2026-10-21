@@ -124,6 +124,15 @@ export function summarize(description) {
 }
 
 /**
+ * Identify explicitly empty schedule slots instead of treating them as events.
+ * @param {unknown} value Source event title or schedule-slot label.
+ * @return {boolean} Whether the title states that no talk/seminar is scheduled.
+ */
+export function isPlaceholderTitle(value) {
+  return /^(?:[-–—]+|no (?:talk|seminar)(?:\b.*)?|tbd|tba)$/i.test(plainText(value).replace(/\s+/g, ' '));
+}
+
+/**
  * Enforce the shared event contract and reject invented or missing dates.
  * @param {Object} input Adapter event fields.
  * @param {Object} plan Source provenance and adapter options.
@@ -134,7 +143,7 @@ export function normalizeEvent(input, plan = {}) {
   let start = parseDate(input.start, timeZone);
   const title = plainText(input.title).replace(/\s+/g, ' ');
   const url = absoluteUrl(input.url || plan.url, plan.fetchUrl || plan.url);
-  if (!start || !title || !url || /^(?:[-–—]+|no (?:talk|seminar)(?:\b.*)?|tbd|tba)$/i.test(title)) return null;
+  if (!start || !title || !url || isPlaceholderTitle(title)) return null;
   const allDay = input.allDay === true || start.length === 10;
   const timePrecision = start.length === 10 ? (input.allDay === true ? 'all-day' : 'date') : input.allDay === true ? 'all-day' : 'time';
   let end = parseDate(input.end, timeZone);

@@ -86,6 +86,40 @@ export function parseWordPress(json, plan = {}, context = {}) {
 }
 
 /**
+ * Parse the scoped Trumba JSON served by the SCS calendar API.
+ * The provider's numeric UTC offsets qualify its local timestamps explicitly.
+ * @param {Object[]} json Scoped calendar event array.
+ * @param {Object} plan Source endpoint and timezone.
+ * @param {Object} context Optional ingestion date window.
+ * @return {Object} Normalized public events with validation diagnostics.
+ */
+export function parseTrumba(json, plan = {}, context = {}) {
+  if (!Array.isArray(json)) throw new Error('Unexpected Trumba response: expected event array');
+  const events = [];
+  const warnings = [];
+  for (const row of json) {
+    const allDay = row.allDay === true;
+    const qualify = (value, offset) => {
+      if (!value) return null;
+      if (allDay) return value.slice(0, 10);
+      if (/(?:Z|[+-]\d{2}:?\d{2})$/.test(value)) return value;
+      return /^[+-]\d{4}$/.test(offset || '') ? `${value}${offset.slice(0, 3)}:${offset.slice(3)}` : value;
+    };
+    const fields = Object.fromEntries((row.customFields || []).map(field => [field.label, field.value]));
+    const event = normalizeEvent({ uid: new URL(`/calendar/${encodeURIComponent(row.eventID)}`, plan.fetchUrl || plan.url).href, title: row.title,
+      description: row.description, start: qualify(row.startDateTime, row.startTimeZoneOffset),
+      end: allDay ? addDays(row.endDateTime?.slice(0, 10) || row.startDateTime?.slice(0, 10)) : qualify(row.endDateTime, row.endTimeZoneOffset),
+      allDay, url: row.permaLinkUrl || new URL(`/calendar/${encodeURIComponent(row.eventID)}`, plan.fetchUrl || plan.url).href,
+      location: row.location || [fields.Building, fields['Room Number']].filter(Boolean).join(', '),
+      organizer: fields['Organization(s)'], tags: [].concat(fields['Event Type'] || []).filter(Boolean),
+      status: row.canceled ? 'cancelled' : 'scheduled' }, plan);
+    if (event && inWindow(event, context)) events.push(event);
+    else if (!event) warnings.push(`Skipped Trumba event ${row.eventID || '(no id)'}: invalid title, URL or explicit start date`);
+  }
+  return { events, warnings, next: null, ...(warnings.length ? { partial: true } : {}) };
+}
+
+/**
  * Fetch paginated public JSON, restricting next-page links to the same origin.
  * @param {Object} plan LiveWhale or WordPress source endpoint.
  * @param {Object} context Fetch callback and date window.
@@ -105,6 +139,7 @@ export async function fetchJsonEvents(plan, context) {
     visited.add(url);
     const text = await context.fetchText(url);
     if (/^\s*BEGIN:VCALENDAR/im.test(text)) {
+      if (plan.options?.format === 'trumba-json') throw new Error('Scoped Trumba JSON endpoint returned ICS; rejected because export filters may be ignored');
       const result = parseIcs(text, plan, context);
       for (const event of result.events) events.set(event.uid, event);
       warnings.push(...result.warnings);
@@ -112,7 +147,8 @@ export async function fetchJsonEvents(plan, context) {
       url = null;
       break;
     }
-    const result = (plan.adapter === 'wordpress' ? parseWordPress : parseLiveWhale)(JSON.parse(text), plan, context);
+    const parser = plan.options?.format === 'trumba-json' ? parseTrumba : plan.adapter === 'wordpress' ? parseWordPress : parseLiveWhale;
+    const result = parser(JSON.parse(text), plan, context);
     for (const event of result.events) events.set(event.uid, event);
     warnings.push(...result.warnings);
     if (result.partial) partial = true;

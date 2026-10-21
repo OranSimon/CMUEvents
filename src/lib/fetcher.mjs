@@ -1,5 +1,6 @@
 import { lookup } from 'node:dns/promises';
 import { isIP } from 'node:net';
+import { dispatcherFor } from './tls.mjs';
 
 /**
  * Wait without blocking the server event loop.
@@ -112,7 +113,7 @@ export function createFetcher(store, options = {}) {
             if (cached?.etag) headers['If-None-Match'] = cached.etag;
             if (cached?.modified) headers['If-Modified-Since'] = cached.modified;
             stats.requests++;
-            const response = await fetch(url, { headers, redirect: 'manual', signal: AbortSignal.timeout(options.timeoutMs || 20000) });
+            const response = await fetch(url, { headers, redirect: 'manual', dispatcher: dispatcherFor(url.hostname), signal: AbortSignal.timeout(options.timeoutMs || 20000) });
             if (response.status === 304 && cached) { stats.cacheHits++; return Buffer.from(cached.body); }
             if ([301, 302, 303, 307, 308].includes(response.status)) {
               const location = response.headers.get('location');

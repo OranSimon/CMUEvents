@@ -54,16 +54,23 @@ Each source plan contains `id`, `department`, `org`, original `url`, `adapter`, 
 
 | Source family | Shared implementation | Important semantics |
 | --- | --- | --- |
-| ICS, Google calendars, Trumba, CampusGroups feeds | `adapters/ics.mjs` with `ical.js` | RRULE/RDATE, EXDATE, recurrence exceptions, cancellations, declared/floating zones, exclusive all-day ends, bounded occurrence expansion |
+| ICS, Google calendars, Trumba exports, CampusGroups feeds | `adapters/ics.mjs` with `ical.js` | RRULE/RDATE, EXDATE, recurrence exceptions, cancellations, declared/floating zones, exclusive all-day ends, bounded occurrence expansion; precise diagnostics distinguish proven historical anomalies from potentially current missing records |
 | LiveWhale | `adapters/json.mjs` | Verified group/calendar/widget endpoints, advertised pagination, explicit source zone and all-day dates |
 | WordPress The Events Calendar | `adapters/json.mjs` | REST pagination or advertised ICS; explicit UTC dates, venues and categories |
+| Scoped Trumba JSON | `adapters/json.mjs` | Preserve the verified series filter, explicit offsets and public event identity; do not assume the ICS endpoint honors the same query |
 | RSS/Atom | `adapters/rss.mjs` | Event start extensions or typed Event content; a publication timestamp alone is insufficient |
-| HTML, CampusGroups pages, public Slate widgets | `adapters/html.mjs` | Event JSON-LD/microdata first, then inspected selectors and explicit date fields; bounded same-origin detail follow-up |
+| HTML, CampusGroups pages, public Slate widgets | `adapters/html.mjs` | Event JSON-LD/microdata first, then inspected selectors and explicit date fields; scoped semester/detail follow-up, explicit heading-year context and narrow provider-specific empty states |
 | Tepper seminar JSON | `adapters/tepper.mjs` | Whitelist event fields; do not copy unrelated travel/coordinator metadata |
-| Newsletters and OIE PDFs | `adapters/newsletter.mjs` | Extract separate dated sections, grounded year context, bounded recent issues; `pdf-parse` for text PDFs and original embedded event links |
+| Newsletters and OIE PDFs | `adapters/newsletter.mjs` | Extract separate dated sections and inspected email layouts, grounded year context and relative issue links; bounded recent issues, `pdf-parse` for text PDFs and original embedded event links |
+| Music preparatory recital PDF | `adapters/pdfschedule.mjs` | Discover the advertised PDF; require printed season-year and allowed recital sections; exclude colored class/cancellation grids |
+| WRCT text calendars | `adapters/wrct.mjs` | Explicit date-group headers or event-local short dates with a printed year; preserve date-only precision when no clock is supplied |
 | Subscription-only or unsupported archives | No automatic event invention | Retain original source and explicit limitation |
 
 Covered sources are fetched once through their canonical source, then their original department, organization and listing URL are attached as aliases. A source's plan status records the strategy at investigation time; `sources.state` records the latest runtime outcome. Unrecognized HTML with no reliable event structure produces a failed extraction diagnostic instead of erasing previous events. Recognized empty feeds remain ordinary successful zero-event snapshots.
+
+HTML child links have two roles. A listing that already normalizes an explicit title, full date and public event URL establishes an occurrence; failed optional abstract or registration enrichment adds a warning. Explicitly selected discovery children and links without a grounded parent record remain required: their failures and traversal limits make the source partial. Grounded URLs are tracked before date-window filtering so a verified historical listing does not become an error merely because it has no current occurrences. Required children run before optional enrichment.
+
+The [October 21 review](../research/source-review-2026-10-21.md) checks every previously failing, unsupported and subscription-only entry. Evidence records distinguish upstream omissions and conflicting dates, authenticated archives, image-only schedules, remaining extractor gaps, repaired parsers and verified empty schedules. HTTP success and parser support are separate checks. A review snapshot does not guarantee that publishers will keep the same format.
 
 ## Event contract and identity
 
@@ -108,6 +115,8 @@ Attendance mode prefers structured metadata and the actual location. A descripti
 On startup, serve persisted events immediately and start a due-source refresh. Check again every 15 minutes while the server runs. Each plan controls its own refresh interval; failures retry after one hour. Manual refresh requests force all refreshable sources. Empty plans remain refreshable. Covered, subscription-only and unsupported plans are not separately fetched.
 
 The rolling ingestion window is now minus 30 days through now plus 365 days. Broad public feeds are prioritized so a fresh installation becomes usable before the complete catalog finishes. The coordinator permits six concurrent source jobs by default; the HTTP client permits two requests per host with a 200 ms start gap. Requests have a 20 second timeout, a 12 MB body cap, conditional caching, safe redirect checks and one bounded retry for HTTP 429/5xx or transient connection timeouts/resets. TLS certificate verification remains enabled. Parser-specific pagination/detail/recurrence limits emit diagnostics where coverage may be truncated.
+
+`lib/tls.mjs` can supply a reviewed missing intermediate for an exact host from `config/tls-intermediates.json`. The bundled public certificate must match the configured SHA-256 fingerprint, be a currently valid CA and verify directly against an existing Node trusted root. The dispatcher keeps certificate and hostname verification enabled; redirects choose the mapping for their destination host. The current entry repairs Eberly's incomplete server chain. Review its issuer, validity and fingerprint when that upstream chain changes.
 
 Concurrent API refresh requests share one in-process job. The standalone CLI is for a stopped server or a separate data directory; running two writers against the same snapshots can overwrite each other's partial publication. Background updates require the local process to stay running. The app does not configure a system daemon, scheduler or hosted service.
 
