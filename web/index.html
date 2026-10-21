@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#a6192e" />
+    <meta name="description" content="Discover public Carnegie Mellon events across departments, research centers, and student organizations." />
+    <title>CMU Events · Discover your campus</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#results">Skip to events</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="CMU Events home">
+          <span class="brand-mark" aria-hidden="true">CMU<span class="brand-rule"></span></span>
+          <span class="brand-name">events<span class="brand-note">A campus. Many possibilities.</span></span>
+        </a>
+        <nav class="header-nav" aria-label="Main navigation">
+          <a class="nav-link active" href="#results" aria-current="page">Discover</a>
+          <button class="nav-link" id="about-button" type="button">Our sources <span aria-hidden="true">↗</span></button>
+        </nav>
+        <div class="header-actions">
+          <span class="live-label"><span class="status-dot" id="header-status-dot"></span><span id="header-status">Public campus events</span></span>
+          <button class="icon-button refresh-button" id="refresh-button" type="button" title="Refresh event sources" aria-label="Refresh event sources">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M6.1 7A7 7 0 0 1 18 5l2 2M4 17l2 2a7 7 0 0 0 11.9-2" /></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-line"></span> CARNEGIE MELLON UNIVERSITY</p>
+          <h1 id="page-title">Discover <em>CMU events.</em></h1>
+          <p class="intro-description">Public events from departments, research centers, and student organizations.</p>
+        </div>
+        <div class="intro-date" aria-hidden="true"><span id="today-month">OCT</span><strong id="today-number">20</strong><span id="today-weekday">TUESDAY</span></div>
+      </section>
+
+      <div class="search-row">
+        <form class="search-box" id="search-form" role="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.7" cy="10.7" r="6.7" /><path d="m16 16 4.3 4.3" /></svg>
+          <label class="sr-only" for="search-input">Search event titles, descriptions, and organizers</label>
+          <input id="search-input" type="search" placeholder="Search events, topics, or people…" autocomplete="off" maxlength="200" />
+          <button class="search-clear" id="search-clear" type="button" aria-label="Clear search" hidden>×</button>
+          <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+        </form>
+        <button class="mobile-filter-button button-secondary" id="mobile-filter-button" type="button" aria-controls="filters" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M8 4v6M16 14v6" /></svg> Filters <span id="mobile-filter-count" hidden></span>
+        </button>
+      </div>
+
+      <div class="discovery-layout">
+        <button class="filter-backdrop" id="filter-backdrop" type="button" aria-label="Close filters" hidden></button>
+        <aside class="filters" id="filters" aria-label="Filter events">
+          <div class="filter-heading"><h2>Make it yours</h2><button id="reset-filters" class="text-button" type="button">Reset</button><button class="icon-button mobile-close" id="close-filters" type="button" aria-label="Close filters">×</button></div>
+
+          <fieldset class="filter-section date-section">
+            <legend>When</legend>
+            <div class="date-presets" id="date-presets" role="group" aria-label="Date range">
+              <button type="button" class="date-preset selected" data-preset="upcoming" aria-pressed="true">Upcoming <span aria-hidden="true">↗</span></button>
+              <button type="button" class="date-preset" data-preset="today" aria-pressed="false">Today</button>
+              <button type="button" class="date-preset" data-preset="week" aria-pressed="false">Next 7 days</button>
+              <button type="button" class="date-preset" data-preset="month" aria-pressed="false">Next 30 days</button>
+              <button type="button" class="date-preset custom-preset" data-preset="custom" aria-pressed="false">Choose dates <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="15" rx="2" /><path d="M8 3v6M16 3v6M4 12h16" /></svg></button>
+            </div>
+            <div class="custom-dates" id="custom-dates" hidden>
+              <label for="date-from">From<input type="date" id="date-from" /></label>
+              <label for="date-to">Through<input type="date" id="date-to" aria-describedby="date-error" /></label>
+              <p class="field-error" id="date-error" role="alert" hidden>End date must be on or after the start date.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="filter-section affiliation-section">
+            <legend>Who’s hosting</legend>
+            <label class="select-label" for="department-filter">Department</label>
+            <select id="department-filter"><option value="">All departments</option></select>
+            <label class="select-label" for="org-filter">Organization</label>
+            <select id="org-filter"><option value="">All organizations</option></select>
+          </fieldset>
+
+          <fieldset class="filter-section">
+            <legend>Where</legend>
+            <label class="sr-only" for="campus-filter">Campus</label>
+            <select id="campus-filter"><option value="">All campuses</option></select>
+            <div class="format-options" id="mode-options" role="group" aria-label="Event format">
+              <button class="format-option selected" type="button" data-mode="" aria-pressed="true">All</button>
+              <button class="format-option" type="button" data-mode="in-person" aria-pressed="false">In person</button>
+              <button class="format-option" type="button" data-mode="online" aria-pressed="false">Online</button>
+              <button class="format-option" type="button" data-mode="hybrid" aria-pressed="false">Hybrid</button>
+              <button class="format-option" type="button" data-mode="unspecified" aria-pressed="false">Not listed</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="filter-section topic-section">
+            <legend>Follow your curiosity</legend>
+            <div class="topic-options" id="topic-options"><span class="muted filter-placeholder">Topics appear as sources load.</span></div>
+          </fieldset>
+
+          <div class="source-note"><span class="source-note-icon" aria-hidden="true">↻</span><div><strong>From across the university</strong><p>Public calendars, department pages, and organization feeds.</p><button class="text-button" id="source-info-button" type="button">How it works <span aria-hidden="true">↗</span></button></div></div>
+          <button id="show-events" class="button-primary show-events" type="button">Show events</button>
+        </aside>
+
+        <section class="results" id="results" aria-labelledby="results-title" tabindex="-1">
+          <div class="results-heading">
+            <div><p class="results-eyebrow" id="results-period">YOUR CAMPUS, COMING UP</p><h2 id="results-title">Upcoming events <span class="event-count" id="event-count">—</span></h2></div>
+            <div class="view-switch" role="group" aria-label="Event view">
+              <button class="view-button selected" id="list-view" data-view="list" type="button" aria-label="List view" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.1M4 12h.1M4 18h.1" /></svg></button>
+              <button class="view-button" id="grid-view" data-view="grid" type="button" aria-label="Grid view" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1" /><rect x="14" y="4" width="6" height="6" rx="1" /><rect x="4" y="14" width="6" height="6" rx="1" /><rect x="14" y="14" width="6" height="6" rx="1" /></svg></button>
+            </div>
+          </div>
+          <div class="active-filters" id="active-filters" hidden></div>
+          <div class="notice error-notice" id="error-notice" role="alert" hidden><span aria-hidden="true">!</span><div><strong id="error-title">We couldn’t load events.</strong><p id="error-message">Please try again in a moment.</p></div><button class="text-button" id="retry-button" type="button">Try again</button></div>
+          <div class="notice refresh-notice" id="refresh-notice" role="status" hidden><span class="small-spinner" aria-hidden="true"></span><div><strong>Checking for new events</strong><p>You can keep browsing while sources refresh.</p></div></div>
+          <p class="sr-only" id="results-announcement" role="status" aria-live="polite"></p>
+          <div class="event-results" id="event-results" aria-busy="true"></div>
+          <div class="empty-state" id="empty-state" hidden><span class="empty-icon" aria-hidden="true">⌕</span><p class="eyebrow">A LITTLE ROOM TO EXPLORE</p><h3>No events match just yet.</h3><p>Try a wider date range, another topic, or a shorter search.</p><button class="button-primary" id="empty-reset" type="button">Clear filters</button></div>
+          <div class="pagination" id="pagination" hidden><p id="pagination-label"></p><div><button class="button-secondary" id="previous-page" type="button"><span aria-hidden="true">←</span> Previous</button><button class="button-secondary" id="next-page" type="button">Next <span aria-hidden="true">→</span></button></div></div>
+          <p class="results-footnote">Dates and times use <span id="display-timezone">America/New_York</span>. Check the original listing for registration and access requirements.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer"><div><span class="footer-brand">CMU<span>events</span></span><p>An independent guide to public Carnegie Mellon events.</p></div><div class="footer-status"><span class="status-dot" id="footer-status-dot"></span><span id="last-updated">Connecting to event sources…</span></div></footer>
+
+    <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title"><div class="dialog-toolbar"><span class="eyebrow" id="dialog-eyebrow">A CLOSER LOOK</span><button class="icon-button dialog-close" id="dialog-close" type="button" aria-label="Close event details">×</button></div><div id="detail-content"></div></dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    <noscript><div class="noscript-notice">Enable JavaScript to search and filter CMU events.</div></noscript>
+  </body>
+</html>

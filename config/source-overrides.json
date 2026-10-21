@@ -1,0 +1,4041 @@
+{
+  "schemaVersion": 1,
+  "description": "Inspected site-specific contracts; generic feed and organization matching lives in scripts/plan-sources.mjs.",
+  "sources": {
+    "https://www.cmu.edu/engage/events": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/engage/events",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.497206+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The overview links external/child event lists but exposes no event dates supported by the current extractor; a verified staged alumni-list adapter is required."
+    },
+    "https://www.cmu.edu/engage/events/online-events": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/engage/events/online-events",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.507908+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The public overview contains no individually dated events supported by the current extractor."
+    },
+    "https://www.cmu.edu/osher/index.html": {
+      "adapter": "ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/0167bf883cc3de323f2ff3062e79d1f5acefebdaee632a2d19bf1ce81fc33608%40group.calendar.google.com/public/basic.ics",
+      "options": {
+        "timezone": "America/New_York",
+        "additionalFetchUrls": [
+          "https://calendar.google.com/calendar/ical/47fb190fac67242a6c25753210863046b5a67193bf35d38cf04634d1fde0fd0e%40group.calendar.google.com/public/basic.ics"
+        ]
+      },
+      "strategy": "Decode the calendar IDs explicitly advertised in the public Google Calendar embed; fetch their verified public iCalendar exports and merge UID-based occurrences.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:16:30.559855+00:00",
+        "httpStatus": 200,
+        "structure": "Public Google iframe/calendar IDs decoded and each complete VCALENDAR verified.",
+        "eventCount": 499
+      },
+      "reason": ""
+    },
+    "https://www.cmu.edu/environment/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/environment/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.140216+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "Dates and event titles are interleaved in prose, with missing years and recurring-meeting lists; a verified section-specific parser is required."
+    },
+    "https://events.cmu.edu/carnegiebosch/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Carnegie%20Bosch%20Institute/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Carnegie Bosch Institute"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.382689+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/data-driven-material-design/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Center%20for%20Data-Driven%20Discovery%20of%20Optimized%20Multifunctional%20Material%20Systems/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Center for Data-Driven Discovery of Optimized Multifunctional Material Systems"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.423788+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://engineering.cmu.edu/news-events/events/": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/614/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "614"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.376757+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 614"
+      }
+    },
+    "https://events.cmu.edu/engineering/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/College%20of%20Engineering/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "College of Engineering"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.488416+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://engineering.cmu.edu/mfi/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/616/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "616"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:08.932406+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 616"
+      }
+    },
+    "https://events.cmu.edu/mfi/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Manufacturing%20Futures%20Institute/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Manufacturing Futures Institute"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.653039+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/manufacturingpa/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Manufacturing%20PA%20Innovation%20Program/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Manufacturing PA Innovation Program"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.671086+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/mcf/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Materials%20Characterization%20Facility/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Materials Characterization Facility"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.698317+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/mesh/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/MESH%20Network/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "MESH Network"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.719787+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/next/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/NextManufacturing/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "NextManufacturing"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.758141+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/pita/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Pennsylvania%20Infrastructure%20Technology%20Alliance/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Pennsylvania Infrastructure Technology Alliance"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.758510+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/bme/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Biomedical%20Engineering%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Biomedical Engineering Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.366827+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/bme/News_Events/calendar.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/bme/News_Events/calendar.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:52.919210+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://www.cmu.edu/bme/News_Events/seminars-current.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/bme/News_Events/seminars-current.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".content table tr:has(td:nth-child(2))",
+        "titleSelector": "td:nth-child(2) strong:last-of-type",
+        "dateFromPreviousRow": true,
+        "linkSelector": "td:nth-child(2) a"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:52.919170+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .content table tr:has(td:nth-child(2)) containers with independent dates and titles."
+      }
+    },
+    "https://events.cmu.edu/capd/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Center%20for%20Advanced%20Process%20Decision-Making/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Center for Advanced Process Decision-Making"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.413641+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/cheme/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Chemical%20Engineering%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Chemical Engineering Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.434293+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cheme.engineering.cmu.edu/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/638/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "638"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:52.919126+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 638"
+      }
+    },
+    "https://egon.cheme.cmu.edu/ewo/seminars.html": {
+      "adapter": "manual",
+      "fetchUrl": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Keep this source as an archive and revisit when dated future sessions are published.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.458614+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      },
+      "status": "unsupported",
+      "reason": "The public page currently lists presentation slides without dates; inventing event dates would be incorrect."
+    },
+    "https://events.cmu.edu/cerca/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Center%20for%20Engineering%20Resilience%20and%20Climate%20Adaptation/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Center for Engineering Resilience and Climate Adaptation"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.427489+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/cee/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Civil%20and%20Environmental%20Engineering%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Civil and Environmental Engineering Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.475009+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://cee.engineering.cmu.edu/about-us/events.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/451/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "451"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:52.918560+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 451"
+      }
+    },
+    "https://www.cylab.cmu.edu/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/620/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "620"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:52.968026+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 620"
+      }
+    },
+    "https://events.cmu.edu/cylab/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/CyLab/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "CyLab"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.533316+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.dssc.ece.cmu.edu/news/Events.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:08.932503+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "This is an archive index of yearly review meetings; the current adapter cannot follow and normalize its child review pages."
+    },
+    "https://www.ece.cmu.edu/news-and-events/seminars.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.ece.cmu.edu/news-and-events/seminars.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.376968+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The page links semester archives but does not expose individual seminar dates in the initial HTML."
+    },
+    "https://events.cmu.edu/ece/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Electrical%20and%20Computer%20Engineering%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Electrical and Computer Engineering Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.542762+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/epp/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Engineering%20and%20Public%20Policy%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Engineering and Public Policy Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.542810+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://epp.engineering.cmu.edu/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/630/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "630"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:52.919247+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 630"
+      }
+    },
+    "https://epp.engineering.cmu.edu/events/seminar-series.html": {
+      "adapter": "html",
+      "fetchUrl": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:52.967807+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected page has no dated event records supported by the current extractor."
+    },
+    "https://www.cmu.edu/ini/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://gradadmissions.engineering.cmu.edu/portal/widget/event?portal_id=56444d20-4d1d-445a-a173-fc9efd42fcd9&part=7d2fa81f-2696-4a9b-a7fd-0a12f6ef02ab&cmd=event_list",
+      "options": {
+        "timezone": "America/New_York",
+        "eventSelector": ".event[data-date]",
+        "titleSelector": "a",
+        "linkSelector": "a",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "additionalFetchUrls": [],
+        "maxPages": 10
+      },
+      "strategy": "Fetch the public Slate event_list HTML endpoints advertised in the page data-service attributes; parse .event data-date in the source timezone and retain register detail URLs.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes."
+      },
+      "status": "active",
+      "reason": ""
+    },
+    "https://www.cmu.edu/ini/admissions/connectwithadmissions.html": {
+      "adapter": "html",
+      "fetchUrl": "https://gradadmissions.engineering.cmu.edu/portal/widget/event?portal_id=0a71cc88-a924-49d7-9ab1-19df8c99e9e6&part=fa819c6c-9725-4077-8f47-293878458cb6&cmd=event_list",
+      "options": {
+        "timezone": "America/New_York",
+        "eventSelector": ".event[data-date]",
+        "titleSelector": "a",
+        "linkSelector": "a",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "additionalFetchUrls": [],
+        "maxPages": 10
+      },
+      "strategy": "Fetch the public Slate event_list HTML endpoints advertised in the page data-service attributes; parse .event data-date in the source timezone and retain register detail URLs.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes."
+      },
+      "status": "active",
+      "reason": ""
+    },
+    "https://events.cmu.edu/mse/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Materials%20Science%20and%20Engineering%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Materials Science and Engineering Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.700660+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://mse.engineering.cmu.edu/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/626/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "626"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:52.919283+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 626"
+      }
+    },
+    "https://events.cmu.edu/meche/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Mechanical%20Engineering%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Mechanical Engineering Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.703522+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.meche.engineering.cmu.edu/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/697/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "697"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.500803+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 697"
+      }
+    },
+    "https://events.cmu.edu/cfa/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/College%20of%20Fine%20Arts/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "College of Fine Arts"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.488825+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://studioforcreativeinquiry.org/events": {
+      "adapter": "html",
+      "fetchUrl": "https://studioforcreativeinquiry.org/events",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": "li:has(a.thumbnail)",
+        "dateSelector": ".thumbnail__caption p:nth-child(2)",
+        "titleSelector": ".thumbnail__caption p:first-child",
+        "linkSelector": "a.thumbnail"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.547050+00:00",
+        "httpStatus": 200,
+        "structure": "Server-rendered thumbnail event list includes full dates and time ranges."
+      }
+    },
+    "https://events.cmu.edu/studio/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Frank-Ratchye%20STUDIO%20for%20Creative%20Inquiry/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Frank-Ratchye STUDIO for Creative Inquiry"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.599069+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://ica.cmu.edu/updates/": {
+      "adapter": "html",
+      "fetchUrl": "https://ica.cmu.edu/updates/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.615432+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "Event announcements are mixed with news, article dates and narrative date ranges; an event-only card/block parser is required."
+    },
+    "https://events.cmu.edu/ica/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/ICA%20Pittsburgh/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "ICA Pittsburgh"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.619001+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/public-art/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Public%20Art/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Public Art"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.821530+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/cas/events/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/cas/events/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".grid.news .filterable",
+        "titleSelector": "h2.name",
+        "linkSelector": "a",
+        "dateSelector": "span"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.748787+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .grid.news .filterable containers with independent dates and titles."
+      }
+    },
+    "https://events.cmu.edu/cas/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Center%20for%20the%20Arts%20in%20Society/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Center for the Arts in Society"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.433958+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.architecture.cmu.edu/events": {
+      "adapter": "html",
+      "fetchUrl": "https://www.architecture.cmu.edu/events",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": "article.article-card",
+        "dateSelector": ".date-wrapper",
+        "titleSelector": "h3 a",
+        "linkSelector": "h3 a",
+        "timeSelector": ".time-tag .time",
+        "locationSelector": ".location"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.197293+00:00",
+        "httpStatus": 200,
+        "structure": "Drupal article.article-card entries with date-wrapper and event detail URLs."
+      }
+    },
+    "https://events.cmu.edu/architecture/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/School%20of%20Architecture/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "School of Architecture"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.822328+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://art.cmu.edu/events/": {
+      "adapter": "html",
+      "fetchUrl": "https://art.cmu.edu/events/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.215196+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://art.cmu.edu/events/exhibitions/": {
+      "adapter": "wordpress",
+      "fetchUrl": "https://art.cmu.edu/wp-json/tribe/events/v1/events?per_page=50&categories=33",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 10
+      },
+      "strategy": "Query The Events Calendar JSON API with the verified exhibitions category ID 33; retain API event URLs and descriptions.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "Public tribe/events/v1/categories reports exhibitions category ID 33; event endpoint verified."
+      },
+      "reason": ""
+    },
+    "https://art.cmu.edu/events/lectures/": {
+      "adapter": "wordpress",
+      "fetchUrl": "https://art.cmu.edu/wp-json/tribe/events/v1/events?per_page=50&categories=34",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 10
+      },
+      "strategy": "Query The Events Calendar JSON API with the verified lectures category ID 34; retain API event URLs and descriptions.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "Public tribe/events/v1/categories reports lectures category ID 34; event endpoint verified."
+      },
+      "reason": ""
+    },
+    "https://events.cmu.edu/art/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/School%20of%20Art/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "School of Art"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.822490+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://design.cmu.edu/design-events": {
+      "adapter": "html",
+      "fetchUrl": "https://design.cmu.edu/design-events",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.332649+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected Design listing has no event records recognized by the current structured-data/card extractor; its Drupal listing contract needs review."
+    },
+    "https://events.cmu.edu/design/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/School%20of%20Design/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "School of Design"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.868978+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://transitiondesigninstitute.net/news-events/": {
+      "adapter": "html",
+      "fetchUrl": "https://transitiondesigninstitute.net/news-events/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.313887+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected page mixes news and events without a verified event-date extraction contract."
+    },
+    "https://events.cmu.edu/drama/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/School%20of%20Drama/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "School of Drama"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.873604+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://drama.cmu.edu/whats-happening/": {
+      "adapter": "wordpress",
+      "fetchUrl": "https://drama.cmu.edu/wp-json/tribe/events/v1/events?per_page=50",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 10
+      },
+      "strategy": "Fetch The Events Calendar public JSON API, follow next_rest_url pagination, and normalize explicit event dates/content/venues.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "The Events Calendar JSON endpoint verified against the public performance list."
+      },
+      "reason": ""
+    },
+    "https://www.cmu.edu/cfa/music/concerts-events/": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/399/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "399"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.574965+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 399"
+      }
+    },
+    "https://www.cmu.edu/cfa/music/preparatory-summer-programs/preparatory-school/prep-school-calendar.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/cfa/music/preparatory-summer-programs/preparatory-school/prep-school-calendar.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:08.783007+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The detailed calendar is supplied as a linked PDF; the current HTML adapter does not extract this calendar format."
+    },
+    "https://events.cmu.edu/music/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/School%20of%20Music/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "School of Music"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.873983+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/cmist/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Carnegie%20Mellon%20Institute%20for%20Strategy%20%26amp%3B%20Technology/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Carnegie Mellon Institute for Strategy &amp; Technology"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.382926+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/cmist/news-events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Carnegie%20Mellon%20Institute%20for%20Strategy%20%26amp%3B%20Technology/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Carnegie Mellon Institute for Strategy &amp; Technology"
+      },
+      "strategy": "Fetch the exact unit/tag LiveWhale JSON scope advertised by the embedded public iframe, with API pagination.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:08.868615+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded public iframe https://events.cmu.edu/cmist/month?iframe=1"
+      },
+      "reason": ""
+    },
+    "https://www.carvt.org/carvt-events/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.carvt.org/carvt-events/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.155535+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The page explicitly shows no upcoming events, while its historical Elementor event blocks lack a verified extractor; preserve the source for layout-specific review."
+    },
+    "https://www.cmu.edu/cbdr/seminars/index.html": {
+      "adapter": "ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/lmrqed64gg62r7s42lvq05u9tk%40group.calendar.google.com/public/basic.ics",
+      "options": {
+        "timezone": "America/New_York",
+        "additionalFetchUrls": []
+      },
+      "strategy": "Decode the calendar IDs explicitly advertised in the public Google Calendar embed; fetch their verified public iCalendar exports and merge UID-based occurrences.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:16:30.559855+00:00",
+        "httpStatus": 200,
+        "structure": "Public Google iframe/calendar IDs decoded and each complete VCALENDAR verified.",
+        "eventCount": 116
+      },
+      "reason": ""
+    },
+    "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".grid.boxes > div,.grid.photos > .photo",
+        "titleSelector": "h2,h3",
+        "linkSelector": "h2 a,h3 a,a.cta,a.btn"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.024781+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .grid.boxes > div,.grid.photos > .photo containers with independent dates and titles."
+      }
+    },
+    "https://events.cmu.edu/computational-humanities/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Computational%20Humanities/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Computational Humanities"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.489038+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/dietrich/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Dietrich%20College%20of%20Humanities%20and%20Social%20Sciences/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Dietrich College of Humanities and Social Sciences"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.542182+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".grid.news .filterable",
+        "titleSelector": "h2.name",
+        "linkSelector": "a",
+        "dateSelector": "span"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.155183+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .grid.news .filterable containers with independent dates and titles."
+      }
+    },
+    "https://www.cmu.edu/dietrich/hsp/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/dietrich/hsp/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".grid.boxes > div,.grid.photos > .photo",
+        "titleSelector": "h2,h3",
+        "linkSelector": "h2 a,h3 a,a.cta,a.btn"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.180060+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .grid.boxes > div,.grid.photos > .photo containers with independent dates and titles."
+      }
+    },
+    "https://www.cmu.edu/ideas-social-cybersecurity/events/seminars.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/ideas-social-cybersecurity/events/seminars.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".grid.boxes > div,.grid.photos > .photo",
+        "titleSelector": "h2,h3",
+        "linkSelector": "h2 a,h3 a,a.cta,a.btn"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.026174+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .grid.boxes > div,.grid.photos > .photo containers with independent dates and titles."
+      }
+    },
+    "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.045761+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The archive gives speakers by month/year but often omits exact event days; those entries cannot be placed on a date calendar reliably."
+    },
+    "https://www.cmu.edu/dietrich/social-dynamics/events/index.html": {
+      "adapter": "ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/icsd%40andrew.cmu.edu/public/basic.ics",
+      "options": {
+        "timezone": "America/New_York",
+        "additionalFetchUrls": []
+      },
+      "strategy": "Decode the calendar IDs explicitly advertised in the public Google Calendar embed; fetch their verified public iCalendar exports and merge UID-based occurrences.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:16:30.559855+00:00",
+        "httpStatus": 200,
+        "structure": "Public Google iframe/calendar IDs decoded and each complete VCALENDAR verified.",
+        "eventCount": 119
+      },
+      "reason": ""
+    },
+    "https://events.cmu.edu/universitypress/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Carnegie%20Mellon%20University%20Press/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Carnegie Mellon University Press"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.383169+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/english/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/English%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "English Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.542961+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/history/cause/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/history/cause/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:08.955427+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "Historical event announcements span several incompatible prose and archive layouts; a verified title/date section parser is required."
+    },
+    "https://www.cmu.edu/dietrich/history/calendar/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/281/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "281"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:52.992539+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 281"
+      }
+    },
+    "https://events.cmu.edu/history/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/History%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "History Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.599167+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/dietrich/history/centers-seminars/ehrs-seminar.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/dietrich/history/centers-seminars/ehrs-seminar.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.004769+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The source contains prose announcements rather than event cards; current extraction cannot reliably pair each lecture title with its date and original detail link."
+    },
+    "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.012249+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The source links semester schedules instead of exposing individual dated event records; a verified child-schedule parser is required."
+    },
+    "https://www.cmu.edu/dietrich/lcal/cbesa/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/dietrich/lcal/cbesa/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".grid.boxes > div",
+        "titleSelector": "h2,h3"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:08.985737+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .grid.boxes > div containers with independent dates and titles."
+      }
+    },
+    "https://events.cmu.edu/lcal/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Languages%2C%20Cultures%20%26amp%3B%20Applied%20Linguistics%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Languages, Cultures &amp; Applied Linguistics Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.652840+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/dietrich/lcal/news-events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/126/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "126"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.019524+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 126"
+      }
+    },
+    "https://events.cmu.edu/philosophy/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Philosophy%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Philosophy Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.758553+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/dietrich/philosophy/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/dietrich/philosophy/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.037592+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://www.cmu.edu/dietrich/philosophy/events/lectures-colloquia/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/132/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "132"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.053358+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 132"
+      }
+    },
+    "https://www.cmu.edu/dietrich/philosophy/events/workshops-conferences/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/dietrich/philosophy/events/workshops-conferences/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.079228+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "Conference titles, dates and programs span nonuniform heading/prose sections; no reliable per-event extraction contract is configured."
+    },
+    "https://events.cmu.edu/psychology/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Psychology%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Psychology Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.819414+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/dietrich/psychology/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Psychology%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Psychology Department"
+      },
+      "strategy": "Fetch the exact unit/tag LiveWhale JSON scope advertised by the embedded public iframe, with API pagination.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.084264+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded public iframe https://events.cmu.edu/psychology/month?iframe=1"
+      },
+      "reason": ""
+    },
+    "https://www.cmu.edu/dietrich/sds/events/hilliard.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/643/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "643",
+          "225"
+        ],
+        "additionalFetchUrls": [
+          "https://events.cmu.edu/live/widget/225/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON"
+        ],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.119372+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 643, 225"
+      }
+    },
+    "https://events.cmu.edu/sds/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Social%20and%20Decision%20Sciences%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Social and Decision Sciences Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.877268+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/dietrich/sds/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/145/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "145"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.100095+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 145"
+      }
+    },
+    "https://www.cmu.edu/dietrich/statistics-datascience/cmsac/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/dietrich/statistics-datascience/cmsac/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.089378+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The page combines event names and dates inside custom prose headings; a verified event heading parser is required."
+    },
+    "https://www.cmu.edu/dietrich/statistics-datascience/stamps/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/dietrich/statistics-datascience/stamps/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.100989+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "This is an event-series directory; individual dated seminars require following its linked schedules."
+    },
+    "https://www.cmu.edu/dietrich/statistics-datascience/stamps/events/seminars/index.html": {
+      "adapter": "ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/jc6aikc4u6u7rr8npd7lkbs6qk%40group.calendar.google.com/public/basic.ics",
+      "options": {
+        "timezone": "America/New_York",
+        "additionalFetchUrls": []
+      },
+      "strategy": "Decode the calendar IDs explicitly advertised in the public Google Calendar embed; fetch their verified public iCalendar exports and merge UID-based occurrences.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:16:30.559855+00:00",
+        "httpStatus": 200,
+        "structure": "Public Google iframe/calendar IDs decoded and each complete VCALENDAR verified.",
+        "eventCount": 57
+      },
+      "reason": ""
+    },
+    "https://events.cmu.edu/statistics-datascience/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Statistics%20%26amp%3B%20Data%20Science%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Statistics &amp; Data Science Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.877414+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/dietrich/statistics-datascience/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/153/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "153"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.131819+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 153"
+      }
+    },
+    "https://events.cmu.edu/academic-calendar/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Academic%20Calendar/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Academic Calendar"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.272770+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/admission/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Admission/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Admission"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.273327+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://admission.cmu.edu/portal/tte-fall-events": {
+      "adapter": "html",
+      "fetchUrl": "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=dcd31a6b-3550-47fc-b017-a3da7621233e&cmd=event_list",
+      "options": {
+        "timezone": "America/New_York",
+        "eventSelector": ".event[data-date]",
+        "titleSelector": "a",
+        "linkSelector": "a",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "additionalFetchUrls": [
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=82519ec8-e178-497a-8c34-7bb0af7b61d7&cmd=event_list",
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=0e73ebfd-2fc3-4afb-81fe-c4717d8ac8b6&cmd=event_list",
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=76c7e32a-9652-46a0-8332-297c4fa82fbb&cmd=event_list",
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=9bf4ab7e-5732-43c1-b71b-fe0a8cc06e0e&cmd=event_list",
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=ec9baf05-a3da-47c4-a475-a1f6b47d5beb&cmd=event_list",
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=e9030f1d-6619-4b81-a662-6472c5d6c6be&cmd=event_list",
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=7f41ce4b-cd53-419d-b5df-a99d2a8323a8&cmd=event_list",
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=d565b72f-72c2-4efa-8ce3-7befe3f00241&cmd=event_list",
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=b04e724b-0e6a-4e71-ab1f-2d83827e4bd7&cmd=event_list",
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=6252e38f-1776-4577-823f-e1eb13fc338f&cmd=event_list",
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=eb774387-f1a7-45d0-8aa9-98597bbbab11&cmd=event_list",
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=d3fc82e6-0088-4927-92c6-aa91c8252d5a&cmd=event_list",
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=77e88386-73ab-4f95-9215-c6cab3efa58f&cmd=event_list",
+          "https://admission.cmu.edu/portal/widget/event?portal_id=680c9c3f-791e-4a1f-8af4-a351645b0bd4&part=514d0c42-b0f9-494b-bbc0-64cc91f1eef3&cmd=event_list"
+        ],
+        "maxPages": 10
+      },
+      "strategy": "Fetch the public Slate event_list HTML endpoints advertised in the page data-service attributes; parse .event data-date in the source timezone and retain register detail URLs.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes."
+      },
+      "status": "active",
+      "reason": ""
+    },
+    "https://events.cmu.edu/admitted-students/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Admitted%20Students/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Admitted Students"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.273462+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/enrollment-financial-deadlines/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Enrollment%20and%20Financial%20Deadlines/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Enrollment and Financial Deadlines"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.568480+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/oie/community-connections/friday-email/index.html": {
+      "adapter": "newsletter",
+      "fetchUrl": "https://www.cmu.edu/oie/community-connections/friday-email/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "maxIssues": 2,
+        "issueLinkSelector": "a[href$=\".pdf\"]",
+        "issueFormat": "pdf"
+      },
+      "strategy": "Discover the newest public newsletter issues; extract explicitly dated event sections and links from issue content, never from the issue publication date.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.052728+00:00",
+        "httpStatus": 200,
+        "structure": "OIE public current-semester archive links dated PDF issues."
+      }
+    },
+    "https://events.cmu.edu/studyabroad/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Study%20Abroad/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Study Abroad"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.927731+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/afretec/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Afretec/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Afretec"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.273686+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.africa.engineering.cmu.edu/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/674/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "674"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.468551+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 674"
+      }
+    },
+    "https://events.cmu.edu/africa/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/CMU-Africa/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "CMU-Africa"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.486313+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.qatar.cmu.edu/events/calendar/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.qatar.cmu.edu/events/calendar/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:10.459292+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://www.qatar.cmu.edu/events/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.qatar.cmu.edu/events/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.473568+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://www.sv.cmu.edu/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.sv.cmu.edu/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.496939+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected page does not expose dated event records supported by the current adapter."
+    },
+    "https://events.cmu.edu/sv/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/CMU%20Silicon%20Valley/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "CMU Silicon Valley"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.486216+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/block-center/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Block%20Center%20for%20Technology%20and%20Society/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Block Center for Technology and Society"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.380904+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/colab/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/colab/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".caption,#related-campus-events table tr",
+        "titleSelector": "h2,h3,td:first-child",
+        "linkSelector": "h2 a,h3 a,td a"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.146059+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .caption,#related-campus-events table tr containers with independent dates and titles."
+      }
+    },
+    "https://www.heinz.cmu.edu/events/": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/356/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "356"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.650911+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 356"
+      }
+    },
+    "https://events.cmu.edu/heinz/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Heinz%20College%20of%20Information%20Systems%20and%20Public%20Policy/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Heinz College of Information Systems and Public Policy"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.599211+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/risk-reg-center/news-and-events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.149137+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The public page mixes special programs and news without a verified per-event date/title contract."
+    },
+    "https://www.cmu.edu/hr/calendar/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/171/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "171"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.124832+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 171"
+      }
+    },
+    "https://events.cmu.edu/hr/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Human%20Resources/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Human Resources"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.599380+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/ai-sdm/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/315/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "315"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.702600+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 315"
+      }
+    },
+    "https://www.cmu.edu/ai-sdm/seminars/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/ai-sdm/seminars/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".grid.boxes > div,.grid.photos > .photo",
+        "titleSelector": "h2,h3",
+        "linkSelector": "h2 a,h3 a,a.cta,a.btn"
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:32.055470+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .grid.boxes > div,.grid.photos > .photo containers with independent dates and titles.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected page is an undated seminar-recording archive. Video upload dates must not be substituted for event dates."
+    },
+    "https://www.cmu.edu/aimsec/news-and-events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/aimsec/news-and-events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "eventSelector": ".anm-card[data-type=\"event\"]",
+        "dateSelector": ".anm-timestamp",
+        "titleSelector": ".anm-title",
+        "linkSelector": ".anm-title",
+        "descriptionSelector": ".anm-desc",
+        "detailLinks": true,
+        "maxDetails": 6
+      },
+      "strategy": "Parse only AIMSEC cards explicitly classified as events; read the event timestamp, title, summary and original event link.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:22:30.198112+00:00",
+        "httpStatus": 200,
+        "structure": "Live .anm-card data-type=event cards contain .anm-timestamp/.anm-title/.anm-desc; exclude news/blog/video cards."
+      },
+      "status": "active",
+      "reason": ""
+    },
+    "https://events.cmu.edu/ai-sdm/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/AI-SDM/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "AI-SDM"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.275317+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/aimsec/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/AIMSEC/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "AIMSEC"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.273786+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/interdisciplinary/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/BXA%20Intercollege%20Degree%20Programs/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "BXA Intercollege Degree Programs"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.382517+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/ceic/events-seminars/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/ceic/events-seminars/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.759490+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "Sidebar event links omit the year in visible dates; a child-event parser must verify full dates and times before enabling ingestion."
+    },
+    "https://www.cmu.edu/ai4bio/seminar/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/ai4bio/seminar/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "eventSelector": ".grid.boxes > div,.grid.photos > div",
+        "titleSelector": "h2,h3",
+        "emptySelector": "#Upcoming",
+        "emptyPattern": "Stay tuned for future announcements"
+      },
+      "strategy": "Refresh the explicit Upcoming section; recognize its reviewed empty announcement, and parse future dated seminar cards when they are added.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:22:30.198112+00:00",
+        "httpStatus": 200,
+        "structure": "Live #Upcoming states Stay tuned for future announcements."
+      },
+      "status": "empty",
+      "reason": "The live Upcoming section explicitly says Stay tuned for future announcements; the displayed past-speaker recording has no event date."
+    },
+    "https://www.cnbc.cmu.edu/cnbc-calendar/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cnbc.cmu.edu/cnbc-calendar/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:54:16.779744+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://www.compbio.cmu.edu/seminar-series/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.compbio.cmu.edu/seminar-series/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": "table tr",
+        "dateSelector": "td:first-child",
+        "titleSelector": "td:nth-child(4)",
+        "linkSelector": "td:nth-child(4) a"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.370540+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific table tr containers with independent dates and titles."
+      }
+    },
+    "https://events.cmu.edu/etc/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Entertainment%20Technology%20Center/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Entertainment Technology Center"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.586615+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/ideate/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/IDeATe/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "IDeATe"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.640242+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://icarm.io/events/": {
+      "adapter": "html",
+      "fetchUrl": "https://icarm.io/events/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.200375+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://www.cmu.edu/iii/admissions/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/iii/admissions/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:08.694290+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The events are rendered by the public Tockify calendar cmuinnovation; its public feed/API contract is not implemented."
+    },
+    "https://events.cmu.edu/ni/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Neuroscience%20Institute/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Neuroscience Institute"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.757835+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.psc.edu/calendar/": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Pittsburgh%20Supercomputing%20Center/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Pittsburgh Supercomputing Center"
+      },
+      "strategy": "Fetch the exact unit/tag LiveWhale JSON scope advertised by the embedded public iframe, with API pagination.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.839587+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded public iframe https://events.cmu.edu/psc/month?iframe=1"
+      },
+      "reason": ""
+    },
+    "https://events.cmu.edu/psc/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Pittsburgh%20Supercomputing%20Center/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Pittsburgh Supercomputing Center"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.808372+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://energy.cmu.edu/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/601/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "601"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.720717+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 601"
+      }
+    },
+    "https://www.sei.cmu.edu/events/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.sei.cmu.edu/events/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".flex.flex-col:has(> h4.card-title)",
+        "titleSelector": "h4.card-title",
+        "dateSelector": "h6",
+        "linkSelector": "h4.card-title a"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.816142+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .flex.flex-col:has(> h4.card-title) containers with independent dates and titles."
+      }
+    },
+    "https://www.cmu.edu/steinbrenner/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/steinbrenner/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.799781+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The advertised Google public export returned HTTP 404; remaining prose/program blocks have no verified extractor."
+    },
+    "https://www.cmu.edu/swartz-center-for-entrepreneurship/events-new/connects/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/swartz-center-for-entrepreneurship/events-new/connects/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "headingSections": true,
+        "sectionLinkSelector": "a.btn[href*=\"luma.com\"],a.ghost[href*=\"luma.com\"]"
+      },
+      "strategy": "Parse each CONNECTS heading and its following explicitly dated description; use its public registration link, or the source page if no registration link is present.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:22:30.198112+00:00",
+        "httpStatus": 200,
+        "structure": "Live inspected h2 event headings followed by explicit full dates, hybrid attendance details and public Luma registration links."
+      },
+      "status": "active",
+      "reason": ""
+    },
+    "https://www.cmu.edu/swartz-center-for-entrepreneurship/events-new/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/swartz-center-for-entrepreneurship/events-new/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.513524+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://luma.com/cmu-swartz-center": {
+      "adapter": "html",
+      "fetchUrl": "https://luma.com/cmu-swartz-center",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.543218+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://www.cmu.edu/swartz-center-for-entrepreneurship/community-and-news/news/weekly-bulletin.html": {
+      "adapter": "newsletter",
+      "fetchUrl": "https://www.cmu.edu/swartz-center-for-entrepreneurship/community-and-news/news/weekly-bulletin.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "maxIssues": 2,
+        "issueLinkSelector": "a[href*=\"t.e2ma.net/message/\"]"
+      },
+      "strategy": "Discover the newest public newsletter issues; extract explicitly dated event sections and links from issue content, never from the issue publication date.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:08.860342+00:00",
+        "httpStatus": 200,
+        "structure": "Dated archive links point to public Emma newsletter HTML."
+      }
+    },
+    "https://events.cmu.edu/energy/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Wilton%20E.%20Scott%20Institute%20for%20Energy%20Innovation/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Wilton E. Scott Institute for Energy Innovation"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.930255+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.mcs.cmu.edu/": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/177/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "177"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.879344+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 177"
+      }
+    },
+    "https://events.cmu.edu/mcs/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Mellon%20College%20of%20Science/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Mellon College of Science"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.703770+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/bio/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Biological%20Sciences%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Biological Sciences Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.340211+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/chemistry/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Chemistry%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Chemistry Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.434416+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/math/news-events/aco_seminars.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/211/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "211"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:55:23.101478+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 211"
+      }
+    },
+    "https://www.cmu.edu/math/news-events/cna_seminars.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/163/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "163"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:55:23.101560+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 163"
+      }
+    },
+    "https://www.cmu.edu/math/news-events/core-model-seminars.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/179/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "179"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:55:23.101629+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 179"
+      }
+    },
+    "https://www.cmu.edu/math/news-events/graduate_student_seminars.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/258/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "258"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:55:23.101757+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 258"
+      }
+    },
+    "https://www.cmu.edu/math/news-events/logic_seminars.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/208/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "208"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:55:23.101779+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 208"
+      }
+    },
+    "https://www.cmu.edu/math/news-events/math_club_colloquia.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/259/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "259"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:55:23.155282+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 259"
+      }
+    },
+    "https://www.cmu.edu/math/news-events/calendar.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/178/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "178"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:52.968109+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 178"
+      }
+    },
+    "https://www.cmu.edu/math/news-events/math_colloquia.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/212/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "212"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:55:23.139116+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 212"
+      }
+    },
+    "https://events.cmu.edu/math/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Mathematical%20Sciences%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Mathematical Sciences Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.703445+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/math/news-events/math_teaching_seminars.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/686/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "686"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:55:23.155397+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 686"
+      }
+    },
+    "https://www.cmu.edu/math/news-events/math_finance_seminars.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/164/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "164"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.370417+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 164"
+      }
+    },
+    "https://www.cmu.edu/math/news-events/summer_undergraduate_research_seminar.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/262/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "262"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:55:23.159594+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 262"
+      }
+    },
+    "https://www.cmu.edu/physics/news-events/events/astrophysics_seminars.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/215/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "215"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.317844+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 215"
+      }
+    },
+    "https://www.cmu.edu/physics/news-events/events/biophysics_seminars.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/216/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "216"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.326448+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 216"
+      }
+    },
+    "https://www.cmu.edu/physics/news-events/events/cond_matter_seminars.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/217/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "217"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.370258+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 217"
+      }
+    },
+    "https://www.cmu.edu/physics/news-events/events/physics_colloquia.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/213/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "213"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.313953+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 213"
+      }
+    },
+    "https://events.cmu.edu/physics/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Physics%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Physics Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.764766+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/physics/news-events/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Physics%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Physics Department"
+      },
+      "strategy": "Fetch the exact unit/tag LiveWhale JSON scope advertised by the embedded public iframe, with API pagination.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:52.992492+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded public iframe https://events.cmu.edu/physics/month?iframe=1"
+      },
+      "reason": ""
+    },
+    "https://www.cmu.edu/computing/services/ai/learn-connect/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Computing%20Services/tag/ai/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Computing Services",
+        "tags": [
+          "ai"
+        ]
+      },
+      "strategy": "Fetch the exact unit/tag LiveWhale JSON scope advertised by the embedded public iframe, with API pagination.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.413202+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded public iframe https://events.cmu.edu/computing/all/tags/ai?iframe=1"
+      },
+      "reason": ""
+    },
+    "https://events.cmu.edu/computing/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Computing%20Services/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Computing Services"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.518567+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/teaching/facultyprograms/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/teaching/facultyprograms/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.091820+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The current program page uses nested recurring/topic lists and context-dependent short dates; extraction needs a verified series-date parser."
+    },
+    "https://seminars.eberly.cmu.edu/": {
+      "adapter": "html",
+      "fetchUrl": "https://seminars.eberly.cmu.edu/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": "#seminars > .item",
+        "titleSelector": "h2",
+        "dateSelector": "h3:first-of-type",
+        "locationSelector": "h3:nth-of-type(2)",
+        "linkSelector": "a:not([href$=\"/login\"])"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:54:16.813188+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific #seminars > .item containers with independent dates and titles."
+      }
+    },
+    "https://www.cmu.edu/graduate/news-and-events/graduate-news/index.html": {
+      "adapter": "newsletter",
+      "fetchUrl": "https://www.cmu.edu/graduate/news-and-events/graduate-news/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "maxIssues": 2,
+        "issueLinkSelector": "a[href*=\"/ay-\"]"
+      },
+      "strategy": "Discover the newest public newsletter issues; extract explicitly dated event sections and links from issue content, never from the issue publication date.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.108467+00:00",
+        "httpStatus": 200,
+        "structure": "Dated archive links point to public academic-year issue HTML."
+      }
+    },
+    "https://events.cmu.edu/faculty-office/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Office%20of%20the%20Vice%20Provost%20for%20Faculty/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Office of the Vice Provost for Faculty"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.758463+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/graduate/news-and-events/postdoc-post/index.html": {
+      "adapter": "newsletter",
+      "fetchUrl": "https://www.cmu.edu/graduate/news-and-events/postdoc-post/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "maxIssues": 2,
+        "issueLinkSelector": "a[href*=\"/ay-\"]"
+      },
+      "strategy": "Discover the newest public newsletter issues; extract explicitly dated event sections and links from issue content, never from the issue publication date.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.111546+00:00",
+        "httpStatus": 200,
+        "structure": "Dated archive links point to public academic-year issue HTML."
+      }
+    },
+    "https://www.cmu.edu/ctp/workshops/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/ctp/workshops/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".grid.boxes > div,.grid.photos > .photo",
+        "titleSelector": "h2,h3",
+        "linkSelector": "h2 a,h3 a,a.cta,a.btn"
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.263108+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .grid.boxes > div,.grid.photos > .photo containers with independent dates and titles.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "Workshop cards link separate descriptions but contain no dates; the current child-page extractor could not establish reliable scheduled occurrences."
+    },
+    "https://www.cmu.edu/flame/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/flame/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.234354+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://www.cmu.edu/real/news-and-events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/real/news-and-events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.275332+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The page advertises a Google calendar whose public export returned HTTP 404 and provides no dated event announcements in HTML."
+    },
+    "https://www.cs.cmu.edu/scs-distinguished-lecture-series": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cs.cmu.edu/scs-distinguished-lecture-series",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.053468+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected lecture-series page has no dated event records supported by the current extractor; individual events may also appear in the separately ingested SCS calendar."
+    },
+    "https://www.cs.cmu.edu/calendar/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cs.cmu.edu/calendar/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:05.935938+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://www.cs.cmu.edu/events/scs-seminar-series": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.053227+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "This page is a directory of seminar series rather than a dated event list. Linked series and the SCS feed have separate source plans."
+    },
+    "https://pdl.cmu.edu/SDI/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://pdl.cmu.edu/SDI/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.431392+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected series landing page does not expose current dated event records supported by the extractor."
+    },
+    "https://events.cmu.edu/cbd/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Ray%20and%20Stephanie%20Lane%20Computational%20Biology%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Ray and Stephanie Lane Computational Biology Department"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.822050+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://csd.cmu.edu/calendar": {
+      "adapter": "html",
+      "fetchUrl": "https://csd.cmu.edu/calendar",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.114685+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://db.cs.cmu.edu/seminars/": {
+      "adapter": "html",
+      "fetchUrl": "https://db.cs.cmu.edu/seminars/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.169085+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The source is a directory of semester schedules; a staged parser for the current semester table and talk details is required."
+    },
+    "https://www.cs.cmu.edu/~pop/seminar/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cs.cmu.edu/~pop/seminar/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": "table.table tr",
+        "dateSelector": "td:first-child",
+        "titleSelector": "td:nth-child(3)",
+        "linkSelector": "td:nth-child(3) a"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.140416+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific table.table tr containers with independent dates and titles."
+      }
+    },
+    "https://www.cs.cmu.edu/~theorylunch/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cs.cmu.edu/~theorylunch/",
+      "options": {
+        "timezone": "America/New_York",
+        "eventSelector": ".one_talk_page",
+        "titleSelector": ".talk_title a",
+        "linkSelector": ".talk_title a",
+        "detailLinks": true,
+        "maxDetails": 6
+      },
+      "strategy": "Parse Theory Lunch talk blocks with explicit date text and abstract URLs; preserve date precision when the individual talk lacks a clock time.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:22:30.198112+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected .one_talk_page blocks include explicit full dates and .talk_title abstract links."
+      },
+      "status": "active",
+      "reason": ""
+    },
+    "https://hcii.cmu.edu/news/seminars/upcoming": {
+      "adapter": "html",
+      "fetchUrl": "https://hcii.cmu.edu/news/seminars/upcoming",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": "table.views-table tbody tr",
+        "dateSelector": "time",
+        "titleSelector": "td[headers=\"view-title-table-column\"] a",
+        "linkSelector": "td[headers=\"view-title-table-column\"] a"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.229552+00:00",
+        "httpStatus": 200,
+        "structure": "Drupal seminar rows with machine-readable time datetime attributes."
+      }
+    },
+    "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html": {
+      "adapter": "manual",
+      "fetchUrl": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+      "options": {
+        "timezone": "America/New_York"
+      },
+      "strategy": "Retain the public LTI Colloquium link and flag its image-only schedule for OCR review before automatic ingestion.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:22:30.198112+00:00",
+        "httpStatus": 200,
+        "structure": "Upcoming Speaker uses sewon-min-poster.png; Fall 2026 Schedule uses colloquium-series-fall-2026.png; HTML contains no event dates."
+      },
+      "status": "unsupported",
+      "reason": "The live source publishes the upcoming speaker and Fall 2026 schedule only inside PNG posters. The portable Node adapters do not perform image OCR, so dates and titles cannot be reliably extracted from this HTML."
+    },
+    "https://www.cs.cmu.edu/~mlaiseminar/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cs.cmu.edu/~mlaiseminar/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": "table.table tbody tr",
+        "dateSelector": "td:first-child",
+        "titleSelector": "td:nth-child(5)",
+        "linkSelector": "td:nth-child(3)",
+        "locationSelector": "td:nth-child(2)"
+      },
+      "strategy": "Parse explicit dated ML/AI seminar rows, locations and talk titles; when a future talk title is not announced, retain its published speaker as the event title and keep the seminar schedule URL.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.181296+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific table.table tbody tr containers with independent dates and titles."
+      }
+    },
+    "https://www.ri.cmu.edu/events/": {
+      "adapter": "wordpress",
+      "fetchUrl": "https://www.ri.cmu.edu/wp-json/tribe/events/v1/events?per_page=100",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "preferFeed": false
+      },
+      "strategy": "Fetch the verified WordPress The Events Calendar JSON API for all public Robotics Institute events; preserve full upstream descriptions when provided, follow next_rest_url pagination, and deduplicate matching ICS events by original URL and start date.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:34:04.918910+00:00",
+        "httpStatus": 200,
+        "structure": "Verified tribe/events/v1/events response; the Seminar taxonomy has ID 44. Full descriptions exist for thesis and VASC events, while Gupta event 153347 currently has an empty upstream description."
+      },
+      "status": "active",
+      "reason": "The WordPress API provides richer descriptions for some events than the public ICS feed. Events whose upstream description is blank retain an explicit unavailable-summary state."
+    },
+    "https://www.ri.cmu.edu/events/category/seminar/list/": {
+      "adapter": "wordpress",
+      "fetchUrl": "https://www.ri.cmu.edu/wp-json/tribe/events/v1/events?per_page=100&categories=44",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "preferFeed": false
+      },
+      "strategy": "Fetch the verified WordPress The Events Calendar JSON API for the public Seminar category (ID 44); preserve full upstream descriptions when provided, follow next_rest_url pagination, and deduplicate matching ICS events by original URL and start date.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:34:04.918910+00:00",
+        "httpStatus": 200,
+        "structure": "Verified tribe/events/v1/events response; the Seminar taxonomy has ID 44. Full descriptions exist for thesis and VASC events, while Gupta event 153347 currently has an empty upstream description."
+      },
+      "status": "active",
+      "reason": "The WordPress API provides richer descriptions for some events than the public ICS feed. Events whose upstream description is blank retain an explicit unavailable-summary state."
+    },
+    "https://cups.cs.cmu.edu/calendar.php": {
+      "adapter": "html",
+      "fetchUrl": "https://cups.cs.cmu.edu/calendar.php",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.334798+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://privacy.s3d.cmu.edu/masters/seminar/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://privacy.s3d.cmu.edu/masters/seminar/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "eventSelector": ".grid.boxes > div:has(h4)",
+        "titleSelector": "h4",
+        "dateSelector": "> div:first-child",
+        "yearSelector": ".grid.boxes > h1",
+        "linkSelector": "h4 a",
+        "detailLinks": false
+      },
+      "strategy": "Parse privacy seminar speaker cards and resolve each missing event year only from the explicit Fall/Spring schedule heading selected by yearSelector; preserve source-page or linked abstract URLs.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.673163+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected Fall 2026 Seminar Speakers heading and per-speaker cards with month/day text and h4 speaker names."
+      },
+      "status": "active",
+      "reason": ""
+    },
+    "https://s3d.cmu.edu/events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://s3d.cmu.edu/events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.289735+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://s3d.cmu.edu/events/distinguished.html": {
+      "adapter": "ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/andrew.cmu.edu_n0lpkdiara2auhjiucnjlnehc8%40group.calendar.google.com/public/basic.ics",
+      "options": {
+        "timezone": "America/New_York",
+        "additionalFetchUrls": []
+      },
+      "strategy": "Decode the calendar IDs explicitly advertised in the public Google Calendar embed; fetch their verified public iCalendar exports and merge UID-based occurrences.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:16:30.559855+00:00",
+        "httpStatus": 200,
+        "structure": "Public Google iframe/calendar IDs decoded and each complete VCALENDAR verified.",
+        "eventCount": 887
+      },
+      "reason": ""
+    },
+    "https://s3d.cmu.edu/events/calendar.html": {
+      "adapter": "ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/andrew.cmu.edu_n0lpkdiara2auhjiucnjlnehc8%40group.calendar.google.com/public/basic.ics",
+      "options": {
+        "timezone": "America/New_York",
+        "additionalFetchUrls": []
+      },
+      "strategy": "Decode the calendar IDs explicitly advertised in the public Google Calendar embed; fetch their verified public iCalendar exports and merge UID-based occurrences.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:16:30.559855+00:00",
+        "httpStatus": 200,
+        "structure": "Public Google iframe/calendar IDs decoded and each complete VCALENDAR verified.",
+        "eventCount": 887
+      },
+      "reason": ""
+    },
+    "https://s3d.cmu.edu/events/sssg.html": {
+      "adapter": "ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/andrew.cmu.edu_n0lpkdiara2auhjiucnjlnehc8%40group.calendar.google.com/public/basic.ics",
+      "options": {
+        "timezone": "America/New_York",
+        "additionalFetchUrls": []
+      },
+      "strategy": "Decode the calendar IDs explicitly advertised in the public Google Calendar embed; fetch their verified public iCalendar exports and merge UID-based occurrences.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:16:30.559855+00:00",
+        "httpStatus": 200,
+        "structure": "Public Google iframe/calendar IDs decoded and each complete VCALENDAR verified.",
+        "eventCount": 887
+      },
+      "reason": ""
+    },
+    "https://athletics.cmu.edu/composite": {
+      "adapter": "ics",
+      "fetchUrl": "https://athletics.cmu.edu/composite?print=ical",
+      "options": {
+        "timezone": "America/New_York"
+      },
+      "strategy": "Download the officially advertised PrestoSports public iCalendar feed; preserve original match URLs, sports categories, UID and timezones.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "Composite schedule links print=ical; validated complete VCALENDAR."
+      },
+      "reason": ""
+    },
+    "https://events.cmu.edu/athletics-home/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Athletics/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Athletics"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.337682+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/career/employers/calendar.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/career/employers/calendar.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.003361+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected employer overview does not expose a verified machine-readable dated event list."
+    },
+    "https://www.cmu.edu/student-diversity/events/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/14/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "14",
+          "12"
+        ],
+        "additionalFetchUrls": [
+          "https://events.cmu.edu/live/widget/12/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON"
+        ],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.040438+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 14, 12"
+      }
+    },
+    "https://www.cmu.edu/stugov/gsa/Upcoming-Events/index.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/stugov/gsa/Upcoming-Events/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.060605+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://events.cmu.edu/interfaith-calendar/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Inclusive%20Holiday%20Observations%20and%20Interfaith%20Calendar/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Inclusive Holiday Observations and Interfaith Calendar"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.647772+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/student-success/calendar.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/682/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "682"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.003532+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 682"
+      }
+    },
+    "https://events.cmu.edu/student-success/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Student%20Academic%20Success%20Center/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Student Academic Success Center"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.877845+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/student-affairs/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Student%20Affairs/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Student Affairs"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.925465+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/uls/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/uls/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.078853+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "Lecture information is distributed across narrative/hero blocks and linked material without a verified current schedule extractor."
+    },
+    "https://www.cmu.edu/wellbeing/calendar/index.html": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/widget/15/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+      "options": {
+        "timezone": "America/New_York",
+        "widgetIds": [
+          "15"
+        ],
+        "additionalFetchUrls": [],
+        "maxPages": 30
+      },
+      "strategy": "Fetch the same public LiveWhale widget JSON used by the embedded calendar; retain its group, tag, and date constraints.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.051619+00:00",
+        "httpStatus": 200,
+        "structure": "Embedded lwcw data-options widget IDs: 15"
+      }
+    },
+    "https://www.alluniversityorchestra.org/concerts": {
+      "adapter": "html",
+      "fetchUrl": "https://www.alluniversityorchestra.org/concerts",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.418748+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected page has no dated event records recognized by the current structured-data/card extractor."
+    },
+    "https://cmubdc.com/lessons/calendar": {
+      "adapter": "html",
+      "fetchUrl": "https://cmubdc.com/lessons/calendar",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.476143+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://www.cmubgso.com/events-programs": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmubgso.com/events-programs",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.512705+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://cmu-cmba.weebly.com/events.html": {
+      "adapter": "html",
+      "fetchUrl": "https://cmu-cmba.weebly.com/events.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.734163+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected page has no individually dated event records supported by the current extractor."
+    },
+    "https://cmudsc.com/events": {
+      "adapter": "html",
+      "fetchUrl": "https://cmudsc.com/events",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.460782+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://cmunewman.com/events": {
+      "adapter": "html",
+      "fetchUrl": "https://cmunewman.com/events",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:10.375493+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://cmupokerclub.com/events.html": {
+      "adapter": "html",
+      "fetchUrl": "https://cmupokerclub.com/events.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.771587+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected page has no explicit, independently dated event records supported by the current extractor."
+    },
+    "https://cmuwushu.org/events": {
+      "adapter": "html",
+      "fetchUrl": "https://cmuwushu.org/events",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": "table tbody tr",
+        "dateSelector": "td:first-child",
+        "titleSelector": "td:nth-child(2)",
+        "linkSelector": "td:nth-child(2) a",
+        "locationSelector": "td:nth-child(4)"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.879733+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific table tbody tr containers with independent dates and titles."
+      }
+    },
+    "https://www.colorstackcmu.org/events": {
+      "adapter": "ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/c_ae3f0dd2b16b39f17f7589e20ee7b7aa0a0ea48b308be896d180a6202412ca35%40group.calendar.google.com/public/basic.ics",
+      "options": {
+        "timezone": "America/New_York",
+        "additionalFetchUrls": []
+      },
+      "strategy": "Decode the calendar IDs explicitly advertised in the public Google Calendar embed; fetch their verified public iCalendar exports and merge UID-based occurrences.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:16:30.559855+00:00",
+        "httpStatus": 200,
+        "structure": "Public Google iframe/calendar IDs decoded and each complete VCALENDAR verified.",
+        "eventCount": 29
+      },
+      "reason": ""
+    },
+    "https://www.cmuintervarsity.org/events.html": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmuintervarsity.org/events.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:10.159325+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://www.cmukgb.org/calendar/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmukgb.org/calendar/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.934077+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://cmuquant.com/events.html": {
+      "adapter": "html",
+      "fetchUrl": "https://cmuquant.com/events.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.936756+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected page has no explicit, independently dated event records supported by the current extractor."
+    },
+    "https://roboclub.org/calendar/": {
+      "adapter": "ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/85bf0h78fidsgkkgmkktrqasm8%40group.calendar.google.com/public/basic.ics",
+      "options": {
+        "timezone": "America/New_York",
+        "additionalFetchUrls": [
+          "https://calendar.google.com/calendar/ical/andrew.cmu.edu_ou661u0dtr7ji6hot3o4cnq5rk%40group.calendar.google.com/public/basic.ics"
+        ]
+      },
+      "strategy": "Decode the calendar IDs explicitly advertised in the public Google Calendar embed; fetch their verified public iCalendar exports and merge UID-based occurrences.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:16:30.559855+00:00",
+        "httpStatus": 200,
+        "structure": "Public Google iframe/calendar IDs decoded and each complete VCALENDAR verified.",
+        "eventCount": 1974
+      },
+      "reason": ""
+    },
+    "https://calendar.google.com/calendar/embed?src=admin%40scottylabs.org&ctz=America%2FNew_York&mode=week": {
+      "adapter": "ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/admin%40scottylabs.org/public/basic.ics",
+      "options": {
+        "timezone": "America/New_York",
+        "additionalFetchUrls": []
+      },
+      "strategy": "Decode the calendar IDs explicitly advertised in the public Google Calendar embed; fetch their verified public iCalendar exports and merge UID-based occurrences.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:16:30.559855+00:00",
+        "httpStatus": 200,
+        "structure": "Public Google iframe/calendar IDs decoded and each complete VCALENDAR verified.",
+        "eventCount": 598
+      },
+      "reason": ""
+    },
+    "https://cmussa.org/events/": {
+      "adapter": "html",
+      "fetchUrl": "https://cmussa.org/events/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".row > div:has(> h3),.row > div:has(> h2)",
+        "titleSelector": "h2,h3",
+        "linkSelector": "h2 a,h3 a"
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:10.050626+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .row > div:has(> h3),.row > div:has(> h2) containers with independent dates and titles.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "Event descriptions contain old dates and varied nested layout; the current selector did not reliably pair dates with event titles."
+    },
+    "https://cmuswe.org/calendar": {
+      "adapter": "html",
+      "fetchUrl": "https://cmuswe.org/calendar",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:09.994089+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected page does not expose a public calendar/feed or dated records supported by the current adapter."
+    },
+    "https://www.tartansalsa.com/goodies/events": {
+      "adapter": "html",
+      "fetchUrl": "https://www.tartansalsa.com/goodies/events",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:10.099984+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected page does not expose independently dated event records supported by the current adapter."
+    },
+    "https://tedxcmu.org/events.html": {
+      "adapter": "html",
+      "fetchUrl": "https://tedxcmu.org/events.html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:10.028114+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records."
+      }
+    },
+    "https://www.wrct.org/events": {
+      "adapter": "html",
+      "fetchUrl": "https://www.wrct.org/events",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:10.159109+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The inspected page has no dated event records supported by the current adapter."
+    },
+    "https://apply.tepper.cmu.edu/portal/MBA_Tepper_Events?tab=home": {
+      "adapter": "html",
+      "fetchUrl": "https://apply.tepper.cmu.edu/portal/widget/event?portal_id=26fc1097-67cd-4172-bc11-b2d0d8f7bccf&part=74cef263-509a-4509-a850-309796c1d6ed&cmd=event_list",
+      "options": {
+        "timezone": "America/New_York",
+        "eventSelector": ".event[data-date]",
+        "titleSelector": "a",
+        "linkSelector": "a",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "additionalFetchUrls": [],
+        "maxPages": 10
+      },
+      "strategy": "Fetch the public Slate event_list HTML endpoints advertised in the page data-service attributes; parse .event data-date in the source timezone and retain register detail URLs.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes."
+      },
+      "status": "active",
+      "reason": ""
+    },
+    "https://apply.mscf.cmu.edu/portal/AdmissionsEvents": {
+      "adapter": "html",
+      "fetchUrl": "https://apply.mscf.cmu.edu/portal/widget/event?portal_id=680cb783-63e1-4972-9599-0fbf444bc42a&part=9e860a70-aa9b-4177-9bc9-d383ded24351&cmd=event_list",
+      "options": {
+        "timezone": "America/New_York",
+        "eventSelector": ".event[data-date]",
+        "titleSelector": "a",
+        "linkSelector": "a",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "additionalFetchUrls": [],
+        "maxPages": 10
+      },
+      "strategy": "Fetch the public Slate event_list HTML endpoints advertised in the page data-service attributes; parse .event data-date in the source timezone and retain register detail URLs.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "Verified anonymous Slate widget event_list responses provide explicit data-date and data-location attributes."
+      },
+      "status": "active",
+      "reason": ""
+    },
+    "https://seminartracker.tepper.cmu.edu/": {
+      "adapter": "html",
+      "fetchUrl": "https://seminartracker.tepper.cmu.edu/Seminars?handler=Read&pageSize=100&sortBy=Date&clientTimeZone=America%2FNew_York&viewType=1",
+      "options": {
+        "timezone": "America/New_York",
+        "format": "tepper",
+        "maxPages": 10
+      },
+      "strategy": "Read the public Seminar Tracker JSON list with bounded Kendo pagination; whitelist only event ID, title, date, end date, abstract, venue, area and cancellation.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "httpStatus": 200,
+        "structure": "Anonymous /Seminars?handler=Read JSON response includes Data/Total and explicit SeminarDate/EndDate offsets."
+      },
+      "status": "active",
+      "reason": ""
+    },
+    "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences": {
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".paragraph--type--up-panel-card",
+        "titleSelector": "h3",
+        "linkSelector": "h3 a"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.702012+00:00",
+        "httpStatus": 200,
+        "structure": "Inspected server-rendered event-specific .paragraph--type--up-panel-card containers with independent dates and titles."
+      }
+    },
+    "https://events.cmu.edu/tepper/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Tepper%20School%20of%20Business/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Tepper School of Business"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.929907+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://www.cmu.edu/piper/index.html": {
+      "adapter": "newsletter",
+      "fetchUrl": "https://www.cmu.edu/piper/index.html",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "maxIssues": 2,
+        "maxDetails": 8,
+        "detailLinks": true,
+        "issueLinkSelector": "a[href*=\"view.connect.cmu.edu\"]"
+      },
+      "strategy": "Discover the newest public newsletter issues; extract explicitly dated event sections and links from issue content, never from the issue publication date.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:54.129419+00:00",
+        "httpStatus": 200,
+        "structure": "Dated archive links point to public CMU newsletter HTML."
+      }
+    },
+    "https://www.huntbotanical.org/exhibitions/": {
+      "adapter": "html",
+      "fetchUrl": "https://www.huntbotanical.org/exhibitions/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:53:08.831555+00:00",
+        "httpStatus": 200,
+        "structure": "Public HTML inspected; accept only independently dated event records.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The source links exhibition series and detail pages; the current adapter cannot establish complete exhibition date ranges from the overview."
+    },
+    "https://www.library.cmu.edu/about/news/events": {
+      "adapter": "html",
+      "fetchUrl": "https://cmu.libcal.com/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".s-lc-c-evt",
+        "dateSelector": "dl dd:first-of-type",
+        "titleSelector": "h3 a",
+        "linkSelector": "h3 a",
+        "timeSelector": "dl dd:nth-of-type(2)",
+        "locationSelector": "dl dd:nth-of-type(3)"
+      },
+      "strategy": "Follow the library overview’s explicit View all upcoming events and workshops link to the public LibCal calendar; reuse its verified event-card extractor.",
+      "evidence": {
+        "checkedAt": "2026-10-21T02:22:30.198112+00:00",
+        "httpStatus": 200,
+        "structure": "Overview links its public upcoming event/workshop calendar on cmu.libcal.com."
+      },
+      "reason": ""
+    },
+    "https://cmu.libcal.com/": {
+      "adapter": "html",
+      "fetchUrl": "https://cmu.libcal.com/",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".s-lc-c-evt",
+        "dateSelector": "dl dd:first-of-type",
+        "titleSelector": "h3 a",
+        "linkSelector": "h3 a",
+        "timeSelector": "dl dd:nth-of-type(2)",
+        "locationSelector": "dl dd:nth-of-type(3)"
+      },
+      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.910274+00:00",
+        "httpStatus": 200,
+        "structure": "LibCal server-rendered .s-lc-c-evt cards with labeled date/time/location."
+      }
+    },
+    "https://cmu.libcal.com/calendar/workshops": {
+      "adapter": "html",
+      "fetchUrl": "https://cmu.libcal.com/calendar/workshops",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": true,
+        "maxDetails": 8,
+        "eventSelector": ".s-lc-c-evt",
+        "dateSelector": "dl dd:first-of-type",
+        "titleSelector": "h3 a",
+        "linkSelector": "h3 a",
+        "timeSelector": "dl dd:nth-of-type(2)",
+        "locationSelector": "dl dd:nth-of-type(3)"
+      },
+      "strategy": "Retain this public source link and its inspected limitation; enable automatic ingestion only after a verified source-specific parser or public feed is configured.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:48:53.949772+00:00",
+        "httpStatus": 200,
+        "structure": "LibCal server-rendered .s-lc-c-evt cards with labeled date/time/location.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot."
+      },
+      "status": "unsupported",
+      "reason": "The workshop calendar view loads through a separate LibCal calendar interface; only the separately planned LibCal homepage card contract has been verified."
+    },
+    "https://events.cmu.edu/library/all": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/group/Libraries/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": "Libraries"
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:44:59.652889+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://events.cmu.edu/": {
+      "adapter": "livewhale",
+      "fetchUrl": "https://events.cmu.edu/live/json/events/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "options": {
+        "timezone": "America/New_York",
+        "maxPages": 30,
+        "groupTitle": ""
+      },
+      "strategy": "Request the public LiveWhale JSON API with descriptive fields and follow its next-page links.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:46:31.052441+00:00",
+        "httpStatus": 200,
+        "structure": "LiveWhale group_title configuration and JSON API."
+      }
+    },
+    "https://tartanconnect.cmu.edu/Chess/events/": {
+      "adapter": "campusgroups",
+      "fetchUrl": "https://tartanconnect.cmu.edu/Chess/events/",
+      "status": "unsupported",
+      "options": {
+        "timezone": "America/New_York"
+      },
+      "strategy": "Retain the public Chess Club source and flag its legacy announcement for review; enable ingestion only when a dated public calendar or an explicit event year is available.",
+      "reason": "The page exposes a legacy First Meeting announcement for Thursday September 15, 5–7pm in UC McKenna, but gives no event year. The footer year is not event evidence and conflicts with the stated weekday in 2026, so an event date cannot be inferred reliably.",
+      "evidence": {
+        "checkedAt": "2026-10-20T21:45:05.976867+00:00",
+        "httpStatus": 200,
+        "structure": "Legacy text announcement without an event year or a verified upcoming-empty state; calendar dates are not inferred from the footer."
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "cmu-events",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A source-aware public CMU events aggregator and searchable local web application.",
+  "type": "module",
+  "license": "AGPL-3.0-only",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "dev": "node --watch src/server.mjs",
+    "refresh": "node scripts/refresh-events.mjs",
+    "plan": "node scripts/plan-sources.mjs",
+    "test": "node --test",
+    "check": "node scripts/check-project.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "fast-xml-parser": "^5.3.0",
+    "ical.js": "^2.2.1",
+    "pdf-parse": "^2.4.5"
+  }
+}

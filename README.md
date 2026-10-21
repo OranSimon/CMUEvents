@@ -1,65 +1,67 @@
-# CMUEvents
+# CMU Events
 
-CMU 公开活动来源目录。核验日期：**2026-10-20**。
+A local, automatically refreshed discovery app for public Carnegie Mellon events. It builds on a verified catalog of **1,029 source entries** and keeps every event connected to its original publisher.
 
-主清单包含 **1,029 个来源入口**，只使用 `Department`、`Org`、`link` 三列。一个组织可能同时提供网页、ICS 和邮件订阅，因此入口数不等于组织数。
+## Run locally
 
-- [下载 Excel 清单](outputs/01a15b3a-aa11-79f0-96c7-fdcfed7eef2f/CMU_Event_Sources.xlsx)：单张表，可筛选，冻结表头，网址可点击。
-- [查看 CSV 清单](data/event_sources.csv)：UTF-8，适合导入表格或开发活动聚合功能。
-- [查看带核验信息的 JSON](data/event_sources.json)：包含来源类型、核验时间、HTTP 状态、说明和已发现的日历记录数。
-
-## 字段
-
-| 字段 | 含义 |
-| --- | --- |
-| Department | 学院、院系或归属类别。学生社团没有可确认的学术院系归属时，使用官方组织类别。 |
-| Org | 主办单位或来源名称；后缀区分网页、日历和订阅方式。 |
-| link | 活动列表、长期日历、系列活动页面、公开周报目录或订阅源。 |
-
-Public 指无需登录即可查看来源内容。具体活动的参与对象、报名、票务和地点可见性，以活动说明为准。
-
-## 覆盖范围
-
-覆盖七个学院、下属院系与研究中心、跨学科机构、图书馆、学生事务、教职工发展、校友和国际校区，并逐项检查官方目录中的组织来源。
-
-| 来源类型 | 入口数 |
-| --- | ---: |
-| 院系、研究中心及组织独立维护的活动列表 | 159 |
-| CMU 官方单位日历 | 73 |
-| iCalendar / ICS 订阅源 | 422 |
-| TartanConnect 组织活动网页 | 364 |
-| 公开邮件列表订阅页 | 4 |
-| 公开周报归档 | 5 |
-| 活动 RSS | 2 |
-| 合计 | 1,029 |
-
-包含 OIE **Friday Greetings**、Swartz **Weekly Bulletin**、**The Piper**、研究生与博士后公开周报，以及你提供的 HCII、RI、LTI、Swartz、音乐、戏剧、Activities Board 和 RoboClub 来源。RI 的固定月份视图替换为长期列表，RoboClub 的年度回顾替换为日历。Liberty Magic 属于校外机构，未作为 CMU 下属组织收录。
-
-本轮检查了 [CMU Calendar Directory](https://events.cmu.edu/directory/) 的全部 **73 个单位日历**、TartanConnect 的 **499 个组织活动页候选入口**、Pittsburgh 与 Qatar 平台公开目录中的 **576 个日历订阅链接**，并检查了学院、院系、研究中心及组织独立网站。576 个平台订阅链接中，**399 个返回完整 VCALENDAR 文件**。
-
-## 使用时需要保留的区别
-
-- 主清单不收录固定单场活动详情链接。年会、讲座系列和工作坊使用持续维护的列表入口。
-- **313 个组织活动网页**在匿名 HTML 中显示暂无即将开展的活动；它们作为长期入口保留。**122 个有效平台 ICS**当前没有 VEVENT 记录。两者均不能据此推断组织停止活动，也不能据此保证近期有活动。
-- 官方公开订阅目录中也存在 404。失效、反爬阻挡、登录跳转和其他未核验入口放在 [候选与失败记录](research/unavailable-sources.json)，不混入可用主清单。CALCM、Graphics Seminar 和两处 Constant Contact 订阅页仍有访问核验限制；旧 Monday Mailer 页面会跳转到登录。
-- 来源之间可能重叠。聚合具体活动时，应按 UID、原始活动链接及主办方去重。JSON 中的 `calendar_event_count` 是该文件的 VEVENT 数量，可能包括历史或取消记录，不能当作未来活动数量。
-- 这是按公开目录和独立网站系统检索得到的来源清单。新开设、未被公开链接、仅在社交平台发布或需要登录的来源可能不在其中；本目录不声称全网永久穷尽。
-- 国际校区已收录 Africa、Qatar 和 Silicon Valley 的公开入口。Miami 官网本轮返回 403，未确认其独立公开活动列表。
-
-## 更新数据
-
-`research/manual-sources.tsv` 保存独立来源候选；官方日历、组织目录和订阅链接分别由脚本发现。页面缓存不进入 Git。
+Use **Node.js 22.13 or newer** with npm. No API key, account, external database, build step, or Python installation is needed for the app.
 
 ```bash
-python3 scripts/discover_directories.py
-python3 scripts/discover_hubs.py
-python3 scripts/discover_centers.py
-python3 scripts/discover_org_websites.py
-python3 scripts/discover_feeds.py
-python3 scripts/discover_additional_subscriptions.py
-python3 scripts/build_catalog.py
+npm ci
+npm start
 ```
 
-默认复用本地页面缓存。需要重新访问网址时，为命令设置 `CMUEVENTS_REFRESH=1`。Excel 通过 `scripts/build_workbook.mjs` 生成，再使用 `scripts/add_xlsx_hyperlinks.py` 添加原生链接；生成器使用 Codex 配套的 `@oai/artifact-tool` 运行时。
+Open **http://127.0.0.1:3000**. If that port is occupied, use `PORT=4173 npm start`. SQLite may print an experimental-feature notice on some supported Node versions.
 
-项目许可证：[GNU Affero General Public License v3.0](LICENSE)。
+The first launch starts fetching real public sources in the background. Results appear as batches finish; the source-health panel shows progress and extraction failures. Later launches reuse the local database immediately. Keep the server running for automatic updates. Stopping it stops background updates; restarting catches up due sources.
+
+## Discover events
+
+- Search titles, descriptions, locations, departments, organizations and topic tags.
+- Filter by upcoming/today/next 7 days/next 30 days or an inclusive custom date range.
+- Combine **Department**, **Org**, topic, campus and attendance-mode filters.
+- Switch between list and grid views, bookmark the current filters, and open an event for its source-text summary, description, time, location and provenance.
+- Follow the original event link for current registration, eligibility and program details.
+
+Timed events are displayed in **America/New_York**; details retain the source timezone. Date-only entries retain date precision. Long-running events appear as ongoing. Broad tags are deterministic suggestions configured in [`config/taxonomy.json`](config/taxonomy.json), not official CMU labels or generated factual claims.
+
+## Refresh and maintain
+
+The server checks due sources every 15 minutes. Each plan has its own refresh interval; empty calendars remain eligible. The refresh button requests a full update. Concurrent refresh requests share one job.
+
+```bash
+npm run refresh                 # Refresh only due sources, then exit
+npm run refresh -- --force      # Force a complete refresh
+npm run refresh -- --source=ID  # Refresh a selected source ID from /api/sources
+npm run plan                    # Regenerate the complete source strategy mapping
+npm test                        # Offline adapter, storage, filter and API tests
+npm run check                   # Syntax, configuration and 1,029-source coverage checks
+```
+
+Do not run the standalone refresh command while the server is refreshing the same database. Stop the server first or use its refresh button. The normal app has one coordinator and one SQLite database; no queue service is required.
+
+Optional environment variables are documented in [`.env.example`](.env.example). Set them in your shell; the app does not automatically load `.env` files. `CMUEVENTS_AUTO_REFRESH=0` serves existing data without fetching; `CMUEVENTS_DATA_DIR` selects an alternate data folder. `HOST` defaults to loopback. This delivery is a local application; it does not configure an online deployment.
+
+## Source coverage and limitations
+
+[`config/source-plans.json`](config/source-plans.json) maps **every catalog entry** to its adapter, endpoint, options, refresh interval, canonical alias, evidence and reason. [`research/runtime-adapters.md`](research/runtime-adapters.md) records the endpoint investigation.
+
+ICS, LiveWhale, WordPress JSON, CampusGroups, Trumba, RSS/Atom, structured HTML, configured static selectors, public admission-calendar widgets, Tepper seminar JSON and bounded newsletter extraction reuse a small set of adapters. Equivalent webpages reuse a verified calendar feed while retaining their Department and Org associations.
+
+Plan status and live health are separate. `active` means an implemented extraction strategy, not guaranteed complete or currently populated. `empty` still refreshes; `covered` reuses another source; `subscription_only` has no verified public archive; `unsupported` needs a reliable extractor. A live parser failure is visible and preserves the last successful snapshot. Incomplete extraction adds valid events without deleting older records and remains visibly flagged until a complete refresh succeeds. A successful, structurally verified empty feed replaces its old snapshot with zero events.
+
+The app ingests a rolling window from 30 days ago through the next 365 days, expands recurring calendars within that window, and retains source cancellation markers. Newsletter issue dates are never used as event dates; contextual years are used only when stated by the issue. Image-only posters, undated listings, inaccessible pages and private events cannot be reliably extracted. Some bounded pagination/detail limits can reduce coverage and are exposed as warnings. No source is guaranteed exhaustive or permanently available.
+
+Source descriptions are rendered as plain text. Summaries are short source excerpts; missing content is identified rather than invented. Duplicate matching uses occurrence UID and normalized original link/title/start. Different source IDs or differently worded titles can still leave duplicates; equal titles alone never cause unrelated events to merge. Campus and topic inference can be imperfect, so source details remain authoritative.
+
+## Project documents and catalog
+
+- [Project design and folder responsibilities](docs/design.md)
+- [Catalog scope, evidence and rebuilding](docs/catalog.md)
+- [CSV: Department / Org / link](data/event_sources.csv)
+- [Catalog JSON with verification metadata](data/event_sources.json)
+- [Original source workbook](outputs/01a15b3a-aa11-79f0-96c7-fdcfed7eef2f/CMU_Event_Sources.xlsx)
+
+The catalog's entry count is not an organization or upcoming-event count: one organization can publish several feeds and pages. Public sources require no login; event participation may still require registration or have restrictions.
+
+Code is licensed under [GNU Affero General Public License v3.0](LICENSE), `AGPL-3.0-only`. Original event content remains attributable to its publishers.

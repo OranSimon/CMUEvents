@@ -4,3 +4,8 @@ node_modules
 __pycache__/
 *.pyc
 *.inspect.ndjson
+var/
+.env
+.env.*
+!.env.example
+coverage/
