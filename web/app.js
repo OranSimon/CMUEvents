@@ -225,6 +225,8 @@ let filterPreviousFocus = null;
 let refreshRequested = false;
 let diagnosticsData = null;
 let diagnosticsLimit = 30;
+let diagnosticsView = "attention";
+let diagnosticsQuery = "";
 
 /**
  * Compute inclusive calendar boundaries for the selected date preset.
@@ -677,12 +679,12 @@ function openEvent(event) {
  */
 function openSourceInfo() {
   const sources = statusData?.sources || {};
-  const metrics = [[sources.total, "Catalogued sources"], [sources.ok, "Sources with events"], [sources.empty, "Accessible, no events"], [sources.covered, "Covered by shared feeds"], [sources.error, "Need another check"], [sources.blocked, "Access restricted"], [sources.subscription_only, "Subscription only"], [sources.pending, "Awaiting a check"], [sources.unsupported, "Need a custom integration"]].filter(([value]) => Number.isFinite(value));
+  const metrics = [[sources.total, "Catalogued sources"], [sources.ok, "Sources with imported events"], [sources.empty, "No imported events in window"], [sources.covered, "Covered by shared feeds"], [sources.error, "Need another check"], [sources.blocked, "Access restricted"], [sources.subscription_only, "Subscription only"], [sources.pending, "Awaiting a check"], [sources.unsupported, "Need a custom integration"]].filter(([value]) => Number.isFinite(value));
   element("dialog-eyebrow").textContent = "BEHIND THE CALENDAR";
   element("detail-content").innerHTML = `<div class="detail-body"><p class="eyebrow">MANY SOURCES. ONE PLACE.</p><h2 class="detail-title" id="detail-title">A wider view of campus.</h2><p class="source-explanation">CMU Events brings together public calendars, department listings, research centers, student organizations, and public newsletters.</p>
     ${metrics.length ? `<div class="source-metrics">${metrics.map(([value, label]) => `<div class="source-metric"><strong>${value.toLocaleString()}</strong><span>${label}</span></div>`).join("")}</div>` : ""}
     <details class="source-diagnostics" id="source-diagnostics"><summary>View source diagnostics</summary><div id="source-diagnostics-content"></div></details>
-    <div class="source-explanation"><h3>Refreshed automatically</h3><p>The server checks public sources on its refresh schedule. You can also request an update with the refresh button. Existing events remain available while the next snapshot is collected.</p><h3>Useful context stays attached</h3><ul><li>Department and organization come from the source catalogue.</li><li>Topics are assigned from published event text. They are discovery aids and can be imperfect.</li><li>Events appearing in multiple calendars are combined when matching source evidence is available.</li><li>Summaries are deterministic excerpts of source text. Every event keeps its original public link.</li></ul><h3>A public listing is an invitation to check the details</h3><p>Some events require registration, tickets, university affiliation, or a specific audience. Check the organizer’s page before attending.</p><h3>Coverage is visible, and still evolving</h3><p>An empty feed may simply have no upcoming events. Shared calendar feeds can cover several source pages without fetching each page separately. Login-only pages, unavailable sites, and announcements without a verifiable event date may not appear in results.</p></div><p class="source-time">${statusData?.lastUpdated ? `Last published refresh: ${escapeHtml(updatedLabel(statusData.lastUpdated))}.` : "The first refresh has not been published yet."}</p></div>`;
+    <div class="source-explanation"><h3>Refreshed automatically</h3><p>The server checks public sources on its refresh schedule. You can also request an update with the refresh button. Existing events remain available while the next snapshot is collected.</p><h3>What the collection window covers</h3><p>Each refresh imports occurrences from the previous 30 days through the next 365 days. A source with zero imported events may still list older events or publish activities through another calendar. This count describes one collected source; it does not mean the whole organization has no events. A successful automated check also does not establish that the rendered page was visually reviewed.</p><h3>Useful context stays attached</h3><ul><li>Department and organization come from the source catalogue.</li><li>Topics are assigned from published event text. They are discovery aids and can be imperfect.</li><li>Events appearing in multiple calendars are combined when matching source evidence is available.</li><li>Summaries are deterministic excerpts of source text. Every event keeps its original public link.</li></ul><h3>A public listing is an invitation to check the details</h3><p>Some events require registration, tickets, university affiliation, or a specific audience. Check the organizer’s page before attending.</p><h3>Coverage is visible, and still evolving</h3><p>Shared calendar feeds can cover several source pages without fetching each page separately. Login-only pages, unavailable sites, and announcements without a verifiable event date may not appear in results. Source diagnostics include zero-record snapshots and any separately recorded visual review.</p></div><p class="source-time">${statusData?.lastUpdated ? `Last published refresh: ${escapeHtml(updatedLabel(statusData.lastUpdated))}.` : "The first refresh has not been published yet."}</p></div>`;
   element("source-diagnostics").addEventListener("toggle", event => { if (event.target.open) loadSourceDiagnostics(); });
   openDialog();
 }
@@ -710,21 +712,52 @@ async function loadSourceDiagnostics() {
 }
 
 /**
- * Show recoverable failures and unintegrated sources as readable source records.
+ * Render only explicitly recorded visual evidence for a source.
+ * @param {Object} source Source record with optional visual-review evidence.
+ * @return {string} Escaped review markup, or an empty string without evidence.
+ */
+function sourceVisualReview(source) {
+  const review = source.evidence?.visualReview;
+  if (!review || typeof review !== "object") return "";
+  const checked = review.checkedAt && Number.isFinite(Date.parse(review.checkedAt)) ? updatedLabel(review.checkedAt) : "";
+  const outcome = plainText(review.outcome).replace(/_/g, " ");
+  const note = plainText(review.note);
+  const url = safeUrl(review.url);
+  if (!checked && !outcome && !note && !url) return "";
+  return `<div class="diagnostic-visual-review"><p><strong>Recorded visual review</strong>${checked ? ` · ${escapeHtml(checked)}` : ""}</p>${outcome ? `<p>${escapeHtml(outcome)}</p>` : ""}${note ? `<p>${escapeHtml(note)}</p>` : ""}${url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Reviewed page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : ""}</div>`;
+}
+
+/**
+ * Show filtered source snapshots without claiming organization-wide emptiness.
  * @return {void}
  */
 function renderSourceDiagnostics() {
   const container = element("source-diagnostics-content");
   if (!container || !diagnosticsData) return;
-  const states = { error: "Needs a check", blocked: "Access restricted", unsupported: "Integration needed", pending: "Awaiting a check", subscription_only: "Subscription only" };
-  const attention = diagnosticsData.filter(source => Object.hasOwn(states, source.state)).sort((left, right) => (left.org || "").localeCompare(right.org || ""));
-  const visible = attention.slice(0, diagnosticsLimit);
-  container.innerHTML = `<p class="diagnostics-status">${attention.length ? `Showing ${visible.length} of ${attention.length.toLocaleString()} sources that need attention or another way to subscribe.` : "All checked sources are accessible or covered by another public feed."}</p>
+  const attentionStates = ["error", "blocked", "unsupported", "pending", "subscription_only"];
+  const states = { error: "Needs a check", blocked: "Access restricted", unsupported: "Integration needed", pending: "Awaiting a check", subscription_only: "Subscription only", empty: "Zero imported in window", ok: "Has imported events", covered: "Covered by shared feed" };
+  if (!element("source-diagnostics-results")) {
+    container.innerHTML = `<div class="diagnostics-controls"><label for="diagnostics-view">Show sources<select id="diagnostics-view" data-diagnostics-view><option value="attention">Needs attention</option><option value="zero">Zero-record sources</option><option value="all">All</option></select></label><label for="diagnostics-search">Search sources<input id="diagnostics-search" data-diagnostics-search type="search" placeholder="Organization, department, or URL" autocomplete="off" value="${escapeHtml(diagnosticsQuery)}"></label></div><div id="source-diagnostics-results"></div>`;
+    element("diagnostics-view").value = diagnosticsView;
+  }
+  const query = diagnosticsQuery.trim().toLocaleLowerCase();
+  const matching = diagnosticsData.filter(source => {
+    const matchesView = diagnosticsView === "all" || (diagnosticsView === "zero" ? source.state === "empty" : attentionStates.includes(source.state));
+    return matchesView && (!query || `${source.org || ""} ${source.department || ""} ${source.url || ""} ${source.fetchUrl || ""}`.toLocaleLowerCase().includes(query));
+  }).sort((left, right) => (left.org || "").localeCompare(right.org || ""));
+  const visible = matching.slice(0, diagnosticsLimit);
+  const results = element("source-diagnostics-results");
+  results.innerHTML = `<p class="diagnostics-status" role="status" aria-live="polite">${matching.length ? `Showing ${visible.length} of ${matching.length.toLocaleString()} matching sources.` : "No sources match this view and search."}</p>${diagnosticsView === "zero" ? '<p class="diagnostics-status">Zero imported occurrences in the last successful snapshot’s collection window: 30 days back and 365 days ahead. The original page or another calendar may contain events.</p>' : ""}
     <div class="diagnostics-list">${visible.map(source => {
       const url = safeUrl(source.url);
-      const reason = plainText(source.error || source.reason) || "This source has not completed its first check yet.";
-      return `<details class="diagnostic-source"><summary><span>${escapeHtml(source.org || source.department || "CMU source")}</span><small>${states[source.state]}</small></summary><p>${escapeHtml(reason)}</p><p class="diagnostic-department">${escapeHtml(source.department || "Carnegie Mellon University")}${source.lastAttempt ? ` · Checked ${escapeHtml(updatedLabel(source.lastAttempt))}` : ""}</p>${url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Visit original source <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : ""}</details>`;
-    }).join("")}</div>${visible.length < attention.length ? '<button type="button" class="button-secondary diagnostics-more" data-diagnostics-more>Show more sources</button>' : ""}`;
+      const fallback = source.state === "empty" ? "No occurrences were imported from this source in its collection window. This does not establish that the original page or organization has no events."
+        : source.state === "ok" ? `${Number(source.eventCount || 0).toLocaleString()} occurrences imported from this source in its collection window.`
+        : source.state === "covered" ? "This source is represented by a shared public feed."
+        : "This source has not completed a successful check. See its original page for current information.";
+      const reason = plainText(source.error || source.reason) || fallback;
+      const retained = source.state === "error" && Number(source.eventCount) > 0 ? `<p>${Number(source.eventCount).toLocaleString()} imported occurrences remain available while this source needs review.</p>` : "";
+      return `<details class="diagnostic-source"><summary><span>${escapeHtml(source.org || source.department || "CMU source")}</span><small>${escapeHtml(states[source.state] || "Status unavailable")}</small></summary>${retained}<p>${escapeHtml(reason)}</p><p class="diagnostic-department">${escapeHtml(source.department || "Carnegie Mellon University")}${source.lastAttempt ? ` · Checked ${escapeHtml(updatedLabel(source.lastAttempt))}` : ""}</p>${url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Visit original source <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : ""}${sourceVisualReview(source)}</details>`;
+    }).join("")}</div>${visible.length < matching.length ? '<button type="button" class="button-secondary diagnostics-more" data-diagnostics-more>Show more sources</button>' : ""}`;
 }
 
 /**
@@ -787,6 +820,12 @@ function bindEvents() {
   element("detail-content").addEventListener("click", event => {
     if (event.target.closest("[data-diagnostics-retry]")) loadSourceDiagnostics();
     if (event.target.closest("[data-diagnostics-more]")) { diagnosticsLimit += 30; renderSourceDiagnostics(); }
+  });
+  element("detail-content").addEventListener("change", event => {
+    if (event.target.matches("[data-diagnostics-view]")) { diagnosticsView = event.target.value; diagnosticsLimit = 30; renderSourceDiagnostics(); }
+  });
+  element("detail-content").addEventListener("input", event => {
+    if (event.target.matches("[data-diagnostics-search]")) { diagnosticsQuery = event.target.value; diagnosticsLimit = 30; renderSourceDiagnostics(); }
   });
   element("mobile-filter-button").addEventListener("click", openFilters);
   ["close-filters", "filter-backdrop", "show-events"].forEach(id => element(id).addEventListener("click", closeFilters));

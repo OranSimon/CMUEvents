@@ -111,6 +111,35 @@ test('partial extraction adds valid events without deleting prior records or cla
   assert.match(source.error, /previous records retained/);
 });
 
+test('partial timed enrichment replaces only a unique same-link same-title unknown-time day', t => {
+  const store = openStore(':memory:');
+  t.after(() => store.close());
+  store.registerPlans(plans);
+  const date = event({ uid: 'listing', start: '2026-11-03', end: '2026-11-04', allDay: true, timePrecision: 'date' });
+  const timed = event({ uid: 'detail', start: '2026-11-04T01:00:00.000Z', end: '2026-11-04T02:00:00.000Z', timePrecision: 'time' });
+  store.replaceSource('a', [date], [], '2026-10-01T00:00:00.000Z');
+  store.mergePartial('a', [timed], ['A separate child remains undated']);
+  assert.equal(store.rebuildEvents(plans), 1);
+  assert.equal(store.listEvents({ from: '2026-11-03' }).events[0].uid, 'detail');
+  assert.equal(store.listSources().find(item => item.id === 'a').state, 'error');
+  assert.equal(store.listSources().find(item => item.id === 'a').lastSuccess, '2026-10-01T00:00:00.000Z');
+  for (const [old, fresh, count] of [
+    [{ ...date, timePrecision: 'all-day' }, [timed], 2],
+    [date, [timed, { ...timed, uid: 'second-session', start: '2026-11-03T22:00:00.000Z' }], 3],
+    [date, [{ ...timed, url: 'https://example.edu/another' }], 2],
+    [date, [{ ...timed, title: 'A separate seminar' }], 2],
+    [date, [{ ...timed, start: '2026-11-05T01:00:00.000Z' }], 2],
+    [{ ...date, end: '2026-11-06' }, [timed], 2],
+  ]) {
+    store.replaceSource('a', [old]);
+    store.mergePartial('a', fresh, ['Other child unavailable']);
+    assert.equal(store.rebuildEvents(plans), count);
+  }
+  store.replaceSource('a', [date, { ...date, uid: 'ambiguous-prior' }]);
+  store.mergePartial('a', [timed], ['Other child unavailable']);
+  assert.equal(store.db.prepare('SELECT COUNT(*) AS count FROM occurrences WHERE source_id=?').get('a').count, 3);
+});
+
 test('syndicated copies merge only with identical substantial descriptions, titles, times and physical venues', t => {
   const store = openStore(':memory:');
   t.after(() => store.close());

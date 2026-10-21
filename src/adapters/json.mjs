@@ -1,5 +1,7 @@
-import { absoluteUrl, addDays, normalizeEvent, inWindow } from '../lib/normalize.mjs';
+import { absoluteUrl, addDays, normalizeEvent, inWindow, plainText, parseDate } from '../lib/normalize.mjs';
 import { parseIcs } from './ics.mjs';
+import * as cheerio from 'cheerio';
+import { explicitTextDate, explicitTextEnd } from './html.mjs';
 
 /**
  * Format a timestamp as its calendar date in the event's own timezone.
@@ -51,6 +53,47 @@ export function parseLiveWhale(json, plan = {}, context = {}) {
 }
 
 /**
+ * Split a reviewed WordPress series only from its explicitly published dates.
+ * Uniform clock times and the year must be printed in selected source sections;
+ * a container's start/end range never implies daily or weekly meetings.
+ * @param {Object} input Shared normalized-input fields for the series container.
+ * @param {Object} plan Source options with an explicit sessionDates contract.
+ * @return {Object|null} Session inputs and diagnostics, or null for ordinary events.
+ */
+function explicitWordPressSessions(input, plan) {
+  const options = plan.options?.sessionDates;
+  if (!options || !new RegExp(options.titlePattern, 'i').test(plainText(input.title))) return null;
+  const $ = cheerio.load(input.description || '');
+  const years = [...new Set($(options.yearSelector).text().match(/\b20\d{2}\b/g) || [])];
+  const label = `WordPress series ${input.uid || plainText(input.title)}`;
+  if (years.length !== 1) return { inputs: [], warnings: [`${label}: session year is not unambiguously printed in the selected heading`] };
+  const timeBlocks = $(options.timeSelector).toArray();
+  if (timeBlocks.length !== 1) return { inputs: [], warnings: [`${label}: expected one selected paragraph with the shared session clock`] };
+  const timeText = $(timeBlocks[0]).text();
+  const lines = $(options.dateSelector).toArray().map(element => plainText($(element).html())).join('\n').split('\n').map(line => line.trim()).filter(Boolean);
+  const inputs = [];
+  const warnings = [];
+  const dates = new Set();
+  for (const line of lines) {
+    if (/\b(?:no sessions?|cancelled|canceled)\b/i.test(line)) continue;
+    if (!/\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\.?\s+\d/i.test(line)) continue;
+    const day = explicitTextDate(/\b20\d{2}\b/.test(line) ? line : `${line}, ${years[0]}`);
+    const start = day && explicitTextDate(`${day.slice(0, 10)} ${timeText}`);
+    const end = start && explicitTextEnd(timeText, start);
+    if (!day || day.length !== 10 || !parseDate(day) || !start || start.length === 10 || !end || end.length === 10) {
+      warnings.push(`${label}: an explicit session date or shared start/end clock could not be parsed: ${line}`);
+      continue;
+    }
+    if (dates.has(day)) continue;
+    dates.add(day);
+    inputs.push({ ...input, uid: `${input.uid || input.url}::${day}`, start, end, allDay: false,
+      timeZone: plan.options?.timezone || 'America/New_York' });
+  }
+  if (!inputs.length && !warnings.length) warnings.push(`${label}: the selected date list contains no independently dated sessions`);
+  return { inputs, warnings };
+}
+
+/**
  * Read a WordPress The Events Calendar REST API page.
  * @param {Object} json WordPress response with an events collection.
  * @param {Object} plan Source configuration.
@@ -69,7 +112,7 @@ export function parseWordPress(json, plan = {}, context = {}) {
     const end = allDay ? addDays(row.end_date?.slice(0, 10) || start) : row.utc_end_date || row.end_date_utc
       ? `${(row.utc_end_date || row.end_date_utc).replace(' ', 'T').replace(/Z$/, '')}Z` : row.end_date;
     const venue = row.venue || {};
-    const event = normalizeEvent({
+    const input = {
       uid: row.global_id || (row.id === undefined ? undefined : `wordpress:${new URL(plan.url).host}:${row.id}`),
       title: typeof row.title === 'object' ? row.title.rendered : row.title,
       description: typeof row.description === 'object' ? row.description.rendered : row.description || row.content?.rendered,
@@ -78,9 +121,14 @@ export function parseWordPress(json, plan = {}, context = {}) {
       url: row.url || row.link, location: [venue.venue || venue.name, venue.address, venue.city].filter(Boolean).join(', '),
       organizer: [].concat(row.organizer || []).map(item => item.organizer || item.name || '').filter(Boolean).join(', '),
       status: row.event_status || row.status, tags: [].concat(row.categories || [], row.tags || []).map(tag => tag.name || tag.slug || tag),
-    }, plan);
-    if (event && inWindow(event, context)) events.push(event);
-    else if (!event) warnings.push(`Skipped WordPress event ${row.id || '(no id)'}: invalid title, URL or explicit start date`);
+    };
+    const sessions = explicitWordPressSessions(input, plan);
+    if (sessions) warnings.push(...sessions.warnings);
+    for (const candidate of sessions ? sessions.inputs : [input]) {
+      const event = normalizeEvent(candidate, plan);
+      if (event && inWindow(event, context)) events.push(event);
+      else if (!event) warnings.push(`Skipped WordPress event ${row.id || '(no id)'}: invalid title, URL or explicit start date`);
+    }
   }
   return { events, warnings, next: json.next_rest_url || json.next || null, ...(warnings.length ? { partial: true } : {}) };
 }
@@ -126,7 +174,24 @@ export function parseTrumba(json, plan = {}, context = {}) {
  * @return {Promise<Object>} Complete bounded event collection and diagnostics.
  */
 export async function fetchJsonEvents(plan, context) {
-  const initial = plan.fetchUrl || plan.url;
+  let initial = plan.fetchUrl || plan.url;
+  if (plan.adapter === 'wordpress') {
+    const url = new URL(initial);
+    const zone = plan.options?.timezone || 'America/New_York';
+    // The Events Calendar defaults to events starting now. Explicit end/start
+    // overlap bounds also retrieve ongoing events that began before the window.
+    if (context.windowStart && !url.searchParams.has('ends_after')) {
+      const date = localDate(context.windowStart, zone);
+      if (!date) throw new Error('Invalid WordPress ingestion window start or source timezone');
+      url.searchParams.set('ends_after', date);
+    }
+    if (context.windowEnd && !url.searchParams.has('starts_before')) {
+      const date = localDate(context.windowEnd, zone);
+      if (!date) throw new Error('Invalid WordPress ingestion window end or source timezone');
+      url.searchParams.set('starts_before', date);
+    }
+    initial = url.href;
+  }
   const origin = new URL(initial).origin;
   const maxPages = Math.min(plan.options?.maxPages || 30, 100);
   const events = new Map();

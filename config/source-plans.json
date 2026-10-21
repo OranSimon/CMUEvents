@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-21T18:30:12.195Z",
+  "generatedAt": "2026-10-21T20:56:19.535Z",
   "catalogCount": 1029,
   "statusDefinitions": {
     "active": "An implemented adapter is scheduled for automatic extraction.",
@@ -13,14 +13,14 @@
   "summary": {
     "adapters": {
       "campusgroups": 363,
-      "html": 91,
+      "html": 90,
       "ics": 437,
       "livewhale": 118,
       "manual": 6,
       "newsletter": 5,
       "rss": 2,
       "trumba": 2,
-      "wordpress": 5
+      "wordpress": 6
     },
     "statuses": {
       "active": 495,
@@ -526,20 +526,29 @@
       "refreshHours": 6,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
+        "detailLinks": false,
         "maxDetails": 8,
         "eventSelector": ".content table tr:has(td:nth-child(2))",
         "titleSelector": "td:nth-child(2) strong:last-of-type",
         "dateFromPreviousRow": true,
-        "linkSelector": "td:nth-child(2) a"
+        "linkSelector": "td:nth-child(2) a",
+        "pendingTitleSelector": ".content h1",
+        "contextTimeSelector": ".content h1 + p",
+        "contextDescriptionSelector": ".content h1 + p"
       },
-      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
-      "reason": "",
+      "strategy": "Import explicitly dated Fall 2026 seminar slots using the printed series title and shared time; retain Details TBD until the publisher names a speaker/topic.",
+      "reason": "The dated slots are published even when speaker and talk details remain TBD. No Seminar rows and undated placeholders remain excluded.",
       "evidence": {
         "anonymousAccessVerified": true,
-        "checkedAt": "2026-10-20T21:48:52.919170+00:00",
+        "checkedAt": "2026-10-21T20:48:09.759Z",
         "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific .content table tr:has(td:nth-child(2)) containers with independent dates and titles."
+        "structure": "Visually checked 2026 Fall Seminar Series table: exact dated slots, including October 22/29, November 5/12/19 and December 3, with speaker/title TBD. Intro states Tuesdays and Thursdays 9:30–10:30 AM in Doherty Hall 2315.",
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "dated_tentative_slots_excluded",
+          "note": "The 2026 schedule has dated TBD slots, a shared Tuesday/Thursday time of 09:30–10:30, and room DH 2315. A source-specific replay recovers 9 window records, including 6 future slots; speaker and title remain tentative.",
+          "url": "https://www.cmu.edu/bme/News_Events/seminars-current.html"
+        }
       }
     },
     {
@@ -830,7 +839,13 @@
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.275220+00:00",
         "httpStatus": 200,
-        "structure": "The current graduate-seminar block is empty and links semester archives. Follow advertised schedules that can overlap the current window, using table month/day with the explicit Spring/Fall year h1."
+        "structure": "The current graduate-seminar block is empty and links semester archives. Follow advertised schedules that can overlap the current window, using table month/day with the explicit Spring/Fall year h1.",
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "current_schedule_unpublished_archive_only",
+          "note": "The current Graduate Seminars section contains general policy without a dated schedule; the newest linked archive is Spring 2026. A current schedule remains unpublished.",
+          "url": "https://www.ece.cmu.edu/news-and-events/seminars.html"
+        }
       }
     },
     {
@@ -1410,7 +1425,13 @@
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-20T21:44:59.822328+00:00",
         "httpStatus": 200,
-        "structure": "LiveWhale group_title configuration and JSON API."
+        "structure": "LiveWhale group_title configuration and JSON API.",
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "empty_channel_with_populated_official_calendar",
+          "note": "The university calendar channel displays “No events” under All Upcoming. The school’s separate official events source already has 11 window records.",
+          "url": "https://events.cmu.edu/architecture/all"
+        }
       }
     },
     {
@@ -1444,21 +1465,41 @@
       "org": "School of Art Events",
       "url": "https://art.cmu.edu/events/?ical=1",
       "kind": "ical_feed",
-      "adapter": "ics",
-      "fetchUrl": "https://art.cmu.edu/events/?ical=1",
+      "adapter": "wordpress",
+      "fetchUrl": "https://art.cmu.edu/wp-json/tribe/events/v1/events?per_page=50",
       "status": "active",
       "canonicalSourceId": null,
       "refreshHours": 6,
       "options": {
-        "timezone": "America/New_York"
+        "timezone": "America/New_York",
+        "maxPages": 10,
+        "sessionDates": {
+          "titlePattern": "^Open Figure Drawing Sessions$",
+          "yearSelector": "h2",
+          "dateSelector": "p:has(strong)",
+          "timeSelector": "p:contains(\"All sessions take place\")"
+        }
       },
-      "strategy": "Fetch the public iCalendar feed; unfold RFC 5545 fields, expand bounded recurrences, preserve UID, cancellation, local timezone and source URL.",
+      "strategy": "Query the verified WordPress calendar API with overlap bounds and split the reviewed figure-drawing series using only the dates and shared clock printed in its description.",
       "reason": "",
       "evidence": {
-        "checkedAt": "2026-10-20T21:54:57.733952+00:00",
-        "httpStatus": 200,
         "anonymousAccessVerified": true,
-        "eventCount": 6
+        "checkedAt": "2026-10-21T20:43:09.217Z",
+        "httpStatus": 200,
+        "reviewMethod": "Root visually checked the public exhibitions listing and the individual series detail. This agent inspected fresh public WordPress API payloads and replayed them through the adapter.",
+        "structure": "Category 33 is Exhibitions. Default API query omits an ongoing series whose September 6 start is before now. ends_after/starts_before return events overlapping the requested window. Series description explicitly lists 12 sessions, a Fall 2026 heading, and 6:00–8:30 PM in CFA 308; October 18 and November 29 say No Session.",
+        "adapterAudit": "Explicit-date opt-in yields nine occurrences in the current 30-day lookback / 365-day lookahead window, including six future sessions. Both category and all-events endpoints produce identical provider/date identities; no continuous series container remains.",
+        "observedChildUrls": [
+          {
+            "url": "https://art.cmu.edu/event/open-figure-drawing-sessions-fall-2026/",
+            "httpStatus": 200
+          }
+        ],
+        "apiDocumentation": "https://art.cmu.edu/wp-json/tribe/events/v1/doc",
+        "reviewLimitations": [
+          "Only the explicitly reviewed Open Figure Drawing Sessions title is expanded. Other exhibitions preserve their published ranges."
+        ],
+        "sourceId": "116abd92f9b3"
       }
     },
     {
@@ -1474,15 +1515,40 @@
       "refreshHours": 6,
       "options": {
         "timezone": "America/New_York",
-        "maxPages": 10
+        "maxPages": 10,
+        "sessionDates": {
+          "titlePattern": "^Open Figure Drawing Sessions$",
+          "yearSelector": "h2",
+          "dateSelector": "p:has(strong)",
+          "timeSelector": "p:contains(\"All sessions take place\")"
+        }
       },
-      "strategy": "Query The Events Calendar JSON API with the verified exhibitions category ID 33; retain API event URLs and descriptions.",
+      "strategy": "Query the verified WordPress calendar API with overlap bounds and split the reviewed figure-drawing series using only the dates and shared clock printed in its description.",
       "reason": "",
       "evidence": {
         "anonymousAccessVerified": true,
-        "checkedAt": "2026-10-21T02:11:59.217111+00:00",
+        "checkedAt": "2026-10-21T20:43:09.217Z",
         "httpStatus": 200,
-        "structure": "Public tribe/events/v1/categories reports exhibitions category ID 33; event endpoint verified."
+        "reviewMethod": "Root visually checked the public exhibitions listing and the individual series detail. This agent inspected fresh public WordPress API payloads and replayed them through the adapter.",
+        "structure": "Category 33 is Exhibitions. Default API query omits an ongoing series whose September 6 start is before now. ends_after/starts_before return events overlapping the requested window. Series description explicitly lists 12 sessions, a Fall 2026 heading, and 6:00–8:30 PM in CFA 308; October 18 and November 29 say No Session.",
+        "adapterAudit": "Explicit-date opt-in yields nine occurrences in the current 30-day lookback / 365-day lookahead window, including six future sessions. Both category and all-events endpoints produce identical provider/date identities; no continuous series container remains.",
+        "observedChildUrls": [
+          {
+            "url": "https://art.cmu.edu/event/open-figure-drawing-sessions-fall-2026/",
+            "httpStatus": 200
+          }
+        ],
+        "apiDocumentation": "https://art.cmu.edu/wp-json/tribe/events/v1/doc",
+        "reviewLimitations": [
+          "Only the explicitly reviewed Open Figure Drawing Sessions title is expanded. Other exhibitions preserve their published ranges."
+        ],
+        "sourceId": "185507d927cb",
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "false_empty_query_semantics",
+          "note": "The ongoing Open Figure Drawing series lists 12 Sundays from September 6 to December 6, 2026, including six future dates. The default query omitted this series.",
+          "url": "https://art.cmu.edu/events/exhibitions/"
+        }
       }
     },
     {
@@ -1559,7 +1625,13 @@
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.040138+00:00",
         "httpStatus": 200,
-        "structure": "The unfiltered Design Events view currently contains its scoped no-results notice; this is a verified empty listing, not a parser failure."
+        "structure": "The unfiltered Design Events view currently contains its scoped no-results notice; this is a verified empty listing, not a parser failure.",
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "verified_public_view_no_results",
+          "note": "The inspected public Design Events view explicitly displays “No results.” This does not establish that the school has no events.",
+          "url": "https://design.cmu.edu/design-events"
+        }
       }
     },
     {
@@ -1663,7 +1735,13 @@
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T02:11:59.217111+00:00",
         "httpStatus": 200,
-        "structure": "The Events Calendar JSON endpoint verified against the public performance list."
+        "structure": "The Events Calendar JSON endpoint verified against the public performance list.",
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "healthy_populated_control",
+          "note": "Healthy control: 48 window records. The visible November 8 Tesori and November 12–13 Jagged Little Pill listings match collected events; this source was not baseline-empty.",
+          "url": "https://drama.cmu.edu/whats-happening/"
+        }
       }
     },
     {
@@ -2301,7 +2379,13 @@
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-20T21:48:53.180060+00:00",
         "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific .grid.boxes > div,.grid.photos > .photo containers with independent dates and titles."
+        "structure": "Inspected server-rendered event-specific .grid.boxes > div,.grid.photos > .photo containers with independent dates and titles.",
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "supported_records_outside_window",
+          "note": "The latest visible events are April 28 and April 24, 2026, both before the current ingestion window.",
+          "url": "https://www.cmu.edu/dietrich/hsp/events/index.html"
+        }
       }
     },
     {
@@ -2858,7 +2942,13 @@
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:14.904987+00:00",
         "httpStatus": 200,
-        "structure": "The upcoming section explicitly says more workshops will be posted next semester; historical separately headed conference blocks carry full event dates."
+        "structure": "The upcoming section explicitly says more workshops will be posted next semester; historical separately headed conference blocks carry full event dates.",
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "publisher_no_upcoming_with_historical_archive",
+          "note": "The page says more PFEW workshops will be announced next semester. Its latest historical event is August 2–3, 2025.",
+          "url": "https://www.cmu.edu/dietrich/philosophy/events/workshops-conferences/index.html"
+        }
       }
     },
     {
@@ -5698,7 +5788,13 @@
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T02:22:30.198112+00:00",
         "httpStatus": 200,
-        "structure": "Live #Upcoming states Stay tuned for future announcements."
+        "structure": "Live #Upcoming states Stay tuned for future announcements.",
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "publisher_no_upcoming_notice",
+          "note": "The Upcoming section says “Stay tuned.” No upcoming seminar is published in this inspected view.",
+          "url": "https://www.cmu.edu/ai4bio/seminar/index.html"
+        }
       }
     },
     {
@@ -7320,7 +7416,13 @@
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.054512+00:00",
         "httpStatus": 200,
-        "structure": "The index.html JavaScript redirect explicitly points to index.shtml. Seminar title links encode matching YYYY/MMDDYY.shtml dates; separate links preserve multiple talks on one date."
+        "structure": "The index.html JavaScript redirect explicitly points to index.shtml. Seminar title links encode matching YYYY/MMDDYY.shtml dates; separate links preserve multiple talks on one date.",
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "supported_records_outside_window",
+          "note": "The latest visible SDI entry is August 27, 2026, before the September 21 window start. Subscriptions explicitly require an ANDREW.CMU.EDU address.",
+          "url": "https://pdl.cmu.edu/SDI/index.html"
+        }
       }
     },
     {
@@ -8102,7 +8204,13 @@
         "reviewLimitations": [
           "All currently published rows precede the ingestion lookback window; a healthy empty current result is expected. No future-year dates are inferred from the page footer."
         ],
-        "observedChildUrls": []
+        "observedChildUrls": [],
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "supported_records_outside_window",
+          "note": "Published career events run September 14–18, 2026, before the September 21 window start. The page contains historical events rather than an unpublished calendar.",
+          "url": "https://www.cmu.edu/career/employers/calendar.html"
+        }
       }
     },
     {
@@ -13739,28 +13847,40 @@
       "org": "CMU Wushu Club Events",
       "url": "https://cmuwushu.org/events",
       "kind": "event_listing",
-      "adapter": "html",
-      "fetchUrl": "https://cmuwushu.org/events",
+      "adapter": "ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/c_8aa0bdc408d466c07426d4b7d5e539cf241c08fd655c2d4a1017ea10b79f820c%40group.calendar.google.com/public/basic.ics",
       "status": "active",
       "canonicalSourceId": null,
       "refreshHours": 6,
       "options": {
-        "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8,
-        "eventSelector": "table tbody tr",
-        "dateSelector": "td:first-child",
-        "titleSelector": "td:nth-child(2)",
-        "linkSelector": "td:nth-child(2) a",
-        "locationSelector": "td:nth-child(4)"
+        "timezone": "America/New_York"
       },
-      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
-      "reason": "",
+      "strategy": "Use the public Google Calendar explicitly advertised by Events & Photos and the Schedule page, expanding only publisher-defined recurrence rules and exceptions.",
+      "reason": "The Events & Photos gallery says No Upcoming Events Right Now, but its linked official calendar publishes current practices and events.",
       "evidence": {
         "anonymousAccessVerified": true,
-        "checkedAt": "2026-10-20T21:53:09.879733+00:00",
+        "checkedAt": "2026-10-21T20:47:48.205Z",
         "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific table tbody tr containers with independent dates and titles."
+        "structure": "Visually confirmed the events page links the schedule, which advertises a Google Calendar containing October 2026 WUSHU PRACTICE occurrences. Anonymous public ICS returns 95 VEVENT records and 40 occurrences overlapping the current ingestion window, without parsing warnings.",
+        "observedChildUrls": [
+          {
+            "url": "https://cmuwushu.org/schedule#calendar",
+            "httpStatus": 200
+          },
+          {
+            "url": "https://calendar.google.com/calendar/embed?src=c_8aa0bdc408d466c07426d4b7d5e539cf241c08fd655c2d4a1017ea10b79f820c%40group.calendar.google.com&ctz=America%2FNew_York",
+            "httpStatus": 200
+          }
+        ],
+        "reviewLimitations": [
+          "The original gallery and public calendar have different scopes; only the linked publisher calendar defines imported practice dates."
+        ],
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "false_empty_missed_advertised_calendar",
+          "note": "The Events summary says “No Upcoming,” but the advertised schedule calendar shows October 2026 WUSHU PRACTICE sessions. Its public ICS replay recovers 40 window occurrences without warnings.",
+          "url": "https://cmuwushu.org/events"
+        }
       }
     },
     {
@@ -17974,10 +18094,16 @@
       "strategy": "Fetch the public iCalendar feed; unfold RFC 5545 fields, expand bounded recurrences, preserve UID, cancellation, local timezone and source URL.",
       "reason": "The verified calendar was valid but contained no VEVENT records; continue refreshing it.",
       "evidence": {
+        "anonymousAccessVerified": true,
         "checkedAt": "2026-10-20T21:53:56.765021+00:00",
         "httpStatus": 200,
-        "anonymousAccessVerified": true,
-        "eventCount": 0
+        "eventCount": 0,
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "empty_channel_with_populated_official_calendar",
+          "note": "The TartanConnect body says “No Upcoming Events” despite a navigation badge of 1. The official club calendar shows 36 entries this week and its separate source already has 1,311 window occurrences.",
+          "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68235.ics"
+        }
       }
     },
     {
@@ -18424,10 +18550,16 @@
       "strategy": "Fetch the public iCalendar feed; unfold RFC 5545 fields, expand bounded recurrences, preserve UID, cancellation, local timezone and source URL.",
       "reason": "",
       "evidence": {
+        "anonymousAccessVerified": true,
         "checkedAt": "2026-10-20T21:53:57.297296+00:00",
         "httpStatus": 200,
-        "anonymousAccessVerified": true,
-        "eventCount": 1
+        "eventCount": 1,
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "old_feed_with_populated_official_calendar",
+          "note": "The old TartanConnect feed ends on December 10, 2025. The official calendar shows four entries this week, including October 21 Baking GBM and October 23 MiniCarnival; its separate source has 114 window occurrences.",
+          "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68253.ics"
+        }
       }
     },
     {
@@ -18940,10 +19072,16 @@
       "strategy": "Fetch the public iCalendar feed; unfold RFC 5545 fields, expand bounded recurrences, preserve UID, cancellation, local timezone and source URL.",
       "reason": "",
       "evidence": {
+        "anonymousAccessVerified": true,
         "checkedAt": "2026-10-20T21:53:58.077232+00:00",
         "httpStatus": 200,
-        "anonymousAccessVerified": true,
-        "eventCount": 1
+        "eventCount": 1,
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "old_feed_with_populated_official_calendar",
+          "note": "The old TartanConnect feed ends on October 5, 2025. The official calendar shows November GBM on November 19, 2026, 17:30–18:30; its separate source already has this event.",
+          "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68280.ics"
+        }
       }
     },
     {
@@ -21979,18 +22117,135 @@
       "options": {
         "timezone": "America/New_York",
         "detailLinks": true,
-        "maxDetails": 8,
+        "maxDetails": 10,
         "eventSelector": ".paragraph--type--up-panel-card",
         "titleSelector": "h3",
-        "linkSelector": "h3 a"
+        "linkSelector": "h3 a",
+        "detailLinkSelector": ".Subnav__nested a[href^=\"/tepper/faculty-and-research/seminars-and-conferences/\"]",
+        "detailOptions": {
+          "detailLinks": false
+        },
+        "detailOptionsByUrl": {
+          "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/child-welfare-operations-symposium": {
+            "eventSelector": ".ContentSidebar",
+            "titleSelector": "h1",
+            "dateSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg .text-intro",
+            "timeSelector": "h3:contains(\"Format and Organization\") + p",
+            "descriptionSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg",
+            "locationSelector": "table tr:nth-child(2) td:first-child",
+            "linkSelector": "a[data-event-link]",
+            "detailLinks": false,
+            "preserveFieldBreaks": true
+          },
+          "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/women-economics-theory-conference": {
+            "eventSelector": ".ContentSidebar",
+            "titleSelector": "h1",
+            "dateSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg > div > p:nth-child(2)",
+            "descriptionSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg",
+            "locationSelector": "[data-event-location]",
+            "linkSelector": "a[data-event-link]",
+            "detailLinks": false,
+            "dateOnly": true,
+            "preserveFieldBreaks": true
+          },
+          "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/accounting-mini-conference": {
+            "eventSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg table",
+            "titleFromPage": "h1",
+            "titleSelector": "h1",
+            "dateSelector": "tr:first-child td",
+            "dateOnly": true,
+            "linkSelector": "a[data-event-link]",
+            "detailLinks": false,
+            "preserveFieldBreaks": true
+          },
+          "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/advances-in-macro-finance": {
+            "eventSelector": ".paragraph--type--accordion-item",
+            "titleSelector": "h3",
+            "dateSelector": ".Table__stack > p:first-child",
+            "dateOnly": true,
+            "linkSelector": "a[data-event-link]",
+            "detailLinks": false,
+            "preserveFieldBreaks": true
+          },
+          "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/carnegie-rochester-nyu-conference": {
+            "eventSelector": "main.node .Accordion__item",
+            "titleSelector": ".Accordion__heading",
+            "dateSelector": ".Accordion__content .Table__stack > p:first-child",
+            "descriptionSelector": ".Accordion__content",
+            "linkSelector": "a[data-event-link]",
+            "dateOnly": true,
+            "detailLinks": false,
+            "preserveFieldBreaks": true
+          },
+          "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/ai-and-human-decisions": {
+            "eventSelector": ".ContentSidebar",
+            "titleSelector": "h1",
+            "dateSelector": ".ContentSidebar__content",
+            "linkSelector": "a[data-event-link]",
+            "dateOnly": true,
+            "detailLinks": false,
+            "preserveFieldBreaks": true
+          },
+          "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum": {
+            "eventSelector": ".paragraph--type--accordion-item",
+            "titleSelector": ".Accordion__heading",
+            "dateSelector": ".Accordion__content",
+            "linkSelector": "a[data-event-link]",
+            "dateOnly": true,
+            "detailLinks": false,
+            "preserveFieldBreaks": true
+          }
+        }
       },
-      "strategy": "Ingest independently dated conference cards and inspect advertised conference children; retain a partial-source diagnostic when a required child cannot establish a reliable occurrence.",
-      "reason": "The directory dates Child Welfare Operations Symposium explicitly. Other linked conference pages mix multi-year archives; Sustainability Forum provides recording years without full occurrence dates. These required children remain visibly incomplete until scoped section extraction is verified.",
+      "strategy": "Discover the seven same-origin conference children from the advertised subtree navigation, use exact per-child schedule selectors, and upgrade unknown-time parent records only when a unique timed child proves the same occurrence.",
+      "reason": "The directory is not empty: October 23, 2026 Child Welfare Operations Symposium and May 21–22, 2027 Women in Economics Theory Conference have independently published dates. Accounting, Macro-Finance and Carnegie-Rochester-NYU contain dated historical schedules outside the ingestion window. AI/Human Decisions has no year on its landing page (its linked public agenda says April 10–11, 2026); Sustainability has recording years without occurrence dates. The latter two children retain partial-review diagnostics.",
       "evidence": {
         "anonymousAccessVerified": true,
-        "checkedAt": "2026-10-20T21:48:53.702012+00:00",
+        "checkedAt": "2026-10-21T20:50:46.637Z",
         "httpStatus": 200,
-        "structure": "Inspected server-rendered event-specific .paragraph--type--up-panel-card containers with independent dates and titles."
+        "structure": "Fresh public HTML: directory navigation advertises two children absent from current cards. Scoped children establish 2 current-window conferences; 2 Accounting days, 13 Macro-Finance conferences and 15 CRNYU conferences are recognized but outside the window.",
+        "reviewMethod": "Anonymous HTTP responses and exact DOM selectors replayed through fetchHtml. Browser verification is handled separately by root.",
+        "observedChildUrls": [
+          {
+            "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/child-welfare-operations-symposium",
+            "httpStatus": 200
+          },
+          {
+            "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/women-economics-theory-conference",
+            "httpStatus": 200
+          },
+          {
+            "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/accounting-mini-conference",
+            "httpStatus": 200
+          },
+          {
+            "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/advances-in-macro-finance",
+            "httpStatus": 200
+          },
+          {
+            "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/carnegie-rochester-nyu-conference",
+            "httpStatus": 200
+          },
+          {
+            "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/ai-and-human-decisions",
+            "httpStatus": 200
+          },
+          {
+            "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum",
+            "httpStatus": 200
+          }
+        ],
+        "reviewLimitations": [
+          "AI schedule landing page does not print a year; the linked public agenda verifies April 10–11, 2026, but this HTML adapter does not ingest linked Google Docs text.",
+          "Sustainability Forum has historical video recording years only, so no occurrence dates can be established.",
+          "Women conference clock times are not fully published; its date range remains date precision, with May 22 end-of-day expressed exclusively as May 23."
+        ],
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "partial_child_discovery_not_baseline_empty",
+          "note": "This source is partial, not baseline-empty. Visible conferences include Child Welfare on October 23, 2026, 08:00–16:00 in Tepper 4242, and Women in Economic Theory on May 21–22, 2027. The separate Faculty Tracker does not replace conference-page discovery.",
+          "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences"
+        }
       }
     },
     {
@@ -24459,7 +24714,13 @@
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.265057+00:00",
         "httpStatus": 200,
-        "structure": "Follow the advertised past-exhibitions schedule; event rows print day-first cross-month ranges with explicit years. The next 2029 international exhibition says dates TBD; its 2028 submission deadline is not an exhibition date."
+        "structure": "Follow the advertised past-exhibitions schedule; event rows print day-first cross-month ranges with explicit years. The next 2029 international exhibition says dates TBD; its 2028 submission deadline is not an exhibition date.",
+        "visualReview": {
+          "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+          "outcome": "announced_future_event_date_tbd",
+          "note": "A Fall 2029 exhibition is announced with exact dates still TBD. A submission deadline is not an exhibition date.",
+          "url": "https://www.huntbotanical.org/exhibitions/"
+        }
       }
     },
     {

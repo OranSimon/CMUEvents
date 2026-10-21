@@ -28,6 +28,20 @@ function canonicalUrl(value) {
 }
 
 /**
+ * Match a date-only listing to a timed detail on the same published local day.
+ * @param {Object} event Normalized source occurrence.
+ * @return {string|null} Exact title/link/day identity, or null for invalid data.
+ */
+function detailDayKey(event) {
+  try {
+    const day = event.start.length === 10 ? event.start : new Intl.DateTimeFormat('en-CA', {
+      timeZone: event.timeZone || 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit',
+    }).format(new Date(event.start));
+    return `${canonicalUrl(event.url)}|${event.title.trim().replace(/\s+/g, ' ').toLocaleLowerCase()}|${day}`;
+  } catch { return null; }
+}
+
+/**
  * Generate evidence-based duplicate keys for one occurrence.
  * @param {Object} event Normalized event.
  * @return {Array<string>} UID and source-link keys including the occurrence start.
@@ -215,6 +229,28 @@ export function openStore(filename) {
   function mergePartial(sourceId, events, warnings = []) {
     db.exec('BEGIN');
     try {
+      const previous = db.prepare('SELECT occurrence_key,data FROM occurrences WHERE source_id=?').all(sourceId)
+        .map(row => ({ key: row.occurrence_key, event: JSON.parse(row.data) }));
+      const freshByDay = new Map();
+      const previousByDay = new Map();
+      for (const event of events) {
+        const key = detailDayKey(event);
+        if (key) freshByDay.set(key, [...(freshByDay.get(key) || []), event]);
+      }
+      for (const row of previous) {
+        const key = detailDayKey(row.event);
+        if (key) previousByDay.set(key, [...(previousByDay.get(key) || []), row]);
+      }
+      // A uniquely matched timed detail can enrich a prior unknown-time record
+      // even when another child failed. Explicit all-day and ambiguous records stay.
+      const remove = db.prepare('DELETE FROM occurrences WHERE source_id=? AND occurrence_key=?');
+      for (const [key, fresh] of freshByDay) {
+        const old = previousByDay.get(key);
+        if (fresh.length !== 1 || old?.length !== 1) continue;
+        if (fresh[0].timePrecision !== 'time' || old[0].event.timePrecision !== 'date') continue;
+        if (Date.parse(old[0].event.end) - Date.parse(old[0].event.start) !== 86400000) continue;
+        remove.run(sourceId, old[0].key);
+      }
       const insert = db.prepare('INSERT OR REPLACE INTO occurrences VALUES (?,?,?)');
       for (const event of events) insert.run(sourceId, identifier(occurrenceKeys(event)[0]), JSON.stringify(event));
       const count = db.prepare('SELECT COUNT(*) AS count FROM occurrences WHERE source_id=?').get(sourceId).count;

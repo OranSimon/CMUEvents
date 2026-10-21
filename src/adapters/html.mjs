@@ -261,8 +261,12 @@ export function parseHtml(html, plan = {}, context = {}) {
     const url = absoluteUrl(linkNode.attr('href') || item.attr('href') || plan.url, base);
     const titleCopy = titleNode.clone();
     if (options.titleRemoveSelector) titleCopy.find(options.titleRemoveSelector).remove();
-    const title = (options.titlePattern ? item.text().match(new RegExp(options.titlePattern, 'i'))?.[1] : null)
+    let title = (options.titlePattern ? item.text().match(new RegExp(options.titlePattern, 'i'))?.[1] : null)
       || (options.titleAttribute ? titleNode.attr(options.titleAttribute) : '') || titleCopy.text().trim() || linkNode.text().trim() || (options.titleFromPage ? $(options.titleFromPage).first().text().trim() : '');
+    if (/^(?:TBD|TBA)$/i.test(plainText(title)) && options.pendingTitleSelector) {
+      const series = $(options.pendingTitleSelector).first().text().trim();
+      if (series) title = `${series} — Details ${plainText(title).toUpperCase()}`;
+    }
     let dateText = (options.dateAttribute ? dateNode.attr(options.dateAttribute) : dateNode.text())
       || (options.dateFromPreviousRow ? item.prev('tr').text() : item.text());
     dateText = contextualDate(dateText, options, $, item);
@@ -281,9 +285,13 @@ export function parseHtml(html, plan = {}, context = {}) {
       const endText = `${dateText} ${timeText}`;
       let end = endNode.attr('datetime') || endNode.attr('content') || explicitTextEnd(endText, start);
       if (options.dateOnly && end) end = end.slice(0, 10);
+      const fieldText = selector => options.preserveFieldBreaks
+        ? item.find(selector).toArray().map(element => plainText($(element).html())).join('\n')
+        : item.find(selector).text();
       add({ title, start, end, url,
-        description: item.find(options.descriptionSelector || '.event-description,.description,.summary,.field--name-body').text() || item.text(),
-        location: item.attr(options.locationAttribute || 'data-location') || item.find(options.locationSelector || '.location,.event-location,[itemprop="location"]').text(),
+        description: [fieldText(options.descriptionSelector || '.event-description,.description,.summary,.field--name-body') || item.text(),
+          options.contextDescriptionSelector ? $(options.contextDescriptionSelector).first().text() : ''].filter(Boolean).join('\n'),
+        location: item.attr(options.locationAttribute || 'data-location') || fieldText(options.locationSelector || '.location,.event-location,[itemprop="location"]'),
         status: options.cancelledPattern && new RegExp(options.cancelledPattern, 'i').test(item.text()) ? 'cancelled' : undefined,
         mode: item.attr('data-online') === 'true' || item.attr('data-online') === '1' ? 'online' : undefined });
     }
@@ -444,6 +452,38 @@ function semesterMayOverlap(url, context) {
 }
 
 /**
+ * Replace an imprecise parent card only when its child proves the same occurrence.
+ * Explicit all-day events and distinct titles, URLs or local days remain separate.
+ * @param {Map<string,Object>} events Existing source events keyed by identity.
+ * @param {Object[]} detailEvents Independently normalized child events.
+ * @return {void}
+ */
+function mergeDetailEvents(events, detailEvents) {
+  const timedKeys = new Map();
+  const previousKeys = new Map();
+  for (const event of detailEvents.filter(candidate => candidate.timePrecision === 'time')) {
+    try {
+      const localDay = new Intl.DateTimeFormat('en-CA', { timeZone: event.timeZone,
+        year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(event.start));
+      const key = `${event.url}\0${event.title.toLowerCase()}\0${localDay}`;
+      timedKeys.set(key, (timedKeys.get(key) || 0) + 1);
+    } catch { /* An invalid zone cannot prove a shared local day. */ }
+  }
+  for (const [uid, candidate] of events) {
+    if (candidate.timePrecision !== 'date') continue;
+    const key = `${candidate.url}\0${candidate.title.toLowerCase()}\0${candidate.start}`;
+    if (!previousKeys.has(key)) previousKeys.set(key, []);
+    previousKeys.get(key).push({ uid, candidate });
+  }
+  for (const [key, matches] of previousKeys) {
+    if (matches.length !== 1 || timedKeys.get(key) !== 1) continue;
+    const { uid, candidate } = matches[0];
+    if (candidate.end === addDays(candidate.start)) events.delete(uid);
+  }
+  for (const event of detailEvents) events.set(event.uid, event);
+}
+
+/**
  * Fetch a listing and bounded same-origin details, prioritizing required discovery.
  * Independently dated parent records remain usable if optional enrichment fails;
  * explicit child selectors and ungrounded links require complete child extraction.
@@ -473,13 +513,14 @@ export async function fetchHtml(plan, context) {
       const isRequired = required.has(link);
       const label = isRequired ? 'Detail' : 'Optional detail enrichment';
       try {
-        const detailPlan = { ...plan, url: link, fetchUrl: link, options: { timezone: plan.options?.timezone, ...plan.options?.detailOptions } };
+        const detailPlan = { ...plan, url: link, fetchUrl: link, options: { timezone: plan.options?.timezone,
+          ...plan.options?.detailOptions, ...plan.options?.detailOptionsByUrl?.[link] } };
         const detail = await parseDocument(await context.fetchText(link), detailPlan, context);
         if (!detail.unsupported) supported = true;
         if (isRequired && (detail.unsupported || detail.partial)) partial = true;
         for (const warning of detail.warnings || []) result.warnings.push(`${label} (${link}): ${warning}`);
         if (detail.unsupported && !detail.warnings?.length) result.warnings.push(`${label} (${link}): no verified event structure or empty state was recognized`);
-        for (const event of detail.events) events.set(event.uid, event);
+        mergeDetailEvents(events, detail.events);
       } catch (error) { if (isRequired) partial = true; result.warnings.push(`${label} fetch failed (${link}): ${error.message}`); }
     }
     if (requiredLinks.length > maxDetails) { partial = true; result.warnings.push(`Detail limit ${maxDetails} reached; ${requiredLinks.length - maxDetails} required child page(s) remain; configure pagination or a structured feed for complete ingestion`); }

@@ -1,0 +1,114 @@
+{
+  "checkedAt": "2026-10-21T20:52:42.931Z",
+  "status": {
+    "lastUpdated": "2026-10-21T20:52:20.819Z",
+    "totalEvents": 6603,
+    "sources": {
+      "total": 1029,
+      "ok": 296,
+      "empty": 448,
+      "error": 3,
+      "covered": 259,
+      "unsupported": 19,
+      "subscription_only": 4,
+      "blocked": 0,
+      "pending": 0
+    },
+    "lastRefresh": {
+      "startedAt": "2026-10-21T20:52:16.201Z",
+      "completedAt": "2026-10-21T20:52:20.819Z",
+      "total": 4,
+      "completed": 4,
+      "ok": 4,
+      "empty": 0,
+      "error": 0,
+      "totalEvents": 6603
+    }
+  },
+  "changedSources": [
+    {
+      "id": "116abd92f9b3",
+      "org": "School of Art Events",
+      "state": "ok",
+      "eventCount": 14,
+      "lastAttempt": "2026-10-21T20:51:46.496Z",
+      "error": null,
+      "warnings": []
+    },
+    {
+      "id": "185507d927cb",
+      "org": "School of Art Exhibitions",
+      "state": "ok",
+      "eventCount": 9,
+      "lastAttempt": "2026-10-21T20:51:48.806Z",
+      "error": null,
+      "warnings": []
+    },
+    {
+      "id": "36701a5c63a4",
+      "org": "School of Art Lectures",
+      "state": "ok",
+      "eventCount": 5,
+      "lastAttempt": "2026-10-21T20:52:16.687Z",
+      "error": null,
+      "warnings": []
+    },
+    {
+      "id": "801d1722eda5",
+      "org": "School of Drama — What's Happening",
+      "state": "ok",
+      "eventCount": 57,
+      "lastAttempt": "2026-10-21T20:52:19.417Z",
+      "error": null,
+      "warnings": []
+    },
+    {
+      "id": "869c101c4a32",
+      "org": "BME Seminars",
+      "state": "ok",
+      "eventCount": 9,
+      "lastAttempt": "2026-10-21T20:51:48.698Z",
+      "error": null,
+      "warnings": []
+    },
+    {
+      "id": "a6fc452d965b",
+      "org": "CMU Wushu Club Events",
+      "state": "ok",
+      "eventCount": 40,
+      "lastAttempt": "2026-10-21T20:51:48.662Z",
+      "error": null,
+      "warnings": []
+    },
+    {
+      "id": "a8c3a641e8c5",
+      "org": "Tepper Research Conferences and Seminars",
+      "state": "error",
+      "eventCount": 2,
+      "lastAttempt": "2026-10-21T20:51:49.796Z",
+      "error": "Incomplete extraction; previous records retained. Detail (https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/ai-and-human-decisions): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Detail (https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+      "warnings": [
+        "Detail (https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/ai-and-human-decisions): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side"
+      ]
+    },
+    {
+      "id": "b24d9c9bb1f5",
+      "org": "Robotics Institute Seminars",
+      "state": "ok",
+      "eventCount": 13,
+      "lastAttempt": "2026-10-21T20:52:18.732Z",
+      "error": null,
+      "warnings": []
+    },
+    {
+      "id": "cfd02b9dd433",
+      "org": "Robotics Institute Events",
+      "state": "ok",
+      "eventCount": 24,
+      "lastAttempt": "2026-10-21T20:52:18.752Z",
+      "error": null,
+      "warnings": []
+    }
+  ]
+}

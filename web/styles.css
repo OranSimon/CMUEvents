@@ -246,6 +246,12 @@ select { width: 100%; color: var(--ink); border: 1px solid #deded7; border-radiu
 .source-diagnostics { border-block: 1px solid var(--line); padding: 15px 0; margin-bottom: 25px; }
 .source-diagnostics > summary { cursor: pointer; color: var(--red); font-size: 11px; }
 .diagnostics-status { color: var(--muted); font-size: 10px; line-height: 1.8; margin: 16px 0; }
+.diagnostics-controls { display: grid; grid-template-columns: minmax(120px, .8fr) minmax(0, 1.4fr); gap: 12px; margin-top: 18px; }
+.diagnostics-controls label { display: flex; flex-direction: column; gap: 6px; color: var(--muted); font-size: 10px; }
+.diagnostics-controls input, .diagnostics-controls select { width: 100%; min-width: 0; box-sizing: border-box; padding: 10px; border: 1px solid var(--line); border-radius: 3px; background: var(--white, #fff); color: var(--ink); font: inherit; }
+.diagnostic-visual-review { border-left: 2px solid var(--line); padding-left: 12px; margin-top: 14px; }
+.diagnostic-visual-review p { margin: 5px 0; }
+@media (max-width: 480px) { .diagnostics-controls { grid-template-columns: 1fr; } }
 .diagnostics-list { border-top: 1px solid var(--line); }
 .diagnostic-source { border-bottom: 1px solid var(--line); padding: 13px 0; }
 .diagnostic-source > summary { font-size: 11px; cursor: pointer; }
