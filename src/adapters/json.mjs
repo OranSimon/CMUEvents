@@ -1,7 +1,7 @@
 import { absoluteUrl, addDays, normalizeEvent, inWindow, plainText, parseDate } from '../lib/normalize.mjs';
 import { parseIcs } from './ics.mjs';
 import * as cheerio from 'cheerio';
-import { explicitTextDate, explicitTextEnd } from './html.mjs';
+import { explicitTextDate, explicitTextEnd, clockTime } from './html.mjs';
 
 /**
  * Format a timestamp as its calendar date in the event's own timezone.
@@ -78,7 +78,8 @@ function explicitWordPressSessions(input, plan) {
     if (/\b(?:no sessions?|cancelled|canceled)\b/i.test(line)) continue;
     if (!/\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\.?\s+\d/i.test(line)) continue;
     const day = explicitTextDate(/\b20\d{2}\b/.test(line) ? line : `${line}, ${years[0]}`);
-    const start = day && explicitTextDate(`${day.slice(0, 10)} ${timeText}`);
+    const clock = clockTime(timeText);
+    const start = day && clock ? `${day.slice(0, 10)}T${clock}` : null;
     const end = start && explicitTextEnd(timeText, start);
     if (!day || day.length !== 10 || !parseDate(day) || !start || start.length === 10 || !end || end.length === 10) {
       warnings.push(`${label}: an explicit session date or shared start/end clock could not be parsed: ${line}`);

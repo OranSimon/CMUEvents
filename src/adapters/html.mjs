@@ -2,6 +2,7 @@ import * as cheerio from 'cheerio';
 import { absoluteUrl, normalizeEvent, inWindow, plainText, addDays, parseDate } from '../lib/normalize.mjs';
 import { fetchIcs } from './ics.mjs';
 import { fetchPdfSchedule } from './pdfschedule.mjs';
+import { fetchReviewedImages, parseReviewedFragments } from './reviewed-images.mjs';
 
 const MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12 };
 
@@ -22,7 +23,7 @@ function htmlDetailUrl(value) {
  * @param {string} value Text after an explicit calendar date.
  * @return {string|null} Local HH:MM:SS value.
  */
-function clockTime(value) {
+export function clockTime(value) {
   const marker = '(a\\.?m\\.?|p\\.?m\\.?)';
   const range = value.match(new RegExp(`(?:\\bat\\s+|\\bfrom\\s+|[,|]\\s*|^\\s*)(\\d{1,2})(?::(\\d{2}))?\\s*${marker}?\\s*(?:to|[-–])\\s*\\d{1,2}(?::\\d{2})?\\s*${marker}`, 'i'));
   const single = value.match(new RegExp(`(?:\\bat\\s+|\\bfrom\\s+|[,|]\\s*|^\\s*)(\\d{1,2})(?::(\\d{2}))?\\s*${marker}`, 'i'));
@@ -45,9 +46,12 @@ export function explicitTextDate(value) {
   const iso = text.match(/\b(20\d{2}[-/]\d{2}[-/]\d{2})(?:[T ](\d{1,2}):(\d{2})(?::(\d{2}))?(Z|[+-]\d{2}:?\d{2})?)?\b/);
   if (iso) {
     const date = iso[1].replaceAll('/', '-');
+    const humanPrefix = text.slice(iso.index + iso[1].length).replace(/^[\s(.;·]+/, '')
+      .match(/^(?:at\s+|from\s+)?\d{1,2}(?::\d{2})?\s*(?:a\.?m\.?|p\.?m\.?)?(?:\s*(?:to|[-–])\s*\d{1,2}(?::\d{2})?\s*)?(?:a\.?m\.?|p\.?m\.?)(?!\w)/i);
+    const humanClock = humanPrefix ? clockTime(humanPrefix[0]) : null;
+    if (humanClock) return `${date}T${humanClock}`;
     if (iso[2]) return `${date}T${iso[2].padStart(2, '0')}:${iso[3]}:${iso[4] || '00'}${iso[5] || ''}`;
-    const clock = clockTime(text.slice(iso.index + iso[0].length).replace(/^[\s.;·]+/, ''));
-    return clock ? `${date}T${clock}` : date;
+    return date;
   }
   const crossRange = text.match(/\b(\d{1,2})\s+(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s*[-–]\s*\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\.?\s+(20\d{2})\b/i);
   if (crossRange) return `${crossRange[3]}-${String(MONTHS[crossRange[2].slice(0, 3).toLowerCase()]).padStart(2, '0')}-${crossRange[1].padStart(2, '0')}`;
@@ -68,7 +72,7 @@ export function explicitTextDate(value) {
   const monthNumber = month ? MONTHS[month[1].slice(0, 3).toLowerCase()] : dayFirst ? MONTHS[dayFirst[2].slice(0, 3).toLowerCase()] : +numeric[1];
   const day = month ? month[2] : dayFirst ? dayFirst[1] : numeric[2];
   const date = `${year}-${String(monthNumber).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-  const tail = text.slice(matched.index + matched[0].length).replace(/^[\s.;·]+/, '');
+  const tail = text.slice(matched.index + matched[0].length).replace(/^[\s(.;·]+/, '');
   const clock = clockTime(tail);
   return clock ? `${date}T${clock}` : date;
 }
@@ -137,6 +141,10 @@ function within(item, selector) {
  */
 function contextualDate(value, options, $, item) {
   let text = value.replace(/([A-Za-z])(?=\d)/g, '$1 ');
+  if (options.consecutiveDateList) {
+    text = text.replace(/\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\.?)\s+(\d{1,2})\s*,\s*(\d{1,2})\s*&\s*(\d{1,2})\b/gi,
+      (original, month, first, second, last) => +second === +first + 1 && +last === +second + 1 ? `${month} ${first}–${last}` : original);
+  }
   if ((!options.yearSelector && !options.yearWithinCardSelector) || explicitTextDate(text)) return text;
   let header = options.yearWithinCardSelector ? within(item, options.yearWithinCardSelector).toArray().map(element => $(element).text() || $(element).attr('alt') || '').join(' ') : $(options.yearSelector).first().text();
   header = header.replace(/\b(20\d{2})\s*[-–]\s*(\d{2})\b/g, (_, first, last) => `${first}-${first.slice(0, 2)}${last}`);
@@ -214,6 +222,8 @@ export function parseHtml(html, plan = {}, context = {}) {
   let recognized = 0;
   const base = plan.fetchUrl || plan.url;
   const add = (input) => {
+    if (plan.options?.dateOnly) input = { ...input, start: String(input.start || '').slice(0, 10),
+      end: input.end ? String(input.end).slice(0, 10) : undefined, allDay: undefined };
     const event = normalizeEvent(input, plan);
     if (!event) return;
     recognized++;
@@ -275,16 +285,17 @@ export function parseHtml(html, plan = {}, context = {}) {
       || explicitTextDate(dateText) || (options.dateFromUrl && url ? linkedDate(url) : null);
     const timeText = options.timeSelector ? within(item, options.timeSelector).text() : options.contextTimeSelector ? $(options.contextTimeSelector).first().text() : '';
     if (start && start.length === 10 && timeText) {
-      const combined = explicitTextDate(`${start} ${timeText}`);
-      start = combined || start;
+      const clock = clockTime(timeText);
+      if (clock) start = `${start}T${clock}`;
     }
-    if (options.dateOnly && start) start = start.slice(0, 10);
+    const dateOnly = options.dateOnly || (options.dateOnlyPattern && new RegExp(options.dateOnlyPattern, 'i').test(item.text()));
+    if (dateOnly && start) start = start.slice(0, 10);
     const endNode = item.find('[itemprop="endDate"]').first().length
       ? item.find('[itemprop="endDate"]').first() : item.find('time[datetime]').eq(1);
     if (start && title) {
       const endText = `${dateText} ${timeText}`;
       let end = endNode.attr('datetime') || endNode.attr('content') || explicitTextEnd(endText, start);
-      if (options.dateOnly && end) end = end.slice(0, 10);
+      if (dateOnly && end) end = end.slice(0, 10);
       const fieldText = selector => options.preserveFieldBreaks
         ? item.find(selector).toArray().map(element => plainText($(element).html())).join('\n')
         : item.find(selector).text();
@@ -389,6 +400,22 @@ export function parseNewsletter(html, plan = {}, context = {}) {
 async function parseDocument(html, plan, context) {
   const result = plan.adapter === 'newsletter' || plan.options?.headingSections
     ? parseNewsletter(html, plan, context) : parseHtml(html, plan, context);
+  if (plan.options?.reviewedFragments?.length) {
+    const reviewed = parseReviewedFragments(html, plan, context);
+    result.events.push(...reviewed.events);
+    result.warnings.push(...reviewed.warnings);
+    if (reviewed.recognized) result.unsupported = false;
+    if (reviewed.partial) result.partial = true;
+    if (!result.unsupported) result.warnings = result.warnings.filter(warning => !warning.startsWith('No events'));
+  }
+  if (plan.options?.reviewedImages?.length) {
+    const images = await fetchReviewedImages(html, plan, context);
+    result.events.push(...images.events);
+    result.warnings.push(...images.warnings);
+    if (images.recognized) result.unsupported = false;
+    if (images.partial) result.partial = true;
+    if (!result.unsupported) result.warnings = result.warnings.filter(warning => !warning.startsWith('No events'));
+  }
   if (!plan.options?.embeddedGoogleCalendarSelector) return result;
   const $ = cheerio.load(html);
   const feeds = new Set();

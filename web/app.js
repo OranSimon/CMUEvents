@@ -742,7 +742,8 @@ function renderSourceDiagnostics() {
   }
   const query = diagnosticsQuery.trim().toLocaleLowerCase();
   const matching = diagnosticsData.filter(source => {
-    const matchesView = diagnosticsView === "all" || (diagnosticsView === "zero" ? source.state === "empty" : attentionStates.includes(source.state));
+    const matchesView = diagnosticsView === "all" || (diagnosticsView === "zero" ? source.state === "empty"
+      : attentionStates.includes(source.state) || source.evidence?.visualReview?.requiresReview === true);
     return matchesView && (!query || `${source.org || ""} ${source.department || ""} ${source.url || ""} ${source.fetchUrl || ""}`.toLocaleLowerCase().includes(query));
   }).sort((left, right) => (left.org || "").localeCompare(right.org || ""));
   const visible = matching.slice(0, diagnosticsLimit);

@@ -1,0 +1,27 @@
+{
+  "checkedAt": "2026-10-22T04:16:10.951725+00:00",
+  "queueCount": 13,
+  "reviewedCount": 13,
+  "uniqueSourceCount": 13,
+  "overlapWithBOriginal10": 0,
+  "missingSourceIDs": [],
+  "provider": "ScottyConnect Qatar",
+  "timezone": "Asia/Qatar",
+  "outcomeCounts": {
+    "public_filtered_empty_member_feed_restricted": 13
+  },
+  "positiveControl": {
+    "groupID": "35465",
+    "groupName": "Muslim Students Association (MSA)",
+    "publicEventCount": 6,
+    "evidence": "qatar-crosscheck-positive-control.json"
+  },
+  "privacy": {
+    "screenshotsScanned": 14,
+    "flagged": [],
+    "failures": [],
+    "scope": "Public anonymous event pages; no login, forms, account actions or hidden private location access."
+  },
+  "originalRecordsUnchanged": "ics_a-results.jsonl",
+  "interpretation": "All 13 exact public Upcoming group filters explicitly returned Events (0) and No result found. Profile-login restrictions remain separately scoped; do not equate zero public upcoming records with no organizational activities."
+}

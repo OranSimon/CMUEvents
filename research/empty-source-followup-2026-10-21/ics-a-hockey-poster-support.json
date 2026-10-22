@@ -1,0 +1,412 @@
+{
+  "sourceID": "a28736c871a4",
+  "checkedAt": "2026-10-22T03:55:41.000Z",
+  "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68140.ics",
+  "inspectedURLs": [
+    "https://tartanconnect.cmu.edu/icehockey/home/",
+    "https://tartanconnect.cmu.edu/icehockey/events/"
+  ],
+  "outcome": "poster_future_events_omitted_by_text",
+  "note": "Events child text says no upcoming events, but visual review below fold reveals two2026–2027 game-schedule posters with15 games:12 future and3 past within30-day lookback. Every event has its own posterIndex/posterURL, so content hashes must prove only that poster’s events. Years, starts and venues read directly; end times unpublished; Nov15 Time TBA. Generic Tuesday practice has no dated season bounds and was not synthesized.",
+  "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-a28736c871a4-poster.jpg",
+  "requiresFix": true,
+  "details": {
+    "events": [
+      {
+        "date": "2026-09-26",
+        "start": "18:30",
+        "title": "Carnegie Mellon at Penn State Behrend",
+        "location": "LECOM Sports Park",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 0,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+        "status": "past_within_30_day_lookback",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2026-10-02",
+        "start": "19:00",
+        "title": "Robert Morris at Carnegie Mellon",
+        "location": "Roy McKnight Hockey Center",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 0,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+        "status": "past_within_30_day_lookback",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2026-10-09",
+        "start": "20:30",
+        "title": "Carnegie Mellon at Robert Morris",
+        "location": "RMU Island Sports Center",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 0,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+        "status": "past_within_30_day_lookback",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2026-10-23",
+        "start": "21:10",
+        "title": "Penn State Altoona at Carnegie Mellon",
+        "location": "Roy McKnight Hockey Center",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 0,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+        "status": "future",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2026-11-06",
+        "start": "21:00",
+        "title": "Cleveland State at Carnegie Mellon",
+        "location": "Roy McKnight Hockey Center",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 0,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+        "status": "future",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2026-11-15",
+        "start": null,
+        "title": "Carnegie Mellon at Penn West California",
+        "location": "CFS Bank Event Center",
+        "end": null,
+        "dateOnly": true,
+        "timePrecision": "publisher TIME TBA",
+        "posterIndex": 0,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+        "status": "future",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2026-11-20",
+        "start": "21:00",
+        "title": "Carnegie Mellon at West Virginia",
+        "location": "Mylan Park Ice Pavillion",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 0,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+        "status": "future",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2026-11-21",
+        "start": "19:00",
+        "title": "Carnegie Mellon at West Virginia",
+        "location": "Mylan Park Ice Pavillion",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 0,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+        "status": "future",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2027-01-22",
+        "start": "21:00",
+        "title": "Cleveland State at Carnegie Mellon",
+        "location": "Roy McKnight Hockey Center",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 1,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+        "status": "future",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2027-01-23",
+        "start": "21:00",
+        "title": "Penn State Altoona at Carnegie Mellon",
+        "location": "Roy McKnight Hockey Center",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 1,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+        "status": "future",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2027-01-29",
+        "start": "22:20",
+        "title": "Carnegie Mellon at Penn State Altoona",
+        "location": "Galactic Ice",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 1,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+        "status": "future",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2027-02-05",
+        "start": "19:00",
+        "title": "West Virginia at Carnegie Mellon",
+        "location": "Roy McKnight Hockey Center",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 1,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+        "status": "future",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2027-02-06",
+        "start": "20:30",
+        "title": "Carnegie Mellon at Cleveland State",
+        "location": "Winterhurst Ice Arena",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 1,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+        "status": "future",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2027-02-13",
+        "start": "21:00",
+        "title": "Robert Morris at Carnegie Mellon",
+        "location": "Roy McKnight Hockey Center",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 1,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+        "status": "future",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      },
+      {
+        "date": "2027-02-20",
+        "start": "20:30",
+        "title": "Carnegie Mellon at Robert Morris",
+        "location": "RMU Island Sports Center",
+        "end": null,
+        "timePrecision": "start only; end not published",
+        "posterIndex": 1,
+        "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+        "status": "future",
+        "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+      }
+    ],
+    "timezone": "America/New_York",
+    "additionalScreenshots": [
+      "research/empty-source-followup-2026-10-21/evidence/ica-a28736c871a4-poster2.jpg",
+      "research/empty-source-followup-2026-10-21/evidence/ica-a28736c871a4-poster3.jpg"
+    ],
+    "posterURLs": [
+      "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+      "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png"
+    ],
+    "posters": [
+      {
+        "posterIndex": 0,
+        "url": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+        "events": [
+          {
+            "date": "2026-09-26",
+            "start": "18:30",
+            "title": "Carnegie Mellon at Penn State Behrend",
+            "location": "LECOM Sports Park",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 0,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+            "status": "past_within_30_day_lookback",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          },
+          {
+            "date": "2026-10-02",
+            "start": "19:00",
+            "title": "Robert Morris at Carnegie Mellon",
+            "location": "Roy McKnight Hockey Center",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 0,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+            "status": "past_within_30_day_lookback",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          },
+          {
+            "date": "2026-10-09",
+            "start": "20:30",
+            "title": "Carnegie Mellon at Robert Morris",
+            "location": "RMU Island Sports Center",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 0,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+            "status": "past_within_30_day_lookback",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          },
+          {
+            "date": "2026-10-23",
+            "start": "21:10",
+            "title": "Penn State Altoona at Carnegie Mellon",
+            "location": "Roy McKnight Hockey Center",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 0,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+            "status": "future",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          },
+          {
+            "date": "2026-11-06",
+            "start": "21:00",
+            "title": "Cleveland State at Carnegie Mellon",
+            "location": "Roy McKnight Hockey Center",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 0,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+            "status": "future",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          },
+          {
+            "date": "2026-11-15",
+            "start": null,
+            "title": "Carnegie Mellon at Penn West California",
+            "location": "CFS Bank Event Center",
+            "end": null,
+            "dateOnly": true,
+            "timePrecision": "publisher TIME TBA",
+            "posterIndex": 0,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+            "status": "future",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          },
+          {
+            "date": "2026-11-20",
+            "start": "21:00",
+            "title": "Carnegie Mellon at West Virginia",
+            "location": "Mylan Park Ice Pavillion",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 0,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+            "status": "future",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          },
+          {
+            "date": "2026-11-21",
+            "start": "19:00",
+            "title": "Carnegie Mellon at West Virginia",
+            "location": "Mylan Park Ice Pavillion",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 0,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914741_9b7a1c16-dc63-4804-8500-db69f9f9be73_10610246_crop.png",
+            "status": "future",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          }
+        ],
+        "proofScreenshots": [
+          "research/empty-source-followup-2026-10-21/evidence/ica-a28736c871a4-poster.jpg"
+        ]
+      },
+      {
+        "posterIndex": 1,
+        "url": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+        "events": [
+          {
+            "date": "2027-01-22",
+            "start": "21:00",
+            "title": "Cleveland State at Carnegie Mellon",
+            "location": "Roy McKnight Hockey Center",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 1,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+            "status": "future",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          },
+          {
+            "date": "2027-01-23",
+            "start": "21:00",
+            "title": "Penn State Altoona at Carnegie Mellon",
+            "location": "Roy McKnight Hockey Center",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 1,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+            "status": "future",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          },
+          {
+            "date": "2027-01-29",
+            "start": "22:20",
+            "title": "Carnegie Mellon at Penn State Altoona",
+            "location": "Galactic Ice",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 1,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+            "status": "future",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          },
+          {
+            "date": "2027-02-05",
+            "start": "19:00",
+            "title": "West Virginia at Carnegie Mellon",
+            "location": "Roy McKnight Hockey Center",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 1,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+            "status": "future",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          },
+          {
+            "date": "2027-02-06",
+            "start": "20:30",
+            "title": "Carnegie Mellon at Cleveland State",
+            "location": "Winterhurst Ice Arena",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 1,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+            "status": "future",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          },
+          {
+            "date": "2027-02-13",
+            "start": "21:00",
+            "title": "Robert Morris at Carnegie Mellon",
+            "location": "Roy McKnight Hockey Center",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 1,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+            "status": "future",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          },
+          {
+            "date": "2027-02-20",
+            "start": "20:30",
+            "title": "Carnegie Mellon at Robert Morris",
+            "location": "RMU Island Sports Center",
+            "end": null,
+            "timePrecision": "start only; end not published",
+            "posterIndex": 1,
+            "posterURL": "https://tartanconnect.cmu.edu/upload/tepper/2026/web_upload_45914742_e9b4ffcf-d09d-494e-a801-0240252484b1_106102431_crop.png",
+            "status": "future",
+            "yearEvidence": "Explicit per-row /26 or /27 date and 2026–2027 GAME SCHEDULE poster heading"
+          }
+        ],
+        "proofScreenshots": [
+          "research/empty-source-followup-2026-10-21/evidence/ica-a28736c871a4-poster2.jpg",
+          "research/empty-source-followup-2026-10-21/evidence/ica-a28736c871a4-poster3.jpg"
+        ]
+      }
+    ],
+    "imageBindingRequirement": "Each event is supported only by its own posterURL/hash. A change to poster0 must not be masked by unchanged poster1, or vice versa.",
+    "futureEventCount": 12,
+    "pastLookbackEventCount": 3
+  }
+}

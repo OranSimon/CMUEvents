@@ -1,0 +1,218 @@
+[
+  {
+    "sourceID": "2adbac7247d0",
+    "organization": "Asian Christian Fellowship",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_67995.ics",
+    "outcome": "confirmed_omission",
+    "kind": "html_adapter_candidate",
+    "publicURLs": [
+      "http://acfpcc.org/events.html"
+    ],
+    "note": "OfficialACFEvents page publishes Fall2026 dated table, including13windowrecords/8future fromSep25–Dec5; ICSfeed misses this independent schedule. ExactTBD/asterisk times require retained uncertainty.",
+    "screenshot": "evidence/icb-2adbac7247d0-events.jpg",
+    "selectorSupport": "acf-proposed-override.json",
+    "reviewNotes": "Fall 2026 table: 23 dated rows, 13 in original Sep21 window, 8 then-future. Preserve explicit table year; Apple Picking Oct3 10:00–2:00PM starts at 10 AM."
+  },
+  {
+    "sourceID": "8d000cd9ada6",
+    "organization": "Chabad of CMU",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68052.ics",
+    "outcome": "confirmed_omission",
+    "kind": "public_spa_adapter_candidate",
+    "publicURLs": [
+      "https://student.chabadoncampus.org/chabad-of-cmu/calendar",
+      "https://student.chabadoncampus.org/chabad-of-cmu/rsvp/events",
+      "https://student.chabadoncampus.org/chabad-of-cmu/rsvp/events/56152#"
+    ],
+    "note": "旧官网 Upcoming 为空，但官网公开 register 链接跳到 ChabadonCampus 新站；实际 Calendar 明确 October2026，含 10/22/29 20:30 CookingClub、10/23/30 19:00 ShabbatDinner、10/26 11:30 MatzahBallMondays、10/28 12:30 SoulMaps。内容公开，注册才需登录。",
+    "screenshot": "evidence/icb-8d000cd9ada6-calendar-loaded.jpg",
+    "reviewNotes": "Public October 2026 calendar and event detail visually confirmed. Parent independently verified anonymous API; implementation owned by parent. No registration or personal RSVP state inspected."
+  },
+  {
+    "sourceID": "c53b97c626a0",
+    "organization": "Environmental Health and Safety (EHS)",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71416.ics",
+    "outcome": "confirmed_omission",
+    "kind": "advertised_ics_and_static_event",
+    "publicURLs": [
+      "https://www.cmu.edu/ehs/cal/index.html",
+      "https://tockify.com/cmuehs",
+      "https://www.cmu.edu/ehs/hazardous-waste-management/electronic-waste-recycling-event.html"
+    ],
+    "note": "官网4thAnnualE-WasteRecycling明确2026-11-09–14 RobertsHallLoadingDock；Calendar实际Tockify cmuehs有当前/未来WastePickup且广告webcal://tockify.com/api/feeds/ics/cmuehs。原TartanICS漏覆盖。",
+    "screenshot": "evidence/icb-c53b97c626a0-calendar-complete.jpg",
+    "fetchURL": "https://tockify.com/api/feeds/ics/cmuehs",
+    "advertisedURL": "webcal://tockify.com/api/feeds/ics/cmuehs",
+    "adapter": "ics",
+    "options": {
+      "timezone": "America/New_York"
+    },
+    "anonymousHTTP": {
+      "status": 200,
+      "contentType": "text/calendar;charset=UTF-8",
+      "VEVENTcount": 121
+    },
+    "rawEvidence": ".cache/c53b97c626a0-tockify.ics",
+    "staticEvent": {
+      "title": "4th Annual Electronic Waste Recycling Event",
+      "startDate": "2026-11-09",
+      "lastDate": "2026-11-14",
+      "location": "Roberts Hall Loading Dock",
+      "dateOnly": true,
+      "reviewNote": "15-minute vehicle appointment required; do not imply unrestricted drop-in. Date span is explicit on public official page."
+    }
+  },
+  {
+    "sourceID": "068d6a981513",
+    "organization": "The Center for Student Diversity and Inclusion",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_69390.ics",
+    "outcome": "official_curated_events_present",
+    "kind": "related_university_events_dedupe_review",
+    "publicURLs": [
+      "https://www.cmu.edu/student-diversity/events/index.html",
+      "https://events.cmu.edu/event/34563-homecoming-2026",
+      "https://events.cmu.edu/event/35408-aescmu-presents-maqam-persian-music-music-of-iran"
+    ],
+    "note": "CSDI 官方 Events 页列出未来活动，详情确认 Homecoming 2026（10/23–24，主校区）及 AES@CMU Maqam-Persian Music（2026/11/14 19:30–21:30 EST，McConomy）。这些是精选大学活动，原 ICS 为空不能代表官网无活动；应与全校源去重，并保留实际主办者而非误标 CSDI。",
+    "screenshot": "evidence/icb-068d6a981513-curated-event-maqam-loaded.jpg",
+    "events": [
+      {
+        "title": "Homecoming 2026",
+        "startDate": "2026-10-23",
+        "lastDate": "2026-10-24",
+        "location": "CMU Main Campus",
+        "dateOnly": true
+      },
+      {
+        "title": "AES@CMU Presents: Maqam-Persian Music - Music of Iran",
+        "start": "2026-11-14T19:30:00-05:00",
+        "end": "2026-11-14T21:30:00-05:00",
+        "location": "McConomy Auditorium, Cohon University Center",
+        "organizer": "Audio Engineering Society @ Carnegie Mellon University",
+        "audience": "CMU community and guests; general $20, student $5 cash at door"
+      }
+    ],
+    "reviewNotes": "Curated related university events; do not relabel CSDI as organizer. May already be covered by university LiveWhale source."
+  },
+  {
+    "sourceID": "5cb99c6abe2b",
+    "organization": "Central Church Student Fellowship",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68050.ics",
+    "outcome": "related_announcements_year_missing",
+    "kind": "review_candidate_no_date_inference",
+    "publicURLs": [
+      "http://www.centralchurchpitt.com/college",
+      "https://www.centralpgh.org/college",
+      "https://centralpgh.org/weekly-meetings",
+      "https://www.centralpgh.org/weekly-meetings",
+      "https://centralpgh.org/announcements",
+      "https://www.centralpgh.org/announcements"
+    ],
+    "note": "ActualWeeklyMeetings/Announcements pages haveundergraduateFriday7pm and announcedOct23–25retreat,Oct31/Nov1membership,Nov7/14Turkeybowl. No explicitacademic/eventyear onpage, so calendarcandidates requireyearconfirmation; originalcollegeURL404.",
+    "screenshot": "evidence/icb-5cb99c6abe2b-announcements.jpg"
+  },
+  {
+    "sourceID": "69aec3cbe07c",
+    "organization": "Home Page",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_23560.ics",
+    "outcome": "unmapped_source_identity_review",
+    "kind": "review_candidate_no_date_inference",
+    "publicURLs": [
+      "https://tartanconnect.cmu.edu/club_signup?group_type=&search=Media+%26+Entertainment&category_tags=&order=name_asc",
+      "https://tartanconnect.cmu.edu/club_signup?group_type=&search=Home+Page&category_tags=&order=name_asc"
+    ],
+    "note": "对 HomePage 精确公开目录搜索为0组；原ICS club23560 的组织名过于泛化，无可验证独立组织网页，身份映射待复核，不能称已验证 empty。",
+    "screenshot": "evidence/icb-69aec3cbe07c-directory-exact.jpg"
+  },
+  {
+    "sourceID": "74ef2bc806ae",
+    "organization": "Emerging Leaders",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71334.ics",
+    "outcome": "advertised_event_private_year_missing",
+    "kind": "review_candidate_no_date_inference",
+    "publicURLs": [
+      "https://tartanconnect.cmu.edu/club_signup?group_type=&search=Emerging+Leaders&category_tags=&order=name_asc",
+      "https://www.cmu.edu/student-affairs/slice/leadership/development.html",
+      "https://www.cmu.edu/student-affairs/celd/leadership-development/emerging-leaders.html",
+      "https://cglink.me/2c1/r1937691",
+      "https://tartanconnect.cmu.edu/otp_signup?module=event&event_id=1937691&private_event=1"
+    ],
+    "note": "官方 EmergingLeaders 页面明确 Spring2027 招募及12/2 12–13信息会，但该句缺年份；RegisterNow实际指向 private_event=1，需登录才能看具体年份/详情，未登录。保留活动候选，不能从2026页脚造年份。",
+    "screenshot": "evidence/icb-74ef2bc806ae-info-session.jpg"
+  },
+  {
+    "sourceID": "83b2c5a21426",
+    "organization": "Club Baseball",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68027.ics",
+    "outcome": "related_schedule_date_incomplete",
+    "kind": "review_candidate_no_date_inference",
+    "publicURLs": [
+      "https://tartanconnect.cmu.edu/Baseball/events/",
+      "https://tartanconnect.cmu.edu/baseball/home/"
+    ],
+    "note": "Homepage widget shows no upcoming events, but UsefulLinks→NCBA current2026–2027 Schedule lists games in Oct19–25,2026 and Mar/Apr2027. Individual game detail has no day/time; only weekrange known, cannot create precise dated occurrence.",
+    "screenshot": "evidence/icb-83b2c5a21426.jpg"
+  },
+  {
+    "sourceID": "931fac9f758c",
+    "organization": "International Business & Advisory Club",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10973.ics",
+    "outcome": "unmapped_public_group_review",
+    "kind": "review_candidate_no_date_inference",
+    "publicURLs": [
+      "https://tartanconnect.cmu.edu/club_signup?group_type=&search=International+Business&category_tags=&order=name_asc"
+    ],
+    "note": "公开目录搜索 InternationalBusiness 未返回精确组织；没有猜测slug或拿全站活动当该组织。原ICS身份/已归档状态待复核。",
+    "screenshot": "evidence/icb-931fac9f758c-directory-exact.jpg"
+  },
+  {
+    "sourceID": "d5a270fc4ae8",
+    "organization": "Undergraduate Student Senate",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68387.ics",
+    "outcome": "recurring_meeting_description_needs_bounds",
+    "kind": "review_candidate_no_date_inference",
+    "publicURLs": [
+      "https://www.cmu.edu/stugov/senate/index.html",
+      "https://www.cmu.edu/stugov/senate/meetings/index.html"
+    ],
+    "note": "官方 Senate 主页每周四 17:20–18:30 UC Danforth 会议开放旁听；会议记录页有 2026–2027 当前档案，但没有明确当前学期逐次会议日期/休会边界，不能从周四说明无限扩展。",
+    "screenshot": "evidence/icb-d5a270fc4ae8-meetings.jpg"
+  },
+  {
+    "sourceID": "ffbc5035e75d",
+    "organization": "Student College",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68275.ics",
+    "outcome": "administrative_dates_review",
+    "kind": "review_candidate_no_date_inference",
+    "publicURLs": [
+      "http://www.cmu.edu/stuco/",
+      "https://www.cmu.edu/stuco/",
+      "https://www.cmu.edu/stuco/important-dates/index.html"
+    ],
+    "note": "官方 ImportantDates 的 Fall2026 表有 10/21 16:00 成绩录入截止、11/16–20 注册周、12/4 课程结束等教务时间；这些不是普通开放活动，应另列 review。12/16 所列 Thursday 与 2026 日历不符，保留原文不修造日期。",
+    "screenshot": "evidence/icb-ffbc5035e75d-dates.jpg"
+  },
+  {
+    "sourceID": "fa7813907900",
+    "organization": "Awareness of Roots in Chinese Culture",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68013.ics",
+    "outcome": "confirmed_activity_anonymous_access_restricted",
+    "kind": "confirmed_activity_anonymous_access_restricted",
+    "publicURLs": [
+      "https://arcc.carrd.co",
+      "https://arccboard.wixsite.com/arcc",
+      "https://forms.gle/g6TAA35x9pAMh7Bo6"
+    ],
+    "note": "官方 Carrd 票务链接实际 Form 中可见 ARCCHotpotNight2026：11/8 18–20 CUC Rangos，票25美元，11/4 23:59预售截止。但浏览器自动带已有Google账户；root匿名HTTP复验返回401，因此只确认真实活动，不声称匿名抓取可用。未填表/未提交。",
+    "screenshot": "evidence/icb-fa7813907900-ticket-public-information.jpg",
+    "event": {
+      "title": "ARCC Hotpot Night 2026",
+      "start": "2026-11-08T18:00:00-05:00",
+      "end": "2026-11-08T20:00:00-05:00",
+      "location": "CUC Rangos",
+      "price": "$25",
+      "deadline": "2026-11-04T23:59:00-05:00"
+    },
+    "accessNote": "Parent anonymous fetch follows short link to Google Form and gets HTTP 401. Browser automatically showed an existing Google account; no authentication, fields, or submission performed. Do not treat as anonymously fetchable. Cropped public event description evidence excludes account panel."
+  }
+]

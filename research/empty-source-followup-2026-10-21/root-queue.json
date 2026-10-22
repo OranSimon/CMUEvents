@@ -1,0 +1,736 @@
+[
+  {
+    "sourceID": "05c3d64520be",
+    "organization": "Pitt-CMU Environmental Humanities Research Seminar",
+    "department": "Dietrich College / History",
+    "adapter": "html",
+    "sourceURL": "https://www.cmu.edu/dietrich/history/centers-seminars/ehrs-seminar.html",
+    "fetchURL": "https://www.cmu.edu/dietrich/history/centers-seminars/ehrs-seminar.html",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [
+      {
+        "sourceID": "bcbc343b441e",
+        "url": "https://list.pitt.edu/mailman/listinfo/environmental_humanities_research_seminar",
+        "status": "subscription_only",
+        "adapter": "manual"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "preferFeed": false,
+      "detailLinks": false,
+      "eventSelector": ".content > div:has(>h2)",
+      "titleSelector": "h2",
+      "titlePattern": "lecture, entitled\\s*[\"“]([^\"”]+)",
+      "dateSelector": ":scope",
+      "linkSelector": "a[href*=\"forms\"]"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "077418c6adc0",
+    "organization": "Electrical and Computer Engineering Department",
+    "department": "College of Engineering / Electrical and Computer Engineering",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/ece/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Electrical%20and%20Computer%20Engineering%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Electrical and Computer Engineering Department"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "0a2b7a40a2af",
+    "organization": "Mechanical Engineering Events",
+    "department": "College of Engineering / Mechanical Engineering",
+    "adapter": "livewhale",
+    "sourceURL": "https://www.meche.engineering.cmu.edu/events/index.html",
+    "fetchURL": "https://events.cmu.edu/live/widget/697/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "widgetIds": [
+        "697"
+      ],
+      "additionalFetchUrls": [],
+      "maxPages": 30
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "117c2096a2d6",
+    "organization": "MESH Network",
+    "department": "College of Engineering",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/mesh/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/MESH%20Network/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "MESH Network"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "13ee6ae935af",
+    "organization": "Center for Data-Driven Discovery of Optimized Multifunctional Material Systems",
+    "department": "College of Engineering",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/data-driven-material-design/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Center%20for%20Data-Driven%20Discovery%20of%20Optimized%20Multifunctional%20Material%20Systems/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Center for Data-Driven Discovery of Optimized Multifunctional Material Systems"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "2208e5d8f7ba",
+    "organization": "Core Model Seminars",
+    "department": "Mellon College of Science / Mathematical Sciences",
+    "adapter": "livewhale",
+    "sourceURL": "https://www.cmu.edu/math/news-events/core-model-seminars.html",
+    "fetchURL": "https://events.cmu.edu/live/widget/179/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "widgetIds": [
+        "179"
+      ],
+      "additionalFetchUrls": [],
+      "maxPages": 30
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "2acecd725cf6",
+    "organization": "Pittsburgh Supercomputing Center",
+    "department": "Interdisciplinary",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/psc/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Pittsburgh%20Supercomputing%20Center/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Pittsburgh Supercomputing Center"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "3df60f5309a8",
+    "organization": "Pennsylvania Infrastructure Technology Alliance",
+    "department": "College of Engineering",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/pita/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Pennsylvania%20Infrastructure%20Technology%20Alliance/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Pennsylvania Infrastructure Technology Alliance"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "51291fa37733",
+    "organization": "Biomedical Engineering Department",
+    "department": "College of Engineering / Biomedical Engineering",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/bme/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Biomedical%20Engineering%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Biomedical Engineering Department"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "5c0249237967",
+    "organization": "Manufacturing PA Innovation Program",
+    "department": "College of Engineering",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/manufacturingpa/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Manufacturing%20PA%20Innovation%20Program/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Manufacturing PA Innovation Program"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "60055dd543e4",
+    "organization": "Carnegie Bosch Institute",
+    "department": "College of Engineering",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/carnegiebosch/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Carnegie%20Bosch%20Institute/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Carnegie Bosch Institute"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "67afcc504f3f",
+    "organization": "Singapore Students' Association Events",
+    "department": "Student Organizations",
+    "adapter": "html",
+    "sourceURL": "https://cmussa.org/events/",
+    "fetchURL": "https://cmussa.org/events/",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": false,
+      "maxDetails": 8,
+      "eventSelector": ".row > div:has(>h4)",
+      "titleSelector": "h4",
+      "linkSelector": "h2 a,h3 a",
+      "dateSelector": "p:nth-child(3)",
+      "yearWithinCardSelector": "p:nth-child(3)",
+      "dateOnly": true
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "69dbbc38136f",
+    "organization": "Carnegie Mellon Sports Analytics Center Events",
+    "department": "Dietrich College / Statistics and Data Science",
+    "adapter": "html",
+    "sourceURL": "https://www.cmu.edu/dietrich/statistics-datascience/cmsac/events/index.html",
+    "fetchURL": "https://www.cmu.edu/dietrich/statistics-datascience/cmsac/events/index.html",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "preferFeed": false,
+      "detailLinks": false,
+      "eventSelector": ".content > div:has(>h3)",
+      "titleSelector": "h3",
+      "titlePattern": "Events\\s*(.+?)(?=(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\\b)",
+      "dateSelector": "h3",
+      "linkSelector": "a.cta"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "6fd664553ebb",
+    "organization": "Center for Engineering Resilience and Climate Adaptation",
+    "department": "College of Engineering / Civil and Environmental Engineering",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/cerca/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Center%20for%20Engineering%20Resilience%20and%20Climate%20Adaptation/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Center for Engineering Resilience and Climate Adaptation"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "7ed1afcdd892",
+    "organization": "Enrollment and Financial Deadlines",
+    "department": "Enrollment Management",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/enrollment-financial-deadlines/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Enrollment%20and%20Financial%20Deadlines/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Enrollment and Financial Deadlines"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "90cd2ffe2c86",
+    "organization": "Graduate Student Seminars",
+    "department": "Mellon College of Science / Mathematical Sciences",
+    "adapter": "livewhale",
+    "sourceURL": "https://www.cmu.edu/math/news-events/graduate_student_seminars.html",
+    "fetchURL": "https://events.cmu.edu/live/widget/258/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "widgetIds": [
+        "258"
+      ],
+      "additionalFetchUrls": [],
+      "maxPages": 30
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "92ae5fb558d2",
+    "organization": "Mechanical Engineering Department",
+    "department": "College of Engineering / Mechanical Engineering",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/meche/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Mechanical%20Engineering%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Mechanical Engineering Department"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "98939b47f440",
+    "organization": "Public Art",
+    "department": "College of Fine Arts",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/public-art/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Public%20Art/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Public Art"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "9de3a8530f64",
+    "organization": "IDeaS Seminars",
+    "department": "Dietrich College",
+    "adapter": "html",
+    "sourceURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/seminars.html",
+    "fetchURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/seminars.html",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 8,
+      "eventSelector": ".grid.boxes > div,.grid.photos > .photo",
+      "titleSelector": "h2,h3",
+      "linkSelector": "h2 a,h3 a,a.cta,a.btn"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "a3d9dd542e5c",
+    "organization": "Ray and Stephanie Lane Computational Biology Department",
+    "department": "School of Computer Science / Computational Biology Department",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/cbd/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Ray%20and%20Stephanie%20Lane%20Computational%20Biology%20Department/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Ray and Stephanie Lane Computational Biology Department"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "a748b0b4b36d",
+    "organization": "Transition Design Institute News and Events",
+    "department": "College of Fine Arts / School of Design",
+    "adapter": "html",
+    "sourceURL": "https://transitiondesigninstitute.net/news-events/",
+    "fetchURL": "https://transitiondesigninstitute.net/news-events/",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "preferFeed": false,
+      "detailLinks": false,
+      "eventSelector": ".post-item:has(.eyebrow:contains(\"Event\"))",
+      "titleSelector": "h3",
+      "dateSelector": "h3",
+      "yearWithinCardSelector": "h3,img",
+      "linkSelector": ".read-more a"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "a8e37996c63d",
+    "organization": "Principles of Programming Seminar",
+    "department": "School of Computer Science / Computer Science Department",
+    "adapter": "html",
+    "sourceURL": "https://www.cs.cmu.edu/~pop/seminar/",
+    "fetchURL": "https://www.cs.cmu.edu/~pop/seminar/",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 8,
+      "eventSelector": "table.table tr",
+      "dateSelector": "td:first-child",
+      "titleSelector": "td:nth-child(3)",
+      "linkSelector": "td:nth-child(3) a"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "a9c74162b9dd",
+    "organization": "Summer Undergraduate Research Seminars and Meetings",
+    "department": "Mellon College of Science / Mathematical Sciences",
+    "adapter": "livewhale",
+    "sourceURL": "https://www.cmu.edu/math/news-events/summer_undergraduate_research_seminar.html",
+    "fetchURL": "https://events.cmu.edu/live/widget/262/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "widgetIds": [
+        "262"
+      ],
+      "additionalFetchUrls": [],
+      "maxPages": 30
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "baca49f9a989",
+    "organization": "Math Club Colloquia",
+    "department": "Mellon College of Science / Mathematical Sciences",
+    "adapter": "livewhale",
+    "sourceURL": "https://www.cmu.edu/math/news-events/math_club_colloquia.html",
+    "fetchURL": "https://events.cmu.edu/live/widget/259/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "widgetIds": [
+        "259"
+      ],
+      "additionalFetchUrls": [],
+      "maxPages": 30
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "bef20927d8d3",
+    "organization": "ICA Pittsburgh",
+    "department": "College of Fine Arts",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/ica/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/ICA%20Pittsburgh/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "ICA Pittsburgh"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "d49613cc887e",
+    "organization": "Admitted Students",
+    "department": "Enrollment Management",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/admitted-students/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Admitted%20Students/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Admitted Students"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "d59dda939d19",
+    "organization": "School of Design",
+    "department": "College of Fine Arts / School of Design",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/design/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/School%20of%20Design/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "School of Design"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "d6997af9cab5",
+    "organization": "Center for Advanced Process Decision-Making",
+    "department": "College of Engineering / Chemical Engineering",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/capd/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Center%20for%20Advanced%20Process%20Decision-Making/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Center for Advanced Process Decision-Making"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "d9cab9a00acc",
+    "organization": "Hilliard Family Speaker Series on Behavioral Economics",
+    "department": "Dietrich College / Social and Decision Sciences",
+    "adapter": "livewhale",
+    "sourceURL": "https://www.cmu.edu/dietrich/sds/events/hilliard.html",
+    "fetchURL": "https://events.cmu.edu/live/widget/643/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "widgetIds": [
+        "643",
+        "225"
+      ],
+      "additionalFetchUrls": [
+        "https://events.cmu.edu/live/widget/225/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON"
+      ],
+      "maxPages": 30
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "dbff20b57ed6",
+    "organization": "Mathematical Sciences Colloquia",
+    "department": "Mellon College of Science / Mathematical Sciences",
+    "adapter": "livewhale",
+    "sourceURL": "https://www.cmu.edu/math/news-events/math_colloquia.html",
+    "fetchURL": "https://events.cmu.edu/live/widget/212/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "widgetIds": [
+        "212"
+      ],
+      "additionalFetchUrls": [],
+      "maxPages": 30
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "e1452d40c032",
+    "organization": "Block Center for Technology and Society",
+    "department": "Heinz College",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/block-center/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Block%20Center%20for%20Technology%20and%20Society/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [
+      {
+        "sourceID": "350a7de3c5d8",
+        "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71419.ics",
+        "status": "active",
+        "adapter": "ics"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Block Center for Technology and Society"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "e36894b269db",
+    "organization": "Carnegie Mellon Business Association Events",
+    "department": "Student Organizations",
+    "adapter": "html",
+    "sourceURL": "https://cmu-cmba.weebly.com/events.html",
+    "fetchURL": "https://cmu-cmba.weebly.com/events.html",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": false,
+      "maxDetails": 8,
+      "eventSelector": ".simple-table tr",
+      "titleSelector": "td:nth-child(2)",
+      "dateSelector": "td:first-child",
+      "yearSelector": ".paragraph:contains(\"Spring Semester\")"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "e859f383cda7",
+    "organization": "Materials Characterization Facility",
+    "department": "College of Engineering",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/mcf/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/Materials%20Characterization%20Facility/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "Materials Characterization Facility"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "efe2ea35a711",
+    "organization": "AIMSEC",
+    "department": "Interdisciplinary",
+    "adapter": "livewhale",
+    "sourceURL": "https://events.cmu.edu/aimsec/all",
+    "fetchURL": "https://events.cmu.edu/live/json/events/group/AIMSEC/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+    "group": null,
+    "discoveredOn": "https://events.cmu.edu/directory/",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "maxPages": 30,
+      "groupTitle": "AIMSEC"
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "fa733d619270",
+    "organization": "Center for Applied Research on Targeted Violence Events",
+    "department": "Dietrich College",
+    "adapter": "html",
+    "sourceURL": "https://www.carvt.org/carvt-events/",
+    "fetchURL": "https://www.carvt.org/carvt-events/",
+    "group": null,
+    "discoveredOn": null,
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "preferFeed": false,
+      "detailLinks": false,
+      "eventSelector": ".jet-listing-grid__item",
+      "dateSelector": "span.elementor-heading-title",
+      "titleSelector": "h4",
+      "linkSelector": "a.raven-button[href]",
+      "emptySelector": ".jet-listing-not-found",
+      "emptyPattern": "^There are no upcoming CARVt events at this time\\."
+    },
+    "state": "pending",
+    "worker": "root"
+  },
+  {
+    "sourceID": "ffb8a5c6d7cb",
+    "organization": "Inter-Fellowship Association",
+    "department": "Student Organizations",
+    "adapter": "html",
+    "sourceURL": "https://tartanconnect.cmu.edu/ifa/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/ifa/events/",
+    "group": {
+      "name": "Inter-Fellowship Association",
+      "category": "Student Government Recognized Organizations - Religious/Spiritual, Signature Event/Tradition",
+      "slug": "ifa",
+      "websites": [
+        "https://cmuifa.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "eventSelector": ".wpb_wrapper:has(>h1)",
+      "titleSelector": ">h1",
+      "dateSelector": ">p",
+      "detailLinks": false,
+      "preferFeed": false
+    },
+    "state": "pending",
+    "worker": "root"
+  }
+]

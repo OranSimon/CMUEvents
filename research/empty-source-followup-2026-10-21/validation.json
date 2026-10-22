@@ -1,0 +1,76 @@
+{
+  "verifiedAt": "2026-10-22T04:20:39.770Z",
+  "visualScope": {
+    "remainingBaselineSources": 436,
+    "reviewed": 436,
+    "unreviewed": 0,
+    "initialSample": 15,
+    "cumulativeBaselineReviewed": 451,
+    "sourceCount": 1029,
+    "additionalVerificationFlags": 105
+  },
+  "checks": {
+    "tests": {
+      "passed": 116,
+      "failed": 0,
+      "command": "npm test"
+    },
+    "projectCheck": {
+      "sourcePlans": 1029,
+      "command": "npm run check"
+    },
+    "whitespaceCheck": "git diff --check passed",
+    "targetedRefresh": {
+      "modifiedContracts": 27,
+      "ok": 27,
+      "partial": 0,
+      "failed": 0
+    },
+    "credentialsPatternScan": {
+      "flags": 0,
+      "scope": "New report text artifacts"
+    }
+  },
+  "liveApplication": {
+    "url": "http://127.0.0.1:4173",
+    "autoRefresh": true,
+    "status": {
+      "lastUpdated": "2026-10-22T04:16:00.900Z",
+      "totalEvents": 7547,
+      "sources": {
+        "total": 1029,
+        "ok": 325,
+        "empty": 420,
+        "error": 3,
+        "covered": 259,
+        "unsupported": 18,
+        "subscription_only": 4,
+        "blocked": 0,
+        "pending": 0
+      },
+      "lastRefresh": {
+        "startedAt": "2026-10-22T04:15:50.818Z",
+        "completedAt": "2026-10-22T04:16:02.384Z",
+        "total": 5,
+        "completed": 5,
+        "ok": 5,
+        "empty": 0,
+        "error": 0,
+        "totalEvents": 7547
+      },
+      "refreshing": false
+    }
+  },
+  "browserChecks": [
+    {
+      "check": "Poster activity search and detail",
+      "result": "DARK WATERS Nov15,2026 4:30PM EST Carnegie Music Hall; no invented end time or internal process text",
+      "screenshot": "evidence/app-auo-result.jpg"
+    },
+    {
+      "check": "Needs attention includes unresolved visual findings",
+      "result": "TEDx zero-record source appears with actual time/venue conflict and date-TBA notes",
+      "screenshot": "evidence/app-source-review.jpg"
+    }
+  ]
+}

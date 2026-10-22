@@ -1,0 +1,323 @@
+{
+  "recordedAt": "2026-10-22T04:16:56.634Z",
+  "scope": "All 27 modified contracts completed targeted real refresh successfully; 5 reviewed-poster/announcement/Chabad snapshots revalidated after product-text cleanup.",
+  "totalEvents": 7547,
+  "sources": {
+    "total": 1029,
+    "ok": 325,
+    "empty": 420,
+    "error": 3,
+    "covered": 259,
+    "unsupported": 18,
+    "subscription_only": 4,
+    "blocked": 0,
+    "pending": 0
+  },
+  "fixes": [
+    {
+      "sourceID": "69dbbc38136f",
+      "organization": "Carnegie Mellon Sports Analytics Center Events",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 1,
+        "lastAttempt": "2026-10-22T04:13:37.789Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "68c9b0b21fb8",
+      "organization": "Mathematical Sciences Calendar",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 51,
+        "lastAttempt": "2026-10-22T04:13:34.557Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "a3d9dd542e5c",
+      "organization": "Ray and Stephanie Lane Computational Biology Department",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 10,
+        "lastAttempt": "2026-10-22T04:13:32.946Z",
+        "warnings": [
+          "Ignored schedule placeholder 3tmuais9ah1ijiq5isdsn8fctl@google.com: SUMMARY=\"NO SEMINAR\"; DTSTART=2026-02-27T16:30:00Z; DTEND=2026-02-27T17:45:00Z; no RRULE/RDATE",
+          "Ignored schedule placeholder 6v7huh1jbhike8lks79ou0c4at@google.com: SUMMARY=\"NO SEMINAR\"; DTSTART=2026-03-13T15:30:00Z; DTEND=2026-03-13T16:45:00Z; no RRULE/RDATE",
+          "Ignored schedule placeholder 1gu54ndft3l66nfan0eek0gigt@google.com: SUMMARY=\"NO SEMINAR\"; DTSTART=2025-03-07T16:30:00Z; DTEND=2025-03-07T17:30:00Z; no RRULE/RDATE",
+          "Ignored schedule placeholder 7r0l1mfuigiq23sgg72qtv17of@google.com: SUMMARY=\"NO SEMINAR\"; DTSTART=2025-02-28T16:30:00Z; DTEND=2025-02-28T17:30:00Z; no RRULE/RDATE",
+          "Ignored schedule placeholder 2m5sqnvqa2tslghl541hqn8peh@google.com: SUMMARY=\"NO SEMINAR\"; DTSTART=2026-03-06T16:30:00Z; DTEND=2026-03-06T17:45:00Z; no RRULE/RDATE",
+          "Ignored schedule placeholder 4ub43ljm7armtil7nfltpuvuhu@google.com: SUMMARY=\"NO SEMINAR\"; DTSTART=2026-04-10T15:30:00Z; DTEND=2026-04-10T16:45:00Z; no RRULE/RDATE",
+          "Ignored schedule placeholder 1likrs915bmepecjj550dgaqgb@google.com: SUMMARY=\"NO SEMINAR\"; DTSTART=2025-04-04T15:30:00Z; DTEND=2025-04-04T16:30:00Z; no RRULE/RDATE"
+        ],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "f471c2959a98",
+      "organization": "Student Government Director of Finance & JFC",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 8,
+        "lastAttempt": "2026-10-22T04:13:36.383Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "523b297ef858",
+      "organization": "\"Carnegie AI Safety Initiative\"",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 49,
+        "lastAttempt": "2026-10-22T04:13:33.754Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "5a431aa0b92f",
+      "organization": "180 Degrees Consulting CMU Branch",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 3,
+        "lastAttempt": "2026-10-22T04:15:53.559Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "2b24be5ef52c",
+      "organization": "All University Orchestra Upcoming Concerts",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 1,
+        "lastAttempt": "2026-10-22T04:15:51.170Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "ecb0a238df3d",
+      "organization": "Alpha Omega Campus Ministry",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 182,
+        "lastAttempt": "2026-10-22T04:13:37.086Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "4d763fa2c838",
+      "organization": "American Society of Civil Engineers",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 4,
+        "lastAttempt": "2026-10-22T04:13:33.037Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "cc36f4cbf49f",
+      "organization": "Apex",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 185,
+        "lastAttempt": "2026-10-22T04:13:36.975Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "2adbac7247d0",
+      "organization": "Asian Christian Fellowship",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 13,
+        "lastAttempt": "2026-10-22T04:13:30.425Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "76155f5a78b3",
+      "organization": "C#",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 114,
+        "lastAttempt": "2026-10-22T04:13:33.848Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "6f5ed90c5fe7",
+      "organization": "Carnegie Mellon Data Science Club",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 1,
+        "lastAttempt": "2026-10-22T04:13:39.132Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "e85362172101",
+      "organization": "Carnegie Mellon University Math Club",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 17,
+        "lastAttempt": "2026-10-22T04:13:39.080Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "8d000cd9ada6",
+      "organization": "Chabad of CMU",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 141,
+        "lastAttempt": "2026-10-22T04:15:59.341Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "9236f6b03519",
+      "organization": "CMU Science Olympiad",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 1,
+        "lastAttempt": "2026-10-22T04:13:36.042Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "a28736c871a4",
+      "organization": "Ice Hockey",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 15,
+        "lastAttempt": "2026-10-22T04:15:53.792Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "7da7d8c1b6c3",
+      "organization": "InterVarsity Christian Fellowship",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 116,
+        "lastAttempt": "2026-10-22T04:13:34.066Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "1c8838ac395b",
+      "organization": "Joyful Noise",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 3,
+        "lastAttempt": "2026-10-22T04:13:37.799Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "ae2737feb100",
+      "organization": "Masters of Flying Objects",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 1,
+        "lastAttempt": "2026-10-22T04:15:53.777Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "3abbe2324d19",
+      "organization": "PRISM",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 112,
+        "lastAttempt": "2026-10-22T04:13:32.749Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "fb9eae690aff",
+      "organization": "Quant",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 8,
+        "lastAttempt": "2026-10-22T04:13:37.540Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "47a1aa7ed916",
+      "organization": "ScottyCon",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 2,
+        "lastAttempt": "2026-10-22T04:13:33.401Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "42b9c8196339",
+      "organization": "Sweepstakes",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 1,
+        "lastAttempt": "2026-10-22T04:13:38.091Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "f4d90f5846e2",
+      "organization": "Tartan Salsa",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 38,
+        "lastAttempt": "2026-10-22T04:13:37.375Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "78bfd9c5e363",
+      "organization": "Tepper Alumni Relations",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 1,
+        "lastAttempt": "2026-10-22T04:13:33.761Z",
+        "warnings": [],
+        "error": null
+      }
+    },
+    {
+      "sourceID": "c53b97c626a0",
+      "organization": "Environmental Health and Safety (EHS)",
+      "runtime": {
+        "state": "ok",
+        "eventCount": 70,
+        "lastAttempt": "2026-10-22T04:13:36.095Z",
+        "warnings": [],
+        "error": null
+      }
+    }
+  ]
+}

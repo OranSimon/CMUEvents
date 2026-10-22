@@ -133,7 +133,7 @@ for (const plan of [...plans].sort((left, right) =>
   - Number(left.kind === 'ical_feed' || left.kind === 'university_calendar'))) {
   if (!['active', 'empty'].includes(plan.status)) continue;
   const key = JSON.stringify([plan.adapter, plan.fetchUrl,
-    [...(plan.options.additionalFetchUrls || [])].sort()]);
+    [...(plan.options.additionalFetchUrls || [])].sort(), plan.options.additionalEndpoints || []]);
   const canonical = upstreams.get(key);
   if (canonical) {
     plan.status = 'covered';

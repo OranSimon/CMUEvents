@@ -1,0 +1,27 @@
+{
+  "sourceID": "2adbac7247d0",
+  "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_67995.ics",
+  "verifiedFetchURL": "http://acfpcc.org/events.html",
+  "adapter": "html",
+  "suggestedOptions": {
+    "timezone": "America/New_York",
+    "eventSelector": "#content table tr",
+    "titleSelector": "td:nth-child(1)",
+    "dateSelector": "td:nth-child(2)",
+    "timeSelector": "td:nth-child(2)",
+    "locationSelector": "td:nth-child(3)",
+    "yearSelector": "#content > h2",
+    "descriptionSelector": "td:nth-child(2), td:nth-child(3)",
+    "detailLinks": false
+  },
+  "notes": [
+    "Heading explicitly Fall2026;23datedrows including13windowrecords/8future.",
+    "ApplePicking Oct3 10:00-2:00PM means10AM-2PM, not10PM; rowperiodambiguityneedscheck.",
+    "PCCSharingNov20times haveasterisks7:30*-9:00*PM; retainpublisheduncertainty.",
+    "SharingNightDec4TBDtime: allowdatedall-day/detailsTBDwithoutinventedtime."
+  ],
+  "evidence": [
+    "evidence/icb-2adbac7247d0-events.jpg",
+    ".cache/acf-fall-2026.html"
+  ]
+}

@@ -1,0 +1,3550 @@
+[
+  {
+    "sourceID": "033e79961550",
+    "organization": "Case at Tepper",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71417.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71417.ics",
+    "group": {
+      "name": "Case at Tepper",
+      "category": "Tepper Graduate Organizations - Professional",
+      "slug": "CASE",
+      "websites": [
+        "https://tartanconnect.cmu.edu/CASE/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "5b7378eabe9c",
+        "url": "https://tartanconnect.cmu.edu/CASE/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "04b93bc6b736",
+    "organization": "Carnegie Mellon Racquetball Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71380.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71380.ics",
+    "group": {
+      "name": "Carnegie Mellon Racquetball Club",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation",
+      "slug": "CMUrball",
+      "websites": [
+        "https://tartanconnect.cmu.edu/CMUrball/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "061032f81b44",
+    "organization": "CMU Explorers Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68104.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68104.ics",
+    "group": {
+      "name": "CMU Explorers Club",
+      "category": "Student Government Recognized Organizations - General Interest, Club Sports/Recreation, Sustainability",
+      "slug": "explorers",
+      "websites": [
+        "http://www.cmuexplorers.org"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "661278425406",
+        "url": "https://tartanconnect.cmu.edu/explorers/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "06cb8a7fc756",
+    "organization": "Product Managers at Tepper",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_55294.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_55294.ics",
+    "group": {
+      "name": "Product Managers at Tepper",
+      "category": "Tepper Graduate Organizations - Diversity, Professional, Social, Educational",
+      "slug": "PMAT",
+      "websites": [
+        "https://tartanconnect.cmu.edu/PMAT/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "6e8c8d1d45b7",
+        "url": "https://tartanconnect.cmu.edu/PMAT/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "082cccb38324",
+    "organization": "Community & Inclusion",
+    "department": "Tepper School of Business / Tepper Offices",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_48601.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_48601.ics",
+    "group": null,
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "095ce000ff7d",
+    "organization": "Indonesian Students at CMU",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68145.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68145.ics",
+    "group": {
+      "name": "Indonesian Students at CMU",
+      "category": "Student Government Recognized Organizations - Social, Affinity-based",
+      "slug": "indonesian",
+      "websites": [
+        "https://tartanconnect.cmu.edu/indonesian/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "4eee578137b9",
+        "url": "https://tartanconnect.cmu.edu/indonesian/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "0aa328464c5e",
+    "organization": "French Club",
+    "department": "Global Locations / Qatar / Student Clubs",
+    "adapter": "ics",
+    "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35463.ics",
+    "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35463.ics",
+    "group": null,
+    "discoveredOn": "https://scottyconnect.qatar.cmu.edu/ics_helper?TB_context=Subscribe_To_Calendars&TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "Asia/Qatar"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "0c925198852d",
+    "organization": "Class of 2029",
+    "department": "Global Locations / Qatar / Class Cohort",
+    "adapter": "ics",
+    "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35479.ics",
+    "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35479.ics",
+    "group": null,
+    "discoveredOn": "https://scottyconnect.qatar.cmu.edu/ics_helper?TB_context=Subscribe_To_Calendars&TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "Asia/Qatar"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "0d0b9ba00904",
+    "organization": "CMU Pool Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68213.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68213.ics",
+    "group": {
+      "name": "CMU Pool Club",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation",
+      "slug": "pool",
+      "websites": [
+        "https://tartanconnect.cmu.edu/pool/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "1550cb003cd3",
+        "url": "https://tartanconnect.cmu.edu/pool/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "0e5e24a62515",
+    "organization": "CMU ChemE Cube",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71310.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71310.ics",
+    "group": {
+      "name": "CMU ChemE Cube",
+      "category": "Student Government Recognized Organizations - Educational, Technology, Maker Activities, Sustainability",
+      "slug": "cmuchemecube",
+      "websites": [
+        "https://tartanconnect.cmu.edu/cmuchemecube/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "f847369ab4c2",
+        "url": "https://tartanconnect.cmu.edu/cmuchemecube/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "0ee7a8533d64",
+    "organization": "Sigma Chi",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68361.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68361.ics",
+    "group": {
+      "name": "Sigma Chi",
+      "category": "Fraternity & Sorority Chapters - Social, Greek-lettered, Philanthropy",
+      "slug": "SigChi",
+      "websites": [
+        "https://cmusigmachi.org/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "f70f1ee315d1",
+        "url": "https://tartanconnect.cmu.edu/SigChi/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "0fceb4066385",
+    "organization": "Carnegie Mellon University",
+    "department": "University Offices",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_67835.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_67835.ics",
+    "group": null,
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "1116d82179ee",
+    "organization": "OpenCMUQ Collective",
+    "department": "Global Locations / Qatar / Student Clubs",
+    "adapter": "ics",
+    "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35453.ics",
+    "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35453.ics",
+    "group": null,
+    "discoveredOn": "https://scottyconnect.qatar.cmu.edu/ics_helper?TB_context=Subscribe_To_Calendars&TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "Asia/Qatar"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "11e4692b9472",
+    "organization": "Traders at Carnegie Mellon",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71393.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71393.ics",
+    "group": {
+      "name": "Traders at Carnegie Mellon",
+      "category": "Student Government Recognized Organizations",
+      "slug": "traderscmu",
+      "websites": [
+        "https://tartanconnect.cmu.edu/traderscmu/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "12e7eae01cab",
+    "organization": "National Society of Black Engineers - Healthcare Innovation Special Interest Group Chapter",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71354.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71354.ics",
+    "group": {
+      "name": "National Society of Black Engineers - Healthcare Innovation Special Interest Group Chapter",
+      "category": "Student Government Recognized Organizations - Diversity, Professional, Educational, Professional/Academic, Civic Engagement, Technology",
+      "slug": "NSBEHISIG",
+      "websites": [
+        "https://tartanconnect.cmu.edu/NSBEHISIG/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "94c2e36e78e0",
+        "url": "https://tartanconnect.cmu.edu/NSBEHISIG/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "1373fe640f2c",
+    "organization": "Witchcraft@CMU",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71410.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71410.ics",
+    "group": {
+      "name": "Witchcraft@CMU",
+      "category": "Student Government Recognized Organizations - Religious/Spiritual, General Interest",
+      "slug": "wcmu",
+      "websites": [
+        "https://tartanconnect.cmu.edu/wcmu/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "9c39faaec445",
+        "url": "https://tartanconnect.cmu.edu/wcmu/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "17b62c33e323",
+    "organization": "Tepper Basketball Club",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10978.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10978.ics",
+    "group": {
+      "name": "Tepper Basketball Club",
+      "category": "Tepper Graduate Organizations",
+      "slug": "basketball",
+      "websites": [
+        "https://tartanconnect.cmu.edu/basketball/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "7e59a0fc58cf",
+        "url": "https://tartanconnect.cmu.edu/basketball/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "184e85bf058a",
+    "organization": "Carnegie Mellon Young Americans for Liberty",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71438.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71438.ics",
+    "group": {
+      "name": "Carnegie Mellon Young Americans for Liberty",
+      "category": "Student Government Recognized Organizations",
+      "slug": "yafl",
+      "websites": [
+        "https://tartanconnect.cmu.edu/yafl/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "19fc6a91c57a",
+    "organization": "Spring Carnival Committee",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68045.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68045.ics",
+    "group": {
+      "name": "Spring Carnival Committee",
+      "category": "Student Government Recognized Organizations - General Interest",
+      "slug": "springcarnival",
+      "websites": [
+        "http://www.springcarnival.org"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "966ea3c8445d",
+        "url": "https://tartanconnect.cmu.edu/springcarnival/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "1c923437b23d",
+    "organization": "Technology Services",
+    "department": "Tepper School of Business / Tepper Offices",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10991.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10991.ics",
+    "group": {
+      "name": "Technology Services",
+      "category": "Tepper Offices",
+      "slug": "Ts",
+      "websites": [
+        "https://tartanconnect.cmu.edu/Ts/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "69fb83b72844",
+        "url": "https://tartanconnect.cmu.edu/Ts/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "1f1cb9549107",
+    "organization": "THE FAIR",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68381.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68381.ics",
+    "group": {
+      "name": "THE FAIR",
+      "category": "Student Government Recognized Organizations - Signature Event/Tradition",
+      "slug": "thefair",
+      "websites": [
+        "https://tartanconnect.cmu.edu/thefair/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "caa93072a809",
+        "url": "https://tartanconnect.cmu.edu/thefair/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "233a1ca23f10",
+    "organization": "Women's Club Volleyball",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68331.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68331.ics",
+    "group": {
+      "name": "Women's Club Volleyball",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation",
+      "slug": "wvball",
+      "websites": [
+        "https://tartanconnect.cmu.edu/wvball/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "2882b40b8b6d",
+        "url": "https://tartanconnect.cmu.edu/wvball/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "266d0214287f",
+    "organization": "Society of Hispanic Professional Engineers",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68257.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68257.ics",
+    "group": {
+      "name": "Society of Hispanic Professional Engineers",
+      "category": "Student Government Recognized Organizations - Diversity, Professional/Academic",
+      "slug": "shpe",
+      "websites": [
+        "http://www.cmushpe.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "66118fc711c8",
+        "url": "https://tartanconnect.cmu.edu/shpe/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "276f3059dc36",
+    "organization": "Women in Biomedical Engineering",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68321.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68321.ics",
+    "group": {
+      "name": "Women in Biomedical Engineering",
+      "category": "Student Government Recognized Organizations - Gender-focused, Professional/Academic, Grad-focused",
+      "slug": "wbme",
+      "websites": [
+        "https://tartanconnect.cmu.edu/wbme/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "de01ba02c0cf",
+        "url": "https://tartanconnect.cmu.edu/wbme/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "2d92d27cffa1",
+    "organization": "Filipino Student Association",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68109.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68109.ics",
+    "group": {
+      "name": "Filipino Student Association",
+      "category": "Student Government Recognized Organizations - International/Multicultural Advancement",
+      "slug": "filipino",
+      "websites": [
+        "https://tartanconnect.cmu.edu/filipino/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "2e5dd8baa8e1",
+    "organization": "Tepper Ventures",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71453.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71453.ics",
+    "group": {
+      "name": "Tepper Ventures",
+      "category": "Tepper Graduate Organizations - Professional/Academic",
+      "slug": "TVentures",
+      "websites": [
+        "https://tartanconnect.cmu.edu/TVentures/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "2fae2e7d5eac",
+    "organization": "MechE Community Engagement Committee",
+    "department": "Department-sponsored Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71308.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71308.ics",
+    "group": {
+      "name": "MechE Community Engagement Committee",
+      "category": "Department Sponsored Organizations - Diversity",
+      "slug": "mecheCEC",
+      "websites": [
+        "https://tartanconnect.cmu.edu/mecheCEC/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "20363bbea55b",
+        "url": "https://tartanconnect.cmu.edu/mecheCEC/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "3134c106b280",
+    "organization": "Infra Dance Company",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68147.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68147.ics",
+    "group": {
+      "name": "Infra Dance Company",
+      "category": "Student Government Recognized Organizations - Performance/Artistic, Dance-focused, Affinity-based, Club Sports/Recreation",
+      "slug": "infra",
+      "websites": [
+        "https://tartanconnect.cmu.edu/infra/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "f2c25fb72233",
+        "url": "https://tartanconnect.cmu.edu/infra/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "32353626ec57",
+    "organization": "Women's Water Polo",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68332.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68332.ics",
+    "group": {
+      "name": "Women's Water Polo",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation",
+      "slug": "wwpolo",
+      "websites": [
+        "https://tartanconnect.cmu.edu/wwpolo/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "c7b52478e49e",
+        "url": "https://tartanconnect.cmu.edu/wwpolo/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "3355619f737c",
+    "organization": "Tepper Undergraduate Real Estate Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71339.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71339.ics",
+    "group": {
+      "name": "Tepper Undergraduate Real Estate Club",
+      "category": "Student Government Recognized Organizations - Professional, Educational",
+      "slug": "TUREC",
+      "websites": [
+        "https://tartanconnect.cmu.edu/TUREC/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "6c29ec31092a",
+        "url": "https://tartanconnect.cmu.edu/TUREC/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "354e85f1c77b",
+    "organization": "Puzzlehunt CMU",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68225.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68225.ics",
+    "group": {
+      "name": "Puzzlehunt CMU",
+      "category": "Student Government Recognized Organizations - Signature Event/Tradition",
+      "slug": "puzzlehunt",
+      "websites": [
+        "http://puzzlehunt.club"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "3b3bfbd24ae4",
+    "organization": "Taiwanese Scholar Society",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68309.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68309.ics",
+    "group": {
+      "name": "Taiwanese Scholar Society",
+      "category": "Student Government Recognized Organizations - Diversity, Social, General Interest",
+      "slug": "tss",
+      "websites": [
+        "https://tartanconnect.cmu.edu/tss/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "4bd4503f0854",
+        "url": "https://tartanconnect.cmu.edu/tss/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "3bf507c5aac1",
+    "organization": "Industrial Design Society of America",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71376.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71376.ics",
+    "group": {
+      "name": "Industrial Design Society of America",
+      "category": "Student Government Recognized Organizations - Professional, Social, Maker Activities",
+      "slug": "IDSA",
+      "websites": [
+        "https://tartanconnect.cmu.edu/IDSA/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "f5464959ebb4",
+        "url": "https://tartanconnect.cmu.edu/IDSA/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "3f1483d3d17a",
+    "organization": "Carnegie Mellon Moon Miners",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71445.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71445.ics",
+    "group": null,
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "41e62960e94f",
+    "organization": "Girls Who Code",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68123.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68123.ics",
+    "group": {
+      "name": "Girls Who Code",
+      "category": "Student Government Recognized Organizations - Educational, Gender-focused, Civic Engagement, Technology",
+      "slug": "girlswhocode",
+      "websites": [
+        "https://tartanconnect.cmu.edu/girlswhocode/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "939067333cdb",
+        "url": "https://tartanconnect.cmu.edu/girlswhocode/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "442cafc009c1",
+    "organization": "Carnegie Mellon College Republicans",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68061.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68061.ics",
+    "group": {
+      "name": "Carnegie Mellon College Republicans",
+      "category": "Student Government Recognized Organizations - Political/Advocacy",
+      "slug": "CMCR",
+      "websites": [
+        "http://cmurepublicans.org"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "8612a67a20f2",
+        "url": "https://tartanconnect.cmu.edu/CMCR/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "47a1aa7ed916",
+    "organization": "ScottyCon",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68078.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68078.ics",
+    "group": {
+      "name": "ScottyCon",
+      "category": "Student Government Recognized Organizations - Gaming, Performance/Artistic, Signature Event/Tradition",
+      "slug": "scottycon",
+      "websites": [
+        "https://www.scottycon.com/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "eb3a1ea7524f",
+        "url": "https://tartanconnect.cmu.edu/scottycon/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "47d1daf66d6c",
+    "organization": "Carnegie Mellon Sports Analytics Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68067.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68067.ics",
+    "group": {
+      "name": "Carnegie Mellon Sports Analytics Club",
+      "category": "Student Government Recognized Organizations - Professional, Social, Professional/Academic, Club Sports/Recreation",
+      "slug": "CMSAC",
+      "websites": [
+        "http://www.cmusportsanalytics.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "9a8d662a1879",
+        "url": "https://tartanconnect.cmu.edu/CMSAC/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "48e5e88860d3",
+    "organization": "EcoCampus",
+    "department": "Global Locations / Qatar / Department",
+    "adapter": "ics",
+    "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35481.ics",
+    "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35481.ics",
+    "group": null,
+    "discoveredOn": "https://scottyconnect.qatar.cmu.edu/ics_helper?TB_context=Subscribe_To_Calendars&TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "Asia/Qatar"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "4b4f5f770f38",
+    "organization": "Quantum Computing at Carnegie Mellon",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71378.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71378.ics",
+    "group": {
+      "name": "Quantum Computing at Carnegie Mellon",
+      "category": "Student Government Recognized Organizations",
+      "slug": "qccmu",
+      "websites": [
+        "https://tartanconnect.cmu.edu/qccmu/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "c92c4e07baf7",
+        "url": "https://tartanconnect.cmu.edu/qccmu/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "4c0cf9d91106",
+    "organization": "Sustainable Earth",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68279.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68279.ics",
+    "group": {
+      "name": "Sustainable Earth",
+      "category": "Student Government Recognized Organizations - Educational, Political/Advocacy, Sustainability",
+      "slug": "sustainableearth",
+      "websites": [
+        "https://cmusustainableearth.wordpress.com/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "b9e0f1392d9e",
+        "url": "https://tartanconnect.cmu.edu/sustainableearth/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "4cdff82842e3",
+    "organization": "School of Music Student Advisory Board",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68245.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68245.ics",
+    "group": {
+      "name": "School of Music Student Advisory Board",
+      "category": "Student Government Recognized Organizations - Social, Music-focused, Council",
+      "slug": "sab",
+      "websites": [
+        "https://cmusomsab.weebly.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "f3351de64503",
+        "url": "https://tartanconnect.cmu.edu/sab/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "4d666829536a",
+    "organization": "Iranian Student Association",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68150.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68150.ics",
+    "group": {
+      "name": "Iranian Student Association",
+      "category": "Student Government Recognized Organizations - Social, Educational, Gaming, Performance/Artistic",
+      "slug": "iranian",
+      "websites": [
+        "https://tartanconnect.cmu.edu/iranian/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "56b839a9061b",
+        "url": "https://tartanconnect.cmu.edu/iranian/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "4d9cc97bf058",
+    "organization": "College Democrats",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68075.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68075.ics",
+    "group": {
+      "name": "College Democrats",
+      "category": "Student Government Recognized Organizations - Political/Advocacy",
+      "slug": "collegedems",
+      "websites": [
+        "https://tartanconnect.cmu.edu/collegedems/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "6c0f229132be",
+        "url": "https://tartanconnect.cmu.edu/collegedems/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "514a27e259b3",
+    "organization": "Roosevelt at CMU",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68237.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68237.ics",
+    "group": {
+      "name": "Roosevelt at CMU",
+      "category": "Student Government Recognized Organizations - Political/Advocacy, Civic Engagement",
+      "slug": "roosevelt",
+      "websites": [
+        "https://tartanconnect.cmu.edu/roosevelt/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "1e5f33908f73",
+        "url": "https://tartanconnect.cmu.edu/roosevelt/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "57f076785638",
+    "organization": "Iota Phi Theta Fraternity, Inc.",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71430.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71430.ics",
+    "group": {
+      "name": "Iota Phi Theta Fraternity, Inc.",
+      "category": "Fraternity & Sorority Chapters",
+      "slug": "IPT",
+      "websites": [
+        "https://tartanconnect.cmu.edu/IPT/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "5a954431ead2",
+    "organization": "Net Impact Club",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10963.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10963.ics",
+    "group": {
+      "name": "Net Impact Club",
+      "category": "Tepper Graduate Organizations",
+      "slug": "netimpact",
+      "websites": [
+        "https://tartanconnect.cmu.edu/netimpact/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "cba19ab0c250",
+        "url": "https://tartanconnect.cmu.edu/netimpact/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "5c05f7553108",
+    "organization": "ReFlexion",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71418.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71418.ics",
+    "group": {
+      "name": "ReFlexion",
+      "category": "Student Government Recognized Organizations - Music-focused",
+      "slug": "reflexion",
+      "websites": [
+        "https://cmureflexion.wixsite.com/reflexion"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "5f59f3ce00d6",
+    "organization": "Pi Kappa Alpha",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68359.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68359.ics",
+    "group": {
+      "name": "Pi Kappa Alpha",
+      "category": "Fraternity & Sorority Chapters",
+      "slug": "Pike",
+      "websites": [
+        "https://cmupikes.org/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "fc63b0cda009",
+        "url": "https://tartanconnect.cmu.edu/Pike/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "60e7784409c9",
+    "organization": "MSBA Programs SLC",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71338.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71338.ics",
+    "group": {
+      "name": "MSBA Programs SLC",
+      "category": "Tepper Graduate Organizations - Professional/Academic",
+      "slug": "MSBASAC",
+      "websites": [
+        "https://tartanconnect.cmu.edu/MSBASAC/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "617cd7fb47f2",
+    "organization": "Historical European Martial Arts Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71322.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71322.ics",
+    "group": {
+      "name": "Historical European Martial Arts Club",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation, Martial Arts",
+      "slug": "HEMA",
+      "websites": [
+        "https://tartanconnect.cmu.edu/HEMA/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "c99ceaa09017",
+        "url": "https://tartanconnect.cmu.edu/HEMA/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "62b529fd551a",
+    "organization": "Black Latino Business Association",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68035.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68035.ics",
+    "group": {
+      "name": "Black Latino Business Association",
+      "category": "Student Government Recognized Organizations - Diversity, Professional, Social, Affinity-based, Professional/Academic",
+      "slug": "BLBA",
+      "websites": [
+        "https://tartanconnect.cmu.edu/BLBA/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "3c07c01407d7",
+        "url": "https://tartanconnect.cmu.edu/BLBA/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "640cd6c2b613",
+    "organization": "One For the World",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_51849.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_51849.ics",
+    "group": {
+      "name": "One For the World",
+      "category": "Tepper Graduate Organizations - Educational",
+      "slug": "one",
+      "websites": [
+        "https://tartanconnect.cmu.edu/one/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "652be20f0f06",
+    "organization": "Gender Minorities and Women in Physics",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71444.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71444.ics",
+    "group": {
+      "name": "Gender Minorities and Women in Physics",
+      "category": "Student Government Recognized Organizations",
+      "slug": "gmwip",
+      "websites": [
+        "https://tartanconnect.cmu.edu/gmwip/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "673413052770",
+    "organization": "Project Smile",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68221.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68221.ics",
+    "group": {
+      "name": "Project Smile",
+      "category": "Student Government Recognized Organizations - General Interest",
+      "slug": "projectsmile",
+      "websites": [
+        "https://tartanconnect.cmu.edu/projectsmile/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "7b3a6759a047",
+        "url": "https://tartanconnect.cmu.edu/projectsmile/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "677602880a9d",
+    "organization": "Game Dev Club (GDC)",
+    "department": "Global Locations / Qatar / Student Clubs",
+    "adapter": "ics",
+    "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35452.ics",
+    "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35452.ics",
+    "group": null,
+    "discoveredOn": "https://scottyconnect.qatar.cmu.edu/ics_helper?TB_context=Subscribe_To_Calendars&TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "Asia/Qatar"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "68eeb6ffb846",
+    "organization": "Lunar Gala",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68172.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68172.ics",
+    "group": {
+      "name": "Lunar Gala",
+      "category": "Student Government Recognized Organizations - Performance/Artistic, Signature Event/Tradition",
+      "slug": "lunargala",
+      "websites": [
+        "http://www.lunargala.org"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "22d7a4316d4c",
+        "url": "https://tartanconnect.cmu.edu/lunargala/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "6a23c60324f2",
+    "organization": "Undergraduate Entrepreneurship Association",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68314.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68314.ics",
+    "group": {
+      "name": "Undergraduate Entrepreneurship Association",
+      "category": "Student Government Recognized Organizations - Professional/Academic",
+      "slug": "uea",
+      "websites": [
+        "http://www.ueacmu.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "7151ac1e1725",
+        "url": "https://tartanconnect.cmu.edu/uea/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "715aff642a67",
+    "organization": "Knits & Knots Club",
+    "department": "Global Locations / Qatar / Student Clubs",
+    "adapter": "ics",
+    "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35457.ics",
+    "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35457.ics",
+    "group": null,
+    "discoveredOn": "https://scottyconnect.qatar.cmu.edu/ics_helper?TB_context=Subscribe_To_Calendars&TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "Asia/Qatar"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "745dbf081c56",
+    "organization": "Carnegie Mellon Rocket Command",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68066.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68066.ics",
+    "group": {
+      "name": "Carnegie Mellon Rocket Command",
+      "category": "Student Government Recognized Organizations - Educational, General Interest, Technology, Maker Activities",
+      "slug": "CMRC",
+      "websites": [
+        "https://rocketcommand.org/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "8d3b202d669b",
+        "url": "https://tartanconnect.cmu.edu/CMRC/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "75232fcbc91a",
+    "organization": "Sigma Eta Pi",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71358.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71358.ics",
+    "group": {
+      "name": "Sigma Eta Pi",
+      "category": "Student Government Recognized Organizations - Professional, Social, Educational, Professional/Academic, General Interest, Greek-lettered",
+      "slug": "SEP",
+      "websites": [
+        "https://tartanconnect.cmu.edu/SEP/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "83cb9c6a10a2",
+        "url": "https://tartanconnect.cmu.edu/SEP/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "78bfd9c5e363",
+    "organization": "Tepper Alumni Relations",
+    "department": "Tepper School of Business / Tepper Offices",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10995.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10995.ics",
+    "group": null,
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "7a5d5c3584ce",
+    "organization": "Foundation and Language Model Center Events",
+    "department": "School of Computer Science",
+    "adapter": "ics",
+    "sourceURL": "https://calendar.google.com/calendar/ical/9968746254caab435261d03a173435aee9ae7757c23e66ce8b0ee435b2f1aa38%40group.calendar.google.com/public/basic.ics",
+    "fetchURL": "https://calendar.google.com/calendar/ical/9968746254caab435261d03a173435aee9ae7757c23e66ce8b0ee435b2f1aa38%40group.calendar.google.com/public/basic.ics",
+    "group": null,
+    "discoveredOn": "https://www.cmu.edu/flame/events/index.html",
+    "pairedSources": [
+      {
+        "sourceID": "3eeee9603627",
+        "url": "https://www.cmu.edu/flame/events/index.html",
+        "status": "covered",
+        "adapter": "html"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "7c4d4271232a",
+    "organization": "Jewish Business Association",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10979.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10979.ics",
+    "group": {
+      "name": "Jewish Business Association",
+      "category": "Tepper Graduate Organizations",
+      "slug": "jba",
+      "websites": [
+        "https://tartanconnect.cmu.edu/jba/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "7da7d8c1b6c3",
+    "organization": "InterVarsity Christian Fellowship",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68149.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68149.ics",
+    "group": {
+      "name": "InterVarsity Christian Fellowship",
+      "category": "Student Government Recognized Organizations - Religious/Spiritual",
+      "slug": "intervarsity",
+      "websites": [
+        "http://www.cmuintervarsity.org"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "2ea24586aa2a",
+        "url": "https://tartanconnect.cmu.edu/intervarsity/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "7e6cc7d70838",
+    "organization": "Circle K",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68058.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68058.ics",
+    "group": {
+      "name": "Circle K",
+      "category": "Student Government Recognized Organizations - Civic Engagement",
+      "slug": "CircleK",
+      "websites": [
+        "https://tartanconnect.cmu.edu/CircleK/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "71ab48825a82",
+        "url": "https://tartanconnect.cmu.edu/CircleK/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "8041ab601540",
+    "organization": "University Rowing Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68238.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68238.ics",
+    "group": {
+      "name": "University Rowing Club",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation",
+      "slug": "rowing",
+      "websites": [
+        "https://tartancrew.wixsite.com/tartancrew"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "81c87c6e4c89",
+    "organization": "Engineers Without Borders",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68102.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68102.ics",
+    "group": {
+      "name": "Engineers Without Borders",
+      "category": "Student Government Recognized Organizations - Civic Engagement, Sustainability",
+      "slug": "ewb",
+      "websites": [
+        "http://cmuewb.org/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "df8c0a7afe50",
+        "url": "https://tartanconnect.cmu.edu/ewb/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "845d65375d67",
+    "organization": "Hong Kong Student Association",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68136.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68136.ics",
+    "group": {
+      "name": "Hong Kong Student Association",
+      "category": "Student Government Recognized Organizations - International/Multicultural Advancement",
+      "slug": "hksa",
+      "websites": [
+        "https://tartanconnect.cmu.edu/hksa/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "fd09f5fe5976",
+        "url": "https://tartanconnect.cmu.edu/hksa/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "866cd105a000",
+    "organization": "Carnegie Industrials Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71448.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71448.ics",
+    "group": {
+      "name": "Carnegie Industrials Club",
+      "category": "Student Government Recognized Organizations",
+      "slug": "carnegieindustrials",
+      "websites": [
+        "https://tartanconnect.cmu.edu/carnegieindustrials/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "87bd0d1d11f0",
+    "organization": "Alpha Epsilon Delta",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68000.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68000.ics",
+    "group": {
+      "name": "Alpha Epsilon Delta",
+      "category": "Student Government Recognized Organizations - Professional, Educational, Professional/Academic, Honor Society, Greek-lettered",
+      "slug": "AED",
+      "websites": [
+        "https://tartanconnect.cmu.edu/AED/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "e87cd27d345f",
+        "url": "https://tartanconnect.cmu.edu/AED/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "885ab196d989",
+    "organization": "DART (Defense, Aerospace, Robotics & Tech Club)",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_15565.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_15565.ics",
+    "group": {
+      "name": "DART (Defense, Aerospace, Robotics & Tech Club)",
+      "category": "Tepper Graduate Organizations - Professional, Educational, Professional/Academic, Technology, Grad-focused",
+      "slug": "stars",
+      "websites": [
+        "https://tartanconnect.cmu.edu/stars/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "89930c55ca6c",
+    "organization": "CMU Bhangra",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68032.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68032.ics",
+    "group": {
+      "name": "CMU Bhangra",
+      "category": "Student Government Recognized Organizations - Social, Performance/Artistic, Dance-focused",
+      "slug": "bhangra",
+      "websites": [
+        "http://www.cmubhangra.org"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "992b9798f88e",
+        "url": "https://tartanconnect.cmu.edu/bhangra/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "8b5d2eab7e57",
+    "organization": "Chinese Students and Scholars Association",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68086.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68086.ics",
+    "group": {
+      "name": "Chinese Students and Scholars Association",
+      "category": "Student Government Recognized Organizations - International/Multicultural Advancement",
+      "slug": "CSSA",
+      "websites": [
+        "https://tartanconnect.cmu.edu/CSSA/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "8e451b494bac",
+    "organization": "CMU Italian Society",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71383.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71383.ics",
+    "group": {
+      "name": "CMU Italian Society",
+      "category": "Student Government Recognized Organizations",
+      "slug": "CMUIS",
+      "websites": [
+        "https://tartanconnect.cmu.edu/CMUIS/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "145e414a8f78",
+        "url": "https://tartanconnect.cmu.edu/CMUIS/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "8f8b52740902",
+    "organization": "BRICK",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71434.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71434.ics",
+    "group": {
+      "name": "BRICK",
+      "category": "Student Government Recognized Organizations - Diversity, LGBTQIAA+, Political/Advocacy, Civic Engagement",
+      "slug": "BRICK",
+      "websites": [
+        "https://tartanconnect.cmu.edu/BRICK/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "9236f6b03519",
+    "organization": "CMU Science Olympiad",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68252.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68252.ics",
+    "group": {
+      "name": "CMU Science Olympiad",
+      "category": "Student Government Recognized Organizations - Professional, Educational",
+      "slug": "scienceolympiad",
+      "websites": [
+        "https://tartanconnect.cmu.edu/scienceolympiad/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "966ec18f504d",
+    "organization": "Tartan Time Travelers",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71392.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71392.ics",
+    "group": {
+      "name": "Tartan Time Travelers",
+      "category": "Student Government Recognized Organizations - General Interest",
+      "slug": "TTT",
+      "websites": [
+        "https://tartanconnect.cmu.edu/TTT/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "c55f03431a36",
+        "url": "https://tartanconnect.cmu.edu/TTT/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "988554b41183",
+    "organization": "Women's Club Lacrosse",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68327.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68327.ics",
+    "group": {
+      "name": "Women's Club Lacrosse",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation",
+      "slug": "wlax",
+      "websites": [
+        "https://tartanconnect.cmu.edu/wlax/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "7fa26f14bc15",
+        "url": "https://tartanconnect.cmu.edu/wlax/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "99acdf9aeced",
+    "organization": "Habitat for Humanity",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68128.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68128.ics",
+    "group": {
+      "name": "Habitat for Humanity",
+      "category": "Student Government Recognized Organizations - Professional, Social, Educational, Political/Advocacy, Affinity-based, Civic Engagement, Philanthropy, Booth, Sustainability",
+      "slug": "habitat",
+      "websites": [
+        "https://tartanconnect.cmu.edu/habitat/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "c24d2aada3cb",
+        "url": "https://tartanconnect.cmu.edu/habitat/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "9a2420282e05",
+    "organization": "Cricket Club",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_56644.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_56644.ics",
+    "group": null,
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "9b6405651d3f",
+    "organization": "Women in Product",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71388.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71388.ics",
+    "group": {
+      "name": "Women in Product",
+      "category": "Student Government Recognized Organizations",
+      "slug": "WIP",
+      "websites": [
+        "https://tartanconnect.cmu.edu/WIP/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "4c61f119303b",
+        "url": "https://tartanconnect.cmu.edu/WIP/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "9cdc22c31276",
+    "organization": "Tepper Golf Club",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10975.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10975.ics",
+    "group": {
+      "name": "Tepper Golf Club",
+      "category": "Tepper Graduate Organizations - Social, Club Sports/Recreation, Grad-focused",
+      "slug": "golf",
+      "websites": [
+        "https://tartanconnect.cmu.edu/golf/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "6d714e12b377",
+        "url": "https://tartanconnect.cmu.edu/golf/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "a050f4ea491e",
+    "organization": "The Tartan",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68302.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68302.ics",
+    "group": {
+      "name": "The Tartan",
+      "category": "Student Government Recognized Organizations - Media/Publications",
+      "slug": "thetartan",
+      "websites": [
+        "https://the-tartan.org/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "d3791f311ba4",
+        "url": "https://tartanconnect.cmu.edu/thetartan/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "a2014c54892f",
+    "organization": "Carnegie Consulting",
+    "department": "Global Locations / Qatar / Student Clubs",
+    "adapter": "ics",
+    "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35446.ics",
+    "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35446.ics",
+    "group": null,
+    "discoveredOn": "https://scottyconnect.qatar.cmu.edu/ics_helper?TB_context=Subscribe_To_Calendars&TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "Asia/Qatar"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "a28736c871a4",
+    "organization": "Ice Hockey",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68140.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68140.ics",
+    "group": {
+      "name": "Ice Hockey",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation",
+      "slug": "icehockey",
+      "websites": [
+        "https://tartanconnect.cmu.edu/icehockey/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "b685a68b2361",
+        "url": "https://tartanconnect.cmu.edu/icehockey/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "a47678f5270e",
+    "organization": "Center for Leadership Studies",
+    "department": "University Offices",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71420.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71420.ics",
+    "group": null,
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "a647f39c1e08",
+    "organization": "The CMU Pantry",
+    "department": "University Offices",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_67988.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_67988.ics",
+    "group": {
+      "name": "The CMU Pantry",
+      "category": "Offices - Civic Engagement, Mental Health",
+      "slug": "cmupantry",
+      "websites": [
+        "https://tartanconnect.cmu.edu/cmupantry/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "b6467941cc24",
+        "url": "https://tartanconnect.cmu.edu/cmupantry/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "ab203a2d8db1",
+    "organization": "Carnegie Mellon Meat Cultivation",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71398.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71398.ics",
+    "group": {
+      "name": "Carnegie Mellon Meat Cultivation",
+      "category": "Student Government Recognized Organizations",
+      "slug": "cmmc",
+      "websites": [
+        "https://tartanconnect.cmu.edu/cmmc/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "d0a070ddc784",
+        "url": "https://tartanconnect.cmu.edu/cmmc/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "ad58641d0fad",
+    "organization": "Carnegie Strategy Group",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71455.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71455.ics",
+    "group": null,
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "af81054dbc6e",
+    "organization": "Carnegie Math Club",
+    "department": "Global Locations / Qatar / Student Clubs",
+    "adapter": "ics",
+    "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35447.ics",
+    "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35447.ics",
+    "group": null,
+    "discoveredOn": "https://scottyconnect.qatar.cmu.edu/ics_helper?TB_context=Subscribe_To_Calendars&TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "Asia/Qatar"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "b032a6456287",
+    "organization": "Sigma Nu",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68362.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68362.ics",
+    "group": {
+      "name": "Sigma Nu",
+      "category": "Fraternity & Sorority Chapters - Club Sports/Recreation, Greek-lettered, Civic Engagement, Buggy, Greek Sing",
+      "slug": "SigNu",
+      "websites": [
+        "https://tartanconnect.cmu.edu/SigNu/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "d568abbbc85b",
+        "url": "https://tartanconnect.cmu.edu/SigNu/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "b286801b5a44",
+    "organization": "Tepper MSM Program SLC",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71423.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71423.ics",
+    "group": {
+      "name": "Tepper MSM Program SLC",
+      "category": "Tepper Graduate Organizations - Professional/Academic",
+      "slug": "MSMSAC",
+      "websites": [
+        "https://tartanconnect.cmu.edu/MSMSAC/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "9b8068eeae00",
+        "url": "https://tartanconnect.cmu.edu/MSMSAC/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "b456cf80a90f",
+    "organization": "BAPS Campus Fellowship (BCF)",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71429.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71429.ics",
+    "group": {
+      "name": "BAPS Campus Fellowship (BCF)",
+      "category": "Student Government Recognized Organizations",
+      "slug": "BAPS",
+      "websites": [
+        "https://tartanconnect.cmu.edu/BAPS/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "b5bc94e14a0c",
+    "organization": "Hillel Jewish Students Association",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68134.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68134.ics",
+    "group": {
+      "name": "Hillel Jewish Students Association",
+      "category": "Student Government Recognized Organizations - Diversity, Educational, Religious/Spiritual, International/Multicultural Advancement, General Interest",
+      "slug": "hillel",
+      "websites": [
+        "https://hilleljuc.org/member-group/cmuhillel/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "407a8ef9befa",
+        "url": "https://tartanconnect.cmu.edu/hillel/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "b60b2297b1d4",
+    "organization": "Women's Club Basketball",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71348.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71348.ics",
+    "group": {
+      "name": "Women's Club Basketball",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation",
+      "slug": "WCBB",
+      "websites": [
+        "https://tartanconnect.cmu.edu/WCBB/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "089596285529",
+        "url": "https://tartanconnect.cmu.edu/WCBB/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "b839ca411e45",
+    "organization": "Tepper Impact Investing Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71449.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71449.ics",
+    "group": {
+      "name": "Tepper Impact Investing Club",
+      "category": "Student Government Recognized Organizations",
+      "slug": "tiic",
+      "websites": [
+        "https://tartanconnect.cmu.edu/tiic/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "bab89dae527b",
+    "organization": "Quiz Bowl",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68228.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68228.ics",
+    "group": {
+      "name": "Quiz Bowl",
+      "category": "Student Government Recognized Organizations - General Interest",
+      "slug": "quizbowl",
+      "websites": [
+        "https://tartanconnect.cmu.edu/quizbowl/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "45220ba95bc3",
+        "url": "https://tartanconnect.cmu.edu/quizbowl/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "bba325fdf128",
+    "organization": "Tepper Parents Club",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_14329.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_14329.ics",
+    "group": {
+      "name": "Tepper Parents Club",
+      "category": "Tepper Graduate Organizations - Social",
+      "slug": "parents",
+      "websites": [
+        "https://tartanconnect.cmu.edu/parents/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "b6472956ee39",
+        "url": "https://tartanconnect.cmu.edu/parents/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "be426c471961",
+    "organization": "Singapore Students' Association",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68270.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68270.ics",
+    "group": {
+      "name": "Singapore Students' Association",
+      "category": "Student Government Recognized Organizations - Educational, International/Multicultural Advancement, Booth",
+      "slug": "ssa",
+      "websites": [
+        "http://cmussa.org"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "e3316489e415",
+        "url": "https://tartanconnect.cmu.edu/ssa/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "c1587a0b2819",
+    "organization": "CMUQ Library",
+    "department": "Global Locations / Qatar / Department",
+    "adapter": "ics",
+    "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35472.ics",
+    "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35472.ics",
+    "group": null,
+    "discoveredOn": "https://scottyconnect.qatar.cmu.edu/ics_helper?TB_context=Subscribe_To_Calendars&TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "Asia/Qatar"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "c384a10975c1",
+    "organization": "Business Offices",
+    "department": "Tepper School of Business / Tepper Offices",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10946.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10946.ics",
+    "group": {
+      "name": "Business Offices",
+      "category": "Tepper Offices",
+      "slug": "admin",
+      "websites": [
+        "https://tartanconnect.cmu.edu/admin/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "7970cc95a636",
+        "url": "https://tartanconnect.cmu.edu/admin/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "c40f01fed271",
+    "organization": "The Carnegie Innovation Club (CIC)",
+    "department": "Global Locations / Qatar / Student Clubs",
+    "adapter": "ics",
+    "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35455.ics",
+    "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35455.ics",
+    "group": null,
+    "discoveredOn": "https://scottyconnect.qatar.cmu.edu/ics_helper?TB_context=Subscribe_To_Calendars&TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "Asia/Qatar"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "c600d1793a2d",
+    "organization": "Moneythink CMU",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68185.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68185.ics",
+    "group": {
+      "name": "Moneythink CMU",
+      "category": "Student Government Recognized Organizations - Diversity, Educational, Professional/Academic, Civic Engagement, Philanthropy, Signature Event/Tradition",
+      "slug": "moneythink",
+      "websites": [
+        "https://www.moneythinkcmu.com/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "c6da39f30954",
+    "organization": "Association of Information System (AIS)",
+    "department": "Global Locations / Qatar / Student Clubs",
+    "adapter": "ics",
+    "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35445.ics",
+    "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35445.ics",
+    "group": null,
+    "discoveredOn": "https://scottyconnect.qatar.cmu.edu/ics_helper?TB_context=Subscribe_To_Calendars&TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "Asia/Qatar"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "c8b4a7d73dee",
+    "organization": "Mindfulness Room Team",
+    "department": "Department-sponsored Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_69200.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_69200.ics",
+    "group": {
+      "name": "Mindfulness Room Team",
+      "category": "Department Sponsored Organizations",
+      "slug": "mindfulness",
+      "websites": [
+        "https://tartanconnect.cmu.edu/mindfulness/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "0feecc8b168e",
+        "url": "https://tartanconnect.cmu.edu/mindfulness/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "caabdfa76cb4",
+    "organization": "Nexus of Community Engagement",
+    "department": "University Offices",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68569.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68569.ics",
+    "group": null,
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "cc5e1c0f8bf9",
+    "organization": "Medical Visions",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71413.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71413.ics",
+    "group": {
+      "name": "Medical Visions",
+      "category": "Student Government Recognized Organizations",
+      "slug": "medvis",
+      "websites": [
+        "https://tartanconnect.cmu.edu/medvis/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "cfaa71977875",
+    "organization": "Taiwanese Students Association",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68308.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68308.ics",
+    "group": {
+      "name": "Taiwanese Students Association",
+      "category": "Student Government Recognized Organizations - Social, International/Multicultural Advancement, Affinity-based, Club Sports/Recreation, Booth, Signature Event/Tradition",
+      "slug": "tsa",
+      "websites": [
+        "https://www.instagram.com/cmu_tsa/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "d1b8754df0d7",
+    "organization": "Sikh Student Organization",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71428.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71428.ics",
+    "group": {
+      "name": "Sikh Student Organization",
+      "category": "Student Government Recognized Organizations",
+      "slug": "Sikh",
+      "websites": [
+        "https://tartanconnect.cmu.edu/Sikh/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "d2f97de76a2e",
+    "organization": "Tepper Real Estate Club",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_12113.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_12113.ics",
+    "group": {
+      "name": "Tepper Real Estate Club",
+      "category": "Tepper Graduate Organizations - Professional",
+      "slug": "realestate",
+      "websites": [
+        "https://tartanconnect.cmu.edu/realestate/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "dc012e001acf",
+        "url": "https://tartanconnect.cmu.edu/realestate/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "d59c139e665b",
+    "organization": "Black Business Association Club",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10951.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10951.ics",
+    "group": {
+      "name": "Black Business Association Club",
+      "category": "Tepper Graduate Organizations - Professional, Social, Political/Advocacy, Affinity-based, Professional/Academic, Civic Engagement, Grad-focused",
+      "slug": "bba",
+      "websites": [
+        "https://tartanconnect.cmu.edu/bba/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "d62d08f7df9d",
+    "organization": "TEDxCMU",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68293.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68293.ics",
+    "group": {
+      "name": "TEDxCMU",
+      "category": "Student Government Recognized Organizations - Professional, Educational, Media/Publications, General Interest",
+      "slug": "tedxcmu",
+      "websites": [
+        "http://www.tedxcmu.org"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "ed9f99397ffd",
+        "url": "https://tartanconnect.cmu.edu/tedxcmu/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "d7858a5f2b71",
+    "organization": "Arts & Crafts Club",
+    "department": "Global Locations / Qatar / Student Clubs",
+    "adapter": "ics",
+    "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35456.ics",
+    "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35456.ics",
+    "group": null,
+    "discoveredOn": "https://scottyconnect.qatar.cmu.edu/ics_helper?TB_context=Subscribe_To_Calendars&TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "Asia/Qatar"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "dbb1f1d15b97",
+    "organization": "Tepper MS Programs",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71459.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71459.ics",
+    "group": {
+      "name": "Tepper MS Programs",
+      "category": "Tepper Graduate Organizations",
+      "slug": "msprograms",
+      "websites": [
+        "https://tartanconnect.cmu.edu/msprograms/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "df9d9882f8d0",
+    "organization": "Tepper MBA Robber Barons",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71381.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71381.ics",
+    "group": {
+      "name": "Tepper MBA Robber Barons",
+      "category": "Tepper Graduate Organizations - Social, Media/Publications",
+      "slug": "ROB",
+      "websites": [
+        "https://tartanconnect.cmu.edu/ROB/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "e11ced493e4f",
+    "organization": "Here For You",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68133.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68133.ics",
+    "group": {
+      "name": "Here For You",
+      "category": "Student Government Recognized Organizations - Diversity, Civic Engagement, Mental Health",
+      "slug": "hereforyou",
+      "websites": [
+        "https://tartanconnect.cmu.edu/hereforyou/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "4c6348e43a62",
+        "url": "https://tartanconnect.cmu.edu/hereforyou/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "e1e0d541d271",
+    "organization": "CMU Climbing Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71337.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71337.ics",
+    "group": {
+      "name": "CMU Climbing Club",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation",
+      "slug": "CMUC",
+      "websites": [
+        "https://tartanconnect.cmu.edu/CMUC/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "84389dbaa9f8",
+        "url": "https://tartanconnect.cmu.edu/CMUC/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "e340728d20ac",
+    "organization": "Masters Program Office",
+    "department": "Tepper School of Business / Tepper Offices",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_14322.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_14322.ics",
+    "group": {
+      "name": "Masters Program Office",
+      "category": "Tepper Offices - Educational",
+      "slug": "mbaprogram",
+      "websites": [
+        "https://tartanconnect.cmu.edu/mbaprogram/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "e143859a9248",
+        "url": "https://tartanconnect.cmu.edu/mbaprogram/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "e67995db68fd",
+    "organization": "CMU Europe Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71385.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71385.ics",
+    "group": {
+      "name": "CMU Europe Club",
+      "category": "Student Government Recognized Organizations - Social, International/Multicultural Advancement",
+      "slug": "CMUEC",
+      "websites": [
+        "https://tartanconnect.cmu.edu/CMUEC/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "02421d3d62a5",
+        "url": "https://tartanconnect.cmu.edu/CMUEC/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "e9767638c7f0",
+    "organization": "Spanish And Latin Student Association",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68249.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68249.ics",
+    "group": {
+      "name": "Spanish And Latin Student Association",
+      "category": "Student Government Recognized Organizations - Diversity, Social, Educational, International/Multicultural Advancement, General Interest",
+      "slug": "salsa",
+      "websites": [
+        "https://linktr.ee/salsacmu?utm_source=linktree_admin_share"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "fc21774cc18a",
+        "url": "https://tartanconnect.cmu.edu/salsa/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "ea5036fff79d",
+    "organization": "Carnegie Mellon Informatics and Mathematics Competition Organizing Team",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68063.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68063.ics",
+    "group": {
+      "name": "Carnegie Mellon Informatics and Mathematics Competition Organizing Team",
+      "category": "Student Government Recognized Organizations - Educational, General Interest",
+      "slug": "CMIMC",
+      "websites": [
+        "https://tartanconnect.cmu.edu/CMIMC/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "b0e53e3d066b",
+        "url": "https://tartanconnect.cmu.edu/CMIMC/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "ecb0a238df3d",
+    "organization": "Alpha Omega Campus Ministry",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68010.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68010.ics",
+    "group": {
+      "name": "Alpha Omega Campus Ministry",
+      "category": "Student Government Recognized Organizations - Religious/Spiritual",
+      "slug": "AOCM",
+      "websites": [
+        "https://www.pittsburghchurch.org/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "de00a240bc18",
+        "url": "https://tartanconnect.cmu.edu/AOCM/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "ede52c1b5eed",
+    "organization": "Badminton Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68024.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68024.ics",
+    "group": {
+      "name": "Badminton Club",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation",
+      "slug": "badmintonclub",
+      "websites": [
+        "https://tartanconnect.cmu.edu/badmintonclub/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "ed2f04793822",
+        "url": "https://tartanconnect.cmu.edu/badmintonclub/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "f3397a335a38",
+    "organization": "Alpha Epsilon Pi",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68338.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68338.ics",
+    "group": {
+      "name": "Alpha Epsilon Pi",
+      "category": "Fraternity & Sorority Chapters",
+      "slug": "AEPi",
+      "websites": [
+        "http://www.aepi.rocks"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "ccef3aba5489",
+        "url": "https://tartanconnect.cmu.edu/AEPi/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "f471c2959a98",
+    "organization": "Student Government Director of Finance & JFC",
+    "department": "Student Governance",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68384.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68384.ics",
+    "group": null,
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "f5d9d68e0b15",
+    "organization": "Interfaith Leadership Development",
+    "department": "Department-sponsored Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71450.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71450.ics",
+    "group": {
+      "name": "Interfaith Leadership Development",
+      "category": "Department Sponsored Organizations - Diversity, Religious/Spiritual",
+      "slug": "ILD",
+      "websites": [
+        "https://tartanconnect.cmu.edu/ILD/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "f6d1358deaf2",
+    "organization": "Turning Point USA",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71397.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71397.ics",
+    "group": {
+      "name": "Turning Point USA",
+      "category": "Student Government Recognized Organizations",
+      "slug": "TPUSA",
+      "websites": [
+        "https://tartanconnect.cmu.edu/TPUSA/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "f73f87c3fc1e",
+    "organization": "Soundbytes",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68263.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68263.ics",
+    "group": {
+      "name": "Soundbytes",
+      "category": "Student Government Recognized Organizations - Performance/Artistic, Music-focused",
+      "slug": "soundbytes",
+      "websites": [
+        "https://www.cmusoundbytes.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "6a1229f6ad48",
+        "url": "https://tartanconnect.cmu.edu/soundbytes/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "fa261054d761",
+    "organization": "Out in Science, Technology, Engineering, and Mathematics",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68203.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68203.ics",
+    "group": {
+      "name": "Out in Science, Technology, Engineering, and Mathematics",
+      "category": "Student Government Recognized Organizations - Diversity, LGBTQIAA+, Affinity-based, General Interest",
+      "slug": "ostem",
+      "websites": [
+        "https://tartanconnect.cmu.edu/ostem/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "7a55a66267df",
+        "url": "https://tartanconnect.cmu.edu/ostem/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "fa960d8d6a7e",
+    "organization": "MSBA Community",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_56012.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_56012.ics",
+    "group": {
+      "name": "MSBA Community",
+      "category": "Tepper Graduate Organizations",
+      "slug": "msba",
+      "websites": [
+        "https://tartanconnect.cmu.edu/msba/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "fb9eae690aff",
+    "organization": "Quant",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68226.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68226.ics",
+    "group": {
+      "name": "Quant",
+      "category": "Student Government Recognized Organizations - Professional/Academic",
+      "slug": "quant",
+      "websites": [
+        "http://cmuquant.com/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "0f210f1b53c9",
+        "url": "https://tartanconnect.cmu.edu/quant/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "fd5e37c9252e",
+    "organization": "Shamunity",
+    "department": "Global Locations / Qatar / Student Clubs",
+    "adapter": "ics",
+    "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35466.ics",
+    "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35466.ics",
+    "group": null,
+    "discoveredOn": "https://scottyconnect.qatar.cmu.edu/ics_helper?TB_context=Subscribe_To_Calendars&TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "Asia/Qatar"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "feb8aa56fd07",
+    "organization": "The Treblemakers",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68306.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68306.ics",
+    "group": {
+      "name": "The Treblemakers",
+      "category": "Student Government Recognized Organizations - Performance/Artistic, Music-focused",
+      "slug": "treblemakers",
+      "websites": [
+        "http://www.cmutreblemakers.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "3e8d795ae4e3",
+        "url": "https://tartanconnect.cmu.edu/treblemakers/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "ff39febcec5f",
+    "organization": "Pittsburgh Go Association",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68211.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68211.ics",
+    "group": {
+      "name": "Pittsburgh Go Association",
+      "category": "Student Government Recognized Organizations - Gaming",
+      "slug": "pittgo",
+      "websites": [
+        "http://www.pittsburghgo.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "9a1d2829e5ec",
+        "url": "https://tartanconnect.cmu.edu/pittgo/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  },
+  {
+    "sourceID": "ffefaa1e3c25",
+    "organization": "Men's Club Volleyball",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68192.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68192.ics",
+    "group": {
+      "name": "Men's Club Volleyball",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation",
+      "slug": "mvball",
+      "websites": [
+        "https://tartanconnect.cmu.edu/mvball/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "ics_a"
+  }
+]

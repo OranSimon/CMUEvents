@@ -156,7 +156,7 @@ export function normalizeEvent(input, plan = {}) {
   }
   if (!end) end = allDay ? addDays(start) : start;
   if (end < start || (allDay && end === start)) end = allDay ? addDays(start) : start;
-  const description = plainText(input.description);
+  const description = plainText([input.description, plan.options?.eventContext].filter(Boolean).join('\n'));
   const uid = String(input.uid || createHash('sha256').update(`${url}|${start}|${title}`).digest('hex').slice(0, 24));
   return {
     uid, title, description, summary: summarize(input.summary || description),
