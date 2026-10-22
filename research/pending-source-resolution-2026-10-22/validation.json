@@ -1,0 +1,364 @@
+{
+  "checkedAt": "2026-10-22T18:58:31.426Z",
+  "tests": {
+    "command": "npm test",
+    "passed": 127,
+    "failed": 0
+  },
+  "projectCheck": {
+    "command": "npm run check",
+    "sourceCoverage": 1029,
+    "passed": true
+  },
+  "targetedRefresh": {
+    "startedAt": "2026-10-22T18:54:07.350Z",
+    "completedAt": "2026-10-22T18:54:20.631Z",
+    "total": 42,
+    "completed": 42,
+    "ok": 8,
+    "empty": 34,
+    "error": 0,
+    "totalEvents": 7624,
+    "transfers": {
+      "requests": 131,
+      "cacheHits": 45,
+      "bytes": 388455
+    },
+    "sourceIDs": [
+      "57f076785638",
+      "42c864cad300",
+      "e4079298b407",
+      "0c925198852d",
+      "4898714e3ede",
+      "c1587a0b2819",
+      "48e5e88860d3",
+      "96d9c569ccf5",
+      "d7858a5f2b71",
+      "c6da39f30954",
+      "a2014c54892f",
+      "af81054dbc6e",
+      "19248fc9767e",
+      "8f4e483a1437",
+      "7cdbbe1e7028",
+      "0aa328464c5e",
+      "677602880a9d",
+      "715aff642a67",
+      "1116d82179ee",
+      "fd5e37c9252e",
+      "ca9e9e551f58",
+      "c40f01fed271",
+      "d32ab184e057",
+      "1d28398c08fe",
+      "d5a270fc4ae8",
+      "04b93bc6b736",
+      "9f7bff4dc6be",
+      "184e85bf058a",
+      "4d9cc97bf058",
+      "0810e0d905cd",
+      "d62d08f7df9d",
+      "11e4692b9472",
+      "afc8d82bc81d",
+      "d59c139e665b",
+      "9a2420282e05",
+      "931fac9f758c",
+      "60e7784409c9",
+      "640cd6c2b613",
+      "2e5dd8baa8e1",
+      "0fceb4066385",
+      "69aec3cbe07c",
+      "40f7fd9f957c"
+    ],
+    "scope": "Final refresh of every changed ingestion contract relative to a8a5f99",
+    "followupRefreshes": [
+      {
+        "sourceIDs": [
+          "d62d08f7df9d"
+        ],
+        "reason": "Retain full public announcement together with the reviewed conflicting clocks/venues when merging official duplicate records.",
+        "startedAt": "2026-10-22T18:56:03.813Z",
+        "completedAt": "2026-10-22T18:56:08.051Z",
+        "total": 1,
+        "completed": 1,
+        "ok": 1,
+        "empty": 0,
+        "error": 0,
+        "totalEvents": 7624,
+        "transfers": {
+          "requests": 3,
+          "cacheHits": 2,
+          "bytes": 0
+        }
+      }
+    ]
+  },
+  "normalAutomaticRefresh": {
+    "url": "http://127.0.0.1:4173",
+    "launchCommand": "PORT=4173 npm start",
+    "autoRefresh": true,
+    "status": {
+      "lastUpdated": "2026-10-22T18:56:06.249Z",
+      "totalEvents": 7624,
+      "sources": {
+        "total": 1029,
+        "ok": 333,
+        "empty": 412,
+        "error": 3,
+        "covered": 259,
+        "unsupported": 18,
+        "subscription_only": 4,
+        "blocked": 0,
+        "pending": 0
+      },
+      "lastRefresh": {
+        "startedAt": "2026-10-22T18:56:03.813Z",
+        "completedAt": "2026-10-22T18:56:08.051Z",
+        "total": 1,
+        "completed": 1,
+        "ok": 1,
+        "empty": 0,
+        "error": 0,
+        "totalEvents": 7624
+      },
+      "refreshing": false
+    }
+  },
+  "assertions": [
+    {
+      "name": "exact 105 reviews with no missing public fixes",
+      "passed": true
+    },
+    {
+      "name": "all 42 changed contracts refreshed successfully",
+      "passed": true
+    },
+    {
+      "name": "full catalog and normal automatic refresh are settled",
+      "passed": true
+    },
+    {
+      "name": "all 105 source diagnostics use the latest reasons and next steps",
+      "passed": true
+    },
+    {
+      "name": "Consulting event has its published Doha time and room",
+      "passed": true
+    },
+    {
+      "name": "BBA duplicates merge and retain order context, both cutoffs and private venue",
+      "passed": true
+    },
+    {
+      "name": "Senate preserves undergraduate-only eligibility and private venue",
+      "passed": true
+    },
+    {
+      "name": "TEDx date-only record merges with the existing official registration link and remains under review",
+      "passed": true
+    },
+    {
+      "name": "RSL Friendsgiving retains date precision and correct office attribution",
+      "passed": true
+    },
+    {
+      "name": "Poker TBD retains its known day and unknown time/location",
+      "passed": true
+    },
+    {
+      "name": "publisher Jummah recurrence stays within its rolling yearly bound and preserves Friday clocks and room caveat",
+      "passed": true
+    },
+    {
+      "name": "all referenced source screenshots match the report manifest",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "research/pending-source-resolution-2026-10-22/evidence/app-consulting-detail.jpg",
+      "bytes": 62435,
+      "sha256": "579f1cf995f0370aabcacfdbbd1f95fc1914c42918001443a53ee5ddbbda8f63"
+    },
+    {
+      "path": "research/pending-source-resolution-2026-10-22/evidence/app-bba-deduplicated-dst.jpg",
+      "bytes": 66039,
+      "sha256": "4f5826d2e015091b7e49e771b254711ed13711797d861dbaacce4235ebcceac4"
+    },
+    {
+      "path": "research/pending-source-resolution-2026-10-22/evidence/app-source-next-steps.jpg",
+      "bytes": 86087,
+      "sha256": "277707ace4a02b4bfe4ef3253c3ffde813f281e6cfdbddf217a827f7d6dd2193"
+    }
+  ],
+  "externalConditions": {
+    "requiresReview": 29,
+    "categories": {
+      "confirmed_public_events": 6,
+      "login_required": 6,
+      "no_current_dated_announcement": 9,
+      "organizer_confirmation": 19,
+      "public_zero_verified": 61,
+      "subscription_required": 1,
+      "technical_integration_needed": 3
+    },
+    "note": "These are documented external conditions, not assertions of inactive organizations. No login, signup, subscription or organizer message was performed."
+  },
+  "existingOtherCatalogLimits": [
+    {
+      "sourceID": "1185bc345a9a",
+      "organization": "SCS Seminars directory",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "1468ddb723b2",
+      "organization": "Humanities Center News and Events",
+      "state": "error",
+      "error": "Incomplete extraction; previous records retained. Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/anna-kornbluh.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/baltimore-after-progress.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Detail limit 8 reached; 70 required child page(s) remain; configure pagination or a structured feed for complete ingestion"
+    },
+    {
+      "sourceID": "1aa9b956ba78",
+      "organization": "Center for Transformational Play Workshops",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "2cb4cdd0d193",
+      "organization": "Chess Club",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "31aa89be167d",
+      "organization": "Data Storage Systems Center Events",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "34fa7359276d",
+      "organization": "Socialist Studies Seminar",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "4c4f223b8c8b",
+      "organization": "Robotics, Embodied AI and Learning — news and events",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "528193392a78",
+      "organization": "LTI Colloquium",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "54c24d7416bb",
+      "organization": "PwC Center for Business and Risk — special events and programs",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "5a47a3eb65bf",
+      "organization": "AI Institute for Societal Decision Making — Seminars",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "5ade174c3483",
+      "organization": "Enterprise-Wide Optimization Seminars",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "5b1716ca5ebe",
+      "organization": "Theory Lunch and Theory Seminar",
+      "state": "subscription_only",
+      "error": null
+    },
+    {
+      "sourceID": "79e7cdffd54d",
+      "organization": "CMU Alumni Online Events",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "8f00fc7f2c7c",
+      "organization": "CMU Alumni and Community Events",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "97bebc670839",
+      "organization": "CMU Silicon Valley Events",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "9ec4a6e5835b",
+      "organization": "S3D Departmental Seminars and Calendar",
+      "state": "subscription_only",
+      "error": null
+    },
+    {
+      "sourceID": "a8c3a641e8c5",
+      "organization": "Tepper Research Conferences and Seminars",
+      "state": "error",
+      "error": "Incomplete extraction; previous records retained. Detail (https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/ai-and-human-decisions): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Detail (https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side"
+    },
+    {
+      "sourceID": "aba92a7642f2",
+      "organization": "Tartan Salsa Events",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "b453fc62eac4",
+      "organization": "EPP Faculty Seminar Series",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "bcbc343b441e",
+      "organization": "Pitt-CMU Environmental Humanities Research Seminar",
+      "state": "subscription_only",
+      "error": null
+    },
+    {
+      "sourceID": "d7499c657649",
+      "organization": "ML/AI Seminar Series",
+      "state": "subscription_only",
+      "error": null
+    },
+    {
+      "sourceID": "d861fd81e26d",
+      "organization": "Center for African American Urban Studies and the Economy Events",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "d89f616f8462",
+      "organization": "IDeaS Virtual Social Cybersecurity Seminar",
+      "state": "unsupported",
+      "error": null
+    },
+    {
+      "sourceID": "e3acb99b6056",
+      "organization": "Center for Informed Democracy and Social-cybersecurity Events",
+      "state": "error",
+      "error": "Incomplete extraction; previous records retained. Detail (https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Detail (https://www.cmu.edu/ideas-social-cybersecurity/events/ai_disinfo_summit.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Detail (https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-hewlett.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Detail (https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-ips.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Optional detail enrichment (https://www.cmu.edu/casos-center/events/summer-institute-2026_aug.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Optional detail enrichment (h"
+    },
+    {
+      "sourceID": "f796be72c1b0",
+      "organization": "Juntos",
+      "state": "unsupported",
+      "error": null
+    }
+  ],
+  "agentEvidenceAudits": [
+    "dates-calendars-final-audit.json",
+    "public_directory-audit.json",
+    "public_directory-privacy-audit.json",
+    "alternate_websites-audit.json",
+    "dates_extra-audit.json"
+  ]
+}

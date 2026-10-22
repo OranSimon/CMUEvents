@@ -12,6 +12,7 @@ import { fetchTepper } from './tepper.mjs';
  * @return {Promise<{events:Object[],warnings:string[]}>} Normalized source result.
  */
 async function fetchEndpoint(plan, context) {
+  if (plan.options?.format === 'campusgroups-json') return (await import('./campusgroups.mjs')).fetchCampusGroups(plan, context);
   if (plan.options?.format === 'wrct') return (await import('./wrct.mjs')).fetchWrct(plan, context);
   if (plan.options?.format === 'tepper') return fetchTepper(plan, context);
   if (plan.options?.format === 'chabad-public') return (await import('./chabad.mjs')).fetchChabadCalendar(plan, context);

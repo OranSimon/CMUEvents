@@ -1,0 +1,21 @@
+{
+  "sourceURL": "https://cmumsa.org/",
+  "selector": "#jummah-ics-btn",
+  "modalSelector": "#jummah-info-modal",
+  "blockStartLine": 1821,
+  "blockEndLine": 1838,
+  "exactGeneratorBlock": "        document.getElementById('jummah-ics-btn')?.addEventListener('click', () => {\n            const today = new Date(), until = (5 - today.getDay() + 7) % 7;\n            const fri = new Date(today); fri.setDate(today.getDate() + until);\n            const ymd = `${fri.getFullYear()}${String(fri.getMonth() + 1).padStart(2, '0')}${String(fri.getDate()).padStart(2, '0')}`;\n            const ics = [\n                'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//CMU MSA//Jummah//EN', 'BEGIN:VEVENT',\n                `UID:cmu-msa-jummah-${ymd}@cmumsa.org`,\n                `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z`,\n                `DTSTART:${ymd}T131500`, 'DURATION:PT1H', 'RRULE:FREQ=WEEKLY;BYDAY=FR',\n                'SUMMARY:CMU MSA Jummah', 'LOCATION:CMU University Center\\\\, Danforth Conference Room',\n                'DESCRIPTION:Check the MSA WhatsApp for weekly room changes. https://cmumsa.org',\n                'END:VEVENT', 'END:VCALENDAR'\n            ].join('\\r\\n');\n            const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));\n            const a = Object.assign(document.createElement('a'), { href: url, download: 'cmu-msa-jummah.ics' });\n            document.body.appendChild(a); a.click(); a.remove();\n            setTimeout(() => URL.revokeObjectURL(url), 1000);\n        });",
+  "blockSHA256": "af5f5f4142688a4fcc9f870c39d5d1ab4f181b2af9449b598d25ee1cc372338c",
+  "pageSHA256": "f96b958cd29d53f3f428e2b05f13921ff64686ca87e06500ad4328911e3c9ef9",
+  "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-0810e0d905cd-jummah.jpg",
+  "restrictedGoogleScreenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-0810e0d905cd-google-permission.jpg",
+  "fields": {
+    "title": "CMU MSA Jummah",
+    "start": "next Friday13:15 (publisher local floating DTSTART)",
+    "duration": "PT1H",
+    "rrule": "FREQ=WEEKLY;BYDAY=FR",
+    "location": "CMU University Center, Danforth Conference Room",
+    "roomCaveat": "Check MSA WhatsApp for weekly room changes"
+  },
+  "scope": "Only publisher button-generated Jummah recurrence. Other generic Friday15:00 circle and off-campus services not included."
+}

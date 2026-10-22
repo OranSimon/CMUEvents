@@ -1,0 +1,58 @@
+{
+  "sourceID": "d62d08f7df9d",
+  "checkedAt": "2026-10-22T18:43:07.755Z",
+  "url": "https://tedxcmu.org/events.html",
+  "anonymousHTTPStatus": 200,
+  "reviewedFragments": [
+    {
+      "selector": ".event-content:has(a[href=\"https://docs.google.com/forms/d/e/1FAIpQLScNnjFp94N3D0VD1M0IsYtAeHuaYsT15TRPeBPZSTYTQ9kxQQ/viewform\"])",
+      "expectedCount": 1,
+      "sha256": "55813020ae10c1180b8962c3c0e93609536dd3fbfbfc585a3fbd89628cac9c1e",
+      "reviewedAt": "2026-10-22",
+      "events": [
+        {
+          "title": "Public Speaking Workshop",
+          "start": "2026-09-27",
+          "timePrecision": "date",
+          "location": "",
+          "url": "https://tedxcmu.org/events.html",
+          "description": "TEDxCMU public speaking workshop. The event date is confirmed as September 27, 2026. Official sources conflict on the time and venue: the homepage says 2:00 PM at Simmons Auditorium; the Events page says 5:00 PM at DH 1212; the linked public RSVP form says 3:00 PM at DH 1212. Time and venue require organizer confirmation. This record has date precision and does not assert an all-day event."
+        }
+      ]
+    }
+  ],
+  "selectedText": "Speaker Workshop\n\nPublic Speaking Workshop\n\nJoin TEDxCMU for our first annual Speaking Workshop.\n\nLearn about what makes a TED Talk shine, how to apply speaking insights to your everyday life, and build your talk-writing skills with us.\n\nYou’ll be able to hear from some of our previous student speakers, too!\n\nWhen: September 27, 2026 • 5:00 PM\n\nWhere: DH 1212, Carnegie Mellon University\n\nRSVP",
+  "selectedHTML": [
+    "<div class=\"event-content\">\n                    <p class=\"event-meta\">Speaker Workshop</p>\n                    <h2><em>Public Speaking Workshop</em></h2>\n                    <p>\n                        \nJoin TEDxCMU for our first annual Speaking Workshop.\n\n\nLearn about what makes a TED Talk shine, how to apply speaking insights to your everyday life, and build your talk-writing skills with us.\n\n\nYou’ll be able to hear from some of our previous student speakers, too! \n\n                    </p>\n                    <p><strong>When:</strong> September 27, 2026 • 5:00 PM<br>\n                    <strong>Where:</strong> DH 1212, Carnegie Mellon University</p>\n                    <a href=\"https://docs.google.com/forms/d/e/1FAIpQLScNnjFp94N3D0VD1M0IsYtAeHuaYsT15TRPeBPZSTYTQ9kxQQ/viewform\" class=\"event-btn\">RSVP</a>\n                </div>"
+  ],
+  "requiresReview": true,
+  "fieldEvidence": {
+    "title": "Events h2 Public Speaking Workshop",
+    "date": "Events When: September 27, 2026",
+    "timePrecision": "date; conflicting clocks withheld",
+    "location": "withheld; publisher conflict"
+  },
+  "conflictingSources": [
+    {
+      "url": "https://tedxcmu.org/",
+      "clock": "14:00",
+      "location": "Simmons Auditorium"
+    },
+    {
+      "url": "https://tedxcmu.org/events.html",
+      "clock": "17:00",
+      "location": "DH 1212"
+    },
+    {
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLScNnjFp94N3D0VD1M0IsYtAeHuaYsT15TRPeBPZSTYTQ9kxQQ/viewform",
+      "anonymousHTTPStatus": 200,
+      "clock": "15:00",
+      "location": "DH 1212"
+    }
+  ],
+  "screenshots": [
+    "research/pending-source-resolution-2026-10-22/evidence/dates-d62d08f7df9d-events.jpg",
+    "research/pending-source-resolution-2026-10-22/evidence/dates-d62d08f7df9d-rsvp-public-crop.jpg"
+  ],
+  "excludedAnnouncement": "2027 main event Date TBA; no dated record generated"
+}

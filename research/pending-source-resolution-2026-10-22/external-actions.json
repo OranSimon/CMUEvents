@@ -1,0 +1,1142 @@
+{
+  "generatedAt": "2026-10-22T18:58:31.272Z",
+  "required": [
+    {
+      "sourceID": "2ea5cb566752",
+      "organization": "Carnegie Involvement Association",
+      "category": "login_required",
+      "reason": "Publisher has not made the advertised Google calendar anonymously readable; alternate group event routes require authentication.",
+      "nextStep": "Organizer can publish a read-only Google calendar/ICS or public dated announcements; if permission changes, poll cia@andrew.cmu.edu/public/basic.ics. Authorized member access is an alternative external action, not performed.",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/CIA/events/",
+        "https://tartanconnect.cmu.edu/cia/top/",
+        "https://tartanconnect.cmu.edu/events?group_ids=68057",
+        "https://tartanconnect.cmu.edu/home/events/?group_ids=68057"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-2ea5cb566752-advertised-calendar.jpg"
+    },
+    {
+      "sourceID": "4c0cf9d91106",
+      "organization": "Sustainable Earth",
+      "category": "organizer_confirmation",
+      "reason": "Dates and freshness are verified; remaining gap is organizer/recipient confirmation and intended audience of an unaccepted invitation on an archive-labelled calendar.",
+      "nextStep": "SE or Sustainability Studio should confirm these meetings remain in effect, intended attendees and location, or publish the current accepted public calendar. Keep these as review candidates until that confirmation, rather than importing as open SE events.",
+      "inspectedURLs": [
+        "https://calendar.google.com/calendar/embed?src=c_12ad9f3638113d37de66fdbdbc4f9b1a3ba277b805e36f0d7443bccb7f2061bf%40group.calendar.google.com&ctz=America%2FNew_York&mode=AGENDA",
+        "https://tartanconnect.cmu.edu/sustainableearth/home/",
+        "https://cmusustainableearth.wordpress.com/upcoming-events/",
+        "https://calendar.google.com/calendar/embed?src=sustainableearth.cmu%40gmail.com&ctz=America%2FNew_York&mode=AGENDA"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-4c0cf9d91106.jpg"
+    },
+    {
+      "sourceID": "5cb99c6abe2b",
+      "organization": "Central Church Student Fellowship",
+      "category": "organizer_confirmation",
+      "reason": "Exact year, intended fellowship audience and event times are not explicitly corroborated publicly; related church announcement cannot be assigned to student club without evidence.",
+      "nextStep": "Publisher should date its weekly announcement/bulletin or confirm year and student-fellowship relevance; monitor /announcements and its public sermon/bulletin channels for explicit edition date. No registration/contact performed.",
+      "inspectedURLs": [
+        "https://www.centralpgh.org/announcements",
+        "https://www.centralpgh.org/liturgy",
+        "https://www.centralpgh.org/most-recent-sermons"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-5cb99c6abe2b-announcements.jpg"
+    },
+    {
+      "sourceID": "6147e6a18b94",
+      "organization": "Alpha Chi Omega",
+      "category": "organizer_confirmation",
+      "reason": "公共活动页面未发布，不能以无可抓记录推断未来0，也无需要求用户先注册。",
+      "nextStep": "请组织恢复CG公开活动列表，或提供匿名ICS/带年份的公开活动公告。",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/AChiO/events/",
+        "https://www.cmualphachiomega.com/",
+        "https://www.instagram.com/cmuaxo/",
+        "https://linktr.ee/axokappanu",
+        "https://www.instagram.com/cmuaxo/p/DeHXnrZlo9K/"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-6147e6a18b94.jpg"
+    },
+    {
+      "sourceID": "652be20f0f06",
+      "organization": "Gender Minorities and Women in Physics",
+      "category": "organizer_confirmation",
+      "reason": "这不是验证为0的列表，也不是必须登录才能判断的活动日期；公开日程本身未发布。",
+      "nextStep": "请组织发布公开活动页或匿名日历，不依赖新账号登录。",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/gmwip/events/"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-652be20f0f06.jpg"
+    },
+    {
+      "sourceID": "68eeb6ffb846",
+      "organization": "Lunar Gala",
+      "category": "organizer_confirmation",
+      "reason": "Year and venue verified; performance day/time remain unpublished.2026archive/social link does not establish2027show timing.",
+      "nextStep": "Monitor official /info.html and2027 ticket announcement. Publisher must provide exact performance day and clock before a precise event is imported; retain weekend-level announcement meanwhile.",
+      "inspectedURLs": [
+        "https://www.lunargala.org/info.html",
+        "https://www.lunargala.org/apply.html",
+        "https://www.instagram.com/lunargala/"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-68eeb6ffb846.jpg"
+    },
+    {
+      "sourceID": "74ef2bc806ae",
+      "organization": "Emerging Leaders",
+      "category": "login_required",
+      "reason": "Current program year context does not explicitly date the separate session; the authoritative registration detail is private.",
+      "nextStep": "An authorized member may provide event1937691 date/year/location, or CELD can add year to public session card. Keep public candidate month/day/time without guessing2026 and do not create account.",
+      "inspectedURLs": [
+        "https://www.cmu.edu/student-affairs/celd/leadership-development/emerging-leaders.html",
+        "https://cglink.me/2c1/r1937691"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-74ef2bc806ae-official.jpg"
+    },
+    {
+      "sourceID": "781e677f1865",
+      "organization": "Computer Club",
+      "category": "technical_integration_needed",
+      "reason": "Remote organization calendar is unavailable, so its actual current schedule cannot be fetched; this is not proof of no activity and not a local parser failure.",
+      "nextStep": "Retry the official calendar when server recovers or have organizer publish a working read-only feed. Optional dedicated-mailbox subscription to announced members list requires separate user-authorized setup; no message/subscription performed.",
+      "inspectedURLs": [
+        "https://www.cmucc.org/",
+        "https://tartanconnect.cmu.edu/computerclub/home/",
+        "https://tartanconnect.cmu.edu/computerclub/useful-links/"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-781e677f1865-503.jpg"
+    },
+    {
+      "sourceID": "7c4d4271232a",
+      "organization": "Jewish Business Association",
+      "category": "login_required",
+      "reason": "不能把需认证的成员范围当公开零活动，也不创建新账号。",
+      "nextStep": "请JBA提供匿名ICS或公开活动公告；已有TartanConnect成员可自行查看成员日程。",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/jba/events/",
+        "https://tartanconnect.cmu.edu/jba/",
+        "https://tartanconnect.cmu.edu/jba/web_login?club=jba&redirect=%2Fjba%2Fcontact%2F&ssl=s"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-7c4d4271232a.jpg"
+    },
+    {
+      "sourceID": "83b2c5a21426",
+      "organization": "Club Baseball",
+      "category": "organizer_confirmation",
+      "reason": "Opponent and season/week confirmed, but exact individual game day/clock/venue are unpublished.",
+      "nextStep": "Organizer/NCBA should complete per-game Day/Time/Field fields or publish dated game poster. Poll current season schedule and each game-stats URL; do not turn week range into all-day or weeklong occurrence.",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/baseball/home/",
+        "https://tartanconnect.cmu.edu/baseball/useful-links/",
+        "https://div3.clubbaseball.org/league/team/?team=6c8529dc-cc69-4725-8c9c-018e8b978ce7&season=ec263c0d-0ae1-4277-b52f-0f2ae2eb9f88#team-main",
+        "https://www.instagram.com/carnegiemellonubaseball/",
+        "https://div3.clubbaseball.org/league/game-stats/?game=dd009946-1fe8-4398-b125-1321f00a41c1"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-83b2c5a21426-ncba-weeks.jpg"
+    },
+    {
+      "sourceID": "866cd105a000",
+      "organization": "Carnegie Industrials Club",
+      "category": "organizer_confirmation",
+      "reason": "组织身份可确认，但公开日程未发布，不是未来活动为0的证据。",
+      "nextStep": "请组织发布公开日程/匿名ICS，或明确本学期无公开活动。",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/carnegieindustrials/events/"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-866cd105a000.jpg"
+    },
+    {
+      "sourceID": "8f8b52740902",
+      "organization": "BRICK",
+      "category": "organizer_confirmation",
+      "reason": "组织公开日程未发布，不可从无导入记录推断无活动。",
+      "nextStep": "请BRICK组织提供匿名活动页/ICS，或恢复TartanConnect公开网站。",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/BRICK/events/"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-8f8b52740902.jpg"
+    },
+    {
+      "sourceID": "ad839d3b1fe8",
+      "organization": "MBA Part-Time",
+      "category": "login_required",
+      "reason": "Private PTGBA sponsored programs intentionally require sign-in. Current school academic information is publicly available, so the old PDF is not the only resource; however academic deadlines, no-class days and required class kickoffs must not be relabeled as open association events.",
+      "nextStep": "Continue anonymous public event checks; preserve the current academic PDF as a related program resource. Access private PTGBA programs only with separate eligible-user authorization or ask the publisher to expose a sanitized public activity announcement.",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/parttime/home/",
+        "https://tartanconnect.cmu.edu/parttime/events-/",
+        "https://tartanconnect.cmu.edu/parttime/tepperoni-talks-/",
+        "https://www.cmu.edu/tepper/academic-calendar",
+        "https://www.cmu.edu/sites/default/files/cmu-tepper-site-files/docs/26.27%20Calendar%20OH%20MBA%20-%2026_27%20Final.pdf"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-ad839d3b1fe8-calendar.jpg"
+    },
+    {
+      "sourceID": "b456cf80a90f",
+      "organization": "BAPS Campus Fellowship (BCF)",
+      "category": "organizer_confirmation",
+      "reason": "组织身份和旧活动可确认，当前公开未来日程未提供。",
+      "nextStep": "请本校BCF发布2026公告/匿名日历或恢复公开CG页面。",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/BAPS/events/",
+        "https://www.baps.org/News/2025/BAPS-Campus-Fellowship-Diwali-Celebration-2025-30049.aspx"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-b456cf80a90f.jpg"
+    },
+    {
+      "sourceID": "b5bc94e14a0c",
+      "organization": "Hillel Jewish Students Association",
+      "category": "technical_integration_needed",
+      "reason": "Publisher’s advertised public event hub is a broken URL, not an empty schedule. New official CMU Linktree corroborates that this remains its event route.",
+      "nextStep": "Hillel JUC should provide a working public Hub landing or read-only calendar feed; update the collector once a verified target exists. Optional newsletter setup can supply announcements with separate user authorization. Do not import unrelated Pitt events.",
+      "inspectedURLs": [
+        "https://hilleljuc.org/",
+        "https://engage.hillel.org/landing/HillelJUC",
+        "https://www.instagram.com/hilleljuc/",
+        "https://linktr.ee/HillelJUCofPgh",
+        "https://linktr.ee/cmuhillel"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-b5bc94e14a0c-cmu-links.jpg"
+    },
+    {
+      "sourceID": "b839ca411e45",
+      "organization": "Tepper Impact Investing Club",
+      "category": "organizer_confirmation",
+      "reason": "Official identity is corroborated, but recognition/approval is not a dated activity announcement.",
+      "nextStep": "Ask the organizer to publish the organization page or provide an anonymous calendar/event page.",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/tiic/events/",
+        "https://www.cmu.edu/steinbrenner/undergraduate-program/current-student-profiles/anya-bansal.html"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-b839ca411e45.jpg"
+    },
+    {
+      "sourceID": "caabdfa76cb4",
+      "organization": "Nexus of Community Engagement",
+      "category": "subscription_required",
+      "reason": "The advertised current-opportunity delivery channel is a membership newsletter rather than an anonymous dated page or feed.",
+      "nextStep": "With separate user authorization, an eligible organization account/mailbox can join Nexus and receive the newsletter, or organizer can provide public archive/forwarding access. A generic public mailbox is not guaranteed eligible for a CMU-restricted group. No login/subscription/message performed.",
+      "inspectedURLs": [
+        "https://www.cmu.edu/student-affairs/celd/nexus/index.html",
+        "https://www.cmu.edu/student-affairs/celd/nexus/together-for-good.html",
+        "https://tartanconnect.cmu.edu/Nexus/"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-caabdfa76cb4-login.jpg"
+    },
+    {
+      "sourceID": "cc5e1c0f8bf9",
+      "organization": "Medical Visions",
+      "category": "login_required",
+      "reason": "The public officer list verifies organization identity but does not establish public future-event zero.",
+      "nextStep": "Ask the organizer for an anonymous event page or published calendar feed.",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/medvis/events/",
+        "https://tartanconnect.cmu.edu/medvis/"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-cc5e1c0f8bf9.jpg"
+    },
+    {
+      "sourceID": "d1b8754df0d7",
+      "organization": "Sikh Student Organization",
+      "category": "organizer_confirmation",
+      "reason": "Current official recognition corroborates identity; it does not expose an anonymous event calendar.",
+      "nextStep": "Ask the organizer to publish the page or provide an anonymous dated event/calendar endpoint.",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/Sikh/events/",
+        "https://www.cmu.edu/stugov/sbvpo/recognition.html"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-d1b8754df0d7.jpg"
+    },
+    {
+      "sourceID": "d62d08f7df9d",
+      "organization": "TEDxCMU",
+      "category": "organizer_confirmation",
+      "reason": "Three publisher-controlled sources disagree on workshop time; two locations appear. No reliable precedence/update timestamp resolves it.",
+      "nextStep": "已按 2026-09-27 仅日期精度导入；时分和地点仍需主办方澄清。2027 主会日期未公布，继续监测。",
+      "inspectedURLs": [
+        "https://tedxcmu.org/events.html",
+        "https://docs.google.com/forms/d/e/1FAIpQLScNnjFp94N3D0VD1M0IsYtAeHuaYsT15TRPeBPZSTYTQ9kxQQ/viewform",
+        "https://tedxcmu.org/"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-d62d08f7df9d-events.jpg"
+    },
+    {
+      "sourceID": "dbb1f1d15b97",
+      "organization": "Tepper MS Programs",
+      "category": "organizer_confirmation",
+      "reason": "A school-wide or admissions calendar would have a different scope and cannot establish this organization’s events.",
+      "nextStep": "Program staff should publish the MS Programs organization page or supply an anonymous student-program calendar.",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/msprograms/events/",
+        "https://www.cmu.edu/tepper/programs"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-dbb1f1d15b97.jpg"
+    },
+    {
+      "sourceID": "df9d9882f8d0",
+      "organization": "Tepper MBA Robber Barons",
+      "category": "organizer_confirmation",
+      "reason": "Historical publication records cannot establish current event availability.",
+      "nextStep": "Ask the organizer or Tepper student services to publish current dated announcements or a public feed.",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/ROB/events/",
+        "https://findingaids.library.cmu.edu/repositories/2/archival_objects/22406"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-df9d9882f8d0.jpg"
+    },
+    {
+      "sourceID": "e00367a5854a",
+      "organization": "CMU Cyphers",
+      "category": "technical_integration_needed",
+      "reason": "Publisher widget does not render a usable public calendar. This is not evidence of zero events; the earlier empty-src explanation was too narrow because a Wix widget URL is now present.",
+      "nextStep": "Publisher should repair the Calendar widget or advertise its public Google Calendar ID/ICS. Then collect that anonymous endpoint; alternatively supply a dated public announcement. Do not expand undated course descriptions.",
+      "inspectedURLs": [
+        "https://cmucyphers.wixsite.com/introtofreestylerap",
+        "https://cmucyphers.wixsite.com/introtofreestylerap/current-students",
+        "https://cmucyphers.wixsite.com/introtofreestylerap/syllabus"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-e00367a5854a-calendar.jpg"
+    },
+    {
+      "sourceID": "e9767638c7f0",
+      "organization": "Spanish And Latin Student Association",
+      "category": "organizer_confirmation",
+      "reason": "HLAA recurring dates and CMU identity are confirmed, but receipt of an unanswered calendar invitation does not establish SALSA hosting or public access. Fence-painting poster and linked form disagree; form lacks year and contains a weekday/date mismatch if interpreted as2026. Original Instagram post detail requires login and CDN image URL is temporary. Neither item is confirmed empty.",
+      "nextStep": "For HLAA, organizer should confirm intended attendees and whether the monthly meeting is public; preserve only sanitized review-candidate metadata, not meeting credentials. For Fence Painting, organizer should confirm year, exact night and final guarding/painting date, and publish a stable anonymous announcement/image. Do not add expiring CDN URLs as refresh sources, submit forms, or join groups.",
+      "inspectedURLs": [
+        "https://linktr.ee/salsacmu?utm_source=linktree_admin_share",
+        "https://calendar.google.com/calendar/embed?src=salsa.cmu%40gmail.com&ctz=America%2FNew_York&mode=AGENDA&dates=20261022%2F20271022",
+        "https://www.cmu.edu/engage/alumni/get-involved/networks/identity/hlaa.html",
+        "https://www.cmu.edu/engage/get-involved/networks/identity",
+        "https://tartanconnect.cmu.edu/salsa/events/",
+        "https://www.instagram.com/salsacmu/",
+        "https://tinyurl.com/HHM-Fence-CMU26"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-e9767638c7f0-calendar.jpg"
+    },
+    {
+      "sourceID": "f5d9d68e0b15",
+      "organization": "Interfaith Leadership Development",
+      "category": "organizer_confirmation",
+      "reason": "An anonymous official description exists, but the program-specific dated choices are housed in TartanConnect. Related RSL events have a broader scope.",
+      "nextStep": "Ask RSL staff to expose scheduled ILD choices anonymously if they want those aggregated; keep the self-paced program as a resource, not invented recurring events.",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/ILD/events/",
+        "https://www.cmu.edu/wellbeing/resources/wellness-initiatives/religious-spiritual/"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-f5d9d68e0b15.jpg"
+    },
+    {
+      "sourceID": "f6d1358deaf2",
+      "organization": "Turning Point USA",
+      "category": "organizer_confirmation",
+      "reason": "Same-name TPUSA CMU results involving Rowdy belong to Colorado Mesa and must not be merged with Carnegie Mellon.",
+      "nextStep": "Ask the chapter organizer to publish a current public event page or anonymous calendar; do not infer inactivity from the unpublished page.",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/TPUSA/events/",
+        "https://tartanconnect.cmu.edu/TPUSA/club_signup"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-f6d1358deaf2.jpg"
+    },
+    {
+      "sourceID": "fa7813907900",
+      "organization": "Awareness of Roots in Chinese Culture",
+      "category": "login_required",
+      "reason": "Current event title is public; exact event date/time/venue are only known from an account-restricted form and were not independently verified as public in this pass. Existing authenticated-browser visibility must not be treated as anonymous access.",
+      "nextStep": "Organizer can publish the Hot Pot date/time/venue on Carrd, Wix or a public poster, or make the existing announcement form anonymously readable. An authorized member may separately supply a sanitized dated announcement; no login or registration was attempted.",
+      "inspectedURLs": [
+        "https://arcc.carrd.co",
+        "https://arccboard.wixsite.com/arcc",
+        "https://www.instagram.com/cmuarcc/",
+        "https://www.facebook.com/cmuARCC"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-fa7813907900-public-links.jpg"
+    },
+    {
+      "sourceID": "fa960d8d6a7e",
+      "organization": "MSBA Community",
+      "category": "organizer_confirmation",
+      "reason": "Admissions, academic dates, and university-wide events cannot be reassigned to the MSBA Community organization.",
+      "nextStep": "MSBA program staff should publish a community-specific event page or anonymous calendar.",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/msba/events/",
+        "https://www.cmu.edu/tepper/programs/master-business-analytics/full-time"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-fa960d8d6a7e.jpg"
+    },
+    {
+      "sourceID": "ff39febcec5f",
+      "organization": "Pittsburgh Go Association",
+      "category": "organizer_confirmation",
+      "reason": "A current regular meeting resource is confirmed, but no individual dated future meeting or explicit final date/exception list is publicly exposed. It must not become an unbounded automatic weekly series.",
+      "nextStep": "Ask the organizer for an anonymous dated calendar or a semester start/end and cancellation list; publish the current recurring-meeting resource as a resource until confirmed.",
+      "inspectedURLs": [
+        "https://tartanconnect.cmu.edu/pittgo/events/",
+        "https://www.pittsburghgo.com/",
+        "https://www.pittsburghgo.com/meetings.php",
+        "https://www.pittsburghgo.com/tournaments.php",
+        "https://www.facebook.com/groups/1754985318062494/",
+        "https://www.facebook.com/groups/1754985318062494/events",
+        "https://groups.google.com/g/pittsburgh-go?pli=1"
+      ],
+      "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dx-ff39febcec5f.jpg"
+    }
+  ],
+  "optional": [
+    {
+      "sourceID": "04b93bc6b736",
+      "organization": "Carnegie Mellon Racquetball Club",
+      "type": "login",
+      "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+      "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/home/events/"
+    },
+    {
+      "sourceID": "04b93bc6b736",
+      "organization": "Carnegie Mellon Racquetball Club",
+      "type": "organizer_confirmation",
+      "reason": "已检查的组织 /home/ 与 /events/ 路径显示 page unpublished；公开目录没有广告其他活动日历。",
+      "nextStep": "如果需要独立公开网站，组织维护者可恢复发布或提供现行匿名公开日历。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/CMUrball/"
+    },
+    {
+      "sourceID": "0810e0d905cd",
+      "organization": "Muslim Student Association",
+      "type": "calendar",
+      "requiredForPublicCoverage": false,
+      "url": "https://calendar.google.com/calendar/embed?src=muslimstudentassociation%40andrew.cmu.edu&ctz=America%2FNew_York",
+      "reason": "官网公开的 Jummah 周期已接入，完整 Google 日历仍未匿名开放。",
+      "nextStep": "若需要完整日程，由主办方公开只读日历；当前公开周会可继续自动更新。"
+    },
+    {
+      "sourceID": "0aa328464c5e",
+      "organization": "French Club",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35463"
+    },
+    {
+      "sourceID": "0c925198852d",
+      "organization": "Class of 2029",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35479"
+    },
+    {
+      "sourceID": "0fceb4066385",
+      "organization": "Carnegie Mellon University",
+      "type": "login",
+      "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+      "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/home/events/"
+    },
+    {
+      "sourceID": "0fceb4066385",
+      "organization": "Carnegie Mellon University",
+      "type": "organizer_confirmation",
+      "reason": "原 ID 的官方导出名称和类别已精确确认，但其当前独立网站、别名归属或是否退役尚未建立映射。",
+      "nextStep": "由来源维护者按原 club ID 确认现行公开网站或保留/退役状态；保持原 ID，不按同名组织替换。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850"
+    },
+    {
+      "sourceID": "1116d82179ee",
+      "organization": "OpenCMUQ Collective",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35453"
+    },
+    {
+      "sourceID": "112e7e479fd7",
+      "organization": "Sigma Alpha Epsilon",
+      "type": "website",
+      "url": "http://saepaphi.com",
+      "reason": "旧目录域名此前DNS失败；可发现的CMU章节替代站仍建设中。",
+      "nextStep": "组织维护目录中的现存官网地址。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "11e4692b9472",
+      "organization": "Traders at Carnegie Mellon",
+      "type": "login",
+      "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+      "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/home/events/"
+    },
+    {
+      "sourceID": "11e4692b9472",
+      "organization": "Traders at Carnegie Mellon",
+      "type": "organizer_confirmation",
+      "reason": "已检查的组织 /home/ 与 /events/ 路径显示 page unpublished；公开目录没有广告其他活动日历。",
+      "nextStep": "如果需要独立公开网站，组织维护者可恢复发布或提供现行匿名公开日历。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/traderscmu/"
+    },
+    {
+      "sourceID": "184e85bf058a",
+      "organization": "Carnegie Mellon Young Americans for Liberty",
+      "type": "login",
+      "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+      "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/home/events/"
+    },
+    {
+      "sourceID": "184e85bf058a",
+      "organization": "Carnegie Mellon Young Americans for Liberty",
+      "type": "organizer_confirmation",
+      "reason": "已检查的组织 /home/ 与 /events/ 路径显示 page unpublished；公开目录没有广告其他活动日历。",
+      "nextStep": "如果需要独立公开网站，组织维护者可恢复发布或提供现行匿名公开日历。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/yafl/"
+    },
+    {
+      "sourceID": "18af0b77ad14",
+      "organization": "Big Straw Magazine",
+      "type": "website",
+      "url": "http://bigstrawmagazine.com",
+      "reason": "HTTP访问受阻，HTTPS www已视觉验证可用。",
+      "nextStep": "将目录网站改成https://www.bigstrawmagazine.com/。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "19248fc9767e",
+      "organization": "Carnegie Mellon Finance Society (CMFS)",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35449"
+    },
+    {
+      "sourceID": "1d28398c08fe",
+      "organization": "Student Majlis Executive Team",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35442"
+    },
+    {
+      "sourceID": "201cdd38f271",
+      "organization": "Lambda Phi Epsilon",
+      "type": "website",
+      "url": "http://www.cmulamdbas.com",
+      "reason": "目录网站拼写错误，已发现正确章节官网。",
+      "nextStep": "改为https://www.cmulambdas.com/。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "20b74dde90d1",
+      "organization": "CMU Mumon Karate",
+      "type": "organizer",
+      "url": "https://www.mumonkarate.org/cmu",
+      "reason": "周会起始日期缺年份。",
+      "nextStep": "由组织确认2026–27开始/结束日期。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "21b5b696104a",
+      "organization": "Sigma Phi Epsilon",
+      "type": "website",
+      "url": "https://sigepcmu.org/",
+      "reason": "旧目录域名此前DNS失败；已找到官方托管CMU章节替代。",
+      "nextStep": "确认并更新为现存官方章节页面。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "2dc6925349de",
+      "organization": "CMU Sailing Club",
+      "type": "login",
+      "url": "https://join.slack.com/t/cmusailingclub/shared_invite/zt-1nu6n2mlc-dVIpf77cwDQ5Otv6OGA3nw",
+      "reason": "Slack成员邀请，未加入或登录。",
+      "nextStep": "组织提供匿名可读日历或公开公告。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "2e5dd8baa8e1",
+      "organization": "Tepper Ventures",
+      "type": "login",
+      "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+      "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/home/events/"
+    },
+    {
+      "sourceID": "2e5dd8baa8e1",
+      "organization": "Tepper Ventures",
+      "type": "organizer_confirmation",
+      "reason": "已检查的组织 /home/ 与 /events/ 路径显示 page unpublished；公开目录没有广告其他活动日历。",
+      "nextStep": "如果需要独立公开网站，组织维护者可恢复发布或提供现行匿名公开日历。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/TVentures/"
+    },
+    {
+      "sourceID": "42c864cad300",
+      "organization": "Class of 2027",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35477"
+    },
+    {
+      "sourceID": "4898714e3ede",
+      "organization": "Class of 2030",
+      "type": "technical",
+      "reason": "此前成员 feed 未成功渲染；独立于已确认的公开列表。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35480"
+    },
+    {
+      "sourceID": "48e5e88860d3",
+      "organization": "EcoCampus",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35481"
+    },
+    {
+      "sourceID": "490d347fbe2e",
+      "organization": "Phi Delta Theta",
+      "type": "website",
+      "url": "https://www.phideltcmu.org/",
+      "reason": "旧phideltcmu.org TLS故障已有大学目录提供的现存替代。",
+      "nextStep": "将目录官网更新为https://cmu.phideltatheta.org/。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "4d9cc97bf058",
+      "organization": "College Democrats",
+      "type": "login",
+      "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+      "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/home/events/"
+    },
+    {
+      "sourceID": "57f076785638",
+      "organization": "Iota Phi Theta Fraternity, Inc.",
+      "type": "login",
+      "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+      "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/home/events/"
+    },
+    {
+      "sourceID": "57f076785638",
+      "organization": "Iota Phi Theta Fraternity, Inc.",
+      "type": "organizer_confirmation",
+      "reason": "已检查的组织 /home/ 与 /events/ 路径显示 page unpublished；公开目录没有广告其他活动日历。",
+      "nextStep": "如果需要独立公开网站，组织维护者可恢复发布或提供现行匿名公开日历。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/IPT/"
+    },
+    {
+      "sourceID": "5a83fcb01175",
+      "organization": "Lean On Me at CMU",
+      "type": "website",
+      "url": "https://lean0n.me/cmu/",
+      "reason": "旧lean0n.me证书故障与CG公共零活动分开。",
+      "nextStep": "由组织修复旧站证书或提供新的匿名公告页。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "5d51e7e650da",
+      "organization": "CMU Summit on US-China Innovation and Entrepreneurship",
+      "type": "website",
+      "url": "https://cmu-iea.com/summit-introduction/",
+      "reason": "公共范围CG零活动已确认，当前US-China Summit外部年度日程未核实。",
+      "nextStep": "由组织更新现存中美创新创业峰会官网。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "5f8a00ca2d30",
+      "organization": "Lemon",
+      "type": "login",
+      "url": "https://lemonpublication.cargo.site/",
+      "reason": "Cargo成员站受限与已确认公开CG零活动范围分开。",
+      "nextStep": "组织如需公开Cargo内容，可另发匿名活动公告。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "60af213aa3a3",
+      "organization": "Central Church of Pittsburgh Korean Ministry",
+      "type": "website",
+      "url": "https://www.kccp.org",
+      "reason": "旧站证书错误；已找到相关英语会众公开站但非等同范围。",
+      "nextStep": "组织确认韩语团契当前官网。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "60e7784409c9",
+      "organization": "MSBA Programs SLC",
+      "type": "login",
+      "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+      "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/home/events/"
+    },
+    {
+      "sourceID": "60e7784409c9",
+      "organization": "MSBA Programs SLC",
+      "type": "organizer_confirmation",
+      "reason": "已检查的组织 /home/ 与 /events/ 路径显示 page unpublished；公开目录没有广告其他活动日历。",
+      "nextStep": "如果需要独立公开网站，组织维护者可恢复发布或提供现行匿名公开日历。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/MSBASAC/"
+    },
+    {
+      "sourceID": "6147e6a18b94",
+      "organization": "Alpha Chi Omega",
+      "type": "website",
+      "url": "https://www.cmualphachiomega.com/",
+      "reason": "官方目录站在浏览器加载超时。",
+      "nextStep": "组织维护网站或转发公开活动页。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "640cd6c2b613",
+      "organization": "One For the World",
+      "type": "login",
+      "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+      "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/home/events/"
+    },
+    {
+      "sourceID": "640cd6c2b613",
+      "organization": "One For the World",
+      "type": "organizer_confirmation",
+      "reason": "已检查的组织 /home/ 与 /events/ 路径显示 page unpublished；公开目录没有广告其他活动日历。",
+      "nextStep": "如果需要独立公开网站，组织维护者可恢复发布或提供现行匿名公开日历。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/one/"
+    },
+    {
+      "sourceID": "677602880a9d",
+      "organization": "Game Dev Club (GDC)",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35452"
+    },
+    {
+      "sourceID": "67f8a784cfa2",
+      "organization": "The Frame",
+      "type": "website",
+      "url": "http://theframecmu.com",
+      "reason": "旧域名失效。",
+      "nextStep": "更新当前官方展览网址。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "67f8a784cfa2",
+      "organization": "The Frame",
+      "type": "login",
+      "url": "https://www.instagram.com/theframegallerycmu/",
+      "reason": "匿名只显示注册门槛，无帖子内容。",
+      "nextStep": "组织提供匿名展览公告。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "69aec3cbe07c",
+      "organization": "Home Page",
+      "type": "login",
+      "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+      "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/home/events/"
+    },
+    {
+      "sourceID": "69aec3cbe07c",
+      "organization": "Home Page",
+      "type": "organizer_confirmation",
+      "reason": "原 ID 的官方导出名称和类别已精确确认，但其当前独立网站、别名归属或是否退役尚未建立映射。",
+      "nextStep": "由来源维护者按原 club ID 确认现行公开网站或保留/退役状态；保持原 ID，不按同名组织替换。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850"
+    },
+    {
+      "sourceID": "715aff642a67",
+      "organization": "Knits & Knots Club",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35457"
+    },
+    {
+      "sourceID": "7cdbbe1e7028",
+      "organization": "CMUQ Football Club",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35482"
+    },
+    {
+      "sourceID": "89930c55ca6c",
+      "organization": "CMU Bhangra",
+      "type": "website",
+      "url": "http://www.cmubhangra.org",
+      "reason": "旧独立官网不可用，已从官方账号找公开聚合页。",
+      "nextStep": "更新为https://linktr.ee/cmubhangra。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "8f4e483a1437",
+      "organization": "CMU-Q Undergraduate Journal Club (CUJC)",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35450"
+    },
+    {
+      "sourceID": "931fac9f758c",
+      "organization": "International Business & Advisory Club",
+      "type": "login",
+      "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+      "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/home/events/"
+    },
+    {
+      "sourceID": "931fac9f758c",
+      "organization": "International Business & Advisory Club",
+      "type": "organizer_confirmation",
+      "reason": "原 ID 的官方导出名称和类别已精确确认，但其当前独立网站、别名归属或是否退役尚未建立映射。",
+      "nextStep": "由来源维护者按原 club ID 确认现行公开网站或保留/退役状态；保持原 ID，不按同名组织替换。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850"
+    },
+    {
+      "sourceID": "96d9c569ccf5",
+      "organization": "Anime Club",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35462"
+    },
+    {
+      "sourceID": "9a2420282e05",
+      "organization": "Cricket Club",
+      "type": "login",
+      "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+      "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/home/events/"
+    },
+    {
+      "sourceID": "9a2420282e05",
+      "organization": "Cricket Club",
+      "type": "organizer_confirmation",
+      "reason": "原 ID 的官方导出名称和类别已精确确认，但其当前独立网站、别名归属或是否退役尚未建立映射。",
+      "nextStep": "由来源维护者按原 club ID 确认现行公开网站或保留/退役状态；保持原 ID，不按同名组织替换。",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850"
+    },
+    {
+      "sourceID": "a2014c54892f",
+      "organization": "Carnegie Consulting",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35446"
+    },
+    {
+      "sourceID": "aca85c42ee33",
+      "organization": "cmuTV",
+      "type": "website",
+      "url": "https://cmutv.org/",
+      "reason": "旧官网此前Cloudways域名未配置。",
+      "nextStep": "组织恢复域名或更新目录为当前官方渠道。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "aca85c42ee33",
+      "organization": "cmuTV",
+      "type": "login",
+      "url": "https://www.instagram.com/carnegiemellontv/",
+      "reason": "匿名访问出现注册门槛。",
+      "nextStep": "组织公开日期公告到可持续匿名端点。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "af81054dbc6e",
+      "organization": "Carnegie Math Club",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35447"
+    },
+    {
+      "sourceID": "afc8d82bc81d",
+      "organization": "Women in Business",
+      "type": "login",
+      "url": "https://tartanconnect.cmu.edu/womeninbusiness/events/",
+      "reason": "成员入口需认证，但官方公开Google日历已发现。",
+      "nextStep": "公共采集使用官方匿名ICS。",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "b703a2672078",
+      "organization": "Alpha Phi",
+      "type": "website",
+      "url": "http://iotasigma.alphaphi.org/index.php",
+      "reason": "Outdated chapter website; current CMU FSL directory links a different public page.",
+      "nextStep": "Use https://tartanconnect.cmu.edu/phc/alpha-phi/ for organization information.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "c1587a0b2819",
+      "organization": "CMUQ Library",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35472"
+    },
+    {
+      "sourceID": "c1587a0b2819",
+      "organization": "CMUQ Library",
+      "type": "login",
+      "reason": "目录 Mission 所列图书馆 Google Site 重定向到 Google sign-in。",
+      "nextStep": "需成员网站内容时由有权限用户自行登录，或由网站维护者提供匿名公开日历。",
+      "requiredForPublicCoverage": false,
+      "url": "https://sites.google.com/andrew.cmu.edu/mycmuq-library"
+    },
+    {
+      "sourceID": "c200c0afa9b2",
+      "organization": "Smart Woman Securities",
+      "type": "website",
+      "url": "https://www.carnegiemellonsws.com/",
+      "reason": "Browser certificate authority error; no warning bypassed.",
+      "nextStep": "Repair HTTPS certificate or publish a current official alternate.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "c2182773b42e",
+      "organization": "Asian Students Association",
+      "type": "website",
+      "url": "https://www.cmuasa.org/",
+      "reason": "Browser connection closed; current official bio instead advertises Linktree.",
+      "nextStep": "Use the current official Linktree.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "c2182773b42e",
+      "organization": "Asian Students Association",
+      "type": "subscription",
+      "url": "https://forms.gle/CsbvmarxiRrkrK7n6",
+      "reason": "ASA Mailing List Sign-Up is optional; no subscription performed.",
+      "nextStep": "Organizer approval and mailbox access would be required for any future subscription.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "c34d7669aa5c",
+      "organization": "Delta Gamma",
+      "type": "website",
+      "url": "https://cmu.deltagamma.org/",
+      "reason": "Browser DNS failure confirmed from the current official chapter link.",
+      "nextStep": "Correct the official external chapter website or retain the CMU Panhellenic page.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "c40f01fed271",
+      "organization": "The Carnegie Innovation Club (CIC)",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35455"
+    },
+    {
+      "sourceID": "c6da39f30954",
+      "organization": "Association of Information System (AIS)",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35445"
+    },
+    {
+      "sourceID": "c8516c9d3a40",
+      "organization": "Alpha Sigma Phi",
+      "type": "website",
+      "url": "http://cmualphasig.com",
+      "reason": "Old external catalog entry superseded by current official university chapter page.",
+      "nextStep": "Use the CMU IFC Alpha Sigma Phi chapter page.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "ca9e9e551f58",
+      "organization": "The BioSci Club",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35454"
+    },
+    {
+      "sourceID": "cdcc38cd97e9",
+      "organization": "Recreational Volleyball Club",
+      "type": "organizer",
+      "url": "https://discord.gg/NdudD5JUAx",
+      "reason": "Public invite exposes organization identity but not the channel event content.",
+      "nextStep": "Organizer should publish an anonymous calendar or dated event announcements.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "cfaa71977875",
+      "organization": "Taiwanese Students Association",
+      "type": "subscription",
+      "url": "https://linktr.ee/cmutsa26",
+      "reason": "TSA 26–27 Mailing List is a signup form; no signup performed.",
+      "nextStep": "Organizer-approved subscription to a controlled mailbox if needed.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "d32ab184e057",
+      "organization": "The Music Club",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35444"
+    },
+    {
+      "sourceID": "d59c139e665b",
+      "organization": "Black Business Association Club",
+      "type": "login",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/rsvp_boot?id=1938213",
+      "reason": "活动日期及说明已公开，具体地点需成员登录查看。",
+      "nextStep": "符合参与资格的读者通过原活动页查看地点；采集器保留私有地点提示，不补猜地址。"
+    },
+    {
+      "sourceID": "d59c139e665b",
+      "organization": "Black Business Association Club",
+      "type": "organizer",
+      "requiredForPublicCoverage": false,
+      "reason": "Exact cutoff23:55 structured vs23:59body; does not negate public event existence",
+      "nextStep": "向主办方核对最终报名截止分钟；应用保留结构化结束值及公告中的不同文字，不将二者悄悄合并。"
+    },
+    {
+      "sourceID": "d5a270fc4ae8",
+      "organization": "Undergraduate Student Senate",
+      "type": "login",
+      "requiredForPublicCoverage": false,
+      "url": "https://tartanconnect.cmu.edu/rsvp_boot?id=1938233",
+      "reason": "活动日期及说明已公开，具体地点需成员登录查看。",
+      "nextStep": "符合参与资格的读者通过原活动页查看地点；采集器保留私有地点提示，不补猜地址。"
+    },
+    {
+      "sourceID": "d7858a5f2b71",
+      "organization": "Arts & Crafts Club",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35456"
+    },
+    {
+      "sourceID": "e4079298b407",
+      "organization": "Class of 2028",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35478"
+    },
+    {
+      "sourceID": "f3397a335a38",
+      "organization": "Alpha Epsilon Pi",
+      "type": "website",
+      "url": "http://www.aepi.rocks",
+      "reason": "Outdated external website superseded by current CMU IFC chapter page.",
+      "nextStep": "Update directory website to the current official chapter page.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "f439516839ca",
+      "organization": "Alpha Kappa Alpha Sorority Inc.",
+      "type": "website",
+      "url": "http://www.aka1908.org",
+      "reason": "Catalog national organization URL is outdated and differs from current chapter-specific channel; Linktree lists aka1908.com as national site.",
+      "nextStep": "Use the CMU-recognized chapter profile and distinguish national events from chapter events.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "fd5e37c9252e",
+      "organization": "Shamunity",
+      "type": "login",
+      "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+      "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+      "requiredForPublicCoverage": false,
+      "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35466"
+    },
+    {
+      "sourceID": "fd60b328fbfd",
+      "organization": "Music Production Club",
+      "type": "organizer",
+      "url": "https://discord.gg/P2zuwJK5PB",
+      "reason": "Fully loaded Invite Invalid page; expired invite versus permissions cannot be distinguished anonymously.",
+      "nextStep": "Organizer should issue a working invite and/or an anonymous dated calendar.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "feb8aa56fd07",
+      "organization": "The Treblemakers",
+      "type": "website",
+      "url": "http://www.cmutreblemakers.com",
+      "reason": "Old HTTP/www variant failed previously; HTTPS non-www works in browser now.",
+      "nextStep": "Normalize the catalog website to https://cmutreblemakers.com/.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "feb8aa56fd07",
+      "organization": "The Treblemakers",
+      "type": "subscription",
+      "url": "https://cmutreblemakers.com/",
+      "reason": "Optional Join our Mailing List form; no subscription performed.",
+      "nextStep": "Organizer-approved subscription workflow only if desired.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "ffbc5035e75d",
+      "organization": "Student College",
+      "type": "website",
+      "url": "https://cmustuco.org/",
+      "reason": "Official Important Dates outbound alternate host fails DNS.",
+      "nextStep": "Use current https://www.cmu.edu/stuco/ university pages.",
+      "requiredForPublicCoverage": false
+    },
+    {
+      "sourceID": "ffbc5035e75d",
+      "organization": "Student College",
+      "type": "subscription",
+      "url": "https://www.cmu.edu/stuco/",
+      "reason": "Optional mailing-list signup sheet; no subscription performed.",
+      "nextStep": "Only use a controlled mailbox if a subscription workflow is separately authorized.",
+      "requiredForPublicCoverage": false
+    }
+  ]
+}

@@ -1,0 +1,2158 @@
+[
+  {
+    "sourceID": "112e7e479fd7",
+    "organization": "Sigma Alpha Epsilon",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68360.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68360.ics",
+    "group": {
+      "name": "Sigma Alpha Epsilon",
+      "category": "Fraternity & Sorority Chapters",
+      "slug": "SAE",
+      "websites": [
+        "http://saepaphi.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "3f844bf16f11",
+        "url": "https://tartanconnect.cmu.edu/SAE/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:39:13.040Z",
+    "inspectedURLs": [
+      "http://saepaphi.com",
+      "https://saepaphi.com/",
+      "https://tartanconnect.cmu.edu/SAE/events/",
+      "https://tartanconnect.cmu.edu/sae/home/"
+    ],
+    "outcome": "public_feed_empty_external_dns_failure",
+    "note": "TartanConnect events/home widgets show no upcoming events; advertisedsaepaphi.com failsDNS with browserNXDOMAIN. External calendar cannot be verified.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/icb-112e7e479fd7.jpg",
+    "requiresFix": false,
+    "details": {
+      "organization": "Sigma Alpha Epsilon",
+      "eventAX": "Browser tab: 283298678, Title: \"Events - Sigma Alpha Epsilon | TartanConnect\", URL: \"https://tartanconnect.cmu.edu/SAE/events/\".\n1 AXWebArea Events - Sigma Alpha Epsilon | TartanConnect, URL: tartanconnect.cmu.edu/SAE/events/\n\t2 container page-297013\n\t\t3 container menu1\n\t\t\t4 link Description: logo, Value: tartanconnect.cmu.edu/SAE/\n\t\t\t5 content list\n\t\t\t\t6 link (collapsed) Description: Home, Value: tartanconnect.cmu.edu/sae/home/, Secondary Actions: Expand\n\t\t\t\t7 link (collapsed) Description: Events, Value: tartanconnect.cmu.edu/sae/events/, Secondary Actions: Expand\n\t\t\t\t8 link (collapsed) Description: News, Value: tartanconnect.cmu.edu/sae/news/, Secondary Actions: Expand\n\t\t\t\t9 link (collapsed) Description: Leadership Team, Value: tartanconnect.cmu.edu/sae/leadership-team/, Secondary Actions: Expand\n\t\t\t\t10 container\n\t\t\t\t\t11 link (collapsed) Description: Resources, Value: tartanconnect.cmu.edu/SAE/events/#, Secondary Actions: Expand\n\t\t\t\t\t12 text \n\t\t\t\t13 link (collapsed) Description: Contact Us, Value: tartanconnect.cmu.edu/sae/contact-us/, Secondary Actions: Expand\n\t\t14 heading Events, Value: 1\n\t\t\t15 text Events\n\t\t16 container\n\t\t\t17 heading There are no upcoming events., Value: 3\n\t\t\t\t18 text There are no upcoming events.\n\t\t\t19 link Description: Discover more events, Value: tartanconnect.cmu.edu/events\n\t\t20 container\n\t\t\t21 content list menu-footer-menu\n\t\t\t\t22 link Description: Home, Value: tartanconnect.cmu.edu/sae/home/\n\t\t\t\t23 link Description: Events, Value: tartanconnect.cmu.edu/sae/events/\n\t\t\t\t24 link Description: News, Value: tartanconnect.cmu.edu/sae/news/\n\t\t\t\t25 link Description: Leadership Team, Value: tartanconnect.cmu.edu/sae/leadership-team/\n\t\t\t\t26 link Description: Resources, Value: tartanconnect.cmu.edu/sae/photos/\n\t\t\t\t27 link Description: Contact Us, Value: tartanconnect.cmu.edu/sae/contact-us/\n\t\t\t28 link Description: Image, Value: tartanconnect.cmu.edu/\n\t\t\t29 text © 2026 Sigma Alpha Epsilon\n\t\t\t30 link Description: Privacy Policy, Value: campusgroups.com/terms?view=privacy\n\nThe focused UI element is 1 AXWebArea Events - Sigma Alpha Epsilon | TartanConnect, URL: tartanconnect.cmu.edu/SAE/events/",
+      "homeAX": "Browser tab: 283298678, Title: \"Home - Sigma Alpha Epsilon | TartanConnect\", URL: \"https://tartanconnect.cmu.edu/sae/home/\".\n1 AXWebArea Home - Sigma Alpha Epsilon | TartanConnect, URL: tartanconnect.cmu.edu/sae/home/\n\t2 container page-297022\n\t\t3 container menu1\n\t\t\t4 link Description: logo, Value: tartanconnect.cmu.edu/SAE/\n\t\t\t5 content list\n\t\t\t\t6 link (collapsed) Description: Home, Value: tartanconnect.cmu.edu/sae/home/, Secondary Actions: Expand\n\t\t\t\t7 link (collapsed) Description: Events, Value: tartanconnect.cmu.edu/sae/events/, Secondary Actions: Expand\n\t\t\t\t8 link (collapsed) Description: News, Value: tartanconnect.cmu.edu/sae/news/, Secondary Actions: Expand\n\t\t\t\t9 link (collapsed) Description: Leadership Team, Value: tartanconnect.cmu.edu/sae/leadership-team/, Secondary Actions: Expand\n\t\t\t\t10 container\n\t\t\t\t\t11 link (collapsed) Description: Resources, Value: tartanconnect.cmu.edu/sae/home/#, Secondary Actions: Expand\n\t\t\t\t\t12 text \n\t\t\t\t13 link (collapsed) Description: Contact Us, Value: tartanconnect.cmu.edu/sae/contact-us/, Secondary Actions: Expand\n\t\t14 container\n\t\t\t15 heading Sigma Alpha Epsilon, Value: 1\n\t\t\t\t16 text Sigma Alpha Epsilon\n\t\t\t17 heading Become part of our vibrant community., Value: 3\n\t\t\t\t18 text Become part of our vibrant community.\n\t\t\t19 link Description: JOIN, Value: tartanconnect.cmu.edu/SAE/club_signup\n\t\t20 container\n\t\t\t21 heading About Us, Value: 2\n\t\t\t\t22 text About Us\n\t\t\t23 text Our mission is (define your mission under group settings)\n\t\t24 container\n\t\t\t25 heading 16, Value: 2\n\t\t\t\t26 text 16\n\t\t\t27 text Officers\n\t\t\t28 heading 40, Value: 2\n\t\t\t\t29 text 40\n\t\t\t30 text Members\n\t\t\t31 heading 1, Value: 2\n\t\t\t\t32 text 1\n\t\t\t33 text Events\n\t\t\t34 heading 0, Value: 2\n\t\t\t\t35 text 0\n\t\t\t36 text Emails/Newsletters\n\t\t37 container\n\t\t\t38 heading Upcoming Events, Value: 2\n\t\t\t\t39 text Upcoming Events\n\t\t\t40 heading There are no upcoming events., Value: 3\n\t\t\t\t41 text There are no upcoming events.\n\t\t\t42 link Description: Discover more events, Value: tartanconnect.cmu.edu/events\n\t\t43 container\n\t\t\t44 heading Members Benefits, Value: 2\n\t\t\t\t45 text Members Benefits\n\t\t\t46 text Membership benefits include (define your member benefits under group settings)\n\t\t47 container\n\t\t\t48 container\n\t\t\t\t49 text \n\t\t\t\t50 heading Events & Activities, Value: 4\n\t\t\t\t\t51 text Events & Activities\n\t\t\t\t52 text Be the first to know about what we have planned and add our group calendar to your schedule.\n\t\t\t53 container\n\t\t\t\t54 text \n\t\t\t\t55 heading Exclusive Resources, Value: 4\n\t\t\t\t\t56 text Exclusive Resources\n\t\t\t\t57 text Get our newsletter and stay in the loop.\n\t\t\t58 container\n\t\t\t\t59 text \n\t\t\t\t60 heading Connnections, Value: 4\n\t\t\t\t\t61 text Connnections\n\t\t\t\t62 text Meeting new students with shared interest\n\t\t63 container\n\t\t\t64 heading Our Team, Value: 2\n\t\t\t\t65 text Our Team\n\t\t\t66 image Aryaman Verma Profile\n\t\t\t67 heading Aryaman Verma, Value: 3\n\t\t\t\t68 text Aryaman Verma\n\t\t\t69 text Alumni Relations Officer\n\t\t\t70 image Felipe Alonso Sendin Cima Profile\n\t\t\t71 heading Felipe Alonso Sendin Cima, Value: 3\n\t\t\t\t72 text Felipe Alonso Sendin Cima\n\t\t\t73 text Secretary\n\t\t\t74 image Willian Liu Profile\n\t\t\t75 heading Willian Liu, Value: 3\n\t\t\t\t76 text Willian Liu\n\t\t\t77 image Yul Kwon Profile\n\t\t\t78 heading Yul Kwon, Value: 3\n\t\t\t\t79 text Yul Kwon\n\t\t\t80 text Greek Sing Chair\n\t\t\t81 image Alex Moser Profile\n\t\t\t82 heading Alex Moser, Value: 3\n\t\t\t\t83 text Alex Moser\n\t\t\t84 text Facility Management\n\t\t\t85 image Jj Lin Profile\n\t\t\t86 heading Jj Lin, Value: 3\n\t\t\t\t87 text Jj Lin\n\t\t\t88 text Recruitment Officer\n\t\t\t89 image Michael Fryburg Profile\n\t\t\t90 heading Michael Fryburg, Value: 3\n\t\t\t\t91 text Michael Fryburg\n\t\t\t92 text Finance Officer\n\t\t\t93 image Husain Raja Profile\n\t\t\t94 heading Husain Raja, Value: 3\n\t\t\t\t95 text Husain Raja\n\t\t\t96 text Buggy Chair\n\t\t\t97 image Braden Chavez Profile\n\t\t\t98 heading Braden Chavez, Value: 3\n\t\t\t\t99 text Braden Chavez\n\t\t\t100 text Vice President\n\t\t\t101 image Sawyer Hutton Profile\n\t\t\t102 heading Sawyer Hutton, Value: 3\n\t\t\t\t103 text Sawyer Hutton\n\t\t\t104 text Social Chair\n\t\t\t105 image Raghav Jangbahadur Profile\n\t\t\t106 heading Raghav Jangbahadur, Value: 3\n\t\t\t\t107 text Raghav Jangbahadur\n\t\t\t108 text President\n\t\t\t109 image Ted Gershon Profile\n\t\t\t110 heading Ted Gershon, Value: 3\n\t\t\t\t111 text Ted Gershon\n\t\t\t112 text Community Service/Philanthropic Officer\n\t\t\t113 image Alex De Leeuw Profile\n\t\t\t114 heading Alex De Leeuw, Value: 3\n\t\t\t\t115 text Alex De Leeuw\n\t\t\t116 text Member Development/Education\n\t\t\t117 image Bruce Whiting Profile\n\t\t\t118 heading Bruce Whiting, Value: 3\n\t\t\t\t119 text Bruce Whiting\n\t\t\t120 text Advisor\n\t\t121 container\n\t\t\t122 heading Join our group and make an impact in your campus community., Value: 1\n\t\t\t\t123 text Join our group and make an impact in your campus community.\n\t\t\t124 text Become a member and find out more!\n\t\t\t125 link Description: JOIN, Value: tartanconnect.cmu.edu/SAE/club_signup\n\t\t126 AXWebArea about:blank\n\t\t127 container\n\t\t\t128 container Contact and social links\n\t\t\t\t129 container\n\t\t\t\t\t130 text E: \n\t\t\t\t\t131 link Description: Email wjudy@andrew.cmu.edu, opens a new tab, Value: mailto:wjudy@andrew.cmu.edu\n\t\t\t\t132 container\n\t\t\t\t\t133 text Sigma Alpha Epsilon\n\t\t\t\t\t134 text 5000 Forbes Avenue\n\t\t\t\t\t135 text Pittsburgh PA 15213\n\t\t\t\t\t136 text United States\n\t\t\t137 container Description: Send us a message, ID: contactForm\n\t\t\t\t138 text .\n\t\t\t\t139 container\n\t\t\t\t\t140 text Your Name:\n\t\t\t\t\t141 text field (settable) Description: Your Name, ID: input-name--614\n\t\t\t\t142 container\n\t\t\t\t\t143 text Email Address:\n\t\t\t\t\t144 text field (settable) Email Address\n\t\t\t\t145 container\n\t\t\t\t\t146 text Message:\n\t\t\t\t\t147 text entry area (settable) Description: Message, ID: textarea-message--614\n\t\t\t\t148 container\n\t\t\t\t\t149 container reCAPTCHA\n\t\t\t\t\t\t150 AXWebArea about:blank\n\t\t\t\t\t151 button Description: Send Message with CAPTCHA, Help: Send Message, ID: send_contact_message_button\n\t\t\t\t152 text .\n\t\t153 container\n\t\t\t154 content list menu-footer-menu\n\t\t\t\t155 link Description: Home, Value: tartanconnect.cmu.edu/sae/home/\n\t\t\t\t156 link Description: Events, Value: tartanconnect.cmu.edu/sae/events/\n\t\t\t\t157 link Description: News, Value: tartanconnect.cmu.edu/sae/news/\n\t\t\t\t158 link Description: Leadership Team, Value: tartanconnect.cmu.edu/sae/leadership-team/\n\t\t\t\t159 link Description: Resources, Value: tartanconnect.cmu.edu/sae/photos/\n\t\t\t\t160 link Description: Contact Us, Value: tartanconnect.cmu.edu/sae/contact-us/\n\t\t\t161 link Description: Image, Value: tartanconnect.cmu.edu/\n\t\t\t162 text © 2026 Sigma Alpha Epsilon\n\t\t\t163 link Description: Privacy Policy, Value: campusgroups.com/terms?view=privacy\n\nThe focused UI element is 1 AXWebArea Home - Sigma Alpha Epsilon | TartanConnect, URL: tartanconnect.cmu.edu/sae/home/",
+      "advertisedWebsites": [
+        "http://saepaphi.com"
+      ],
+      "evidenceScreenshots": [
+        "evidence/icb-112e7e479fd7-external.jpg",
+        "evidence/icb-112e7e479fd7.jpg"
+      ],
+      "queueIndex": 12,
+      "reviewScope": "Public rendered pages and advertised calendars inspected; zero records applies only to the inspected view and time range, never to all organization activity.",
+      "evidenceMethod": "Computer Use: rendered browser accessibility state and screenshots; static HTTP used only as supplementary support.",
+      "provider": "TartanConnect"
+    },
+    "journal": "ics_b-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "112e7e479fd7",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-22T02:32:31.518Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "18af0b77ad14",
+    "organization": "Big Straw Magazine",
+    "department": "Student Organizations",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/bigstraw/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/bigstraw/events/",
+    "group": {
+      "name": "Big Straw Magazine",
+      "category": "Student Government Recognized Organizations - Diversity, Media/Publications, International/Multicultural Advancement",
+      "slug": "bigstraw",
+      "websites": [
+        "http://bigstrawmagazine.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:29:48.659Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/bigstraw/events/",
+      "https://tartanconnect.cmu.edu/bigstraw/home/",
+      "http://bigstrawmagazine.com"
+    ],
+    "outcome": "public_no_upcoming_external_blocked",
+    "note": "TartanConnect活动页和主页明确无upcoming；目录独立网站访问被浏览器阻止，因此该外部站是否有活动未验证。",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-18af0b77ad14.jpg",
+    "requiresFix": false,
+    "details": {
+      "additionalInspectedURLs": [
+        "http://bigstrawmagazine.com"
+      ],
+      "blockedExternal": true,
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "18af0b77ad14",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:50.796Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "201cdd38f271",
+    "organization": "Lambda Phi Epsilon",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/Lambda/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/Lambda/events/",
+    "group": {
+      "name": "Lambda Phi Epsilon",
+      "category": "Fraternity & Sorority Chapters",
+      "slug": "Lambda",
+      "websites": [
+        "http://www.cmulamdbas.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:31:19.283Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/Lambda/events/",
+      "https://tartanconnect.cmu.edu/Lambda/home/",
+      "http://www.cmulamdbas.com"
+    ],
+    "outcome": "public_no_upcoming_external_unreachable",
+    "note": "CG活动页和主页明确无upcoming；目录给出的cmulamdbas.com无法解析域名，外部是否有活动未验证。",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-201cdd38f271.jpg",
+    "requiresFix": false,
+    "details": {
+      "additionalInspectedURLs": [
+        "http://www.cmulamdbas.com"
+      ],
+      "blockedExternal": true,
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "201cdd38f271",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:52.377Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "20b74dde90d1",
+    "organization": "CMU Mumon Karate",
+    "department": "Student Organizations",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/mumonkarate/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/mumonkarate/events/",
+    "group": {
+      "name": "CMU Mumon Karate",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation, Martial Arts",
+      "slug": "mumonkarate",
+      "websites": [
+        "https://tartanconnect.cmu.edu/mumonkarate/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:31:58.810Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/mumonkarate/events/",
+      "https://tartanconnect.cmu.edu/mumonkarate/home/",
+      "https://tartanconnect.cmu.edu/mumonkarate/useful-links/",
+      "https://www.mumonkarate.org/cmu"
+    ],
+    "outcome": "public_no_upcoming_schedule_year_uncertain",
+    "note": "CG活动页与主页无upcoming；沿Resources→UsefulLinks→官网/cmu发现周四16–17点与周六9–11点，分别starting September11/20，但没有年份/学期或结束日期，旁边最新队长2024–2025，不能推定2026复发活动。",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-20b74dde90d1.jpg",
+    "requiresFix": false,
+    "details": {
+      "additionalInspectedURLs": [
+        "https://tartanconnect.cmu.edu/mumonkarate/useful-links/",
+        "https://www.mumonkarate.org/cmu"
+      ],
+      "uncertainFields": [
+        "schedule year",
+        "valid semester",
+        "end date"
+      ],
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "20b74dde90d1",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:52.387Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "21b5b696104a",
+    "organization": "Sigma Phi Epsilon",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68363.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68363.ics",
+    "group": {
+      "name": "Sigma Phi Epsilon",
+      "category": "Fraternity & Sorority Chapters",
+      "slug": "SigEp",
+      "websites": [
+        "https://sigepcmu.org/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "aab6b10e33e0",
+        "url": "https://tartanconnect.cmu.edu/SigEp/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:39:15.043Z",
+    "inspectedURLs": [
+      "https://sigepcmu.org/",
+      "https://tartanconnect.cmu.edu/SigEp/events/",
+      "https://tartanconnect.cmu.edu/sigep/home/"
+    ],
+    "outcome": "public_feed_empty_external_dns_failure",
+    "note": "TartanConnect events/home widgets show no upcoming events; advertisedsigepcmu.org failsDNS with browserNXDOMAIN. External calendar cannot be verified.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/icb-21b5b696104a.jpg",
+    "requiresFix": false,
+    "details": {
+      "organization": "Sigma Phi Epsilon",
+      "eventAX": "Browser tab: 283298678, Title: \"Events - Sigma Phi Epsilon | TartanConnect\", URL: \"https://tartanconnect.cmu.edu/SigEp/events/\".\n1 AXWebArea Events - Sigma Phi Epsilon | TartanConnect, URL: tartanconnect.cmu.edu/SigEp/events/\n\t2 container page-305732\n\t\t3 container menu1\n\t\t\t4 link Description: logo, Value: tartanconnect.cmu.edu/SigEp/\n\t\t\t5 content list\n\t\t\t\t6 link (collapsed) Description: Home, Value: tartanconnect.cmu.edu/sigep/home/, Secondary Actions: Expand\n\t\t\t\t7 link (collapsed) Description: Events, Value: tartanconnect.cmu.edu/sigep/events/, Secondary Actions: Expand\n\t\t\t\t8 link (collapsed) Description: News, Value: tartanconnect.cmu.edu/sigep/news/, Secondary Actions: Expand\n\t\t\t\t9 link (collapsed) Description: Leadership Team, Value: tartanconnect.cmu.edu/sigep/leadership-team/, Secondary Actions: Expand\n\t\t\t\t10 container\n\t\t\t\t\t11 link (collapsed) Description: Resources, Value: tartanconnect.cmu.edu/SigEp/events/#, Secondary Actions: Expand\n\t\t\t\t\t12 text \n\t\t\t\t13 link (collapsed) Description: Contact Us, Value: tartanconnect.cmu.edu/sigep/contact-us/, Secondary Actions: Expand\n\t\t14 heading Events, Value: 1\n\t\t\t15 text Events\n\t\t16 container\n\t\t\t17 heading There are no upcoming events., Value: 3\n\t\t\t\t18 text There are no upcoming events.\n\t\t\t19 link Description: Discover more events, Value: tartanconnect.cmu.edu/events\n\t\t20 container\n\t\t\t21 content list menu-footer-menu\n\t\t\t\t22 link Description: Home, Value: tartanconnect.cmu.edu/sigep/home/\n\t\t\t\t23 link Description: Events, Value: tartanconnect.cmu.edu/sigep/events/\n\t\t\t\t24 link Description: News, Value: tartanconnect.cmu.edu/sigep/news/\n\t\t\t\t25 link Description: Leadership Team, Value: tartanconnect.cmu.edu/sigep/leadership-team/\n\t\t\t\t26 link Description: Resources, Value: tartanconnect.cmu.edu/sigep/photos/\n\t\t\t\t27 link Description: Contact Us, Value: tartanconnect.cmu.edu/sigep/contact-us/\n\t\t\t28 link Description: Image, Value: tartanconnect.cmu.edu/\n\t\t\t29 text © 2026 Sigma Phi Epsilon\n\t\t\t30 link Description: Privacy Policy, Value: campusgroups.com/terms?view=privacy\n\nThe focused UI element is 1 AXWebArea Events - Sigma Phi Epsilon | TartanConnect, URL: tartanconnect.cmu.edu/SigEp/events/",
+      "homeAX": "Browser tab: 283298678, Title: \"Home - Sigma Phi Epsilon | TartanConnect\", URL: \"https://tartanconnect.cmu.edu/sigep/home/\".\n1 AXWebArea Home - Sigma Phi Epsilon | TartanConnect, URL: tartanconnect.cmu.edu/sigep/home/\n\t2 container page-305741\n\t\t3 container menu1\n\t\t\t4 link Description: logo, Value: tartanconnect.cmu.edu/SigEp/\n\t\t\t5 content list\n\t\t\t\t6 link (collapsed) Description: Home, Value: tartanconnect.cmu.edu/sigep/home/, Secondary Actions: Expand\n\t\t\t\t7 link (collapsed) Description: Events, Value: tartanconnect.cmu.edu/sigep/events/, Secondary Actions: Expand\n\t\t\t\t8 link (collapsed) Description: News, Value: tartanconnect.cmu.edu/sigep/news/, Secondary Actions: Expand\n\t\t\t\t9 link (collapsed) Description: Leadership Team, Value: tartanconnect.cmu.edu/sigep/leadership-team/, Secondary Actions: Expand\n\t\t\t\t10 container\n\t\t\t\t\t11 link (collapsed) Description: Resources, Value: tartanconnect.cmu.edu/sigep/home/#, Secondary Actions: Expand\n\t\t\t\t\t12 text \n\t\t\t\t13 link (collapsed) Description: Contact Us, Value: tartanconnect.cmu.edu/sigep/contact-us/, Secondary Actions: Expand\n\t\t14 container\n\t\t\t15 heading Sigma Phi Epsilon, Value: 1\n\t\t\t\t16 text Sigma Phi Epsilon\n\t\t\t17 heading Become part of our vibrant community., Value: 3\n\t\t\t\t18 text Become part of our vibrant community.\n\t\t\t19 link Description: JOIN, Value: tartanconnect.cmu.edu/SigEp/club_signup\n\t\t20 container\n\t\t\t21 heading About Us, Value: 2\n\t\t\t\t22 text About Us\n\t\t\t23 text Our mission is (define your mission under group settings)\n\t\t24 container\n\t\t\t25 heading 26, Value: 2\n\t\t\t\t26 text 26\n\t\t\t27 text Officers\n\t\t\t28 heading 116, Value: 2\n\t\t\t\t29 text 116\n\t\t\t30 text Members\n\t\t\t31 heading 1, Value: 2\n\t\t\t\t32 text 1\n\t\t\t33 text Events\n\t\t\t34 heading 0, Value: 2\n\t\t\t\t35 text 0\n\t\t\t36 text Emails/Newsletters\n\t\t37 container\n\t\t\t38 heading Upcoming Events, Value: 2\n\t\t\t\t39 text Upcoming Events\n\t\t\t40 heading There are no upcoming events., Value: 3\n\t\t\t\t41 text There are no upcoming events.\n\t\t\t42 link Description: Discover more events, Value: tartanconnect.cmu.edu/events\n\t\t43 container\n\t\t\t44 heading Members Benefits, Value: 2\n\t\t\t\t45 text Members Benefits\n\t\t\t46 text Membership benefits include (define your member benefits under group settings)\n\t\t47 container\n\t\t\t48 container\n\t\t\t\t49 text \n\t\t\t\t50 heading Events & Activities, Value: 4\n\t\t\t\t\t51 text Events & Activities\n\t\t\t\t52 text Be the first to know about what we have planned and add our group calendar to your schedule.\n\t\t\t53 container\n\t\t\t\t54 text \n\t\t\t\t55 heading Exclusive Resources, Value: 4\n\t\t\t\t\t56 text Exclusive Resources\n\t\t\t\t57 text Get our newsletter and stay in the loop.\n\t\t\t58 container\n\t\t\t\t59 text \n\t\t\t\t60 heading Connnections, Value: 4\n\t\t\t\t\t61 text Connnections\n\t\t\t\t62 text Meeting new students with shared interest\n\t\t63 container\n\t\t\t64 heading Our Team, Value: 2\n\t\t\t\t65 text Our Team\n\t\t\t66 image Andre Miller Profile\n\t\t\t67 heading Andre Miller, Value: 3\n\t\t\t\t68 text Andre Miller\n\t\t\t69 text Vice President of Programming\n\t\t\t70 image Charlie Lin Profile\n\t\t\t71 heading Charlie Lin, Value: 3\n\t\t\t\t72 text Charlie Lin\n\t\t\t73 text Risk Management Officer\n\t\t\t74 image Joshua Moorehead Profile\n\t\t\t75 heading Joshua Moorehead, Value: 3\n\t\t\t\t76 text Joshua Moorehead\n\t\t\t77 text Advisor\n\t\t\t78 image Justin Wu Profile\n\t\t\t79 heading Justin Wu, Value: 3\n\t\t\t\t80 text Justin Wu\n\t\t\t81 text Social Chair\n\t\t\t82 image Thomas Li Profile\n\t\t\t83 heading Thomas Li, Value: 3\n\t\t\t\t84 text Thomas Li\n\t\t\t85 text Social Chair\n\t\t\t86 image Raj Methi Profile\n\t\t\t87 heading Raj Methi, Value: 3\n\t\t\t\t88 text Raj Methi\n\t\t\t89 text Member Accountability/Standards\n\t\t\t90 image Julius Wentrup Profile\n\t\t\t91 heading Julius Wentrup, Value: 3\n\t\t\t\t92 text Julius Wentrup\n\t\t\t93 text Recruitment Team\n\t\t\t94 image Kevin Tang Profile\n\t\t\t95 heading Kevin Tang, Value: 3\n\t\t\t\t96 text Kevin Tang\n\t\t\t97 text Recruitment Team\n\t\t\t98 image Deep Mangrulkar Profile\n\t\t\t99 heading Deep Mangrulkar, Value: 3\n\t\t\t\t100 text Deep Mangrulkar\n\t\t\t101 text Recruitment Team\n\t\t\t102 image Tommy Weng Profile\n\t\t\t103 heading Tommy Weng, Value: 3\n\t\t\t\t104 text Tommy Weng\n\t\t\t105 text Alumni Relations Officer\n\t\t\t106 image Arya Patel Profile\n\t\t\t107 heading Arya Patel, Value: 3\n\t\t\t\t108 text Arya Patel\n\t\t\t109 text Community Service/Philanthropic Officer\n\t\t\t110 image Saamarth Sethi Profile\n\t\t\t111 heading Saamarth Sethi, Value: 3\n\t\t\t\t112 text Saamarth Sethi\n\t\t\t113 text New Member Education\n\t\t\t114 image Erik Pernebo Profile\n\t\t\t115 heading Erik Pernebo, Value: 3\n\t\t\t\t116 text Erik Pernebo\n\t\t\t117 text Vice President of Learning Community\n\t\t\t118 image Tyler Schweitzer Profile\n\t\t\t119 heading Tyler Schweitzer, Value: 3\n\t\t\t\t120 text Tyler Schweitzer\n\t\t\t121 text President\n\t\t\t122 image Shiv Singhal Profile\n\t\t\t123 heading Shiv Singhal, Value: 3\n\t\t\t\t124 text Shiv Singhal\n\t\t\t125 text DEI\n\t\t\t126 image Lance Matthies Profile\n\t\t\t127 heading Lance Matthies, Value: 3\n\t\t\t\t128 text Lance Matthies\n\t\t\t129 text Member Development/Education\n\t\t\t130 image Sam Dachman Profile\n\t\t\t131 heading Sam Dachman, Value: 3\n\t\t\t\t132 text Sam Dachman\n\t\t\t133 text Facility Management\n\t\t\t134 image David �lvarez G�mez Profile\n\t\t\t135 heading David �lvarez G�mez, Value: 3\n\t\t\t\t136 text David �lvarez G�mez\n\t\t\t137 text Chaplain\n\t\t\t138 image Jonathan Youngblood Profile\n\t\t\t139 heading Jonathan Youngblood, Value: 3\n\t\t\t\t140 text Jonathan Youngblood\n\t\t\t141 text New Member Education\n\t\t\t142 image Carson Farrell Profile\n\t\t\t143 heading Carson Farrell, Value: 3\n\t\t\t\t144 text Carson Farrell\n\t\t\t145 text Finance Officer\n\t\t\t146 image Tharun Sunthar Profile\n\t\t\t147 heading Tharun Sunthar, Value: 3\n\t\t\t\t148 text Tharun Sunthar\n\t\t\t149 text Vice President of Communications\n\t\t\t150 image Nicholas Xanthopoulos Profile\n\t\t\t151 heading Nicholas Xanthopoulos, Value: 3\n\t\t\t\t152 text Nicholas Xanthopoulos\n\t\t\t153 text Booth Chair\n\t\t\t154 image Fernando Hammerle Profile\n\t\t\t155 heading Fernando Hammerle, Value: 3\n\t\t\t\t156 text Fernando Hammerle\n\t\t\t157 text Buggy Chair\n\t\t\t158 image Arjun Rajagopala Profile\n\t\t\t159 heading Arjun Rajagopala, Value: 3\n\t\t\t\t160 text Arjun Rajagopala\n\t\t\t161 text Recruitment Officer\n\t\t162 container\n\t\t\t163 heading Join our group and make an impact in your campus community., Value: 1\n\t\t\t\t164 text Join our group and make an impact in your campus community.\n\t\t\t165 text Become a member and find out more!\n\t\t\t166 link Description: JOIN, Value: tartanconnect.cmu.edu/SigEp/club_signup\n\t\t167 container\n\t\t\t168 container Contact and social links\n\t\t\t\t169 container\n\t\t\t\t\t170 text Sigma Phi Epsilon\n\t\t\t\t\t171 text 5000 Forbes Avenue\n\t\t\t\t\t172 text Pittsburgh PA 15213\n\t\t\t\t\t173 text United States\n\t\t\t174 container Description: Send us a message, ID: contactForm\n\t\t\t\t175 text .\n\t\t\t\t176 container\n\t\t\t\t\t177 text Your Name:\n\t\t\t\t\t178 text field (settable) Description: Your Name, ID: input-name--614\n\t\t\t\t179 container\n\t\t\t\t\t180 text Email Address:\n\t\t\t\t\t181 text field (settable) Email Address\n\t\t\t\t182 container\n\t\t\t\t\t183 text Message:\n\t\t\t\t\t184 text entry area (settable) Description: Message, ID: textarea-message--614\n\t\t\t\t185 container\n\t\t\t\t\t186 container reCAPTCHA\n\t\t\t\t\t\t187 AXWebArea reCAPTCHA, URL: google.com/recaptcha/api2/anchor?ar=1&k=6LcxSk4UAAAAAO5mYrCZslaSXYH-ZMG6XX8NRd5A&co=aHR0cHM6Ly90YXJ0YW5jb25uZWN0LmNtdS5lZHU6NDQz&hl=en&v=4EDjxXf4knsx6UBM1L2V6cv8&size=invisible&anchor-ms=20000&execute-ms=30000&cb=uf581m8e9dnx\n\t\t\t\t\t\t\t188 text protected by \n\t\t\t\t\t\t\t189 text reCAPTCHA\n\t\t\t\t\t\t\t190 container\n\t\t\t\t\t\t\t\t191 text This site is exceeding \n\t\t\t\t\t\t\t\t192 link Description: reCAPTCHA Enterprise free quota, Value: cloud.google.com/recaptcha/docs/billing-information\n\t\t\t\t\t\t\t\t193 text .\n\t\t\t\t\t194 button Description: Send Message with CAPTCHA, Help: Send Message, ID: send_contact_message_button\n\t\t\t\t195 text .\n\t\t196 container\n\t\t\t197 content list menu-footer-menu\n\t\t\t\t198 link Description: Home, Value: tartanconnect.cmu.edu/sigep/home/\n\t\t\t\t199 link Description: Events, Value: tartanconnect.cmu.edu/sigep/events/\n\t\t\t\t200 link Description: News, Value: tartanconnect.cmu.edu/sigep/news/\n\t\t\t\t201 link Description: Leadership Team, Value: tartanconnect.cmu.edu/sigep/leadership-team/\n\t\t\t\t202 link Description: Resources, Value: tartanconnect.cmu.edu/sigep/photos/\n\t\t\t\t203 link Description: Contact Us, Value: tartanconnect.cmu.edu/sigep/contact-us/\n\t\t\t204 link Description: Image, Value: tartanconnect.cmu.edu/\n\t\t\t205 text © 2026 Sigma Phi Epsilon\n\t\t\t206 link Description: Privacy Policy, Value: campusgroups.com/terms?view=privacy\n\nThe focused UI element is 1 AXWebArea Home - Sigma Phi Epsilon | TartanConnect, URL: tartanconnect.cmu.edu/sigep/home/",
+      "advertisedWebsites": [
+        "https://sigepcmu.org/"
+      ],
+      "evidenceScreenshots": [
+        "evidence/icb-21b5b696104a-external.jpg",
+        "evidence/icb-21b5b696104a.jpg"
+      ],
+      "queueIndex": 20,
+      "reviewScope": "Public rendered pages and advertised calendars inspected; zero records applies only to the inspected view and time range, never to all organization activity.",
+      "evidenceMethod": "Computer Use: rendered browser accessibility state and screenshots; static HTTP used only as supplementary support.",
+      "provider": "TartanConnect"
+    },
+    "journal": "ics_b-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "21b5b696104a",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-22T02:32:37.439Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "2dc6925349de",
+    "organization": "CMU Sailing Club",
+    "department": "Student Organizations",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/cmusailingclub/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/cmusailingclub/events/",
+    "group": {
+      "name": "CMU Sailing Club",
+      "category": "Student Government Recognized Organizations - Social, Club Sports/Recreation",
+      "slug": "cmusailingclub",
+      "websites": [
+        "https://join.slack.com/t/cmusailingclub/shared_invite/zt-1nu6n2mlc-dVIpf77cwDQ5Otv6OGA3nw"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:32:22.779Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/cmusailingclub/events/",
+      "https://tartanconnect.cmu.edu/cmusailingclub/home/"
+    ],
+    "outcome": "public_no_upcoming_private_channel",
+    "note": "活动页和主页无upcoming；目录仅给Slack加入链接，未加入私人空间，公开页无可确认日期。",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-2dc6925349de.jpg",
+    "requiresFix": false,
+    "details": {
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "2dc6925349de",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:53.511Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "490d347fbe2e",
+    "organization": "Phi Delta Theta",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68358.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68358.ics",
+    "group": {
+      "name": "Phi Delta Theta",
+      "category": "Fraternity & Sorority Chapters",
+      "slug": "PhiDelt",
+      "websites": [
+        "https://www.phideltcmu.org/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "b8c4437578ff",
+        "url": "https://tartanconnect.cmu.edu/PhiDelt/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:43:36.084Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/PhiDelt/events/",
+      "https://tartanconnect.cmu.edu/phidelt/home/"
+    ],
+    "outcome": "public_feed_empty_external_tls_failure",
+    "note": "TartanConnect public widgets show no upcoming events; advertisedphideltcmu.org failsSSLprotocol negotiation. External schedule inaccessible.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/icb-490d347fbe2e-home.jpg",
+    "requiresFix": false,
+    "details": {
+      "organization": "Phi Delta Theta",
+      "eventAX": "Browser tab: 283298698, Title: \"Home - Phi Delta Theta | TartanConnect\", URL: \"https://tartanconnect.cmu.edu/phidelt/home/\".\n1 AXWebArea Home - Phi Delta Theta | TartanConnect, URL: tartanconnect.cmu.edu/phidelt/home/\n\t2 container page-306144\n\t\t3 container div-skip-links\n\t\t\t4 link Description: Skip to Main Content, Value: javascript:, ID: a-skip-to-main-content\n\t\t\t5 link Description: Skip to Navigation, Value: javascript:;, ID: a-skip-to-left-navigation\n\t\t6 container Description: Top menu, ID: menu1\n\t\t\t7 link Description: Phi Delta Theta, Value: tartanconnect.cmu.edu/PhiDelt/?a=1\n\t\t\t8 content list\n\t\t\t\t9 link (collapsed) Description: Home, Value: tartanconnect.cmu.edu/phidelt/home/, Secondary Actions: Expand\n\t\t\t\t10 link (collapsed) Description: Events, Value: tartanconnect.cmu.edu/phidelt/events/, Secondary Actions: Expand\n\t\t\t\t11 link (collapsed) Description: News, Value: tartanconnect.cmu.edu/phidelt/news/, Secondary Actions: Expand\n\t\t\t\t12 link (collapsed) Description: Leadership Team, Value: tartanconnect.cmu.edu/phidelt/leadership-team/, Secondary Actions: Expand\n\t\t\t\t13 container\n\t\t\t\t\t14 link (collapsed) Description: Resources, Value: tartanconnect.cmu.edu/phidelt/home/#, Secondary Actions: Expand\n\t\t\t\t\t15 text \n\t\t\t\t16 link (collapsed) Description: Contact Us, Value: tartanconnect.cmu.edu/phidelt/contact-us/, Secondary Actions: Expand\n\t\t17 container Description: Top of Main Content., ID: span-top-of-main-content--0\n\t\t\t18 text Top of Main Content\n\t\t19 container\n\t\t\t20 heading Phi Delta Theta, Value: 1\n\t\t\t\t21 text Phi Delta Theta\n\t\t\t22 heading Become part of our vibrant community., Value: 2\n\t\t\t\t23 text Become part of our vibrant community.\n\t\t\t24 link Description: JOIN, Value: tartanconnect.cmu.edu/PhiDelt/club_signup\n\t\t25 container\n\t\t\t26 heading About Us, Value: 2\n\t\t\t\t27 text About Us\n\t\t\t28 text Our mission is (define your mission under group settings)\n\t\t29 container\n\t\t\t30 heading 24, Value: 2\n\t\t\t\t31 text 24\n\t\t\t32 text Officers\n\t\t\t33 heading 99, Value: 2\n\t\t\t\t34 text 99\n\t\t\t35 text Members\n\t\t\t36 heading 1, Value: 2\n\t\t\t\t37 text 1\n\t\t\t38 text Events\n\t\t\t39 heading 0, Value: 2\n\t\t\t\t40 text 0\n\t\t\t41 text Emails/Newsletters\n\t\t42 container\n\t\t\t43 heading Upcoming Events, Value: 2\n\t\t\t\t44 text Upcoming Events\n\t\t\t45 heading There are no upcoming events., Value: 3\n\t\t\t\t46 text There are no upcoming events.\n\t\t\t47 link Description: Discover more events, Value: tartanconnect.cmu.edu/events\n\t\t48 container\n\t\t\t49 heading Members Benefits, Value: 2\n\t\t\t\t50 text Members Benefits\n\t\t\t51 text Membership benefits include (define your member benefits under group settings)\n\t\t52 container\n\t\t\t53 container\n\t\t\t\t54 heading Events & Activities, Value: 2\n\t\t\t\t\t55 text Events & Activities\n\t\t\t\t56 text Be the first to know about what we have planned and add our group calendar to your schedule.\n\t\t\t57 container\n\t\t\t\t58 heading Exclusive Resources, Value: 2\n\t\t\t\t\t59 text Exclusive Resources\n\t\t\t\t60 text Get our newsletter and stay in the loop.\n\t\t\t61 container\n\t\t\t\t62 heading Connections, Value: 2\n\t\t\t\t\t63 text Connections\n\t\t\t\t64 text Meeting new students with shared interest\n\t\t65 container\n\t\t\t66 heading Our Team, Value: 2\n\t\t\t\t67 text Our Team\n\t\t\t68 image Rayhan Sarabu Profile\n\t\t\t69 heading Rayhan Sarabu, Value: 3\n\t\t\t\t70 text Rayhan Sarabu\n\t\t\t71 text New Member Education\n\t\t\t72 image Poyraz Candas Profile\n\t\t\t73 heading Poyraz Candas, Value: 3\n\t\t\t\t74 text Poyraz Candas\n\t\t\t75 text Member Development/Education\n\t\t\t76 image Jack Oakenfull Profile\n\t\t\t77 heading Jack Oakenfull, Value: 3\n\t\t\t\t78 text Jack Oakenfull\n\t\t\t79 text Alumni Relations Officer\n\t\t\t80 image Avi Karthikeyan Profile\n\t\t\t81 heading Avi Karthikeyan, Value: 3\n\t\t\t\t82 text Avi Karthikeyan\n\t\t\t83 text Member Accountability/Standards\n\t\t\t84 image Sean Xue Profile\n\t\t\t85 heading Sean Xue, Value: 3\n\t\t\t\t86 text Sean Xue\n\t\t\t87 text Council Delegate\n\t\t\t88 image Arnav Mehta Profile\n\t\t\t89 heading Arnav Mehta, Value: 3\n\t\t\t\t90 text Arnav Mehta\n\t\t\t91 text Marketing/Social Media Officer\n\t\t\t92 image Declan O’Melia Profile\n\t\t\t93 heading Declan O'Melia, Value: 3\n\t\t\t\t94 text Declan O'Melia\n\t\t\t95 text Vice President\n\t\t\t96 image Prakash Shekhar Profile\n\t\t\t97 heading Prakash Shekhar, Value: 3\n\t\t\t\t98 text Prakash Shekhar\n\t\t\t99 text Member Development/Education\n\t\t\t100 image Michael Shor Profile\n\t\t\t101 heading Michael Shor, Value: 3\n\t\t\t\t102 text Michael Shor\n\t\t\t103 text President\n\t\t\t104 image Giles Lewis Profile\n\t\t\t105 heading Giles Lewis, Value: 3\n\t\t\t\t106 text Giles Lewis\n\t\t\t107 text Risk Management Officer\n\t\t\t108 image Matthew Gershenzon Profile\n\t\t\t109 heading Matthew Gershenzon, Value: 3\n\t\t\t\t110 text Matthew Gershenzon\n\t\t\t111 text Secretary\n\t\t\t112 image Anagh Sangavarapu Profile\n\t\t\t113 heading Anagh Sangavarapu, Value: 3\n\t\t\t\t114 text Anagh Sangavarapu\n\t\t\t115 text Finance Officer\n\t\t\t116 image Sebastian De Luque Profile\n\t\t\t117 heading Sebastian De Luque, Value: 3\n\t\t\t\t118 text Sebastian De Luque\n\t\t\t119 text Brotherhood/Sisterhood Chair\n\t\t\t120 image Rafi Zaman Profile\n\t\t\t121 heading Rafi Zaman, Value: 3\n\t\t\t\t122 text Rafi Zaman\n\t\t\t123 text Recruitment Officer\n\t\t\t124 image Anish Jain Profile\n\t\t\t125 heading Anish Jain, Value: 3\n\t\t\t\t126 text Anish Jain\n\t\t\t127 text Community Service/Philanthropic Officer\n\t\t\t128 image Chandler Hoffman Profile\n\t\t\t129 heading Chandler Hoffman, Value: 3\n\t\t\t\t130 text Chandler Hoffman\n\t\t\t131 text Facility Management\n\t\t\t132 image Arjun Vasudevan Profile\n\t\t\t133 heading Arjun Vasudevan, Value: 3\n\t\t\t\t134 text Arjun Vasudevan\n\t\t\t135 text New Member Education\n\t\t\t136 image Avy Sharma Profile\n\t\t\t137 heading Avy Sharma, Value: 3\n\t\t\t\t138 text Avy Sharma\n\t\t\t139 text Social Chair\n\t\t\t140 image Nathan Ammerman Profile\n\t\t\t141 heading Nathan Ammerman, Value: 3\n\t\t\t\t142 text Nathan Ammerman\n\t\t\t143 text Member Accountability/Standards\n\t\t\t144 image Bennett Matthews Profile\n\t\t\t145 heading Bennett Matthews, Value: 3\n\t\t\t\t146 text Bennett Matthews\n\t\t\t147 text Greek Sing Chair\n\t\t\t148 image Rahul Dube Profile\n\t\t\t149 heading Rahul Dube, Value: 3\n\t\t\t\t150 text Rahul Dube\n\t\t\t151 text Booth Chair\n\t\t\t152 image Deniz Muhittinoglu Profile\n\t\t\t153 heading Deniz Muhittinoglu, Value: 3\n\t\t\t\t154 text Deniz Muhittinoglu\n\t\t\t155 text Alumni Relations Officer\n\t\t156 container\n\t\t\t157 heading Join our group and make an impact in our campus community., Value: 2\n\t\t\t\t158 text Join our group and make an impact in our campus community.\n\t\t\t159 text Group membership includes many benefits, including access to experts in their respective fields.\n\t\t\t160 link Description: Join, Value: tartanconnect.cmu.edu/PhiDelt/club_signup\n\t\t161 container\n\t\t\t162 AXWebArea google.com/maps/embed?origin=mfe&pb=!1m2!2m1!1s5000+Forbes+Avenue,+Carnegie+Mellon+University,+Pittsburgh,+PA+15213,+United+States!3m1!1sen!5m1!1sen\n\t\t\t\t163 link Description: Open in Maps (opens in new tab), Value: about:invalid#zClosurez\n\t\t\t164 container Contact and social links\n\t\t\t\t165 container\n\t\t\t\t\t166 text E: \n\t\t\t\t\t167 link Description: Email phideltparho@gmail.com, opens a new tab, Value: mailto:phideltparho@gmail.com\n\t\t\t\t168 container\n\t\t\t\t\t169 text Phi Delta Theta\n\t\t\t\t\t170 text 5000 Forbes Avenue\n\t\t\t\t\t171 text Pittsburgh PA 15213\n\t\t\t\t\t172 text United States\n\t\t\t173 container Description: Send us a message, ID: contactForm\n\t\t\t\t174 text .\n\t\t\t\t175 container\n\t\t\t\t\t176 text *  Your Name:\n\t\t\t\t\t177 text field (settable) Description: Your Name, ID: input-name--614\n\t\t\t\t178 container\n\t\t\t\t\t179 text *  Email Address:\n\t\t\t\t\t180 text field (settable) Email Address\n\t\t\t\t181 container\n\t\t\t\t\t182 text *  Message:\n\t\t\t\t\t183 text entry area (settable) Description: Message, ID: textarea-message--614\n\t\t\t\t184 container\n\t\t\t\t\t185 container reCAPTCHA\n\t\t\t\t\t\t186 AXWebArea reCAPTCHA, URL: google.com/recaptcha/api2/anchor?ar=1&k=6LcxSk4UAAAAAO5mYrCZslaSXYH-ZMG6XX8NRd5A&co=aHR0cHM6Ly90YXJ0YW5jb25uZWN0LmNtdS5lZHU6NDQz&hl=en&v=4EDjxXf4knsx6UBM1L2V6cv8&size=invisible&anchor-ms=20000&execute-ms=30000&cb=jwktb5vaijd9\n\t\t\t\t\t\t\t187 text protected by \n\t\t\t\t\t\t\t188 text reCAPTCHA\n\t\t\t\t\t\t\t189 container\n\t\t\t\t\t\t\t\t190 text This site is exceeding \n\t\t\t\t\t\t\t\t191 link Description: reCAPTCHA Enterprise free quota, Value: cloud.google.com/recaptcha/docs/billing-information\n\t\t\t\t\t\t\t\t192 text .\n\t\t\t\t\t193 button Description: Send Message with CAPTCHA, Help: Send Message, ID: send_contact_message_button\n\t\t\t\t194 text .\n\t\t195 container\n\t\t\t196 container Footer menu\n\t\t\t\t197 content list menu-footer-menu\n\t\t\t\t\t198 link Description: Home, Value: tartanconnect.cmu.edu/phidelt/home/\n\t\t\t\t\t199 link Description: Events, Value: tartanconnect.cmu.edu/phidelt/events/\n\t\t\t\t\t200 link Description: News, Value: tartanconnect.cmu.edu/phidelt/news/\n\t\t\t\t\t201 link Description: Leadership Team, Value: tartanconnect.cmu.edu/phidelt/leadership-team/\n\t\t\t\t\t202 link Description: Resources, Value: tartanconnect.cmu.edu/phidelt/photos/\n\t\t\t\t\t203 link Description: Contact Us, Value: tartanconnect.cmu.edu/phidelt/contact-us/\n\t\t\t204 container Social Media Links\n\t\t\t205 link Description: Phi Delta Theta, Value: tartanconnect.cmu.edu/PhiDelt/\n\t\t\t206 text © 2026 Phi Delta Theta\n\t\t\t207 link Description: Privacy policy, Value: campusgroups.com/terms?view=cookies\n\t208 container grammarly-integration\n\t\t209 text {\"mode\":\"full\",\"isActive\":true,\"isUserDisabled\":false}\n\nThe focused UI element is 1 AXWebArea Home - Phi Delta Theta | TartanConnect, URL: tartanconnect.cmu.edu/phidelt/home/",
+      "advertisedWebsites": [
+        "https://www.phideltcmu.org/"
+      ],
+      "evidenceScreenshots": [
+        "evidence/icb-490d347fbe2e-fallback-public.jpg",
+        "evidence/icb-490d347fbe2e-home.jpg"
+      ],
+      "queueIndex": 38,
+      "reviewScope": "Public rendered pages and advertised calendars inspected; zero records applies only to the inspected view and time range, never to all organization activity.",
+      "evidenceMethod": "Computer Use: rendered browser accessibility state and screenshots; static HTTP used only as supplementary support.",
+      "navigationFailures": [
+        {
+          "checkedAt": "2026-10-22T03:41:43.948Z",
+          "attemptedURL": "https://www.phideltcmu.org/",
+          "browserError": "Error: Browser Use cannot open https://www.phideltcmu.org in tab 283298696. Browser reported: net::ERR_SSL_PROTOCOL_ERROR"
+        }
+      ],
+      "provider": "TartanConnect"
+    },
+    "journal": "ics_b-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "490d347fbe2e",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-22T02:32:48.076Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "5a83fcb01175",
+    "organization": "Lean On Me at CMU",
+    "department": "Student Organizations",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/lon/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/lon/events/",
+    "group": {
+      "name": "Lean On Me at CMU",
+      "category": "Student Government Recognized Organizations - Social, Civic Engagement, Mental Health",
+      "slug": "lon",
+      "websites": [
+        "https://lean0n.me/cmu/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:36:57.965Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/lon/events/",
+      "https://tartanconnect.cmu.edu/lon/home/",
+      "https://lean0n.me/cmu/"
+    ],
+    "outcome": "public_no_upcoming_external_certificate_error",
+    "note": "CG活动页和主页明确无upcoming；独立站访问报证书域名不匹配，未绕过警告，因此外部活动未验证。",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-5a83fcb01175.jpg",
+    "requiresFix": false,
+    "details": {
+      "additionalInspectedURLs": [
+        "https://lean0n.me/cmu/"
+      ],
+      "blockedExternal": true,
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "5a83fcb01175",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:59.265Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "5d51e7e650da",
+    "organization": "CMU Summit on US-China Innovation and Entrepreneurship",
+    "department": "Student Organizations",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/summit/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/summit/events/",
+    "group": {
+      "name": "CMU Summit on US-China Innovation and Entrepreneurship",
+      "category": "Student Government Recognized Organizations - Professional, International/Multicultural Advancement, Professional/Academic, Technology, Signature Event/Tradition",
+      "slug": "summit",
+      "websites": [
+        "http://www.cmu-summit.net"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:38:03.052Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/summit/events/",
+      "https://tartanconnect.cmu.edu/summit/home/",
+      "http://www.cmu-summit.net"
+    ],
+    "outcome": "public_no_upcoming_external_unreachable",
+    "note": "CG活动页及主页明确无upcoming；简介April23–25没有年份，官网cmu-summit.net域名无法解析，不能确认当前会议。",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-5d51e7e650da.jpg",
+    "requiresFix": false,
+    "details": {
+      "additionalInspectedURLs": [
+        "http://www.cmu-summit.net"
+      ],
+      "blockedExternal": true,
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "5d51e7e650da",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:59.547Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "5f8a00ca2d30",
+    "organization": "Lemon",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71141.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71141.ics",
+    "group": {
+      "name": "Lemon",
+      "category": "Student Government Recognized Organizations - Media/Publications",
+      "slug": "Lemon",
+      "websites": [
+        "https://lemonpublication.cargo.site/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "7630baef3278",
+        "url": "https://tartanconnect.cmu.edu/Lemon/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:43:57.358Z",
+    "inspectedURLs": [
+      "https://lemonpublication.cargo.site/"
+    ],
+    "outcome": "advertised_website_private",
+    "note": "AdvertisedLemonCargo site finishes loading and explicitly displays This site is private. Cannot infer no activities.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/icb-5f8a00ca2d30-loaded.jpg",
+    "requiresFix": false,
+    "details": {
+      "organization": "Lemon",
+      "eventAX": "Browser tab: 283298698, Title: \"Lemon Publication\", URL: \"https://lemonpublication.cargo.site/\".\n1 AXWebArea Lemon Publication, URL: lemonpublication.cargo.site/\n\t2 text This site is private.\n\t3 container grammarly-integration\n\t\t4 text {\"mode\":\"full\",\"isActive\":true,\"isUserDisabled\":false}\n\nThe focused UI element is 1 AXWebArea Lemon Publication, URL: lemonpublication.cargo.site/",
+      "advertisedWebsites": [
+        "https://lemonpublication.cargo.site/"
+      ],
+      "evidenceScreenshots": [
+        "evidence/icb-5f8a00ca2d30-external.jpg",
+        "evidence/icb-5f8a00ca2d30-loaded.jpg"
+      ],
+      "queueIndex": 48,
+      "reviewScope": "Public rendered pages and advertised calendars inspected; zero records applies only to the inspected view and time range, never to all organization activity.",
+      "evidenceMethod": "Computer Use: rendered browser accessibility state and screenshots; static HTTP used only as supplementary support.",
+      "provider": "TartanConnect"
+    },
+    "journal": "ics_b-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "5f8a00ca2d30",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-22T02:32:52.381Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "60af213aa3a3",
+    "organization": "Central Church of Pittsburgh Korean Ministry",
+    "department": "Student Organizations",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/KCCP/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/KCCP/events/",
+    "group": {
+      "name": "Central Church of Pittsburgh Korean Ministry",
+      "category": "Student Government Recognized Organizations - Religious/Spiritual",
+      "slug": "KCCP",
+      "websites": [
+        "https://www.kccp.org"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:38:10.004Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/KCCP/events/",
+      "https://tartanconnect.cmu.edu/KCCP/home/",
+      "https://www.kccp.org"
+    ],
+    "outcome": "public_no_upcoming_external_certificate_error",
+    "note": "CG活动页和主页无upcoming；目录所列kccp.org报证书域名不匹配，未绕过安全警告，外部排期未验证。",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-60af213aa3a3.jpg",
+    "requiresFix": false,
+    "details": {
+      "additionalInspectedURLs": [
+        "https://www.kccp.org"
+      ],
+      "blockedExternal": true,
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "60af213aa3a3",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:59.772Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "6147e6a18b94",
+    "organization": "Alpha Chi Omega",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68337.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68337.ics",
+    "group": {
+      "name": "Alpha Chi Omega",
+      "category": "Fraternity & Sorority Chapters - Social, Greek-lettered, Philanthropy, Booth, Greek Sing",
+      "slug": "AChiO",
+      "websites": [
+        "http://cmualphachiomega.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:45:45.167Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/AChiO/events/",
+      "https://tartanconnect.cmu.edu/AChiO/web_officers"
+    ],
+    "outcome": "public_page_unpublished_external_blocked",
+    "note": "TartanConnect events URL redirects to explicitly unpublishedgroup page; advertisedcmualphachiomega.com blockedbybrowserclient. No warning/securitybypass.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/icb-6147e6a18b94-fallback-public.jpg",
+    "requiresFix": false,
+    "details": {
+      "organization": "Alpha Chi Omega",
+      "eventAX": "Browser tab: 283298702, Title: \"TartanConnect\", URL: \"https://tartanconnect.cmu.edu/AChiO/web_officers\".\n0 AXWebArea TartanConnect, URL: tartanconnect.cmu.edu/AChiO/web_officers\n\t1 link Description: Skip to Main Content, Value: javascript:void('skip-to-main-content');, ID: a-skip-to-main-content\n\t2 container outer-shell\n\t\t3 container Description: Topbar, ID: topbar\n\t\t\t4 button Description: TartanConnect Logo. Opens the members homepage., ID: a-top-bar-logo\n\t\t\t\t5 image TartanConnect Logo Image. Clicking opens the members home page.\n\t\t\t6 content list\n\t\t\t\t7 button Alpha Chi Omega\n\t\t\t\t\t8 image Alpha Chi Omega's logo\n\t\t\t\t\t9 text Alpha Chi Omega\n\t\t\t10 content list\n\t\t\t\t11 button Sign In Section\n\t\t12 container Description: TartanConnect., ID: page-cont\n\t\t\t13 container Description: Top of Main Content., ID: span-top-of-main-content--0\n\t\t\t\t14 text Top of Main Content\n\t\t\t15 container div-top-info-msg\n\t\t\t\t16 container\n\t\t\t\t\t17 text Important information. \n\t\t\t\t\t18 text Sorry, this page has been unpublished by one of the group officers.\n\t\t\t\t19 button Close. Click to dismiss this message.\n\t\t\t20 heading  Alpha Chi Omega, Value: 1\n\t\t\t\t21 text  Alpha Chi Omega\n\t\t\t22 table\n\t\t\t\t23 row\n\t\t\t\t\t24 cell photo_8a88d251566f11f0a5560affd37d29fb\n\t\t\t\t\t\t25 image Profile Photo\n\t\t\t\t\t26 cell\n\t\t\t\t\t\t27 link Description: Sofia Lim, Help: Officer Profile, Value: tartanconnect.cmu.edu/AChiO/web_login?redirect=%2fAChiO%2fweb_officers\n\t\t\t\t\t\t28 text Undergraduate Student 2029\n\t\t\t\t\t29 cell\n\t\t\t\t\t\t30 text Marketing/Social Media Officer\n\t\t\t\t\t\t31 text Alumni Relations\n\t\t\t32 table\n\t\t\t\t33 row\n\t\t\t\t\t34 cell photo_871e644e00dc11efb7b20e8c518618fd\n\t\t\t\t\t\t35 image Profile Photo\n\t\t\t\t\t36 cell\n\t\t\t\t\t\t37 link Description: Lydia Taylor, Help: Officer Profile, Value: tartanconnect.cmu.edu/AChiO/web_login?redirect=%2fAChiO%2fweb_officers\n\t\t\t\t\t\t38 text Undergraduate Student 2028\n\t\t\t\t\t39 cell\n\t\t\t\t\t\t40 text Greek Sing Chair\n\t\t\t\t\t\t41 text Event Planner\n\t\t\t42 table\n\t\t\t\t43 row\n\t\t\t\t\t44 cell photo_1e256ec6227511ee88c00a68a752a54d\n\t\t\t\t\t\t45 image Profile Photo\n\t\t\t\t\t46 cell\n\t\t\t\t\t\t47 link Description: Eunbean Lee, Help: Officer Profile, Value: tartanconnect.cmu.edu/AChiO/web_login?redirect=%2fAChiO%2fweb_officers\n\t\t\t\t\t\t48 text Undergraduate Student 2027\n\t\t\t\t\t49 cell\n\t\t\t\t\t\t50 text Council Delegate\n\t\t\t\t\t\t51 text Authorized Signer, Booth Chair\n\t\t\t52 table\n\t\t\t\t53 row\n\t\t\t\t\t54 cell photo_5c41818d227511ee88c00a68a752a54d\n\t\t\t\t\t\t55 image Profile Photo\n\t\t\t\t\t56 cell\n\t\t\t\t\t\t57 link Description: Elizabeth Terveen, Help: Officer Profile, Value: tartanconnect.cmu.edu/AChiO/web_login?redirect=%2fAChiO%2fweb_officers\n\t\t\t\t\t\t58 text Undergraduate Student 2027\n\t\t\t\t\t59 cell\n\t\t\t\t\t\t60 text Council Delegate\n\t\t\t61 table\n\t\t\t\t62 row\n\t\t\t\t\t63 cell photo_85ec43f8379911ef999b0a1a415fade9\n\t\t\t\t\t\t64 image Profile Photo\n\t\t\t\t\t65 cell\n\t\t\t\t\t\t66 link Description: Nicole Diaz, Help: Officer Profile, Value: tartanconnect.cmu.edu/AChiO/web_login?redirect=%2fAChiO%2fweb_officers\n\t\t\t\t\t\t67 text Undergraduate Student 2028\n\t\t\t\t\t68 cell\n\t\t\t\t\t\t69 text Greek Sing Chair\n\t\t\t70 table\n\t\t\t\t71 row\n\t\t\t\t\t72 cell photo_4a945914227511ee88c00a68a752a54d\n\t\t\t\t\t\t73 image Profile Photo\n\t\t\t\t\t74 cell\n\t\t\t\t\t\t75 link Description: Sarah Garland, Help: Officer Profile, Value: tartanconnect.cmu.edu/AChiO/web_login?redirect=%2fAChiO%2fweb_officers\n\t\t\t\t\t\t76 text Undergraduate Student 2027\n\t\t\t\t\t77 cell\n\t\t\t\t\t\t78 text Member Accountability/Standards\n\t\t\t\t\t\t79 text Academic Enrichment/Scholarship\n\t\t\t\t\t\t80 text Secretary\n\t\t\t\t\t\t81 text Member Development/Education\n\t\t\t\t\t\t82 text Booth Chair\n\t\t\t83 table\n\t\t\t\t84 row\n\t\t\t\t\t85 cell photo_856a597816ff11ef999b0a1a415fade9\n\t\t\t\t\t\t86 image Profile Photo\n\t\t\t\t\t87 cell\n\t\t\t\t\t\t88 link Description: Ashanti Ramirez, Help: Officer Profile, Value: tartanconnect.cmu.edu/AChiO/web_login?redirect=%2fAChiO%2fweb_officers\n\t\t\t\t\t\t89 text Undergraduate Student 2028\n\t\t\t\t\t90 cell\n\t\t\t\t\t\t91 text New Member Education\n\t\t\t\t\t\t92 text Event Planner\n\t\t\t93 table\n\t\t\t\t94 row\n\t\t\t\t\t95 cell photo_2dcf5ca8227511ee88c00a68a752a54d\n\t\t\t\t\t\t96 link Description: Member Photo, Value: tartanconnect.cmu.edu/student_profile.aspx?uid=2dcf5ca8-2275-11ee-88c0-0a68a752a54d\n\t\t\t\t\t97 cell\n\t\t\t\t\t\t98 link Description: Selena Lin, Help: Officer Profile, Value: tartanconnect.cmu.edu/AChiO/web_login?redirect=%2fAChiO%2fweb_officers\n\t\t\t\t\t\t99 text Undergraduate Student 2027\n\t\t\t\t\t100 cell\n\t\t\t\t\t\t101 text Greek Sing Chair\n\t\t\t102 table\n\t\t\t\t103 row\n\t\t\t\t\t104 cell photo_63ef89ea248e11ef999b0a1a415fade9\n\t\t\t\t\t\t105 image Profile Photo\n\t\t\t\t\t106 cell\n\t\t\t\t\t\t107 link Description: Emma Wu, Help: Officer Profile, Value: tartanconnect.cmu.edu/AChiO/web_login?redirect=%2fAChiO%2fweb_officers\n\t\t\t\t\t\t108 text Undergraduate Student 2028\n\t\t\t\t\t109 cell\n\t\t\t\t\t\t110 text Finance Officer\n\t\t\t111 table\n\t\t\t\t112 row\n\t\t\t\t\t113 cell photo_b6e63b27566f11f0a5560affd37d29fb\n\t\t\t\t\t\t114 image Profile Photo\n\t\t\t\t\t115 cell\n\t\t\t\t\t\t116 link Description: Aarna Agarwal, Help: Officer Profile, Value: tartanconnect.cmu.edu/AChiO/web_login?redirect=%2fAChiO%2fweb_officers\n\t\t\t\t\t\t117 text Undergraduate Student 2029\n\t\t\t\t\t118 cell\n\t\t\t\t\t\t119 text Facility Management\n\t\t\t\t\t\t120 text DEI\n\t\t\t\t\t\t121 text DEI&B Liaison, Booth Chair\n\t\t\t122 table\n\t\t\t\t123 row\n\t\t\t\t\t124 cell photo_bdb0d97f566f11f0a5560affd37d29fb\n\t\t\t\t\t\t125 image Profile Photo\n\t\t\t\t\t126 cell\n\t\t\t\t\t\t127 link Description: Thea Hwang, Help: Officer Profile, Value: tartanconnect.cmu.edu/AChiO/web_login?redirect=%2fAChiO%2fweb_officers\n\t\t\t\t\t\t128 text Undergraduate Student 2029\n\t\t\t\t\t129 cell\n\t\t\t\t\t\t130 text Community Service/Philanthropic Officer\n\t\t\t131 table\n\t\t\t\t132 row\n\t\t\t\t\t133 cell photo_8efb9fed566f11f0a5560affd37d29fb\n\t\t\t\t\t\t134 image Profile Photo\n\t\t\t\t\t135 cell\n\t\t\t\t\t\t136 link Description: Leyla Gore, Help: Officer Profile, Value: tartanconnect.cmu.edu/AChiO/web_login?redirect=%2fAChiO%2fweb_officers\n\t\t\t\t\t\t137 text Undergraduate Student 2029\n\t\t\t\t\t138 cell\n\t\t\t\t\t\t139 text Risk Management Officer\n\t\t\t\t\t\t140 text Booth Chair, Wellness Liaison\n\t\t\t141 table\n\t\t\t\t142 row\n\t\t\t\t\t143 cell photo_aee676bd566f11f0a5560affd37d29fb\n\t\t\t\t\t\t144 image Profile Photo\n\t\t\t\t\t145 cell\n\t\t\t\t\t\t146 link Description: Sahana Chaudhuri, Help: Officer Profile, Value: tartanconnect.cmu.edu/AChiO/web_login?redirect=%2fAChiO%2fweb_officers\n\t\t\t\t\t\t147 text Undergraduate Student 2029\n\t\t\t\t\t148 cell\n\t\t\t\t\t\t149 text Brotherhood/Sisterhood Chair\n\t\t\t\t\t\t150 text Event Planner\n\t\t151 container\n\t\t\t152 container footer-links\n\t\t\t\t153 image TartanConnect Website Logo\n\t\t\t\t154 container Contact information.\n\t\t\t\t\t155 heading Contact, Value: 2\n\t\t\t\t\t\t156 text Contact\n\t\t\t\t\t157 text TartanConnect\n\t\t\t\t\t158 container\n\t\t\t\t\t\t159 text 5000 Forbes Avenue\n\t\t\t\t\t\t160 text Carnegie Mellon University\n\t\t\t\t\t\t161 text Pittsburgh, PA 15213\n\t\t\t\t\t\t162 text United States\n\t\t\t\t\t163 link Description: Email tartanconnect@andrew.cmu.edu for general inquiries., Value: mailto:tartanconnect@andrew.cmu.edu\n\t\t\t\t164 container Links\n\t\t\t\t\t165 heading Links, Value: 2\n\t\t\t\t\t\t166 text Links\n\t\t\t\t\t167 link Description: Home, Value: tartanconnect.cmu.edu/home_login\n\t\t\t\t\t168 link Description: Groups, Value: tartanconnect.cmu.edu/home/groups/\n\t\t\t\t\t169 link Description: Events, Value: tartanconnect.cmu.edu/home/events/\n\t\t\t\t\t170 link Description: Terms of Service, Value: cmu.edu/tepper/\n\t\t\t\t\t171 link Description: Privacy Policy, Value: cmu.edu/tepper/privacy-policy/index.html\n\t\t\t\t\t172 link Description: Support Center, Value: helpcenter.readyeducation.com/migration/knowledge\n\t\t\t173 container Footer Bar Links\n\t\t\t\t174 link Description: ©2026 Ready Education, Value: readyeducation.com/\n\t\t175 container a11y-description-blocks\n\t\t\t176 text Archived records can be found by switching the status filter from Active to Archived.\n\t\t\t177 text Auto submit on change.\n\t\t\t178 text Note: changing the start time may automatically update other time fields on the page\n\t\t\t179 text Note: changing the end time may automatically update other time fields on the page\n\t\t\t180 text Note: changing the timezone may automatically update other time fields on the page\n\t\t\t181 text Chat\n\t\t\t182 text Open the group website in a new tab.\n\t\t\t183 text This action permanently removes the record and cannot be undone.\n\t\t\t184 text Download\n\t\t\t185 text Press Enter or Space to grab or drop items, arrow keys to move, escape to restore original position, and Ctrl plus Enter or Space to add items to top of active menu.\n\t\t\t186 text Creates a duplicate record and adds COPY to the title in parentheses.\n\t\t\t187 text Enables edit and delete options\n\t\t\t188 text Press escape to collapse and exit the dropdown.\n\t\t\t189 text Expandable sub-menu.\n\t\t\t190 text This will take immediate action and reload the page.\n\t\t\t191 text Making a selection will automatically save the new status.\n\t\t\t192 text Making a selection will automatically add the tag.\n\t\t\t193 text New tab\n\t\t\t194 text Opens the email builder for the selected groups.\n\t\t\t195 text Opens the default email client.\n\t\t\t196 text Paste emails in the text box separated by a line or a comma.\n\t\t\t197 text Reloads page and filters by this entry\n\t\t\t198 text This checklist cannot be deleted because it is used for a Group Registration or Group Re-Registration approval process.\n\t\t\t199 text Changing the selection will reload the page\n\t\t\t200 text Changing the selection will update the form\n\t\t\t201 text Changing the selection will update the page\n\t\t\t202 text Changing the selection will update the row\n\t\t\t203 text Click to get the next slides then shift-tab back to the slide deck.\n\t\t\t204 text Click to get the previous slides then tab forward.\n\t\t\t205 text Stop following\n\t\t\t206 text Moves this record back into the Active status.\n\t\t\t207 text Use arrow keys\n\t\t\t208 text Video conferencing link, new tab.\n\t\t\t209 text View my entire calendar or schedule.\n\t\t\t210 text Opens member profile\n\t\t\t211 text You are attending this event.\n\t212 text Important information. Sorry, this page has been unpublished by one of the group officers.\n\nThe focused UI element is 0 AXWebArea TartanConnect, URL: tartanconnect.cmu.edu/AChiO/web_officers",
+      "advertisedWebsites": [
+        "http://cmualphachiomega.com"
+      ],
+      "evidenceScreenshots": [
+        "evidence/icb-6147e6a18b94-fallback-public.jpg"
+      ],
+      "queueIndex": 49,
+      "reviewScope": "Public rendered pages and advertised calendars inspected; zero records applies only to the inspected view and time range, never to all organization activity.",
+      "evidenceMethod": "Computer Use: rendered browser accessibility state and screenshots; static HTTP used only as supplementary support.",
+      "navigationFailures": [
+        {
+          "checkedAt": "2026-10-22T03:45:43.289Z",
+          "attemptedURL": "http://cmualphachiomega.com",
+          "browserError": "Error: Browser Use cannot open http://cmualphachiomega.com in tab 283298698. Browser reported: net::ERR_BLOCKED_BY_CLIENT"
+        }
+      ],
+      "provider": "TartanConnect"
+    },
+    "journal": "ics_b-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "6147e6a18b94",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-22T02:32:52.591Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "652be20f0f06",
+    "organization": "Gender Minorities and Women in Physics",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71444.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71444.ics",
+    "group": {
+      "name": "Gender Minorities and Women in Physics",
+      "category": "Student Government Recognized Organizations",
+      "slug": "gmwip",
+      "websites": [
+        "https://tartanconnect.cmu.edu/gmwip/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:41:51.112Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/gmwip/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2Fgmwip%2F&msg=LOGIN_REQUIRED"
+    ],
+    "outcome": "login_required",
+    "note": "Verified organization homepage redirects to visible Login is required; private schedule remains unverified.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-652be20f0f06.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "652be20f0f06",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:31:53.713Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "67f8a784cfa2",
+    "organization": "The Frame",
+    "department": "Student Organizations",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/theframe/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/theframe/events/",
+    "group": {
+      "name": "The Frame",
+      "category": "Student Government Recognized Organizations - Professional, Performance/Artistic",
+      "slug": "theframe",
+      "websites": [
+        "http://theframecmu.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:40:47.340Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/theframe/events/",
+      "https://tartanconnect.cmu.edu/theframe/home/",
+      "http://theframecmu.com"
+    ],
+    "outcome": "public_no_upcoming_external_unreachable",
+    "note": "活动页和主页无upcoming；目录独立站theframecmu.com域名无法解析，外部展览排期未验证。",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-67f8a784cfa2.jpg",
+    "requiresFix": false,
+    "details": {
+      "additionalInspectedURLs": [
+        "http://theframecmu.com"
+      ],
+      "blockedExternal": true,
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "67f8a784cfa2",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:33:00.948Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "7c4d4271232a",
+    "organization": "Jewish Business Association",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10979.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10979.ics",
+    "group": {
+      "name": "Jewish Business Association",
+      "category": "Tepper Graduate Organizations",
+      "slug": "jba",
+      "websites": [
+        "https://tartanconnect.cmu.edu/jba/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:51:15.735Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/jba/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2fjba%2f&msg=LOGIN_REQUIRED"
+    ],
+    "outcome": "login_required",
+    "note": "Exact verified group homepage redirects to explicit Login is required; public event availability cannot be determined.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-7c4d4271232a.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true,
+      "notConfirmedOrganizationInactive": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "7c4d4271232a",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-22T02:32:59.830Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "866cd105a000",
+    "organization": "Carnegie Industrials Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71448.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71448.ics",
+    "group": {
+      "name": "Carnegie Industrials Club",
+      "category": "Student Government Recognized Organizations",
+      "slug": "carnegieindustrials",
+      "websites": [
+        "https://tartanconnect.cmu.edu/carnegieindustrials/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:53:15.097Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/carnegieindustrials/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2fcarnegieindustrials%2f&msg=LOGIN_REQUIRED"
+    ],
+    "outcome": "login_required",
+    "note": "Exact verified group homepage redirects to explicit Login is required; public event availability cannot be determined.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-866cd105a000.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true,
+      "notConfirmedOrganizationInactive": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "866cd105a000",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:04.160Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "89930c55ca6c",
+    "organization": "CMU Bhangra",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68032.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68032.ics",
+    "group": {
+      "name": "CMU Bhangra",
+      "category": "Student Government Recognized Organizations - Social, Performance/Artistic, Dance-focused",
+      "slug": "bhangra",
+      "websites": [
+        "http://www.cmubhangra.org"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "992b9798f88e",
+        "url": "https://tartanconnect.cmu.edu/bhangra/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:53:59.871Z",
+    "inspectedURLs": [
+      "http://www.cmubhangra.org",
+      "https://tartanconnect.cmu.edu/bhangra/home/",
+      "https://tartanconnect.cmu.edu/bhangra/events/"
+    ],
+    "outcome": "public_upcoming_empty_external_unavailable",
+    "note": "Listed independent domain fails DNS(NXDOMAIN), not evidence of no events. Verified TartanConnect group homepage and Events child explicitly display no upcoming events.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-89930c55ca6c.jpg",
+    "requiresFix": false,
+    "details": {
+      "externalUnavailable": true,
+      "notConfirmedOrganizationInactive": true,
+      "additionalScreenshot": "research/empty-source-followup-2026-10-21/evidence/ica-89930c55ca6c-external.jpg"
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "89930c55ca6c",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:05.558Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "8f8b52740902",
+    "organization": "BRICK",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71434.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71434.ics",
+    "group": {
+      "name": "BRICK",
+      "category": "Student Government Recognized Organizations - Diversity, LGBTQIAA+, Political/Advocacy, Civic Engagement",
+      "slug": "BRICK",
+      "websites": [
+        "https://tartanconnect.cmu.edu/BRICK/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:53:15.098Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/BRICK/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2FBRICK%2F&msg=LOGIN_REQUIRED"
+    ],
+    "outcome": "login_required",
+    "note": "Exact verified group homepage redirects to explicit Login is required; public event availability cannot be determined.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-8f8b52740902.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true,
+      "notConfirmedOrganizationInactive": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "8f8b52740902",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:08.585Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "aca85c42ee33",
+    "organization": "cmuTV",
+    "department": "Student Organizations",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/cmutv/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/cmutv/events/",
+    "group": {
+      "name": "cmuTV",
+      "category": "Student Government Recognized Organizations - Professional, Media/Publications, General Interest, Technology, Buggy",
+      "slug": "cmutv",
+      "websites": [
+        "https://cmutv.org/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:48:31.265Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/cmutv/events/",
+      "https://tartanconnect.cmu.edu/cmutv/home/",
+      "https://cmutv.org/"
+    ],
+    "outcome": "public_no_upcoming_external_unavailable",
+    "note": "CG活动页和主页无upcoming；独立官网Cloudways WebsiteUnavailable，域名未映射应用，外部活动排期无法验证。",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-aca85c42ee33.jpg",
+    "requiresFix": false,
+    "details": {
+      "additionalInspectedURLs": [
+        "https://cmutv.org/"
+      ],
+      "blockedExternal": true,
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "aca85c42ee33",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:33:08.129Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "afc8d82bc81d",
+    "organization": "Women in Business",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68323.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68323.ics",
+    "group": {
+      "name": "Women in Business",
+      "category": "Student Government Recognized Organizations - Professional",
+      "slug": "womeninbusiness",
+      "websites": [
+        "http://wibcmu.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:50:54.553Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/womeninbusiness/events/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=https%3a%2f%2ftartanconnect.cmu.edu%2fgroups&msg=Sorry+but+you+are+not+authorized+to+access+this+resource.",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=https:%2F%2Ftartanconnect.cmu.edu%2Fgroups&msg=Sorry%20but%20you%20are%20not%20authorized%20to%20access%20this%20resource."
+    ],
+    "outcome": "public_access_restricted_external_dns_failure",
+    "note": "独立官网域名解析失败；TartanConnect 官网跳转明确 not authorized 登录页。不是已验证无活动。",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/icb-afc8d82bc81d-loaded.jpg",
+    "requiresFix": false,
+    "details": {
+      "organization": "Women in Business",
+      "eventAX": "Browser tab: 283298708, Title: \"Login\", URL: \"https://tartanconnect.cmu.edu/webapp/auth/login?redirect=https:%2F%2Ftartanconnect.cmu.edu%2Fgroups&msg=Sorry%20but%20you%20are%20not%20authorized%20to%20access%20this%20resource.\".\n0 AXWebArea Login, URL: tartanconnect.cmu.edu/webapp/auth/login?redirect=https:%2F%2Ftartanconnect.cmu.edu%2Fgroups&msg=Sorry%20but%20you%20are%20not%20authorized%20to%20access%20this%20resource.\n\t1 container\n\t\t2 content list\n\t\t\t3 link Description: Home, Value: tartanconnect.cmu.edu/home_login\n\t\t\t4 link Description: Groups, Value: tartanconnect.cmu.edu/home/groups/\n\t\t\t5 link Description: Events, Value: tartanconnect.cmu.edu/home/events/\n\t\t\t6 link Description: Sign in, Value: tartanconnect.cmu.edu/webapp/auth/login\n\t\t7 container\n\t\t\t8 text Sorry but you are not authorized to access this resource.\n\t\t\t9 heading Login, Value: 1\n\t\t\t\t10 text Login\n\t\t\t11 text Choose your login method\n\t\t\t12 container Login options\n\t\t\t\t13 content list\n\t\t\t\t\t14 link Description: Login with your Andrew ID click the button below, Value: campusgroups.com/shibboleth/login?idp=tepper\n\t\t\t\t\t15 link Description: Community Members and Guests without an Andrew ID, Value: tartanconnect.cmu.edu/webapp/auth/login/password?redirect=https:%2F%2Ftartanconnect.cmu.edu%2Fgroups\n\t\t\t16 heading Contact, Value: 2\n\t\t\t\t17 text Contact\n\t\t\t18 content list\n\t\t\t\t19 text TartanConnect\n\t\t\t\t20 text 5000 Forbes Avenue\n\t\t\t\t21 text Carnegie Mellon University\n\t\t\t\t22 text Pittsburgh, PA\n\t\t\t\t23 text United States\n\t\t\t\t24 link Description: tartanconnect@andrew.cmu.edu, Value: mailto:tartanconnect@andrew.cmu.edu\n\t\t\t25 heading Links, Value: 2\n\t\t\t\t26 text Links\n\t\t\t27 content list\n\t\t\t\t28 link Description: Home, Value: tartanconnect.cmu.edu/home_login\n\t\t\t\t29 link Description: Groups, Value: tartanconnect.cmu.edu/home/groups/\n\t\t\t\t30 link Description: Events, Value: tartanconnect.cmu.edu/home/events/\n\t\t\t\t31 link Description: Privacy Policy, Value: cmu.edu/tepper/privacy-policy/index.html\n\t\t\t\t32 link Description: Terms of Service, Value: cmu.edu/tepper/\n\t\t\t\t33 link Description: Support Center, Value: readyeducation.com/en-us/client-support/campusgroups-support\n\t\t\t34 text ©2026 Ready Education\n\t35 container grammarly-integration\n\t\t36 text {\"mode\":\"full\",\"isActive\":true,\"isUserDisabled\":false}\n\nThe focused UI element is 0 AXWebArea Login, URL: tartanconnect.cmu.edu/webapp/auth/login?redirect=https:%2F%2Ftartanconnect.cmu.edu%2Fgroups&msg=Sorry%20but%20you%20are%20not%20authorized%20to%20access%20this%20resource.",
+      "advertisedWebsites": [
+        "http://wibcmu.com"
+      ],
+      "evidenceScreenshots": [
+        "evidence/icb-afc8d82bc81d-fallback-public.jpg",
+        "evidence/icb-afc8d82bc81d-loaded.jpg"
+      ],
+      "queueIndex": 90,
+      "reviewScope": "Public rendered pages and advertised calendars inspected; zero records applies only to the inspected view and time range, never to all organization activity.",
+      "evidenceMethod": "Computer Use: rendered browser accessibility state and screenshots; static HTTP used only as supplementary support.",
+      "navigationFailures": [
+        {
+          "checkedAt": "2026-10-22T03:50:45.452Z",
+          "attemptedURL": "http://wibcmu.com",
+          "browserError": "Error: Browser Use cannot open http://wibcmu.com in tab 283298706. Browser reported: net::ERR_NAME_NOT_RESOLVED"
+        }
+      ],
+      "provider": "TartanConnect"
+    },
+    "journal": "ics_b-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "afc8d82bc81d",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-22T02:33:11.547Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "b456cf80a90f",
+    "organization": "BAPS Campus Fellowship (BCF)",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71429.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71429.ics",
+    "group": {
+      "name": "BAPS Campus Fellowship (BCF)",
+      "category": "Student Government Recognized Organizations",
+      "slug": "BAPS",
+      "websites": [
+        "https://tartanconnect.cmu.edu/BAPS/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:57:57.324Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/BAPS/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2fBAPS%2f&msg=LOGIN_REQUIRED"
+    ],
+    "outcome": "login_required",
+    "note": "Exact verified group homepage redirects to explicit Login is required; public event availability cannot be determined.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-b456cf80a90f.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true,
+      "notConfirmedOrganizationInactive": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "b456cf80a90f",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:19.789Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "b703a2672078",
+    "organization": "Alpha Phi",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/APhi/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/APhi/events/",
+    "group": {
+      "name": "Alpha Phi",
+      "category": "Fraternity & Sorority Chapters",
+      "slug": "APhi",
+      "websites": [
+        "http://iotasigma.alphaphi.org/index.php"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:54:00.184Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/APhi/events/",
+      "https://tartanconnect.cmu.edu/APhi/home/",
+      "http://iotasigma.alphaphi.org/index.php"
+    ],
+    "outcome": "source_no_upcoming_external_blocked",
+    "note": "CampusGroups events explicitly says There are no upcoming events; homepage contains no dated events. Catalog Alpha Phi chapter website attempted in browser but blocked by client; external calendar remains unverified.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-b703a2672078.jpg",
+    "requiresFix": false,
+    "details": {
+      "additionalInspectedURLs": [
+        "http://iotasigma.alphaphi.org/index.php"
+      ],
+      "externalBlock": "net::ERR_BLOCKED_BY_CLIENT",
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "b703a2672078",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:33:11.370Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "b839ca411e45",
+    "organization": "Tepper Impact Investing Club",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71449.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71449.ics",
+    "group": {
+      "name": "Tepper Impact Investing Club",
+      "category": "Student Government Recognized Organizations",
+      "slug": "tiic",
+      "websites": [
+        "https://tartanconnect.cmu.edu/tiic/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:57:57.324Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/tiic/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2Ftiic%2F&msg=LOGIN_REQUIRED"
+    ],
+    "outcome": "login_required",
+    "note": "Exact verified group homepage redirects to explicit Login is required; public event availability cannot be determined.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-b839ca411e45.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true,
+      "notConfirmedOrganizationInactive": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "b839ca411e45",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:22.830Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "c200c0afa9b2",
+    "organization": "Smart Woman Securities",
+    "department": "Student Organizations",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/sws/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/sws/events/",
+    "group": {
+      "name": "Smart Woman Securities",
+      "category": "Student Government Recognized Organizations - Professional/Academic",
+      "slug": "sws",
+      "websites": [
+        "http://carnegiemellonsws.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:55:33.528Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/sws/events/",
+      "https://tartanconnect.cmu.edu/sws/home/",
+      "http://carnegiemellonsws.com"
+    ],
+    "outcome": "source_no_upcoming_external_blocked",
+    "note": "CampusGroups events and homepage explicitly have no upcoming events. Catalog independent website attempted but browser blocked by client; external status unverified.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-c200c0afa9b2.jpg",
+    "requiresFix": false,
+    "details": {
+      "additionalInspectedURLs": [
+        "http://carnegiemellonsws.com"
+      ],
+      "externalBlock": "net::ERR_BLOCKED_BY_CLIENT",
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "c200c0afa9b2",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:33:12.337Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "c2182773b42e",
+    "organization": "Asian Students Association",
+    "department": "Student Organizations",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/ASA/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/ASA/events/",
+    "group": {
+      "name": "Asian Students Association",
+      "category": "Student Government Recognized Organizations - International/Multicultural Advancement",
+      "slug": "ASA",
+      "websites": [
+        "http://cmuasa.org"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:55:33.529Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/ASA/events/",
+      "https://tartanconnect.cmu.edu/ASA/home/",
+      "http://cmuasa.org"
+    ],
+    "outcome": "source_no_upcoming_external_blocked",
+    "note": "CampusGroups events and homepage explicitly have no upcoming events. Catalog independent website attempted but browser blocked by client; homepage 1 Events metric is not an upcoming listing.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-c2182773b42e.jpg",
+    "requiresFix": false,
+    "details": {
+      "additionalInspectedURLs": [
+        "http://cmuasa.org"
+      ],
+      "externalBlock": "net::ERR_BLOCKED_BY_CLIENT",
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "c2182773b42e",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:33:12.499Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "c34d7669aa5c",
+    "organization": "Delta Gamma",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/DeeGee/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/DeeGee/events/",
+    "group": {
+      "name": "Delta Gamma",
+      "category": "Fraternity & Sorority Chapters",
+      "slug": "DeeGee",
+      "websites": [
+        "http://cmu.deltagamma.org/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:56:22.538Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/DeeGee/events/",
+      "https://tartanconnect.cmu.edu/DeeGee/home/",
+      "http://cmu.deltagamma.org/"
+    ],
+    "outcome": "source_no_upcoming_external_dns_error",
+    "note": "CampusGroups events and homepage explicitly have no upcoming events. Catalog chapter domain fails DNS; external calendar is unverified.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-c34d7669aa5c.jpg",
+    "requiresFix": false,
+    "details": {
+      "additionalInspectedURLs": [
+        "http://cmu.deltagamma.org/"
+      ],
+      "externalBlock": "net::ERR_NAME_NOT_RESOLVED",
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "c34d7669aa5c",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:33:13.143Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "c8516c9d3a40",
+    "organization": "Alpha Sigma Phi",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68343.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68343.ics",
+    "group": {
+      "name": "Alpha Sigma Phi",
+      "category": "Fraternity & Sorority Chapters",
+      "slug": "AlphaSig",
+      "websites": [
+        "http://cmualphasig.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "58a2dd26be62",
+        "url": "https://tartanconnect.cmu.edu/AlphaSig/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:50:57.835Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/AlphaSig/events/"
+    ],
+    "outcome": "public_feed_empty_external_dns_failure",
+    "note": "公开 TartanConnect Events 明确 no upcoming events，独立官网 cmualphasig.com 域名解析失败。",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/icb-c8516c9d3a40-fallback-public.jpg",
+    "requiresFix": false,
+    "details": {
+      "organization": "Alpha Sigma Phi",
+      "eventAX": "Browser tab: 283298710, Title: \"Events - Alpha Sigma Phi | TartanConnect\", URL: \"https://tartanconnect.cmu.edu/AlphaSig/events/\".\n0 AXWebArea Events - Alpha Sigma Phi | TartanConnect, URL: tartanconnect.cmu.edu/AlphaSig/events/\n\t1 container page-287760\n\t\t2 container menu1\n\t\t\t3 link Description: logo, Value: tartanconnect.cmu.edu/AlphaSig/\n\t\t\t4 content list\n\t\t\t\t5 link (collapsed) Description: Home, Value: tartanconnect.cmu.edu/alphasig/home/, Secondary Actions: Expand\n\t\t\t\t6 link (collapsed) Description: Events, Value: tartanconnect.cmu.edu/alphasig/events/, Secondary Actions: Expand\n\t\t\t\t7 link (collapsed) Description: News, Value: tartanconnect.cmu.edu/alphasig/news/, Secondary Actions: Expand\n\t\t\t\t8 link (collapsed) Description: Leadership Team, Value: tartanconnect.cmu.edu/alphasig/leadership-team/, Secondary Actions: Expand\n\t\t\t\t9 container\n\t\t\t\t\t10 link (collapsed) Description: Resources, Value: tartanconnect.cmu.edu/AlphaSig/events/#, Secondary Actions: Expand\n\t\t\t\t\t11 text \n\t\t\t\t12 link (collapsed) Description: Contact Us, Value: tartanconnect.cmu.edu/alphasig/contact-us/, Secondary Actions: Expand\n\t\t13 heading Events, Value: 1\n\t\t\t14 text Events\n\t\t15 container\n\t\t\t16 heading There are no upcoming events., Value: 3\n\t\t\t\t17 text There are no upcoming events.\n\t\t\t18 link Description: Discover more events, Value: tartanconnect.cmu.edu/events\n\t\t19 container\n\t\t\t20 content list menu-footer-menu\n\t\t\t\t21 link Description: Home, Value: tartanconnect.cmu.edu/alphasig/home/\n\t\t\t\t22 link Description: Events, Value: tartanconnect.cmu.edu/alphasig/events/\n\t\t\t\t23 link Description: News, Value: tartanconnect.cmu.edu/alphasig/news/\n\t\t\t\t24 link Description: Leadership Team, Value: tartanconnect.cmu.edu/alphasig/leadership-team/\n\t\t\t\t25 link Description: Resources, Value: tartanconnect.cmu.edu/alphasig/photos/\n\t\t\t\t26 link Description: Contact Us, Value: tartanconnect.cmu.edu/alphasig/contact-us/\n\t\t\t27 link Description: Image, Value: tartanconnect.cmu.edu/\n\t\t\t28 text © 2026 Alpha Sigma Phi\n\t\t\t29 link Description: Privacy Policy, Value: campusgroups.com/terms?view=privacy\n\nThe focused UI element is 0 AXWebArea Events - Alpha Sigma Phi | TartanConnect, URL: tartanconnect.cmu.edu/AlphaSig/events/",
+      "advertisedWebsites": [
+        "http://cmualphasig.com"
+      ],
+      "evidenceScreenshots": [
+        "evidence/icb-c8516c9d3a40-fallback-public.jpg"
+      ],
+      "queueIndex": 104,
+      "reviewScope": "Public rendered pages and advertised calendars inspected; zero records applies only to the inspected view and time range, never to all organization activity.",
+      "evidenceMethod": "Computer Use: rendered browser accessibility state and screenshots; static HTTP used only as supplementary support.",
+      "navigationFailures": [
+        {
+          "checkedAt": "2026-10-22T03:50:55.567Z",
+          "attemptedURL": "http://cmualphasig.com",
+          "browserError": "Error: Browser Use cannot open http://cmualphasig.com in tab 283298708. Browser reported: net::ERR_NAME_NOT_RESOLVED"
+        }
+      ],
+      "provider": "TartanConnect"
+    },
+    "journal": "ics_b-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "c8516c9d3a40",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-22T02:33:17.237Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "cc5e1c0f8bf9",
+    "organization": "Medical Visions",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71413.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71413.ics",
+    "group": {
+      "name": "Medical Visions",
+      "category": "Student Government Recognized Organizations",
+      "slug": "medvis",
+      "websites": [
+        "https://tartanconnect.cmu.edu/medvis/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:59:30.356Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/medvis/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2Fmedvis%2F&msg=LOGIN_REQUIRED"
+    ],
+    "outcome": "login_required",
+    "note": "Exact verified group homepage redirects to explicit Login is required; public event availability cannot be determined.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-cc5e1c0f8bf9.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true,
+      "notConfirmedOrganizationInactive": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "cc5e1c0f8bf9",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:29.026Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "cdcc38cd97e9",
+    "organization": "Recreational Volleyball Club",
+    "department": "Student Organizations",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/recvball/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/recvball/events/",
+    "group": {
+      "name": "Recreational Volleyball Club",
+      "category": "Student Government Recognized Organizations - Club Sports/Recreation",
+      "slug": "recvball",
+      "websites": [
+        "https://tartanconnect.cmu.edu/recvball/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:56:52.094Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/recvball/events/",
+      "https://tartanconnect.cmu.edu/recvball/home/"
+    ],
+    "outcome": "source_no_upcoming_private_channel",
+    "note": "CampusGroups explicitly has no upcoming events. Homepage directs updates to a Discord invitation; private community was not joined. No public dated schedule verified.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-cdcc38cd97e9.jpg",
+    "requiresFix": false,
+    "details": {
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "cdcc38cd97e9",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:33:14.468Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "cfaa71977875",
+    "organization": "Taiwanese Students Association",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68308.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68308.ics",
+    "group": {
+      "name": "Taiwanese Students Association",
+      "category": "Student Government Recognized Organizations - Social, International/Multicultural Advancement, Affinity-based, Club Sports/Recreation, Booth, Signature Event/Tradition",
+      "slug": "tsa",
+      "websites": [
+        "https://www.instagram.com/cmu_tsa/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T04:02:30.252Z",
+    "inspectedURLs": [
+      "https://www.instagram.com/cmu_tsa/",
+      "https://www.instagram.com/cmu_tsa/p/Dd-e8nRRusK/",
+      "https://linktr.ee/cmutsa26",
+      "https://tartanconnect.cmu.edu/tsa/"
+    ],
+    "outcome": "login_required_public_bio_links",
+    "note": "Official Instagram public profile visible, latest post explicitly requires login. Public bio Linktree inspected:26–27mailing list, Big/Little and board forms, mixer cardFridayOct2 21–24 but no explicit year on card. Exact TartanConnect TSA slug redirects to Sorry but you are not authorized login page. No signup/private account used; future event availability remains unverified.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-cfaa71977875-post.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true,
+      "additionalScreenshots": [
+        "research/empty-source-followup-2026-10-21/evidence/ica-cfaa71977875.jpg",
+        "research/empty-source-followup-2026-10-21/evidence/ica-cfaa71977875-login.jpg"
+      ],
+      "yearPrecision": "mixer card year not explicit;26–27context only"
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "cfaa71977875",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-22T02:33:18.640Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "d1b8754df0d7",
+    "organization": "Sikh Student Organization",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71428.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71428.ics",
+    "group": {
+      "name": "Sikh Student Organization",
+      "category": "Student Government Recognized Organizations",
+      "slug": "Sikh",
+      "websites": [
+        "https://tartanconnect.cmu.edu/Sikh/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:59:30.356Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/Sikh/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2fSikh%2f&msg=LOGIN_REQUIRED"
+    ],
+    "outcome": "login_required",
+    "note": "Exact verified group homepage redirects to explicit Login is required; public event availability cannot be determined.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-d1b8754df0d7.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true,
+      "notConfirmedOrganizationInactive": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "d1b8754df0d7",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:30.234Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "dbb1f1d15b97",
+    "organization": "Tepper MS Programs",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71459.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71459.ics",
+    "group": {
+      "name": "Tepper MS Programs",
+      "category": "Tepper Graduate Organizations",
+      "slug": "msprograms",
+      "websites": [
+        "https://tartanconnect.cmu.edu/msprograms/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:59:30.357Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/msprograms/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2Fmsprograms%2F&msg=LOGIN_REQUIRED"
+    ],
+    "outcome": "login_required",
+    "note": "Exact verified group homepage redirects to explicit Login is required; public event availability cannot be determined.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-dbb1f1d15b97.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true,
+      "notConfirmedOrganizationInactive": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "dbb1f1d15b97",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:33.026Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "df9d9882f8d0",
+    "organization": "Tepper MBA Robber Barons",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71381.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71381.ics",
+    "group": {
+      "name": "Tepper MBA Robber Barons",
+      "category": "Tepper Graduate Organizations - Social, Media/Publications",
+      "slug": "ROB",
+      "websites": [
+        "https://tartanconnect.cmu.edu/ROB/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T03:59:30.357Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/ROB/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2FROB%2F&msg=LOGIN_REQUIRED"
+    ],
+    "outcome": "login_required",
+    "note": "Exact verified group homepage redirects to explicit Login is required; public event availability cannot be determined.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-df9d9882f8d0.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true,
+      "notConfirmedOrganizationInactive": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "df9d9882f8d0",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:34.523Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "f3397a335a38",
+    "organization": "Alpha Epsilon Pi",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68338.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68338.ics",
+    "group": {
+      "name": "Alpha Epsilon Pi",
+      "category": "Fraternity & Sorority Chapters",
+      "slug": "AEPi",
+      "websites": [
+        "http://www.aepi.rocks"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "ccef3aba5489",
+        "url": "https://tartanconnect.cmu.edu/AEPi/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T04:05:22.891Z",
+    "inspectedURLs": [
+      "http://www.aepi.rocks",
+      "https://tartanconnect.cmu.edu/aepi/home/",
+      "https://tartanconnect.cmu.edu/aepi/events/"
+    ],
+    "outcome": "public_upcoming_empty_external_unavailable",
+    "note": "Listed independent domain failsDNS. Verified TartanConnect AEPi homepage and linked Events child explicitly no upcoming events; no alternate calendar. Domain failure is not proof of organization inactivity.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-f3397a335a38.jpg",
+    "requiresFix": false,
+    "details": {
+      "externalUnavailable": true,
+      "notConfirmedOrganizationInactive": true,
+      "additionalScreenshot": "research/empty-source-followup-2026-10-21/evidence/ica-f3397a335a38-external.jpg"
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "f3397a335a38",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-22T02:33:26.885Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "f439516839ca",
+    "organization": "Alpha Kappa Alpha Sorority Inc.",
+    "department": "Fraternity and Sorority Chapters",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/AKA/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/AKA/events/",
+    "group": {
+      "name": "Alpha Kappa Alpha Sorority Inc.",
+      "category": "Fraternity & Sorority Chapters",
+      "slug": "AKA",
+      "websites": [
+        "http://www.aka1908.org"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T04:00:06.459Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/AKA/events/",
+      "https://tartanconnect.cmu.edu/AKA/home/",
+      "http://www.aka1908.org"
+    ],
+    "outcome": "source_no_upcoming_external_blocked",
+    "note": "CampusGroups events and homepage explicitly have no upcoming events. Catalog AKA national website attempted but browser blocked by client; it is not a verified chapter calendar.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-f439516839ca.jpg",
+    "requiresFix": false,
+    "details": {
+      "additionalInspectedURLs": [
+        "http://www.aka1908.org"
+      ],
+      "externalBlock": "net::ERR_BLOCKED_BY_CLIENT",
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "f439516839ca",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:33:16.736Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "f5d9d68e0b15",
+    "organization": "Interfaith Leadership Development",
+    "department": "Department-sponsored Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71450.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71450.ics",
+    "group": {
+      "name": "Interfaith Leadership Development",
+      "category": "Department Sponsored Organizations - Diversity, Religious/Spiritual",
+      "slug": "ILD",
+      "websites": [
+        "https://tartanconnect.cmu.edu/ILD/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T04:00:42.832Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/ILD/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2fILD%2f&msg=LOGIN_REQUIRED"
+    ],
+    "outcome": "login_required",
+    "note": "Exact verified group homepage redirects to explicit Login is required; public event availability cannot be determined.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-f5d9d68e0b15.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true,
+      "notConfirmedOrganizationInactive": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "f5d9d68e0b15",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:42.450Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "f6d1358deaf2",
+    "organization": "Turning Point USA",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71397.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71397.ics",
+    "group": {
+      "name": "Turning Point USA",
+      "category": "Student Government Recognized Organizations",
+      "slug": "TPUSA",
+      "websites": [
+        "https://tartanconnect.cmu.edu/TPUSA/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T04:00:42.832Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/TPUSA/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2fTPUSA%2f&msg=LOGIN_REQUIRED"
+    ],
+    "outcome": "login_required",
+    "note": "Exact verified group homepage redirects to explicit Login is required; public event availability cannot be determined.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-f6d1358deaf2.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true,
+      "notConfirmedOrganizationInactive": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "f6d1358deaf2",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:42.630Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "fa960d8d6a7e",
+    "organization": "MSBA Community",
+    "department": "Tepper School of Business / Tepper Graduate Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_56012.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_56012.ics",
+    "group": {
+      "name": "MSBA Community",
+      "category": "Tepper Graduate Organizations",
+      "slug": "msba",
+      "websites": [
+        "https://tartanconnect.cmu.edu/msba/"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T04:00:42.832Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/msba/",
+      "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2fmsba%2f&msg=LOGIN_REQUIRED"
+    ],
+    "outcome": "login_required",
+    "note": "Exact verified group homepage redirects to explicit Login is required; public event availability cannot be determined.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-fa960d8d6a7e.jpg",
+    "requiresFix": false,
+    "details": {
+      "notConfirmedEmpty": true,
+      "notConfirmedOrganizationInactive": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "fa960d8d6a7e",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:32:45.477Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "fd60b328fbfd",
+    "organization": "Music Production Club",
+    "department": "Student Organizations",
+    "adapter": "campusgroups",
+    "sourceURL": "https://tartanconnect.cmu.edu/MPC/events/",
+    "fetchURL": "https://tartanconnect.cmu.edu/MPC/events/",
+    "group": {
+      "name": "Music Production Club",
+      "category": "Student Government Recognized Organizations - Music-focused",
+      "slug": "MPC",
+      "websites": [
+        "https://discord.gg/P2zuwJK5PB"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/club_signup?view=all",
+    "pairedSources": [],
+    "planOptions": {
+      "timezone": "America/New_York",
+      "detailLinks": true,
+      "maxDetails": 12
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T04:00:26.021Z",
+    "inspectedURLs": [
+      "https://tartanconnect.cmu.edu/MPC/events/",
+      "https://tartanconnect.cmu.edu/MPC/home/"
+    ],
+    "outcome": "source_no_upcoming_private_channel",
+    "note": "CampusGroups events and homepage explicitly say There are no upcoming events. Catalog website is Discord invitation; private community was not joined.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/cg-fd60b328fbfd.jpg",
+    "requiresFix": false,
+    "details": {
+      "sourceNoUpcoming": true,
+      "organizationInactivityConfirmed": false
+    },
+    "journal": "campusgroups-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "fd60b328fbfd",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-21T18:33:18.048Z",
+      "warnings": [],
+      "error": null
+    }
+  },
+  {
+    "sourceID": "feb8aa56fd07",
+    "organization": "The Treblemakers",
+    "department": "Student Organizations",
+    "adapter": "ics",
+    "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68306.ics",
+    "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68306.ics",
+    "group": {
+      "name": "The Treblemakers",
+      "category": "Student Government Recognized Organizations - Performance/Artistic, Music-focused",
+      "slug": "treblemakers",
+      "websites": [
+        "http://www.cmutreblemakers.com"
+      ]
+    },
+    "discoveredOn": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+    "pairedSources": [
+      {
+        "sourceID": "3e8d795ae4e3",
+        "url": "https://tartanconnect.cmu.edu/treblemakers/events/",
+        "status": "covered",
+        "adapter": "campusgroups"
+      }
+    ],
+    "planOptions": {
+      "timezone": "America/New_York"
+    },
+    "state": "pending",
+    "worker": "alternate_websites",
+    "checkedAt": "2026-10-22T04:07:09.683Z",
+    "inspectedURLs": [
+      "http://www.cmutreblemakers.com",
+      "https://tartanconnect.cmu.edu/treblemakers/home/",
+      "https://tartanconnect.cmu.edu/treblemakers/events/"
+    ],
+    "outcome": "public_upcoming_empty_external_unavailable",
+    "note": "Listed independent domain blocked by browser client with blank browser error, no security bypass attempted. Verified publicTartanConnect homepage and Events child explicitly no upcoming events. External failure does not prove organization inactivity.",
+    "screenshot": "research/empty-source-followup-2026-10-21/evidence/ica-feb8aa56fd07.jpg",
+    "requiresFix": false,
+    "details": {
+      "externalUnavailable": true,
+      "notConfirmedOrganizationInactive": true
+    },
+    "journal": "ics_a-results.jsonl",
+    "resolution": "verification_or_date_precision_needed",
+    "requiresReview": true,
+    "runtime": {
+      "sourceID": "feb8aa56fd07",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-22T02:33:31.544Z",
+      "warnings": [],
+      "error": null
+    }
+  }
+]

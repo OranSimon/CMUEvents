@@ -1,0 +1,44 @@
+{
+  "checkedAt": "2026-10-22T18:51:13.654786+00:00",
+  "ownJournal": "research/pending-source-resolution-2026-10-22/dates_calendars-results.jsonl",
+  "ownRecords": 28,
+  "ownUniqueSourceIDs": 28,
+  "ownExpectedCount": 28,
+  "extraJournal": "research/pending-source-resolution-2026-10-22/dates_extra-results.jsonl",
+  "extraRecords": 2,
+  "combinedUniqueExpectedSourceIDs": 30,
+  "combinedMissingIDs": [],
+  "combinedDuplicateIDs": [],
+  "ownMissingRequiredFields": {},
+  "ownMissingInspectedURLs": [],
+  "ownScreenshotReferences": 57,
+  "ownMissingScreenshots": [],
+  "ownCategories": {
+    "confirmed_public_events": 4,
+    "login_required": 4,
+    "public_zero_verified": 2,
+    "no_current_dated_announcement": 8,
+    "organizer_confirmation": 6,
+    "technical_integration_needed": 3,
+    "subscription_required": 1
+  },
+  "ownRequiresReview": 14,
+  "ownRequiresFix": 5,
+  "privacyAudit": {
+    "all57ReferencedImagesObservedOnCapture": true,
+    "ocrImagesChecked": 57,
+    "accountReviewFlags": [],
+    "tedxRSVPCropReopenedAndVerified": true,
+    "tedxRSVPCropContains": "Public TEDx2026 title, September27 at3pm DH1212; no account row",
+    "calendarSupportSanitized": true,
+    "meetingCredentialsRetained": false,
+    "textSensitivePatternMatches": 0
+  },
+  "scopeNotes": [
+    "Public-zero means anonymous upcoming scope, not organization inactivity.",
+    "Academic program calendars are related resources, not open student-association activities.",
+    "SALSA poster and linked public interest form conflict; no final date asserted.",
+    "SE and SALSA calendar recurrence has current2026 metadata; participation and organizer scope remain pending.",
+    "No login, subscription, form submission or organizer contact performed."
+  ]
+}

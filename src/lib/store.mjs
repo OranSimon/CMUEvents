@@ -21,6 +21,13 @@ function canonicalUrl(value) {
   try {
     const url = new URL(value);
     url.hash = '';
+    if (['tartanconnect.cmu.edu', 'scottyconnect.qatar.cmu.edu'].includes(url.hostname)
+      && /\/(?:rsvp|rsvp_boot)$/.test(url.pathname) && /^\d+$/.test(url.searchParams.get('id') || '')) {
+      const eventID = url.searchParams.get('id');
+      url.pathname = '/rsvp';
+      url.search = '';
+      url.searchParams.set('id', eventID);
+    }
     for (const key of [...url.searchParams.keys()]) if (/^(utm_|fbclid|gclid)/i.test(key)) url.searchParams.delete(key);
     url.searchParams.sort();
     return url.href.replace(/\/$/, '');

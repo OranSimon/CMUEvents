@@ -36,6 +36,23 @@ test('duplicate source occurrences merge while preserving covered department and
   assert.equal(result.events[0].url, 'https://example.edu/events/robotics');
 });
 
+test('CampusGroups public list and ICS links merge by exact provider event ID without merging hosts or different IDs', t => {
+  const store = openStore(':memory:');
+  t.after(() => store.close());
+  store.registerPlans(plans);
+  store.replaceSource('a', [event({ uid: 'provider-ics', url: 'https://tartanconnect.cmu.edu/rsvp?id=1938233' })]);
+  store.replaceSource('c', [
+    event({ uid: 'public-json', url: 'https://tartanconnect.cmu.edu/senate/rsvp_boot?id=1938233&rel=title', description: 'Only open to undergraduate students. Details and registration.' }),
+    event({ uid: 'different-event', url: 'https://tartanconnect.cmu.edu/rsvp_boot?id=1938234' }),
+    event({ uid: 'different-campus-provider', url: 'https://scottyconnect.qatar.cmu.edu/rsvp_boot?id=1938233' }),
+  ]);
+  assert.equal(store.rebuildEvents(plans), 3);
+  const result = store.listEvents({ from: '2026-11-01' });
+  const merged = result.events.find(row => row.sources.some(source => source.id === 'a'));
+  assert.ok(merged.sources.some(source => source.id === 'c'));
+  assert.match(merged.description, /Only open to undergraduate/);
+});
+
 test('FTS prefix search combines text with dates and multi-label categorical filters', t => {
   const store = openStore(':memory:');
   t.after(() => store.close());

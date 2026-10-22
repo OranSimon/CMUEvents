@@ -1,0 +1,42 @@
+Browser tab: 283298790, Title: "Login", URL: "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2Fmedvis%2F&msg=LOGIN_REQUIRED".
+1 AXWebArea Login, URL: tartanconnect.cmu.edu/webapp/auth/login?redirect=%2Fmedvis%2F&msg=LOGIN_REQUIRED
+	2 container
+		3 content list
+			4 link Description: Home, Value: tartanconnect.cmu.edu/home_login
+			5 link Description: Groups, Value: tartanconnect.cmu.edu/home/groups/
+			6 link Description: Events, Value: tartanconnect.cmu.edu/home/events/
+			7 link Description: Sign in, Value: tartanconnect.cmu.edu/webapp/auth/login
+		8 container
+			9 text Login is required.
+			10 heading Login, Value: 1
+				11 text Login
+			12 text Choose your login method
+			13 container Login options
+				14 content list
+					15 link Description: Login with your Andrew ID click the button below, Value: campusgroups.com/shibboleth/login?idp=tepper
+					16 link Description: Community Members and Guests without an Andrew ID, Value: tartanconnect.cmu.edu/webapp/auth/login/password?redirect=%2Fmedvis%2F
+			17 heading Contact, Value: 2
+				18 text Contact
+			19 content list
+				20 text TartanConnect
+				21 text 5000 Forbes Avenue
+				22 text Carnegie Mellon University
+				23 text Pittsburgh, PA
+				24 text United States
+				25 link Description: tartanconnect@andrew.cmu.edu, Value: mailto:tartanconnect@andrew.cmu.edu
+			26 heading Links, Value: 2
+				27 text Links
+			28 content list
+				29 link Description: Home, Value: tartanconnect.cmu.edu/home_login
+				30 link Description: Groups, Value: tartanconnect.cmu.edu/home/groups/
+				31 link Description: Events, Value: tartanconnect.cmu.edu/home/events/
+				32 link Description: Privacy Policy, Value: cmu.edu/tepper/privacy-policy/index.html
+				33 link Description: Terms of Service, Value: cmu.edu/tepper/
+				34 link Description: Support Center, Value: readyeducation.com/en-us/client-support/campusgroups-support
+			35 text ©2026 Ready Education
+	36 container
+		37 text Login options are loaded.
+	38 container grammarly-integration
+		39 text {"mode":"full","isActive":true,"isUserDisabled":false}
+
+The focused UI element is 1 AXWebArea Login, URL: tartanconnect.cmu.edu/webapp/auth/login?redirect=%2Fmedvis%2F&msg=LOGIN_REQUIRED

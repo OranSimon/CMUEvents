@@ -1,0 +1,1310 @@
+{
+  "checkedAt": "2026-10-22T18:58:31.426Z",
+  "sourceContracts": [
+    {
+      "sourceID": "57f076785638",
+      "organization": "Iota Phi Theta Fraternity, Inc.",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71430.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=71430&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/home",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "71430",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "57f076785638",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:13.104Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "42c864cad300",
+      "organization": "Class of 2027",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35477.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35477&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35477",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35477",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "42c864cad300",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:12.500Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "e4079298b407",
+      "organization": "Class of 2028",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35478.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35478&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35478",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35478",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "e4079298b407",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:18.687Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "0c925198852d",
+      "organization": "Class of 2029",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35479.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35479&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35479",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35479",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "0c925198852d",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:10.705Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "4898714e3ede",
+      "organization": "Class of 2030",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35480.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35480&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35480",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35480",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "4898714e3ede",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:12.734Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "c1587a0b2819",
+      "organization": "CMUQ Library",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35472.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35472&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35472",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35472",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "c1587a0b2819",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:16.692Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "48e5e88860d3",
+      "organization": "EcoCampus",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35481.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35481&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35481",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35481",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "48e5e88860d3",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:12.896Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "96d9c569ccf5",
+      "organization": "Anime Club",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35462.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35462&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35462",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35462",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "96d9c569ccf5",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:15.079Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "d7858a5f2b71",
+      "organization": "Arts & Crafts Club",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35456.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35456&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35456",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35456",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "d7858a5f2b71",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:18.506Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "c6da39f30954",
+      "organization": "Association of Information System (AIS)",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35445.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35445&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35445",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35445",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "c6da39f30954",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:17.294Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "a2014c54892f",
+      "organization": "Carnegie Consulting",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35446.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35446&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35446",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35446",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "a2014c54892f",
+        "state": "ok",
+        "eventCount": 1,
+        "lastAttempt": "2026-10-22T18:54:16.126Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "af81054dbc6e",
+      "organization": "Carnegie Math Club",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35447.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35447&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35447",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35447",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "af81054dbc6e",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:16.626Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "19248fc9767e",
+      "organization": "Carnegie Mellon Finance Society (CMFS)",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35449.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35449&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35449",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35449",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "19248fc9767e",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:11.514Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "8f4e483a1437",
+      "organization": "CMU-Q Undergraduate Journal Club (CUJC)",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35450.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35450&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35450",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35450",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "8f4e483a1437",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:14.686Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "7cdbbe1e7028",
+      "organization": "CMUQ Football Club",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35482.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35482&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35482",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35482",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "7cdbbe1e7028",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:14.485Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "0aa328464c5e",
+      "organization": "French Club",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35463.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35463&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35463",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35463",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "0aa328464c5e",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:10.463Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "677602880a9d",
+      "organization": "Game Dev Club (GDC)",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35452.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35452&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35452",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35452",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "677602880a9d",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:13.749Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "715aff642a67",
+      "organization": "Knits & Knots Club",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35457.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35457&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35457",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35457",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "715aff642a67",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:14.085Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "1116d82179ee",
+      "organization": "OpenCMUQ Collective",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35453.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35453&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35453",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35453",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "1116d82179ee",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:11.312Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "fd5e37c9252e",
+      "organization": "Shamunity",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35466.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35466&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35466",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35466",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "fd5e37c9252e",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:18.896Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "ca9e9e551f58",
+      "organization": "The BioSci Club",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35454.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35454&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35454",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35454",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "ca9e9e551f58",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:17.531Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "c40f01fed271",
+      "organization": "The Carnegie Innovation Club (CIC)",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35455.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35455&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35455",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35455",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "c40f01fed271",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:16.907Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "d32ab184e057",
+      "organization": "The Music Club",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35444.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35444&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35444",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35444",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "d32ab184e057",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:17.687Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "1d28398c08fe",
+      "organization": "Student Majlis Executive Team",
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35442.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35442&order=&search_word=",
+          "publicURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35442",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "35442",
+            "timezone": "Asia/Qatar",
+            "expectedTimezoneLabel": "(GMT+3)"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "1d28398c08fe",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:11.905Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "d5a270fc4ae8",
+      "organization": "Undergraduate Student Senate",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68387.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=68387&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/senate/events/",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "68387",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "d5a270fc4ae8",
+        "state": "ok",
+        "eventCount": 1,
+        "lastAttempt": "2026-10-22T18:54:18.733Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "04b93bc6b736",
+      "organization": "Carnegie Mellon Racquetball Club",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71380.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=71380&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/home",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "71380",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "04b93bc6b736",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:08.015Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "9f7bff4dc6be",
+      "organization": "Carnegie Mellon University Poker Club",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68212.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://cmupokerclub.com/index.html",
+          "adapter": "html",
+          "options": {
+            "timezone": "America/New_York",
+            "detailLinks": false,
+            "eventSelector": "article.event[data-date]",
+            "dateSelector": ":scope",
+            "dateAttribute": "data-date",
+            "titleSelector": ".event__tag",
+            "titleFromPage": "title",
+            "linkSelector": ".event__permalink",
+            "timeSelector": ".event__time",
+            "locationSelector": ".event__place",
+            "descriptionSelector": ".event__date,.event__time,.event__place,.event__note"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "9f7bff4dc6be",
+        "state": "ok",
+        "eventCount": 8,
+        "lastAttempt": "2026-10-22T18:54:15.162Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "184e85bf058a",
+      "organization": "Carnegie Mellon Young Americans for Liberty",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71438.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=71438&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/home",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "71438",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "184e85bf058a",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:11.517Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "4d9cc97bf058",
+      "organization": "College Democrats",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68075.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=68075&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/home",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "68075",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        },
+        {
+          "url": "https://calendar.google.com/calendar/ical/ffbd0c81678d0b1a2bd7d705016c338db0460c0308da4971e1ee3988e2d312f2%40group.calendar.google.com/public/basic.ics",
+          "publicURL": "https://tartanconnect.cmu.edu/collegedems/home/",
+          "adapter": "ics",
+          "options": {
+            "timezone": "America/New_York"
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "4d9cc97bf058",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:12.946Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "0810e0d905cd",
+      "organization": "Muslim Student Association",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68189.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://cmumsa.org/",
+          "adapter": "html",
+          "options": {
+            "timezone": "America/New_York",
+            "detailLinks": false,
+            "generatedCalendar": {
+              "buttonSelector": "#jummah-ics-btn",
+              "blockStart": "document.getElementById('jummah-ics-btn')?.addEventListener('click', () => {",
+              "blockEnd": "// --- Dynamic Prayer Times API Logic ---",
+              "sha256": "36c6d967fdb251346f0fc2b96e49bea378826f1e7a0183215d35c6a3dd583e3d",
+              "event": {
+                "weekday": 5,
+                "clock": "131500",
+                "duration": "PT1H",
+                "rrule": "FREQ=WEEKLY;BYDAY=FR",
+                "uidPrefix": "cmu-msa-jummah-",
+                "uidSuffix": "@cmumsa.org",
+                "title": "CMU MSA Jummah",
+                "location": "CMU University Center, Danforth Conference Room (check weekly room changes)",
+                "description": "Check the MSA WhatsApp for weekly room changes. The reserved room in the UC may vary. https://cmumsa.org"
+              }
+            }
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "0810e0d905cd",
+        "state": "ok",
+        "eventCount": 53,
+        "lastAttempt": "2026-10-22T18:54:10.644Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "d62d08f7df9d",
+      "organization": "TEDxCMU",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68293.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tedxcmu.org/events.html",
+          "adapter": "html",
+          "options": {
+            "timezone": "America/New_York",
+            "detailLinks": false,
+            "reviewedFragmentsOnly": true,
+            "reviewedFragments": [
+              {
+                "selector": ".event-content:has(a[href=\"https://docs.google.com/forms/d/e/1FAIpQLScNnjFp94N3D0VD1M0IsYtAeHuaYsT15TRPeBPZSTYTQ9kxQQ/viewform\"])",
+                "expectedCount": 1,
+                "sha256": "55813020ae10c1180b8962c3c0e93609536dd3fbfbfc585a3fbd89628cac9c1e",
+                "reviewedAt": "2026-10-22",
+                "events": [
+                  {
+                    "title": "Public Speaking Workshop",
+                    "start": "2026-09-27",
+                    "timePrecision": "date",
+                    "location": "",
+                    "url": "https://docs.google.com/forms/d/e/1FAIpQLScNnjFp94N3D0VD1M0IsYtAeHuaYsT15TRPeBPZSTYTQ9kxQQ/viewform",
+                    "description": "Speaker Workshop\n\nPublic Speaking Workshop\n\nJoin TEDxCMU for our first annual Speaking Workshop.\n\nLearn about what makes a TED Talk shine, how to apply speaking insights to your everyday life, and build your talk-writing skills with us.\n\nYou’ll be able to hear from some of our previous student speakers, too!\n\nWhen: September 27, 2026 • 5:00 PM\n\nWhere: DH 1212, Carnegie Mellon University\n\nRSVP\n\nVisual review: TEDxCMU public speaking workshop. The event date is confirmed as September 27, 2026. Official sources conflict on the time and venue: the homepage says 2:00 PM at Simmons Auditorium; the Events page says 5:00 PM at DH 1212; the linked public RSVP form says 3:00 PM at DH 1212. Time and venue require organizer confirmation. This record has date precision and does not assert an all-day event."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "d62d08f7df9d",
+        "state": "ok",
+        "eventCount": 1,
+        "lastAttempt": "2026-10-22T18:56:04.115Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "11e4692b9472",
+      "organization": "Traders at Carnegie Mellon",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71393.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=71393&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/home",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "71393",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "11e4692b9472",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:11.110Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "afc8d82bc81d",
+      "organization": "Women in Business",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68323.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://calendar.google.com/calendar/ical/relr7vkbo6ermfkcjkefln5km4%40group.calendar.google.com/public/basic.ics",
+          "publicURL": "https://calendar.google.com/calendar/embed?src=relr7vkbo6ermfkcjkefln5km4%40group.calendar.google.com&ctz=America%2FNew_York",
+          "adapter": "ics",
+          "options": {
+            "timezone": "America/New_York",
+            "eventContext": "Published by CMU Women in Business. The club describes its events as member programming; check the organizer for participation requirements."
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "afc8d82bc81d",
+        "state": "ok",
+        "eventCount": 15,
+        "lastAttempt": "2026-10-22T18:54:15.777Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "d59c139e665b",
+      "organization": "Black Business Association Club",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10951.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=10951&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/bba/events/",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "10951",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "d59c139e665b",
+        "state": "ok",
+        "eventCount": 2,
+        "lastAttempt": "2026-10-22T18:54:18.719Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "9a2420282e05",
+      "organization": "Cricket Club",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_56644.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=56644&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/ics_helper?mode=set",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "56644",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "9a2420282e05",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:15.128Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "931fac9f758c",
+      "organization": "International Business & Advisory Club",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_10973.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=10973&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/ics_helper?mode=set",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "10973",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "931fac9f758c",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:14.708Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "60e7784409c9",
+      "organization": "MSBA Programs SLC",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71338.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=71338&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/home",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "71338",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "60e7784409c9",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:13.541Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "640cd6c2b613",
+      "organization": "One For the World",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_51849.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=51849&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/home",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "51849",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "640cd6c2b613",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:13.706Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "2e5dd8baa8e1",
+      "organization": "Tepper Ventures",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71453.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=71453&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/home",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "71453",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "2e5dd8baa8e1",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:11.925Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "0fceb4066385",
+      "organization": "Carnegie Mellon University",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_67835.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=67835&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/ics_helper?mode=set",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "67835",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "0fceb4066385",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:10.904Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "69aec3cbe07c",
+      "organization": "Home Page",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_23560.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=23560&order=&search_word=",
+          "publicURL": "https://tartanconnect.cmu.edu/ics_helper?mode=set",
+          "adapter": "campusgroups",
+          "options": {
+            "format": "campusgroups-json",
+            "groupID": "23560",
+            "timezone": "America/New_York",
+            "expectedTimezoneLabels": [
+              "EDT (GMT-4)",
+              "EST (GMT-5)"
+            ],
+            "publicDetails": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "69aec3cbe07c",
+        "state": "empty",
+        "eventCount": 0,
+        "lastAttempt": "2026-10-22T18:54:14.107Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    },
+    {
+      "sourceID": "40f7fd9f957c",
+      "organization": "Wellness and Meaning-Making Programs",
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71389.ics",
+      "additionalEndpoints": [
+        {
+          "url": "https://www.cmu.edu/wellbeing/resources/wellness-initiatives/religious-spiritual/",
+          "adapter": "html",
+          "options": {
+            "timezone": "America/New_York",
+            "detailLinks": false,
+            "reviewedFragments": [
+              {
+                "selector": "#content > div:nth-child(8) > div:nth-child(3) > p:nth-child(2)",
+                "expectedCount": 1,
+                "sha256": "5cd5cc5a438a97e4ad84aa44f531a080729fe0f95c770b4653b71530aef22412",
+                "events": [
+                  {
+                    "uid": "cmu-rsl-friendsgiving-2026-11-23",
+                    "title": "CMU Friendsgiving",
+                    "start": "2026-11-23",
+                    "url": "https://www.cmu.edu/wellbeing/resources/wellness-initiatives/religious-spiritual/",
+                    "description": "Save the Date! On Monday evening, November 23, 2026, CMU will host Friendsgiving, the annual Thanksgiving feast at CMU that celebrates friendship, gratitude, and food. Events are open to all. Only evening is published; exact clock and venue are not listed.",
+                    "organizer": "CMU Religious and Spiritual Life",
+                    "location": ""
+                  }
+                ]
+              }
+            ],
+            "reviewedFragmentsOnly": true
+          }
+        }
+      ],
+      "runtime": {
+        "sourceID": "40f7fd9f957c",
+        "state": "ok",
+        "eventCount": 56,
+        "lastAttempt": "2026-10-22T18:54:12.161Z",
+        "warnings": [],
+        "error": null,
+        "currentContract": true
+      }
+    }
+  ],
+  "relatedFixes": [
+    {
+      "discoveredWhileReviewing": "f5d9d68e0b15",
+      "sourceID": "40f7fd9f957c",
+      "reason": "The RSL Friendsgiving announcement belongs to the parent Wellness and Meaning-Making office, not the self-paced Interfaith Leadership Development badge program."
+    }
+  ],
+  "assertions": [
+    {
+      "name": "exact 105 reviews with no missing public fixes",
+      "passed": true
+    },
+    {
+      "name": "all 42 changed contracts refreshed successfully",
+      "passed": true
+    },
+    {
+      "name": "full catalog and normal automatic refresh are settled",
+      "passed": true
+    },
+    {
+      "name": "all 105 source diagnostics use the latest reasons and next steps",
+      "passed": true
+    },
+    {
+      "name": "Consulting event has its published Doha time and room",
+      "passed": true
+    },
+    {
+      "name": "BBA duplicates merge and retain order context, both cutoffs and private venue",
+      "passed": true
+    },
+    {
+      "name": "Senate preserves undergraduate-only eligibility and private venue",
+      "passed": true
+    },
+    {
+      "name": "TEDx date-only record merges with the existing official registration link and remains under review",
+      "passed": true
+    },
+    {
+      "name": "RSL Friendsgiving retains date precision and correct office attribution",
+      "passed": true
+    },
+    {
+      "name": "Poker TBD retains its known day and unknown time/location",
+      "passed": true
+    },
+    {
+      "name": "publisher Jummah recurrence stays within its rolling yearly bound and preserves Friday clocks and room caveat",
+      "passed": true
+    },
+    {
+      "name": "all referenced source screenshots match the report manifest",
+      "passed": true
+    }
+  ]
+}

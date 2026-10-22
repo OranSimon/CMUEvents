@@ -107,7 +107,7 @@ function eventDay(event) {
 }
 
 /**
- * Format event times with an explicit interface time-zone abbreviation.
+ * Format event times with both zone abbreviations when a range crosses DST.
  * @param {Object} event Event record.
  * @return {string} Human-readable event time.
  */
@@ -122,7 +122,10 @@ function eventTime(event) {
   let text = formatter.format(date);
   const end = event.end ? new Date(event.end) : null;
   if (end && !Number.isNaN(end.valueOf()) && end > date) {
-    text += dateKey(end) === dateKey(date) ? ` – ${formatter.format(end)}` : ` – ${new Intl.DateTimeFormat("en-US", { timeZone: DISPLAY_TIMEZONE, month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).format(end)}`;
+    const endText = dateKey(end) === dateKey(date) ? formatter.format(end) : new Intl.DateTimeFormat("en-US", { timeZone: DISPLAY_TIMEZONE, month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).format(end);
+    const endZone = new Intl.DateTimeFormat("en-US", { timeZone: DISPLAY_TIMEZONE, timeZoneName: "short" }).formatToParts(end).find(part => part.type === "timeZoneName")?.value || zone;
+    if (endZone !== zone) return `${text} ${zone} – ${endText} ${endZone}`;
+    text += ` – ${endText}`;
   }
   return `${text} ${zone}`;
 }
@@ -723,8 +726,13 @@ function sourceVisualReview(source) {
   const outcome = plainText(review.outcome).replace(/_/g, " ");
   const note = plainText(review.note);
   const url = safeUrl(review.url);
+  const resolution = source.evidence?.followupResolution;
+  const reason = plainText(resolution?.reason);
+  const nextStep = plainText(resolution?.nextStep);
+  const restrictions = Array.isArray(resolution?.accessRestrictions) ? resolution.accessRestrictions : [];
+  const actions = restrictions.map(item => `<p><strong>${item.requiredForPublicCoverage === false ? "Additional channel" : "Access needed"}:</strong> ${escapeHtml(plainText(item.reason))}${item.nextStep ? ` ${escapeHtml(plainText(item.nextStep))}` : ""}</p>`).join("");
   if (!checked && !outcome && !note && !url) return "";
-  return `<div class="diagnostic-visual-review"><p><strong>Recorded visual review</strong>${checked ? ` · ${escapeHtml(checked)}` : ""}</p>${outcome ? `<p>${escapeHtml(outcome)}</p>` : ""}${note ? `<p>${escapeHtml(note)}</p>` : ""}${url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Reviewed page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : ""}</div>`;
+  return `<div class="diagnostic-visual-review"><p><strong>Recorded visual review</strong>${checked ? ` · ${escapeHtml(checked)}` : ""}</p>${outcome ? `<p>${escapeHtml(outcome)}</p>` : ""}${note ? `<p>${escapeHtml(note)}</p>` : ""}${reason ? `<p><strong>Reason:</strong> ${escapeHtml(reason)}</p>` : ""}${nextStep ? `<p><strong>Next step:</strong> ${escapeHtml(nextStep)}</p>` : ""}${actions}${url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Reviewed page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : ""}</div>`;
 }
 
 /**

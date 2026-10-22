@@ -1395,6 +1395,11 @@
         "lastAttempt": "2026-10-22T02:32:48.483Z",
         "warnings": [],
         "error": null
+      },
+      "supersededBy": {
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "errata": "research/empty-source-followup-2026-10-21/ERRATA-2026-10-22.md",
+        "reason": "Current 2026 invitations exist; remaining uncertainty concerns acceptance, organizer and intended audience."
       }
     },
     {
@@ -3165,6 +3170,11 @@
         "lastAttempt": "2026-10-21T18:32:13.574Z",
         "warnings": [],
         "error": null
+      },
+      "supersededBy": {
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "errata": "research/empty-source-followup-2026-10-21/ERRATA-2026-10-22.md",
+        "reason": "Old public-zero conclusion invalidated by complete asynchronous loading and anonymous API."
       }
     },
     {
@@ -4986,6 +4996,11 @@
         "lastAttempt": "2026-10-22T02:33:24.776Z",
         "warnings": [],
         "error": null
+      },
+      "supersededBy": {
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "errata": "research/empty-source-followup-2026-10-21/ERRATA-2026-10-22.md",
+        "reason": "Current 2026 CMU HLAA invitations are verified; the remaining gap is intended audience and acceptance, with a separate conflicting historical poster candidate."
       }
     },
     {
@@ -5656,5 +5671,7 @@
         "error": null
       }
     }
-  ]
+  ],
+  "followupReport": "research/pending-source-resolution-2026-10-22/review.json",
+  "errata": "research/empty-source-followup-2026-10-21/ERRATA-2026-10-22.md"
 }

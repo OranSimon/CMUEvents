@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-22T16:46:24.897200+00:00",
+  "sourceID": "a2014c54892f",
+  "organization": "Carnegie Consulting",
+  "groupID": "35446",
+  "previousJournal": "research/empty-source-followup-2026-10-21/qatar-crosscheck-results.jsonl",
+  "previousOutcome": "public_filtered_empty_member_feed_restricted",
+  "previousFindingInvalid": true,
+  "newCategory": "confirmed_public_events",
+  "reason": "Asynchronous group-filter switching briefly retained the previous zero-result display. Fresh document navigation confirmed exact selected group, hidden LoadingEvents, Events(1), and the event details.",
+  "event": {
+    "eventID": "375467",
+    "title": "Oliver Wyman x Consulting Club: Discover Consulting and Our Presence in the Region",
+    "start": "2026-11-10T18:00:00+03:00",
+    "end": "2026-11-10T20:00:00+03:00",
+    "timezone": "Asia/Qatar",
+    "location": "Room 1202",
+    "publicURL": "https://scottyconnect.qatar.cmu.edu/rsvp_boot?id=375467&rel=title"
+  },
+  "evidence": "evidence/pd-a2014c54892f-public-events-complete.jpg",
+  "otherQatarSourcesRechecked": 22,
+  "otherQatarSourcesFreshZeroVerified": 22,
+  "methodCorrection": "All Qatar23 were rechecked using fresh exact group_ids URLs, actual selected group, numeric result header, hidden loading indicator, and current screenshot. MSA fresh positive control currently 5 public upcoming events.",
+  "scopeOfPreviousArtifacts": "The old Qatar crosscheck finding and audits that count Consulting as zero are superseded for this source. Other22 zero findings now have new complete-load evidence.",
+  "originalArtifactsNotEdited": true
+}

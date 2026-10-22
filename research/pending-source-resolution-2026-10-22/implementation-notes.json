@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-10-22T18:43:06.412Z",
+  "scope": "Implementation details and attribution safeguards for the 105-source follow-up",
+  "publicEndpoints": {
+    "qatar": {
+      "method": "GET",
+      "path": "/mobile_ws/v17/mobile_events_list",
+      "groupFilter": "filter2",
+      "limit": 40,
+      "scope": "anonymous public announcements only"
+    },
+    "pittsburgh": {
+      "method": "GET",
+      "path": "/mobile_ws/v17/mobile_events_list",
+      "positiveControl": "pittsburgh-anonymous-api-check.json",
+      "groupChecks": "all-pittsburgh-anonymous-api-check.json",
+      "publicDescriptionSelector": "#event_details .card-block"
+    }
+  },
+  "dateAndAudienceDecisions": [
+    {
+      "sourceID": "0810e0d905cd",
+      "decision": "Reproduce only publisher-authored downloadable Friday 13:15 one-hour recurrence after checking the script hash; full Google calendar remains private."
+    },
+    {
+      "sourceID": "9f7bff4dc6be",
+      "decision": "Explicit data-date supplies each session year; TBD remains date-only and no arbitrary duration is added."
+    },
+    {
+      "sourceID": "afc8d82bc81d",
+      "decision": "Read public Google ICS advertised by official WIB Linktree, retaining its member-program context."
+    },
+    {
+      "sourceID": "d59c139e665b",
+      "decision": "Merchandise order window, not continuous meeting. Preserve public order description, private venue label, structured 23:55 end and textual 23:59 RSVP deadline. Explicit IANA zone handles DST on the end date."
+    },
+    {
+      "sourceID": "d5a270fc4ae8",
+      "decision": "Public description says undergraduate-only; preserve it along with private venue notice."
+    },
+    {
+      "sourceID": "f5d9d68e0b15",
+      "canonicalFixSourceID": "40f7fd9f957c",
+      "decision": "Import dated RSL Friendsgiving under its parent Wellness and Meaning-Making office, never as an ILD badge-program meeting. Evening only means date precision, with no invented clock."
+    }
+  ],
+  "historicalCorrection": "../empty-source-followup-2026-10-21/ERRATA-2026-10-22.md",
+  "notPerformed": [
+    "No account registration",
+    "No member login",
+    "No mailbox access or subscription",
+    "No organizer contact",
+    "No registration form submission"
+  ]
+}

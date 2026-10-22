@@ -3,6 +3,7 @@ import { absoluteUrl, normalizeEvent, inWindow, plainText, addDays, parseDate } 
 import { fetchIcs } from './ics.mjs';
 import { fetchPdfSchedule } from './pdfschedule.mjs';
 import { fetchReviewedImages, parseReviewedFragments } from './reviewed-images.mjs';
+import { parseGeneratedCalendar } from './generated-calendar.mjs';
 
 const MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12 };
 
@@ -398,8 +399,17 @@ export function parseNewsletter(html, plan = {}, context = {}) {
  * @return {Promise<Object>} Combined events and complete/partial diagnostics.
  */
 async function parseDocument(html, plan, context) {
-  const result = plan.adapter === 'newsletter' || plan.options?.headingSections
+  const result = plan.options?.reviewedFragmentsOnly ? { events: [], warnings: [], unsupported: true }
+    : plan.adapter === 'newsletter' || plan.options?.headingSections
     ? parseNewsletter(html, plan, context) : parseHtml(html, plan, context);
+  if (plan.options?.generatedCalendar) {
+    const calendar = parseGeneratedCalendar(html, plan, context);
+    result.events.push(...calendar.events);
+    result.warnings.push(...calendar.warnings);
+    if (calendar.recognized) result.unsupported = false;
+    if (calendar.partial) result.partial = true;
+    if (!result.unsupported) result.warnings = result.warnings.filter(warning => !warning.startsWith('No events'));
+  }
   if (plan.options?.reviewedFragments?.length) {
     const reviewed = parseReviewedFragments(html, plan, context);
     result.events.push(...reviewed.events);
