@@ -64,17 +64,23 @@ Each source plan contains `id`, `department`, `org`, original `url`, `adapter`, 
 | Newsletters and OIE PDFs | `adapters/newsletter.mjs` | Extract separate dated sections and inspected email layouts, grounded year context and relative issue links; bounded recent issues, `pdf-parse` for text PDFs and original embedded event links |
 | Music preparatory recital PDF | `adapters/pdfschedule.mjs` | Discover the advertised PDF; require printed season-year and allowed recital sections; exclude colored class/cancellation grids |
 | WRCT text calendars | `adapters/wrct.mjs` | Explicit date-group headers or event-local short dates with a printed year; preserve date-only precision when no clock is supplied |
+| Reviewed resources without dated schedules | `adapters/reviewed-resources.mjs` | Fingerprint scoped text, links and media references; show `undated`, and raise a review diagnostic on changes |
+| Reviewed Alumni public cards | `adapters/alumni.mjs` | Import only visually verified public identities and card fields; query their anonymous publisher clocks; always expose incomplete new-card discovery |
 | Subscription-only or unsupported archives | No automatic event invention | Retain original source and explicit limitation |
 
 Covered sources are fetched once through their canonical source, then their original department, organization and listing URL are attached as aliases. A source's plan status records the strategy at investigation time; `sources.state` records the latest runtime outcome. Unrecognized HTML with no reliable event structure produces a failed extraction diagnostic instead of erasing previous events. Recognized empty feeds remain ordinary successful zero-event snapshots.
 
 HTML child links have two roles. A listing that already normalizes an explicit title, full date and public event URL establishes an occurrence; failed optional abstract or registration enrichment adds a warning. Explicitly selected discovery children and links without a grounded parent record remain required: their failures and traversal limits make the source partial. Grounded URLs are tracked before date-window filtering so a verified historical listing does not become an error merely because it has no current occurrences. Required children run before optional enrichment.
 
+Listing pagination follows only advertised same-origin HTML links, with a bounded page limit. A reviewed undated archive can exclude its own detail links only while the selected text, media references and structured metadata match its approved fingerprint. Publisher date conflicts remain partial even when their resource bytes have not changed. Distinct filters on a shared endpoint use `upstreamScope` so that an online-only source cannot become an alias of an in-person calendar.
+
+Alumni clock requests use one allowlisted read-only Aura action on the exact public host/path. They send no cookies or authentication tokens, do not persist POST responses, reject redirects, and query only IDs from the reviewed public-card scope. The broader unfiltered event-list action is not enabled. A missing clock, a date drift or the reviewed Sydney timezone ambiguity retains the visible date without inventing a clock or end time. New cards, titles and venues still require public review, so this adapter always remains partial.
+
 The [October 21 review](../research/source-review-2026-10-21.md) checks every previously failing, unsupported and subscription-only entry. Evidence records distinguish upstream omissions and conflicting dates, authenticated archives, image-only schedules, remaining extractor gaps, repaired parsers and verified empty schedules. HTTP success and parser support are separate checks. A review snapshot does not guarantee that publishers will keep the same format.
 
 ## Event contract and identity
 
-Adapters return `{ events, warnings, unsupported? }`. Each normalized occurrence contains:
+Adapters return `{ events, warnings, unsupported?, partial?, undated? }`. `undated` is separate from a calendar whose verified dated records fall outside the collection window. Each normalized occurrence contains:
 
 ```text
 uid, title, description, summary, start, end, allDay, timePrecision,

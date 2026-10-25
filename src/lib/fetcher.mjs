@@ -1,5 +1,6 @@
 import { lookup } from 'node:dns/promises';
 import { isIP } from 'node:net';
+import { createHash } from 'node:crypto';
 import { dispatcherFor } from './tls.mjs';
 
 /**
@@ -65,6 +66,31 @@ async function readBody(response, maximum) {
 }
 
 /**
+ * Allow only the publisher's anonymous event-clock read query.
+ * A POST transport must never become a general form-submission capability.
+ * @param {string} value Published Aura endpoint.
+ * @param {string} body URL-encoded public query parameters.
+ * @return {void}
+ */
+export function validatePublicQuery(value, body) {
+  const url = new URL(value);
+  if (url.origin !== 'https://community.cmu.edu' || url.pathname !== '/s/sfsites/aura' || url.username || url.password
+    || typeof body !== 'string' || body.length > 100000) throw new Error('Public query endpoint is not allowlisted.');
+  const form = new URLSearchParams(body);
+  if (form.getAll('aura.token').some(token => token && token !== 'null')) throw new Error('Public queries cannot use authentication tokens.');
+  if (form.getAll('message').length !== 1) throw new Error('Public queries require one read-only message.');
+  let message;
+  try { message = JSON.parse(form.get('message')); } catch { throw new Error('Malformed public event query.'); }
+  const action = message?.actions?.[0];
+  if (message?.actions?.length !== 1 || action?.descriptor !== 'apex://CommunityEventTileController/ACTION$getEventStartDate'
+    || action.callingDescriptor !== 'markup://c:Community_Event_Tile' || form.get('aura.pageURI') !== '/s/events'
+    || !action.params || Object.keys(action.params).length !== 1
+    || !/^[A-Za-z0-9]{15}(?:[A-Za-z0-9]{3})?$/.test(action.params.eventId || '')) {
+    throw new Error('Only the reviewed anonymous public event-clock read action is allowed.');
+  }
+}
+
+/**
  * Create a shared polite HTTP client with conditional caching and host limits.
  * @param {Object} store Persistent HTTP cache operations.
  * @param {Object} options Timeout, response-size and per-host pacing settings.
@@ -98,8 +124,10 @@ export function createFetcher(store, options = {}) {
    * @return {Promise<Buffer>} Fresh or server-revalidated body bytes.
    */
   async function download(value, requestOptions = {}) {
-    const cacheable = requestOptions.cache !== false;
-    if (!cacheable) store.deleteCache(value);
+    const queryBody = requestOptions.publicQuery;
+    if (queryBody !== undefined) validatePublicQuery(value, queryBody);
+    const cacheable = queryBody === undefined && requestOptions.cache !== false;
+    if (!cacheable && queryBody === undefined) store.deleteCache(value);
     const cached = cacheable ? store.getCache(value) : null;
     for (let attempt = 0; attempt < 2; attempt++) {
       let current = value;
@@ -110,14 +138,17 @@ export function createFetcher(store, options = {}) {
           try {
             const headers = { 'User-Agent': 'CMUEvents/0.1 (+https://github.com/OranSimon/CMUEvents)',
               Accept: 'text/calendar,application/json,application/rss+xml,text/html,application/pdf;q=0.8,*/*;q=0.5' };
+            if (queryBody !== undefined) headers['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
             if (cached?.etag) headers['If-None-Match'] = cached.etag;
             if (cached?.modified) headers['If-Modified-Since'] = cached.modified;
             stats.requests++;
-            const response = await fetch(url, { headers, redirect: 'manual', dispatcher: dispatcherFor(url.hostname), signal: AbortSignal.timeout(options.timeoutMs || 20000) });
+            const response = await fetch(url, { headers, redirect: 'manual', dispatcher: dispatcherFor(url.hostname), signal: AbortSignal.timeout(options.timeoutMs || 20000),
+              ...(queryBody !== undefined ? { method: 'POST', body: queryBody } : {}) });
             if (response.status === 304 && cached) { stats.cacheHits++; return Buffer.from(cached.body); }
             if ([301, 302, 303, 307, 308].includes(response.status)) {
               const location = response.headers.get('location');
               await response.body?.cancel();
+              if (queryBody !== undefined) throw new Error('Public event queries cannot follow redirects.');
               if (!location) throw new Error('Redirect has no public destination.');
               current = new URL(location, url).href;
               continue;
@@ -152,7 +183,9 @@ export function createFetcher(store, options = {}) {
    * @return {Promise<Buffer>} Response bytes.
    */
   async function fetchBytes(url, requestOptions = {}) {
-    const key = `${requestOptions.cache === false ? 'uncached:' : ''}${url}`;
+    const queryKey = requestOptions.publicQuery !== undefined
+      ? `public-query:${createHash('sha256').update(requestOptions.publicQuery).digest('hex')}:` : '';
+    const key = `${queryKey}${requestOptions.cache === false ? 'uncached:' : ''}${url}`;
     if (!pending.has(key)) pending.set(key, download(url, requestOptions).finally(() => pending.delete(key)));
     return pending.get(key);
   }
@@ -166,5 +199,6 @@ export function createFetcher(store, options = {}) {
   async function fetchText(url, requestOptions = {}) {
     return (await fetchBytes(url, requestOptions)).toString('utf8');
   }
-  return { fetchBytes, fetchText, stats };
+  const fetchPublicQuery = (url, body) => fetchText(url, { publicQuery: body, cache: false });
+  return { fetchBytes, fetchText, fetchPublicQuery, stats };
 }

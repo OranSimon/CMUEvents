@@ -1,0 +1,644 @@
+{
+  "checkedAt": "2026-10-25T21:57:47.810Z",
+  "baseline": {
+    "lastUpdated": "2026-10-25T20:24:40.522Z",
+    "totalEvents": 4382,
+    "sources": {
+      "total": 318,
+      "ok": 183,
+      "empty": 74,
+      "error": 4,
+      "covered": 38,
+      "unsupported": 15,
+      "subscription_only": 4,
+      "blocked": 0,
+      "pending": 0
+    },
+    "lastRefresh": {
+      "startedAt": "2026-10-25T20:23:34.779Z",
+      "completedAt": "2026-10-25T20:24:40.522Z",
+      "total": 261,
+      "completed": 261,
+      "ok": 183,
+      "empty": 74,
+      "error": 4,
+      "totalEvents": 4382
+    },
+    "refreshing": false
+  },
+  "current": {
+    "lastUpdated": "2026-10-25T21:56:43.953Z",
+    "totalEvents": 4412,
+    "sources": {
+      "total": 318,
+      "ok": 189,
+      "empty": 77,
+      "undated": 6,
+      "error": 4,
+      "covered": 38,
+      "unsupported": 0,
+      "subscription_only": 4,
+      "blocked": 0,
+      "pending": 0
+    },
+    "lastRefresh": {
+      "startedAt": "2026-10-25T21:56:34.102Z",
+      "completedAt": "2026-10-25T21:56:44.980Z",
+      "total": 2,
+      "completed": 2,
+      "ok": 0,
+      "empty": 0,
+      "undated": 0,
+      "error": 2,
+      "totalEvents": 4412
+    },
+    "refreshing": false
+  },
+  "scope": {
+    "reviewed": 19,
+    "originalPartial": 4,
+    "originalUnsupported": 15,
+    "retainedPublishers": 318,
+    "sourceOnlyPolicy": true
+  },
+  "outcomes": {
+    "empty": 3,
+    "error": 4,
+    "ok": 6,
+    "undated": 6
+  },
+  "sources": [
+    {
+      "id": "1185bc345a9a",
+      "org": "SCS Seminars directory",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "previousState": "unsupported",
+      "state": "undated",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-25T21:03:42.549Z",
+      "reason": "The source is a public series directory rather than a dated event listing; its directory data is monitored independently of the static shell.",
+      "error": null,
+      "warnings": [
+        "Monitored seminar-series directory: The page is an index of series and points its JavaScript table to a public series-directory data source. Series weekdays and clock times do not establish calendar occurrence dates.",
+        "Monitored seminar-series directory data: This public directory lists 26 series with day, clock, contact and website columns, not dated occurrences. Transport dt/msg fields are excluded; actual column schema and series rows remain monitored."
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T21:01:23.782Z",
+        "report": "research/remaining-19-2026-10-25/alumni-other-sources.json",
+        "reason": "The official series data contains no occurrence date; a projected content fingerprint avoids constant false alerts from the publisher’s generated timestamp.",
+        "nextStep": "Review a changed directory or new linked calendar and configure the specific series; do not alias the entire SCS calendar."
+      },
+      "solutionSummary": "监测网页和官方系列目录 JSON；只排除已确认易变的响应时间戳，不把每周几当成实际场次。"
+    },
+    {
+      "id": "1468ddb723b2",
+      "org": "Humanities Center News and Events",
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "previousState": "error",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-25T21:03:52.734Z",
+      "reason": "Published dated parent records and Constitution Day remain parsed. Unchanged legacy archive summaries and Fall2025/Spring2026 poster resources are monitored with explicit fingerprints; changed resources require review. No current year or recurrence is inferred.",
+      "error": null,
+      "warnings": [
+        "Monitored legacy event archive: This publisher-labelled previous-events archive lists historical summaries from 2023 and earlier; many omit their year. It is monitored for changed text and destinations rather than assigned a current year.",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html): Monitored historical workshop schedule: The schedule explicitly says Fall2025 and Spring2026; its image-led workshops precede the collection window. The accessible January28 workshop retains its printed Spring2026 year; other poster dates are not inferred.",
+        "Optional detail enrichment (https://www.cmu.edu/dietrich/humanities-center/center-events/cause-anniversary-conference.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Optional detail enrichment (https://www.cmu.edu/dietrich/humanities-center/center-events/environmental-humanities-slam.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Optional detail enrichment (https://www.cmu.edu/dietrich/humanities-center/center-events/cause-film-screening.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Optional detail enrichment limit 8 reached; 8 link(s) already grounded by the parent were not followed"
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:49:29.492Z",
+        "report": "research/remaining-19-2026-10-25/partial-family.json",
+        "reason": "Published dated parent records and Constitution Day remain parsed. Unchanged legacy archive summaries and Fall2025/Spring2026 poster resources are monitored with explicit fingerprints; changed resources require review. No current year or recurrence is inferred.",
+        "nextStep": "Continue scheduled refreshes using the verified parser and publisher-advertised links; changed undated resources require review."
+      },
+      "solutionSummary": "解析有明确日期的正文；对已核实的历史档案和海报做变更监测，解除无效详情遍历上限。"
+    },
+    {
+      "id": "1aa9b956ba78",
+      "org": "Center for Transformational Play Workshops",
+      "url": "https://www.cmu.edu/ctp/workshops/index.html",
+      "previousState": "unsupported",
+      "state": "undated",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-25T21:03:44.545Z",
+      "reason": "All three advertised workshops are available for group booking; no individually dated occurrence is published.",
+      "error": null,
+      "warnings": [
+        "Monitored on-demand workshop catalog: All three advertised workshops are available for group booking; no individually dated occurrence is published.",
+        "Monitored on-demand workshop: The publisher explicitly says this workshop is available for group booking and supplies duration, capacity and an interest form, without an occurrence date."
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:48:50.451Z",
+        "report": "research/remaining-19-2026-10-25/root-investigation.json",
+        "reason": "All three advertised workshops are available for group booking; no individually dated occurrence is published.",
+        "nextStep": "If any monitored page publishes a date, its changed fingerprint raises a review item for conversion into a scheduled event."
+      },
+      "solutionSummary": "监测课程目录及三个可预约工作坊详情；当前只有团体预约说明，没有公开场次日期。"
+    },
+    {
+      "id": "31aa89be167d",
+      "org": "Data Storage Systems Center Events",
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "previousState": "unsupported",
+      "state": "error",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-25T21:03:43.160Z",
+      "reason": "Two 2025 technical reviews have consistent full dates and are recognized outside the current window. Two pages labelled 2026 conflict with 2025 headings; both contradictory values remain visible as partial coverage and all pages continue being checked.",
+      "error": "Incomplete extraction; previous records retained. Monitored technical-review directory: This page advertises technical-review child pages; each reviewed child is checked separately. Unresolved conflicting event dates: The page title says 2026 but the heading gives June 30, 2025; the agenda gives Tuesday, June 30 without a year. Neither year is selected. Unresolved conflicting event dates: The page heading gives June 9, 2025 while the agenda explicitly gives June 9, 2026. Neither date is selected.",
+      "warnings": [
+        "Monitored technical-review directory: This page advertises technical-review child pages; each reviewed child is checked separately.",
+        "Unresolved conflicting event dates: The page title says 2026 but the heading gives June 30, 2025; the agenda gives Tuesday, June 30 without a year. Neither year is selected.",
+        "Unresolved conflicting event dates: The page heading gives June 9, 2025 while the agenda explicitly gives June 9, 2026. Neither date is selected."
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:54:07.457Z",
+        "report": "research/remaining-19-2026-10-25/root-investigation.json",
+        "reason": "Two 2025 technical reviews have consistent full dates and are recognized outside the current window. Two pages labelled 2026 conflict with 2025 headings; both contradictory values remain visible as partial coverage and all pages continue being checked.",
+        "nextStep": "DSSC should correct the visible event headings or publish an unambiguous official dated calendar/agenda. All competing dates currently predate the ingestion window, but that does not remove the source conflict."
+      },
+      "solutionSummary": "复用一致的历史日期，并持续检查四个详情页；两页的 2025/2026 年份冲突始终保留为待核实。"
+    },
+    {
+      "id": "34fa7359276d",
+      "org": "Socialist Studies Seminar",
+      "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "previousState": "unsupported",
+      "state": "ok",
+      "eventCount": 2,
+      "lastAttempt": "2026-10-25T21:03:46.332Z",
+      "reason": "",
+      "error": null,
+      "warnings": [],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:48:50.450Z",
+        "report": "research/remaining-19-2026-10-25/academic.json",
+        "reason": "Three current-semester posters publish full dates and times; the Brockmann PDF visually matches the September18 image and is not a separate event.",
+        "nextStep": "Review changed/missing poster assets before importing replacements; do not generate monthly dates from the introductory prose."
+      },
+      "solutionSummary": "复用现有 reviewedImages：视觉核对三张海报，按图片 SHA-256 绑定日期、时间和地点。"
+    },
+    {
+      "id": "4c4f223b8c8b",
+      "org": "Robotics, Embodied AI and Learning — news and events",
+      "url": "https://www.cmu.edu/real/news-and-events/index.html",
+      "previousState": "unsupported",
+      "state": "error",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-25T21:03:47.082Z",
+      "reason": "Learning and Control has a verified public ICS with independently dated historical events. The advertised Manipulation public ICS returns HTTP 404, leaving REAL coverage partial.",
+      "error": "Incomplete extraction; previous records retained. Monitored series and example timetable: The page gives descriptions, periodicity and an explicitly labelled example workshop timetable, without specific occurrence dates. Additional endpoint failed (https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics): HTTP 404 from calendar.google.com",
+      "warnings": [
+        "Monitored series and example timetable: The page gives descriptions, periodicity and an explicitly labelled example workshop timetable, without specific occurrence dates.",
+        "Additional endpoint failed (https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics): HTTP 404 from calendar.google.com"
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:48:50.451Z",
+        "report": "research/remaining-19-2026-10-25/root-investigation.json",
+        "reason": "Learning and Control has a verified public ICS with independently dated historical events. The advertised Manipulation public ICS returns HTTP 404, leaving REAL coverage partial.",
+        "nextStep": "The publisher must publish or repair the Manipulation calendar; the application retries it and retains the explicit gap."
+      },
+      "solutionSummary": "复用 Learning and Control 公开 ICS；Manipulation 的公开 ICS 返回 404，保留部分覆盖提示并重试。"
+    },
+    {
+      "id": "4f854e94f2a9",
+      "org": "School of Architecture Events",
+      "url": "https://www.architecture.cmu.edu/events",
+      "previousState": "error",
+      "state": "ok",
+      "eventCount": 10,
+      "lastAttempt": "2026-10-25T21:03:48.377Z",
+      "reason": "Follow only the publisher’s currently advertised next-page links. The former fixed?page=1 is obsolete: all ten current events, including January29,2027, now appear on the first page.",
+      "error": null,
+      "warnings": [],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:49:29.492Z",
+        "report": "research/remaining-19-2026-10-25/partial-family.json",
+        "reason": "Follow only the publisher’s currently advertised next-page links. The former fixed?page=1 is obsolete: all ten current events, including January29,2027, now appear on the first page.",
+        "nextStep": "Continue scheduled refreshes using the verified parser and publisher-advertised links; changed undated resources require review."
+      },
+      "solutionSummary": "跟随发布方当前给出的分页链接，移除已失效的固定第二页配置。"
+    },
+    {
+      "id": "528193392a78",
+      "org": "LTI Colloquium",
+      "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+      "previousState": "unsupported",
+      "state": "ok",
+      "eventCount": 9,
+      "lastAttempt": "2026-10-25T21:03:47.193Z",
+      "reason": "",
+      "error": null,
+      "warnings": [],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:48:50.449Z",
+        "report": "research/remaining-19-2026-10-25/academic.json",
+        "reason": "The current public schedule is readable after visual review and bound to the exact image bytes. No OCR or recurrence inference is used.",
+        "nextStep": "Review a changed schedule before accepting new rows; do not keep applying 2026 to another semester."
+      },
+      "solutionSummary": "复用图片审核机制恢复 Fall 2026 日程，分别保留讲座和实际列出的 Social，正确处理夏令时。"
+    },
+    {
+      "id": "54c24d7416bb",
+      "org": "PwC Center for Business and Risk — special events and programs",
+      "url": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+      "previousState": "unsupported",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-25T21:03:49.735Z",
+      "reason": "Both event banners have complete dates, but all verified occurrences are outside the collection window. The former agenda URL now redirects to a generic PwC Exchange calendar, which does not establish CMU attribution.",
+      "error": null,
+      "warnings": [
+        "Monitored dated historical archive: The dated banners are April 3–4, 2024 and April 26–27, 2023; the summer research program is from 2020. These are historical records outside the current collection window."
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:48:50.451Z",
+        "report": "research/remaining-19-2026-10-25/root-investigation.json",
+        "reason": "Both event banners have complete dates, but all verified occurrences are outside the collection window. The former agenda URL now redirects to a generic PwC Exchange calendar, which does not establish CMU attribution.",
+        "nextStep": "Any archive content or banner-byte change requires another review; newly dated CMU announcements can reuse this same parser."
+      },
+      "solutionSummary": "读取 2024/2023 横幅中的完整日期；均在窗口外，网页与海报变化会触发复查。"
+    },
+    {
+      "id": "5a47a3eb65bf",
+      "org": "AI Institute for Societal Decision Making — Seminars",
+      "url": "https://www.cmu.edu/ai-sdm/seminars/",
+      "previousState": "unsupported",
+      "state": "ok",
+      "eventCount": 3,
+      "lastAttempt": "2026-10-25T21:03:02.274Z",
+      "reason": "",
+      "error": null,
+      "warnings": [],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T21:01:23.783Z",
+        "report": "research/remaining-19-2026-10-25/alumni-other-sources.json",
+        "reason": "The source explicitly advertises the institute calendar, but only the Seminars-tag subset is equivalent to the seminar-series scope.",
+        "nextStep": "Use the tested group+tag API; keep it independent of the broader institute event source."
+      },
+      "solutionSummary": "复用已有 LiveWhale 解析器，使用 AI-SDM + Seminars 标签接口，避免混入其他类型活动。"
+    },
+    {
+      "id": "5ade174c3483",
+      "org": "Enterprise-Wide Optimization Seminars",
+      "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "previousState": "unsupported",
+      "state": "undated",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-25T21:03:47.226Z",
+      "reason": "",
+      "error": null,
+      "warnings": [
+        "Monitored undated recording archive: This is the EWO Seminar Slides archive with downloadable slides and recordings. The EWO parent overview explicitly describes it as a list of seminar slides; no current occurrence schedule is published in the inspected page. File names and media timestamps are not event dates."
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:48:50.450Z",
+        "report": "research/remaining-19-2026-10-25/academic.json",
+        "reason": "This is the EWO Seminar Slides archive with downloadable slides and recordings. The EWO parent overview explicitly describes it as a list of seminar slides; no current occurrence schedule is published in the inspected page. File names and media timestamps are not event dates.",
+        "nextStep": "If a dated schedule is added, the changed fingerprint raises a review alert; add an extractor only after full event dates are published."
+      },
+      "solutionSummary": "按未公布场次的讲义/录像资源监测；文件名、上传时间和演示文稿中的旧日期不当成当前排期。"
+    },
+    {
+      "id": "79e7cdffd54d",
+      "org": "CMU Alumni Online Events",
+      "url": "https://www.cmu.edu/engage/events/online-events",
+      "previousState": "unsupported",
+      "state": "error",
+      "eventCount": 4,
+      "lastAttempt": "2026-10-25T21:56:36.340Z",
+      "reason": "Only the four visually confirmed cards with an explicit online venue are ingested. New online-announcement discovery is not yet connected; the exact public list-view identity remains unresolved.",
+      "error": "Incomplete extraction; previous records retained. Alumni public-card snapshot verified 2026-10-25T21:04:50.468Z. Alumni coverage is limited to explicitly reviewed public cards. New events, title/venue changes and full calendar discovery require another public review.",
+      "warnings": [
+        "Alumni public-card snapshot verified 2026-10-25T21:04:50.468Z.",
+        "Alumni coverage is limited to explicitly reviewed public cards. New events, title/venue changes and full calendar discovery require another public review."
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T21:09:17.881Z",
+        "report": "research/remaining-19-2026-10-25/alumni-discovery.json",
+        "reason": "Only the four visually confirmed cards with an explicit online venue are ingested. New online-announcement discovery is not yet connected; the exact public list-view identity remains unresolved.",
+        "nextStep": "Resolve the exact public calendar list-view identity or implement another publisher-advertised public discovery endpoint; continue visual public-card review until then. No account, broad unfiltered list or private detail is used."
+      },
+      "solutionSummary": "仅接入三页视觉确认范围内明确标为线上的活动；校对官方时间显示接口，新增公告发现仍待接通。"
+    },
+    {
+      "id": "8f00fc7f2c7c",
+      "org": "CMU Alumni and Community Events",
+      "url": "https://www.cmu.edu/engage/events",
+      "previousState": "unsupported",
+      "state": "error",
+      "eventCount": 23,
+      "lastAttempt": "2026-10-25T21:56:42.586Z",
+      "reason": "Only the 23 individually verified public cards are ingested, with anonymous publisher clock checks. The public list-view identity remains unresolved, so new announcements and title/venue changes still require another public review.",
+      "error": "Incomplete extraction; previous records retained. Alumni public-card snapshot verified 2026-10-25T21:04:50.468Z. Alumni coverage is limited to explicitly reviewed public cards. New events, title/venue changes and full calendar discovery require another public review. Alumni card a7DUk000000OnpFMAS: the reviewed public clock has an unresolved timezone ambiguity; retained reviewed date 2026-10-27 without a clock",
+      "warnings": [
+        "Alumni public-card snapshot verified 2026-10-25T21:04:50.468Z.",
+        "Alumni coverage is limited to explicitly reviewed public cards. New events, title/venue changes and full calendar discovery require another public review.",
+        "Alumni card a7DUk000000OnpFMAS: the reviewed public clock has an unresolved timezone ambiguity; retained reviewed date 2026-10-27 without a clock"
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T21:09:17.879Z",
+        "report": "research/remaining-19-2026-10-25/alumni-discovery.json",
+        "reason": "Only the 23 individually verified public cards are ingested, with anonymous publisher clock checks. The public list-view identity remains unresolved, so new announcements and title/venue changes still require another public review.",
+        "nextStep": "Resolve the exact public calendar list-view identity or implement another publisher-advertised public discovery endpoint; continue visual public-card review until then. No account, broad unfiltered list or private detail is used."
+      },
+      "solutionSummary": "仅接入三页视觉确认的公开活动；不使用无筛选接口的较大结果集，公开视图自动发现仍待接通。"
+    },
+    {
+      "id": "97bebc670839",
+      "org": "CMU Silicon Valley Events",
+      "url": "https://www.sv.cmu.edu/events/index.html",
+      "previousState": "unsupported",
+      "state": "undated",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-25T21:03:50.572Z",
+      "reason": "Both inspected public month views are anonymously readable but publish no occurrence records; no event-list feed or client data component was observed.",
+      "error": null,
+      "warnings": [
+        "Monitored navigation-only monthly calendar: The rendered October2026 view shows its month heading and previous/next navigation without event cards, a dated schedule, or an explicit no-events notice. This describes this view only; it does not prove the campus has no events.",
+        "Monitored navigation-only monthly calendar: The publisher-linked November2026 view likewise renders only month navigation, without occurrence cards or a dated schedule. Content changes require review; no month/day events are synthesized."
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T21:01:23.783Z",
+        "report": "research/remaining-19-2026-10-25/alumni-other-sources.json",
+        "reason": "The earlier dynamic-calendar explanation is unsupported by the rendered and static evidence. The inspected views are public but unpopulated.",
+        "nextStep": "A changed month heading, published event card or new advertised resource triggers review. Continue relying on the independently configured official SV feed for its own scope."
+      },
+      "solutionSummary": "视觉检查当前月及官方链接的下月页面，按尚未公布具体日程的页面监测。"
+    },
+    {
+      "id": "a8c3a641e8c5",
+      "org": "Tepper Research Conferences and Seminars",
+      "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences",
+      "previousState": "error",
+      "state": "ok",
+      "eventCount": 2,
+      "lastAttempt": "2026-10-25T21:03:59.846Z",
+      "reason": "The AI and Human Decisions landing page omits its year, but its explicitly linked public agenda prints April10–11,2026. The adapter reads that Date line each refresh. Sustainability recordings have no occurrence dates and are monitored as an unchanged undated archive, not an empty calendar.",
+      "error": null,
+      "warnings": [
+        "Detail (https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum): Monitored undated recording archive: The forum page publishes historical recording headings2025,2024,2021,2020 without month/day occurrence dates. Calendar dates cannot be recovered from recording years alone."
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:49:29.492Z",
+        "report": "research/remaining-19-2026-10-25/partial-family.json",
+        "reason": "The AI and Human Decisions landing page omits its year, but its explicitly linked public agenda prints April10–11,2026. The adapter reads that Date line each refresh. Sustainability recordings have no occurrence dates and are monitored as an unchanged undated archive, not an empty calendar.",
+        "nextStep": "Continue scheduled refreshes using the verified parser and publisher-advertised links; changed undated resources require review."
+      },
+      "solutionSummary": "复用公开 Google 文档议程的 Date 行；录像资源单独监测，日期不取自酒店预订或当前年份。"
+    },
+    {
+      "id": "b453fc62eac4",
+      "org": "EPP Faculty Seminar Series",
+      "url": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+      "previousState": "unsupported",
+      "state": "undated",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-25T21:03:53.524Z",
+      "reason": "",
+      "error": null,
+      "warnings": [
+        "Monitored undated recording archive: The page describes monthly faculty seminars and lists recordings of past talks, without per-occurrence full dates. Monthly frequency and video publication dates cannot define a scheduled event."
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:48:50.450Z",
+        "report": "research/remaining-19-2026-10-25/academic.json",
+        "reason": "The page describes monthly faculty seminars and lists recordings of past talks, without per-occurrence full dates. Monthly frequency and video publication dates cannot define a scheduled event.",
+        "nextStep": "If a dated schedule is added, the changed fingerprint raises a review alert; add an extractor only after full event dates are published."
+      },
+      "solutionSummary": "监测月度系列介绍和往期录像；不从月度频率生成会议，也不把视频发布日期当活动日期。"
+    },
+    {
+      "id": "d861fd81e26d",
+      "org": "Center for African American Urban Studies and the Economy Events",
+      "url": "https://www.cmu.edu/history/cause/events/index.html",
+      "previousState": "unsupported",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-25T21:03:59.432Z",
+      "reason": "",
+      "error": null,
+      "warnings": [
+        "Monitored historical announcement archive: The leading poster is explicitly dated February 27, 2026; remaining announcements are older. No dated occurrence in the current window was found. Changes to text or advertised media require renewed review."
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:48:50.450Z",
+        "report": "research/remaining-19-2026-10-25/academic.json",
+        "reason": "The latest complete event is February27,2026 and is outside the current window; the prior unsupported state was an extraction/structure gap rather than lack of dates or anonymous access.",
+        "nextStep": "Automatically refresh the hash checks; a newly added or changed announcement becomes a review alert instead of silently remaining empty."
+      },
+      "solutionSummary": "复用海报审核机制读取 2026-02-27 的明确时间；当前在窗口外，新增内容会触发复查。"
+    },
+    {
+      "id": "d89f616f8462",
+      "org": "IDeaS Virtual Social Cybersecurity Seminar",
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+      "previousState": "unsupported",
+      "state": "undated",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-25T21:03:58.636Z",
+      "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented.",
+      "error": null,
+      "warnings": [
+        "Monitored undated seminar series: The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented."
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:49:29.492Z",
+        "report": "research/remaining-19-2026-10-25/partial-family.json",
+        "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented.",
+        "nextStep": "Continue monitoring; review changes before accepting newly dated announcements."
+      },
+      "solutionSummary": "监测系列介绍及演讲者变更；没有起止边界和个别场次日期时，不自动扩展每月首个周四。"
+    },
+    {
+      "id": "e3acb99b6056",
+      "org": "Center for Informed Democracy and Social-cybersecurity Events",
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html",
+      "previousState": "error",
+      "state": "ok",
+      "eventCount": 1,
+      "lastAttempt": "2026-10-25T21:04:01.835Z",
+      "reason": "The parent’s January23rd and24th,2025 adjacent-day prose date is parsed as an explicit two-day summit. Policy-series details use their own dated containers; undated virtual/Hewlett series remain monitored resources rather than fabricated occurrences.",
+      "error": null,
+      "warnings": [
+        "Detail (https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html): Monitored undated seminar series: The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented.",
+        "Detail (https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-hewlett.html): Monitored undated seminar resources: The Hewlett seminar descriptions and speaker resources have no explicit occurrence dates. They are monitored for changed content and destinations rather than declared empty.",
+        "Optional detail enrichment (https://www.cmu.edu/casos-center/events/summer-institute-2026_aug.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Optional detail enrichment (https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-conferences/index.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Optional detail enrichment (https://www.cmu.edu/ideas-social-cybersecurity/events/ai_disinfo_summit.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Optional detail enrichment (https://www.cmu.edu/ideas-social-cybersecurity/events/krn-tool-demo.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side"
+      ],
+      "solutionReview": {
+        "checkedAt": "2026-10-25T20:49:29.492Z",
+        "report": "research/remaining-19-2026-10-25/partial-family.json",
+        "reason": "The parent’s January23rd and24th,2025 adjacent-day prose date is parsed as an explicit two-day summit. Policy-series details use their own dated containers; undated virtual/Hewlett series remain monitored resources rather than fabricated occurrences.",
+        "nextStep": "Continue scheduled refreshes using the verified parser and publisher-advertised links; changed undated resources require review."
+      },
+      "solutionSummary": "识别相邻两日的完整日期；已定日期的父记录与无日期系列详情分开处理。"
+    }
+  ],
+  "tests": {
+    "passed": 172,
+    "failed": 0
+  },
+  "projectCheck": "npm run check",
+  "allAPIEventsInspected": 4412,
+  "officialReposts": [
+    {
+      "title": "Society of Physics Students BBQ",
+      "uid": "livewhale:35451:2026-10-27T17:00:00-04:00",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "Gender Minorities and Women in Physics",
+      "uid": "livewhale:34817:2026-10-28T17:00:00-04:00",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "Gender Minorities and Women in Physics",
+      "uid": "livewhale:34820:2026-11-18T17:00:00-05:00",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "Gender Minorities and Women in Physics",
+      "uid": "livewhale:34821:2026-12-02T17:00:00-05:00",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "NOVA: The GenAI Hackathon",
+      "uid": "https://nova.scottylabs.org/",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "Red Robot Hackathon 2026",
+      "uid": "https://www.cs.cmu.edu/calendar/209067645",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "AES@CMU Presents: Maqam-Persian Music - Music of Iran",
+      "uid": "livewhale:35507:2026-11-14T19:30:00-05:00",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "AES@CMU Presents: Maqam-Persian Music - Music of Iran",
+      "uid": "livewhale:35408:2026-11-14T19:30:00-05:00",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "Hack-A-Startup: Kick-Off Weekend",
+      "uid": "https://www.cs.cmu.edu/calendar/210911615",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "Biophilic Design Club - intro meeting",
+      "uid": "20c5458947a31a9f308b700518a35f389282026_8:54:17_AM@campusgroups.com",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "Tepper Masters Students Friday Socials",
+      "uid": "1c130a7ce7f64ddff80dad6eda570ca58242026_9:24:48_AM@campusgroups.com",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "IEEE Research Paper Workshop",
+      "uid": "livewhale:34968:2026-11-14T01:00:00-05:00",
+      "rawMatches": 3,
+      "apiMatches": 1
+    }
+  ],
+  "evidenceManifest": [
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/app-alumni-23-imported.jpg",
+      "bytes": 86154,
+      "sha256": "881928dae827c93aa49e10509a71fea85941d7ecc6106e2064cbe225366e466e"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/app-lti-recovered.jpg",
+      "bytes": 71597,
+      "sha256": "4c329eda5ad61a41fe5945d24b511adf53eb473493641a88f88190c632925c18"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/app-undated-monitor.jpg",
+      "bytes": 73472,
+      "sha256": "7f8fc4361d717d63c59b13d8123d52326aa71d513545c4144b3ff6239dbc2eef"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/cause-augustus.png",
+      "bytes": 3333757,
+      "sha256": "2538a3f27493988033d0ff31325b6a3505cd1d53813ec726eb5f1aae3f3b9737"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/ewo-lara-2026.pdf",
+      "bytes": 9156736,
+      "sha256": "f827da117b0a90dbbd296a409e62d1a56ced586bbe28271227b9c08ac08680a5"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/lti-fall-2026.png",
+      "bytes": 263016,
+      "sha256": "30a43498ba23dce5bcd1ad701e68aba9821841ccbc31af0c69577a17ae110cb2"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/lti-speaker.png",
+      "bytes": 502825,
+      "sha256": "d4bd6d7a62c890aef30a2d1232f9ec3ba40a5cd5f699559741e8ca3d3303dc3b"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/pwc-2023-banner.jpg",
+      "bytes": 112115,
+      "sha256": "a34a563e3bd483380372a2a2e24cd1e2cc8333751cb24e6e9b72d3881db84809"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/pwc-2024-banner.jpg",
+      "bytes": 108635,
+      "sha256": "54f834e7f8b301ae49d34042a06f5a5ad8e3ff337d339d192a5c4b32e1bb815d"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/socialist-brockmann-page1.png",
+      "bytes": 563575,
+      "sha256": "b91550eed6a31f9f46ffd5b1dbe278bcdbc4902278bb233f7210aa6d3833d718"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/socialist-brockmann.pdf",
+      "bytes": 825119,
+      "sha256": "e5b911cb1e88f2fdc32ecb344286636297861f298b2918614acdbdd2800a3885"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/socialist-fall-1.png",
+      "bytes": 925808,
+      "sha256": "142eebf6dc73e174ce3384bb2be6896ece0653389fe6abf41013eb94ab91e227"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/socialist-fall-2.png",
+      "bytes": 1157928,
+      "sha256": "88b8992ad540c5da898fc55fd9d1f10f4b2b33cff77d75034e52bc4859a3a32a"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/socialist-fall-3.png",
+      "bytes": 1040978,
+      "sha256": "d691db7402295950339a12ffc4a0a393f2199cd5a8a22c4065c3c8edb89df445"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/sv-november-rendered.png",
+      "bytes": 52036,
+      "sha256": "6c16b52c12af11f88d48b38649c752f4ab88b3cd3ce08f3b344d5ec3dd089e1f"
+    },
+    {
+      "path": "research/remaining-19-2026-10-25/evidence/sv-october-rendered.png",
+      "bytes": 44880,
+      "sha256": "89384333e282db8f866f42276f2edf5a076f512b35f19850d6d54e771e614d0b"
+    }
+  ]
+}

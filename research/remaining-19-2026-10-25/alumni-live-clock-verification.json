@@ -1,0 +1,513 @@
+{
+  "generatedAt": "2026-10-25T21:08:54.450Z",
+  "anonymous": true,
+  "cookiesSent": false,
+  "readOnlyGetter": "apex://CommunityEventTileController/ACTION$getEventStartDate",
+  "clockQueries": 27,
+  "uniqueClockIDs": 23,
+  "clocks": [
+    {
+      "id": "a7DUk000000OnpFMAS",
+      "checkedAt": "2026-10-25T21:08:48.737Z",
+      "state": "SUCCESS",
+      "startDate": "2026-10-27T21:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000PQKJMA4",
+      "checkedAt": "2026-10-25T21:08:48.942Z",
+      "state": "SUCCESS",
+      "startDate": "2026-10-26T23:30:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000PFGnMAO",
+      "checkedAt": "2026-10-25T21:08:49.129Z",
+      "state": "SUCCESS",
+      "startDate": "2026-10-27T22:30:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000O7upMAC",
+      "checkedAt": "2026-10-25T21:08:49.332Z",
+      "state": "SUCCESS",
+      "startDate": "2026-10-27T22:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000PrAoMAK",
+      "checkedAt": "2026-10-25T21:08:49.524Z",
+      "state": "SUCCESS",
+      "startDate": "2026-10-28T19:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000Oh5UMAS",
+      "checkedAt": "2026-10-25T21:08:49.717Z",
+      "state": "SUCCESS",
+      "startDate": "2026-10-29T17:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000PoZVMA0",
+      "checkedAt": "2026-10-25T21:08:49.910Z",
+      "state": "SUCCESS",
+      "startDate": "2026-10-29T22:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000PvuLMAS",
+      "checkedAt": "2026-10-25T21:08:50.108Z",
+      "state": "SUCCESS",
+      "startDate": "2026-10-30T01:30:00.000Z",
+      "timeZoneVal": "America/Los_Angeles"
+    },
+    {
+      "id": "a7DUk000000PXTpMAO",
+      "checkedAt": "2026-10-25T21:08:50.303Z",
+      "state": "SUCCESS",
+      "startDate": "2026-10-31T03:00:00.000Z",
+      "timeZoneVal": "Pacific/Honolulu"
+    },
+    {
+      "id": "a7DUk000000Q1uxMAC",
+      "checkedAt": "2026-10-25T21:08:50.506Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-01T01:00:00.000Z",
+      "timeZoneVal": "America/Los_Angeles"
+    },
+    {
+      "id": "a7DUk000000QJv3MAG",
+      "checkedAt": "2026-10-25T21:08:50.719Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-02T23:30:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000MJqTMAW",
+      "checkedAt": "2026-10-25T21:08:50.922Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-02T01:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000QJv4MAG",
+      "checkedAt": "2026-10-25T21:08:51.136Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-07T00:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000PnSDMA0",
+      "checkedAt": "2026-10-25T21:08:51.313Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-07T15:30:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000PnSCMA0",
+      "checkedAt": "2026-10-25T21:08:51.521Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-08T02:30:00.000Z",
+      "timeZoneVal": "America/Denver"
+    },
+    {
+      "id": "a7DUk000000QLFKMA4",
+      "checkedAt": "2026-10-25T21:08:51.749Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-10T21:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000OnpMMAS",
+      "checkedAt": "2026-10-25T21:08:51.948Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-12T03:00:00.000Z",
+      "timeZoneVal": "America/Los_Angeles"
+    },
+    {
+      "id": "a7DUk000000Mw2EMAS",
+      "checkedAt": "2026-10-25T21:08:52.113Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-11T16:00:00.000Z",
+      "timeZoneVal": "America/Los_Angeles"
+    },
+    {
+      "id": "a7DUk000000Q1uwMAC",
+      "checkedAt": "2026-10-25T21:08:52.319Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-12T23:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000NTCfMAO",
+      "checkedAt": "2026-10-25T21:08:52.528Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-14T15:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000QDw7MAG",
+      "checkedAt": "2026-10-25T21:08:52.707Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-14T16:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000QDw5MAG",
+      "checkedAt": "2026-10-25T21:08:52.949Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-14T18:30:00.000Z",
+      "timeZoneVal": "America/Denver"
+    },
+    {
+      "id": "a7DUk000000QLFJMA4",
+      "checkedAt": "2026-10-25T21:08:53.122Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-17T21:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000PrAoMAK",
+      "checkedAt": "2026-10-25T21:08:53.826Z",
+      "state": "SUCCESS",
+      "startDate": "2026-10-28T19:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000Oh5UMAS",
+      "checkedAt": "2026-10-25T21:08:54.039Z",
+      "state": "SUCCESS",
+      "startDate": "2026-10-29T17:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000QLFKMA4",
+      "checkedAt": "2026-10-25T21:08:54.235Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-10T21:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000QLFJMA4",
+      "checkedAt": "2026-10-25T21:08:54.445Z",
+      "state": "SUCCESS",
+      "startDate": "2026-11-17T21:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    }
+  ],
+  "sources": [
+    {
+      "id": "8f00fc7f2c7c",
+      "checkedAt": "2026-10-25T21:08:53.158Z",
+      "events": 23,
+      "partial": true,
+      "unsupported": false,
+      "onlineOnly": false,
+      "warnings": [
+        "Alumni public-card snapshot verified 2026-10-25T21:04:50.468Z.",
+        "Alumni coverage is limited to explicitly reviewed public cards. New events, title/venue changes and full calendar discovery require another public review.",
+        "Alumni card a7DUk000000OnpFMAS: the reviewed public clock has an unresolved timezone ambiguity; retained reviewed date 2026-10-27 without a clock"
+      ],
+      "occurrences": [
+        {
+          "uid": "alumni:a7DUk000000PQKJMA4",
+          "title": "PIT – CMU School of Music Chamber Series Opening: Inon Barnathan with PSO Musicians",
+          "start": "2026-10-26T23:30:00.000Z",
+          "end": "2026-10-26T23:30:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "PITTSBURGH, PA",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians"
+        },
+        {
+          "uid": "alumni:a7DUk000000OnpFMAS",
+          "title": "Sydney - Alumni Coffee and Catch-Up",
+          "start": "2026-10-27",
+          "end": "2026-10-28",
+          "timePrecision": "date",
+          "timeZone": "America/New_York",
+          "location": "",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up"
+        },
+        {
+          "uid": "alumni:a7DUk000000O7upMAC",
+          "title": "NYC - Public Speaking for Tartan Introverts",
+          "start": "2026-10-27T22:00:00.000Z",
+          "end": "2026-10-27T22:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "NEW YORK, NY",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts"
+        },
+        {
+          "uid": "alumni:a7DUk000000PFGnMAO",
+          "title": "An Evening with Carnegie Mellon University - Washington, DC",
+          "start": "2026-10-27T22:30:00.000Z",
+          "end": "2026-10-27T22:30:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "WASHINGTON, DC",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc"
+        },
+        {
+          "uid": "alumni:a7DUk000000PrAoMAK",
+          "title": "Sports Betting and the Brain - October 2026",
+          "start": "2026-10-28T19:00:00.000Z",
+          "end": "2026-10-28T19:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "VIRTUAL WEBINAR, ONLINE",
+          "mode": "online",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026"
+        },
+        {
+          "uid": "alumni:a7DUk000000Oh5UMAS",
+          "title": "Communicating with Confidence 2026: Interactive Practice for Real-World Speaking",
+          "start": "2026-10-29T17:00:00.000Z",
+          "end": "2026-10-29T17:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "VIRTUAL WEBINAR, ONLINE",
+          "mode": "online",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking"
+        },
+        {
+          "uid": "alumni:a7DUk000000PoZVMA0",
+          "title": "Cracking the Code: Deciphering Bacterial Language and Dialects",
+          "start": "2026-10-29T22:00:00.000Z",
+          "end": "2026-10-29T22:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "NEW YORK, NY",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects"
+        },
+        {
+          "uid": "alumni:a7DUk000000PvuLMAS",
+          "title": "Tepper San Francisco: Leading in an Agentic World: How AI Will Reshape Strategy, Innovation, and Competitive Advantage",
+          "start": "2026-10-30T01:30:00.000Z",
+          "end": "2026-10-30T01:30:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/Los_Angeles",
+          "location": "PALO ALTO, CA",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage"
+        },
+        {
+          "uid": "alumni:a7DUk000000PXTpMAO",
+          "title": "HI - A Globally Plaid Halloween at HoMA",
+          "start": "2026-10-31T03:00:00.000Z",
+          "end": "2026-10-31T03:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "Pacific/Honolulu",
+          "location": "HONOLULU, HI",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa"
+        },
+        {
+          "uid": "alumni:a7DUk000000Q1uxMAC",
+          "title": "SF - Plaid, Potions and Pubs: Halloween Bar Crawl",
+          "start": "2026-11-01T01:00:00.000Z",
+          "end": "2026-11-01T01:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/Los_Angeles",
+          "location": "SAN FRANCISCO, CA",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-plaid-potions-and-pubs-halloween-bar-crawl"
+        },
+        {
+          "uid": "alumni:a7DUk000000MJqTMAW",
+          "title": "DC - CMU Sunday Night Football: Commanders vs. Eagles",
+          "start": "2026-11-02T01:00:00.000Z",
+          "end": "2026-11-02T01:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "LANDOVER, MD",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles"
+        },
+        {
+          "uid": "alumni:a7DUk000000QJv3MAG",
+          "title": "Slaying Organizational Monsters",
+          "start": "2026-11-02T23:30:00.000Z",
+          "end": "2026-11-02T23:30:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters"
+        },
+        {
+          "uid": "alumni:a7DUk000000QJv4MAG",
+          "title": "NYC x PIT - The 59th Carnegie International & Beyond",
+          "start": "2026-11-07T00:00:00.000Z",
+          "end": "2026-11-07T00:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond"
+        },
+        {
+          "uid": "alumni:a7DUk000000PnSDMA0",
+          "title": "NYC – Coffee with LLM API Users",
+          "start": "2026-11-07T15:30:00.000Z",
+          "end": "2026-11-07T15:30:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "NEW YORK, NY",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-coffee-with-llm-api-users"
+        },
+        {
+          "uid": "alumni:a7DUk000000PnSCMA0",
+          "title": "DEN - Macbeth Opera Opening Night: Verdi’s Dramatic Masterpiece",
+          "start": "2026-11-08T02:30:00.000Z",
+          "end": "2026-11-08T02:30:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/Denver",
+          "location": "DENVER, CO",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece"
+        },
+        {
+          "uid": "alumni:a7DUk000000QLFKMA4",
+          "title": "Rethinking Chronic Pain and Disease",
+          "start": "2026-11-10T21:00:00.000Z",
+          "end": "2026-11-10T21:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "VIRTUAL WEBINAR, ONLINE",
+          "mode": "online",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease"
+        },
+        {
+          "uid": "alumni:a7DUk000000Mw2EMAS",
+          "title": "LA - Volunteer Opportunity: Project Angel Food Service Day 2026",
+          "start": "2026-11-11T16:00:00.000Z",
+          "end": "2026-11-11T16:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/Los_Angeles",
+          "location": "LOS ANGELES, CA",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/la-volunteer-opportunity-project-angel-food-service-day-2026"
+        },
+        {
+          "uid": "alumni:a7DUk000000OnpMMAS",
+          "title": "SF - Heated Rivalry: Penguins vs. Sharks",
+          "start": "2026-11-12T03:00:00.000Z",
+          "end": "2026-11-12T03:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/Los_Angeles",
+          "location": "SAN JOSE, CA",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-heated-rivalry-penguins-vs-sharks"
+        },
+        {
+          "uid": "alumni:a7DUk000000Q1uwMAC",
+          "title": "PIT – Tartans on Tap: Wexford",
+          "start": "2026-11-12T23:00:00.000Z",
+          "end": "2026-11-12T23:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "WEXFORD, PA",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford"
+        },
+        {
+          "uid": "alumni:a7DUk000000NTCfMAO",
+          "title": "HLAA - Dulces & Connections: HLAA Holiday Cookie Making Event",
+          "start": "2026-11-14T15:00:00.000Z",
+          "end": "2026-11-14T15:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "PITTSBURGH, PA",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-dulces-connections-hlaa-holiday-cookie-making-event"
+        },
+        {
+          "uid": "alumni:a7DUk000000QDw7MAG",
+          "title": "BOS - Tartan High Tea and Salem Stroll",
+          "start": "2026-11-14T16:00:00.000Z",
+          "end": "2026-11-14T16:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "SALEM, MA",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll"
+        },
+        {
+          "uid": "alumni:a7DUk000000QDw5MAG",
+          "title": "DEN - Festival of Lights: Tartan Diwali Celebration",
+          "start": "2026-11-14T18:30:00.000Z",
+          "end": "2026-11-14T18:30:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/Denver",
+          "location": "CENTENNIAL, CO",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-festival-of-lights-tartan-diwali-celebration"
+        },
+        {
+          "uid": "alumni:a7DUk000000QLFJMA4",
+          "title": "The Menopause Transition and the Brain",
+          "start": "2026-11-17T21:00:00.000Z",
+          "end": "2026-11-17T21:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "VIRTUAL WEBINAR, ONLINE",
+          "mode": "online",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain"
+        }
+      ]
+    },
+    {
+      "id": "79e7cdffd54d",
+      "checkedAt": "2026-10-25T21:08:54.450Z",
+      "events": 4,
+      "partial": true,
+      "unsupported": false,
+      "onlineOnly": true,
+      "warnings": [
+        "Alumni public-card snapshot verified 2026-10-25T21:04:50.468Z.",
+        "Alumni coverage is limited to explicitly reviewed public cards. New events, title/venue changes and full calendar discovery require another public review."
+      ],
+      "occurrences": [
+        {
+          "uid": "alumni:a7DUk000000PrAoMAK",
+          "title": "Sports Betting and the Brain - October 2026",
+          "start": "2026-10-28T19:00:00.000Z",
+          "end": "2026-10-28T19:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "VIRTUAL WEBINAR, ONLINE",
+          "mode": "online",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026"
+        },
+        {
+          "uid": "alumni:a7DUk000000Oh5UMAS",
+          "title": "Communicating with Confidence 2026: Interactive Practice for Real-World Speaking",
+          "start": "2026-10-29T17:00:00.000Z",
+          "end": "2026-10-29T17:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "VIRTUAL WEBINAR, ONLINE",
+          "mode": "online",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking"
+        },
+        {
+          "uid": "alumni:a7DUk000000QLFKMA4",
+          "title": "Rethinking Chronic Pain and Disease",
+          "start": "2026-11-10T21:00:00.000Z",
+          "end": "2026-11-10T21:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "VIRTUAL WEBINAR, ONLINE",
+          "mode": "online",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease"
+        },
+        {
+          "uid": "alumni:a7DUk000000QLFJMA4",
+          "title": "The Menopause Transition and the Brain",
+          "start": "2026-11-17T21:00:00.000Z",
+          "end": "2026-11-17T21:00:00.000Z",
+          "timePrecision": "time",
+          "timeZone": "America/New_York",
+          "location": "VIRTUAL WEBINAR, ONLINE",
+          "mode": "online",
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain"
+        }
+      ]
+    }
+  ],
+  "transfer": {
+    "requests": 31,
+    "cacheHits": 0,
+    "bytes": 1685528
+  }
+}

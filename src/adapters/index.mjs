@@ -12,6 +12,8 @@ import { fetchTepper } from './tepper.mjs';
  * @return {Promise<{events:Object[],warnings:string[]}>} Normalized source result.
  */
 async function fetchEndpoint(plan, context) {
+  if (plan.options?.format === 'alumni') return (await import('./alumni.mjs')).fetchAlumni(plan, context);
+  if (plan.options?.format === 'reviewed-raw-resource') return (await import('./reviewed-resources.mjs')).fetchReviewedRawResource(plan, context);
   if (plan.options?.format === 'campusgroups-json') return (await import('./campusgroups.mjs')).fetchCampusGroups(plan, context);
   if (plan.options?.format === 'wrct') return (await import('./wrct.mjs')).fetchWrct(plan, context);
   if (plan.options?.format === 'tepper') return fetchTepper(plan, context);
@@ -54,6 +56,7 @@ export async function fetchEvents(plan, context) {
   const events = new Map(primary.events.map(event => [event.uid, event]));
   let supported = !primary.unsupported;
   let partial = Boolean(primary.partial || primary.unsupported);
+  let undated = Boolean(primary.undated);
   const warnings = [...(primary.warnings || [])];
   for (const endpoint of endpoints) {
     const url = endpoint.url;
@@ -63,13 +66,15 @@ export async function fetchEvents(plan, context) {
         options: { ...(endpoint.legacy ? plan.options : { timezone: plan.options?.timezone }),
           ...endpoint.options, additionalFetchUrls: [], additionalEndpoints: [] } };
       const extra = await fetchEndpoint(extraPlan, context);
+      undated &&= Boolean(extra.undated);
       if (!extra.unsupported) supported = true;
       if (extra.partial || extra.unsupported) partial = true;
       for (const event of extra.events) events.set(event.uid, event);
       warnings.push(...(extra.warnings || []));
     } catch (error) { partial = true; warnings.push(`Additional endpoint failed (${url}): ${error.message}`); }
   }
-  return { events: [...events.values()], warnings: [...new Set(warnings)], ...(!supported ? { unsupported: true } : {}), ...(partial ? { partial: true } : {}) };
+  return { events: [...events.values()], warnings: [...new Set(warnings)], ...(!supported ? { unsupported: true } : {}), ...(partial ? { partial: true } : {}),
+    ...(undated && !events.size ? { undated: true } : {}) };
 }
 
 export { parseIcs } from './ics.mjs';

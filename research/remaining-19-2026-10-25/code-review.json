@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-25T20:52:50.951526+00:00",
+  "scope": [
+    "src/adapters/reviewed-resources.mjs",
+    "src/lib/fetcher.mjs public query transport",
+    "src/refresh.mjs",
+    "src/lib/store.mjs undated and partial state handling",
+    "research/remaining-19-2026-10-25/root-investigation.json"
+  ],
+  "method": "Read-only code/contract review with isolated in-memory adapter and mocked HTTP reproductions. No production code, policy, database, or source refresh changes.",
+  "findings": [
+    {
+      "id": "resource-jsonld-change-guard",
+      "priority": "P2",
+      "status": "fixed_and_reverified",
+      "file": "src/adapters/reviewed-resources.mjs",
+      "location": "resourceFingerprint",
+      "problem": "The initial fingerprint removed all scripts. A new dated Event JSON-LD could leave a reviewedFragmentsOnly resource fingerprint unchanged, returning zero events with undated:true instead of requiring review.",
+      "beforeReproduction": {
+        "newDatedEventJSONLDAdded": true,
+        "fingerprintChanged": false,
+        "events": 0,
+        "undated": true,
+        "partial": false
+      },
+      "fix": "The integrator now includes application/ld+json payloads from the entire document in the fingerprint, including head metadata. Ordinary volatile scripts remain excluded.",
+      "afterIndependentReproduction": {
+        "fingerprintChanged": true,
+        "events": 0,
+        "unsupported": true,
+        "partial": true,
+        "undated": false
+      },
+      "snapshotEffect": "Changed resource content is rejected as a complete snapshot. The refresher failure/partial paths preserve prior stored occurrences.",
+      "regressionCoverage": "tests/reviewed-resources.test.mjs tests both scoped and head Event JSON-LD additions."
+    }
+  ],
+  "remainingActionableIssues": [],
+  "transportChecks": {
+    "allowlist": "Only https://community.cmu.edu/s/sfsites/aura with one apex://EventFilterController/ACTION$getEvents action; non-null aura.token rejected.",
+    "mockedDifferentBodiesIssueSeparateRequests": true,
+    "mockedPOSTRequestCount": 2,
+    "mockedCredentialOrConditionalHeaders": [],
+    "mockedPersistentCacheCalls": [],
+    "redirectPolicy": "manual redirect transport; every public POST redirect is rejected before following its destination.",
+    "mockedRedirectRejectionVerified": true,
+    "limit": "The public-list filter itself is being independently verified by the browser/API owner; this review does not bless the unfiltered 93-record response as equivalent to the 23 published public events."
+  },
+  "stateAndPrecisionReview": {
+    "partialAndUnsupported": "Partial responses call mergePartial; unsupported/transport failures call failSource. Neither path deletes the previous occurrence snapshot.",
+    "undated": "Only a complete zero-event resource response sets undated. Populated responses remain ok; dates recognized outside the window remain empty rather than undated.",
+    "dateOnly": "Reviewed PwC banners use date-only starts and exclusive ends: April3–4,2024 ends April5; April26–27,2023 ends April28. No clock or timezone is invented.",
+    "futureDisclosure": "Changed text, advertised media links or structured schedule metadata raises review; no monthly or biweekly recurrence is synthesized."
+  },
+  "rootContractReview": [
+    {
+      "sourceID": "1aa9b956ba78",
+      "assessment": "No misclassification found. The primary workshop catalog and all three public booking pages are monitored as on-demand offerings, not scheduled empty calendars."
+    },
+    {
+      "sourceID": "4c4f223b8c8b",
+      "assessment": "No misclassification found. The LCS ICS remains independently usable while the unavailable Manipulation ICS correctly keeps combined REAL coverage partial; historical records and TBD descriptions do not create upcoming events."
+    },
+    {
+      "sourceID": "54c24d7416bb",
+      "assessment": "No misclassification found. Both date-bearing banners remain historical/outside-window with date-only precision; the redirected generic PwC calendar is not accepted as equivalent CMU scope."
+    }
+  ],
+  "validation": {
+    "independentlyExecuted": [
+      "Reproduced the original JSON-LD false-undated failure.",
+      "Re-ran the same reproduction after the fix; changed content now reports unsupported:true and partial:true.",
+      "Mocked two distinct public-query bodies; no persistent cache reads/writes/deletes or auth/cookie/conditional headers were used.",
+      "Mocked a public-query redirect and confirmed rejection before following."
+    ],
+    "integratorReported": {
+      "focusedGuardAcademicPartialTestsPassed": 19,
+      "allTestsPassed": 158
+    }
+  },
+  "noProductionEdits": true
+}

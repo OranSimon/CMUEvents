@@ -1,0 +1,668 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-25T20:46:55.566Z",
+  "scope": "All six assigned unsupported academic sources inspected live; only read-only public fetches and local review used. No production configuration or database refresh performed.",
+  "recommendedOverrides": [
+    {
+      "id": "528193392a78",
+      "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+      "organization": "LTI Colloquium",
+      "override": {
+        "adapter": "html",
+        "status": "active",
+        "canonicalSourceId": null,
+        "fetchUrl": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": false,
+          "reviewedFragmentsOnly": true,
+          "reviewedImages": [
+            {
+              "selector": "h1:contains(\"Fall 2026 Schedule\") + p img[src=\"colloquium-series-fall-2026.png\"]",
+              "sha256": "30a43498ba23dce5bcd1ad701e68aba9821841ccbc31af0c69577a17ae110cb2",
+              "reviewedAt": "2026-10-25",
+              "events": [
+                {
+                  "uid": "lti-social-2026-09-04",
+                  "title": "LTI Social",
+                  "start": "2026-09-04T15:00:00",
+                  "end": "2026-09-04T15:30:00",
+                  "location": "NSH 4305, Carnegie Mellon University",
+                  "description": "LTI Social, as individually listed in the Fall 2026 schedule.",
+                  "organizer": "Language Technologies Institute",
+                  "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+                },
+                {
+                  "uid": "lti-colloquium-2026-09-11",
+                  "title": "LTI Colloquium — Diyi Yang",
+                  "start": "2026-09-11T15:30:00",
+                  "end": "2026-09-11T17:00:00",
+                  "location": "NSH 4305, Carnegie Mellon University",
+                  "description": "Speaker: Diyi Yang. Affiliation: Stanford University.",
+                  "organizer": "Language Technologies Institute",
+                  "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+                },
+                {
+                  "uid": "lti-social-2026-09-18",
+                  "title": "LTI Social",
+                  "start": "2026-09-18T15:00:00",
+                  "end": "2026-09-18T15:30:00",
+                  "location": "NSH 4305, Carnegie Mellon University",
+                  "description": "LTI Social, as individually listed in the Fall 2026 schedule.",
+                  "organizer": "Language Technologies Institute",
+                  "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+                },
+                {
+                  "uid": "lti-colloquium-2026-09-25",
+                  "title": "LTI Colloquium — Yaser Sheikh",
+                  "start": "2026-09-25T15:30:00",
+                  "end": "2026-09-25T17:00:00",
+                  "location": "NSH 4305, Carnegie Mellon University",
+                  "description": "Speaker: Yaser Sheikh. Affiliation: Carnegie Mellon University.",
+                  "organizer": "Language Technologies Institute",
+                  "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+                },
+                {
+                  "uid": "lti-colloquium-2026-10-02",
+                  "title": "LTI Colloquium — Chenggang Xu",
+                  "start": "2026-10-02T15:30:00",
+                  "end": "2026-10-02T17:00:00",
+                  "location": "NSH 4305, Carnegie Mellon University",
+                  "description": "Speaker: Chenggang Xu. Affiliation: Stanford University.",
+                  "organizer": "Language Technologies Institute",
+                  "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+                },
+                {
+                  "uid": "lti-social-2026-10-09",
+                  "title": "LTI Social",
+                  "start": "2026-10-09T15:00:00",
+                  "end": "2026-10-09T15:30:00",
+                  "location": "NSH 4305, Carnegie Mellon University",
+                  "description": "LTI Social, as individually listed in the Fall 2026 schedule.",
+                  "organizer": "Language Technologies Institute",
+                  "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+                },
+                {
+                  "uid": "lti-social-2026-10-16",
+                  "title": "LTI Social",
+                  "start": "2026-10-16T15:00:00",
+                  "end": "2026-10-16T15:30:00",
+                  "location": "NSH 4305, Carnegie Mellon University",
+                  "description": "LTI Social, as individually listed in the Fall 2026 schedule.",
+                  "organizer": "Language Technologies Institute",
+                  "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+                },
+                {
+                  "uid": "lti-colloquium-2026-10-23",
+                  "title": "LTI Colloquium — Sewon Min",
+                  "start": "2026-10-23T15:30:00",
+                  "end": "2026-10-23T17:00:00",
+                  "location": "NSH 4305, Carnegie Mellon University",
+                  "description": "Speaker: Sewon Min. Affiliation: UC Berkeley.",
+                  "organizer": "Language Technologies Institute",
+                  "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+                },
+                {
+                  "uid": "lti-colloquium-2026-10-30",
+                  "title": "LTI Colloquium — Chris Potts",
+                  "start": "2026-10-30T15:30:00",
+                  "end": "2026-10-30T17:00:00",
+                  "location": "NSH 4305, Carnegie Mellon University",
+                  "description": "Speaker: Chris Potts. Affiliation: Stanford University.",
+                  "organizer": "Language Technologies Institute",
+                  "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+                },
+                {
+                  "uid": "lti-social-2026-11-06",
+                  "title": "LTI Social",
+                  "start": "2026-11-06T15:00:00",
+                  "end": "2026-11-06T15:30:00",
+                  "location": "NSH 4305, Carnegie Mellon University",
+                  "description": "LTI Social, as individually listed in the Fall 2026 schedule.",
+                  "organizer": "Language Technologies Institute",
+                  "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+                },
+                {
+                  "uid": "lti-colloquium-2026-11-13",
+                  "title": "LTI Colloquium — Jocelyn Shen",
+                  "start": "2026-11-13T15:30:00",
+                  "end": "2026-11-13T17:00:00",
+                  "location": "NSH 4305, Carnegie Mellon University",
+                  "description": "Speaker: Jocelyn Shen. Affiliation: Google DeepMind.",
+                  "organizer": "Language Technologies Institute",
+                  "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+                },
+                {
+                  "uid": "lti-colloquium-2026-11-20",
+                  "title": "LTI Colloquium — Mohit Iyyer",
+                  "start": "2026-11-20T15:30:00",
+                  "end": "2026-11-20T17:00:00",
+                  "location": "NSH 4305, Carnegie Mellon University",
+                  "description": "Speaker: Mohit Iyyer. Affiliation: University of Maryland.",
+                  "organizer": "Language Technologies Institute",
+                  "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+                },
+                {
+                  "uid": "lti-social-2026-12-04",
+                  "title": "LTI Social",
+                  "start": "2026-12-04T15:00:00",
+                  "end": "2026-12-04T15:30:00",
+                  "location": "NSH 4305, Carnegie Mellon University",
+                  "description": "LTI Social, as individually listed in the Fall 2026 schedule.",
+                  "organizer": "Language Technologies Institute",
+                  "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+                }
+              ],
+              "evidenceContext": "The adjacent heading explicitly supplies Fall 2026. The poster lists each date, venue and separate social/colloquium times; only listed rows are transcribed."
+            }
+          ]
+        },
+        "strategy": "Verify the explicitly selected Fall 2026 schedule image hash, then reuse visually reviewed per-row dates and printed session clocks. A changed image or semester heading requires review.",
+        "reason": ""
+      },
+      "reason": "The current public schedule is readable after visual review and bound to the exact image bytes. No OCR or recurrence inference is used.",
+      "nextStep": "Review a changed schedule before accepting new rows; do not keep applying 2026 to another semester.",
+      "evidence": {
+        "primaryStatus": 200,
+        "htmlSnapshot": "research/remaining-19-2026-10-25/evidence/academic-528193392a78.html",
+        "imageSnapshot": "research/remaining-19-2026-10-25/evidence/lti-fall-2026.png",
+        "additionalVisualPoster": "research/remaining-19-2026-10-25/evidence/lti-speaker.png",
+        "publishedRows": 13,
+        "speakerRows": 7,
+        "explicitSocialRows": 6,
+        "yearEvidence": "Adjacent h1 reads Fall 2026 Schedule; the selector requires that heading.",
+        "timeEvidence": "Poster footer: Fridays, NSH4305; social15:00–15:30; colloquium15:30–17:00."
+      },
+      "liveReplay": {
+        "checkedAt": "2026-10-25T20:48:26.523Z",
+        "windowRecords": 10,
+        "futureRecords": 5,
+        "undated": false,
+        "unsupported": false,
+        "partial": false,
+        "warnings": [],
+        "events": [
+          {
+            "uid": "lti-colloquium-2026-09-25",
+            "title": "LTI Colloquium — Yaser Sheikh",
+            "start": "2026-09-25T19:30:00.000Z",
+            "end": "2026-09-25T21:00:00.000Z",
+            "location": "NSH 4305, Carnegie Mellon University",
+            "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+          },
+          {
+            "uid": "lti-colloquium-2026-10-02",
+            "title": "LTI Colloquium — Chenggang Xu",
+            "start": "2026-10-02T19:30:00.000Z",
+            "end": "2026-10-02T21:00:00.000Z",
+            "location": "NSH 4305, Carnegie Mellon University",
+            "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+          },
+          {
+            "uid": "lti-social-2026-10-09",
+            "title": "LTI Social",
+            "start": "2026-10-09T19:00:00.000Z",
+            "end": "2026-10-09T19:30:00.000Z",
+            "location": "NSH 4305, Carnegie Mellon University",
+            "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+          },
+          {
+            "uid": "lti-social-2026-10-16",
+            "title": "LTI Social",
+            "start": "2026-10-16T19:00:00.000Z",
+            "end": "2026-10-16T19:30:00.000Z",
+            "location": "NSH 4305, Carnegie Mellon University",
+            "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+          },
+          {
+            "uid": "lti-colloquium-2026-10-23",
+            "title": "LTI Colloquium — Sewon Min",
+            "start": "2026-10-23T19:30:00.000Z",
+            "end": "2026-10-23T21:00:00.000Z",
+            "location": "NSH 4305, Carnegie Mellon University",
+            "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+          },
+          {
+            "uid": "lti-colloquium-2026-10-30",
+            "title": "LTI Colloquium — Chris Potts",
+            "start": "2026-10-30T19:30:00.000Z",
+            "end": "2026-10-30T21:00:00.000Z",
+            "location": "NSH 4305, Carnegie Mellon University",
+            "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+          },
+          {
+            "uid": "lti-social-2026-11-06",
+            "title": "LTI Social",
+            "start": "2026-11-06T20:00:00.000Z",
+            "end": "2026-11-06T20:30:00.000Z",
+            "location": "NSH 4305, Carnegie Mellon University",
+            "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+          },
+          {
+            "uid": "lti-colloquium-2026-11-13",
+            "title": "LTI Colloquium — Jocelyn Shen",
+            "start": "2026-11-13T20:30:00.000Z",
+            "end": "2026-11-13T22:00:00.000Z",
+            "location": "NSH 4305, Carnegie Mellon University",
+            "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+          },
+          {
+            "uid": "lti-colloquium-2026-11-20",
+            "title": "LTI Colloquium — Mohit Iyyer",
+            "start": "2026-11-20T20:30:00.000Z",
+            "end": "2026-11-20T22:00:00.000Z",
+            "location": "NSH 4305, Carnegie Mellon University",
+            "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+          },
+          {
+            "uid": "lti-social-2026-12-04",
+            "title": "LTI Social",
+            "start": "2026-12-04T20:00:00.000Z",
+            "end": "2026-12-04T20:30:00.000Z",
+            "location": "NSH 4305, Carnegie Mellon University",
+            "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+          }
+        ]
+      }
+    },
+    {
+      "id": "34fa7359276d",
+      "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "organization": "Socialist Studies Seminar",
+      "override": {
+        "adapter": "html",
+        "status": "active",
+        "canonicalSourceId": null,
+        "fetchUrl": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": false,
+          "reviewedFragmentsOnly": true,
+          "reviewedImages": [
+            {
+              "selector": "h1:contains(\"Fall 2026 Seminars\") + p img[src=\"screenshot-2026-08-21-at-2.18.58pm.png\"]",
+              "sha256": "142eebf6dc73e174ce3384bb2be6896ece0653389fe6abf41013eb94ab91e227",
+              "reviewedAt": "2026-10-25",
+              "events": [
+                {
+                  "uid": "socialist-studies-2026-09-18",
+                  "title": "Anna Seghers: The Legacy of a German-Jewish Socialist and Antifascist Writer — Stephen Brockmann",
+                  "start": "2026-09-18T15:00:00",
+                  "end": "2026-09-18T16:30:00",
+                  "location": "Baker/Porter Hall 246A, Carnegie Mellon University",
+                  "description": "Socialist Studies Seminar. Speaker: Stephen Brockmann, Carnegie Mellon University.",
+                  "organizer": "Socialist Studies Seminar",
+                  "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html"
+                }
+              ]
+            },
+            {
+              "selector": "h1:contains(\"Fall 2026 Seminars\") + p img[src=\"screenshot-2026-08-21-at-2.19.02pm.png\"]",
+              "sha256": "88b8992ad540c5da898fc55fd9d1f10f4b2b33cff77d75034e52bc4859a3a32a",
+              "reviewedAt": "2026-10-25",
+              "events": [
+                {
+                  "uid": "socialist-studies-2026-10-09",
+                  "title": "Hiding Patterns: Evasion and Postwar Justice between Romania and the Soviet Union — Diana Dumitru",
+                  "start": "2026-10-09T16:00:00",
+                  "end": "2026-10-09T17:30:00",
+                  "location": "Baker/Porter Hall 246A, Carnegie Mellon University",
+                  "description": "Socialist Studies Seminar. Speaker: Diana Dumitru, Georgetown University.",
+                  "organizer": "Socialist Studies Seminar",
+                  "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html"
+                }
+              ]
+            },
+            {
+              "selector": "h1:contains(\"Fall 2026 Seminars\") + p img[src=\"screenshot-2026-08-21-at-2.19.05pm.png\"]",
+              "sha256": "d691db7402295950339a12ffc4a0a393f2199cd5a8a22c4065c3c8edb89df445",
+              "reviewedAt": "2026-10-25",
+              "events": [
+                {
+                  "uid": "socialist-studies-2026-11-20",
+                  "title": "Becoming Radicals: Polish Jewish Women’s Paths to the Spanish Civil War — Anna Muller",
+                  "start": "2026-11-20T16:00:00",
+                  "end": "2026-11-20T17:30:00",
+                  "location": "Baker/Porter Hall 246A, Carnegie Mellon University",
+                  "description": "Socialist Studies Seminar. Speaker: Anna Muller, University of Michigan-Dearborn.",
+                  "organizer": "Socialist Studies Seminar",
+                  "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html"
+                }
+              ]
+            }
+          ]
+        },
+        "strategy": "Verify each currently advertised Fall 2026 poster hash and publish only its visually reviewed complete date, title, speaker, venue and time range.",
+        "reason": ""
+      },
+      "reason": "Three current-semester posters publish full dates and times; the Brockmann PDF visually matches the September18 image and is not a separate event.",
+      "nextStep": "Review changed/missing poster assets before importing replacements; do not generate monthly dates from the introductory prose.",
+      "evidence": {
+        "primaryStatus": 200,
+        "htmlSnapshot": "research/remaining-19-2026-10-25/evidence/academic-34fa7359276d.html",
+        "imageSnapshots": [
+          "research/remaining-19-2026-10-25/evidence/socialist-fall-1.png",
+          "research/remaining-19-2026-10-25/evidence/socialist-fall-2.png",
+          "research/remaining-19-2026-10-25/evidence/socialist-fall-3.png"
+        ],
+        "pdfSnapshot": "research/remaining-19-2026-10-25/evidence/socialist-brockmann.pdf",
+        "pdfRenderedPage": "research/remaining-19-2026-10-25/evidence/socialist-brockmann-page1.png",
+        "publishedDates": [
+          "2026-09-18",
+          "2026-10-09",
+          "2026-11-20"
+        ]
+      },
+      "liveReplay": {
+        "checkedAt": "2026-10-25T20:48:26.865Z",
+        "windowRecords": 2,
+        "futureRecords": 1,
+        "undated": false,
+        "unsupported": false,
+        "partial": false,
+        "warnings": [],
+        "events": [
+          {
+            "uid": "socialist-studies-2026-10-09",
+            "title": "Hiding Patterns: Evasion and Postwar Justice between Romania and the Soviet Union — Diana Dumitru",
+            "start": "2026-10-09T20:00:00.000Z",
+            "end": "2026-10-09T21:30:00.000Z",
+            "location": "Baker/Porter Hall 246A, Carnegie Mellon University",
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html"
+          },
+          {
+            "uid": "socialist-studies-2026-11-20",
+            "title": "Becoming Radicals: Polish Jewish Women’s Paths to the Spanish Civil War — Anna Muller",
+            "start": "2026-11-20T21:00:00.000Z",
+            "end": "2026-11-20T22:30:00.000Z",
+            "location": "Baker/Porter Hall 246A, Carnegie Mellon University",
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d861fd81e26d",
+      "url": "https://www.cmu.edu/history/cause/events/index.html",
+      "organization": "Center for African American Urban Studies and the Economy Events",
+      "override": {
+        "adapter": "html",
+        "status": "active",
+        "canonicalSourceId": null,
+        "fetchUrl": "https://www.cmu.edu/history/cause/events/index.html",
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": false,
+          "reviewedFragmentsOnly": true,
+          "reviewedImages": [
+            {
+              "selector": "#content img:first",
+              "sha256": "2538a3f27493988033d0ff31325b6a3505cd1d53813ec726eb5f1aae3f3b9737",
+              "reviewedAt": "2026-10-25",
+              "events": [
+                {
+                  "uid": "cause-augustus-wood-2026-02-27",
+                  "title": "Vine City as the World Trade Center: Structural Violence in Atlanta and the Crisis of the Black Worker Today — Augustus Wood",
+                  "start": "2026-02-27T16:30:00",
+                  "end": "2026-02-27T18:45:00",
+                  "location": "Baker Hall A53 — Steinberg Auditorium, Carnegie Mellon University",
+                  "description": "CAUSE–Heinz Speaker Series. Dr. Augustus Wood, Assistant Professor, University of Illinois Urbana-Champaign.",
+                  "organizer": "Center for Africanamerican Urban Studies and the Economy",
+                  "url": "https://www.cmu.edu/history/cause/events/index.html"
+                }
+              ]
+            }
+          ],
+          "reviewedResources": [
+            {
+              "selector": "#content",
+              "expectedCount": 1,
+              "sha256": "0ebc3bacede4e88e0b0417908f6f616dba5621c9028b2fe7b79456cfafb78acf",
+              "kind": "historical announcement archive",
+              "reason": "The leading poster is explicitly dated February 27, 2026; remaining announcements are older. No dated occurrence in the current window was found. Changes to text or advertised media require renewed review.",
+              "reviewedAt": "2026-10-25"
+            }
+          ]
+        },
+        "strategy": "Verify the leading dated CAUSE poster and monitor the complete reviewed archive content and media destinations for additions or changes. Historical dates remain historical.",
+        "reason": ""
+      },
+      "reason": "The latest complete event is February27,2026 and is outside the current window; the prior unsupported state was an extraction/structure gap rather than lack of dates or anonymous access.",
+      "nextStep": "Automatically refresh the hash checks; a newly added or changed announcement becomes a review alert instead of silently remaining empty.",
+      "evidence": {
+        "primaryStatus": 200,
+        "htmlSnapshot": "research/remaining-19-2026-10-25/evidence/academic-d861fd81e26d.html",
+        "imageSnapshot": "research/remaining-19-2026-10-25/evidence/cause-augustus.png",
+        "sourceAlt": "Photo of Augustus Wood's guest speaker lecture on 2/27/2026 at Baker Hall room A53, at4:30pm–6:45pm.",
+        "historicalTextDates": [
+          "2025-11-07",
+          "2025-03-14",
+          "2025-02-21"
+        ],
+        "latestReviewedDate": "2026-02-27"
+      },
+      "liveReplay": {
+        "checkedAt": "2026-10-25T20:48:27.027Z",
+        "windowRecords": 0,
+        "futureRecords": 0,
+        "undated": false,
+        "unsupported": false,
+        "partial": false,
+        "warnings": [
+          "Monitored historical announcement archive: The leading poster is explicitly dated February 27, 2026; remaining announcements are older. No dated occurrence in the current window was found. Changes to text or advertised media require renewed review."
+        ],
+        "events": []
+      }
+    },
+    {
+      "id": "5ade174c3483",
+      "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "organization": "Enterprise-Wide Optimization Seminars",
+      "override": {
+        "adapter": "html",
+        "status": "active",
+        "canonicalSourceId": null,
+        "fetchUrl": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": false,
+          "reviewedFragmentsOnly": true,
+          "reviewedResources": [
+            {
+              "selector": "body > .container",
+              "expectedCount": 1,
+              "sha256": "935fd588e8c75a212d219e5f6913e36ef0f5ad09bebf8550e1d694154c07f826",
+              "kind": "undated recording archive",
+              "reason": "This is the EWO Seminar Slides archive with downloadable slides and recordings. The EWO parent overview explicitly describes it as a list of seminar slides; no current occurrence schedule is published in the inspected page. File names and media timestamps are not event dates.",
+              "reviewedAt": "2026-10-25"
+            }
+          ]
+        },
+        "strategy": "Monitor the scoped public recording archive by text and advertised-resource fingerprint. Unchanged resource content is explicitly undated; changed content requires review before publishing event fields.",
+        "reason": ""
+      },
+      "reason": "This is the EWO Seminar Slides archive with downloadable slides and recordings. The EWO parent overview explicitly describes it as a list of seminar slides; no current occurrence schedule is published in the inspected page. File names and media timestamps are not event dates.",
+      "nextStep": "If a dated schedule is added, the changed fingerprint raises a review alert; add an extractor only after full event dates are published.",
+      "evidence": {
+        "primaryStatus": 200,
+        "htmlSnapshot": "research/remaining-19-2026-10-25/evidence/academic-5ade174c3483.html",
+        "additionalInspectedDocument": "https://egon.cheme.cmu.edu/ewo/index.html",
+        "additionalSnapshot": "research/remaining-19-2026-10-25/evidence/ewo-parent.html",
+        "inspectedSlidePDF": "https://egon.cheme.cmu.edu/ewo/docs/EWO_January_22_2026_Lara.pdf",
+        "slideSnapshot": "research/remaining-19-2026-10-25/evidence/ewo-lara-2026.pdf",
+        "slideObservation": "The first slide supplies a title, not an occurrence date; no date is inferred from the filename."
+      },
+      "liveReplay": {
+        "checkedAt": "2026-10-25T20:48:26.318Z",
+        "windowRecords": 0,
+        "futureRecords": 0,
+        "undated": true,
+        "unsupported": false,
+        "partial": false,
+        "warnings": [
+          "Monitored undated recording archive: This is the EWO Seminar Slides archive with downloadable slides and recordings. The EWO parent overview explicitly describes it as a list of seminar slides; no current occurrence schedule is published in the inspected page. File names and media timestamps are not event dates."
+        ],
+        "events": []
+      }
+    },
+    {
+      "id": "b453fc62eac4",
+      "url": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+      "organization": "EPP Faculty Seminar Series",
+      "override": {
+        "adapter": "html",
+        "status": "active",
+        "canonicalSourceId": null,
+        "fetchUrl": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": false,
+          "reviewedFragmentsOnly": true,
+          "reviewedResources": [
+            {
+              "selector": "#maincontent",
+              "expectedCount": 1,
+              "sha256": "fafe4418903015637e1d8a5f7fd2f7d1770c09275f59160087e20ff370b876b6",
+              "kind": "undated recording archive",
+              "reason": "The page describes monthly faculty seminars and lists recordings of past talks, without per-occurrence full dates. Monthly frequency and video publication dates cannot define a scheduled event.",
+              "reviewedAt": "2026-10-25"
+            }
+          ]
+        },
+        "strategy": "Monitor the scoped public recording archive by text and advertised-resource fingerprint. Unchanged resource content is explicitly undated; changed content requires review before publishing event fields.",
+        "reason": ""
+      },
+      "reason": "The page describes monthly faculty seminars and lists recordings of past talks, without per-occurrence full dates. Monthly frequency and video publication dates cannot define a scheduled event.",
+      "nextStep": "If a dated schedule is added, the changed fingerprint raises a review alert; add an extractor only after full event dates are published.",
+      "evidence": {
+        "primaryStatus": 200,
+        "htmlSnapshot": "research/remaining-19-2026-10-25/evidence/academic-b453fc62eac4.html",
+        "additionalInspectedDocument": "https://epp.engineering.cmu.edu/events/index.html",
+        "additionalSnapshot": "research/remaining-19-2026-10-25/evidence/epp-events-parent.html"
+      },
+      "liveReplay": {
+        "checkedAt": "2026-10-25T20:48:26.326Z",
+        "windowRecords": 0,
+        "futureRecords": 0,
+        "undated": true,
+        "unsupported": false,
+        "partial": false,
+        "warnings": [
+          "Monitored undated recording archive: The page describes monthly faculty seminars and lists recordings of past talks, without per-occurrence full dates. Monthly frequency and video publication dates cannot define a scheduled event."
+        ],
+        "events": []
+      }
+    },
+    {
+      "id": "31aa89be167d",
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "organization": "Data Storage Systems Center Events",
+      "override": {
+        "adapter": "html",
+        "status": "unsupported",
+        "canonicalSourceId": null,
+        "fetchUrl": "https://www.dssc.ece.cmu.edu/news/Events.html",
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": false
+        },
+        "strategy": "Retain the public archive and report contradictory source years; do not choose a year from URL/title or infer one from weekdays.",
+        "reason": "The 2026 Spring review heading prints June9,2025 while its agenda prints Tuesday June9,2026. The 2026 Japan review heading prints June30,2025 while its agenda says Tuesday June30. The page is publicly readable, but occurrence-year conflicts require organizer clarification."
+      },
+      "reason": "Fresh 200 child pages still contain conflicting occurrence-year evidence, so historical events cannot be normalized by guessing.",
+      "nextStep": "DSSC should correct the visible event headings or publish an unambiguous official dated calendar/agenda. All competing dates currently predate the ingestion window, but that does not remove the source conflict.",
+      "evidence": {
+        "primaryStatus": 200,
+        "htmlSnapshot": "research/remaining-19-2026-10-25/evidence/academic-31aa89be167d.html",
+        "childPages": [
+          {
+            "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Japan%20Technical%20Review.html",
+            "snapshot": "research/remaining-19-2026-10-25/evidence/dssc-child-0.html",
+            "status": 200,
+            "headingDate": "2025-06-30",
+            "titleYear": 2026,
+            "agendaDate": "Tuesday, June30 (no year)"
+          },
+          {
+            "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Spring%20Technical%20Review.html",
+            "snapshot": "research/remaining-19-2026-10-25/evidence/dssc-child-1.html",
+            "status": 200,
+            "headingDate": "2025-06-09",
+            "agendaDate": "2026-06-09"
+          },
+          {
+            "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Japan%20Technical%20Review.html",
+            "snapshot": "research/remaining-19-2026-10-25/evidence/dssc-child-2.html",
+            "status": 200,
+            "consistentDate": "2025-05-22"
+          },
+          {
+            "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Spring%20Technical%20Review.html",
+            "snapshot": "research/remaining-19-2026-10-25/evidence/dssc-child-3.html",
+            "status": 200,
+            "consistentDate": "2025-03-04"
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "reviewed": 6,
+    "enableReviewedPosterOrArchiveExtraction": 3,
+    "enableUndatedResourceMonitoring": 2,
+    "retainExplicitDateConflict": 1
+  },
+  "evidenceAssets": [
+    {
+      "file": "research/remaining-19-2026-10-25/evidence/lti-fall-2026.png",
+      "sha256": "30a43498ba23dce5bcd1ad701e68aba9821841ccbc31af0c69577a17ae110cb2",
+      "bytes": 263016,
+      "visualReviewed": true
+    },
+    {
+      "file": "research/remaining-19-2026-10-25/evidence/socialist-fall-1.png",
+      "sha256": "142eebf6dc73e174ce3384bb2be6896ece0653389fe6abf41013eb94ab91e227",
+      "bytes": 925808,
+      "visualReviewed": true
+    },
+    {
+      "file": "research/remaining-19-2026-10-25/evidence/socialist-fall-2.png",
+      "sha256": "88b8992ad540c5da898fc55fd9d1f10f4b2b33cff77d75034e52bc4859a3a32a",
+      "bytes": 1157928,
+      "visualReviewed": true
+    },
+    {
+      "file": "research/remaining-19-2026-10-25/evidence/socialist-fall-3.png",
+      "sha256": "d691db7402295950339a12ffc4a0a393f2199cd5a8a22c4065c3c8edb89df445",
+      "bytes": 1040978,
+      "visualReviewed": true
+    },
+    {
+      "file": "research/remaining-19-2026-10-25/evidence/cause-augustus.png",
+      "sha256": "2538a3f27493988033d0ff31325b6a3505cd1d53813ec726eb5f1aae3f3b9737",
+      "bytes": 3333757,
+      "visualReviewed": true
+    }
+  ],
+  "skillUsed": "/Users/oransimon/.codex/plugins/cache/openai-primary-runtime/pdf/26.1020.11348/skills/pdf/SKILL.md",
+  "testWindow": {
+    "windowStart": "2026-09-25",
+    "windowEnd": "2027-10-26"
+  },
+  "limits": [
+    "Image events are a bounded reviewed snapshot; they are accepted only while the current selected bytes and semester context match.",
+    "Historical rows remain outside the rolling window; no year or recurring schedule is invented.",
+    "Undated recording archives are monitored resources, not empty event calendars or unavailable webpages.",
+    "DSSC remains unresolved because the official source itself conflicts; extraction code cannot legitimately settle the year."
+  ],
+  "validation": {
+    "focusedTests": {
+      "passed": 6,
+      "total": 6,
+      "command": "node --test tests/remaining-academic.test.mjs"
+    },
+    "liveReplayCount": 5,
+    "noDatabaseRefresh": true,
+    "noSharedCodeOrConfigEdits": true
+  }
+}

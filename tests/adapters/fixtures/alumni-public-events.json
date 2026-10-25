@@ -1,0 +1,64 @@
+{
+  "reviewedAt": "2026-10-25T21:04:50.468Z",
+  "source": "https://community.cmu.edu/s/events",
+  "scope": "Four visibly reviewed cards and their anonymous public tile clock results; no broader list payload is retained.",
+  "records": [
+    {
+      "id": "a7DUk000000PvuLMAS",
+      "title": "Tepper San Francisco: Leading in an Agentic World: How AI Will Reshape Strategy, Innovation, and Competitive Advantage",
+      "date": "2026-10-29",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage",
+      "location": "PALO ALTO, CA",
+      "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+    },
+    {
+      "id": "a7DUk000000PXTpMAO",
+      "title": "HI - A Globally Plaid Halloween at HoMA",
+      "date": "2026-10-30",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa",
+      "location": "HONOLULU, HI",
+      "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+    },
+    {
+      "id": "a7DUk000000OnpFMAS",
+      "title": "Sydney - Alumni Coffee and Catch-Up",
+      "date": "2026-10-27",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
+      "location": "",
+      "clockPolicy": "date_only",
+      "clockReviewReason": "Publisher clock zone does not unambiguously establish the local time of the city named in the public card.",
+      "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+    },
+    {
+      "id": "a7DUk000000PrAoMAK",
+      "title": "Sports Betting and the Brain - October 2026",
+      "date": "2026-10-28",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
+      "location": "VIRTUAL WEBINAR, ONLINE",
+      "mode": "online",
+      "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+    }
+  ],
+  "clocks": [
+    {
+      "id": "a7DUk000000PvuLMAS",
+      "startDate": "2026-10-30T01:30:00.000Z",
+      "timeZoneVal": "America/Los_Angeles"
+    },
+    {
+      "id": "a7DUk000000PXTpMAO",
+      "startDate": "2026-10-31T03:00:00.000Z",
+      "timeZoneVal": "Pacific/Honolulu"
+    },
+    {
+      "id": "a7DUk000000OnpFMAS",
+      "startDate": "2026-10-27T21:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    },
+    {
+      "id": "a7DUk000000PrAoMAK",
+      "startDate": "2026-10-28T19:00:00.000Z",
+      "timeZoneVal": "America/New_York"
+    }
+  ]
+}

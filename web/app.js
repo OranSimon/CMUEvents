@@ -682,7 +682,7 @@ function openEvent(event) {
  */
 function openSourceInfo() {
   const sources = statusData?.sources || {};
-  const metrics = [[sources.total, "Catalogued sources"], [sources.ok, "Sources with imported events"], [sources.empty, "No imported events in window"], [sources.covered, "Covered by shared feeds"], [sources.error, "Need another check"], [sources.blocked, "Fetch blocked"], [sources.subscription_only, "Subscription only"], [sources.pending, "Awaiting a check"], [sources.unsupported, "Need a custom integration"]].filter(([value]) => Number.isFinite(value));
+  const metrics = [[sources.total, "Catalogued sources"], [sources.ok, "Sources with imported events"], [sources.empty, "No imported events in window"], [sources.undated, "No dated schedule published · monitored"], [sources.covered, "Covered by shared feeds"], [sources.error, "Need another check"], [sources.blocked, "Fetch blocked"], [sources.subscription_only, "Subscription only"], [sources.pending, "Awaiting a check"], [sources.unsupported, "Need a custom integration"]].filter(([value]) => Number.isFinite(value));
   element("dialog-eyebrow").textContent = "BEHIND THE CALENDAR";
   element("detail-content").innerHTML = `<div class="detail-body"><p class="eyebrow">MANY SOURCES. ONE PLACE.</p><h2 class="detail-title" id="detail-title">A wider view of campus.</h2><p class="source-explanation">CMU Events follows university calendars, academic departments, research centers, offices, and other non-club publishers. Independent student-club websites and their own calendar feeds are excluded. All activities published by retained sources are kept, including events hosted by student clubs.</p>
     ${metrics.length ? `<div class="source-metrics">${metrics.map(([value, label]) => `<div class="source-metric"><strong>${value.toLocaleString()}</strong><span>${label}</span></div>`).join("")}</div>` : ""}
@@ -745,14 +745,14 @@ function renderSourceDiagnostics() {
   const container = element("source-diagnostics-content");
   if (!container || !diagnosticsData) return;
   const attentionStates = ["error", "blocked", "unsupported", "pending", "subscription_only"];
-  const states = { error: "Needs a check", blocked: "Fetch blocked", unsupported: "Integration needed", pending: "Awaiting a check", subscription_only: "Subscription only", empty: "Zero imported in window", ok: "Has imported events", covered: "Covered by shared feed" };
+  const states = { error: "Needs a check", blocked: "Fetch blocked", unsupported: "Integration needed", pending: "Awaiting a check", subscription_only: "Subscription only", empty: "Zero imported in window", undated: "No dated schedule · monitored", ok: "Has imported events", covered: "Covered by shared feed" };
   if (!element("source-diagnostics-results")) {
-    container.innerHTML = `<div class="diagnostics-controls"><label for="diagnostics-view">Show sources<select id="diagnostics-view" data-diagnostics-view><option value="attention">Needs attention</option><option value="zero">Zero-record sources</option><option value="all">All</option></select></label><label for="diagnostics-search">Search sources<input id="diagnostics-search" data-diagnostics-search type="search" placeholder="Organization, department, or URL" autocomplete="off" value="${escapeHtml(diagnosticsQuery)}"></label></div><div id="source-diagnostics-results"></div>`;
+    container.innerHTML = `<div class="diagnostics-controls"><label for="diagnostics-view">Show sources<select id="diagnostics-view" data-diagnostics-view><option value="attention">Needs attention</option><option value="zero">Zero-record calendars</option><option value="undated">Undated resources · monitored</option><option value="all">All</option></select></label><label for="diagnostics-search">Search sources<input id="diagnostics-search" data-diagnostics-search type="search" placeholder="Organization, department, or URL" autocomplete="off" value="${escapeHtml(diagnosticsQuery)}"></label></div><div id="source-diagnostics-results"></div>`;
     element("diagnostics-view").value = diagnosticsView;
   }
   const query = diagnosticsQuery.trim().toLocaleLowerCase();
   const matching = diagnosticsData.filter(source => {
-    const matchesView = diagnosticsView === "all" || (diagnosticsView === "zero" ? source.state === "empty"
+    const matchesView = diagnosticsView === "all" || (diagnosticsView === "undated" ? source.state === "undated" : diagnosticsView === "zero" ? source.state === "empty"
       : attentionStates.includes(source.state) || source.evidence?.visualReview?.requiresReview === true || source.evidence?.accessReview?.attention === true);
     return matchesView && (!query || `${source.org || ""} ${source.department || ""} ${source.url || ""} ${source.fetchUrl || ""}`.toLocaleLowerCase().includes(query));
   }).sort((left, right) => (left.org || "").localeCompare(right.org || ""));
@@ -762,6 +762,7 @@ function renderSourceDiagnostics() {
     <div class="diagnostics-list">${visible.map(source => {
       const url = safeUrl(source.url);
       const fallback = source.state === "empty" ? "No occurrences were imported from this source in its collection window. This does not establish that the original page or organization has no events."
+        : source.state === "undated" ? "The reviewed public resource has no individually dated schedule. It is checked regularly; a content change triggers another review."
         : source.state === "ok" ? `${Number(source.eventCount || 0).toLocaleString()} occurrences imported from this source in its collection window.`
         : source.state === "covered" ? "This source is represented by a shared public feed."
         : "This source has not completed a successful check. See its original page for current information.";

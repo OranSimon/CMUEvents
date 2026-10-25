@@ -4,8 +4,22 @@ import { fetchIcs } from './ics.mjs';
 import { fetchPdfSchedule } from './pdfschedule.mjs';
 import { fetchReviewedImages, parseReviewedFragments } from './reviewed-images.mjs';
 import { parseGeneratedCalendar } from './generated-calendar.mjs';
+import { parseReviewedResources } from './reviewed-resources.mjs';
 
 const MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12 };
+
+/**
+ * Canonicalize adjacent-day prose ranges without creating intermediate meetings.
+ * Nonadjacent date lists remain unsupported instead of becoming a continuous span.
+ * @param {string} text Published date text.
+ * @return {string} Equivalent bounded date-range text.
+ */
+function normalizeDateLists(text) {
+  return text.replace(/(?<!\d)([A-Za-z])(?=\d)/g, '$1 ')
+    .replace(/\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\.?)\s+(\d{1,2})(?:st|nd|rd|th)?\s+and\s+(\d{1,2})(?:st|nd|rd|th)?[,]?\s+(20\d{2})\b/gi,
+    (match, month, first, last, year) => +last === +first + 1 ? `${month} ${first}–${last}, ${year}` : match)
+    .replace(/([-–])\s*(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+(?=(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\.?\s+\d)/gi, '$1 ');
+}
 
 /**
  * Exclude binary assets from HTML detail crawling; newsletters own their PDF path.
@@ -42,8 +56,8 @@ export function clockTime(value) {
  * @return {string|null} ISO date or local ISO datetime for later zone conversion.
  */
 export function explicitTextDate(value) {
-  const text = plainText(value).replace(/\s+/g, ' ').replace(/(?<!\d)([A-Za-z])(?=\d)/g, '$1 ')
-    .replace(/,\s*(?=20\d{2}\b)/g, ', ');
+  const text = normalizeDateLists(plainText(value).replace(/\s+/g, ' ').replace(/(?<!\d)([A-Za-z])(?=\d)/g, '$1 ')
+    .replace(/,\s*(?=20\d{2}\b)/g, ', '));
   const iso = text.match(/\b(20\d{2}[-/]\d{2}[-/]\d{2})(?:[T ](\d{1,2}):(\d{2})(?::(\d{2}))?(Z|[+-]\d{2}:?\d{2})?)?\b/);
   if (iso) {
     const date = iso[1].replaceAll('/', '-');
@@ -87,7 +101,7 @@ export function explicitTextDate(value) {
  */
 export function explicitTextEnd(value, start) {
   if (!start) return null;
-  const text = plainText(value).replace(/\s+/g, ' ').replace(/,\s*(?=20\d{2}\b)/g, ', ');
+  const text = normalizeDateLists(plainText(value).replace(/\s+/g, ' ').replace(/,\s*(?=20\d{2}\b)/g, ', '));
   if (start.length === 10) {
     const writtenRange = text.match(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\.?\s+(\d{1,2})(?:st|nd|rd|th)?[,]?\s+(20\d{2})\s*(?:[-–]|to)\s*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\w*\.?\s+(\d{1,2})(?:st|nd|rd|th)?[,]?\s+(20\d{2})\b/i);
     if (writtenRange) {
@@ -342,7 +356,9 @@ export function parseHtml(html, plan = {}, context = {}) {
     && $(options.emptySelector).toArray().some(element => new RegExp(options.emptyPattern, 'i').test($(element).text()));
   const unsupported = recognized === 0 && !campusGroupsEmpty && !slateEmpty && !configuredEmpty;
   if (unsupported) warnings.push('No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side');
-  return { events: [...events.values()], warnings, detailLinks: [...detailLinks], groundedUrls: [...groundedUrls], unsupported, recognized,
+  const paginationLinks = options.paginationSelector ? [...new Set($(options.paginationSelector).toArray()
+    .map(element => absoluteUrl($(element).attr('href'), base)).filter(Boolean))] : [];
+  return { events: [...events.values()], warnings, detailLinks: [...detailLinks], paginationLinks, groundedUrls: [...groundedUrls], unsupported, recognized,
     ...(warnings.some(warning => warning.startsWith('Invalid Event JSON-LD')) ? { partial: true } : {}) };
 }
 
@@ -402,11 +418,13 @@ async function parseDocument(html, plan, context) {
   const result = plan.options?.reviewedFragmentsOnly ? { events: [], warnings: [], unsupported: true }
     : plan.adapter === 'newsletter' || plan.options?.headingSections
     ? parseNewsletter(html, plan, context) : parseHtml(html, plan, context);
+  result.datedRecognized = Boolean(result.recognized || result.events.length);
   if (plan.options?.generatedCalendar) {
     const calendar = parseGeneratedCalendar(html, plan, context);
     result.events.push(...calendar.events);
     result.warnings.push(...calendar.warnings);
     if (calendar.recognized) result.unsupported = false;
+    if (calendar.recognized) result.datedRecognized = true;
     if (calendar.partial) result.partial = true;
     if (!result.unsupported) result.warnings = result.warnings.filter(warning => !warning.startsWith('No events'));
   }
@@ -415,6 +433,7 @@ async function parseDocument(html, plan, context) {
     result.events.push(...reviewed.events);
     result.warnings.push(...reviewed.warnings);
     if (reviewed.recognized) result.unsupported = false;
+    if (reviewed.recognized && plan.options.reviewedFragments.some(item => item.events?.length)) result.datedRecognized = true;
     if (reviewed.partial) result.partial = true;
     if (!result.unsupported) result.warnings = result.warnings.filter(warning => !warning.startsWith('No events'));
   }
@@ -423,7 +442,35 @@ async function parseDocument(html, plan, context) {
     result.events.push(...images.events);
     result.warnings.push(...images.warnings);
     if (images.recognized) result.unsupported = false;
+    if (images.recognized && plan.options.reviewedImages.some(item => item.events?.length)) result.datedRecognized = true;
     if (images.partial) result.partial = true;
+    if (!result.unsupported) result.warnings = result.warnings.filter(warning => !warning.startsWith('No events'));
+  }
+  if (plan.options?.linkedTextSchedule && !result.datedRecognized) {
+    const linked = await parseLinkedTextSchedule(html, plan, context);
+    result.events.push(...linked.events);
+    result.warnings.push(...linked.warnings);
+    if (linked.recognized) { result.unsupported = false; result.datedRecognized = true; }
+    if (linked.partial) result.partial = true;
+    if (!result.unsupported) result.warnings = result.warnings.filter(warning => !warning.startsWith('No events'));
+  }
+  if (plan.options?.reviewedResources?.length) {
+    const resources = parseReviewedResources(html, plan);
+    result.warnings.push(...resources.warnings);
+    if (resources.recognized) result.unsupported = false;
+    if (resources.partial) result.partial = true;
+    if (!result.datedRecognized && !result.events.length && resources.undated) result.undated = true;
+    const $ = cheerio.load(html);
+    const excluded = new Set();
+    for (const review of plan.options.reviewedResources.filter(item => item.excludeDetailLinks === true)) {
+      const checked = parseReviewedResources(html, { ...plan, options: { reviewedResources: [review] } });
+      if (!checked.recognized || checked.partial) continue;
+      $(review.selector).find('a[href]').addBack('a[href]').each((_, element) => {
+        const url = absoluteUrl($(element).attr('href'), plan.fetchUrl || plan.url);
+        if (url) excluded.add(url);
+      });
+    }
+    if (result.detailLinks) result.detailLinks = result.detailLinks.filter(url => !excluded.has(url));
     if (!result.unsupported) result.warnings = result.warnings.filter(warning => !warning.startsWith('No events'));
   }
   if (!plan.options?.embeddedGoogleCalendarSelector) return result;
@@ -458,6 +505,38 @@ async function parseDocument(html, plan, context) {
   }
   if (!result.unsupported) result.warnings = result.warnings.filter(warning => !warning.startsWith('No events'));
   return { ...result, events: [...events.values()] };
+}
+
+/**
+ * Read one explicitly advertised public Google document as a conference agenda.
+ * Only its selected Date: line grounds the occurrence; document publication,
+ * hotel booking dates and the current year never provide occurrence dates.
+ * @param {string} html Public conference landing page.
+ * @param {Object} plan Reviewed link/title selectors and date-line prefix.
+ * @param {Object} context Safe text fetcher and requested collection window.
+ * @return {Promise<Object>} One dated conference range or a precise diagnostic.
+ */
+async function parseLinkedTextSchedule(html, plan, context) {
+  const options = plan.options.linkedTextSchedule;
+  const $ = cheerio.load(html);
+  const links = [...new Set($(options.linkSelector).toArray().map(element => absoluteUrl($(element).attr('href'), plan.url)).filter(Boolean))];
+  if (links.length !== 1) return { events: [], warnings: ['Linked agenda needs review: expected one advertised public document'], partial: true };
+  try {
+    const document = new URL(links[0]);
+    const id = document.pathname.match(/^\/document\/d\/([A-Za-z0-9_-]+)(?:\/|$)/)?.[1];
+    if (document.hostname !== 'docs.google.com' || !id) throw new Error('expected an advertised Google document URL');
+    const text = await context.fetchText(`https://docs.google.com/document/d/${id}/export?format=txt`);
+    if (/^\s*</.test(text)) throw new Error('public text export returned HTML rather than an agenda');
+    const prefix = options.dateLinePrefix || 'Date:';
+    const dates = text.split(/\r?\n/).map(line => line.trim()).filter(line => line.startsWith(prefix));
+    if (dates.length !== 1) throw new Error('the selected date line is missing or ambiguous');
+    const dateText = dates[0].slice(prefix.length).replace(/\b(?:Mon(?:day)?|Tue(?:sday)?|Wed(?:nesday)?|Thu(?:rsday)?|Fri(?:day)?|Sat(?:urday)?|Sun(?:day)?)\b/gi, ' ');
+    const start = explicitTextDate(dateText);
+    const event = normalizeEvent({ title: $(options.titleSelector || 'h1').first().text(), start,
+      end: explicitTextEnd(dateText, start), description: text, url: plan.url }, plan);
+    if (!event) throw new Error('the agenda date line lacks a valid explicit year/date or landing-page title');
+    return { events: inWindow(event, context) ? [event] : [], warnings: [], recognized: 1 };
+  } catch (error) { return { events: [], warnings: [`Linked agenda needs review: ${error.message}`], partial: true }; }
 }
 
 /**
@@ -528,13 +607,15 @@ function mergeDetailEvents(events, detailEvents) {
  * @param {Object} context Fetch callback and date window.
  * @return {Promise<Object>} Normalized events with parsing/fetch diagnostics.
  */
-export async function fetchHtml(plan, context) {
+async function fetchHtmlPage(plan, context) {
   const text = await context.fetchText(plan.fetchUrl || plan.url);
   if (plan.options?.pdfLinkSelector) return fetchPdfSchedule(text, plan, context);
   const result = await parseDocument(text, plan, context);
   const events = new Map(result.events.map(event => [event.uid, event]));
   let supported = !result.unsupported;
   let partial = Boolean(result.partial);
+  let datedRecognized = Boolean(result.datedRecognized);
+  let undated = Boolean(result.undated);
   if (plan.options?.detailLinks && result.detailLinks) {
     const maxDetails = Math.min(plan.options.maxDetails || 12, 50);
     const origin = new URL(plan.fetchUrl || plan.url).origin;
@@ -554,6 +635,8 @@ export async function fetchHtml(plan, context) {
           ...plan.options?.detailOptions, ...plan.options?.detailOptionsByUrl?.[link] } };
         const detail = await parseDocument(await context.fetchText(link), detailPlan, context);
         if (!detail.unsupported) supported = true;
+        datedRecognized ||= Boolean(detail.datedRecognized);
+        undated ||= Boolean(detail.undated);
         if (isRequired && (detail.unsupported || detail.partial)) partial = true;
         for (const warning of detail.warnings || []) result.warnings.push(`${label} (${link}): ${warning}`);
         if (detail.unsupported && !detail.warnings?.length) result.warnings.push(`${label} (${link}): no verified event structure or empty state was recognized`);
@@ -564,5 +647,51 @@ export async function fetchHtml(plan, context) {
     else if (eligibleLinks.length > maxDetails) result.warnings.push(`Optional detail enrichment limit ${maxDetails} reached; ${eligibleLinks.length - maxDetails} link(s) already grounded by the parent were not followed`);
   }
   if (supported) result.warnings = result.warnings.filter(warning => !warning.startsWith('No events'));
-  return { events: [...events.values()], warnings: result.warnings, unsupported: !supported, ...(partial ? { partial: true } : {}) };
+  return { events: [...events.values()], warnings: result.warnings, unsupported: !supported,
+    paginationLinks: result.paginationLinks || [], datedRecognized,
+    ...(!datedRecognized && undated ? { undated: true } : {}), ...(partial ? { partial: true } : {}) };
+}
+
+/**
+ * Follow only publisher-advertised listing pages with bounded same-origin fetches.
+ * A missing/changed later page stays partial; undiscovered page numbers are never
+ * synthesized and monitored undated resources are not called empty calendars.
+ * @param {Object} plan Source selectors and optional paginationSelector/maxPages.
+ * @param {Object} context Safe public fetch callbacks and collection window.
+ * @return {Promise<Object>} Combined source events and completeness diagnostics.
+ */
+export async function fetchHtml(plan, context) {
+  const first = await fetchHtmlPage(plan, context);
+  if (!plan.options?.paginationSelector) return first;
+  const events = new Map(first.events.map(event => [event.uid, event]));
+  const warnings = [...first.warnings];
+  const origin = new URL(plan.fetchUrl || plan.url).origin;
+  const visited = new Set([plan.fetchUrl || plan.url]);
+  const pending = [...first.paginationLinks];
+  const maximum = Math.min(plan.options.maxPages || 20, 100);
+  let partial = Boolean(first.partial);
+  let supported = !first.unsupported;
+  let datedRecognized = first.datedRecognized;
+  let undated = first.undated;
+  while (pending.length && visited.size < maximum) {
+    const url = pending.shift();
+    if (visited.has(url)) continue;
+    if (new URL(url).origin !== origin || !htmlDetailUrl(url)) {
+      partial = true; warnings.push(`Rejected non-HTML or cross-origin pagination link (${url})`); continue;
+    }
+    visited.add(url);
+    try {
+      const page = await fetchHtmlPage({ ...plan, fetchUrl: url }, context);
+      supported ||= !page.unsupported;
+      partial ||= Boolean(page.partial || page.unsupported);
+      datedRecognized ||= page.datedRecognized;
+      undated ||= page.undated;
+      warnings.push(...page.warnings);
+      for (const event of page.events) events.set(event.uid, event);
+      pending.push(...page.paginationLinks.filter(next => !visited.has(next)));
+    } catch (error) { partial = true; warnings.push(`Listing page failed (${url}): ${error.message}`); }
+  }
+  if (pending.some(url => !visited.has(url))) { partial = true; warnings.push(`Listing pagination limit ${maximum} reached; advertised pages remain`); }
+  return { events: [...events.values()], warnings: [...new Set(warnings)], unsupported: !supported,
+    ...(!datedRecognized && undated ? { undated: true } : {}), ...(partial ? { partial: true } : {}) };
 }

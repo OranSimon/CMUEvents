@@ -135,13 +135,15 @@ function planSource(source) {
 const plans = catalog.map(planSource);
 // Identical embedded calendars should be fetched once even when their wrapper
 // pages have different labels. Preserve each label as canonical provenance.
+// Different reviewed filters on one endpoint must retain their distinct scopes.
 const upstreams = new Map();
 for (const plan of [...plans].sort((left, right) =>
   Number(right.kind === 'ical_feed' || right.kind === 'university_calendar')
   - Number(left.kind === 'ical_feed' || left.kind === 'university_calendar'))) {
   if (!['active', 'empty'].includes(plan.status)) continue;
   const key = JSON.stringify([plan.adapter, plan.fetchUrl,
-    [...(plan.options.additionalFetchUrls || [])].sort(), plan.options.additionalEndpoints || []]);
+    [...(plan.options.additionalFetchUrls || [])].sort(), plan.options.additionalEndpoints || [],
+    plan.options.upstreamScope || null]);
   const canonical = upstreams.get(key);
   if (canonical) {
     plan.status = 'covered';

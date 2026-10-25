@@ -1,0 +1,5 @@
+# Keep fetched evidence byte-for-byte; publisher whitespace is part of the snapshot.
+research/remaining-19-2026-10-25/**/*.html -whitespace
+research/remaining-19-2026-10-25/partial-http-*.txt -whitespace
+research/remaining-19-2026-10-25/evidence/scs-seminar-directory.json -whitespace
+research/remaining-19-2026-10-25/evidence/*-rendered.txt -whitespace

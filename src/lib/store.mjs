@@ -201,16 +201,18 @@ export function openStore(filename) {
    * @param {Array<Object>} events Normalized source occurrences.
    * @param {Array<string>} warnings Extraction limitations.
    * @param {string} now ISO refresh timestamp.
+   * @param {string} zeroState Distinguish a reviewed undated resource from an empty calendar.
    * @return {void}
    */
-  function replaceSource(sourceId, events, warnings = [], now = new Date().toISOString()) {
+  function replaceSource(sourceId, events, warnings = [], now = new Date().toISOString(), zeroState = 'empty') {
+    if (!['empty', 'undated'].includes(zeroState)) throw new Error('Invalid zero-record source state');
     db.exec('BEGIN');
     try {
       db.prepare('DELETE FROM occurrences WHERE source_id=?').run(sourceId);
       const insert = db.prepare('INSERT OR REPLACE INTO occurrences VALUES (?,?,?)');
       for (const event of events) insert.run(sourceId, identifier(occurrenceKeys(event)[0]), JSON.stringify(event));
       db.prepare('UPDATE sources SET state=?,last_attempt=?,last_success=?,error=NULL,warnings=?,event_count=? WHERE id=?')
-        .run(events.length ? 'ok' : 'empty', now, now, JSON.stringify(warnings), events.length, sourceId);
+        .run(events.length ? 'ok' : zeroState, now, now, JSON.stringify(warnings), events.length, sourceId);
       db.exec('COMMIT');
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
@@ -366,7 +368,7 @@ export function openStore(filename) {
    * @return {Object} Event count, source-state counts and latest refresh metadata.
    */
   function status() {
-    const counts = { total: 0, ok: 0, empty: 0, error: 0, covered: 0, unsupported: 0, subscription_only: 0, blocked: 0, pending: 0 };
+    const counts = { total: 0, ok: 0, empty: 0, undated: 0, error: 0, covered: 0, unsupported: 0, subscription_only: 0, blocked: 0, pending: 0 };
     for (const row of db.prepare('SELECT state,COUNT(*) AS count FROM sources GROUP BY state').all()) {
       counts.total += row.count;
       counts[row.state] = row.count;

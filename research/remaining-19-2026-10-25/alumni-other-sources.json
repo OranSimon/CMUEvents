@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-25T21:00:34.082Z",
+  "sources": [
+    {
+      "id": "1185bc345a9a",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "organization": "SCS Seminars directory",
+      "outcome": "monitored_series_directory",
+      "override": {
+        "adapter": "html",
+        "status": "active",
+        "canonicalSourceId": null,
+        "fetchUrl": "https://www.cs.cmu.edu/events/scs-seminar-series",
+        "options": {
+          "timezone": "America/New_York",
+          "preferFeed": false,
+          "detailLinks": false,
+          "reviewedResources": [
+            {
+              "selector": "#rsRegion-mainContent",
+              "expectedCount": 1,
+              "sha256": "c74c1dbf73667e0fb4431740481e81dee58bf4f48415e3698a731738d58340af",
+              "kind": "seminar-series directory",
+              "reason": "The page is an index of series and points its JavaScript table to a public series-directory data source. Series weekdays and clock times do not establish calendar occurrence dates."
+            }
+          ],
+          "additionalEndpoints": [
+            {
+              "url": "https://www.cs.cmu.edu/rs-datasources/data-source/scs-seminar-events-data",
+              "adapter": "html",
+              "options": {
+                "format": "reviewed-raw-resource",
+                "reviewedRawResource": {
+                  "jsonFields": [
+                    "success",
+                    "live",
+                    "cols",
+                    "data"
+                  ],
+                  "sha256": "8872a3bb4cdab2caf83f7b72fdb188ff13586fe6d812f61b1d622669d26f68d0",
+                  "kind": "seminar-series directory data",
+                  "reason": "This public directory lists 26 series with day, clock, contact and website columns, not dated occurrences. Transport dt/msg fields are excluded; actual column schema and series rows remain monitored."
+                }
+              }
+            }
+          ]
+        },
+        "strategy": "Monitor the scoped HTML and the public series-directory JSON projection for additions or changed calendars. Individually configured series retain their own event ingestion; no recurring occurrences are inferred from directory weekdays.",
+        "reason": "The source is a public series directory rather than a dated event listing; its directory data is monitored independently of the static shell."
+      },
+      "evidence": {
+        "primaryStatus": 200,
+        "htmlSnapshot": "research/remaining-19-2026-10-25/evidence/nonalumni-scs.html",
+        "dataURL": "https://www.cs.cmu.edu/rs-datasources/data-source/scs-seminar-events-data",
+        "dataSnapshot": "research/remaining-19-2026-10-25/evidence/scs-seminar-directory.json",
+        "rowCount": 26,
+        "columns": [
+          "seminar-name",
+          "aka",
+          "web-url",
+          "day",
+          "time",
+          "contact",
+          "sponsor",
+          "sponsor-url"
+        ],
+        "transportVolatility": {
+          "earlierDt": "Sun Oct 25 2026 20:41:01 UTC+0000 (UTC)",
+          "currentDt": "Sun Oct 25 2026 20:58:05 UTC+0000 (UTC)",
+          "fullRawHashChanged": true,
+          "selectedDataStable": true
+        },
+        "projectionFields": [
+          "success",
+          "live",
+          "cols",
+          "data"
+        ],
+        "projectionSha256": "8872a3bb4cdab2caf83f7b72fdb188ff13586fe6d812f61b1d622669d26f68d0"
+      },
+      "reason": "The official series data contains no occurrence date; a projected content fingerprint avoids constant false alerts from the publisher’s generated timestamp.",
+      "nextStep": "Review a changed directory or new linked calendar and configure the specific series; do not alias the entire SCS calendar.",
+      "replay": {
+        "eventCount": 0,
+        "undated": true,
+        "partial": false,
+        "unsupported": false,
+        "warnings": [
+          "Monitored seminar-series directory: The page is an index of series and points its JavaScript table to a public series-directory data source. Series weekdays and clock times do not establish calendar occurrence dates.",
+          "Monitored seminar-series directory data: This public directory lists 26 series with day, clock, contact and website columns, not dated occurrences. Transport dt/msg fields are excluded; actual column schema and series rows remain monitored."
+        ]
+      }
+    },
+    {
+      "id": "5a47a3eb65bf",
+      "url": "https://www.cmu.edu/ai-sdm/seminars/",
+      "organization": "AI Institute for Societal Decision Making — Seminars",
+      "outcome": "scoped_livewhale_seminar_feed",
+      "override": {
+        "adapter": "livewhale",
+        "status": "active",
+        "canonicalSourceId": null,
+        "fetchUrl": "https://events.cmu.edu/live/json/events/group/AI-SDM/tag/Seminars/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+        "options": {
+          "timezone": "America/New_York",
+          "preferFeed": false,
+          "maxPages": 30
+        },
+        "strategy": "Follow the seminar page’s advertised official calendar, constrained server-side to the AI-SDM group and Seminars tag. Preserve real occurrence timestamps, partial titles and venue distinctions.",
+        "reason": ""
+      },
+      "evidence": {
+        "primaryStatus": 200,
+        "htmlSnapshot": "research/remaining-19-2026-10-25/evidence/nonalumni-ai.html",
+        "calendarLink": "https://www.cmu.edu/ai-sdm/events/index.html",
+        "existingBroadSourceID": "87507d15b7a1",
+        "broadWidgetRows": 6,
+        "broadNonSeminarRows": [
+          {
+            "id": 33819,
+            "title": "AI-SDM Student Brainstorming Session",
+            "tags": [
+              "Student events"
+            ]
+          },
+          {
+            "id": 33823,
+            "title": "AI-SDM Public Workshop Series - Creative AI and the Ethics of Art",
+            "tags": null
+          },
+          {
+            "id": 33820,
+            "title": "AI-SDM Student Session: DLC Lunch &amp; Learn",
+            "tags": [
+              "Student events"
+            ]
+          }
+        ],
+        "scopedURL": "https://events.cmu.edu/live/json/events/group/AI-SDM/tag/Seminars/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+        "scopedSnapshot": "research/remaining-19-2026-10-25/evidence/ai-sdm-seminar-tag.json",
+        "scopedRows": [
+          {
+            "id": 33692,
+            "title": "AI-SDM Seminar Series: Tom Costello",
+            "date_iso": "2026-10-29T12:00:00-04:00",
+            "date2_iso": "2026-10-29T13:30:00-04:00",
+            "location": "4305 Newell-Simon Hall or Zoom",
+            "tags": [
+              "Seminars"
+            ]
+          },
+          {
+            "id": 33694,
+            "title": "AI-SDM Seminar Series: Jeannette Sutton",
+            "date_iso": "2026-11-19T12:00:00-05:00",
+            "date2_iso": "2026-11-19T13:30:00-05:00",
+            "location": "3305 Newell-Simon Hall",
+            "tags": [
+              "Seminars"
+            ]
+          },
+          {
+            "id": 33693,
+            "title": "AI-SDM Seminar Series: Aadirupa Saha",
+            "date_iso": "2026-12-03T09:00:00-05:00",
+            "date2_iso": "2026-12-03T10:30:00-05:00",
+            "location": "4305 Newell-Simon Hall",
+            "tags": [
+              "Seminars"
+            ]
+          }
+        ],
+        "scopeProof": "Every selected row carries Seminars. The institute’s 6-row widget includes brainstorming, student sessions and a public workshop that do not belong to this source’s seminar scope."
+      },
+      "reason": "The source explicitly advertises the institute calendar, but only the Seminars-tag subset is equivalent to the seminar-series scope.",
+      "nextStep": "Use the tested group+tag API; keep it independent of the broader institute event source.",
+      "replay": {
+        "eventCount": 3,
+        "undated": false,
+        "partial": false,
+        "unsupported": false,
+        "warnings": []
+      }
+    },
+    {
+      "id": "97bebc670839",
+      "url": "https://www.sv.cmu.edu/events/index.html",
+      "organization": "CMU Silicon Valley Events",
+      "outcome": "monitored_navigation_only_calendar_views",
+      "override": {
+        "adapter": "html",
+        "status": "active",
+        "canonicalSourceId": null,
+        "fetchUrl": "https://www.sv.cmu.edu/events/index.html",
+        "options": {
+          "timezone": "America/Los_Angeles",
+          "preferFeed": false,
+          "detailLinks": false,
+          "reviewedResources": [
+            {
+              "selector": ".eventListing",
+              "expectedCount": 2,
+              "sha256": "6e29a2b76d0d5ab25ad654660154fde6327921cc88ad6cba23f503c43d430d00",
+              "kind": "navigation-only monthly calendar",
+              "reason": "The rendered October2026 view shows its month heading and previous/next navigation without event cards, a dated schedule, or an explicit no-events notice. This describes this view only; it does not prove the campus has no events."
+            }
+          ],
+          "additionalEndpoints": [
+            {
+              "url": "https://www.sv.cmu.edu/events/2026/11/index.html",
+              "adapter": "html",
+              "options": {
+                "detailLinks": false,
+                "reviewedResources": [
+                  {
+                    "selector": ".eventListing",
+                    "expectedCount": 1,
+                    "sha256": "b5abf9ae0022b20b06c3563ab987defe929d8e7d8be3a41fece3c90dd743797d",
+                    "kind": "navigation-only monthly calendar",
+                    "reason": "The publisher-linked November2026 view likewise renders only month navigation, without occurrence cards or a dated schedule. Content changes require review; no month/day events are synthesized."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "strategy": "Monitor both the visible current calendar view and its explicitly advertised next-month page. Treat unchanged navigation-only views as unpublished/undated resources, not evidence of a hidden dynamic widget or campus-wide absence of events.",
+        "reason": "Both inspected public month views are anonymously readable but publish no occurrence records; no event-list feed or client data component was observed."
+      },
+      "evidence": {
+        "primaryStatus": 200,
+        "currentSnapshot": "research/remaining-19-2026-10-25/evidence/nonalumni-sv.html",
+        "nextURL": "https://www.sv.cmu.edu/events/2026/11/index.html",
+        "nextSnapshot": "research/remaining-19-2026-10-25/evidence/nonalumni-svNext.html",
+        "visualMethod": "Dedicated agent-created Chrome review tab; no native-app foreground control or user-tab access.",
+        "visualScreenshots": [
+          "research/remaining-19-2026-10-25/evidence/sv-october-rendered.png",
+          "research/remaining-19-2026-10-25/evidence/sv-november-rendered.png"
+        ],
+        "visualAXSnapshots": [
+          "research/remaining-19-2026-10-25/evidence/sv-october-rendered.txt",
+          "research/remaining-19-2026-10-25/evidence/sv-november-rendered.txt"
+        ],
+        "visualFinding": "October and November2026 render headings and previous/next month links with blank event-list areas. No explicit empty message or hidden dynamic widget was established.",
+        "unrelatedSourceNotAliased": "358d23ce5064 is a separate official CMU-Silicon Valley calendar. Its existence does not make this empty monthly view equivalent."
+      },
+      "reason": "The earlier dynamic-calendar explanation is unsupported by the rendered and static evidence. The inspected views are public but unpopulated.",
+      "nextStep": "A changed month heading, published event card or new advertised resource triggers review. Continue relying on the independently configured official SV feed for its own scope.",
+      "replay": {
+        "eventCount": 0,
+        "undated": true,
+        "partial": false,
+        "unsupported": false,
+        "warnings": [
+          "Monitored navigation-only monthly calendar: The rendered October2026 view shows its month heading and previous/next navigation without event cards, a dated schedule, or an explicit no-events notice. This describes this view only; it does not prove the campus has no events.",
+          "Monitored navigation-only monthly calendar: The publisher-linked November2026 view likewise renders only month navigation, without occurrence cards or a dated schedule. Content changes require review; no month/day events are synthesized."
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "reviewed": 3,
+    "scopedDatedFeed": 1,
+    "monitoredDirectoriesOrUnpublishedViews": 2
+  },
+  "productionChanges": false
+}

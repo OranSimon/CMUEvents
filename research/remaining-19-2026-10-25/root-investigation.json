@@ -1,0 +1,373 @@
+{
+  "checkedAt": "2026-10-25T20:45:23.893Z",
+  "sources": [
+    {
+      "id": "1aa9b956ba78",
+      "url": "https://www.cmu.edu/ctp/workshops/index.html",
+      "outcome": "monitored_undated_resource",
+      "solution": "Reuse the hash-guarded resource monitor for the catalog and all three public detail pages.",
+      "override": {
+        "status": "active",
+        "adapter": "html",
+        "fetchUrl": "https://www.cmu.edu/ctp/workshops/index.html",
+        "options": {
+          "timezone": "America/New_York",
+          "preferFeed": false,
+          "detailLinks": false,
+          "reviewedResources": [
+            {
+              "selector": "#content > .grid",
+              "expectedCount": 2,
+              "sha256": "4a0eea9444975854720b5bd3e45cae4aca688860e621c097b75eab868ef1d979",
+              "kind": "on-demand workshop catalog",
+              "reason": "All three advertised workshops are available for group booking; no individually dated occurrence is published."
+            }
+          ],
+          "additionalEndpoints": [
+            {
+              "url": "https://www.cmu.edu/ctp/workshops/exploring_ai.html",
+              "adapter": "html",
+              "options": {
+                "detailLinks": false,
+                "reviewedResources": [
+                  {
+                    "selector": "#content > .content:not(.wide)",
+                    "expectedCount": 1,
+                    "sha256": "a515f176fb76533229e2a3b5e592c6d23b8a96220b4ac18f2292061c4c8f605e",
+                    "kind": "on-demand workshop",
+                    "reason": "The publisher explicitly says this workshop is available for group booking and supplies duration, capacity and an interest form, without an occurrence date."
+                  }
+                ]
+              }
+            },
+            {
+              "url": "https://www.cmu.edu/ctp/workshops/building_joyful_products.html",
+              "adapter": "html",
+              "options": {
+                "detailLinks": false,
+                "reviewedResources": [
+                  {
+                    "selector": "#content > .content:not(.wide)",
+                    "expectedCount": 1,
+                    "sha256": "ae744dde6659b1b8ec1a5af10ddf17e2c19b8d5454f26454dba4ee97140bb617",
+                    "kind": "on-demand workshop",
+                    "reason": "The publisher explicitly says this workshop is available for group booking and supplies duration, capacity and an interest form, without an occurrence date."
+                  }
+                ]
+              }
+            },
+            {
+              "url": "https://www.cmu.edu/ctp/workshops/unlocking-high-quality-feedback.html",
+              "adapter": "html",
+              "options": {
+                "detailLinks": false,
+                "reviewedResources": [
+                  {
+                    "selector": "#content > .content:not(.wide)",
+                    "expectedCount": 1,
+                    "sha256": "797e3654d1ae325104e3fa0186084714cad96c9cc48b9c324bff5f3441175fd5",
+                    "kind": "on-demand workshop",
+                    "reason": "The publisher explicitly says this workshop is available for group booking and supplies duration, capacity and an interest form, without an occurrence date."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "strategy": "Monitor the public workshop catalog and each booking page; distinguish undated offerings from an empty scheduled calendar. Any content or advertised URL change requires review.",
+        "reason": "All three advertised workshops are available for group booking; no individually dated occurrence is published."
+      },
+      "evidence": {
+        "checkedAt": "2026-10-25T20:45:23.536Z",
+        "httpStatus": 200,
+        "documents": [
+          "https://www.cmu.edu/ctp/workshops/index.html",
+          "https://www.cmu.edu/ctp/workshops/exploring_ai.html",
+          "https://www.cmu.edu/ctp/workshops/building_joyful_products.html",
+          "https://www.cmu.edu/ctp/workshops/unlocking-high-quality-feedback.html"
+        ],
+        "completeDatePublished": false
+      },
+      "nextStep": "If any monitored page publishes a date, its changed fingerprint raises a review item for conversion into a scheduled event."
+    },
+    {
+      "id": "4c4f223b8c8b",
+      "url": "https://www.cmu.edu/real/news-and-events/index.html",
+      "outcome": "partial_upstream_calendar_unavailable",
+      "solution": "Reuse the existing ICS adapter for both explicitly advertised calendars. Refresh available LCS events, and retry/report the unavailable Manipulation calendar.",
+      "override": {
+        "status": "active",
+        "adapter": "html",
+        "fetchUrl": "https://www.cmu.edu/real/news-and-events/index.html",
+        "options": {
+          "timezone": "America/New_York",
+          "preferFeed": false,
+          "detailLinks": false,
+          "reviewedResources": [
+            {
+              "selector": "#content > .content",
+              "expectedCount": 1,
+              "sha256": "554dca6e43669fd3bac22249bc279fddc118b938c2d76f98ff110a2820c50b9d",
+              "kind": "series and example timetable",
+              "reason": "The page gives descriptions, periodicity and an explicitly labelled example workshop timetable, without specific occurrence dates."
+            }
+          ],
+          "additionalEndpoints": [
+            {
+              "url": "https://calendar.google.com/calendar/ical/c_0c1dea11d4ea2e6c921bd6b47c076cff7d0e07ee47ec40be6fc1d6189c4a3cd0%40group.calendar.google.com/public/basic.ics",
+              "publicURL": "https://sites.google.com/andrew.cmu.edu/cmu-lcs/home",
+              "adapter": "ics"
+            },
+            {
+              "url": "https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics",
+              "publicURL": "https://www.cmu.edu/real/news-and-events/index.html",
+              "adapter": "ics"
+            }
+          ]
+        },
+        "strategy": "Reuse the public LCS ICS independently; retry the publisher-advertised Manipulation ICS and preserve a partial-coverage diagnostic while it is unavailable. Never turn the example timetable or biweekly description into events.",
+        "reason": "Learning and Control has a verified public ICS with independently dated historical events. The advertised Manipulation public ICS returns HTTP 404, leaving REAL coverage partial."
+      },
+      "evidence": {
+        "checkedAt": "2026-10-25T20:45:23.809Z",
+        "primaryHttpStatus": 200,
+        "LCS": {
+          "url": "https://sites.google.com/andrew.cmu.edu/cmu-lcs/home",
+          "status": 200,
+          "nextSeminar": "TBD",
+          "feed": "https://calendar.google.com/calendar/ical/c_0c1dea11d4ea2e6c921bd6b47c076cff7d0e07ee47ec40be6fc1d6189c4a3cd0%40group.calendar.google.com/public/basic.ics",
+          "statusCode": 200,
+          "eventCount": 4
+        },
+        "manipulation": {
+          "feed": "https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics",
+          "status": 404
+        }
+      },
+      "nextStep": "The publisher must publish or repair the Manipulation calendar; the application retries it and retains the explicit gap."
+    },
+    {
+      "id": "54c24d7416bb",
+      "url": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+      "outcome": "supported_historical_posters_outside_window",
+      "solution": "Reuse the existing SHA-256-bound reviewedImages parser for both date-bearing banners; monitor the archive DOM for additions.",
+      "override": {
+        "status": "active",
+        "adapter": "html",
+        "fetchUrl": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+        "options": {
+          "timezone": "America/New_York",
+          "preferFeed": false,
+          "detailLinks": false,
+          "reviewedFragmentsOnly": true,
+          "reviewedImages": [
+            {
+              "selector": "#content img[src$=\"updated-24_univ-ex_comms-email-banner_04.png\"]",
+              "sha256": "8a2a7c99bb665f3978fca04b54dbe3060b1ef3491521570c64e0c19c567fd559",
+              "events": [
+                {
+                  "title": "The University Exchange with Carnegie Mellon 2024",
+                  "start": "2024-04-03",
+                  "end": "2024-04-05",
+                  "url": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+                  "description": "Dates read from the official event banner. Clock times and location are not stated in the banner."
+                }
+              ]
+            },
+            {
+              "selector": "#content img[src$=\"exchange-bannre.png\"]",
+              "sha256": "f8f71fe7aa3ba7b52903a54382f5ef15545ff62ab1d4aa5486de3a5f22c0fb83",
+              "events": [
+                {
+                  "title": "The University Exchange with Carnegie Mellon — The evolution of AI, trust and value",
+                  "start": "2023-04-26",
+                  "end": "2023-04-28",
+                  "url": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+                  "description": "Dates read from the official event banner. Clock times and location are not stated in the banner."
+                }
+              ]
+            }
+          ],
+          "reviewedResources": [
+            {
+              "selector": "#content > .content",
+              "expectedCount": 2,
+              "sha256": "6417c6ce99d70d2d9897d9da54111beafd12ac1c0c68a62f509b51ca72c6daef",
+              "kind": "dated historical archive",
+              "reason": "The dated banners are April 3–4, 2024 and April 26–27, 2023; the summer research program is from 2020. These are historical records outside the current collection window.",
+              "undated": false
+            }
+          ]
+        },
+        "strategy": "Parse visually verified, byte-bound historical event banners and monitor archive text, links and media for changes. Preserve date-only precision and exclusive end dates; do not import unrelated events from a redirected generic PwC page.",
+        "reason": "Both event banners have complete dates, but all verified occurrences are outside the collection window. The former agenda URL now redirects to a generic PwC Exchange calendar, which does not establish CMU attribution."
+      },
+      "evidence": {
+        "checkedAt": "2026-10-25T20:45:23.893Z",
+        "httpStatus": 200,
+        "visualScreenshots": [
+          "evidence/pwc-2024-banner.jpg",
+          "evidence/pwc-2023-banner.jpg"
+        ],
+        "bannerDates": [
+          {
+            "start": "2024-04-03",
+            "through": "2024-04-04"
+          },
+          {
+            "start": "2023-04-26",
+            "through": "2023-04-27"
+          }
+        ],
+        "agendaDestination": "Generic PwC Exchange series; not equivalent CMU coverage"
+      },
+      "nextStep": "Any archive content or banner-byte change requires another review; newly dated CMU announcements can reuse this same parser."
+    },
+    {
+      "id": "31aa89be167d",
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "outcome": "partial_publisher_date_conflicts",
+      "solution": "Check the publisher directory and four reviewed child pages every refresh. Reuse reviewed fragments for consistent historical dates and hash-guarded unresolved-resource diagnostics for conflicting years; never select one contradictory date silently.",
+      "override": {
+        "status": "active",
+        "adapter": "html",
+        "fetchUrl": "https://www.dssc.ece.cmu.edu/news/Events.html",
+        "options": {
+          "timezone": "America/New_York",
+          "preferFeed": false,
+          "detailLinks": false,
+          "reviewedFragmentsOnly": true,
+          "reviewedResources": [
+            {
+              "selector": "#content > .content",
+              "expectedCount": 1,
+              "sha256": "bfd089f72a2ffeeda546315b49b57e94fc76109cecb668a8b1343568ce68ab11",
+              "kind": "technical-review directory",
+              "reason": "This page advertises technical-review child pages; each reviewed child is checked separately."
+            }
+          ],
+          "additionalEndpoints": [
+            {
+              "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Japan%20Technical%20Review.html",
+              "adapter": "html",
+              "options": {
+                "detailLinks": false,
+                "reviewedFragmentsOnly": true,
+                "reviewedResources": [
+                  {
+                    "selector": "#content > .content",
+                    "expectedCount": 2,
+                    "sha256": "1647856a8e198f28a2e8563c64d7ceb1ac5608f61bd65a3ae19a39c89d6ff59a",
+                    "kind": "conflicting event dates",
+                    "reason": "The page title says 2026 but the heading gives June 30, 2025; the agenda gives Tuesday, June 30 without a year. Neither year is selected.",
+                    "requiresReview": true
+                  }
+                ]
+              }
+            },
+            {
+              "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Spring%20Technical%20Review.html",
+              "adapter": "html",
+              "options": {
+                "detailLinks": false,
+                "reviewedFragmentsOnly": true,
+                "reviewedResources": [
+                  {
+                    "selector": "#content > .content",
+                    "expectedCount": 1,
+                    "sha256": "93be3b951fb483550e861b0fcb4dfc463e5880111f38751a4fad8c93e32e5a0e",
+                    "kind": "conflicting event dates",
+                    "reason": "The page heading gives June 9, 2025 while the agenda explicitly gives June 9, 2026. Neither date is selected.",
+                    "requiresReview": true
+                  }
+                ]
+              }
+            },
+            {
+              "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Japan%20Technical%20Review.html",
+              "adapter": "html",
+              "options": {
+                "detailLinks": false,
+                "reviewedFragmentsOnly": true,
+                "reviewedFragments": [
+                  {
+                    "selector": "#content > .content",
+                    "expectedCount": 2,
+                    "sha256": "5ecd6fb6768232b66b916941e9df141ec061c0f663f1c227f2709f177c1770e7",
+                    "events": [
+                      {
+                        "title": "DSSC Japan Technical Review 2025",
+                        "start": "2025-05-22",
+                        "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Japan%20Technical%20Review.html",
+                        "description": "The full event date is consistent on the official page. No clock time is inferred."
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Spring%20Technical%20Review.html",
+              "adapter": "html",
+              "options": {
+                "detailLinks": false,
+                "reviewedFragmentsOnly": true,
+                "reviewedFragments": [
+                  {
+                    "selector": "#content > .content",
+                    "expectedCount": 1,
+                    "sha256": "9201ef908460c1e6c2d3670e8c09eda9e20bb9e9d9770d6dbabdcbe07dd0b691",
+                    "events": [
+                      {
+                        "title": "DSSC Spring Technical Review 2025",
+                        "start": "2025-03-04",
+                        "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Spring%20Technical%20Review.html",
+                        "description": "The full event date is consistent on the official page. No clock time is inferred."
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "strategy": "Check the publisher directory and four reviewed child pages every refresh. Reuse reviewed fragments for consistent historical dates and hash-guarded unresolved-resource diagnostics for conflicting years; never select one contradictory date silently.",
+        "reason": "Two 2025 technical reviews have consistent full dates and are recognized outside the current window. Two pages labelled 2026 conflict with 2025 headings; both contradictory values remain visible as partial coverage and all pages continue being checked."
+      },
+      "evidence": {
+        "primaryStatus": 200,
+        "htmlSnapshot": "research/remaining-19-2026-10-25/evidence/academic-31aa89be167d.html",
+        "childPages": [
+          {
+            "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Japan%20Technical%20Review.html",
+            "snapshot": "research/remaining-19-2026-10-25/evidence/dssc-child-0.html",
+            "status": 200,
+            "headingDate": "2025-06-30",
+            "titleYear": 2026,
+            "agendaDate": "Tuesday, June30 (no year)"
+          },
+          {
+            "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Spring%20Technical%20Review.html",
+            "snapshot": "research/remaining-19-2026-10-25/evidence/dssc-child-1.html",
+            "status": 200,
+            "headingDate": "2025-06-09",
+            "agendaDate": "2026-06-09"
+          },
+          {
+            "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Japan%20Technical%20Review.html",
+            "snapshot": "research/remaining-19-2026-10-25/evidence/dssc-child-2.html",
+            "status": 200,
+            "consistentDate": "2025-05-22"
+          },
+          {
+            "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Spring%20Technical%20Review.html",
+            "snapshot": "research/remaining-19-2026-10-25/evidence/dssc-child-3.html",
+            "status": 200,
+            "consistentDate": "2025-03-04"
+          }
+        ]
+      },
+      "nextStep": "DSSC should correct the visible event headings or publish an unambiguous official dated calendar/agenda. All competing dates currently predate the ingestion window, but that does not remove the source conflict."
+    }
+  ]
+}

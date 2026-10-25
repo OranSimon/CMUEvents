@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-10-25T21:56:56.210Z",
+  "reviewType": "Independent read-only code/test review; only this result JSON was written.",
+  "files": [
+    {
+      "path": "src/adapters/alumni.mjs",
+      "sha256": "82bc7b67fac17d251dc1299f4a3e4a60957354d3aa43df3ff770082b52d7b6c4"
+    },
+    {
+      "path": "tests/alumni.test.mjs",
+      "sha256": "e37284976f0abe5fad34e25e769385437c24117081a425fa7e10d904a5a6d2c0"
+    }
+  ],
+  "result": "previous_validation_order_finding_resolved",
+  "actionableFindings": [],
+  "resolvedFinding": {
+    "issue": "Clock getter could previously run before a reviewed card public URL/title/date was validated.",
+    "fix": "reviewedCardValid validates every snapshot row before the first listing GET or clock POST; parseAlumniEvents reuses the same validator.",
+    "checkedFields": [
+      "Salesforce record ID shape",
+      "nonblank plain-text title",
+      "valid full date",
+      "HTTPS GiveCampus CMU event link",
+      "no URL credentials"
+    ],
+    "negativeCases": [
+      "unapproved URL",
+      "invalid calendar date",
+      "blank title",
+      "invalid record ID"
+    ],
+    "negativeResult": "All four malformed snapshot cases reject with zero page and clock network calls."
+  },
+  "validation": {
+    "command": "node --test tests/alumni.test.mjs",
+    "tests": 10,
+    "passed": 10,
+    "failed": 0
+  },
+  "scopeChecks": [
+    "No runtime getEvents invocation; only the fixed public tile clock getter is queried.",
+    "Only reviewed eligible card IDs are queried, with an anonymous guest bootstrap parsed as JSON without evaluating publisher JavaScript.",
+    "Unreviewed descriptions, postal codes and registration totals are not imported.",
+    "Missing clocks, changed local dates and the reviewed Sydney ambiguity retain date-only values with explicit warnings.",
+    "All results remain partial; the fixed public snapshot does not claim complete automatic discovery."
+  ],
+  "remainingLimitations": [
+    "Published listViewId and sustainable full-calendar discovery remain unresolved.",
+    "New or changed public titles, venues and membership in the visible listing still require a new public review."
+  ]
+}

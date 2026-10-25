@@ -43,10 +43,10 @@ export function createRefresher(store, plans, config) {
     }).sort((a, b) => priority(a) - priority(b) || a.id.localeCompare(b.id));
     if (options.limit) due = due.slice(0, options.limit);
     if (!due.length) return { startedAt: now.toISOString(), completedAt: now.toISOString(),
-      total: 0, completed: 0, ok: 0, empty: 0, error: 0, totalEvents: store.status().totalEvents };
-    progress = { startedAt: now.toISOString(), completedAt: null, total: due.length, completed: 0, ok: 0, empty: 0, error: 0, totalEvents: store.status().totalEvents };
+      total: 0, completed: 0, ok: 0, empty: 0, undated: 0, error: 0, totalEvents: store.status().totalEvents };
+    progress = { startedAt: now.toISOString(), completedAt: null, total: due.length, completed: 0, ok: 0, empty: 0, undated: 0, error: 0, totalEvents: store.status().totalEvents };
     store.setMeta('lastRefresh', progress);
-    const context = { fetchText: fetcher.fetchText, fetchBytes: fetcher.fetchBytes, now,
+    const context = { fetchText: fetcher.fetchText, fetchBytes: fetcher.fetchBytes, fetchPublicQuery: fetcher.fetchPublicQuery, now,
       windowStart: new Date(now.getTime() - config.lookBackDays * 86400000).toISOString(),
       windowEnd: new Date(now.getTime() + config.lookAheadDays * 86400000).toISOString() };
     let cursor = 0;
@@ -81,9 +81,9 @@ export function createRefresher(store, plans, config) {
           if (!result || !Array.isArray(result.events)) throw new Error('Adapter returned no event snapshot.');
           if (result.unsupported) throw new Error(`Extraction needs review: ${(result.warnings || []).join(' ') || 'No recognizable event structure.'}`);
           if (result.partial) store.mergePartial(plan.id, result.events, result.warnings || []);
-          else store.replaceSource(plan.id, result.events, result.warnings || []);
+          else store.replaceSource(plan.id, result.events, result.warnings || [], undefined, result.undated ? 'undated' : 'empty');
           successfulSincePublish++;
-          progress[result.partial ? 'error' : result.events.length ? 'ok' : 'empty']++;
+          progress[result.partial ? 'error' : result.events.length ? 'ok' : result.undated ? 'undated' : 'empty']++;
         } catch (error) {
           store.failSource(plan.id, error);
           progress.error++;
@@ -95,7 +95,7 @@ export function createRefresher(store, plans, config) {
     }
     await Promise.all(Array.from({ length: config.concurrency }, () => worker()));
     publish(true);
-    console.log(`[refresh] ${progress.completed}/${progress.total} sources checked; ${progress.ok} populated, ${progress.empty} empty, ${progress.error} need review; ${progress.totalEvents} distinct occurrences.`);
+    console.log(`[refresh] ${progress.completed}/${progress.total} sources checked; ${progress.ok} populated, ${progress.empty} empty, ${progress.undated} undated resources, ${progress.error} need review; ${progress.totalEvents} distinct occurrences.`);
     return { ...progress, transfers: { ...fetcher.stats } };
   }
 

@@ -1,0 +1,64 @@
+
+{
+        "success": "true",
+        "live": "true",
+        "msg": "Live message: Located file. Getting data from cache (0). Getting data from Google Sheet (1). Data validation is set to 1 ( 1 ). . We have tried this: 1",
+        "dt": "Sun Oct 25 2026 20:58:05 UTC+0000 (UTC)",
+        "more": "0",
+        "cols": [
+            {
+                        "n": "seminar-name",
+                        "fmt": "Text"
+                    },{
+                        "n": "aka",
+                        "fmt": "Text"
+                    },{
+                        "n": "web-url",
+                        "fmt": "Text"
+                    },{
+                        "n": "day",
+                        "fmt": "Text"
+                    },{
+                        "n": "time",
+                        "fmt": "Text"
+                    },{
+                        "n": "contact",
+                        "fmt": "Text"
+                    },{
+                        "n": "sponsor",
+                        "fmt": "Text"
+                    },{
+                        "n": "sponsor-url",
+                        "fmt": "Text"
+                    }
+        ],
+        "data": [
+            ["Accessibility Lunch Seminar", "Accessibility Lunch", "", "Monday", "12:00 p.m. ", "", "", ""], 
+            ["AI Institute for Societal Decision Making Seminar", "AI-SDM Seminar", "https://www.cmu.edu/ai-sdm/events/index.html", "Thursday", "12:00 p.m. - 1:30 p.m.", "ai-sdm@andrew.cmu.edu", "NSF", ""], 
+            ["Algorithms, Combinatorics and Optimization Seminar", "ACO Seminar", "https://aco.math.cmu.edu/seminar.html", "Thursday", "3:00 p.m.", "ceur@cmu.edu", "", ""], 
+            ["Center for Informed Democracy & Social - cybersecurity Seminar", "IDeaS Seminar", "https://www.cmu.edu/ideas-social-cybersecurity/events/seminars.html", "Variable", "", "centerforideas@andrew.cmu.edu", "", ""], 
+            ["CMU Foundation and Language Model Seminar", "FLAME Seminar", "https://www.cmu.edu/flame/events/index.html", "Friday", "12:30 p.m.", "flame-pi@andrew.cmu.edu", "", ""], 
+            ["Colloquium on Computer Science Pedagogy", "Pedagogy Seminar", "", "Variable", "", "", "", ""], 
+            ["Crypto Seminar", "Crypto Seminar", "https://sites.google.com/view/crypto-seminar/home", "Thursday", "4:30 p.m.", "qvd@andrew.cmu.edu", "", ""], 
+            ["Cylab Seminar", "CyLab Seminar", "", "Monday", "12:00 p.m. - 1:00 p.m.", "", "", ""], 
+            ["Current Topics in Privacy Seminar", "Privacy Seminar", "https://privacy.cs.cmu.edu/masters/seminar/index.html", "Tuesday", "12:30 pm - 1:50 p.m.", "", "Carnegie Bosch Institute", "http://carnegiebosch.cmu.edu/"], 
+            ["Database Seminar", "DB Seminar", "https://db.cs.cmu.edu/seminar2025/", "Monday", "4:30 p.m.", "", "GOOGLE", ""], 
+            ["Economics-CS Seminar ", "Econ-CS Seminar", "https://cmueconcs.github.io/", "Tuesday", "12:30 p.m.", "rberker@andrew.cmu.edu", "", ""], 
+            ["Human-Computer Interaction Seminar", "HCII Seminar", "https://www.hcii.cmu.edu/seminar-series", "Friday", "1:30 p.m.", "", "", ""], 
+            ["Joint CMU-Pitt Ph.D. in Computational Biology Seminar", "CPCB Seminar", "https://www.compbio.cmu.edu/seminar-series/index.html", "Friday", "11:30 a.m.", "", "", ""], 
+            ["Language Technologies Institute Colloquium", "LTI Colloquium", "https://www.lti.cmu.edu/misc-pages/lti-colloquium.html", "Friday", "2:00 p.m.", "", "Abridge", "https://www.abridge.com/"], 
+            ["Machine Learning - Artificial Intelligence Seminar ", "AI-ML Seminar", "https://www.cs.cmu.edu/~mlaiseminar/", "Friday", "10:00 a.m.", "", "MBZUAI/CMU Institute of Virtual and Programmable Cell", ""], 
+            ["Parallel Data Laboratory Talk Series", "PDL Talks", "https://pdl.cmu.edu/talk-series/index.shtml", "Thursday", "12:00 p.m. - 1:00 p.m.", "", "", ""], 
+            ["Principles of Programming Seminar", "POP Seminar", "https://www.cs.cmu.edu/~pop/seminar/", "Variable", "", "", "", ""], 
+            ["Robotics Institute Seminar", "RI Seminar", "https://www.ri.cmu.edu/events/category/seminar/2025-04/", "Friday", "2:30 p.m.", "", "", ""], 
+            ["Software and Societal Systems Department Seminar Series", "S3D Seminar", "https://s3d.cmu.edu/events/distinguished.html", "Variable", "", "", "", ""], 
+            ["Software Research Seminar", "SSSG Seminar", "https://s3d.cmu.edu/events/sssg.html", "Monday", "3:30 p.m. - 5:00 p.m.", "sssg@cs.cmu.edu", "", ""], 
+            ["Systems Design and Implementation Seminar", "SDI Seminar", "https://pdl.cmu.edu/SDI/index.shtml", "", "", "", "", ""], 
+            ["Theory Lunch Seminar", "", "https://www.cs.cmu.edu/~theorylunch/", "Wednesday", "12:00 p.m.", "", "", ""], 
+            ["Theory Seminar", "", "", "Variable", "", "", "", ""], 
+            ["Visions and Autonomous Systems Seminar", "VASC Seminar", "https://www.ri.cmu.edu/events/category/seminar/2025-04/", "Monday", "3:30 p.m.", "cdowney@andrew.cmu.edu", "HeyGen", "https://www.heygen.com/"], 
+            ["SCS Distinguished Lectures", "SCS DLS", "", "Variable", "4:30 p.m.", "scs-dls@cs.cmu.edu", "", ""], 
+            ["SCS Professional Seminar", "Pro Seminar", "", "Variable", "", "", "", ""] 
+            
+        ]
+    }

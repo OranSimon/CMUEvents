@@ -1,0 +1,1013 @@
+{
+  "checkedAt": "2026-10-25T20:49:29.492Z",
+  "window": {
+    "start": "2026-09-25T20:49:16.059Z",
+    "end": "2027-10-25T20:49:16.059Z"
+  },
+  "scope": "Five HTML partial/undated families; fresh anonymous public requests only. No DB refresh, login, accounts, mail, source-level scope changes or commits.",
+  "recommendedOverrides": {
+    "sources": {
+      "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html": {
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": true,
+          "maxDetails": 8,
+          "eventSelector": ".grid.news .filterable",
+          "titleSelector": "h2.name",
+          "linkSelector": "a",
+          "dateSelector": "span",
+          "detailOptions": {
+            "eventSelector": ".content > div:has(>h1),.grid.boxes > div:has(img[alt^=\"Join us on\"])",
+            "titleSelector": "h1,strong",
+            "dateSelector": "img[alt^=\"Join us on\"]",
+            "dateAttribute": "alt",
+            "yearSelector": ".grid.boxes:has(img[alt^=\"Join us on\"]) > h1",
+            "linkSelector": "a.btn[href],a.cta[href]"
+          },
+          "reviewedResources": [
+            {
+              "selector": ".grid.news .filterable:has(a[href^=\"previous-events/\"])",
+              "expectedCount": 78,
+              "sha256": "45b5b7a4193c49924b1ee101422920d166195eebbec64f97889928a8ba876dc4",
+              "kind": "legacy event archive",
+              "reason": "This publisher-labelled previous-events archive lists historical summaries from 2023 and earlier; many omit their year. It is monitored for changed text and destinations rather than assigned a current year.",
+              "excludeDetailLinks": true
+            }
+          ],
+          "detailOptionsByUrl": {
+            "https://www.cmu.edu/dietrich/humanities-center/center-events/constitution-day-conference.html": {
+              "eventSelector": ".content > div:has(>h1)",
+              "titleSelector": "h1",
+              "dateSelector": ":scope",
+              "linkSelector": "a[data-event-link]",
+              "detailLinks": false
+            },
+            "https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html": {
+              "eventSelector": ".content > div:has(>h1),.grid.boxes > div:has(img[alt^=\"Join us on\"])",
+              "titleSelector": "h1,strong",
+              "dateSelector": "img[alt^=\"Join us on\"]",
+              "dateAttribute": "alt",
+              "yearSelector": ".grid.boxes:has(img[alt^=\"Join us on\"]) > h1",
+              "linkSelector": "a.btn[href],a.cta[href]",
+              "reviewedResources": [
+                {
+                  "selector": ".grid.boxes",
+                  "expectedCount": 2,
+                  "sha256": "3c6c79895a821f7ff656fc903c0bde7d77b783b8f3563fd14b43c37843247706",
+                  "kind": "historical workshop schedule",
+                  "reason": "The schedule explicitly says Fall2025 and Spring2026; its image-led workshops precede the collection window. The accessible January28 workshop retains its printed Spring2026 year; other poster dates are not inferred."
+                }
+              ],
+              "reviewedImages": [
+                {
+                  "selector": ".grid.boxes img[src=\"002_off-the-shelves_01_session-1-min.jpg\"]",
+                  "sha256": "2e56424c6970d997a42257bc30a6b2aa653dac61c0e49dd8ef34ccd1aeaf17cb",
+                  "events": []
+                },
+                {
+                  "selector": ".grid.boxes img[src=\"session-2-off-the-shelves_min.jpg\"]",
+                  "sha256": "717ba40eca4eb74aff82b157a6252eb53dc84cf40d319c1136e2b170e0162712",
+                  "events": []
+                },
+                {
+                  "selector": ".grid.boxes img[src=\"session-3_off-the-shelves_03_-min.jpg\"]",
+                  "sha256": "8e80556b62a64db2eb954f6e3a4a8434f8045ad0d470e1fe6928cf87bb6f0ee5",
+                  "events": []
+                },
+                {
+                  "selector": ".grid.boxes img[src=\"writing-workshop-icon-4.png\"]",
+                  "sha256": "9b96e87a608c9de8d043e63a2fe2a077686bf6ca9258fce2c23081e1b5362e6b",
+                  "events": []
+                },
+                {
+                  "selector": ".grid.boxes img[src=\"session-5_off-the-shelves_05-min.jpg\"]",
+                  "sha256": "a50ed23e3640fd371d48b2bb781486dce8a0f9a18f26ffbbf6d37a4a7e4c264b",
+                  "events": []
+                },
+                {
+                  "selector": ".grid.boxes img[src=\"workshop-6-off-the-shelves-min.png\"]",
+                  "sha256": "98d47fb7200a3a23e7bc4661c740fac79ab803f4195dcbad7af0a6cd522e4db0",
+                  "events": []
+                }
+              ]
+            }
+          }
+        },
+        "reason": "Published dated parent records and Constitution Day remain parsed. Unchanged legacy archive summaries and Fall2025/Spring2026 poster resources are monitored with explicit fingerprints; changed resources require review. No current year or recurrence is inferred."
+      },
+      "https://www.architecture.cmu.edu/events": {
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": true,
+          "maxDetails": 12,
+          "eventSelector": "article.article-card",
+          "dateSelector": ".date-wrapper",
+          "titleSelector": "h3 a",
+          "linkSelector": "h3 a",
+          "timeSelector": ".time-tag .time",
+          "locationSelector": ".time-tag .tag",
+          "additionalFetchUrls": [],
+          "detailOptions": {
+            "eventSelector": "main",
+            "titleSelector": ".c--event-hero h1",
+            "dateSelector": ".event-meta .date",
+            "timeSelector": ".event-meta > .time:nth-child(2)",
+            "locationSelector": ".event-meta > .time:nth-child(3)",
+            "descriptionSelector": ".content-main .f--wysiwyg",
+            "linkSelector": ":scope",
+            "detailLinks": false
+          },
+          "paginationSelector": "a[rel=\"next\"],.pager__item--next a",
+          "maxPages": 20
+        },
+        "reason": "Follow only the publisher’s currently advertised next-page links. The former fixed?page=1 is obsolete: all ten current events, including January29,2027, now appear on the first page."
+      },
+      "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences": {
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": true,
+          "maxDetails": 10,
+          "eventSelector": ".paragraph--type--up-panel-card",
+          "titleSelector": "h3",
+          "linkSelector": "h3 a",
+          "detailLinkSelector": ".Subnav__nested a[href^=\"/tepper/faculty-and-research/seminars-and-conferences/\"]",
+          "detailOptions": {
+            "detailLinks": false
+          },
+          "detailOptionsByUrl": {
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/child-welfare-operations-symposium": {
+              "eventSelector": ".ContentSidebar",
+              "titleSelector": "h1",
+              "dateSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg .text-intro",
+              "timeSelector": "h3:contains(\"Format and Organization\") + p",
+              "descriptionSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg",
+              "locationSelector": "table tr:nth-child(2) td:first-child",
+              "linkSelector": "a[data-event-link]",
+              "detailLinks": false,
+              "preserveFieldBreaks": true
+            },
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/women-economics-theory-conference": {
+              "eventSelector": ".ContentSidebar",
+              "titleSelector": "h1",
+              "dateSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg > div > p:nth-child(2)",
+              "descriptionSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg",
+              "locationSelector": "[data-event-location]",
+              "linkSelector": "a[data-event-link]",
+              "detailLinks": false,
+              "dateOnly": true,
+              "preserveFieldBreaks": true
+            },
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/accounting-mini-conference": {
+              "eventSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg table",
+              "titleFromPage": "h1",
+              "titleSelector": "h1",
+              "dateSelector": "tr:first-child td",
+              "dateOnly": true,
+              "linkSelector": "a[data-event-link]",
+              "detailLinks": false,
+              "preserveFieldBreaks": true
+            },
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/advances-in-macro-finance": {
+              "eventSelector": ".paragraph--type--accordion-item",
+              "titleSelector": "h3",
+              "dateSelector": ".Table__stack > p:first-child",
+              "dateOnly": true,
+              "linkSelector": "a[data-event-link]",
+              "detailLinks": false,
+              "preserveFieldBreaks": true
+            },
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/carnegie-rochester-nyu-conference": {
+              "eventSelector": "main.node .Accordion__item",
+              "titleSelector": ".Accordion__heading",
+              "dateSelector": ".Accordion__content .Table__stack > p:first-child",
+              "descriptionSelector": ".Accordion__content",
+              "linkSelector": "a[data-event-link]",
+              "dateOnly": true,
+              "detailLinks": false,
+              "preserveFieldBreaks": true
+            },
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/ai-and-human-decisions": {
+              "eventSelector": ".ContentSidebar",
+              "titleSelector": "h1",
+              "dateSelector": ".ContentSidebar__content",
+              "linkSelector": "a[data-event-link]",
+              "dateOnly": true,
+              "detailLinks": false,
+              "preserveFieldBreaks": true,
+              "linkedTextSchedule": {
+                "linkSelector": ".ContentSidebar__content a[href^=\"https://docs.google.com/document/d/\"]",
+                "titleSelector": "h1",
+                "dateLinePrefix": "Date:"
+              }
+            },
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum": {
+              "eventSelector": ".paragraph--type--accordion-item",
+              "titleSelector": ".Accordion__heading",
+              "dateSelector": ".Accordion__content",
+              "linkSelector": "a[data-event-link]",
+              "dateOnly": true,
+              "detailLinks": false,
+              "preserveFieldBreaks": true,
+              "reviewedResources": [
+                {
+                  "selector": ".ContentSidebar__content",
+                  "expectedCount": 1,
+                  "sha256": "9f2eaf2a61fe5256a5a0f6ddff959c27ade46b6294eaae63230ec8e710d4a5a0",
+                  "kind": "undated recording archive",
+                  "reason": "The forum page publishes historical recording headings2025,2024,2021,2020 without month/day occurrence dates. Calendar dates cannot be recovered from recording years alone."
+                }
+              ]
+            }
+          }
+        },
+        "reason": "The AI and Human Decisions landing page omits its year, but its explicitly linked public agenda prints April10–11,2026. The adapter reads that Date line each refresh. Sustainability recordings have no occurrence dates and are monitored as an unchanged undated archive, not an empty calendar."
+      },
+      "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html": {
+        "status": "active",
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": false,
+          "reviewedResources": [
+            {
+              "selector": ".content",
+              "expectedCount": 1,
+              "sha256": "6b04849d3e47e93d05c9f93a3fbe3164f657b426cc66d9257abc3016156d01f8",
+              "kind": "undated seminar series",
+              "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented."
+            }
+          ]
+        },
+        "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented."
+      },
+      "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html": {
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": true,
+          "maxDetails": 8,
+          "eventSelector": ".grid.boxes > div,.grid.photos > .photo",
+          "titleSelector": "h2,h3",
+          "linkSelector": "h2 a,h3 a,a.cta,a.btn",
+          "detailOptions": {
+            "eventSelector": ".grid.photos > .photo",
+            "titleSelector": "h2,h3",
+            "linkSelector": "a.btn,a.cta"
+          },
+          "detailOptionsByUrl": {
+            "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html": {
+              "detailLinks": false,
+              "reviewedResources": [
+                {
+                  "selector": ".content",
+                  "expectedCount": 1,
+                  "sha256": "6b04849d3e47e93d05c9f93a3fbe3164f657b426cc66d9257abc3016156d01f8",
+                  "kind": "undated seminar series",
+                  "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented."
+                }
+              ]
+            },
+            "https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-hewlett.html": {
+              "detailLinks": false,
+              "reviewedResources": [
+                {
+                  "selector": ".content,.grid.js-list",
+                  "expectedCount": 4,
+                  "sha256": "c4ab4d192ec0b52d4edb584b78a92699634d0ae47dc805a1f8fae097cccb1a21",
+                  "kind": "undated seminar resources",
+                  "reason": "The Hewlett seminar descriptions and speaker resources have no explicit occurrence dates. They are monitored for changed content and destinations rather than declared empty."
+                }
+              ]
+            },
+            "https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-ips.html": {
+              "eventSelector": ".content > div:first-child,.grid.boxes > div",
+              "titleSelector": "h1,h2,h3",
+              "dateSelector": ":scope",
+              "linkSelector": "a[data-event-link]",
+              "detailLinks": false,
+              "dateOnly": true
+            }
+          }
+        },
+        "reason": "The parent’s January23rd and24th,2025 adjacent-day prose date is parsed as an explicit two-day summit. Policy-series details use their own dated containers; undated virtual/Hewlett series remain monitored resources rather than fabricated occurrences."
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "4f854e94f2a9",
+      "url": "https://www.architecture.cmu.edu/events",
+      "after": {
+        "count": 10,
+        "partial": false,
+        "unsupported": false,
+        "undated": false,
+        "warnings": [],
+        "events": [
+          {
+            "title": "M.Arch Travel Pecha Kucha",
+            "start": "2026-10-23T21:30:00.000Z",
+            "end": "2026-10-23T23:00:00.000Z",
+            "url": "https://www.architecture.cmu.edu/events/march-travel-pecha-kucha",
+            "timePrecision": "time"
+          },
+          {
+            "title": "\"x-change\" Book Launch: \"2025-26: infrastructures of x-change\"",
+            "start": "2026-10-30T16:30:00.000Z",
+            "end": "2026-10-30T17:50:00.000Z",
+            "url": "https://www.architecture.cmu.edu/events/x-change-book-launch-2025-26-infrastructures-x-change",
+            "timePrecision": "time"
+          },
+          {
+            "title": "Fall 2026 Architecture Awards Applications Due",
+            "start": "2026-11-01T03:59:00.000Z",
+            "end": "2026-11-01T03:59:00.000Z",
+            "url": "https://www.architecture.cmu.edu/events/fall-2026-architecture-awards-applications-due",
+            "timePrecision": "time"
+          },
+          {
+            "title": "Book Talk: Concrete Colonialism: Architecture, Urbanism, and the US Imperial Project in the Philippines (2025), by Diana Jean S. Martinez (After Speed / After Time sub-theme)",
+            "start": "2026-11-05T22:30:00.000Z",
+            "end": "2026-11-06T00:00:00.000Z",
+            "url": "https://www.architecture.cmu.edu/events/book-talk-concrete-colonialism-architecture-urbanism-and-us-imperial-project-philippines",
+            "timePrecision": "time"
+          },
+          {
+            "title": "Fall 2026 Graduate Program Admission Open House",
+            "start": "2026-11-06T14:00:00.000Z",
+            "end": "2026-11-06T22:30:00.000Z",
+            "url": "https://www.architecture.cmu.edu/events/fall-2026-graduate-program-admission-open-house",
+            "timePrecision": "time"
+          },
+          {
+            "title": "Live Cinema Event: New Planetary Imaginaries, by Liam Young (Unknown Fields) (After Digitalism sub-theme)",
+            "start": "2026-11-11T22:30:00.000Z",
+            "end": "2026-11-12T00:00:00.000Z",
+            "url": "https://www.architecture.cmu.edu/events/live-cinema-event-new-planetary-imaginaries-liam-young-unknown-fields-after-digitalism-sub",
+            "timePrecision": "time"
+          },
+          {
+            "title": "Workshop: Why We Build Worlds, by Liam Young (Unknown Fields) (After Digitalism sub-theme)",
+            "start": "2026-11-12T16:30:00.000Z",
+            "end": "2026-11-12T18:00:00.000Z",
+            "url": "https://www.architecture.cmu.edu/events/workshop-why-we-build-worlds-liam-young-unknown-fields-after-digitalism-sub-theme",
+            "timePrecision": "time"
+          },
+          {
+            "title": "Public lecture: Smaller Architecture, by Michael Meredith (After Bigness sub-theme)",
+            "start": "2026-11-16T22:30:00.000Z",
+            "end": "2026-11-17T00:00:00.000Z",
+            "url": "https://www.architecture.cmu.edu/events/public-lecture-smaller-architecture-michael-meredith-after-bigness-sub-theme",
+            "timePrecision": "time"
+          },
+          {
+            "title": "Fall 2026 Architecture Awards Ceremony",
+            "start": "2026-11-20T17:30:00.000Z",
+            "end": "2026-11-20T18:50:00.000Z",
+            "url": "https://www.architecture.cmu.edu/events/fall-2026-architecture-awards-ceremony",
+            "timePrecision": "time"
+          },
+          {
+            "title": "Showcase: PJ Dick Innovation Fund Round 3 Awardees Celebration",
+            "start": "2027-01-29T17:30:00.000Z",
+            "end": "2027-01-29T19:00:00.000Z",
+            "url": "https://www.architecture.cmu.edu/events/showcase-pj-dick-innovation-fund-round-3-awardees-celebration",
+            "timePrecision": "time"
+          }
+        ]
+      },
+      "recommendation": {
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": true,
+          "maxDetails": 12,
+          "eventSelector": "article.article-card",
+          "dateSelector": ".date-wrapper",
+          "titleSelector": "h3 a",
+          "linkSelector": "h3 a",
+          "timeSelector": ".time-tag .time",
+          "locationSelector": ".time-tag .tag",
+          "additionalFetchUrls": [],
+          "detailOptions": {
+            "eventSelector": "main",
+            "titleSelector": ".c--event-hero h1",
+            "dateSelector": ".event-meta .date",
+            "timeSelector": ".event-meta > .time:nth-child(2)",
+            "locationSelector": ".event-meta > .time:nth-child(3)",
+            "descriptionSelector": ".content-main .f--wysiwyg",
+            "linkSelector": ":scope",
+            "detailLinks": false
+          },
+          "paginationSelector": "a[rel=\"next\"],.pager__item--next a",
+          "maxPages": 20
+        },
+        "reason": "Follow only the publisher’s currently advertised next-page links. The former fixed?page=1 is obsolete: all ten current events, including January29,2027, now appear on the first page."
+      },
+      "before": {
+        "configuredStatus": "active",
+        "reportedLimitation": "刷新新增partial。主/events匿名200，当前10张article.article-card有明确日期，已含2027-01-29项；额外固定?page=1也200，但现在0张卡片且明确No results match your search or filter criteria。原先第二页内容已在当前首页出现；追加空页被现有通用解析路径标为unsupported，而非网络/认证失败。"
+      }
+    },
+    {
+      "id": "e3acb99b6056",
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html",
+      "after": {
+        "count": 1,
+        "partial": false,
+        "unsupported": false,
+        "undated": false,
+        "warnings": [
+          "Detail (https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html): Monitored undated seminar series: The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented.",
+          "Detail (https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-hewlett.html): Monitored undated seminar resources: The Hewlett seminar descriptions and speaker resources have no explicit occurrence dates. They are monitored for changed content and destinations rather than declared empty.",
+          "Optional detail enrichment (https://www.cmu.edu/casos-center/events/summer-institute-2026_aug.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+          "Optional detail enrichment (https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-conferences/index.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+          "Optional detail enrichment (https://www.cmu.edu/ideas-social-cybersecurity/events/ai_disinfo_summit.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+          "Optional detail enrichment (https://www.cmu.edu/ideas-social-cybersecurity/events/krn-tool-demo.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side"
+        ],
+        "events": [
+          {
+            "title": "IDeaS Annual Conference",
+            "start": "2026-10-12",
+            "end": "2026-10-15",
+            "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-conferences/index.html",
+            "timePrecision": "date"
+          }
+        ]
+      },
+      "recommendation": {
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": true,
+          "maxDetails": 8,
+          "eventSelector": ".grid.boxes > div,.grid.photos > .photo",
+          "titleSelector": "h2,h3",
+          "linkSelector": "h2 a,h3 a,a.cta,a.btn",
+          "detailOptions": {
+            "eventSelector": ".grid.photos > .photo",
+            "titleSelector": "h2,h3",
+            "linkSelector": "a.btn,a.cta"
+          },
+          "detailOptionsByUrl": {
+            "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html": {
+              "detailLinks": false,
+              "reviewedResources": [
+                {
+                  "selector": ".content",
+                  "expectedCount": 1,
+                  "sha256": "6b04849d3e47e93d05c9f93a3fbe3164f657b426cc66d9257abc3016156d01f8",
+                  "kind": "undated seminar series",
+                  "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented."
+                }
+              ]
+            },
+            "https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-hewlett.html": {
+              "detailLinks": false,
+              "reviewedResources": [
+                {
+                  "selector": ".content,.grid.js-list",
+                  "expectedCount": 4,
+                  "sha256": "c4ab4d192ec0b52d4edb584b78a92699634d0ae47dc805a1f8fae097cccb1a21",
+                  "kind": "undated seminar resources",
+                  "reason": "The Hewlett seminar descriptions and speaker resources have no explicit occurrence dates. They are monitored for changed content and destinations rather than declared empty."
+                }
+              ]
+            },
+            "https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-ips.html": {
+              "eventSelector": ".content > div:first-child,.grid.boxes > div",
+              "titleSelector": "h1,h2,h3",
+              "dateSelector": ":scope",
+              "linkSelector": "a[data-event-link]",
+              "detailLinks": false,
+              "dateOnly": true
+            }
+          }
+        },
+        "reason": "The parent’s January23rd and24th,2025 adjacent-day prose date is parsed as an explicit two-day summit. Policy-series details use their own dated containers; undated virtual/Hewlett series remain monitored resources rather than fabricated occurrences."
+      },
+      "before": {
+        "configuredStatus": "active",
+        "reportedLimitation": "原页与本次检查的5个关键详情均匿名200。现有error明确为Incomplete extraction：部分系列页仅周期或历史内容、部分详情选择器不产出日期；并非HTTP拒绝、登录或订阅障碍。"
+      }
+    },
+    {
+      "id": "1468ddb723b2",
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "after": {
+        "count": 0,
+        "partial": false,
+        "unsupported": false,
+        "undated": false,
+        "warnings": [
+          "Monitored legacy event archive: This publisher-labelled previous-events archive lists historical summaries from 2023 and earlier; many omit their year. It is monitored for changed text and destinations rather than assigned a current year.",
+          "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html): Monitored historical workshop schedule: The schedule explicitly says Fall2025 and Spring2026; its image-led workshops precede the collection window. The accessible January28 workshop retains its printed Spring2026 year; other poster dates are not inferred.",
+          "Optional detail enrichment (https://www.cmu.edu/dietrich/humanities-center/center-events/cause-anniversary-conference.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+          "Optional detail enrichment (https://www.cmu.edu/dietrich/humanities-center/center-events/environmental-humanities-slam.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+          "Optional detail enrichment (https://www.cmu.edu/dietrich/humanities-center/center-events/cause-film-screening.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+          "Optional detail enrichment limit 8 reached; 8 link(s) already grounded by the parent were not followed"
+        ],
+        "events": []
+      },
+      "recommendation": {
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": true,
+          "maxDetails": 8,
+          "eventSelector": ".grid.news .filterable",
+          "titleSelector": "h2.name",
+          "linkSelector": "a",
+          "dateSelector": "span",
+          "detailOptions": {
+            "eventSelector": ".content > div:has(>h1),.grid.boxes > div:has(img[alt^=\"Join us on\"])",
+            "titleSelector": "h1,strong",
+            "dateSelector": "img[alt^=\"Join us on\"]",
+            "dateAttribute": "alt",
+            "yearSelector": ".grid.boxes:has(img[alt^=\"Join us on\"]) > h1",
+            "linkSelector": "a.btn[href],a.cta[href]"
+          },
+          "reviewedResources": [
+            {
+              "selector": ".grid.news .filterable:has(a[href^=\"previous-events/\"])",
+              "expectedCount": 78,
+              "sha256": "45b5b7a4193c49924b1ee101422920d166195eebbec64f97889928a8ba876dc4",
+              "kind": "legacy event archive",
+              "reason": "This publisher-labelled previous-events archive lists historical summaries from 2023 and earlier; many omit their year. It is monitored for changed text and destinations rather than assigned a current year.",
+              "excludeDetailLinks": true
+            }
+          ],
+          "detailOptionsByUrl": {
+            "https://www.cmu.edu/dietrich/humanities-center/center-events/constitution-day-conference.html": {
+              "eventSelector": ".content > div:has(>h1)",
+              "titleSelector": "h1",
+              "dateSelector": ":scope",
+              "linkSelector": "a[data-event-link]",
+              "detailLinks": false
+            },
+            "https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html": {
+              "eventSelector": ".content > div:has(>h1),.grid.boxes > div:has(img[alt^=\"Join us on\"])",
+              "titleSelector": "h1,strong",
+              "dateSelector": "img[alt^=\"Join us on\"]",
+              "dateAttribute": "alt",
+              "yearSelector": ".grid.boxes:has(img[alt^=\"Join us on\"]) > h1",
+              "linkSelector": "a.btn[href],a.cta[href]",
+              "reviewedResources": [
+                {
+                  "selector": ".grid.boxes",
+                  "expectedCount": 2,
+                  "sha256": "3c6c79895a821f7ff656fc903c0bde7d77b783b8f3563fd14b43c37843247706",
+                  "kind": "historical workshop schedule",
+                  "reason": "The schedule explicitly says Fall2025 and Spring2026; its image-led workshops precede the collection window. The accessible January28 workshop retains its printed Spring2026 year; other poster dates are not inferred."
+                }
+              ],
+              "reviewedImages": [
+                {
+                  "selector": ".grid.boxes img[src=\"002_off-the-shelves_01_session-1-min.jpg\"]",
+                  "sha256": "2e56424c6970d997a42257bc30a6b2aa653dac61c0e49dd8ef34ccd1aeaf17cb",
+                  "events": []
+                },
+                {
+                  "selector": ".grid.boxes img[src=\"session-2-off-the-shelves_min.jpg\"]",
+                  "sha256": "717ba40eca4eb74aff82b157a6252eb53dc84cf40d319c1136e2b170e0162712",
+                  "events": []
+                },
+                {
+                  "selector": ".grid.boxes img[src=\"session-3_off-the-shelves_03_-min.jpg\"]",
+                  "sha256": "8e80556b62a64db2eb954f6e3a4a8434f8045ad0d470e1fe6928cf87bb6f0ee5",
+                  "events": []
+                },
+                {
+                  "selector": ".grid.boxes img[src=\"writing-workshop-icon-4.png\"]",
+                  "sha256": "9b96e87a608c9de8d043e63a2fe2a077686bf6ca9258fce2c23081e1b5362e6b",
+                  "events": []
+                },
+                {
+                  "selector": ".grid.boxes img[src=\"session-5_off-the-shelves_05-min.jpg\"]",
+                  "sha256": "a50ed23e3640fd371d48b2bb781486dce8a0f9a18f26ffbbf6d37a4a7e4c264b",
+                  "events": []
+                },
+                {
+                  "selector": ".grid.boxes img[src=\"workshop-6-off-the-shelves-min.png\"]",
+                  "sha256": "98d47fb7200a3a23e7bc4661c740fac79ab803f4195dcbad7af0a6cd522e4db0",
+                  "events": []
+                }
+              ]
+            }
+          }
+        },
+        "reason": "Published dated parent records and Constitution Day remain parsed. Unchanged legacy archive summaries and Fall2025/Spring2026 poster resources are monitored with explicit fingerprints; changed resources require review. No current year or recurrence is inferred."
+      },
+      "before": {
+        "configuredStatus": "active",
+        "reportedLimitation": "原页和两个报错详情匿名200。错误含两个child无可解析日期，以及maxDetails8之后70个required child尚未检查；是抓取覆盖/选择器问题，不是无法访问。"
+      }
+    },
+    {
+      "id": "d89f616f8462",
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+      "after": {
+        "count": 0,
+        "partial": false,
+        "unsupported": false,
+        "undated": true,
+        "warnings": [
+          "Monitored undated seminar series: The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented."
+        ],
+        "events": []
+      },
+      "recommendation": {
+        "status": "active",
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": false,
+          "reviewedResources": [
+            {
+              "selector": ".content",
+              "expectedCount": 1,
+              "sha256": "6b04849d3e47e93d05c9f93a3fbe3164f657b426cc66d9257abc3016156d01f8",
+              "kind": "undated seminar series",
+              "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented."
+            }
+          ]
+        },
+        "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented."
+      },
+      "before": {
+        "configuredStatus": "unsupported",
+        "reportedLimitation": "公开200，出现first Thursday/month及upcoming speakers，但没有当前各场完整年月日；过去演讲按2022–2024归档。"
+      }
+    },
+    {
+      "id": "a8c3a641e8c5",
+      "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences",
+      "after": {
+        "count": 2,
+        "partial": false,
+        "unsupported": false,
+        "undated": false,
+        "warnings": [
+          "Detail (https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum): Monitored undated recording archive: The forum page publishes historical recording headings2025,2024,2021,2020 without month/day occurrence dates. Calendar dates cannot be recovered from recording years alone."
+        ],
+        "events": [
+          {
+            "title": "Child Welfare Operations Symposium",
+            "start": "2026-10-23T12:00:00.000Z",
+            "end": "2026-10-23T20:00:00.000Z",
+            "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/child-welfare-operations-symposium",
+            "timePrecision": "time"
+          },
+          {
+            "title": "Women in Economics Theory Conference",
+            "start": "2027-05-21",
+            "end": "2027-05-23",
+            "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/women-economics-theory-conference",
+            "timePrecision": "date"
+          }
+        ]
+      },
+      "recommendation": {
+        "options": {
+          "timezone": "America/New_York",
+          "detailLinks": true,
+          "maxDetails": 10,
+          "eventSelector": ".paragraph--type--up-panel-card",
+          "titleSelector": "h3",
+          "linkSelector": "h3 a",
+          "detailLinkSelector": ".Subnav__nested a[href^=\"/tepper/faculty-and-research/seminars-and-conferences/\"]",
+          "detailOptions": {
+            "detailLinks": false
+          },
+          "detailOptionsByUrl": {
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/child-welfare-operations-symposium": {
+              "eventSelector": ".ContentSidebar",
+              "titleSelector": "h1",
+              "dateSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg .text-intro",
+              "timeSelector": "h3:contains(\"Format and Organization\") + p",
+              "descriptionSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg",
+              "locationSelector": "table tr:nth-child(2) td:first-child",
+              "linkSelector": "a[data-event-link]",
+              "detailLinks": false,
+              "preserveFieldBreaks": true
+            },
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/women-economics-theory-conference": {
+              "eventSelector": ".ContentSidebar",
+              "titleSelector": "h1",
+              "dateSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg > div > p:nth-child(2)",
+              "descriptionSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg",
+              "locationSelector": "[data-event-location]",
+              "linkSelector": "a[data-event-link]",
+              "detailLinks": false,
+              "dateOnly": true,
+              "preserveFieldBreaks": true
+            },
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/accounting-mini-conference": {
+              "eventSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg table",
+              "titleFromPage": "h1",
+              "titleSelector": "h1",
+              "dateSelector": "tr:first-child td",
+              "dateOnly": true,
+              "linkSelector": "a[data-event-link]",
+              "detailLinks": false,
+              "preserveFieldBreaks": true
+            },
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/advances-in-macro-finance": {
+              "eventSelector": ".paragraph--type--accordion-item",
+              "titleSelector": "h3",
+              "dateSelector": ".Table__stack > p:first-child",
+              "dateOnly": true,
+              "linkSelector": "a[data-event-link]",
+              "detailLinks": false,
+              "preserveFieldBreaks": true
+            },
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/carnegie-rochester-nyu-conference": {
+              "eventSelector": "main.node .Accordion__item",
+              "titleSelector": ".Accordion__heading",
+              "dateSelector": ".Accordion__content .Table__stack > p:first-child",
+              "descriptionSelector": ".Accordion__content",
+              "linkSelector": "a[data-event-link]",
+              "dateOnly": true,
+              "detailLinks": false,
+              "preserveFieldBreaks": true
+            },
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/ai-and-human-decisions": {
+              "eventSelector": ".ContentSidebar",
+              "titleSelector": "h1",
+              "dateSelector": ".ContentSidebar__content",
+              "linkSelector": "a[data-event-link]",
+              "dateOnly": true,
+              "detailLinks": false,
+              "preserveFieldBreaks": true,
+              "linkedTextSchedule": {
+                "linkSelector": ".ContentSidebar__content a[href^=\"https://docs.google.com/document/d/\"]",
+                "titleSelector": "h1",
+                "dateLinePrefix": "Date:"
+              }
+            },
+            "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum": {
+              "eventSelector": ".paragraph--type--accordion-item",
+              "titleSelector": ".Accordion__heading",
+              "dateSelector": ".Accordion__content",
+              "linkSelector": "a[data-event-link]",
+              "dateOnly": true,
+              "detailLinks": false,
+              "preserveFieldBreaks": true,
+              "reviewedResources": [
+                {
+                  "selector": ".ContentSidebar__content",
+                  "expectedCount": 1,
+                  "sha256": "ca378d2af41b4fbf8b22fe4842fa49b4f5a54161a47a4bc614c6a42cb8f3614f",
+                  "kind": "undated recording archive",
+                  "reason": "The forum page publishes historical recording headings2025,2024,2021,2020 without month/day occurrence dates. Calendar dates cannot be recovered from recording years alone."
+                }
+              ]
+            }
+          }
+        },
+        "reason": "The AI and Human Decisions landing page omits its year, but its explicitly linked public agenda prints April10–11,2026. The adapter reads that Date line each refresh. Sustainability recordings have no occurrence dates and are monitored as an unchanged undated archive, not an empty calendar."
+      },
+      "before": {
+        "configuredStatus": "active",
+        "reportedLimitation": "Tepper原页及AI and Human Decisions/Sustainability Forum详情均匿名200。前者描述Friday/Saturday但没有具体年月日，后者主要是过去年度录像；解析不出完整日期触发partial，与页面可达性无关。"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "url": "https://www.architecture.cmu.edu/events",
+      "httpStatus": 200,
+      "sha256": "d632cbf0c92600bee7b0350338ea4611bac066aaf2e4557b64d665189ba2c7ff",
+      "fixture": "partial-http-4f854e94f2a9dede.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html",
+      "httpStatus": 200,
+      "sha256": "a042d118d7ab6f6e1935f145997123560a201ea4f7a4bf96e97d5d6bcaeeb0a9",
+      "fixture": "partial-http-e3acb99b60560a59.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "httpStatus": 200,
+      "sha256": "67ac55d7741921a078488f737d1132e7b0f675baba18d4caa097738e12d0687f",
+      "fixture": "partial-http-1468ddb723b25ab7.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+      "httpStatus": 200,
+      "sha256": "7b8c0b45afb2ebc07d500a15af2ae1c3de546a625d78e060073567208a6fa214",
+      "fixture": "partial-http-d89f616f8462974f.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences",
+      "httpStatus": 200,
+      "sha256": "1ae90322c2acfba4ee6cbd0bb0bf16b64ca2967bd5a6b68c20526826bd1672ca",
+      "fixture": "partial-http-a8c3a641e8c5ffd7.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html",
+      "httpStatus": 200,
+      "sha256": "b1516b7e5c1d50a5929abade54c483c816e2103f87a224fec7f291b76cf20170",
+      "fixture": "partial-http-da37fcfaa69fb56e.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum",
+      "httpStatus": 200,
+      "sha256": "da5d20c4c4cd1f4429308b394079a4fbf3d777b3094acea3db708c17f7b03626",
+      "fixture": "partial-http-6a0aa4bd23af1b21.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-hewlett.html",
+      "httpStatus": 200,
+      "sha256": "a3cfd220378f0c74cb98c207d51e4430ca4c18d69c2f2ca6a547f478b82e6a12",
+      "fixture": "partial-http-9386a7f721bbf4c8.txt"
+    },
+    {
+      "url": "https://www.architecture.cmu.edu/events/march-travel-pecha-kucha",
+      "httpStatus": 200,
+      "sha256": "552cf601024297aa99e59a41a70cd220bfe68a43fd93100de03b4ab9d51e442c",
+      "fixture": "partial-http-be400b82cbc567a7.txt"
+    },
+    {
+      "url": "https://www.architecture.cmu.edu/events/x-change-book-launch-2025-26-infrastructures-x-change",
+      "httpStatus": 200,
+      "sha256": "61e1301535c5e545cfdee5648d9bee3ce0ab60125c730f7cc1b0b8f7122996d6",
+      "fixture": "partial-http-b6645aae3232e6f6.txt"
+    },
+    {
+      "url": "https://www.architecture.cmu.edu/events/fall-2026-architecture-awards-applications-due",
+      "httpStatus": 200,
+      "sha256": "042f937ecc4750e6c7b31a6ae68089629c1c1d4dd70fb4831ae9513b4b3887ab",
+      "fixture": "partial-http-6b0022dbe4a464f3.txt"
+    },
+    {
+      "url": "https://www.architecture.cmu.edu/events/book-talk-concrete-colonialism-architecture-urbanism-and-us-imperial-project-philippines",
+      "httpStatus": 200,
+      "sha256": "131666e90ddad71516d710c958671b7cb8ecd3af3a6c0dd1684afd513c7e7454",
+      "fixture": "partial-http-ea5dbd80977b0f95.txt"
+    },
+    {
+      "url": "https://www.architecture.cmu.edu/events/fall-2026-graduate-program-admission-open-house",
+      "httpStatus": 200,
+      "sha256": "8063636f9848c4fa989f9f0947ce5aef452a373b83699339b6745004d25ac976",
+      "fixture": "partial-http-637f277094c98d27.txt"
+    },
+    {
+      "url": "https://www.architecture.cmu.edu/events/live-cinema-event-new-planetary-imaginaries-liam-young-unknown-fields-after-digitalism-sub",
+      "httpStatus": 200,
+      "sha256": "f6427674d2f439bce27b9fcfb4a0aa6255fc97f2d4d58115b70d5921cbb52a31",
+      "fixture": "partial-http-52176afddf113125.txt"
+    },
+    {
+      "url": "https://www.architecture.cmu.edu/events/workshop-why-we-build-worlds-liam-young-unknown-fields-after-digitalism-sub-theme",
+      "httpStatus": 200,
+      "sha256": "2b958c6195f7b058d32fdd0d59fadd3f884098e8c7028fc678145f14d8709697",
+      "fixture": "partial-http-ec518e4bf9e01ecf.txt"
+    },
+    {
+      "url": "https://www.architecture.cmu.edu/events/public-lecture-smaller-architecture-michael-meredith-after-bigness-sub-theme",
+      "httpStatus": 200,
+      "sha256": "e8943c73862ef15e9d2eb42e17277a6a7b689d6f43fccf7c2ec3747102327e34",
+      "fixture": "partial-http-287af669eadba543.txt"
+    },
+    {
+      "url": "https://www.architecture.cmu.edu/events/fall-2026-architecture-awards-ceremony",
+      "httpStatus": 200,
+      "sha256": "d5d418ff9887b0562430d2192692f93ebf0918c97880c11850b0d6f13a80e5ea",
+      "fixture": "partial-http-76ac6bc6e5f94c18.txt"
+    },
+    {
+      "url": "https://www.architecture.cmu.edu/events/showcase-pj-dick-innovation-fund-round-3-awardees-celebration",
+      "httpStatus": 200,
+      "sha256": "fc835599bb610b124e01c426acd2b9dd9fe95eee93f8d475ea2d0fa344b09b57",
+      "fixture": "partial-http-fa614fb1c291dbd6.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/seminars.html",
+      "httpStatus": 200,
+      "sha256": "00d2c1bbbb78fd4ae2dd45bf09c8ed1af79eca80591018b788b392d8f1bda06e",
+      "fixture": "partial-http-9de3a8530f64280f.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-ips.html",
+      "httpStatus": 200,
+      "sha256": "5644b14088481f5bdaa1c279277577d3ce6e0cc7a3a79c8bade33b0a529c619f",
+      "fixture": "partial-http-71a10d8b2164d227.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/casos-center/events/summer-institute-2026_aug.html",
+      "httpStatus": 200,
+      "sha256": "edc34365cf1e72d4b5f26a6d67df86670a9fc3c887f532c0bd8cb72864500a38",
+      "fixture": "partial-http-c5940ae775bc4d5f.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-conferences/index.html",
+      "httpStatus": 200,
+      "sha256": "7e6b20c90825fbaf732a18cdfb09cbbc7888d86291bd81a3849c7666129a1c45",
+      "fixture": "partial-http-fedbdbc9ac54ed12.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/ai_disinfo_summit.html",
+      "httpStatus": 200,
+      "sha256": "2edc607f53ba9939fea4e15ef01b91b60bd8ff55b9207bc2df053f64921a2d41",
+      "fixture": "partial-http-3ddfab7367adde43.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/krn-tool-demo.html",
+      "httpStatus": 200,
+      "sha256": "093812339930e0911eeff89995158e4fc8fdb6b1993da0153459a78ebf5f045b",
+      "fixture": "partial-http-084f2eeca22ae85c.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/constitution-day-conference.html",
+      "httpStatus": 200,
+      "sha256": "2c4f0c58ad89fa1b7c609d52092fcafcbb796be752cb06de9da3c58a190d5a4f",
+      "fixture": "partial-http-27fc77229e44c5c9.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/in-exile-film-screening.html",
+      "httpStatus": 200,
+      "sha256": "f12ed249fc2c4d012ba6fbc816fe2b05de39ec67c1f64074fc21852b282198af",
+      "fixture": "partial-http-7d1dc002d4d20cc3.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/make-research-come-alive.html",
+      "httpStatus": 200,
+      "sha256": "c99560ec3c4696f9cbc6109c8667524ac683650cd619e4162b1463d53c530dc9",
+      "fixture": "partial-http-b6f26eb864128314.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/gilder-lehrman-lincoln-prize.html",
+      "httpStatus": 200,
+      "sha256": "3e25a670786de60694156566e0138882ffb2bcbbe45cddbcaf5377f2658c5b1d",
+      "fixture": "partial-http-9b230d8ce51dd499.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/cause-anniversary-conference.html",
+      "httpStatus": 200,
+      "sha256": "6c8747165e6dd9bcf5b04a25c15d5da83abcc3cb666f907d86d212a2d96999e4",
+      "fixture": "partial-http-acc57ac3c382bc71.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/environmental-humanities-slam.html",
+      "httpStatus": 200,
+      "sha256": "91c1048fca60e65cbc00822bc75171e70797b9958e42f107460bea4ba2cce0fc",
+      "fixture": "partial-http-65d2263dc0d1f01d.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/cause-film-screening.html",
+      "httpStatus": 200,
+      "sha256": "c7981da479ee2b4d26011ecde699a166af8ad6a1e3fc15ce3954d88c1e342ebe",
+      "fixture": "partial-http-5532154ca7a13f6c.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/accounting-mini-conference",
+      "httpStatus": 200,
+      "sha256": "0ab72909b38d226d9f7ee6ca29795523f197b562c0292de57e51aa8d70eba569",
+      "fixture": "partial-http-fecfe2a7cf09cc09.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/advances-in-macro-finance",
+      "httpStatus": 200,
+      "sha256": "7ab3957d57f5929ee0233273f61301a01e80982def41ac620fe525994e169afc",
+      "fixture": "partial-http-6e916e1a3c2777f5.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/carnegie-rochester-nyu-conference",
+      "httpStatus": 200,
+      "sha256": "b17a86e20313b246aea1b93e7cd1c737a6a7f491628462a2b3375fc825c84225",
+      "fixture": "partial-http-a853d2bbdbb6bf36.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/child-welfare-operations-symposium",
+      "httpStatus": 200,
+      "sha256": "4e5c0847a2d89fb38b26afb20b13fd5a5643f6e95cd010c04985e45a2f013a77",
+      "fixture": "partial-http-86bbaf78f83f4922.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/ai-and-human-decisions",
+      "httpStatus": 200,
+      "sha256": "38d18c0fb1246425e9e4a821ba6fe3f002d18f243ca10d463a83501d217e61fe",
+      "fixture": "partial-http-937d2b647642d26c.txt"
+    },
+    {
+      "url": "https://docs.google.com/document/d/1boDbdJFVZLdCumoq2n3mdN9Ngqne8YERrknX1H4rMQo/export?format=txt",
+      "httpStatus": 200,
+      "sha256": "79f9e08e4bb8e7d6eeca0a3c730e12236da20dc93a93b19d1e68b33fb51376bb",
+      "fixture": "partial-http-ae7379152a86e50b.txt"
+    },
+    {
+      "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/women-economics-theory-conference",
+      "httpStatus": 200,
+      "sha256": "a564c89fb6155ee342280c578e75967274547ae6219631f95217d6381288bb39",
+      "fixture": "partial-http-a7459e0126228e43.txt"
+    }
+  ],
+  "validation": {
+    "testsPassed": 61,
+    "fixtureSuite": "tests/remaining-partial-family.test.mjs plus adapters/html/tepper/pending/visual regressions",
+    "sourceScope": "Registry-only; official club reposts retained",
+    "masterConfigChanged": false,
+    "runtimeDatabaseRefreshed": false,
+    "resourceFingerprintRevision": {
+      "checkedAt": "2026-10-25T20:56:46.133Z",
+      "reason": "Include global JSON-LD so a structured event addition cannot be hidden behind an unchanged resource scope.",
+      "visibleContentUnchanged": true,
+      "sustainabilityFingerprint": "9f2eaf2a61fe5256a5a0f6ddff959c27ade46b6294eaae63230ec8e710d4a5a0"
+    }
+  }
+}
