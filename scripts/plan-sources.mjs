@@ -6,6 +6,14 @@ import path from 'node:path';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const catalog = JSON.parse(await readFile(path.join(root, 'data/event_sources.json'), 'utf8'));
 const overrides = JSON.parse(await readFile(path.join(root, 'config/source-overrides.json'), 'utf8')).sources;
+const sourceScope = JSON.parse(await readFile(path.join(root, 'config/source-scope.json'), 'utf8'));
+const excludedSourceIDs = new Set(sourceScope.blockedSourceIds || []);
+for (const source of catalog) {
+  if (excludedSourceIDs.has(sourceId(source.link))
+    || /Student Organizations|Tepper Graduate Organizations|Fraternity and Sorority Chapters|Student Clubs/.test(source.Department)) {
+    throw new Error(`Excluded student organization cannot re-enter the active catalog: ${source.link}`);
+  }
+}
 
 /**
  * Return the stable identity of a catalog URL.

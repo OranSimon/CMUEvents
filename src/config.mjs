@@ -1,6 +1,7 @@
 import { readFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { createSourceScope, sourceAllowed } from './lib/source-scope.mjs';
 
 export const ROOT = fileURLToPath(new URL('../', import.meta.url));
 export const TIME_ZONE = 'America/New_York';
@@ -20,6 +21,7 @@ export function readConfig(env = process.env) {
     autoRefresh: env.CMUEVENTS_AUTO_REFRESH !== '0',
     refreshTickMs: 15 * 60 * 1000,
     lookBackDays: 30, lookAheadDays: 365,
+    sourceScope: createSourceScope(JSON.parse(readFileSync(path.join(ROOT, 'config/source-scope.json'), 'utf8'))),
   };
 }
 
@@ -31,6 +33,9 @@ export function readConfig(env = process.env) {
 export function loadPlans(filename = path.join(ROOT, 'config/source-plans.json')) {
   const document = JSON.parse(readFileSync(filename, 'utf8'));
   if (!Array.isArray(document.plans)) throw new Error('Source plans must contain a plans array. Run npm run plan.');
+  const sourceScope = createSourceScope(JSON.parse(readFileSync(path.join(ROOT, 'config/source-scope.json'), 'utf8')));
+  const excluded = document.plans.find(plan => !sourceAllowed(plan, sourceScope));
+  if (excluded) throw new Error(`Independent club source cannot be loaded: ${excluded.url}`);
   return document.plans;
 }
 

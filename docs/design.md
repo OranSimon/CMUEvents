@@ -2,7 +2,7 @@
 
 ## Scope and principles
 
-Provide one local discovery interface over the existing public-source catalog. Users can search, combine date/Department/Org/topic/campus/mode filters, inspect a grounded event summary, and follow the original event URL. The running server refreshes public sources without credentials. The delivery deliberately uses one Node process, one SQLite file, and static browser assets.
+Provide one local discovery interface over retained non-club publishing sources. Independent student-club websites and calendars are excluded at the source-registry level. University calendars, departments, offices, student governance and other publishers remain. Their activities are preserved irrespective of organizer; there is no event-level club filter. Users can search, combine date/Department/Org/topic/campus/mode filters, inspect a grounded event summary, and follow the original event URL. The running server refreshes sources without credentials, using one Node process, one SQLite file, and static browser assets.
 
 Source availability, extraction support, successful empty responses and failed extraction are different states. Preserve the last good snapshot on failure. Never infer an event's start from a page publication date, never execute source scripts, and never invent descriptions, locations, attendance restrictions or missing years.
 

@@ -1,0 +1,252 @@
+{
+  "checkedAt": "2026-10-25T20:32:36.877Z",
+  "policy": {
+    "mode": "source-only",
+    "officialRepostsRetained": true
+  },
+  "scope": {
+    "excludedSources": 711,
+    "retainedSources": 318
+  },
+  "tests": {
+    "passed": 139,
+    "failed": 0
+  },
+  "projectCheck": "npm run check",
+  "assertions": [
+    {
+      "name": "exact source-only partition and publishing policy",
+      "passed": true
+    },
+    {
+      "name": "JSON and CSV active catalogs agree exactly",
+      "passed": true
+    },
+    {
+      "name": "runtime registry and API contain retained sources only",
+      "passed": true
+    },
+    {
+      "name": "all eligible retained sources were freshly checked",
+      "passed": true
+    },
+    {
+      "name": "every public event and facet uses retained publisher provenance",
+      "passed": true
+    },
+    {
+      "name": "officially republished club-hosted events remain in both storage and API",
+      "passed": true
+    },
+    {
+      "name": "access findings are persisted without presenting authentication pages as readable content",
+      "passed": true
+    },
+    {
+      "name": "transport audit covers every retained source and configured endpoint",
+      "passed": true
+    }
+  ],
+  "allAPIEventsInspected": 4382,
+  "officialRepostRestoration": [
+    {
+      "title": "Society of Physics Students BBQ",
+      "uid": "livewhale:35451:2026-10-27T17:00:00-04:00",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "Gender Minorities and Women in Physics",
+      "uid": "livewhale:34817:2026-10-28T17:00:00-04:00",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "Gender Minorities and Women in Physics",
+      "uid": "livewhale:34820:2026-11-18T17:00:00-05:00",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "Gender Minorities and Women in Physics",
+      "uid": "livewhale:34821:2026-12-02T17:00:00-05:00",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "NOVA: The GenAI Hackathon",
+      "uid": "https://nova.scottylabs.org/",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "Red Robot Hackathon 2026",
+      "uid": "https://www.cs.cmu.edu/calendar/209067645",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "AES@CMU Presents: Maqam-Persian Music - Music of Iran",
+      "uid": "livewhale:35507:2026-11-14T19:30:00-05:00",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "AES@CMU Presents: Maqam-Persian Music - Music of Iran",
+      "uid": "livewhale:35408:2026-11-14T19:30:00-05:00",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "Hack-A-Startup: Kick-Off Weekend",
+      "uid": "https://www.cs.cmu.edu/calendar/210911615",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "Biophilic Design Club - intro meeting",
+      "uid": "20c5458947a31a9f308b700518a35f389282026_8:54:17_AM@campusgroups.com",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "Tepper Masters Students Friday Socials",
+      "uid": "1c130a7ce7f64ddff80dad6eda570ca58242026_9:24:48_AM@campusgroups.com",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "IEEE Research Paper Workshop",
+      "uid": "livewhale:34968:2026-11-14T01:00:00-05:00",
+      "rawMatches": 3,
+      "apiMatches": 1
+    }
+  ],
+  "retainedRefresh": {
+    "purpose": "Refresh every eligible retained non-club publishing source. All activities it publishes are kept irrespective of organizer.",
+    "startedAt": "2026-10-25T20:23:34.779Z",
+    "completedAt": "2026-10-25T20:24:40.522Z",
+    "total": 261,
+    "completed": 261,
+    "ok": 183,
+    "empty": 74,
+    "error": 4,
+    "totalEvents": 4382,
+    "transfers": {
+      "requests": 521,
+      "cacheHits": 212,
+      "bytes": 23246307
+    }
+  },
+  "transportChecks": {
+    "http_available": 490,
+    "request_failed": 1
+  },
+  "normalApplication": {
+    "url": "http://127.0.0.1:4173",
+    "autoRefresh": true,
+    "status": {
+      "lastUpdated": "2026-10-25T20:24:40.522Z",
+      "totalEvents": 4382,
+      "sources": {
+        "total": 318,
+        "ok": 183,
+        "empty": 74,
+        "error": 4,
+        "covered": 38,
+        "unsupported": 15,
+        "subscription_only": 4,
+        "blocked": 0,
+        "pending": 0
+      },
+      "lastRefresh": {
+        "startedAt": "2026-10-25T20:23:34.779Z",
+        "completedAt": "2026-10-25T20:24:40.522Z",
+        "total": 261,
+        "completed": 261,
+        "ok": 183,
+        "empty": 74,
+        "error": 4,
+        "totalEvents": 4382
+      },
+      "refreshing": false
+    }
+  },
+  "evidenceManifest": [
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-alumni-main.jpg",
+      "bytes": 159311,
+      "sha256": "3661922af508d4d28a8f14aa07613168f67320daf129d56c7f696fceae7197e3"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg",
+      "bytes": 190064,
+      "sha256": "d0a221897d4f35891ad68483a36ab6596957aed404ee479879bb549ebf7881b3"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg",
+      "bytes": 145868,
+      "sha256": "6dd6c4ee63e89e4c5f54d87016a1df4345c420dc32c59013e7e0c2d64e3010f1"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg",
+      "bytes": 129530,
+      "sha256": "b1b27479d2b27ffb38fb9252786f28ba4584ac865d1512d0f2a2a45ebb8f8572"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-alumni-online-public-link.jpg",
+      "bytes": 102345,
+      "sha256": "6c79a7d329892e7b8fcfb1011a27303cb83d920ee238c08497d80bb290ed1568"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-emerging-private.jpg",
+      "bytes": 56475,
+      "sha256": "111bce6ede9973409d35af340eb4e93c366da359f9fd7d2e6d46f81e7fafcb2d"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-ild-unpublished.jpg",
+      "bytes": 56056,
+      "sha256": "52ecea9e8900456b8e357b4e12e7d9af9ec10fa209a83a201f4d411bad055198"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-bcbc343b441e-private-archive.jpg",
+      "bytes": 74683,
+      "sha256": "494bf857277eb23146069fb5adf511508388d6063585da6223413cc594ba41a9"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-pdl-closed-list.jpg",
+      "bytes": 163177,
+      "sha256": "591e25122f037af99bf39ec4b4cb413300f7d3a4db19b2bd372d2d02f780aec0"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-pdl-andrew-required.jpg",
+      "bytes": 99504,
+      "sha256": "2a0307232a3799a4ab14ba19e8acb21e8c5e3fe6bc1d17c9f7741adcba89f626"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-5b1716ca5ebe-private-archive.jpg",
+      "bytes": 64326,
+      "sha256": "78bdc61dbe447a60f46ad6d9d4eea7f43d87d1b1567059e88a37471f857c4c40"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-d7499c657649-private-archive.jpg",
+      "bytes": 64246,
+      "sha256": "05d509b9406e7f374b89987ce10b75a77429299445722c746d6f2481a80d5196"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-nexus-login.jpg",
+      "bytes": 243926,
+      "sha256": "103b6d40c42049ae79204571899922de4dfc4c4f0eb1e09ad4d27bbc2aafa845"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/access-cnbc-calendar-browser.jpg",
+      "bytes": 80781,
+      "sha256": "9c37d8e9c2987ebbfff8692a91fb66adf07bd188cb7e52c5f419118b41e3fbff"
+    },
+    {
+      "path": "research/club-source-removal-2026-10-25/evidence/app-official-reposts-retained.jpg",
+      "bytes": 103195,
+      "sha256": "5f44db17e915c4e1257ea21c3a497830bff696cadf170cecceaaff7e2c0fed77"
+    }
+  ]
+}

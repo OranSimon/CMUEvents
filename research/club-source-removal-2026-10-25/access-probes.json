@@ -1,0 +1,2182 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-25T20:07:42.037Z",
+  "scope": "Retained-source access and extraction obstacles; anonymous GET only, no login/subscription/contact.",
+  "sourceCount": 32,
+  "observations": [
+    {
+      "sourceID": "8f00fc7f2c7c",
+      "organization": "CMU Alumni and Community Events",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://www.cmu.edu/engage/events",
+      "fetchURL": "https://www.cmu.edu/engage/events",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.950Z",
+      "status": "public_dynamic_events_available",
+      "finalURL": "https://www.cmu.edu/engage/events",
+      "reason": "原网页匿名200，并明确链接Alumni Community公开Events。浏览器完整加载三页23张活动卡片；23张均显示2026完整日期；末页日期节点晚于首次AX返回，但实际截图已加载，已以截图纠正。未登录状态仍显示Sign In。",
+      "nextStep": "适配官网所链接的动态公开日历及GiveCampus活动详情，覆盖分页，按原始完整日期与时区导入；登录不是当前公开列表的前提。",
+      "probes": [
+        {
+          "url": "https://www.cmu.edu/engage/events",
+          "checkedAt": "2026-10-25T19:56:31.680Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/engage/events",
+          "title": "Events | Engage with CMU",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://community.cmu.edu/s/events",
+          "checkedAt": "2026-10-25T19:59:20.330Z",
+          "status": 200,
+          "finalURL": "https://community.cmu.edu/s/events",
+          "title": "CMU Alumni",
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [
+        {
+          "checkedAt": "2026-10-25T19:56:49.204Z",
+          "url": "https://www.cmu.edu/engage/events",
+          "note": "Official main page links Explore the Events Calendar to community.cmu.edu/s/events.",
+          "screenshot": "evidence/access-alumni-main.jpg"
+        },
+        {
+          "checkedAt": "2026-10-25T19:57:47.409Z",
+          "url": "https://community.cmu.edu/s/events",
+          "note": "Public event cards loaded while Sign In remains visible; page 1/3.",
+          "screenshot": "evidence/access-alumni-community-page1.jpg"
+        },
+        {
+          "checkedAt": "2026-10-25T19:57:51.933Z",
+          "url": "https://community.cmu.edu/s/events",
+          "note": "Public page 2/3 loaded after Next.",
+          "screenshot": "evidence/access-alumni-community-page2.jpg"
+        },
+        {
+          "checkedAt": "2026-10-25T19:58:00.356Z",
+          "url": "https://community.cmu.edu/s/events",
+          "note": "The first AX snapshot returned card labels before late date nodes. The actual saved screenshot was inspected and clearly shows full 2026 dates on all five page3 cards (Nov12/14/17); all23 cards across3pages are dated.",
+          "screenshot": "evidence/access-alumni-community-page3.jpg"
+        }
+      ],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false,
+      "details": {
+        "alumniPublicDatedCards": 23,
+        "pages": 3,
+        "page3DatedCards": [
+          {
+            "title": "PIT – Tartans on Tap: Wexford",
+            "start": "2026-11-12"
+          },
+          {
+            "title": "HLAA - Dulces & Connections: HLAA Holiday Cookie Making Event",
+            "start": "2026-11-14"
+          },
+          {
+            "title": "BOS - Tartan High Tea and Salem Stroll",
+            "start": "2026-11-14"
+          },
+          {
+            "title": "DEN - Festival of Lights: Tartan Diwali Celebration",
+            "start": "2026-11-14"
+          },
+          {
+            "title": "The Menopause Transition and the Brain",
+            "start": "2026-11-17"
+          }
+        ]
+      }
+    },
+    {
+      "sourceID": "79e7cdffd54d",
+      "organization": "CMU Alumni Online Events",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://www.cmu.edu/engage/events/online-events",
+      "fetchURL": "https://www.cmu.edu/engage/events/online-events",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_dynamic_events_available",
+      "finalURL": "https://www.cmu.edu/engage/events/online-events",
+      "reason": "原网页匿名200；Featured Programming的View upcoming events指向同一公开Alumni Community日历。该日历有明确Virtual Webinar活动；Vimeo playlists是历史录像，不能当未来日程。",
+      "nextStep": "复用同一公开日历并按明确线上活动字段筛选；不把全部线下校友活动归到Online来源。",
+      "probes": [
+        {
+          "url": "https://www.cmu.edu/engage/events/online-events",
+          "checkedAt": "2026-10-25T19:56:31.696Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/engage/events/online-events",
+          "title": "Online Events | Engage with CMU",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://community.cmu.edu/s/events",
+          "checkedAt": "2026-10-25T19:59:20.330Z",
+          "status": 200,
+          "finalURL": "https://community.cmu.edu/s/events",
+          "title": "CMU Alumni",
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [
+        {
+          "checkedAt": "2026-10-25T19:58:11.206Z",
+          "url": "https://www.cmu.edu/engage/events/online-events",
+          "note": "Official Online Events page advertises View upcoming events, pointing to the same public calendar.",
+          "screenshot": "evidence/access-alumni-online-public-link.jpg"
+        },
+        {
+          "checkedAt": "2026-10-25T19:57:47.409Z",
+          "url": "https://community.cmu.edu/s/events",
+          "note": "Public event cards loaded while Sign In remains visible; page 1/3.",
+          "screenshot": "evidence/access-alumni-community-page1.jpg"
+        },
+        {
+          "checkedAt": "2026-10-25T19:57:51.933Z",
+          "url": "https://community.cmu.edu/s/events",
+          "note": "Public page 2/3 loaded after Next.",
+          "screenshot": "evidence/access-alumni-community-page2.jpg"
+        },
+        {
+          "checkedAt": "2026-10-25T19:58:00.356Z",
+          "url": "https://community.cmu.edu/s/events",
+          "note": "The first AX snapshot returned card labels before late date nodes. The actual saved screenshot was inspected and clearly shows full 2026 dates on all five page3 cards (Nov12/14/17); all23 cards across3pages are dated.",
+          "screenshot": "evidence/access-alumni-community-page3.jpg"
+        }
+      ],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false,
+      "details": {
+        "alumniPublicDatedCards": 23,
+        "pages": 3,
+        "page3DatedCards": [
+          {
+            "title": "PIT – Tartans on Tap: Wexford",
+            "start": "2026-11-12"
+          },
+          {
+            "title": "HLAA - Dulces & Connections: HLAA Holiday Cookie Making Event",
+            "start": "2026-11-14"
+          },
+          {
+            "title": "BOS - Tartan High Tea and Salem Stroll",
+            "start": "2026-11-14"
+          },
+          {
+            "title": "DEN - Festival of Lights: Tartan Diwali Celebration",
+            "start": "2026-11-14"
+          },
+          {
+            "title": "The Menopause Transition and the Brain",
+            "start": "2026-11-17"
+          }
+        ]
+      }
+    },
+    {
+      "sourceID": "5ade174c3483",
+      "organization": "Enterprise-Wide Optimization Seminars",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "fetchURL": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_page_available_no_current_dated_records",
+      "finalURL": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "reason": "公开页面200，内容是EWO Seminar Slides/PDF/MP3讲座资料；当前generic解析器无法产生带明确日期的活动，不是认证或网络失败。",
+      "nextStep": "保留公开可达状态；按资料页语义处理，只有来源新公布准确日期时才产生事件。",
+      "probes": [
+        {
+          "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+          "checkedAt": "2026-10-25T19:56:31.696Z",
+          "status": 200,
+          "finalURL": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+          "title": "Enterprise-Wide Optimization Interest Group : Seminars",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "31aa89be167d",
+      "organization": "Data Storage Systems Center Events",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "fetchURL": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_page_available_integration_needed",
+      "finalURL": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "reason": "公开Events页200，列出Event Archive及2026 Japan/Spring Technical Review等子页；当前缺少适配该档案结构的日期抽取。",
+      "nextStep": "按官方子页和可能的PDF日程解析明确年份日期；unsupported表示尚未适配，不表示网页无法访问。",
+      "probes": [
+        {
+          "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+          "checkedAt": "2026-10-25T19:56:31.757Z",
+          "status": 200,
+          "finalURL": "https://www.dssc.ece.cmu.edu/news/Events.html",
+          "title": "Events -     Data Storage Systems Center -     College of Engineering - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "b453fc62eac4",
+      "organization": "EPP Faculty Seminar Series",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+      "fetchURL": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_page_available_no_current_dated_records",
+      "finalURL": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+      "reason": "公开200，说明monthly faculty seminars并列Past seminars录像/讲者；所见月度描述没有各次完整日期。",
+      "nextStep": "不要从monthly文字推算未来活动；等明确日程或公开日期页后解析。",
+      "probes": [
+        {
+          "url": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+          "checkedAt": "2026-10-25T19:56:31.799Z",
+          "status": 200,
+          "finalURL": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+          "title": "EPP seminar series - Engineering and Public Policy",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "74ef2bc806ae",
+      "organization": "Emerging Leaders",
+      "runtimeStateAtSelection": "empty",
+      "runtimeError": null,
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71334.ics",
+      "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71334.ics",
+      "priorResolution": {
+        "checkedAt": "2026-10-22T16:34:45.331Z",
+        "category": "login_required",
+        "reason": "Current program year context does not explicitly date the separate session; the authoritative registration detail is private.",
+        "nextStep": "An authorized member may provide event1937691 date/year/location, or CELD can add year to public session card. Keep public candidate month/day/time without guessing2026 and do not create account.",
+        "requiresReview": true,
+        "accessRestrictions": [],
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-74ef2bc806ae-official.jpg"
+      },
+      "priorVisualReview": {
+        "checkedAt": "2026-10-22T16:34:45.331Z",
+        "outcome": "public_info_session_missing_year_private_details",
+        "note": "Official page has current Spring2027 application opening November2026, and separate Dec2 12–13 info-session card without year/location. Linked public FAQ anonymously exports200 but gives only general January retreat pattern and no session year. Actual Register link confirms Emerging Leaders Info-Session is private and disallows public account creation.",
+        "url": "https://cglink.me/2c1/r1937691",
+        "requiresReview": true,
+        "resolution": "external_action_documented",
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-74ef2bc806ae-official.jpg"
+      },
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_feed_available_private_event",
+      "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_71334.ics",
+      "reason": "原ICS匿名200且有效但0 VEVENT。官方项目页可达：Spring2027申请将于November2026开放；独立Dec2 12–13 info-session没有明确年份。真实注册链接跳到private_event=1，浏览器明确要求已有账号且不允许公开建号。",
+      "nextStep": "有权限成员可自行核对event1937691准确年份/地点，或CELD在公开卡片补全；采集器继续公开ICS，不登录、不猜2026。",
+      "probes": [
+        {
+          "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71334.ics",
+          "checkedAt": "2026-10-25T19:56:31.846Z",
+          "status": 200,
+          "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_71334.ics",
+          "title": "",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71334.ics",
+              "location": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_71334.ics"
+            }
+          ],
+          "validCalendar": true,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://cglink.me/2c1/r1937691",
+          "checkedAt": "2026-10-25T19:56:32.056Z",
+          "status": 200,
+          "finalURL": "https://tartanconnect.cmu.edu/otp_signup?module=event&event_id=1937691&private_event=1",
+          "title": "Sign In or Register",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://cglink.me/2c1/r1937691",
+              "location": "https://admin-prod-us-east-1.campusgroups.com/cglink_redir?cgc=2c1&q=r1937691"
+            },
+            {
+              "status": 302,
+              "url": "https://admin-prod-us-east-1.campusgroups.com/cglink_redir?cgc=2c1&q=r1937691",
+              "location": "https://tartanconnect.cmu.edu/cglink?q=r1937691"
+            },
+            {
+              "status": 302,
+              "url": "https://tartanconnect.cmu.edu/cglink?q=r1937691",
+              "location": "https://tartanconnect.cmu.edu/SLICEEL/rsvp_boot?id=1937691"
+            },
+            {
+              "status": 302,
+              "url": "https://tartanconnect.cmu.edu/SLICEEL/rsvp_boot?id=1937691",
+              "location": "https://tartanconnect.cmu.edu/otp_signup?module=event&event_id=1937691&private_event=1"
+            }
+          ],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://www.cmu.edu/student-affairs/celd/leadership-development/emerging-leaders.html",
+          "checkedAt": "2026-10-25T19:59:19.796Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/student-affairs/celd/leadership-development/emerging-leaders.html",
+          "title": "Emerging Leaders - \n                Community Engagement & Leadership Development -     Student Affairs - Carnegie Mellon University",
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [
+        {
+          "checkedAt": "2026-10-25T19:58:19.627Z",
+          "url": "https://tartanconnect.cmu.edu/otp_signup?module=event&event_id=1937691&private_event=1",
+          "note": "Private event registration; existing account required and public account creation disallowed.",
+          "screenshot": "evidence/access-emerging-private.jpg"
+        }
+      ],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": true
+    },
+    {
+      "sourceID": "f5d9d68e0b15",
+      "organization": "Interfaith Leadership Development",
+      "runtimeStateAtSelection": "empty",
+      "runtimeError": null,
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71450.ics",
+      "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71450.ics",
+      "priorResolution": {
+        "checkedAt": "2026-10-22T16:48:15.259Z",
+        "category": "organizer_confirmation",
+        "reason": "An anonymous official description exists, but the program-specific dated choices are housed in TartanConnect. Related RSL events have a broader scope.",
+        "nextStep": "Ask RSL staff to expose scheduled ILD choices anonymously if they want those aggregated; keep the self-paced program as a resource, not invented recurring events.",
+        "requiresReview": true,
+        "accessRestrictions": [
+          {
+            "type": "organizer",
+            "url": "https://tartanconnect.cmu.edu/ILD/events/",
+            "reason": "Program events page explicitly unpublished; scheduled choices not exposed anonymously.",
+            "nextStep": "Publish program-specific dated activities if applicable.",
+            "requiredForPublicCoverage": true
+          }
+        ],
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-f5d9d68e0b15.jpg"
+      },
+      "priorVisualReview": {
+        "checkedAt": "2026-10-22T16:48:15.259Z",
+        "outcome": "organizer_confirmation",
+        "note": "The ILD events page is explicitly unpublished. Its official CMU Religious & Spiritual Life parent page describes a self-paced, choose-your-own-adventure badge program that participants may begin at any point in the academic year; this does not define scheduled sessions. The same parent page separately announces open-to-all Friendsgiving on November 23, 2026, without exact time or location.",
+        "url": "https://www.cmu.edu/wellbeing/resources/wellness-initiatives/religious-spiritual/",
+        "requiresReview": true,
+        "resolution": "external_action_documented",
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/aw-f5d9d68e0b15.jpg"
+      },
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_feed_available_unpublished_program_page",
+      "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_71450.ics",
+      "reason": "原ICS匿名200有效0 VEVENT，官方RSL项目描述可公开读取；ILD/events重定向officer目录，浏览器显示该页面已unpublished。不是连接失败。自定进度badge说明也不是已排期日程。",
+      "nextStep": "由项目维护者公开program-specific dated choices；保持资源描述，不从自定进度推算周期。父级RSL Friendsgiving属于更广办公室来源，勿误归ILD。",
+      "probes": [
+        {
+          "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71450.ics",
+          "checkedAt": "2026-10-25T19:56:32.166Z",
+          "status": 200,
+          "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_71450.ics",
+          "title": "",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71450.ics",
+              "location": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_71450.ics"
+            }
+          ],
+          "validCalendar": true,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://tartanconnect.cmu.edu/ILD/events/",
+          "checkedAt": "2026-10-25T19:56:32.167Z",
+          "status": 200,
+          "finalURL": "https://tartanconnect.cmu.edu/ILD/web_officers",
+          "title": "TartanConnect",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://tartanconnect.cmu.edu/ILD/events/",
+              "location": "https://tartanconnect.cmu.edu/ILD/web_officers.aspx"
+            },
+            {
+              "status": 301,
+              "url": "https://tartanconnect.cmu.edu/ILD/web_officers.aspx",
+              "location": "https://tartanconnect.cmu.edu/ILD/web_officers"
+            }
+          ],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://www.cmu.edu/wellbeing/resources/wellness-initiatives/religious-spiritual/",
+          "checkedAt": "2026-10-25T19:56:32.269Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/wellbeing/resources/wellness-initiatives/religious-spiritual/",
+          "title": "Religious & Spiritual Life - \n                Community Health & Well-Being -     Student Affairs - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [
+        {
+          "type": "organizer",
+          "url": "https://tartanconnect.cmu.edu/ILD/events/",
+          "reason": "Program events page explicitly unpublished; scheduled choices not exposed anonymously.",
+          "nextStep": "Publish program-specific dated activities if applicable.",
+          "requiredForPublicCoverage": true
+        }
+      ],
+      "visualEvidence": [
+        {
+          "checkedAt": "2026-10-25T19:58:29.380Z",
+          "url": "https://tartanconnect.cmu.edu/ILD/web_officers",
+          "note": "Public response redirects to officer directory and browser displays explicit unpublished-page banner; not a network failure.",
+          "screenshot": "evidence/access-ild-unpublished.jpg"
+        }
+      ],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false,
+      "requiresProgramPagePublication": true
+    },
+    {
+      "sourceID": "e3acb99b6056",
+      "organization": "Center for Informed Democracy and Social-cybersecurity Events",
+      "runtimeStateAtSelection": "error",
+      "runtimeError": "Incomplete extraction; previous records retained. Detail (https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Detail (https://www.cmu.edu/ideas-social-cybersecurity/events/ai_disinfo_summit.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Detail (https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-hewlett.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Detail (https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-ips.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Optional detail enrichment (https://www.cmu.edu/casos-center/events/summer-institute-2026_aug.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Optional detail enrichment (h",
+      "sourceURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html",
+      "fetchURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_html_reachable_extraction_partial",
+      "finalURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html",
+      "reason": "原页与本次检查的5个关键详情均匿名200。现有error明确为Incomplete extraction：部分系列页仅周期或历史内容、部分详情选择器不产出日期；并非HTTP拒绝、登录或订阅障碍。",
+      "nextStep": "按各详情页的日期语义配置，区分有日期公告与系列/历史资料；继续保留已成功解析记录，并保留partial诊断直至所需子页覆盖完整。",
+      "probes": [
+        {
+          "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html",
+          "checkedAt": "2026-10-25T19:56:32.298Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html",
+          "title": "Events - \n                Center for Informed Democracy & Social - cybersecurity (IDeaS) - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+          "checkedAt": "2026-10-25T19:56:32.322Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+          "title": "Social Cybersecurity Seminar - \n                Center for Informed Democracy & Social - cybersecurity (IDeaS) - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/ai_disinfo_summit.html",
+          "checkedAt": "2026-10-25T19:56:32.337Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/ai_disinfo_summit.html",
+          "title": "AI and Disinformation Summit - \n                Center for Informed Democracy & Social - cybersecurity (IDeaS) - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-hewlett.html",
+          "checkedAt": "2026-10-25T19:56:32.353Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-hewlett.html",
+          "title": "IDeaS/Hewlett Seminars - \n                Center for Informed Democracy & Social - cybersecurity (IDeaS) - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-ips.html",
+          "checkedAt": "2026-10-25T19:56:32.369Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-ips.html",
+          "title": "Social Cybersecurity Policy Seminar Series  - \n                Center for Informed Democracy & Social - cybersecurity (IDeaS) - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://www.cmu.edu/casos-center/events/summer-institute-2026_aug.html",
+          "checkedAt": "2026-10-25T19:56:32.383Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/casos-center/events/summer-institute-2026_aug.html",
+          "title": "2026 AI-Enabled Network Analysis Training - Summer Institute - \n                CASOS Center - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "1468ddb723b2",
+      "organization": "Humanities Center News and Events",
+      "runtimeStateAtSelection": "error",
+      "runtimeError": "Incomplete extraction; previous records retained. Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/anna-kornbluh.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/baltimore-after-progress.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Detail limit 8 reached; 70 required child page(s) remain; configure pagination or a structured feed for complete ingestion",
+      "sourceURL": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "fetchURL": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_html_reachable_extraction_partial",
+      "finalURL": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "reason": "原页和两个报错详情匿名200。错误含两个child无可解析日期，以及maxDetails8之后70个required child尚未检查；是抓取覆盖/选择器问题，不是无法访问。",
+      "nextStep": "按档案/分页结构完成有界遍历或接入官方结构化日程；不能清空已知事件，也不能把error解释成认证失败。",
+      "probes": [
+        {
+          "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+          "checkedAt": "2026-10-25T19:56:32.400Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+          "title": "News & Events - \n                The Humanities Center -     Dietrich College of Humanities and Social Sciences - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/anna-kornbluh.html",
+          "checkedAt": "2026-10-25T19:56:32.570Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/anna-kornbluh.html",
+          "title": "Immediacy: Some Theses on Cultural Style - \n                The Humanities Center -     Dietrich College of Humanities and Social Sciences - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/baltimore-after-progress.html",
+          "checkedAt": "2026-10-25T19:56:32.630Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/baltimore-after-progress.html",
+          "title": "Baltimore After Progress - \n                The Humanities Center -     Dietrich College of Humanities and Social Sciences - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "d89f616f8462",
+      "organization": "IDeaS Virtual Social Cybersecurity Seminar",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+      "fetchURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_page_available_date_confirmation_needed",
+      "finalURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+      "reason": "公开200，出现first Thursday/month及upcoming speakers，但没有当前各场完整年月日；过去演讲按2022–2024归档。",
+      "nextStep": "保留公开可达；需主办方公布具体当前日期，不能由周期文字和当前年份补猜。",
+      "probes": [
+        {
+          "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+          "checkedAt": "2026-10-25T19:56:32.322Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+          "title": "Social Cybersecurity Seminar - \n                Center for Informed Democracy & Social - cybersecurity (IDeaS) - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "d861fd81e26d",
+      "organization": "Center for African American Urban Studies and the Economy Events",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://www.cmu.edu/history/cause/events/index.html",
+      "fetchURL": "https://www.cmu.edu/history/cause/events/index.html",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_page_available_historical_records",
+      "finalURL": "https://www.cmu.edu/history/cause/events/index.html",
+      "reason": "公开200；所见Previous Events含2025-11-07、2025-03-14等历史完整日期及2022系列。generic unsupported是页面结构/窗口问题。",
+      "nextStep": "可按明确历史日期做来源适配，并另核当前公告；不能解释为访问被拒绝或组织无活动。",
+      "probes": [
+        {
+          "url": "https://www.cmu.edu/history/cause/events/index.html",
+          "checkedAt": "2026-10-25T19:56:32.641Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/history/cause/events/index.html",
+          "title": "Events - \n                Center for Africanamerican Urban Studies & the Economy - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "bcbc343b441e",
+      "organization": "Pitt-CMU Environmental Humanities Research Seminar",
+      "runtimeStateAtSelection": "subscription_only",
+      "runtimeError": null,
+      "sourceURL": "https://list.pitt.edu/mailman/listinfo/environmental_humanities_research_seminar",
+      "fetchURL": "https://list.pitt.edu/mailman/listinfo/environmental_humanities_research_seminar",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "subscription_and_archive_authentication_required",
+      "finalURL": "https://list.pitt.edu/mailman/listinfo/environmental_humanities_research_seminar",
+      "reason": "Listinfo公开200，明确邮件档案仅成员可看；广告链接/private/本次匿名GET也是200，但内容为Private Archives Authentication邮箱/密码表单。订阅需要邮箱确认及moderator approval。 这是真实内容认证/订阅障碍，不是HTTP无法连接。",
+      "nextStep": "由用户明确授权的合资格专用邮箱申请订阅，并遵守列表发布/转发边界；或由主办方提供匿名公开档案/日历。未创建邮箱、未填写表单、未登录、未订阅。",
+      "probes": [
+        {
+          "url": "https://list.pitt.edu/mailman/listinfo/environmental_humanities_research_seminar",
+          "checkedAt": "2026-10-25T19:56:32.693Z",
+          "status": 200,
+          "finalURL": "https://list.pitt.edu/mailman/listinfo/environmental_humanities_research_seminar",
+          "title": "Environmental_humanities_research_seminar Info Page",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://list.pitt.edu/mailman/private/environmental_humanities_research_seminar/",
+          "checkedAt": "2026-10-25T19:59:19.720Z",
+          "status": 200,
+          "finalURL": "https://list.pitt.edu/mailman/private/environmental_humanities_research_seminar/",
+          "title": "Environmental_humanities_research_seminar Private Archives\nAuthentication",
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [
+        {
+          "type": "subscription_and_login",
+          "requiredForPrivateArchive": true,
+          "requiredForPublicListinfo": false
+        }
+      ],
+      "visualEvidence": [
+        {
+          "checkedAt": "2026-10-25T20:01:05.579Z",
+          "url": "https://list.pitt.edu/mailman/private/environmental_humanities_research_seminar/",
+          "note": "Advertised archive requires email/password authentication; no fields filled.",
+          "screenshot": "evidence/access-bcbc343b441e-private-archive.jpg"
+        }
+      ],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": true,
+      "anonymousArchiveContentAvailable": false
+    },
+    {
+      "sourceID": "34fa7359276d",
+      "organization": "Socialist Studies Seminar",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "fetchURL": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_page_available_poster_or_embedded_schedule",
+      "finalURL": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "reason": "公开200，有Fall2026等学期标题，常规正文没有逐场文本日期，属于图像/嵌入内容解析问题。",
+      "nextStep": "对当前官方海报或嵌入日程做视觉/OCR核对并绑定原图片哈希；缺年份日期不推算，仍保留公开可达。",
+      "probes": [
+        {
+          "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+          "checkedAt": "2026-10-25T19:56:32.719Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+          "title": "Socialist Studies Seminar - \n                Department of History -     Dietrich College of Humanities and Social Sciences - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "c1587a0b2819",
+      "organization": "CMUQ Library",
+      "runtimeStateAtSelection": "empty",
+      "runtimeError": null,
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35472.ics",
+      "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35472.ics",
+      "priorResolution": {
+        "checkedAt": "2026-10-22T16:33:00.398Z",
+        "category": "public_zero_verified",
+        "reason": "当前公开未来分组列表实证 0，目录未另给具体未来活动日程；可选成员限制不应保留整个来源待核实旗标。",
+        "nextStep": "继续正常刷新公开日历；成员区仅作为可选访问步骤单列。",
+        "requiresReview": false,
+        "accessRestrictions": [
+          {
+            "type": "login",
+            "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+            "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+            "requiredForPublicCoverage": false,
+            "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35472"
+          },
+          {
+            "type": "login",
+            "reason": "目录 Mission 所列图书馆 Google Site 重定向到 Google sign-in。",
+            "nextStep": "需成员网站内容时由有权限用户自行登录，或由网站维护者提供匿名公开日历。",
+            "requiredForPublicCoverage": false,
+            "url": "https://sites.google.com/andrew.cmu.edu/mycmuq-library"
+          }
+        ],
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/pd-c1587a0b2819-public-events-complete.jpg"
+      },
+      "priorVisualReview": {
+        "checkedAt": "2026-10-22T16:33:00.398Z",
+        "outcome": "public_directory_and_upcoming_zero_verified",
+        "note": "官方目录精确 club ID、公开说明及广告网站已核对；完整导航精确 group_ids 新文档，选中分组一致且加载指示消失后，实际显示 Events (0) / No result found。结论限于当前公开未来列表。",
+        "url": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35472",
+        "requiresReview": false,
+        "resolution": "implemented_and_refreshed",
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/pd-c1587a0b2819-public-events-complete.jpg"
+      },
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_calendar_available_optional_login",
+      "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/cmu/ical_club_35472.ics",
+      "reason": "公开ICS200有效0 VEVENT，精确group35472匿名API200空数组。成员profile跳登录；目录所广告Google Site匿名重定向Google登录。这些是额外成员渠道，不能否定公开日历可达。",
+      "nextStep": "继续刷新公开ICS/API。只有需要成员网站细节时，由合资格用户自行访问，或请网站维护者提供匿名日程。",
+      "probes": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35472.ics",
+          "checkedAt": "2026-10-25T19:56:32.739Z",
+          "status": 200,
+          "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/cmu/ical_club_35472.ics",
+          "title": "",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35472.ics",
+              "location": "https://static-prod-us-east-1.campusgroups.com/ical/cmu/ical_club_35472.ics"
+            }
+          ],
+          "validCalendar": true,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35472&order=&search_word=",
+          "checkedAt": "2026-10-25T19:56:32.833Z",
+          "status": 200,
+          "finalURL": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35472&order=&search_word=",
+          "title": "",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0,
+          "jsonArrayLength": 0
+        },
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35472",
+          "checkedAt": "2026-10-25T19:56:33.021Z",
+          "status": 200,
+          "finalURL": "https://scottyconnect.qatar.cmu.edu/webapp/auth/login?redirect=https%3a%2f%2fscottyconnect.qatar.cmu.edu%2ffeeds%3ftype%3dclub%26type_id%3d35472&msg=",
+          "title": "StudentsCommunityPlatform",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35472",
+              "location": "https://scottyconnect.qatar.cmu.edu/feeds.aspx?type=club&type_id=35472"
+            },
+            {
+              "status": 301,
+              "url": "https://scottyconnect.qatar.cmu.edu/feeds.aspx?type=club&type_id=35472",
+              "location": "https://scottyconnect.qatar.cmu.edu/feeds?type=club&type_id=35472"
+            },
+            {
+              "status": 302,
+              "url": "https://scottyconnect.qatar.cmu.edu/feeds?type=club&type_id=35472",
+              "location": "https://scottyconnect.qatar.cmu.edu/webapp/auth/login?redirect=https%3a%2f%2fscottyconnect.qatar.cmu.edu%2ffeeds%3ftype%3dclub%26type_id%3d35472&msg="
+            }
+          ],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://sites.google.com/andrew.cmu.edu/mycmuq-library",
+          "checkedAt": "2026-10-25T19:56:33.041Z",
+          "status": 200,
+          "finalURL": "https://accounts.google.com/v3/signin/identifier",
+          "title": "Google Drive: Sign-in",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://sites.google.com/andrew.cmu.edu/mycmuq-library",
+              "location": "https://accounts.google.com/ServiceLogin"
+            },
+            {
+              "status": 302,
+              "url": "https://accounts.google.com/ServiceLogin",
+              "location": "https://accounts.google.com/v3/signin/identifier"
+            }
+          ],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35472",
+          "checkedAt": "2026-10-25T19:56:33.043Z",
+          "status": 200,
+          "finalURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35472",
+          "title": "Events List",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [
+        {
+          "type": "login",
+          "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+          "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+          "requiredForPublicCoverage": false,
+          "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35472"
+        },
+        {
+          "type": "login",
+          "reason": "目录 Mission 所列图书馆 Google Site 重定向到 Google sign-in。",
+          "nextStep": "需成员网站内容时由有权限用户自行登录，或由网站维护者提供匿名公开日历。",
+          "requiredForPublicCoverage": false,
+          "url": "https://sites.google.com/andrew.cmu.edu/mycmuq-library"
+        }
+      ],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "48e5e88860d3",
+      "organization": "EcoCampus",
+      "runtimeStateAtSelection": "empty",
+      "runtimeError": null,
+      "sourceURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35481.ics",
+      "fetchURL": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35481.ics",
+      "priorResolution": {
+        "checkedAt": "2026-10-22T16:32:50.696Z",
+        "category": "public_zero_verified",
+        "reason": "当前公开未来分组列表实证 0，目录未另给具体未来活动日程；可选成员限制不应保留整个来源待核实旗标。",
+        "nextStep": "继续正常刷新公开日历；成员区仅作为可选访问步骤单列。",
+        "requiresReview": false,
+        "accessRestrictions": [
+          {
+            "type": "login",
+            "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+            "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+            "requiredForPublicCoverage": false,
+            "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35481"
+          }
+        ],
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/pd-48e5e88860d3-public-events-complete.jpg"
+      },
+      "priorVisualReview": {
+        "checkedAt": "2026-10-22T16:32:50.696Z",
+        "outcome": "public_directory_and_upcoming_zero_verified",
+        "note": "官方目录精确 club ID、公开说明及广告网站已核对；完整导航精确 group_ids 新文档，选中分组一致且加载指示消失后，实际显示 Events (0) / No result found。结论限于当前公开未来列表。",
+        "url": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35481",
+        "requiresReview": false,
+        "resolution": "implemented_and_refreshed",
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/pd-48e5e88860d3-public-events-complete.jpg"
+      },
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_calendar_available_optional_login",
+      "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/cmu/ical_club_35481.ics",
+      "reason": "公开ICS200有效0 VEVENT，精确group35481匿名API200空数组；成员profile会跳登录，但公开数据入口独立可达。",
+      "nextStep": "继续正常刷新公开ICS/API，成员专属内容仅作可选渠道维护。",
+      "probes": [
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35481.ics",
+          "checkedAt": "2026-10-25T19:56:33.523Z",
+          "status": 200,
+          "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/cmu/ical_club_35481.ics",
+          "title": "",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://scottyconnect.qatar.cmu.edu/ical/cmu/ical_club_35481.ics",
+              "location": "https://static-prod-us-east-1.campusgroups.com/ical/cmu/ical_club_35481.ics"
+            }
+          ],
+          "validCalendar": true,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35481&order=&search_word=",
+          "checkedAt": "2026-10-25T19:56:33.683Z",
+          "status": 200,
+          "finalURL": "https://scottyconnect.qatar.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=35481&order=&search_word=",
+          "title": "",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0,
+          "jsonArrayLength": 0
+        },
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35481",
+          "checkedAt": "2026-10-25T19:56:33.780Z",
+          "status": 200,
+          "finalURL": "https://scottyconnect.qatar.cmu.edu/webapp/auth/login?redirect=https%3a%2f%2fscottyconnect.qatar.cmu.edu%2ffeeds%3ftype%3dclub%26type_id%3d35481&msg=",
+          "title": "StudentsCommunityPlatform",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35481",
+              "location": "https://scottyconnect.qatar.cmu.edu/feeds.aspx?type=club&type_id=35481"
+            },
+            {
+              "status": 301,
+              "url": "https://scottyconnect.qatar.cmu.edu/feeds.aspx?type=club&type_id=35481",
+              "location": "https://scottyconnect.qatar.cmu.edu/feeds?type=club&type_id=35481"
+            },
+            {
+              "status": 302,
+              "url": "https://scottyconnect.qatar.cmu.edu/feeds?type=club&type_id=35481",
+              "location": "https://scottyconnect.qatar.cmu.edu/webapp/auth/login?redirect=https%3a%2f%2fscottyconnect.qatar.cmu.edu%2ffeeds%3ftype%3dclub%26type_id%3d35481&msg="
+            }
+          ],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35481",
+          "checkedAt": "2026-10-25T19:56:33.849Z",
+          "status": 200,
+          "finalURL": "https://scottyconnect.qatar.cmu.edu/events?group_ids=35481",
+          "title": "Events List",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [
+        {
+          "type": "login",
+          "reason": "成员 profile / feed 要求登录；公共 Events 可匿名访问。",
+          "nextStep": "只有需成员专属信息时由有权限用户自行登录；不影响已确认的公开活动覆盖。",
+          "requiredForPublicCoverage": false,
+          "url": "https://scottyconnect.qatar.cmu.edu/student_community?a=1&club_id=35481"
+        }
+      ],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "97bebc670839",
+      "organization": "CMU Silicon Valley Events",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://www.sv.cmu.edu/events/index.html",
+      "fetchURL": "https://www.sv.cmu.edu/events/index.html",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_page_available_dynamic_calendar",
+      "finalURL": "https://www.sv.cmu.edu/events/index.html",
+      "reason": "公开200，Events页已有October2026/September2026/November2026日历导航，但静态正文没有逐场记录。",
+      "nextStep": "检查官方日历组件的匿名数据入口并适配；当前unsupported不能当作访问失败。",
+      "probes": [
+        {
+          "url": "https://www.sv.cmu.edu/events/index.html",
+          "checkedAt": "2026-10-25T19:56:33.931Z",
+          "status": 200,
+          "finalURL": "https://www.sv.cmu.edu/events/index.html",
+          "title": "Events - Carnegie Mellon University Silicon Valley",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "54c24d7416bb",
+      "organization": "PwC Center for Business and Risk — special events and programs",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+      "fetchURL": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_page_available_no_current_dated_records",
+      "finalURL": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+      "reason": "公开200，Special Events and Programs主要描述2024 University Exchange、2023及2020项目；不是登录限制。",
+      "nextStep": "从实际公布的具体日程解析；年份或项目介绍不足以生成当前活动。",
+      "probes": [
+        {
+          "url": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+          "checkedAt": "2026-10-25T19:56:33.981Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+          "title": "Special Events and Programs - \n                Digital Transformation and Innovation Center - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "5a47a3eb65bf",
+      "organization": "AI Institute for Societal Decision Making — Seminars",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://www.cmu.edu/ai-sdm/seminars/",
+      "fetchURL": "https://www.cmu.edu/ai-sdm/seminars/",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_page_available_directory_and_optional_subscription",
+      "finalURL": "https://www.cmu.edu/ai-sdm/seminars/",
+      "reason": "公开200，Seminar Series说明明确把past/future细节指向Events calendar，并提供可选public email list与录像库；不是强制邮件才能看此页面。",
+      "nextStep": "核对并使用官方Events calendar；邮件提醒作为可选补充，不因存在订阅按钮将整源判订阅受限。",
+      "probes": [
+        {
+          "url": "https://www.cmu.edu/ai-sdm/seminars/",
+          "checkedAt": "2026-10-25T19:56:34.010Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/ai-sdm/seminars/",
+          "title": "Seminars - \n                NSF AI Institute for Societal Decision Making - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "1aa9b956ba78",
+      "organization": "Center for Transformational Play Workshops",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://www.cmu.edu/ctp/workshops/index.html",
+      "fetchURL": "https://www.cmu.edu/ctp/workshops/index.html",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_page_available_workshop_catalog",
+      "finalURL": "https://www.cmu.edu/ctp/workshops/index.html",
+      "reason": "公开200，CURRENT WORKSHOP CATALOG列出三种课程及custom workshops，但所见正文没有各场具体举办日期。",
+      "nextStep": "检查Learn More实际排期；把定制/可预约工作坊资源与已定日期活动区分，不编造日期。",
+      "probes": [
+        {
+          "url": "https://www.cmu.edu/ctp/workshops/index.html",
+          "checkedAt": "2026-10-25T19:56:34.118Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/ctp/workshops/index.html",
+          "title": "Workshops - \n                Center for Transformational Play - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "4c4f223b8c8b",
+      "organization": "Robotics, Embodied AI and Learning — news and events",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://www.cmu.edu/real/news-and-events/index.html",
+      "fetchURL": "https://www.cmu.edu/real/news-and-events/index.html",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_page_available_linked_calendar",
+      "finalURL": "https://www.cmu.edu/real/news-and-events/index.html",
+      "reason": "公开200，REAL页面列Manipulation Discussion的Calendar、Learning and Control Seminar的Website/Mailing List，内部workshop有example schedule时刻但无具体日期。",
+      "nextStep": "按官方链接核对公开日历；示例时刻不当作实际事件，邮件渠道与公开页面分别标注。",
+      "probes": [
+        {
+          "url": "https://www.cmu.edu/real/news-and-events/index.html",
+          "checkedAt": "2026-10-25T19:56:34.180Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/real/news-and-events/index.html",
+          "title": "News and Events -     Robotics, Embodied AI, and Learning - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "1185bc345a9a",
+      "organization": "SCS Seminars directory",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "fetchURL": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_page_available_embedded_directory",
+      "finalURL": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "reason": "公开200，SCS Seminars页面是目录/嵌入信息入口，并链接SCS Events Calendar；静态正文无完整事件条目。",
+      "nextStep": "适配可公开读取的目录/日历组件，或使用已经独立配置的官方事件日历；不标不可访问。",
+      "probes": [
+        {
+          "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+          "checkedAt": "2026-10-25T19:56:34.181Z",
+          "status": 200,
+          "finalURL": "https://www.cs.cmu.edu/events/scs-seminar-series",
+          "title": "SCS Seminars",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "45f983439757",
+      "organization": "Parallel Data Lab — Systems Design and Implementation Seminar",
+      "runtimeStateAtSelection": "empty",
+      "runtimeError": null,
+      "sourceURL": "https://pdl.cmu.edu/SDI/index.html",
+      "fetchURL": "https://pdl.cmu.edu/SDI/index.shtml",
+      "priorResolution": null,
+      "priorVisualReview": {
+        "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+        "outcome": "supported_records_outside_window",
+        "note": "The latest visible SDI entry is August 27, 2026, before the September 21 window start. Subscriptions explicitly require an ANDREW.CMU.EDU address.",
+        "url": "https://pdl.cmu.edu/SDI/index.html"
+      },
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_schedule_available_restricted_mail_channel",
+      "finalURL": "https://pdl.cmu.edu/SDI/index.shtml",
+      "reason": "公开index.html有JS跳转，actual index.shtml匿名200并展示历史日程；网页明确SDI面向active,on-campus CMU，要求ANDREW.CMU.EDU地址。订阅站在浏览器可达，写closed list、moderator approval、member-only archive，且要求不要转发seminar信息。Node对该额外订阅站另有TLS链验证失败。",
+      "nextStep": "继续抓取公开网页；只有有资格并获授权者自行申请邮件订阅。普通公共邮箱不保证合资格；未经主办方允许不把成员邮件公开再发布。可请求主办方公开可聚合日程。",
+      "probes": [
+        {
+          "url": "https://pdl.cmu.edu/SDI/index.html",
+          "checkedAt": "2026-10-25T19:56:34.181Z",
+          "status": 200,
+          "finalURL": "https://pdl.cmu.edu/SDI/index.html",
+          "title": "Parallel Data Lab",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://pdl.cmu.edu/SDI/index.shtml",
+          "checkedAt": "2026-10-25T19:56:34.196Z",
+          "status": 200,
+          "finalURL": "https://pdl.cmu.edu/SDI/index.shtml",
+          "title": "SDI Seminar Schedule",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://lists.andrew.cmu.edu/mailman/listinfo/sdi-list",
+          "checkedAt": "2026-10-25T19:59:19.417Z",
+          "status": null,
+          "finalURL": "https://lists.andrew.cmu.edu/mailman/listinfo/sdi-list",
+          "error": "fetch failed",
+          "cause": "UNABLE_TO_VERIFY_LEAF_SIGNATURE"
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [
+        {
+          "checkedAt": "2026-10-25T20:00:19.180Z",
+          "url": "https://lists.andrew.cmu.edu/mailman/listinfo/sdi-list",
+          "note": "Browser access succeeds without warning. Closed list, moderator approval, member-only archive, and explicit request not to forward seminar information.",
+          "screenshot": "evidence/access-pdl-closed-list.jpg"
+        },
+        {
+          "checkedAt": "2026-10-25T20:00:20.225Z",
+          "url": "https://pdl.cmu.edu/SDI/index.shtml",
+          "note": "Public page explicitly requests ANDREW.CMU.EDU subscription address; public schedule remains accessible.",
+          "screenshot": "evidence/access-pdl-andrew-required.jpg"
+        }
+      ],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "5b1716ca5ebe",
+      "organization": "Theory Lunch and Theory Seminar",
+      "runtimeStateAtSelection": "subscription_only",
+      "runtimeError": null,
+      "sourceURL": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/theory-announce",
+      "fetchURL": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/theory-announce",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "subscription_and_archive_authentication_required",
+      "finalURL": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/theory-announce",
+      "reason": "Listinfo公开200，明确邮件档案仅成员可看；广告链接/private/本次匿名GET也是200，但内容为Private Archives Authentication邮箱/密码表单。订阅需要邮箱确认及moderator approval。 这是真实内容认证/订阅障碍，不是HTTP无法连接。",
+      "nextStep": "由用户明确授权的合资格专用邮箱申请订阅，并遵守列表发布/转发边界；或由主办方提供匿名公开档案/日历。未创建邮箱、未填写表单、未登录、未订阅。",
+      "probes": [
+        {
+          "url": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/theory-announce",
+          "checkedAt": "2026-10-25T19:56:34.223Z",
+          "status": 200,
+          "finalURL": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/theory-announce",
+          "title": "Theory-announce Info Page",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://mailman.srv.cs.cmu.edu/mailman/private/theory-announce/",
+          "checkedAt": "2026-10-25T19:59:19.383Z",
+          "status": 200,
+          "finalURL": "https://mailman.srv.cs.cmu.edu/mailman/private/theory-announce/",
+          "title": "Theory-announce Private Archives Authentication",
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [
+        {
+          "type": "subscription_and_login",
+          "requiredForPrivateArchive": true,
+          "requiredForPublicListinfo": false
+        }
+      ],
+      "visualEvidence": [
+        {
+          "checkedAt": "2026-10-25T20:01:11.449Z",
+          "url": "https://mailman.srv.cs.cmu.edu/mailman/private/theory-announce/",
+          "note": "Advertised private archive renders email/password authentication; no fields filled.",
+          "screenshot": "evidence/access-5b1716ca5ebe-private-archive.jpg"
+        }
+      ],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": true,
+      "anonymousArchiveContentAvailable": false
+    },
+    {
+      "sourceID": "528193392a78",
+      "organization": "LTI Colloquium",
+      "runtimeStateAtSelection": "unsupported",
+      "runtimeError": null,
+      "sourceURL": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+      "fetchURL": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_page_available_poster_or_embedded_schedule",
+      "finalURL": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+      "reason": "公开200，有Upcoming Speaker/Fall2026 Schedule/Past Speakers标题，但常规正文无逐场完整日期。",
+      "nextStep": "检查当前海报/嵌入日程，并只导入原页明确显示的完整日期；unsupported表示当前抽取缺口。",
+      "probes": [
+        {
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+          "checkedAt": "2026-10-25T19:56:34.224Z",
+          "status": 200,
+          "finalURL": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+          "title": "LTI Colloquium - \n                Language Technologies Institute -     Kenneth C. Griffin School of Computer Science - Carnegie Mellon University",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "d7499c657649",
+      "organization": "ML/AI Seminar Series",
+      "runtimeStateAtSelection": "subscription_only",
+      "runtimeError": null,
+      "sourceURL": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/ml-ai-seminar",
+      "fetchURL": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/ml-ai-seminar",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "subscription_and_archive_authentication_required",
+      "finalURL": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/ml-ai-seminar",
+      "reason": "Listinfo公开200，明确邮件档案仅成员可看；广告链接/private/本次匿名GET也是200，但内容为Private Archives Authentication邮箱/密码表单。订阅需要邮箱确认，表单另有CAPTCHA；未执行。 这是真实内容认证/订阅障碍，不是HTTP无法连接。",
+      "nextStep": "由用户明确授权的合资格专用邮箱申请订阅，并遵守列表发布/转发边界；或由主办方提供匿名公开档案/日历。未创建邮箱、未填写表单、未登录、未订阅。",
+      "probes": [
+        {
+          "url": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/ml-ai-seminar",
+          "checkedAt": "2026-10-25T19:56:34.239Z",
+          "status": 200,
+          "finalURL": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/ml-ai-seminar",
+          "title": "Ml-ai-seminar Info Page",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://mailman.srv.cs.cmu.edu/mailman/private/ml-ai-seminar/",
+          "checkedAt": "2026-10-25T19:59:19.372Z",
+          "status": 200,
+          "finalURL": "https://mailman.srv.cs.cmu.edu/mailman/private/ml-ai-seminar/",
+          "title": "Ml-ai-seminar Private Archives Authentication",
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [
+        {
+          "type": "subscription_and_login",
+          "requiredForPrivateArchive": true,
+          "requiredForPublicListinfo": false
+        }
+      ],
+      "visualEvidence": [
+        {
+          "checkedAt": "2026-10-25T20:01:38.473Z",
+          "url": "https://mailman.srv.cs.cmu.edu/mailman/private/ml-ai-seminar/",
+          "note": "Private Archives Authentication was observed in browser AX; saved image visually inspected after extension temporarily blocked further browser automation.",
+          "screenshot": "evidence/access-d7499c657649-private-archive.jpg"
+        }
+      ],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": true,
+      "anonymousArchiveContentAvailable": false
+    },
+    {
+      "sourceID": "9ec4a6e5835b",
+      "organization": "S3D Departmental Seminars and Calendar",
+      "runtimeStateAtSelection": "subscription_only",
+      "runtimeError": null,
+      "sourceURL": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/s3d-seminar",
+      "fetchURL": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/s3d-seminar",
+      "priorResolution": null,
+      "priorVisualReview": null,
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "subscription_and_archive_authentication_required",
+      "finalURL": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/s3d-seminar",
+      "reason": "Listinfo公开200，明确邮件档案仅成员可看；广告链接/private/本次匿名GET也是200，但内容为Private Archives Authentication邮箱/密码表单。订阅需要邮箱确认，表单另有CAPTCHA；未执行。 这是真实内容认证/订阅障碍，不是HTTP无法连接。",
+      "nextStep": "由用户明确授权的合资格专用邮箱申请订阅，并遵守列表发布/转发边界；或由主办方提供匿名公开档案/日历。未创建邮箱、未填写表单、未登录、未订阅。",
+      "probes": [
+        {
+          "url": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/s3d-seminar",
+          "checkedAt": "2026-10-25T19:56:34.309Z",
+          "status": 200,
+          "finalURL": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/s3d-seminar",
+          "title": "s3d-seminar Info Page",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://mailman.srv.cs.cmu.edu/mailman/private/s3d-seminar/",
+          "checkedAt": "2026-10-25T19:59:19.470Z",
+          "status": 200,
+          "finalURL": "https://mailman.srv.cs.cmu.edu/mailman/private/s3d-seminar/",
+          "title": "s3d-seminar Private Archives Authentication",
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [
+        {
+          "type": "subscription_and_login",
+          "requiredForPrivateArchive": true,
+          "requiredForPublicListinfo": false
+        }
+      ],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": true,
+      "anonymousArchiveContentAvailable": false
+    },
+    {
+      "sourceID": "a8c3a641e8c5",
+      "organization": "Tepper Research Conferences and Seminars",
+      "runtimeStateAtSelection": "error",
+      "runtimeError": "Incomplete extraction; previous records retained. Detail (https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/ai-and-human-decisions): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side Detail (https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+      "sourceURL": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences",
+      "fetchURL": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences",
+      "priorResolution": null,
+      "priorVisualReview": {
+        "checkedAt": "2026-10-21T20:50:59.979688+00:00",
+        "outcome": "partial_child_discovery_not_baseline_empty",
+        "note": "This source is partial, not baseline-empty. Visible conferences include Child Welfare on October 23, 2026, 08:00–16:00 in Tepper 4242, and Women in Economic Theory on May 21–22, 2027. The separate Faculty Tracker does not replace conference-page discovery.",
+        "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences"
+      },
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_html_reachable_extraction_partial",
+      "finalURL": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences",
+      "reason": "Tepper原页及AI and Human Decisions/Sustainability Forum详情均匿名200。前者描述Friday/Saturday但没有具体年月日，后者主要是过去年度录像；解析不出完整日期触发partial，与页面可达性无关。",
+      "nextStep": "保留已有其他会议日期；把缺日期的系列说明列为日期待公布，不推算日期，并按来源语义处理详情完整性。",
+      "probes": [
+        {
+          "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences",
+          "checkedAt": "2026-10-25T19:56:34.380Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences",
+          "title": "Conferences and Seminars | Tepper School of Business",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/ai-and-human-decisions",
+          "checkedAt": "2026-10-25T19:56:34.388Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/ai-and-human-decisions",
+          "title": "Conference on AI and Human Decisions | Tepper School of Business",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum",
+          "checkedAt": "2026-10-25T19:56:34.448Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum",
+          "title": "Sustainability Forum | Tepper School of Business",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "0fceb4066385",
+      "organization": "Carnegie Mellon University",
+      "runtimeStateAtSelection": "empty",
+      "runtimeError": null,
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_67835.ics",
+      "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_67835.ics",
+      "priorResolution": {
+        "checkedAt": "2026-10-22T16:46:24.897200+00:00",
+        "category": "public_zero_verified",
+        "reason": "原 ID 有当前官方导出身份依据，匿名公共分组 API 返回有效空数组；公开目录说明及可访问组织网页未提供当前有日期活动，不能据此推断组织所有活动。",
+        "nextStep": "继续保留原 ID 并正常刷新匿名公开列表；成员区访问、网站恢复和别名维护均按可选事项单列。",
+        "requiresReview": false,
+        "accessRestrictions": [
+          {
+            "type": "login",
+            "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+            "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+            "requiredForPublicCoverage": false,
+            "url": "https://tartanconnect.cmu.edu/home/events/"
+          },
+          {
+            "type": "organizer_confirmation",
+            "reason": "原 ID 的官方导出名称和类别已精确确认，但其当前独立网站、别名归属或是否退役尚未建立映射。",
+            "nextStep": "由来源维护者按原 club ID 确认现行公开网站或保留/退役状态；保持原 ID，不按同名组织替换。",
+            "requiredForPublicCoverage": false,
+            "url": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850"
+          }
+        ],
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/pd-0fceb4066385-original-ics-identity.jpg"
+      },
+      "priorVisualReview": {
+        "checkedAt": "2026-10-22T16:46:24.897200+00:00",
+        "outcome": "original_id_public_feed_zero_with_verified_identity",
+        "note": "当前官方 ICS 导出目录已按原始 club ID 精确核对名称/类别，公开组织目录及可访问子页已实查；匿名公开列表 API 按该原 ID 返回 HTTP 200、0 条，且同接口全站非空正对照有效。结论限于该 ID 的公开数据范围，成员/私有内容另列可选限制。 官方类别为 Offices；该 club 导出不应泛化成全校总日历。",
+        "url": "https://tartanconnect.cmu.edu/home/events/",
+        "requiresReview": false,
+        "resolution": "implemented_and_refreshed",
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/pd-0fceb4066385-original-ics-identity.jpg"
+      },
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_calendar_available_optional_identity_maintenance",
+      "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_67835.ics",
+      "reason": "原ID67835公开ICS200，含3项原始历史记录；精确组匿名API200空数组。全站Events成员入口要求登录，官方ICShelper导出目录可达；公开范围并非访问失败。",
+      "nextStep": "保留原ID与公开API，不推成全大学日程；当前网站/别名或退役身份可由维护者后续确认，不阻断现有公开访问。",
+      "probes": [
+        {
+          "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_67835.ics",
+          "checkedAt": "2026-10-25T19:56:34.497Z",
+          "status": 200,
+          "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_67835.ics",
+          "title": "",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_67835.ics",
+              "location": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_67835.ics"
+            }
+          ],
+          "validCalendar": true,
+          "rawCalendarEventCount": 3
+        },
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=67835&order=&search_word=",
+          "checkedAt": "2026-10-25T19:56:34.629Z",
+          "status": 200,
+          "finalURL": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=67835&order=&search_word=",
+          "title": "",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0,
+          "jsonArrayLength": 0
+        },
+        {
+          "url": "https://tartanconnect.cmu.edu/home/events/",
+          "checkedAt": "2026-10-25T19:56:34.668Z",
+          "status": 200,
+          "finalURL": "https://tartanconnect.cmu.edu/webapp/auth/login?msg=LOGIN_REQUIRED&redirect=events",
+          "title": "StudentsCommunityPlatform",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://tartanconnect.cmu.edu/home/events/",
+              "location": "https://tartanconnect.cmu.edu/events"
+            },
+            {
+              "status": 302,
+              "url": "https://tartanconnect.cmu.edu/events",
+              "location": "https://tartanconnect.cmu.edu/webapp/auth/login?msg=LOGIN_REQUIRED&redirect=events"
+            }
+          ],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+          "checkedAt": "2026-10-25T19:56:34.770Z",
+          "status": 200,
+          "finalURL": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+          "title": "TartanConnect",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [
+        {
+          "type": "login",
+          "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+          "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+          "requiredForPublicCoverage": false,
+          "url": "https://tartanconnect.cmu.edu/home/events/"
+        },
+        {
+          "type": "organizer_confirmation",
+          "reason": "原 ID 的官方导出名称和类别已精确确认，但其当前独立网站、别名归属或是否退役尚未建立映射。",
+          "nextStep": "由来源维护者按原 club ID 确认现行公开网站或保留/退役状态；保持原 ID，不按同名组织替换。",
+          "requiredForPublicCoverage": false,
+          "url": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850"
+        }
+      ],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "69aec3cbe07c",
+      "organization": "Home Page",
+      "runtimeStateAtSelection": "empty",
+      "runtimeError": null,
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_23560.ics",
+      "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_23560.ics",
+      "priorResolution": {
+        "checkedAt": "2026-10-22T16:46:24.897200+00:00",
+        "category": "public_zero_verified",
+        "reason": "原 ID 有当前官方导出身份依据，匿名公共分组 API 返回有效空数组；公开目录说明及可访问组织网页未提供当前有日期活动，不能据此推断组织所有活动。",
+        "nextStep": "继续保留原 ID 并正常刷新匿名公开列表；成员区访问、网站恢复和别名维护均按可选事项单列。",
+        "requiresReview": false,
+        "accessRestrictions": [
+          {
+            "type": "login",
+            "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+            "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+            "requiredForPublicCoverage": false,
+            "url": "https://tartanconnect.cmu.edu/home/events/"
+          },
+          {
+            "type": "organizer_confirmation",
+            "reason": "原 ID 的官方导出名称和类别已精确确认，但其当前独立网站、别名归属或是否退役尚未建立映射。",
+            "nextStep": "由来源维护者按原 club ID 确认现行公开网站或保留/退役状态；保持原 ID，不按同名组织替换。",
+            "requiredForPublicCoverage": false,
+            "url": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850"
+          }
+        ],
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/pd-69aec3cbe07c-original-ics-identity.jpg"
+      },
+      "priorVisualReview": {
+        "checkedAt": "2026-10-22T16:46:24.897200+00:00",
+        "outcome": "original_id_public_feed_zero_with_verified_identity",
+        "note": "当前官方 ICS 导出目录已按原始 club ID 精确核对名称/类别，公开组织目录及可访问子页已实查；匿名公开列表 API 按该原 ID 返回 HTTP 200、0 条，且同接口全站非空正对照有效。结论限于该 ID 的公开数据范围，成员/私有内容另列可选限制。",
+        "url": "https://tartanconnect.cmu.edu/home/events/",
+        "requiresReview": false,
+        "resolution": "implemented_and_refreshed",
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/pd-69aec3cbe07c-original-ics-identity.jpg"
+      },
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_calendar_available_optional_identity_maintenance",
+      "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_23560.ics",
+      "reason": "原ID23560公开ICS200有效0 VEVENT，精确匿名API200空数组；全站Events成员入口要求登录，官方ICShelper可达。",
+      "nextStep": "保留原ID，继续匿名刷新；Home Page独立网站/别名身份由维护者可选确认，不借用同名来源日历。",
+      "probes": [
+        {
+          "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_23560.ics",
+          "checkedAt": "2026-10-25T19:56:34.817Z",
+          "status": 200,
+          "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_23560.ics",
+          "title": "",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_23560.ics",
+              "location": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_23560.ics"
+            }
+          ],
+          "validCalendar": true,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=23560&order=&search_word=",
+          "checkedAt": "2026-10-25T19:56:34.830Z",
+          "status": 200,
+          "finalURL": "https://tartanconnect.cmu.edu/mobile_ws/v17/mobile_events_list?range=0&limit=40&filter2=23560&order=&search_word=",
+          "title": "",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0,
+          "jsonArrayLength": 0
+        },
+        {
+          "url": "https://tartanconnect.cmu.edu/home/events/",
+          "checkedAt": "2026-10-25T19:56:34.668Z",
+          "status": 200,
+          "finalURL": "https://tartanconnect.cmu.edu/webapp/auth/login?msg=LOGIN_REQUIRED&redirect=events",
+          "title": "StudentsCommunityPlatform",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://tartanconnect.cmu.edu/home/events/",
+              "location": "https://tartanconnect.cmu.edu/events"
+            },
+            {
+              "status": 302,
+              "url": "https://tartanconnect.cmu.edu/events",
+              "location": "https://tartanconnect.cmu.edu/webapp/auth/login?msg=LOGIN_REQUIRED&redirect=events"
+            }
+          ],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+          "checkedAt": "2026-10-25T19:56:34.770Z",
+          "status": 200,
+          "finalURL": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850",
+          "title": "TartanConnect",
+          "redirects": [],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [
+        {
+          "type": "login",
+          "reason": "TartanConnect 全站 Events 网页入口匿名跳转至 Login is required；公共列表 API 可独立匿名访问。",
+          "nextStep": "只有需要成员专属活动或私有地点时，由具有权限的用户自行登录；当前公开列表覆盖不需要该步骤。",
+          "requiredForPublicCoverage": false,
+          "url": "https://tartanconnect.cmu.edu/home/events/"
+        },
+        {
+          "type": "organizer_confirmation",
+          "reason": "原 ID 的官方导出名称和类别已精确确认，但其当前独立网站、别名归属或是否退役尚未建立映射。",
+          "nextStep": "由来源维护者按原 club ID 确认现行公开网站或保留/退役状态；保持原 ID，不按同名组织替换。",
+          "requiredForPublicCoverage": false,
+          "url": "https://tartanconnect.cmu.edu/ics_helper?TB_iframe=true&embed=1&height=550&modal=true&mode=set&width=850"
+        }
+      ],
+      "visualEvidence": [],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "caabdfa76cb4",
+      "organization": "Nexus of Community Engagement",
+      "runtimeStateAtSelection": "empty",
+      "runtimeError": null,
+      "sourceURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68569.ics",
+      "fetchURL": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68569.ics",
+      "priorResolution": {
+        "checkedAt": "2026-10-22T16:46:12.592Z",
+        "category": "subscription_required",
+        "reason": "The advertised current-opportunity delivery channel is a membership newsletter rather than an anonymous dated page or feed.",
+        "nextStep": "With separate user authorization, an eligible organization account/mailbox can join Nexus and receive the newsletter, or organizer can provide public archive/forwarding access. A generic public mailbox is not guaranteed eligible for a CMU-restricted group. No login/subscription/message performed.",
+        "requiresReview": true,
+        "accessRestrictions": [],
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-caabdfa76cb4-login.jpg"
+      },
+      "priorVisualReview": {
+        "checkedAt": "2026-10-22T16:46:12.592Z",
+        "outcome": "dated_opportunities_announced_through_membership_newsletter",
+        "note": "Official Nexus page explicitly directs readers to join its TartanConnect group for a weekly community-engagement newsletter. Group route requires login. New TogetherForGood child was also checked: community stories, no current Nexus event calendar. Public program descriptions are not actual dated events.",
+        "url": "https://tartanconnect.cmu.edu/Nexus/",
+        "requiresReview": true,
+        "resolution": "external_action_documented",
+        "report": "research/pending-source-resolution-2026-10-22/review.json",
+        "screenshot": "research/pending-source-resolution-2026-10-22/evidence/dates-caabdfa76cb4-login.jpg"
+      },
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "status": "public_feed_available_member_newsletter_required",
+      "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_68569.ics",
+      "reason": "原ICS匿名200有效0 VEVENT。官方Nexus页明确通过加入其TartanConnect组获取weekly newsletter；组入口200后是Login is required，完整浏览器也确认Andrew/guest登录选项。",
+      "nextStep": "有资格账号获授权后可自行加入并订阅；更稳妥是主办方提供可公开归档/只读日程。普通公共邮箱能否入组未获保证；未登录、订阅或联系主办方。",
+      "probes": [
+        {
+          "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68569.ics",
+          "checkedAt": "2026-10-25T19:56:34.864Z",
+          "status": 200,
+          "finalURL": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_68569.ics",
+          "title": "",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_68569.ics",
+              "location": "https://static-prod-us-east-1.campusgroups.com/ical/tepper/ical_club_68569.ics"
+            }
+          ],
+          "validCalendar": true,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://tartanconnect.cmu.edu/Nexus/",
+          "checkedAt": "2026-10-25T19:56:34.922Z",
+          "status": 200,
+          "finalURL": "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2fNexus%2f&msg=LOGIN_REQUIRED",
+          "title": "StudentsCommunityPlatform",
+          "redirects": [
+            {
+              "status": 302,
+              "url": "https://tartanconnect.cmu.edu/Nexus/",
+              "location": "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2fNexus%2f&msg=LOGIN_REQUIRED"
+            }
+          ],
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://www.cmu.edu/student-affairs/celd/nexus/index.html",
+          "checkedAt": "2026-10-25T19:59:19.803Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/student-affairs/celd/nexus/index.html",
+          "title": "Nexus of Community Engagement - \n                Community Engagement & Leadership Development -     Student Affairs - Carnegie Mellon University",
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        },
+        {
+          "url": "https://www.cmu.edu/student-affairs/celd/nexus/together-for-good.html",
+          "checkedAt": "2026-10-25T19:59:19.900Z",
+          "status": 200,
+          "finalURL": "https://www.cmu.edu/student-affairs/celd/nexus/together-for-good.html",
+          "title": "Together, for Good - \n                Community Engagement & Leadership Development -     Student Affairs - Carnegie Mellon University",
+          "validCalendar": false,
+          "rawCalendarEventCount": 0
+        }
+      ],
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "contentAccessRestrictions": [],
+      "visualEvidence": [
+        {
+          "checkedAt": "2026-10-25T19:58:52.710Z",
+          "url": "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2FNexus%2F&msg=LOGIN_REQUIRED",
+          "note": "Login is required banner and Andrew/guest login choices; no login attempted.",
+          "screenshot": "evidence/access-nexus-login.jpg"
+        }
+      ],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": true
+    },
+    {
+      "sourceID": "85c52b71e686",
+      "organization": "Center for the Neural Basis of Cognition Calendar",
+      "runtimeStateAtSelection": "covered",
+      "checkedAt": "2026-10-25T20:04:45.951Z",
+      "sourceURL": "https://www.cnbc.cmu.edu/cnbc-calendar/",
+      "fetchURL": "https://www.cnbc.cmu.edu/cnbc-calendar/",
+      "status": "browser_available_http_tls_failure_covered_by_public_ics",
+      "httpStatus": null,
+      "primaryTransportAvailable": false,
+      "browserAvailable": true,
+      "finalURL": "https://www.cnbc.cmu.edu/cnbc-calendar/",
+      "reason": "Node匿名HTTPS请求在证书链验证处失败（UNABLE_TO_VERIFY_LEAF_SIGNATURE）。Chrome直接访问无警告、未绕过；官方页面及Google Calendar完整加载October2026活动。iframe日历ID与已covered公开ICS完全一致；该ICS匿名200有效，不能将整个来源判不可访问。",
+      "nextStep": "继续用已配置Google ICS采集并保留来源归属；网站维护者应修复完整TLS证书链，采集器不得关闭证书验证。",
+      "canonicalSourceId": "f4445e0c001d",
+      "canonicalFetchURL": "https://calendar.google.com/calendar/ical/lejhl4p74uu6amjhc0ui9vkvk4%40group.calendar.google.com/public/basic.ics",
+      "probes": [
+        {
+          "url": "https://www.cnbc.cmu.edu/cnbc-calendar/",
+          "checkedAt": "2026-10-25T19:59:19.893Z",
+          "status": null,
+          "finalURL": "https://www.cnbc.cmu.edu/cnbc-calendar/",
+          "error": "fetch failed",
+          "cause": "UNABLE_TO_VERIFY_LEAF_SIGNATURE"
+        },
+        {
+          "url": "https://calendar.google.com/calendar/ical/lejhl4p74uu6amjhc0ui9vkvk4%40group.calendar.google.com/public/basic.ics",
+          "checkedAt": "2026-10-25T19:59:21.531Z",
+          "status": 200,
+          "finalURL": "https://calendar.google.com/calendar/ical/lejhl4p74uu6amjhc0ui9vkvk4%40group.calendar.google.com/public/basic.ics",
+          "validCalendar": true,
+          "rawCalendarEventCount": 2458
+        }
+      ],
+      "visualEvidence": [
+        {
+          "checkedAt": "2026-10-25T19:59:51.769Z",
+          "url": "https://www.cnbc.cmu.edu/cnbc-calendar/",
+          "note": "Browser reaches HTTPS page without warning; embedded CNBC Public events fully loaded with October 2026 events; exact calendar ID matches covered public ICS.",
+          "screenshot": "evidence/access-cnbc-calendar-browser.jpg"
+        }
+      ],
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    },
+    {
+      "sourceID": "4f854e94f2a9",
+      "organization": "School of Architecture Events",
+      "checkedAt": "2026-10-25T20:05:44.602Z",
+      "sourceURL": "https://www.architecture.cmu.edu/events",
+      "fetchURL": "https://www.architecture.cmu.edu/events",
+      "runtimeStateAtSelection": "error",
+      "runtimeError": "Incomplete extraction; previous records retained. No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+      "status": "public_html_reachable_extraction_partial",
+      "httpStatus": 200,
+      "primaryTransportAvailable": true,
+      "finalURL": "https://www.architecture.cmu.edu/events",
+      "reason": "刷新新增partial。主/events匿名200，当前10张article.article-card有明确日期，已含2027-01-29项；额外固定?page=1也200，但现在0张卡片且明确No results match your search or filter criteria。原先第二页内容已在当前首页出现；追加空页被现有通用解析路径标为unsupported，而非网络/认证失败。",
+      "nextStep": "继续保留已解析事件；复核当前真实分页是否还存在，按官方分页/明确空状态处理追加页，勿把固定页为空解释为网站访问失败。此调查未改适配。",
+      "probes": [
+        {
+          "url": "https://www.architecture.cmu.edu/events",
+          "checkedAt": "2026-10-25T20:05:06.644Z",
+          "status": 200,
+          "finalURL": "https://www.architecture.cmu.edu/events",
+          "title": "Events | CMU School of Architecture",
+          "articleCards": 10,
+          "eventDates": [
+            "October 23, 2026",
+            "October 30, 2026",
+            "October 31, 2026",
+            "November 5, 2026",
+            "November 6, 2026",
+            "November 11, 2026",
+            "November 12, 2026",
+            "November 16, 2026",
+            "November 20, 2026",
+            "January 29, 2027"
+          ]
+        },
+        {
+          "url": "https://www.architecture.cmu.edu/events?page=1",
+          "checkedAt": "2026-10-25T20:05:06.693Z",
+          "status": 200,
+          "finalURL": "https://www.architecture.cmu.edu/events?page=1",
+          "title": "Events | CMU School of Architecture",
+          "articleCards": 0,
+          "eventDates": []
+        }
+      ],
+      "visualEvidence": [],
+      "supportFile": "access-architecture-support.json",
+      "publicLandingOrFeedAvailable": true,
+      "hasRequiredAuthenticationOrSubscription": false
+    }
+  ],
+  "selection": {
+    "retainedCatalogCount": 297,
+    "selectionTimeRuntimeStates": {
+      "unsupported": 15,
+      "error": 3,
+      "subscription_only": 4,
+      "otherFollowupOrPDL": 8
+    },
+    "extraSourceReason": "CNBC configured source URL failed the parent all-source HTTP probe and was additionally browser-verified.",
+    "additionalLatePartialSource": "4f854e94f2a9"
+  },
+  "summary": {
+    "reviewedSources": 32,
+    "primaryHTTP200": 31,
+    "primaryHTTPTLSFailure": 1,
+    "privateMailArchives": 4,
+    "publicDynamicAlumniSources": 2,
+    "restrictedExtraChannelsAreNotWholeSourceFailures": true,
+    "statusCounts": {
+      "public_dynamic_events_available": 2,
+      "public_page_available_no_current_dated_records": 3,
+      "public_page_available_integration_needed": 1,
+      "public_feed_available_private_event": 1,
+      "public_feed_available_unpublished_program_page": 1,
+      "public_html_reachable_extraction_partial": 4,
+      "public_page_available_date_confirmation_needed": 1,
+      "public_page_available_historical_records": 1,
+      "subscription_and_archive_authentication_required": 4,
+      "public_page_available_poster_or_embedded_schedule": 2,
+      "public_calendar_available_optional_login": 2,
+      "public_page_available_dynamic_calendar": 1,
+      "public_page_available_directory_and_optional_subscription": 1,
+      "public_page_available_workshop_catalog": 1,
+      "public_page_available_linked_calendar": 1,
+      "public_page_available_embedded_directory": 1,
+      "public_schedule_available_restricted_mail_channel": 1,
+      "public_calendar_available_optional_identity_maintenance": 2,
+      "public_feed_available_member_newsletter_required": 1,
+      "browser_available_http_tls_failure_covered_by_public_ics": 1
+    },
+    "requiredContentAuthenticationOrSubscription": 6,
+    "primaryTransportFailureWithoutWorkingPublicAlternative": 0
+  },
+  "supportFiles": [
+    "access-http-support.json",
+    "access-extra-support.json",
+    "access-visual-support.json",
+    "access-architecture-support.json"
+  ],
+  "evidenceManifest": [
+    {
+      "path": "evidence/access-alumni-main.jpg",
+      "bytes": 159311,
+      "sha256": "3661922af508d4d28a8f14aa07613168f67320daf129d56c7f696fceae7197e3"
+    },
+    {
+      "path": "evidence/access-alumni-community-page1.jpg",
+      "bytes": 190064,
+      "sha256": "d0a221897d4f35891ad68483a36ab6596957aed404ee479879bb549ebf7881b3"
+    },
+    {
+      "path": "evidence/access-alumni-community-page2.jpg",
+      "bytes": 145868,
+      "sha256": "6dd6c4ee63e89e4c5f54d87016a1df4345c420dc32c59013e7e0c2d64e3010f1"
+    },
+    {
+      "path": "evidence/access-alumni-community-page3.jpg",
+      "bytes": 129530,
+      "sha256": "b1b27479d2b27ffb38fb9252786f28ba4584ac865d1512d0f2a2a45ebb8f8572"
+    },
+    {
+      "path": "evidence/access-alumni-online-public-link.jpg",
+      "bytes": 102345,
+      "sha256": "6c79a7d329892e7b8fcfb1011a27303cb83d920ee238c08497d80bb290ed1568"
+    },
+    {
+      "path": "evidence/access-emerging-private.jpg",
+      "bytes": 56475,
+      "sha256": "111bce6ede9973409d35af340eb4e93c366da359f9fd7d2e6d46f81e7fafcb2d"
+    },
+    {
+      "path": "evidence/access-ild-unpublished.jpg",
+      "bytes": 56056,
+      "sha256": "52ecea9e8900456b8e357b4e12e7d9af9ec10fa209a83a201f4d411bad055198"
+    },
+    {
+      "path": "evidence/access-bcbc343b441e-private-archive.jpg",
+      "bytes": 74683,
+      "sha256": "494bf857277eb23146069fb5adf511508388d6063585da6223413cc594ba41a9"
+    },
+    {
+      "path": "evidence/access-pdl-closed-list.jpg",
+      "bytes": 163177,
+      "sha256": "591e25122f037af99bf39ec4b4cb413300f7d3a4db19b2bd372d2d02f780aec0"
+    },
+    {
+      "path": "evidence/access-pdl-andrew-required.jpg",
+      "bytes": 99504,
+      "sha256": "2a0307232a3799a4ab14ba19e8acb21e8c5e3fe6bc1d17c9f7741adcba89f626"
+    },
+    {
+      "path": "evidence/access-5b1716ca5ebe-private-archive.jpg",
+      "bytes": 64326,
+      "sha256": "78bdc61dbe447a60f46ad6d9d4eea7f43d87d1b1567059e88a37471f857c4c40"
+    },
+    {
+      "path": "evidence/access-d7499c657649-private-archive.jpg",
+      "bytes": 64246,
+      "sha256": "05d509b9406e7f374b89987ce10b75a77429299445722c746d6f2481a80d5196"
+    },
+    {
+      "path": "evidence/access-nexus-login.jpg",
+      "bytes": 243926,
+      "sha256": "103b6d40c42049ae79204571899922de4dfc4c4f0eb1e09ad4d27bbc2aafa845"
+    },
+    {
+      "path": "evidence/access-cnbc-calendar-browser.jpg",
+      "bytes": 80781,
+      "sha256": "9c37d8e9c2987ebbfff8692a91fb66adf07bd188cb7e52c5f419118b41e3fbff"
+    }
+  ],
+  "limitations": [
+    "Runtime state at selection is a prior snapshot; use the parent retained-source refresh for final ingestion states and counts.",
+    "HTTP200 establishes transport success, not anonymous access to protected content.",
+    "No account/login/subscription/email/form/CAPTCHA was performed. Browser confirmation only used public pages.",
+    "S3D archive has current anonymous HTTP authentication-form evidence; final screenshot attempt was blocked by an unrelated Chrome extension UI. No screenshot is claimed for that page.",
+    "All raw calendar counts are provider VEVENT counts without date-window filtering, not current/future imported-event totals.",
+    "Reachable unsupported pages have not thereby received complete event/date extraction; source-specific notes describe remaining work.",
+    "School of Architecture became the fourth partial source in the parent full retained-source refresh and was added after initial candidate selection."
+  ],
+  "privacyReview": {
+    "checkedAt": "2026-10-25T20:06:29.262Z",
+    "screenshots": 14,
+    "noAccountCredentialsOrPrivateMailboxContentCaptured": true,
+    "method": "Observed browser images show only public source pages and blank authentication/subscription fields. Google Calendar capture shows only exact publicly advertised calendar; no account chooser or private calendar list was opened. All14 saved images were additionally reviewed as a local contact sheet, with the ML/AI auth form and Alumni page3 inspected at full resolution.",
+    "remainingScreenshotLimitation": "S3D is supported by fresh anonymous HTTP authentication-form evidence; no screenshot claimed after extension blocked further browser automation."
+  }
+}

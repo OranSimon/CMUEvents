@@ -1,0 +1,137 @@
+[
+  {
+    "sourceIDs": [
+      "8f00fc7f2c7c",
+      "79e7cdffd54d"
+    ],
+    "checkedAt": "2026-10-25T19:57:47.409Z",
+    "url": "https://community.cmu.edu/s/events",
+    "note": "Public event cards loaded while Sign In remains visible; page 1/3.",
+    "state": "Browser tab: 283303257, Title: \"Events\", URL: \"https://community.cmu.edu/s/events\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 1 AXWebArea Events, URL: community.cmu.edu/s/events",
+    "screenshot": "evidence/access-alumni-community-page1.jpg"
+  },
+  {
+    "sourceIDs": [
+      "8f00fc7f2c7c",
+      "79e7cdffd54d"
+    ],
+    "checkedAt": "2026-10-25T19:57:51.933Z",
+    "url": "https://community.cmu.edu/s/events",
+    "note": "Public page 2/3 loaded after Next.",
+    "state": "Browser tab: 283303257, Title: \"Events\", URL: \"https://community.cmu.edu/s/events\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 104 button Next",
+    "screenshot": "evidence/access-alumni-community-page2.jpg"
+  },
+  {
+    "sourceIDs": [
+      "8f00fc7f2c7c",
+      "79e7cdffd54d"
+    ],
+    "checkedAt": "2026-10-25T19:58:00.356Z",
+    "url": "https://community.cmu.edu/s/events",
+    "note": "The first AX snapshot returned card labels before late date nodes. The actual saved screenshot was inspected and clearly shows full 2026 dates on all five page3 cards (Nov12/14/17); all23 cards across3pages are dated.",
+    "state": "Browser tab: 283303257, Title: \"Events\", URL: \"https://community.cmu.edu/s/events\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\nRemoved element IDs: 110, 114, 118, 122, 126\n+\t\t\t\t\t128 text NOVEMBER 12, 2026  |  WEXFORD ,  PA\n+\t\t\t\t\t129 text NOVEMBER 14, 2026  |  PITTSBURGH ,  PA\n+\t\t\t\t\t130 text NOVEMBER 14, 2026  |  SALEM ,  MA\n+\t\t\t\t\t131 text NOVEMBER 14, 2026  |  CENTENNIAL ,  CO\n+\t\t\t\t\t132 text NOVEMBER 17, 2026  |  VIRTUAL WEBINAR ,  ONLINE\nThe focused UI element is 1 AXWebArea Events, URL: community.cmu.edu/s/events",
+    "screenshot": "evidence/access-alumni-community-page3.jpg",
+    "visibleDateCorrections": [
+      {
+        "title": "PIT – Tartans on Tap: Wexford",
+        "start": "2026-11-12"
+      },
+      {
+        "title": "HLAA - Dulces & Connections: HLAA Holiday Cookie Making Event",
+        "start": "2026-11-14"
+      },
+      {
+        "title": "BOS - Tartan High Tea and Salem Stroll",
+        "start": "2026-11-14"
+      },
+      {
+        "title": "DEN - Festival of Lights: Tartan Diwali Celebration",
+        "start": "2026-11-14"
+      },
+      {
+        "title": "The Menopause Transition and the Brain",
+        "start": "2026-11-17"
+      }
+    ]
+  },
+  {
+    "sourceIDs": [
+      "74ef2bc806ae"
+    ],
+    "checkedAt": "2026-10-25T19:58:19.627Z",
+    "url": "https://tartanconnect.cmu.edu/otp_signup?module=event&event_id=1937691&private_event=1",
+    "note": "Private event registration; existing account required and public account creation disallowed.",
+    "state": "Browser tab: 283303257, Title: \"Sign In Or Register\", URL: \"https://tartanconnect.cmu.edu/otp_signup?module=event&event_id=1937691&private_event=1\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n+\t89 text Success message. STEP 1: Please sign in with an existing account or sign up to create a new account.\n+\t90 container grammarly-integration\n+\t\t91 text {\"mode\":\"full\",\"isActive\":true,\"isUserDisabled\":false}\nThe focused UI element is 1 AXWebArea Sign In Or Register, URL: tartanconnect.cmu.edu/otp_signup?module=event&event_id=1937691&private_event=1",
+    "screenshot": "evidence/access-emerging-private.jpg"
+  },
+  {
+    "sourceIDs": [
+      "f5d9d68e0b15"
+    ],
+    "checkedAt": "2026-10-25T19:58:29.380Z",
+    "url": "https://tartanconnect.cmu.edu/ILD/web_officers",
+    "note": "Public response redirects to officer directory and browser displays explicit unpublished-page banner; not a network failure.",
+    "state": "Browser tab: 283303257, Title: \"TartanConnect\", URL: \"https://tartanconnect.cmu.edu/ILD/web_officers\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n+\t109 text Important information. Sorry, this page has been unpublished by one of the group officers.\n+\t110 container grammarly-integration\n+\t\t111 text {\"mode\":\"full\",\"isActive\":true,\"isUserDisabled\":false}\nThe focused UI element is 1 AXWebArea TartanConnect, URL: tartanconnect.cmu.edu/ILD/web_officers",
+    "screenshot": "evidence/access-ild-unpublished.jpg"
+  },
+  {
+    "sourceIDs": [
+      "caabdfa76cb4"
+    ],
+    "checkedAt": "2026-10-25T19:58:52.710Z",
+    "url": "https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2FNexus%2F&msg=LOGIN_REQUIRED",
+    "note": "Login is required banner and Andrew/guest login choices; no login attempted.",
+    "state": "Browser tab: 283303257, Title: \"Login\", URL: \"https://tartanconnect.cmu.edu/webapp/auth/login?redirect=%2FNexus%2F&msg=LOGIN_REQUIRED\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 1 AXWebArea Login, URL: tartanconnect.cmu.edu/webapp/auth/login?redirect=%2FNexus%2F&msg=LOGIN_REQUIRED",
+    "screenshot": "evidence/access-nexus-login.jpg"
+  },
+  {
+    "sourceIDs": [
+      "85c52b71e686"
+    ],
+    "checkedAt": "2026-10-25T19:59:51.769Z",
+    "url": "https://www.cnbc.cmu.edu/cnbc-calendar/",
+    "note": "Browser reaches HTTPS page without warning; embedded CNBC Public events fully loaded with October 2026 events; exact calendar ID matches covered public ICS.",
+    "state": "Browser tab: 283303257, Title: \"Calendar – Center for the Neural Basis of Cognition\", URL: \"https://www.cnbc.cmu.edu/cnbc-calendar/\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 1 AXWebArea Calendar – Center for the Neural Basis of Cognition, URL: cnbc.cmu.edu/cnbc-calendar/",
+    "screenshot": "evidence/access-cnbc-calendar-browser.jpg"
+  },
+  {
+    "sourceIDs": [
+      "45f983439757"
+    ],
+    "checkedAt": "2026-10-25T20:00:19.180Z",
+    "url": "https://lists.andrew.cmu.edu/mailman/listinfo/sdi-list",
+    "note": "Browser access succeeds without warning. Closed list, moderator approval, member-only archive, and explicit request not to forward seminar information.",
+    "state": "Browser tab: 283303257, Title: \"sdi-list Info Page\", URL: \"https://lists.andrew.cmu.edu/mailman/listinfo/sdi-list\".\nThe following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.\n+\t\t\t\t\t\t\t\t\t\t124 container grammarly-integration\n+\t\t\t\t\t\t\t\t\t\t\t125 text {\"mode\":\"full\",\"isActive\":true,\"isUserDisabled\":false}\n+\t\t126 text {\"mode\":\"full\",\"isActive\":true,\"isUserDisabled\":false}\nThe focused UI element is 1 AXWebArea sdi-list Info Page, URL: lists.andrew.cmu.edu/mailman/listinfo/sdi-list",
+    "screenshot": "evidence/access-pdl-closed-list.jpg"
+  },
+  {
+    "sourceIDs": [
+      "45f983439757"
+    ],
+    "checkedAt": "2026-10-25T20:00:20.225Z",
+    "url": "https://pdl.cmu.edu/SDI/index.shtml",
+    "note": "Public page explicitly requests ANDREW.CMU.EDU subscription address; public schedule remains accessible.",
+    "state": "Browser tab: 283303257, Title: \"SDI Seminar Schedule\", URL: \"https://pdl.cmu.edu/SDI/index.shtml\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 1 AXWebArea SDI Seminar Schedule, URL: pdl.cmu.edu/SDI/ind…",
+    "screenshot": "evidence/access-pdl-andrew-required.jpg"
+  },
+  {
+    "sourceIDs": [
+      "bcbc343b441e"
+    ],
+    "checkedAt": "2026-10-25T20:01:05.579Z",
+    "url": "https://list.pitt.edu/mailman/private/environmental_humanities_research_seminar/",
+    "note": "Advertised archive requires email/password authentication; no fields filled.",
+    "state": "Browser tab: 283303257, Title: \"Environmental_humanities_research_seminar Private Archives Authentication\", URL: \"https://list.pitt.edu/mailman/private/environmental_humanities_research_seminar/\".\nThere has been no change in the accessibility tree.\nThe focused UI element is 7 text field (settable)",
+    "screenshot": "evidence/access-bcbc343b441e-private-archive.jpg"
+  },
+  {
+    "sourceIDs": [
+      "5b1716ca5ebe"
+    ],
+    "checkedAt": "2026-10-25T20:01:11.449Z",
+    "url": "https://mailman.srv.cs.cmu.edu/mailman/private/theory-announce/",
+    "note": "Advertised private archive renders email/password authentication; no fields filled.",
+    "state": "Browser tab: 283303257, Title: \"Theory-announce Private Archives Authentication\", URL: \"https://mailman.srv.cs.cmu.edu/mailman/private/theory-announce/\".\n0 AXWebArea Theory-announce Private Archives Authentication, URL: mailman.srv.cs.cmu.edu/mailman/private/theory-announce/\n\t1 container\n\t\t2 container Theory-announce Private Archives Authentication\n\t\t\t3 text Theory-announce Private Archives Authentication\n\t\t4 container\n\t\t\t5 container Email address:\n\t\t\t\t6 text Email address:\n\t\t\t7 text field (settable)\n\t\t8 container\n\t\t\t9 container Password:\n\t\t\t\t10 text Password:\n\t\t\t11 text field (settable)\n\t\t12 container Let me in...\n\t\t\t13 button Let me in...\n\t\t14 text Important:\n\t\t15 text  From this point on, you must have cookies enabled in your browser, otherwise you will have to re-authenticate with every operation. Session cookies are used in Mailman's private archive interface so that you don't need to re-authenticate with every operation. This cookie will expire automatically when you exit your browser, or you can explicitly expire the cookie by visiting your member options page and clicking the \n\t\t16 text Log out\n\t\t17 text  button.\n\t\t18 table\n\t\t\t19 row\n\t\t\t\t20 cell\n\t\t\t\t\t21 text Password Reminder\n\t\t\t22 row\n\t\t\t\t23 cell\n\t\t\t\t\t24 text If you don't remember your password, enter your email address above and click the \n\t\t\t\t\t25 text Remind\n\t\t\t\t\t26 text  button and your password will be emailed to you.\n\t\t\t27 row\n\t\t\t\t28 cell\n\t\t\t\t\t29 button Remind\n\t30 container grammarly-integration\n\t\t31 text {\"mode\":\"full\",\"isActive\":true,\"isUserDisabled\":false}\n\nThe focused UI element is 7 text field (settable)",
+    "screenshot": "evidence/access-5b1716ca5ebe-private-archive.jpg"
+  }
+]

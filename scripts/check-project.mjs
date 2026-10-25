@@ -2,6 +2,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { ROOT, loadPlans } from '../src/config.mjs';
+import { createSourceScope, sourceAllowed } from '../src/lib/source-scope.mjs';
 
 /**
  * List authored JavaScript files without traversing dependency or runtime folders.
@@ -19,8 +20,14 @@ const plans = loadPlans();
 const urls = new Set(plans.map(plan => plan.url));
 if (plans.length !== rows.length || urls.size !== rows.length || rows.some(row => !urls.has(row.link))) throw new Error('Source plan coverage differs from the authoritative catalog.');
 const byId = new Map(plans.map(plan => [plan.id, plan]));
+const scopeConfig = JSON.parse(readFileSync(path.join(ROOT, 'config/source-scope.json'), 'utf8'));
+const sourceScope = createSourceScope(scopeConfig);
+const excludedIDs = new Set(scopeConfig.blockedSourceIds || []);
 if (byId.size !== plans.length) throw new Error('Source IDs must be unique.');
 for (const plan of plans) {
+  if (excludedIDs.has(plan.id) || !sourceAllowed(plan, sourceScope)) {
+    throw new Error(`Excluded club source in the active institutional catalog: ${plan.url}`);
+  }
   if (!plan.department || !plan.org || typeof plan.reason !== 'string' || !plan.strategy) throw new Error(`Missing source strategy: ${plan.url}`);
   if (plan.status === 'covered' && (!byId.has(plan.canonicalSourceId) || plan.canonicalSourceId === plan.id)) throw new Error(`Invalid covered-source alias: ${plan.url}`);
 }

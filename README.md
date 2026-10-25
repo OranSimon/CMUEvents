@@ -1,6 +1,6 @@
 # CMU Events
 
-A local, automatically refreshed discovery app for public Carnegie Mellon events. It builds on a verified catalog of **1,029 source entries** and keeps every event connected to its original publisher.
+A local, automatically refreshed discovery app with **318 non-club publishing sources**. Independent student-club websites and their own calendar feeds are excluded. University calendars, academic departments, offices, student governance, and other publishers remain; every activity they publish is retained, including events hosted by student clubs.
 
 ## Run locally
 
@@ -35,7 +35,7 @@ npm run refresh -- --force      # Force a complete refresh
 npm run refresh -- --source=ID  # Refresh a selected source ID from /api/sources
 npm run plan                    # Regenerate the complete source strategy mapping
 npm test                        # Offline adapter, storage, filter and API tests
-npm run check                   # Syntax, configuration and 1,029-source coverage checks
+npm run check                   # Syntax, configuration and active-catalog coverage checks
 ```
 
 Do not run the standalone refresh command while the server is refreshing the same database. Stop the server first or use its refresh button. The normal app has one coordinator and one SQLite database; no queue service is required.
@@ -43,6 +43,8 @@ Do not run the standalone refresh command while the server is refreshing the sam
 Optional environment variables are documented in [`.env.example`](.env.example). Set them in your shell; the app does not automatically load `.env` files. `CMUEVENTS_AUTO_REFRESH=0` serves existing data without fetching; `CMUEVENTS_DATA_DIR` selects an alternate data folder. `HOST` defaults to loopback. This delivery is a local application; it does not configure an online deployment.
 
 ## Source coverage and limitations
+
+The current [source-only policy and access review](research/club-source-removal-2026-10-25/README.md) removes independent student-club publishers while retaining official and other non-club sources. Activities republished by those sources remain even when a student club hosts them. Earlier audits below describe the larger historical catalog.
 
 [`config/source-plans.json`](config/source-plans.json) maps **every catalog entry** to its adapter, endpoint, options, refresh interval, canonical alias, evidence and reason. [`research/runtime-adapters.md`](research/runtime-adapters.md) records the endpoint investigation.
 

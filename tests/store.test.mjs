@@ -53,6 +53,26 @@ test('CampusGroups public list and ICS links merge by exact provider event ID wi
   assert.match(merged.description, /Only open to undergraduate/);
 });
 
+test('retired club sources disappear while official publishers retain club-hosted activities', t => {
+  const store = openStore(':memory:');
+  t.after(() => store.close());
+  const club = { ...plans[0], org: 'Example Student Club' };
+  const official = plans[2];
+  store.registerPlans([club, official]);
+  store.replaceSource(club.id, [event({ uid: 'club-only', title: 'Private club workshop' })]);
+  store.replaceSource(official.id, [event({ uid: 'syndicated', title: 'Club gathering', organizer: 'Example Student Club' }),
+    event({ uid: 'official', title: 'University research seminar', organizer: 'Research Office', url: 'https://example.edu/official' })]);
+  store.registerPlans([official]);
+  assert.equal(store.listSources().length, 1);
+  assert.equal(store.rebuildEvents([official]), 2, 'official reposts stay regardless of organizer');
+  assert.equal(store.db.prepare('SELECT COUNT(*) AS count FROM occurrences').get().count, 2);
+  const repost = store.listEvents({ query: 'club', from: '2026-11-01' });
+  assert.equal(repost.total, 1);
+  assert.equal(repost.events[0].title, 'Club gathering');
+  const result = store.listEvents({ from: '2026-11-01' });
+  assert.deepEqual(result.facets.orgs.map(row => row.value), ['Research']);
+});
+
 test('FTS prefix search combines text with dates and multi-label categorical filters', t => {
   const store = openStore(':memory:');
   t.after(() => store.close());
