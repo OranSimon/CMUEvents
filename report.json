@@ -3,44 +3,44 @@
     "version": 1,
     "eventSchema": 2,
     "mode": "static",
-    "generatedAt": "2026-10-26T15:41:46.819Z",
-    "lastUpdated": "2026-10-26T15:41:46.669Z",
+    "generatedAt": "2026-10-26T16:33:17.601Z",
+    "lastUpdated": "2026-10-26T16:33:17.435Z",
     "updateIntervalHours": 24,
     "staleAfterHours": 48,
-    "eventCount": 3659,
+    "eventCount": 3664,
     "sourceCount": 318,
     "sourceRepository": "https://github.com/OranSimon/CMUEvents",
     "workflowUrl": "https://github.com/OranSimon/CMUEvents/actions/workflows/daily-pages.yml"
   },
   "quality": {
-    "eventCount": 3659,
+    "eventCount": 3664,
     "sourceCount": 318,
     "checkedSources": 277,
     "completeSources": 270,
     "successRatio": 0.9747292418772563,
-    "previousEventCount": 4425,
-    "retainedRatio": 0.8268926553672317,
+    "previousEventCount": 3659,
+    "retainedRatio": 1.0013664935774802,
     "allowEventDrop": false
   },
   "refresh": {
-    "startedAt": "2026-10-26T15:39:19.998Z",
-    "completedAt": "2026-10-26T15:41:46.669Z",
+    "startedAt": "2026-10-26T16:30:17.383Z",
+    "completedAt": "2026-10-26T16:33:17.436Z",
     "total": 277,
     "completed": 277,
     "ok": 188,
     "empty": 78,
     "undated": 4,
     "error": 7,
-    "totalEvents": 3659,
+    "totalEvents": 3664,
     "transfers": {
       "requests": 779,
       "cacheHits": 0,
-      "bytes": 691145161
+      "bytes": 691131588
     }
   },
   "coverage": {
     "version": 1,
-    "checkedAt": "2026-10-26T15:41:46.815Z",
+    "checkedAt": "2026-10-26T16:33:17.597Z",
     "passed": true,
     "sourceCount": 10,
     "passedSources": 10,
@@ -525,7 +525,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-26T15:40:50.765Z"
+          "checkedAt": "2026-10-26T16:31:55.230Z"
         }
       },
       {
@@ -2072,7 +2072,7 @@
               }
             }
           ],
-          "checkedAt": "2026-10-26T15:41:02.867Z"
+          "checkedAt": "2026-10-26T16:32:08.092Z"
         }
       },
       {
@@ -2983,7 +2983,7 @@
               "notes": []
             }
           ],
-          "checkedAt": "2026-10-26T15:40:45.889Z"
+          "checkedAt": "2026-10-26T16:31:48.683Z"
         }
       },
       {
@@ -3167,7 +3167,7 @@
               "evidence": "v2fall-2022-socialist-seminar-graphic.png"
             }
           ],
-          "checkedAt": "2026-10-26T15:40:47.158Z"
+          "checkedAt": "2026-10-26T16:31:50.385Z"
         }
       },
       {
@@ -3227,7 +3227,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-26T15:40:52.554Z"
+          "checkedAt": "2026-10-26T16:31:56.172Z"
         }
       },
       {
@@ -3259,7 +3259,7 @@
               "recognized": 13
             }
           ],
-          "checkedAt": "2026-10-26T15:40:52.843Z"
+          "checkedAt": "2026-10-26T16:31:56.213Z"
         }
       },
       {
@@ -4576,7 +4576,7 @@
               "totalPages": 51
             }
           ],
-          "checkedAt": "2026-10-26T15:41:43.936Z"
+          "checkedAt": "2026-10-26T16:33:14.832Z"
         }
       },
       {
@@ -4659,7 +4659,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T15:41:02.383Z"
+          "checkedAt": "2026-10-26T16:32:07.438Z"
         }
       },
       {
@@ -4817,23 +4817,23 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -4905,34 +4905,34 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
@@ -5015,12 +5015,12 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cranberry-township-neighborhood-luncheon-november-2026",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cranberry-township-neighborhood-luncheon-november-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cranberry-township-neighborhood-luncheon-november-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cranberry-township-neighborhood-luncheon-november-2026",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
@@ -5091,7 +5091,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T15:41:11.057Z"
+          "checkedAt": "2026-10-26T16:32:15.957Z"
         }
       },
       {
@@ -5409,14 +5409,14 @@
               "evidence": "cause---gamble_heinz-speaker-series4.jpg"
             }
           ],
-          "checkedAt": "2026-10-26T15:41:17.633Z"
+          "checkedAt": "2026-10-26T16:32:23.563Z"
         }
       }
     ]
   },
   "eventExclusions": {
-    "checkedAt": "2026-10-26T15:41:46.602Z",
-    "count": 84,
+    "checkedAt": "2026-10-26T16:33:17.335Z",
+    "count": 80,
     "records": [
       {
         "uid": "livewhale:33106:range:2027-03-08",
@@ -5492,17 +5492,6 @@
           "f924f93134be"
         ],
         "code": "registration-window",
-        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
-      },
-      {
-        "uid": "livewhale:35302:range:2026-11-16T07:00:00.000Z",
-        "title": "Entrepreneurship Development and Impact Program",
-        "url": "https://events.cmu.edu/afretec/event/35302-entrepreneurship-development-and-impact-program",
-        "sourceIds": [
-          "50ee08b31e1a",
-          "e8b71eac1119"
-        ],
-        "code": "date-window",
         "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
       },
       {
@@ -6089,17 +6078,6 @@
         "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
       },
       {
-        "uid": "livewhale:34770:range:2027-04-09",
-        "title": "Bridges and Borders conference",
-        "url": "https://events.cmu.edu/english/event/34770-bridges-and-borders-conference",
-        "sourceIds": [
-          "7dd208226033",
-          "e8b71eac1119"
-        ],
-        "code": "date-window",
-        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
-      },
-      {
         "uid": "livewhale:33065:range:2026-12-24",
         "title": "Winter Break",
         "url": "https://events.cmu.edu/mcs/event/33065-winter-break",
@@ -6149,17 +6127,6 @@
         "url": "https://events.cmu.edu/interfaith-calendar/event/32548-nativity-of-our-lord",
         "sourceIds": [
           "c6bf444aa58e",
-          "e8b71eac1119"
-        ],
-        "code": "date-window",
-        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
-      },
-      {
-        "uid": "livewhale:32145:range:2027-04-15",
-        "title": "Spring Carnival",
-        "url": "https://events.cmu.edu/dietrich/event/32145-spring-carnival",
-        "sourceIds": [
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "code": "date-window",
@@ -6311,17 +6278,6 @@
         "uid": "livewhale:31808:range:2026-12-28",
         "title": "University Closed",
         "url": "https://events.cmu.edu/academic-calendar/event/31808-university-closed",
-        "sourceIds": [
-          "e8b71eac1119",
-          "fe717318a657"
-        ],
-        "code": "date-window",
-        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
-      },
-      {
-        "uid": "livewhale:31827:range:2027-04-15",
-        "title": "Spring Carnival",
-        "url": "https://events.cmu.edu/academic-calendar/event/31827-spring-carnival",
         "sourceIds": [
           "e8b71eac1119",
           "fe717318a657"
