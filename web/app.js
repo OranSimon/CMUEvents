@@ -768,8 +768,11 @@ function sourceSubscription(source) {
  * @return {boolean} Whether this source needs another check.
  */
 function sourceNeedsAttention(source) {
-  return ["error", "blocked", "unsupported", "pending"].includes(source.state)
-    || source.evidence?.visualReview?.requiresReview === true
+  if (["error", "blocked", "unsupported", "pending"].includes(source.state)) return true;
+  if (source.coverage?.version === 1 && source.coverage.inspectionComplete === true) {
+    return source.coverage.internalIssues.length > 0 || source.coverage.externalIssues.length > 0;
+  }
+  return source.evidence?.visualReview?.requiresReview === true
     || source.evidence?.accessReview?.attention === true;
 }
 
@@ -870,7 +873,9 @@ function sourceVisualReview(source) {
 function sourceDiagnostics(source) {
   const reason = plainText(source.error || source.reason);
   const warnings = (Array.isArray(source.warnings) ? source.warnings : []).map(plainText).filter(Boolean);
-  return `<details class="source-card-review"><summary>Coverage notes &amp; diagnostics</summary>${reason ? `<p>${escapeHtml(reason)}</p>` : ""}${warnings.length ? `<ul>${warnings.map(warning => `<li>${escapeHtml(warning)}</li>`).join("")}</ul>` : ""}<p>${escapeHtml(sourceSummary(source))}</p>${source.lastAttempt ? `<p>Last attempted check: ${escapeHtml(updatedLabel(source.lastAttempt))}.</p>` : ""}${sourceVisualReview(source)}</details>`;
+  const audit = source.coverage;
+  const currentAudit = audit ? `<p><strong>Latest automated inspection${audit.checkedAt ? ` · ${escapeHtml(updatedLabel(audit.checkedAt))}` : ""}</strong><br>${audit.inspectionComplete ? "All discovered candidates were checked." : "Some discovered candidates still need collection work."} ${audit.internalIssues.length} collection gap(s); ${audit.externalIssues.length} publisher issue(s). Field uncertainty remains in the notes below.</p>` : "";
+  return `<details class="source-card-review"><summary>Coverage notes &amp; diagnostics</summary>${currentAudit}${reason ? `<p>${escapeHtml(reason)}</p>` : ""}${warnings.length ? `<ul>${warnings.map(warning => `<li>${escapeHtml(warning)}</li>`).join("")}</ul>` : ""}<p>${escapeHtml(sourceSummary(source))}</p>${source.lastAttempt ? `<p>Last attempted check: ${escapeHtml(updatedLabel(source.lastAttempt))}.</p>` : ""}${sourceVisualReview(source)}</details>`;
 }
 
 /**

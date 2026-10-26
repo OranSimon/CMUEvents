@@ -1,0 +1,190 @@
+{
+  "snapshotGeneratedAt": "2026-10-26T03:38:03.771Z",
+  "publishedEventCount": 4415,
+  "sources": [
+    {
+      "id": "1185bc345a9a",
+      "org": "SCS Seminars directory",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "state": "error",
+      "lastAttempt": "2026-10-26T03:37:29.601Z",
+      "eventCount": 4,
+      "warnings": [
+        "Unresolved partially connected academic seminar directory: The directory lists 26 seminar series. Two previously unconnected public schedules (Cryptography and Econ-CS) now contribute verified occurrences. This is partial current-event coverage; not all linked series have been mapped into this source.",
+        "Monitored seminar-series directory data: This public directory lists 26 series with day, clock, contact and website columns, not dated occurrences. Transport dt/msg fields are excluded; actual column schema and series rows remain monitored."
+      ],
+      "error": "Incomplete extraction; previous records retained. Unresolved partially connected academic seminar directory: The directory lists 26 seminar series. Two previously unconnected public schedules (Cryptography and Econ-CS) now contribute verified occurrences. This is partial current-event coverage; not all linked series have been mapped into this source. Monitored seminar-series directory data: This public directory lists 26 series with day, clock, contact and website columns, not dated occurrences. Transport dt/msg fields are excluded; actual column schema and series rows remain monitored."
+    },
+    {
+      "id": "1468ddb723b2",
+      "org": "Humanities Center News and Events",
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "state": "error",
+      "lastAttempt": "2026-10-26T03:37:32.745Z",
+      "eventCount": 0,
+      "warnings": [
+        "Monitored legacy event archive: This publisher-labelled previous-events archive lists historical summaries from 2023 and earlier; many omit their year. It is monitored for changed text and destinations rather than assigned a current year.",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html): Media clock range is ambiguous; date-only precision retained (https://www.cmu.edu/dietrich/humanities-center/center-events/002_off-the-shelves_01_session-1-min.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html): Media clock range is ambiguous; date-only precision retained (https://www.cmu.edu/dietrich/humanities-center/center-events/session-3_off-the-shelves_03_-min.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html): Media clock range is ambiguous; date-only precision retained (https://www.cmu.edu/dietrich/humanities-center/center-events/session-5_off-the-shelves_05-min.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/center-events/workshop-6-off-the-shelves-min.png)",
+        "Optional detail enrichment (https://www.cmu.edu/dietrich/humanities-center/center-events/cause-anniversary-conference.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Optional detail enrichment (https://www.cmu.edu/dietrich/humanities-center/center-events/environmental-humanities-slam.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Optional detail enrichment (https://www.cmu.edu/dietrich/humanities-center/center-events/cause-film-screening.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Optional detail enrichment limit 8 reached; 8 link(s) already grounded by the parent were not followed"
+      ],
+      "error": "Incomplete extraction; previous records retained. Monitored legacy event archive: This publisher-labelled previous-events archive lists historical summaries from 2023 and earlier; many omit their year. It is monitored for changed text and destinations rather than assigned a current year. Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html): Media clock range is ambiguous; date-only precision retained (https://www.cmu.edu/dietrich/humanities-center/center-events/002_off-the-shelves_01_session-1-min.jpg) Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html): Media clock range is ambiguous; date-only precision retained (https://www.cmu.edu/dietrich/humanities-center/center-events/session-3_off-the-shelves_03_-min.jpg) Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html): Media clock range is ambiguous; date-only precision retained (https://www.cmu.edu/dietrich/humanities-center/center-events/session-5_off-the-shelves_05-min.jpg) Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html): No complete, un"
+    },
+    {
+      "id": "31aa89be167d",
+      "org": "Data Storage Systems Center Events",
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "state": "error",
+      "lastAttempt": "2026-10-26T03:37:34.423Z",
+      "eventCount": 0,
+      "warnings": [
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Japan%20Technical%20Review.html); title year(s): 2026; printed dates: 2025-06-30",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Spring%20Technical%20Review.html); title year(s): 2026; printed dates: 2025-06-09, 2026-06-09",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/fall-review-2021.html); title year(s): 2021; printed dates: 2021-11-17, 2021-12-02",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/west-coast-2022.html); title year(s): 2022; printed dates: 2022-05-18, 2022-05-19",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/spring-review-2020.html); title year(s): 2020; printed dates: 2020-06-30, 2020-05-19, 2020-06-02, 2020-06-16",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/west-coast-2019.html); title year(s): 2019; printed dates: none",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/west-coast-2018.html); title year(s): 2018; printed dates: none",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/fall-review-2017.html); title year(s): 2017; printed dates: 2017-11-06, 2017-10-15",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/fall-review-2014.html); title year(s): 2014; printed dates: 2014-10-01, 2014-09-14"
+      ],
+      "error": "Incomplete extraction; previous records retained. Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Japan%20Technical%20Review.html); title year(s): 2026; printed dates: 2025-06-30 Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Spring%20Technical%20Review.html); title year(s): 2026; printed dates: 2025-06-09, 2026-06-09 Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/fall-review-2021.html); title year(s): 2021; printed dates: 2021-11-17, 2021-12-02 Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/west-coast-2022.html); title year(s): 2022; printed dates: 2022-05-18, 2022-05-19 Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/spring-review-2020.html); title year(s): 2020; printed dates: 2020-06-30, 2020-05-19, 2020-06-02, 2020-06-16 Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/west-coast-20"
+    },
+    {
+      "id": "34fa7359276d",
+      "org": "Socialist Studies Seminar",
+      "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "state": "error",
+      "lastAttempt": "2026-10-26T03:37:41.958Z",
+      "eventCount": 2,
+      "warnings": [
+        "Media discovery is bounded to 12 of 18 advertised assets; remaining archive coverage is incomplete"
+      ],
+      "error": "Incomplete extraction; previous records retained. Media discovery is bounded to 12 of 18 advertised assets; remaining archive coverage is incomplete"
+    },
+    {
+      "id": "4c4f223b8c8b",
+      "org": "Robotics, Embodied AI and Learning — news and events",
+      "url": "https://www.cmu.edu/real/news-and-events/index.html",
+      "state": "error",
+      "lastAttempt": "2026-10-26T03:37:37.286Z",
+      "eventCount": 0,
+      "warnings": [
+        "Monitored series and example timetable: The page gives descriptions, periodicity and an explicitly labelled example workshop timetable, without specific occurrence dates.",
+        "Additional endpoint failed (https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics): HTTP 404 from calendar.google.com",
+        "Reviewed resource changed or is missing; check for a newly published dated schedule (https://sites.google.com/andrew.cmu.edu/cmu-lcs/home)"
+      ],
+      "error": "Incomplete extraction; previous records retained. Monitored series and example timetable: The page gives descriptions, periodicity and an explicitly labelled example workshop timetable, without specific occurrence dates. Additional endpoint failed (https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics): HTTP 404 from calendar.google.com Reviewed resource changed or is missing; check for a newly published dated schedule (https://sites.google.com/andrew.cmu.edu/cmu-lcs/home)"
+    },
+    {
+      "id": "528193392a78",
+      "org": "LTI Colloquium",
+      "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+      "state": "error",
+      "lastAttempt": "2026-10-26T03:37:38.734Z",
+      "eventCount": 9,
+      "warnings": [
+        "Speaker text is uncertain for 2026-11-20; publisher series title retained (https://www.lti.cs.cmu.edu/misc-pages/colloquium-series-fall-2026.png)"
+      ],
+      "error": "Incomplete extraction; previous records retained. Speaker text is uncertain for 2026-11-20; publisher series title retained (https://www.lti.cs.cmu.edu/misc-pages/colloquium-series-fall-2026.png)"
+    },
+    {
+      "id": "5ade174c3483",
+      "org": "Enterprise-Wide Optimization Seminars",
+      "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "state": "error",
+      "lastAttempt": "2026-10-26T03:37:44.055Z",
+      "eventCount": 0,
+      "warnings": [
+        "Media discovery is bounded to 8 of 123 advertised assets; remaining archive coverage is incomplete",
+        "No complete, unambiguous visible media occurrence date (https://egon.cheme.cmu.edu/ewo/docs/DDsChemE2026.pdf)",
+        "No complete, unambiguous visible media occurrence date (https://egon.cheme.cmu.edu/ewo/docs/EWO_January_22_2026_Lara.pdf)",
+        "Automatic media extraction failed (https://egon.cheme.cmu.edu/ewo/docs/HSVEM-Data%20Analytics%20and%20Optimization%20for%20Manufacture-Circulation%20Industrial%20System-2025-10-30-CMU.pdf): Source exceeds 12 MB download limit."
+      ],
+      "error": "Incomplete extraction; previous records retained. Media discovery is bounded to 8 of 123 advertised assets; remaining archive coverage is incomplete No complete, unambiguous visible media occurrence date (https://egon.cheme.cmu.edu/ewo/docs/DDsChemE2026.pdf) No complete, unambiguous visible media occurrence date (https://egon.cheme.cmu.edu/ewo/docs/EWO_January_22_2026_Lara.pdf) Automatic media extraction failed (https://egon.cheme.cmu.edu/ewo/docs/HSVEM-Data%20Analytics%20and%20Optimization%20for%20Manufacture-Circulation%20Industrial%20System-2025-10-30-CMU.pdf): Source exceeds 12 MB download limit."
+    },
+    {
+      "id": "79e7cdffd54d",
+      "org": "CMU Alumni Online Events",
+      "url": "https://www.cmu.edu/engage/events/online-events",
+      "state": "error",
+      "lastAttempt": "2026-10-26T03:37:48.031Z",
+      "eventCount": 4,
+      "warnings": [
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain); only its current visible listing date is included",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}"
+      ],
+      "error": "Incomplete extraction; previous records retained. Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain); only its current visible listing date is included Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sport"
+    },
+    {
+      "id": "8f00fc7f2c7c",
+      "org": "CMU Alumni and Community Events",
+      "url": "https://www.cmu.edu/engage/events",
+      "state": "error",
+      "lastAttempt": "2026-10-26T03:37:49.510Z",
+      "eventCount": 23,
+      "warnings": [
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-plaid-potions-and-pubs-halloween-bar-crawl); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-coffee-with-llm-api-users); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/la-volunteer-opportunity-project-angel-food-service-day-2026); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-heated-rivalry-penguins-vs-sharks); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-dulces-connections-hlaa-holiday-cookie-making-event); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-festival-of-lights-tartan-diwali-celebration); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain); only its current visible listing date is included",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Stopped optional Alumni detail enrichment after 4 consecutive failures (limit 4); skipped 19 remaining detail page(s). All current public listing cards remain included with their advertised dates.",
+        "Retained the last accepted clock for alumni:https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-coffee-with-llm-api-users; the partial response supplies only a date."
+      ],
+      "error": "Incomplete extraction; previous records retained. Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/Carneg"
+    },
+    {
+      "id": "d861fd81e26d",
+      "org": "Center for African American Urban Studies and the Economy Events",
+      "url": "https://www.cmu.edu/history/cause/events/index.html",
+      "state": "error",
+      "lastAttempt": "2026-10-26T03:38:01.227Z",
+      "eventCount": 0,
+      "warnings": [
+        "Media discovery is bounded to 8 of 38 advertised assets; remaining archive coverage is incomplete",
+        "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/joe-trotter-jr.png)",
+        "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/1.jpg)",
+        "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/derek-headshot-1a.jpg)",
+        "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/dsc_3806-edit.jpg)",
+        "No explicit year for media date: October 18 (https://www.cmu.edu/history/cause/events/october-18.png)",
+        "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/october-18.png)",
+        "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/20240507-085110-4533-153_fair_j_henry_web.aboutpage.photo.jpg)"
+      ],
+      "error": "Incomplete extraction; previous records retained. Media discovery is bounded to 8 of 38 advertised assets; remaining archive coverage is incomplete No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/joe-trotter-jr.png) No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/1.jpg) No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/derek-headshot-1a.jpg) No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/dsc_3806-edit.jpg) No explicit year for media date: October 18 (https://www.cmu.edu/history/cause/events/october-18.png) No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/october-18.png) No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/20240507-085110-4533-153_fair_j_henry_web.aboutpage.photo.jpg)"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { normalizeEvent, inWindow } from './normalize.mjs';
+import { normalizeCoverage } from './source-coverage.mjs';
 
 /**
  * Identify the extraction contract, excluding editorial evidence and timestamps.
@@ -45,7 +46,7 @@ export function exportCrawlState(store, context = {}) {
     sources: store.listSources().filter(source => !['covered', 'subscription_only', 'unsupported', 'blocked'].includes(source.status))
       .map(source => ({ id: source.id, contract: extractionSignature(source), state: source.state,
         lastAttempt: source.lastAttempt, lastSuccess: source.lastSuccess, error: source.error,
-        warnings: source.warnings, events: occurrences.get(source.id) || [] })) };
+        warnings: source.warnings, coverage: source.coverage, events: occurrences.get(source.id) || [] })) };
 }
 
 /**
@@ -86,13 +87,14 @@ export function restoreCrawlState(store, plans, snapshot, context = {}) {
         || normalized.uid !== event.uid || normalized.title !== event.title) throw new Error(`Invalid saved occurrence for ${row.id}.`);
       return normalized;
     }).filter(event => inWindow(event, context));
-    staged.push({ ...row, events });
+    staged.push({ ...row, coverage: normalizeCoverage(row.coverage), events });
   }
   const insert = store.db.prepare('INSERT OR REPLACE INTO occurrences VALUES (?,?,?)');
   const update = store.db.prepare('UPDATE sources SET state=?,last_attempt=?,last_success=?,error=?,warnings=?,event_count=? WHERE id=?');
   store.db.exec('BEGIN');
   try {
     for (const row of staged) {
+      store.setMeta(`sourceCoverage:${row.id}`, row.coverage);
       store.db.prepare('DELETE FROM occurrences WHERE source_id=?').run(row.id);
       for (const event of row.events) {
         const key = createHash('sha256').update(`uid:${event.uid}|${event.start}`).digest('hex').slice(0, 24);

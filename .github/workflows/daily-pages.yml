@@ -52,11 +52,12 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - name: Cache raw OCR by source bytes and extractor version
-        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5
+      - name: Restore raw OCR by source bytes and extractor version
+        id: media-cache
+        uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25 # v5
         with:
           path: .cache/media-ocr
-          key: media-${{ runner.os }}-${{ hashFiles('src/lib/media-ocr.mjs', 'package-lock.json') }}-${{ github.run_id }}
+          key: media-${{ runner.os }}-${{ hashFiles('src/lib/media-ocr.mjs', 'package-lock.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             media-${{ runner.os }}-${{ hashFiles('src/lib/media-ocr.mjs', 'package-lock.json') }}-
       - name: Install public-page and media extraction runtimes
@@ -93,6 +94,12 @@ jobs:
           if [ "$HAVE_STATE" = true ]; then args+=(--state-in=.cache/state-in.json); fi
           if [ "$ALLOW_EVENT_DROP" = true ]; then args+=(--allow-event-drop); fi
           npm run build:static -- "${args[@]}"
+      - name: Save resumable raw OCR even when publication is blocked
+        if: always() && steps.media-cache.outcome == 'success'
+        uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25 # v5
+        with:
+          path: .cache/media-ocr
+          key: ${{ steps.media-cache.outputs.cache-primary-key }}
       - name: Upload source-health and publication reports
         if: always()
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6

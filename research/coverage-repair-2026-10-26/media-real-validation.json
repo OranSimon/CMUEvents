@@ -1,0 +1,2470 @@
+{
+  "checkedAt": "2026-10-26T04:19:14.972Z",
+  "context": {
+    "windowStart": "2026-09-26T04:12:41.111Z",
+    "windowEnd": "2027-10-26T04:12:41.111Z"
+  },
+  "results": [
+    {
+      "id": "528193392a78",
+      "org": "LTI Colloquium",
+      "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+      "elapsedMs": 1367,
+      "eventCount": 9,
+      "partial": false,
+      "unsupported": false,
+      "warnings": [
+        "Speaker text is uncertain for 2026-11-20; publisher series title retained (https://www.lti.cs.cmu.edu/misc-pages/colloquium-series-fall-2026.png)"
+      ],
+      "coverage": {
+        "version": 1,
+        "kind": "automatic-media",
+        "inspectionComplete": true,
+        "discovered": 1,
+        "processed": 1,
+        "excludedHistorical": 0,
+        "excludedNonEvent": 0,
+        "unresolved": 0,
+        "internalIssues": [],
+        "externalIssues": [],
+        "nonBlockingIssues": [
+          "Speaker text is uncertain for 2026-11-20; publisher series title retained (https://www.lti.cs.cmu.edu/misc-pages/colloquium-series-fall-2026.png)"
+        ],
+        "assets": [
+          {
+            "url": "https://www.lti.cs.cmu.edu/misc-pages/colloquium-series-fall-2026.png",
+            "classification": "processed",
+            "recognized": 13
+          }
+        ]
+      },
+      "events": [
+        {
+          "title": "LTI Colloquium — Chenggang Xu",
+          "start": "2026-10-02T19:30:00.000Z",
+          "end": "2026-10-02T21:00:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Social",
+          "start": "2026-10-09T19:00:00.000Z",
+          "end": "2026-10-09T19:30:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Social",
+          "start": "2026-10-16T19:00:00.000Z",
+          "end": "2026-10-16T19:30:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Colloquium — Sewon Min",
+          "start": "2026-10-23T19:30:00.000Z",
+          "end": "2026-10-23T21:00:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Colloquium — Chris Potts",
+          "start": "2026-10-30T19:30:00.000Z",
+          "end": "2026-10-30T21:00:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Social",
+          "start": "2026-11-06T20:00:00.000Z",
+          "end": "2026-11-06T20:30:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Colloquium — Jocelyn Shen",
+          "start": "2026-11-13T20:30:00.000Z",
+          "end": "2026-11-13T22:00:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Colloquium",
+          "start": "2026-11-20T20:30:00.000Z",
+          "end": "2026-11-20T22:00:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Social",
+          "start": "2026-12-04T20:00:00.000Z",
+          "end": "2026-12-04T20:30:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        }
+      ]
+    },
+    {
+      "id": "34fa7359276d",
+      "org": "Socialist Studies Seminar",
+      "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "elapsedMs": 5646,
+      "eventCount": 1,
+      "partial": true,
+      "unsupported": false,
+      "warnings": [
+        "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/history/centers-seminars/screenshot-2026-08-21-at-2.18.58pm.png)",
+        "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/history/centers-seminars/screenshot-2026-08-21-at-2.19.05pm.png)"
+      ],
+      "coverage": {
+        "version": 1,
+        "kind": "automatic-media",
+        "inspectionComplete": false,
+        "discovered": 18,
+        "processed": 3,
+        "excludedHistorical": 15,
+        "excludedNonEvent": 0,
+        "unresolved": 2,
+        "internalIssues": [
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/history/centers-seminars/screenshot-2026-08-21-at-2.18.58pm.png)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/history/centers-seminars/screenshot-2026-08-21-at-2.19.05pm.png)"
+        ],
+        "externalIssues": [],
+        "nonBlockingIssues": [],
+        "assets": [
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/brockmann-8.5x11.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2026-09-18",
+              "end": "2026-09-19",
+              "line": "Friday, September 18, 2026",
+              "weekday": "Friday"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 1
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/screenshot-2026-08-21-at-2.18.58pm.png",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/screenshot-2026-08-21-at-2.19.02pm.png",
+            "classification": "processed",
+            "recognized": 1
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/screenshot-2026-08-21-at-2.19.05pm.png",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/salimjan-flyer.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2026-01-01",
+              "end": "2026-07-01"
+            },
+            "evidence": "Spring 2026 Seminars"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/walke-flyer.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2026-01-01",
+              "end": "2026-07-01"
+            },
+            "evidence": "Spring 2026 Seminars"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/sternfeld-flyer.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2026-01-01",
+              "end": "2026-07-01"
+            },
+            "evidence": "Spring 2026 Seminars"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/zubovich-flyer.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-07-01",
+              "end": "2026-01-01"
+            },
+            "evidence": "zubovich-flyer.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/10-10-2025-socialist-seminar-8.5x111.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-07-01",
+              "end": "2026-01-01"
+            },
+            "evidence": "Fall 2025 Seminars"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/fall20251.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-01-01",
+              "end": "2025-07-01"
+            },
+            "evidence": "fall20251.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/fall20252.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-01-01",
+              "end": "2025-07-01"
+            },
+            "evidence": "fall20252.png"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/fall20253.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-01-01",
+              "end": "2025-07-01"
+            },
+            "evidence": "fall20253.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/11-15-2024_socialist-seminar-jaromir.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2024-07-01",
+              "end": "2025-01-01"
+            },
+            "evidence": "11-15-2024_socialist-seminar-jaromir.png"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/12-04-2024_the-socialist-studies-seminar_-nathans.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2024-07-01",
+              "end": "2025-01-01"
+            },
+            "evidence": "12-04-2024_the-socialist-studies-seminar_-nathans.png"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/v2spring-2023-socialist-seminar-graphic.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2023-01-01",
+              "end": "2023-07-01"
+            },
+            "evidence": "v2spring-2023-socialist-seminar-graphic.png"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/v2fall-2023-socialist-seminar-graphic.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2023-07-01",
+              "end": "2024-01-01"
+            },
+            "evidence": "v2fall-2023-socialist-seminar-graphic.png"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/v2spring-2022-socialist-seminar-graphic.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "v2spring-2022-socialist-seminar-graphic.png"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/v2fall-2022-socialist-seminar-graphic.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-07-01",
+              "end": "2023-01-01"
+            },
+            "evidence": "v2fall-2022-socialist-seminar-graphic.png"
+          }
+        ]
+      },
+      "events": [
+        {
+          "title": "Socialist Studies Seminar",
+          "start": "2026-10-09T20:00:00.000Z",
+          "end": "2026-10-09T21:30:00.000Z",
+          "timePrecision": "time",
+          "location": "Baker/Porter Hall 246A, CMU",
+          "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html"
+        }
+      ]
+    },
+    {
+      "id": "d861fd81e26d",
+      "org": "Center for African American Urban Studies and the Economy Events",
+      "url": "https://www.cmu.edu/history/cause/events/index.html",
+      "elapsedMs": 5256,
+      "eventCount": 0,
+      "partial": true,
+      "unsupported": false,
+      "warnings": [
+        "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/20240507-085110-4533-153_fair_j_henry_web.aboutpage.photo.jpg)",
+        "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/people/avinash_hingorani_cause_picture.jpeg)"
+      ],
+      "coverage": {
+        "version": 1,
+        "kind": "automatic-media",
+        "inspectionComplete": false,
+        "discovered": 38,
+        "processed": 3,
+        "excludedHistorical": 20,
+        "excludedNonEvent": 15,
+        "unresolved": 2,
+        "internalIssues": [
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/20240507-085110-4533-153_fair_j_henry_web.aboutpage.photo.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/people/avinash_hingorani_cause_picture.jpeg)"
+        ],
+        "externalIssues": [],
+        "nonBlockingIssues": [],
+        "assets": [
+          {
+            "url": "https://www.cmu.edu/history/cause/events/speakerposter2.27.11x17.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2026-02-27",
+              "end": "2026-02-28",
+              "line": "Photo of Augustus Wood's guest speaker lecture on 2/27/2026  at Baker Hall room A53, at 4:30pm - 6:45pm.",
+              "weekday": null
+            },
+            "evidence": "Photo of Augustus Wood's guest speaker lecture on 2/27/2026  at Baker Hall room A53, at 4:30pm - 6:45pm."
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/joe-trotter-jr.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-11-07",
+              "end": "2025-11-08",
+              "line": "November 7, 2025",
+              "weekday": null
+            },
+            "evidence": "November 7, 2025\nLocation: Baker Hall A53 - Steinberg Auditorium\nSchedule of events:\n4:30 PM - 5:00 PM Reception\nFood and refreshments will be provided\n5:00 - 6:30 PM - Dr. Joe William Trotter Jr. Book Symposium"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-30th-anniversary-qr.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-04-11",
+              "end": "2025-04-13",
+              "line": "April 11-12, 2025",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/derek-headshot-1a.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/dsc_3806-edit.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/october-18.png",
+            "classification": "processed",
+            "recognized": 1,
+            "dateEvidence": {
+              "title": "Film Screening: The Cost of Inheritance",
+              "date": "2024-10-18",
+              "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+              "detailUrl": "https://www.cmu.edu/dietrich/humanities-center/center-events/cause-film-screening.html",
+              "associationVerified": true
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/20240507-085110-4533-153_fair_j_henry_web.aboutpage.photo.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.heinz.cmu.edu/heinz-shared/_files/img/diversity-and-inclusion/cause-speakers/gabriel-winant-250x250.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/drew-smith.jpeg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.heinz.cmu.edu/heinz-shared/_files/img/diversity-and-inclusion/cause-speakers/destin-jenkins-250x250.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.heinz.cmu.edu/heinz-shared/_files/img/diversity-and-inclusion/cause-speakers/ashley-farmer-250x250.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.heinz.cmu.edu/heinz-shared/_files/img/diversity-and-inclusion/cause-speakers/brian-goldstein-250x250.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.heinz.cmu.edu/heinz-shared/_files/img/diversity-and-inclusion/cause-speakers/darity-mullen-500x250.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/roger-mitchell_credit-jeff-suggs-jeff-suggs-photography.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/jay-aronson_credit-kevin-lorenzi-carnegie-mellon-university.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/brothers-cover-high-resolution.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/nico-slate-photo-small.jpeg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/klanderud-headshot-2023.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/wendell_adjetey.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/people/avinash_hingorani_cause_picture.jpeg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause_reception.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2024-09-13",
+              "end": "2024-09-14",
+              "line": "September 13, 2024",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause---heinz-speakers-april-8.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-04-08",
+              "end": "2022-04-09",
+              "line": "Friday, April 8, 2022 | 4:30pm - 6:30pm ET",
+              "weekday": "Friday"
+            },
+            "evidence": "cause---heinz-speakers-april-8.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause---heinz-speakers-march-11.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-03-11",
+              "end": "2022-03-12",
+              "line": "Friday, March 11, 2022 | 4:30pm - 6:30pm ET",
+              "weekday": "Friday"
+            },
+            "evidence": "cause---heinz-speakers-march-11.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-main-poster-.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "2022 SPRING SPEAKER SERIES"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-day-1-flyer.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "cause-day-1-flyer.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-day-2-flyer.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "cause-day-2-flyer.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-day-3-flyer.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "cause-day-3-flyer.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-day-4-flyer-2.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "cause-day-4-flyer-2.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-day-5-flyer-2.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "cause-day-5-flyer-2.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/policing-public-forum3.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "policing-public-forum3.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/balto-poster.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "balto-poster.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/my-post.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "my-post.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/michael-fortner-poster.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2021-04-09",
+              "end": "2021-04-10",
+              "line": "Friday, April 9, 2021 - 4:30-6:00pm ET",
+              "weekday": "Friday"
+            },
+            "evidence": "michael-fortner-poster.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause---heinz-speaker-series-march-262.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2021-03-26",
+              "end": "2021-03-27",
+              "line": "Friday, March 26, 2021 - 4:30-6:00pm",
+              "weekday": "Friday"
+            },
+            "evidence": "cause---heinz-speaker-series-march-262.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/aishah-scott-speaker-series-poster.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2021-01-01",
+              "end": "2021-07-01"
+            },
+            "evidence": "aishah-scott-speaker-series-poster.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause---nelson-heinz-speaker-series.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2021-01-01",
+              "end": "2021-07-01"
+            },
+            "evidence": "cause---nelson-heinz-speaker-series.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause---gamble_heinz-speaker-series4.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2021-01-01",
+              "end": "2021-07-01"
+            },
+            "evidence": "cause---gamble_heinz-speaker-series4.jpg"
+          }
+        ]
+      },
+      "events": []
+    },
+    {
+      "id": "1468ddb723b2",
+      "org": "Humanities Center News and Events",
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "elapsedMs": 15233,
+      "eventCount": 0,
+      "partial": true,
+      "unsupported": false,
+      "warnings": [
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/anna-kornbluh.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/baltimore-after-progress.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-joseph.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/epoch-of-loss.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/alice-julier-seminars.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/communicating-climate-change.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-gamper.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/urban-water-governance.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/human-right-to-water.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/poioned-city.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/hayden-white.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/movies-narrative-emotions.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/computational-narrative-intelligence.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/empathy-and-immersion.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/steve-silberman.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/dan-rosenberg.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side"
+      ],
+      "coverage": {
+        "version": 1,
+        "kind": "html-detail",
+        "inspectionComplete": true,
+        "discovered": 94,
+        "processed": 76,
+        "excludedHistorical": 18,
+        "excludedNonEvent": 0,
+        "unresolved": 16,
+        "internalIssues": [],
+        "externalIssues": [
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/anna-kornbluh.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/baltimore-after-progress.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-joseph.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/epoch-of-loss.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/alice-julier-seminars.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/communicating-climate-change.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-gamper.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/urban-water-governance.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/human-right-to-water.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/poioned-city.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/hayden-white.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/movies-narrative-emotions.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/computational-narrative-intelligence.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/empathy-and-immersion.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/steve-silberman.html)",
+          "Publisher detail has no unambiguous complete occurrence date in its event content (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/dan-rosenberg.html)"
+        ],
+        "nonBlockingIssues": [],
+        "assets": [
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/in-exile-film-screening.html",
+            "classification": "excluded-historical",
+            "evidence": "Friday, Nov. 7, 2025, Harris Theater, Pittsburgh Cultural Trust"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html",
+            "classification": "excluded-historical",
+            "evidence": "A six-part workshop series for faculty interested in public-facing writing and trade publishing. Fall 2025 and Spring 2026",
+            "period": {
+              "start": "2025-07-01",
+              "end": "2026-07-01"
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/make-research-come-alive.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Apr. 17, 2025 9 - 12:00 p.m, William Pitt Union, University of Pittsburgh."
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/gilder-lehrman-lincoln-prize.html",
+            "classification": "excluded-historical",
+            "evidence": "Tuesday, Apr. 8, 2025,  8-9:00 p.m., Zoom"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/cause-anniversary-conference.html",
+            "classification": "excluded-historical",
+            "evidence": "Friday, Apr. 11 - Saturday Apr 12, 2025, Cohon University Center"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/environmental-humanities-slam.html",
+            "classification": "excluded-historical",
+            "evidence": "Tuesday, Apr. 1, 2025, 4:00 to 5:30 p.m., Posvar Hall, University of Pittsburgh"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/cause-film-screening.html",
+            "classification": "excluded-historical",
+            "evidence": "Friday, Oct. 18, 2024 6:00 to 7:30 p.m., McConomy Auditorium, Cohon University Center"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/shellen-xiao-wu.html",
+            "classification": "excluded-historical",
+            "evidence": "Wednesday, Sept. 25, 2024, 5:00 to 6:30 p.m., Connan Room, Cohon University Center"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/amy-cooter.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Apr. 18, 2024, 5:00 PM, Steinberg Auditorium (BH A 53)\n"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/michael-sawyer.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Feb. 22, 2024, 5:00 PM, Steinberg Auditorium (BH A 53)\n"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/claudio-lomnitz.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Jan. 25, 2024 5:00 PM, Posner Grand Room"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/paul-mcewan.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Nov. 30, 2023, 5:00, Steinberg Auditorium (BH A 53)"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/winter-counts.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Nov. 16, 2023, 12:00pm, Posner Grand Room"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/edward-baptist.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Oct. 26, 2023, 5:00pm\n"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/patrick-spero.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Oct. 5, 2023, 5:00, Steinberg Auditorium (BH A 53)"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/gregory-jones-katz.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Mar 30, 2023, 4:30pm, Posner Grand Room (Posner Hall 340)"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/spring-2019.html",
+            "classification": "excluded-historical",
+            "evidence": "Spring 2019 Events",
+            "period": {
+              "start": "2019-01-01",
+              "end": "2019-07-01"
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/manufacturing-mischief.html",
+            "classification": "excluded-historical",
+            "evidence": "May 10-12, 2018"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/constitution-day-conference.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/caroline-levine.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/jane-gallop.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/eric-hayot.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/bruce-robbins.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/anna-kornbluh.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/baltimore-after-progress.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-joseph.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/epoch-of-loss.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/alice-julier-seminars.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/communicating-climate-change.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-gamper.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/covid-conversations-part2.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/covid-conversations-part1.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/college-food-insecurity.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/vibrant-storytelling.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/food-oasis-in-pittsburgh.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/urban-water-governance.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/human-right-to-water.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/poioned-city.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/bread-and-water.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/perspective-statistics.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/hayden-white.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/movies-narrative-emotions.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/computational-narrative-intelligence.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/empathy-and-immersion.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/steve-silberman.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/marx-at-200-art-exhibition.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/dan-rosenberg.html",
+            "classification": "unresolved-publisher-date"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/writing-marx-history.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/building-communities-of-power.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/robotics-future-of-work-panel.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/marx-200-inagural-event.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/steve-james.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/humanities-festival-2017.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/film-festival.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/unlocking-everyday-treasures.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/less-than-zeroes-ones.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/arclights-zoom-lenses.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/copyright-and-culture.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/living-on-the-internet.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/harbingers-of-future-war.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/unmanned.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/horses-of-the-apocalypse.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/terror.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/perpetual-interwar.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/war-in-the-age-of-antisocial-media.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/war-and-humanities.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/bro-adams.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/humanities-festival.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/why-nature-is-musical.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/music-and-politics-panel.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-23-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-09-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/09-11-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/04-30-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/03-27-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/03-20-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/03-04-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/12-05-2013.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-24-2013.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/09-26-2013.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/04-11-2013.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/03-04-2013.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/02-07-2013.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/11-09-2012.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-08-2012.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/09-06-2012.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/04-26-2012.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/03-22-2012.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/02-07-2012.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/08-15-2011.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-27-2011.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-14-2011.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-04-2011.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/06-21-2011.html",
+            "classification": "processed"
+          }
+        ]
+      },
+      "events": []
+    },
+    {
+      "id": "5ade174c3483",
+      "org": "Enterprise-Wide Optimization Seminars",
+      "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "elapsedMs": 366383,
+      "eventCount": 0,
+      "partial": true,
+      "unsupported": false,
+      "warnings": [
+        "PDF OCR will resume pending pages 97,98,104,105,106,107,109,110,111,118,119,120,121,122,123,124 (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_04_2016.pdf)",
+        "Media extraction failed (https://egon.cheme.cmu.edu/ewo/docs/pdf/David_Miller_ESI_Seminar_2021-04-30.pdf): HTTP 404 from egon.cheme.cmu.edu",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_January_22_2026_Lara.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/CP-SAT%20and%20OR-Tools.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/2023_4_6_Yankai_Cao.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_Dimitrakopoulos.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Kyle_Harshbarger_Emerging_Topics_in_Dow_Supply_Chain.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Supply_chain_resilience.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/CAPD-NS.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Wil_van_der_Aalst_Process_mining_10_27_2021.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/RuthMisener_2020_03_30.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Secchi_Talk_LADES_Digital_Tech.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO-inventorySnyder.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWOSeminar2020-DiegoCafaro-Egon.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Venkat_CMU_EWOTalk_Mar_2020.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Sustainable_supply_chains_in_a_circular_economy_Adisa_Azapagic.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_03_2019.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Tatsushi_Nishi_EWO.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_04_10_2018.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_08_2018.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_2015_NVS.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Presentation_Laird_2014.key.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_02_2014.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_19_2013.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_17_2013.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_17_2013.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_19_2013.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Nishi_CAPD2013_print_final.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/DavisEdgarEWOWebinar12213v4.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Ian_Cameron_seminar.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_06_2012.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_15_2012.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_29_2011.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Vielma_ewo_robust_opt.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/CAPD_Chmielewski_March2011.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/VRP_Presentation%20INTEC.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/VargasForecasting.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/SnyderEWO-FacilLoc-100421.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/SahinidisEWO_DFO2010.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/BieglerNLP_ewo.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/CornuejolsEWO.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWOLagrangeanGrossmann.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/ErikEWO_Feb_2008.pdf)",
+        "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWOMINLPGrossmann.pdf)"
+      ],
+      "coverage": {
+        "version": 1,
+        "kind": "automatic-media",
+        "inspectionComplete": false,
+        "discovered": 123,
+        "processed": 49,
+        "excludedHistorical": 73,
+        "excludedNonEvent": 0,
+        "unresolved": 2,
+        "internalIssues": [
+          "PDF OCR will resume pending pages 97,98,104,105,106,107,109,110,111,118,119,120,121,122,123,124 (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_04_2016.pdf)"
+        ],
+        "externalIssues": [
+          "Media extraction failed (https://egon.cheme.cmu.edu/ewo/docs/pdf/David_Miller_ESI_Seminar_2021-04-30.pdf): HTTP 404 from egon.cheme.cmu.edu"
+        ],
+        "nonBlockingIssues": [
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_January_22_2026_Lara.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/CP-SAT%20and%20OR-Tools.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/2023_4_6_Yankai_Cao.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_Dimitrakopoulos.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Kyle_Harshbarger_Emerging_Topics_in_Dow_Supply_Chain.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Supply_chain_resilience.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/CAPD-NS.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Wil_van_der_Aalst_Process_mining_10_27_2021.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/RuthMisener_2020_03_30.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Secchi_Talk_LADES_Digital_Tech.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO-inventorySnyder.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWOSeminar2020-DiegoCafaro-Egon.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Venkat_CMU_EWOTalk_Mar_2020.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Sustainable_supply_chains_in_a_circular_economy_Adisa_Azapagic.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_03_2019.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Tatsushi_Nishi_EWO.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_04_10_2018.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_08_2018.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_2015_NVS.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Presentation_Laird_2014.key.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_02_2014.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_19_2013.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_17_2013.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_17_2013.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_19_2013.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Nishi_CAPD2013_print_final.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/DavisEdgarEWOWebinar12213v4.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Ian_Cameron_seminar.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_06_2012.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_15_2012.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_29_2011.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Vielma_ewo_robust_opt.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/CAPD_Chmielewski_March2011.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/VRP_Presentation%20INTEC.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/VargasForecasting.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/SnyderEWO-FacilLoc-100421.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/SahinidisEWO_DFO2010.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/BieglerNLP_ewo.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/CornuejolsEWO.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWOLagrangeanGrossmann.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/ErikEWO_Feb_2008.pdf)",
+          "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWOMINLPGrossmann.pdf)"
+        ],
+        "assets": [
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO%20Seminar%20Carnegie%20Mellon%20-%20Fred%20Gardi%20-%20Hexaly.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2026-05-07",
+              "end": "2026-05-08",
+              "line": "May 7, 2026",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 34
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/DDsChemE2026.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2026-04-01",
+              "end": "2026-05-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 139
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_January_22_2026_Lara.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 50,
+            "pendingPages": [],
+            "ocrPagesCompleted": 8
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/HSVEM-Data%20Analytics%20and%20Optimization%20for%20Manufacture-Circulation%20Industrial%20System-2025-10-30-CMU.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-10-29",
+              "end": "2025-10-30",
+              "line": "October 29 2025",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 94
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/MetinTurkay_CMU_2025-09-17.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-09-17",
+              "end": "2025-09-18",
+              "line": "CAPD, Carnegie Mellon University – September 17, 2025",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 49
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_01_2025_Digital_Supply_Chain_and_the_Human_Element.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-01-23",
+              "end": "2025-01-24",
+              "line": "January 23, 2025",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 39
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_11_25_2024_Alan_Scheller-Wolf_Technology%20Paths.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2024-11-25",
+              "end": "2024-11-26",
+              "line": "November 25, 2024",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 25
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Data_Analytics_and_Optimization_for_Smart_Industry-2024-10-23.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2024-10-23",
+              "end": "2024-10-24",
+              "line": "October 23 2024",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 76
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_April_03_2024_Gomes.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2024-04-03",
+              "end": "2024-04-04",
+              "line": "April 3rd, 2024",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 66
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/CMU-EWO-Nagurney-2023.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2023-11-01",
+              "end": "2023-11-02",
+              "line": "November 1, 2023",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 92
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/CP-SAT%20and%20OR-Tools.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 38,
+            "pendingPages": [],
+            "ocrPagesCompleted": 6
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/2023_4_6_Yankai_Cao.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 49,
+            "pendingPages": [],
+            "ocrPagesCompleted": 1
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/CMU_EWO_Swartz_2023.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2023-03-01",
+              "end": "2023-04-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 38
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_Kokossis.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-11-10",
+              "end": "2022-11-11",
+              "line": "November 10, 2022, Pittsburgh, USA",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 180
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_Dimitrakopoulos.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 43,
+            "pendingPages": [],
+            "ocrPagesCompleted": 1
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/RLIMA_CMU_PSE_October_2022.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-10-19",
+              "end": "2022-10-20",
+              "line": "CMU, EWO Seminar, October 19, 2022",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 50
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Kyle_Harshbarger_Emerging_Topics_in_Dow_Supply_Chain.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 16,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Supply_chain_resilience.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 29,
+            "pendingPages": [],
+            "ocrPagesCompleted": 2
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/CAPD-NS.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 37,
+            "pendingPages": [],
+            "ocrPagesCompleted": 4
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Wil_van_der_Aalst_Process_mining_10_27_2021.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 45,
+            "pendingPages": [],
+            "ocrPagesCompleted": 1
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/ElectroplatingScheduling@CMU20210907.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2021-09-07",
+              "end": "2021-09-08",
+              "line": "Sep 7th, 2021",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 22
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/pdf/David_Miller_ESI_Seminar_2021-04-30.pdf",
+            "classification": "unresolved",
+            "error": "HTTP 404 from egon.cheme.cmu.edu"
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/AC_Network-Constrained_Unit_Commitment_Conejo.pdf",
+            "classification": "processed",
+            "recognized": 1,
+            "totalPages": 49,
+            "pendingPages": [],
+            "ocrPagesCompleted": 49
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/RuthMisener_2020_03_30.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 125,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Secchi_Talk_LADES_Digital_Tech.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 50,
+            "pendingPages": [],
+            "ocrPagesCompleted": 5
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO-inventorySnyder.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 82,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOseminarVenturelli.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2020-09-17",
+              "end": "2020-09-18",
+              "line": "September 17, 2020 – EWO Virtual Seminar @ CMU",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 27
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOSeminar2020-DiegoCafaro-Egon.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 29,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Venkat_CMU_EWOTalk_Mar_2020.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 45,
+            "pendingPages": [],
+            "ocrPagesCompleted": 3
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/MDPintro_4_Yixin_Ye.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2020-02-13",
+              "end": "2020-02-14",
+              "line": "Feb 13, 2020",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 42
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Caciki_EWO_Seminar_23_01_2020_v1.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2020-01-23",
+              "end": "2020-01-24",
+              "line": "January 23, 2020",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 34
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Data_Analytics_and_Optimization_in_Steel_Industry.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2019-11-21",
+              "end": "2019-11-22",
+              "line": "November 21 2019",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 61
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Sustainable_supply_chains_in_a_circular_economy_Adisa_Azapagic.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 39,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_03_2019.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 28,
+            "pendingPages": [],
+            "ocrPagesCompleted": 1
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_04_25_2019.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2019-04-01",
+              "end": "2019-05-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 36
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Webinar_ForecastingSoftware_v2.2.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2018-04-12",
+              "end": "2018-04-13",
+              "line": "04/12/2018",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 24
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Tatsushi_Nishi_EWO.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 57,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Feb19-SridharTayur-EWOQCFinal-2019.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2019-02-19",
+              "end": "2019-02-20",
+              "line": "February 19, 2019",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 42
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_13_2018.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2018-09-01",
+              "end": "2018-10-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 43
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_04_2018.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2018-10-04",
+              "end": "2018-10-05",
+              "line": "October 4, 2018 CMU EWO Webinar",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 66
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_11_2018.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2018-09-11",
+              "end": "2018-09-12",
+              "line": "September 11, 2018",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 107
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_04_10_2018.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 74,
+            "pendingPages": [],
+            "ocrPagesCompleted": 26
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_29_2018.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2018-03-29",
+              "end": "2018-03-30",
+              "line": "March 29, 2018",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 16
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_08_2018.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 39,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_09_2017.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2017-11-01",
+              "end": "2017-12-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 20
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_19_2017.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2017-10-01",
+              "end": "2017-11-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 20
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_07_2017.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2017-07-01",
+              "end": "2018-01-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 56
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_04_21_2017.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2017-04-21",
+              "end": "2017-04-22",
+              "line": "April 21, 2017",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 62
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_Grossmann_Castro_Zhang.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2017-01-10",
+              "end": "2017-01-11",
+              "line": "January 10, 2017",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 49
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_10_2017.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2017-03-10",
+              "end": "2017-03-11",
+              "line": "March 10, 2017",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 58
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_01_2016.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2016-11-01",
+              "end": "2016-11-02",
+              "line": "Pittsburgh\t ̶\t \tNovember 1st, 2016",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 67
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_13_2016.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2016-10-13",
+              "end": "2016-10-14",
+              "line": "October 13, 2016",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 45
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_27_2016.pdf",
+            "classification": "processed",
+            "recognized": 1,
+            "totalPages": 67,
+            "pendingPages": [],
+            "ocrPagesCompleted": 63
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_05_11_2016.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2016-05-11",
+              "end": "2016-05-12",
+              "line": "May 11, 2016",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 32
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_04_2016.pdf",
+            "classification": "processed",
+            "recognized": 1,
+            "totalPages": 128,
+            "pendingPages": [
+              97,
+              98,
+              104,
+              105,
+              106,
+              107,
+              109,
+              110,
+              111,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124
+            ],
+            "ocrPagesCompleted": 47
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_03_2016.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2016-02-03",
+              "end": "2016-02-04",
+              "line": "Carnegie Mellon University, February 3, 2016",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 58
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_2015_NVS.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 39,
+            "pendingPages": [],
+            "ocrPagesCompleted": 1
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_06_2015.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2015-10-01",
+              "end": "2015-11-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 57
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Uncertainty_Grossmann.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2015-09-15",
+              "end": "2015-09-16",
+              "line": "EWO Seminar, September 15, 2015",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 54
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_20_2015.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2015-03-20",
+              "end": "2015-03-21",
+              "line": "March 20, 2015",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 20
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_13_2015.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2015-02-13",
+              "end": "2015-02-14",
+              "line": "February 13, 2015",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 56
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_01_22_2015.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2015-01-22",
+              "end": "2015-01-23",
+              "line": "January 22, 2015",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 60
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Presentation_Laird_2014.key.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 37,
+            "pendingPages": [],
+            "ocrPagesCompleted": 1
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_02_2014.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 48,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Iiro_Harjunkoski_Paper_review_2014-03-11_CAPD.pdf",
+            "classification": "processed",
+            "recognized": 5,
+            "totalPages": 29,
+            "pendingPages": [],
+            "ocrPagesCompleted": 1
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_27_2014.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2014-02-27",
+              "end": "2014-02-28",
+              "line": "February 27, 2014",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 59
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_23_01_2014.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2014-01-23",
+              "end": "2014-01-24",
+              "line": "Jan 23, 2014",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 48
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_19_2013.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 56,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_17_2013.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 69,
+            "pendingPages": [],
+            "ocrPagesCompleted": 10
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_17_2013.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 29,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_04_18_2013.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2013-04-18",
+              "end": "2013-04-19",
+              "line": "4/18/2013",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 40
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_19_2013.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 35,
+            "pendingPages": [],
+            "ocrPagesCompleted": 1
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Nishi_CAPD2013_print_final.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 30,
+            "pendingPages": [],
+            "ocrPagesCompleted": 1
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/DavisEdgarEWOWebinar12213v4.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 37,
+            "pendingPages": [],
+            "ocrPagesCompleted": 2
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_27_2012.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2012-11-27",
+              "end": "2012-11-28",
+              "line": "CAPD EWO Seminar – November 27, 2012",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 44
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_25_2012.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2012-10-01",
+              "end": "2012-11-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 35
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_08_30_2012.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2012-08-01",
+              "end": "2012-09-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 92
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/GrossmannEWOAdvancesMathProg.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2012-04-24",
+              "end": "2012-04-25",
+              "line": "April 24, 2012",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 58
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Ian_Cameron_seminar.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 30,
+            "pendingPages": [],
+            "ocrPagesCompleted": 6
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Petrobras_CAPD_meeting_Mar2012.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2012-03-01",
+              "end": "2012-04-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 36
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_06_2012.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 63,
+            "pendingPages": [],
+            "ocrPagesCompleted": 9
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_15_2012.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 48,
+            "pendingPages": [],
+            "ocrPagesCompleted": 6
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_03_2011.pdf",
+            "classification": "processed",
+            "recognized": 29,
+            "totalPages": 34,
+            "pendingPages": [],
+            "ocrPagesCompleted": 4
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_29_2011.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 32,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_08_2011.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2011-09-07",
+              "end": "2011-09-08",
+              "line": "September 7, 2011",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 57
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Vielma_ewo_robust_opt.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 32,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/CAPD_Chmielewski_March2011.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 115,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/NishiGame_Theoretic_Approach_for_Supply_Chain_Optimization_under_Demand_Uncertainty.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2011-03-09",
+              "end": "2011-03-10",
+              "line": "March 9, 2011",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 31
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/VazacopolousCAPD_MARCH_2011.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2011-03-01",
+              "end": "2011-04-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 60
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/VRP_Presentation%20INTEC.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 91,
+            "pendingPages": [],
+            "ocrPagesCompleted": 22
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/rlima_cplex_ewo_dec2010.pdf",
+            "classification": "processed",
+            "recognized": 71,
+            "totalPages": 72,
+            "pendingPages": [],
+            "ocrPagesCompleted": 1
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/VargasForecasting.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 70,
+            "pendingPages": [],
+            "ocrPagesCompleted": 13
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/SnyderEWO-FacilLoc-100421.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 36,
+            "pendingPages": [],
+            "ocrPagesCompleted": 4
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/MargotSlidessym_hand.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2010-02-25",
+              "end": "2010-02-26",
+              "line": "February 25, 2010",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 29
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/SahinidisEWO_DFO2010.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 49,
+            "pendingPages": [],
+            "ocrPagesCompleted": 9
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/SrinivasanSupply_Chain_Agents.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2009-12-01",
+              "end": "2010-01-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 52
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_seminar_van_Hoeve.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2009-11-17",
+              "end": "2009-11-18",
+              "line": "EWO Seminar - November 17, 2009",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 54
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_You.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2009-10-20",
+              "end": "2009-10-21",
+              "line": "October 20, 2009",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 56
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/Secomandi.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2009-09-03",
+              "end": "2009-09-04",
+              "line": "September 3, 2009",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 34
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/BieglerNLP_ewo.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 43,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/LinderothStochastic.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2009-03-10",
+              "end": "2009-03-11",
+              "line": "March 10th, 2009",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 82
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/CornuejolsEWO.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 30,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/ah0b3n40.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2009-01-22",
+              "end": "2009-01-23",
+              "line": "January 22, 2009",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 51
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/SnyderEWO_081113.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2008-11-13",
+              "end": "2008-11-14",
+              "line": "EWO SEMINAR SERIES – NOVEMBER 13, 2008",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 60
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/SPSeminarSchaefer_October16.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2008-10-16",
+              "end": "2008-10-17",
+              "line": "October 16, 2008\tOctober 16, 2008",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 50
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/CMU_EWO_Sep_08.pdf",
+            "classification": "processed",
+            "recognized": 4,
+            "totalPages": 35,
+            "pendingPages": [],
+            "ocrPagesCompleted": 2
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOLagrangeanGrossmann.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 56,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/SecomandiEWOseminar.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2008-04-09",
+              "end": "2008-04-10",
+              "line": "April 9, 2008",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 30
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/ErikEWO_Feb_2008.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 32,
+            "pendingPages": [],
+            "ocrPagesCompleted": 2
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/HookermodelingEWO.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2008-02-01",
+              "end": "2008-03-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 76
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/GonzaloEWO-GG-11Dec.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2007-12-01",
+              "end": "2008-01-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 41
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_NVS.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2007-10-01",
+              "end": "2007-11-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 45
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOSnyder_nomovie.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2007-09-20",
+              "end": "2007-09-21",
+              "line": "September 20, 2007",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 76
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOBieglerControl.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2007-04-12",
+              "end": "2007-04-13",
+              "line": "April 12, 2007",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 43
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOMINLPGrossmann.pdf",
+            "classification": "undated-resource",
+            "recognized": 0,
+            "totalPages": 60,
+            "pendingPages": [],
+            "ocrPagesCompleted": 0
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/LinderothJan07.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2007-01-17",
+              "end": "2007-01-18",
+              "line": "January 17, 2007",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 87
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/SchaeferMDP.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2006-10-26",
+              "end": "2006-10-27",
+              "line": "October 26, 2006",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 47
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/HookerSeminarpitaplanningsched.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2006-09-01",
+              "end": "2006-10-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 76
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/LinderothSEminaroptimization_grid.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2006-05-09",
+              "end": "2006-05-10",
+              "line": "May 9, 2006",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 67
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/HookerCP.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2002-09-01",
+              "end": "2002-10-01"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 111
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/ewo_talkBiegler.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2006-02-15",
+              "end": "2006-02-16",
+              "line": "February 15, 2006",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 47
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOSchedulingGrossmann.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2006-01-18",
+              "end": "2006-01-19",
+              "line": "January 18, 2006",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 53
+          },
+          {
+            "url": "https://egon.cheme.cmu.edu/ewo/docs/SPSeminarSchaefer.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2005-10-20",
+              "end": "2005-10-21",
+              "line": "October 20, 2005",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 51
+          }
+        ]
+      },
+      "events": []
+    }
+  ]
+}

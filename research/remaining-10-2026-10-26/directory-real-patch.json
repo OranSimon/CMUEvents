@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-26T04:25:52.581Z",
+  "instructions": "Replace entire options objects for these two source URLs; remove old whole-body hashes, fixed partial directory resource, and old additionalEndpoints. Bindings reference source identities and publisher layout only, never fixed event IDs/dates/titles.",
+  "sources": [
+    {
+      "sourceId": "1185bc345a9a",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "replaceOptions": true,
+      "options": {
+        "format": "scs-directory",
+        "timezone": "America/New_York",
+        "preferFeed": false,
+        "directoryUrl": "https://www.cs.cmu.edu/rs-datasources/data-source/scs-seminar-events-data",
+        "fallbackSourceId": "26680f057d80",
+        "bindings": [
+          {
+            "name": "AI Institute for Societal Decision Making Seminar",
+            "sourceId": "5a47a3eb65bf",
+            "url": "https://www.cmu.edu/ai-sdm/events/index.html"
+          },
+          {
+            "name": "Algorithms, Combinatorics and Optimization Seminar",
+            "sourceId": "a35bf71459aa",
+            "profile": {
+              "format": "semantic-seminar",
+              "layout": "dated-cards",
+              "cardSelector": ".talk",
+              "seriesSelector": "h1",
+              "yearHeadingSelector": "h2",
+              "speakerSelector": "span.head:nth-of-type(2)",
+              "titleSelector": "a[href*=\"/abs-\"]",
+              "locationPattern": "(?:[ap]m),\\s*(.+)$"
+            },
+            "url": "https://aco.math.cmu.edu/seminar.html"
+          },
+          {
+            "name": "Center for Informed Democracy & Social - cybersecurity Seminar",
+            "profile": {
+              "eventSelector": "#content > .content > div:first-child > div:first-child",
+              "titleSelector": "h1:first-of-type",
+              "dateSelector": "h2:nth-of-type(2)",
+              "locationSelector": "h1:nth-of-type(2)",
+              "detailLinks": false
+            },
+            "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/seminars.html"
+          },
+          {
+            "name": "CMU Foundation and Language Model Seminar",
+            "sourceId": "7a5d5c3584ce",
+            "matchPattern": "\\bFLAME\\b.*\\b(?:seminar|meeting)\\b",
+            "undatedWhenEmpty": true,
+            "scopeNote": "Only explicitly named FLAME seminar/meeting records from the advertised center calendar; public symposia are not silently assigned to this members-only weekly series.",
+            "url": "https://www.cmu.edu/flame/events/index.html"
+          },
+          {
+            "name": "Crypto Seminar",
+            "profile": {
+              "format": "text-schedule",
+              "timezone": "America/New_York",
+              "rowSelector": "section",
+              "startHeading": "Coming Talks",
+              "endHeading": "Previous Talks",
+              "seriesSelector": "h1",
+              "contextSelector": "section:has(p):first",
+              "requirePublishedClock": true,
+              "defaultTimePattern": "meets every (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) at (.+?) ET",
+              "defaultLocationPattern": "meet in person at (.+?) for the (F\\d{2}) semester",
+              "fields": {
+                "title": {
+                  "selector": "p",
+                  "index": 0
+                },
+                "speaker": {
+                  "selector": "p",
+                  "index": 1
+                },
+                "date": {
+                  "selector": "p",
+                  "index": 2
+                }
+              }
+            },
+            "url": "https://sites.google.com/view/crypto-seminar/home"
+          },
+          {
+            "name": "Economics-CS Seminar",
+            "profile": {
+              "format": "text-schedule",
+              "timezone": "America/New_York",
+              "rowSelector": "table tbody tr",
+              "seriesSelector": "h1",
+              "fields": {
+                "date": {
+                  "selector": "td",
+                  "index": 0
+                },
+                "location": {
+                  "selector": "td",
+                  "index": 1
+                },
+                "speaker": {
+                  "selector": "td",
+                  "index": 2
+                },
+                "affiliation": {
+                  "selector": "td",
+                  "index": 3
+                },
+                "title": {
+                  "selector": "td",
+                  "index": 4
+                }
+              }
+            },
+            "url": "https://cmueconcs.github.io/"
+          },
+          {
+            "name": "Cylab Seminar",
+            "sourceId": "9903c32bf0ab",
+            "matchPattern": "^CyLab Seminar\\b"
+          },
+          {
+            "name": "Current Topics in Privacy Seminar",
+            "sourceId": "fbdc39977a83",
+            "scopeNote": "The directory legacy privacy.cs URL serves the same official Privacy Engineering series linked by the current privacy.s3d catalog source.",
+            "url": "https://privacy.cs.cmu.edu/masters/seminar/index.html"
+          },
+          {
+            "name": "Database Seminar",
+            "sourceId": "804b8b6951fe",
+            "scopeNote": "Use the official current /seminars/ index reached from the legacy /seminar2025/ page, rather than pinning April 2025.",
+            "url": "https://db.cs.cmu.edu/seminar2025/"
+          },
+          {
+            "name": "Human-Computer Interaction Seminar",
+            "sourceId": "83459e4d2608",
+            "url": "https://www.hcii.cmu.edu/seminar-series"
+          },
+          {
+            "name": "Joint CMU-Pitt Ph.D. in Computational Biology Seminar",
+            "sourceId": "1afa627d953d",
+            "profile": {
+              "format": "semantic-seminar",
+              "layout": "dated-table",
+              "cardSelector": "table tr",
+              "dateSelector": "td:nth-child(1)",
+              "speakerSelector": "td:nth-child(2) strong",
+              "titleSelector": "td:nth-child(4)",
+              "seriesTitle": "CPCB Seminar Series",
+              "contextSelector": "#content",
+              "clockPattern": "\\bTime:\\s*(\\d{1,2}:\\d{2}\\s*[ap]m)",
+              "locationPattern": "Location:\\s*([^\\n]+)"
+            },
+            "scopeNote": "Supplement the existing explicitly dated table with named-speaker rows whose topic is blank; omit NO SEMINAR and unnamed pending slots.",
+            "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+          },
+          {
+            "name": "Language Technologies Institute Colloquium",
+            "sourceId": "528193392a78",
+            "url": "https://www.lti.cmu.edu/misc-pages/lti-colloquium.html"
+          },
+          {
+            "name": "Machine Learning - Artificial Intelligence Seminar",
+            "sourceId": "276c414f1ee0",
+            "url": "https://www.cs.cmu.edu/~mlaiseminar/"
+          },
+          {
+            "name": "Parallel Data Laboratory Talk Series",
+            "profile": {
+              "format": "semantic-seminar",
+              "layout": "grouped-table",
+              "tableSelector": "table:has(b.color):not(:has(table))",
+              "dateSelector": "b.color",
+              "titleSelector": "td:nth-child(2) > a[href*=\".shtml\"]",
+              "speakerSelector": "td:first-child"
+            },
+            "url": "https://pdl.cmu.edu/talk-series/index.shtml"
+          },
+          {
+            "name": "Principles of Programming Seminar",
+            "sourceId": "a8e37996c63d",
+            "url": "https://www.cs.cmu.edu/~pop/seminar/"
+          },
+          {
+            "name": "Robotics Institute Seminar",
+            "sourceId": "b24d9c9bb1f5",
+            "matchTags": [
+              "RI Seminar"
+            ],
+            "scopeNote": "The advertised month URL is stale; reuse its official current Seminar API category, selecting only the publisher RI Seminar category tag.",
+            "url": "https://www.ri.cmu.edu/events/category/seminar/2025-04/"
+          },
+          {
+            "name": "Software and Societal Systems Department Seminar Series",
+            "sourceId": "d286f9c7c4b4",
+            "matchPattern": "^S3D (?:Distinguished Speakers?|Seminar)\\b",
+            "scopeNote": "The linked S3D public feed is department-wide. Only events explicitly naming this distinguished/seminar series are assigned here.",
+            "url": "https://s3d.cmu.edu/events/distinguished.html"
+          },
+          {
+            "name": "Software Research Seminar",
+            "sourceId": "13fff1668ca0",
+            "matchPattern": "\\b(?:SSSG|Software Research Seminar)\\b",
+            "undatedWhenEmpty": true,
+            "scopeNote": "The linked public calendar is department-wide; only explicit SSSG/Software Research Seminar labels ground this series. Its syllabus weekday rule does not create occurrences.",
+            "url": "https://s3d.cmu.edu/events/sssg.html"
+          },
+          {
+            "name": "Systems Design and Implementation Seminar",
+            "sourceId": "45f983439757",
+            "url": "https://pdl.cmu.edu/SDI/index.shtml"
+          },
+          {
+            "name": "Theory Lunch Seminar",
+            "sourceId": "a75d27bb1128",
+            "url": "https://www.cs.cmu.edu/~theorylunch/"
+          },
+          {
+            "name": "Theory Seminar",
+            "sourceId": "a75d27bb1128",
+            "matchPattern": "part of the Theory Seminar series",
+            "matchFields": [
+              "description"
+            ],
+            "scopeNote": "The shared Theory Lunch page explicitly labels these individual rows as part of the Theory Seminar series."
+          },
+          {
+            "name": "Visions and Autonomous Systems Seminar",
+            "sourceId": "b24d9c9bb1f5",
+            "matchTags": [
+              "VASC Seminar"
+            ],
+            "scopeNote": "Same official RI parent calendar as RI Seminar, but only publisher VASC Seminar category tags are assigned here.",
+            "url": "https://www.ri.cmu.edu/events/category/seminar/2025-04/"
+          },
+          {
+            "name": "SCS Distinguished Lectures",
+            "sourceId": "d31338711e1f"
+          }
+        ]
+      },
+      "strategy": "Discover every current public JSON series row, reuse exact catalog endpoints under explicit series scope, parse live linked schedules, and publish per-series coverage. Directory weekdays and clocks never generate recurrence."
+    },
+    {
+      "sourceId": "4c4f223b8c8b",
+      "url": "https://www.cmu.edu/real/news-and-events/index.html",
+      "replaceOptions": true,
+      "options": {
+        "format": "semantic-seminar",
+        "layout": "series-landing",
+        "timezone": "America/New_York",
+        "preferFeed": false,
+        "contentSelector": "#content > .content",
+        "linkedResourcesSelector": "#content a:contains(\"Website\")",
+        "childLayout": "speaker-sections"
+      },
+      "strategy": "Parse semantic series descriptions and currently advertised public calendars/linked speaker sections on every run. Treat an explicit next-talk TBD as undated, not a failed whole-page fingerprint; keep unavailable public feeds visible as external failures."
+    }
+  ]
+}

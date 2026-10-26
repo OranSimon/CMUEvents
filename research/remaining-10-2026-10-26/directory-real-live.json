@@ -1,0 +1,1569 @@
+{
+  "checkedAt": "2026-10-26T04:28:13.492Z",
+  "windowStart": "2026-09-26T04:28:13.492Z",
+  "windowEnd": "2027-10-26T04:28:13.492Z",
+  "method": "Fresh anonymous HTTP via production safe fetcher; memory-only response cache; no SQLite opened.",
+  "sources": [
+    {
+      "id": "1185bc345a9a",
+      "eventCount": 107,
+      "partial": false,
+      "undated": false,
+      "warnings": [
+        "Seminar directory inspected 26/26 current series; 19 reused catalog sources; 5 entries publish no dated endpoint."
+      ],
+      "coverage": {
+        "version": 1,
+        "kind": "dynamic-seminar-directory",
+        "inspectionComplete": true,
+        "internalIssues": [],
+        "externalIssues": [],
+        "nonBlockingIssues": [
+          {
+            "code": "NO_PUBLISHED_DATED_ENDPOINT",
+            "series": "Accessibility Lunch Seminar",
+            "reason": "The publisher supplies no website; directory weekday/clock is not an occurrence. No matching dated announcement was found in the public SCS calendar window."
+          },
+          {
+            "code": "NO_PUBLISHED_DATED_ENDPOINT",
+            "series": "Colloquium on Computer Science Pedagogy",
+            "reason": "The publisher supplies no website; directory weekday/clock is not an occurrence. No matching dated announcement was found in the public SCS calendar window."
+          },
+          {
+            "series": "Joint CMU-Pitt Ph.D. in Computational Biology Seminar",
+            "url": "https://www.compbio.cmu.edu/seminar-series/index.html",
+            "code": "UNNAMED_PENDING_SCHEDULE_SLOTS",
+            "count": 1,
+            "reason": "Dated rows without a named speaker or topic are pending slots, not fabricated events."
+          },
+          {
+            "series": "Language Technologies Institute Colloquium",
+            "sourceId": "528193392a78",
+            "reason": "Speaker text is uncertain for 2026-11-20; publisher series title retained (https://www.lti.cs.cmu.edu/misc-pages/colloquium-series-fall-2026.png)"
+          },
+          {
+            "code": "NO_PUBLISHED_DATED_ENDPOINT",
+            "series": "SCS Professional Seminar",
+            "reason": "The publisher supplies no website; directory weekday/clock is not an occurrence. No matching dated announcement was found in the public SCS calendar window."
+          }
+        ],
+        "counters": {
+          "advertised": 26,
+          "processed": 26,
+          "catalogReused": 19,
+          "undated": 5,
+          "currentEvents": 107
+        },
+        "series": [
+          {
+            "name": "Accessibility Lunch Seminar",
+            "aka": "Accessibility Lunch",
+            "url": null,
+            "processed": true,
+            "undated": true,
+            "reusedSourceIds": [],
+            "reusedCanonicalSourceIds": [],
+            "methods": [
+              "directory_metadata_and_public_calendar"
+            ],
+            "currentEvents": 0
+          },
+          {
+            "name": "AI Institute for Societal Decision Making Seminar",
+            "aka": "AI-SDM Seminar",
+            "url": "https://www.cmu.edu/ai-sdm/events/index.html",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "5a47a3eb65bf"
+            ],
+            "reusedCanonicalSourceIds": [
+              "5a47a3eb65bf"
+            ],
+            "methods": [
+              "catalog_source_reuse",
+              "explicit_public_calendar_announcements"
+            ],
+            "currentEvents": 5
+          },
+          {
+            "name": "Algorithms, Combinatorics and Optimization Seminar",
+            "aka": "ACO Seminar",
+            "url": "https://aco.math.cmu.edu/seminar.html",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "a35bf71459aa"
+            ],
+            "reusedCanonicalSourceIds": [
+              "a35bf71459aa"
+            ],
+            "methods": [
+              "catalog_source_reuse",
+              "live_structural_profile"
+            ],
+            "currentEvents": 8
+          },
+          {
+            "name": "Center for Informed Democracy & Social - cybersecurity Seminar",
+            "aka": "IDeaS Seminar",
+            "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/seminars.html",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [],
+            "reusedCanonicalSourceIds": [],
+            "methods": [
+              "live_structural_profile"
+            ],
+            "currentEvents": 0
+          },
+          {
+            "name": "CMU Foundation and Language Model Seminar",
+            "aka": "FLAME Seminar",
+            "url": "https://www.cmu.edu/flame/events/index.html",
+            "processed": true,
+            "undated": true,
+            "reusedSourceIds": [
+              "7a5d5c3584ce"
+            ],
+            "reusedCanonicalSourceIds": [
+              "7a5d5c3584ce"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 0,
+            "scopeNote": "Only explicitly named FLAME seminar/meeting records from the advertised center calendar; public symposia are not silently assigned to this members-only weekly series."
+          },
+          {
+            "name": "Colloquium on Computer Science Pedagogy",
+            "aka": "Pedagogy Seminar",
+            "url": null,
+            "processed": true,
+            "undated": true,
+            "reusedSourceIds": [],
+            "reusedCanonicalSourceIds": [],
+            "methods": [
+              "directory_metadata_and_public_calendar"
+            ],
+            "currentEvents": 0
+          },
+          {
+            "name": "Crypto Seminar",
+            "aka": "Crypto Seminar",
+            "url": "https://sites.google.com/view/crypto-seminar/home",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [],
+            "reusedCanonicalSourceIds": [],
+            "methods": [
+              "live_structural_profile"
+            ],
+            "currentEvents": 3
+          },
+          {
+            "name": "Cylab Seminar",
+            "aka": "CyLab Seminar",
+            "url": null,
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "9903c32bf0ab"
+            ],
+            "reusedCanonicalSourceIds": [
+              "9903c32bf0ab"
+            ],
+            "methods": [
+              "catalog_source_reuse",
+              "explicit_public_calendar_announcements"
+            ],
+            "currentEvents": 5
+          },
+          {
+            "name": "Current Topics in Privacy Seminar",
+            "aka": "Privacy Seminar",
+            "url": "https://privacy.cs.cmu.edu/masters/seminar/index.html",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "fbdc39977a83"
+            ],
+            "reusedCanonicalSourceIds": [
+              "fbdc39977a83"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 7,
+            "scopeNote": "The directory legacy privacy.cs URL serves the same official Privacy Engineering series linked by the current privacy.s3d catalog source."
+          },
+          {
+            "name": "Database Seminar",
+            "aka": "DB Seminar",
+            "url": "https://db.cs.cmu.edu/seminar2025/",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "804b8b6951fe"
+            ],
+            "reusedCanonicalSourceIds": [
+              "804b8b6951fe"
+            ],
+            "methods": [
+              "catalog_source_reuse",
+              "explicit_public_calendar_announcements"
+            ],
+            "currentEvents": 10,
+            "scopeNote": "Use the official current /seminars/ index reached from the legacy /seminar2025/ page, rather than pinning April 2025."
+          },
+          {
+            "name": "Economics-CS Seminar",
+            "aka": "Econ-CS Seminar",
+            "url": "https://cmueconcs.github.io/",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [],
+            "reusedCanonicalSourceIds": [],
+            "methods": [
+              "live_structural_profile"
+            ],
+            "currentEvents": 1
+          },
+          {
+            "name": "Human-Computer Interaction Seminar",
+            "aka": "HCII Seminar",
+            "url": "https://www.hcii.cmu.edu/seminar-series",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "83459e4d2608"
+            ],
+            "reusedCanonicalSourceIds": [
+              "83459e4d2608"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 4
+          },
+          {
+            "name": "Joint CMU-Pitt Ph.D. in Computational Biology Seminar",
+            "aka": "CPCB Seminar",
+            "url": "https://www.compbio.cmu.edu/seminar-series/index.html",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "1afa627d953d"
+            ],
+            "reusedCanonicalSourceIds": [
+              "1afa627d953d"
+            ],
+            "methods": [
+              "catalog_source_reuse",
+              "live_structural_profile"
+            ],
+            "currentEvents": 14,
+            "scopeNote": "Supplement the existing explicitly dated table with named-speaker rows whose topic is blank; omit NO SEMINAR and unnamed pending slots."
+          },
+          {
+            "name": "Language Technologies Institute Colloquium",
+            "aka": "LTI Colloquium",
+            "url": "https://www.lti.cmu.edu/misc-pages/lti-colloquium.html",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "528193392a78"
+            ],
+            "reusedCanonicalSourceIds": [
+              "528193392a78"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 9
+          },
+          {
+            "name": "Machine Learning - Artificial Intelligence Seminar",
+            "aka": "AI-ML Seminar",
+            "url": "https://www.cs.cmu.edu/~mlaiseminar/",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "276c414f1ee0"
+            ],
+            "reusedCanonicalSourceIds": [
+              "276c414f1ee0"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 6
+          },
+          {
+            "name": "Parallel Data Laboratory Talk Series",
+            "aka": "PDL Talks",
+            "url": "https://pdl.cmu.edu/talk-series/index.shtml",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [],
+            "reusedCanonicalSourceIds": [],
+            "methods": [
+              "live_structural_profile"
+            ],
+            "currentEvents": 0
+          },
+          {
+            "name": "Principles of Programming Seminar",
+            "aka": "POP Seminar",
+            "url": "https://www.cs.cmu.edu/~pop/seminar/",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "a8e37996c63d"
+            ],
+            "reusedCanonicalSourceIds": [
+              "a8e37996c63d"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 0
+          },
+          {
+            "name": "Robotics Institute Seminar",
+            "aka": "RI Seminar",
+            "url": "https://www.ri.cmu.edu/events/category/seminar/2025-04/",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "b24d9c9bb1f5"
+            ],
+            "reusedCanonicalSourceIds": [
+              "b24d9c9bb1f5"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 7,
+            "scopeNote": "The advertised month URL is stale; reuse its official current Seminar API category, selecting only the publisher RI Seminar category tag."
+          },
+          {
+            "name": "Software and Societal Systems Department Seminar Series",
+            "aka": "S3D Seminar",
+            "url": "https://s3d.cmu.edu/events/distinguished.html",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "d286f9c7c4b4"
+            ],
+            "reusedCanonicalSourceIds": [
+              "6e6c74575443"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 4,
+            "scopeNote": "The linked S3D public feed is department-wide. Only events explicitly naming this distinguished/seminar series are assigned here."
+          },
+          {
+            "name": "Software Research Seminar",
+            "aka": "SSSG Seminar",
+            "url": "https://s3d.cmu.edu/events/sssg.html",
+            "processed": true,
+            "undated": true,
+            "reusedSourceIds": [
+              "13fff1668ca0"
+            ],
+            "reusedCanonicalSourceIds": [
+              "6e6c74575443"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 0,
+            "scopeNote": "The linked public calendar is department-wide; only explicit SSSG/Software Research Seminar labels ground this series. Its syllabus weekday rule does not create occurrences."
+          },
+          {
+            "name": "Systems Design and Implementation Seminar",
+            "aka": "SDI Seminar",
+            "url": "https://pdl.cmu.edu/SDI/index.shtml",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "45f983439757"
+            ],
+            "reusedCanonicalSourceIds": [
+              "45f983439757"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 0
+          },
+          {
+            "name": "Theory Lunch Seminar",
+            "aka": "",
+            "url": "https://www.cs.cmu.edu/~theorylunch/",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "a75d27bb1128"
+            ],
+            "reusedCanonicalSourceIds": [
+              "a75d27bb1128"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 14
+          },
+          {
+            "name": "Theory Seminar",
+            "aka": "",
+            "url": null,
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "a75d27bb1128"
+            ],
+            "reusedCanonicalSourceIds": [
+              "a75d27bb1128"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 8,
+            "scopeNote": "The shared Theory Lunch page explicitly labels these individual rows as part of the Theory Seminar series."
+          },
+          {
+            "name": "Visions and Autonomous Systems Seminar",
+            "aka": "VASC Seminar",
+            "url": "https://www.ri.cmu.edu/events/category/seminar/2025-04/",
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "b24d9c9bb1f5"
+            ],
+            "reusedCanonicalSourceIds": [
+              "b24d9c9bb1f5"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 5,
+            "scopeNote": "Same official RI parent calendar as RI Seminar, but only publisher VASC Seminar category tags are assigned here."
+          },
+          {
+            "name": "SCS Distinguished Lectures",
+            "aka": "SCS DLS",
+            "url": null,
+            "processed": true,
+            "undated": false,
+            "reusedSourceIds": [
+              "d31338711e1f"
+            ],
+            "reusedCanonicalSourceIds": [
+              "d31338711e1f"
+            ],
+            "methods": [
+              "catalog_source_reuse"
+            ],
+            "currentEvents": 5
+          },
+          {
+            "name": "SCS Professional Seminar",
+            "aka": "Pro Seminar",
+            "url": null,
+            "processed": true,
+            "undated": true,
+            "reusedSourceIds": [],
+            "reusedCanonicalSourceIds": [],
+            "methods": [
+              "directory_metadata_and_public_calendar"
+            ],
+            "currentEvents": 0
+          }
+        ]
+      },
+      "eventSummaries": [
+        {
+          "uid": "livewhale:33692:2026-10-29T12:00:00-04:00",
+          "title": "AI-SDM Seminar Series: Tom Costello",
+          "start": "2026-10-29T16:00:00.000Z",
+          "tags": [
+            "Seminars",
+            "AI Institute for Societal Decision Making Seminar"
+          ],
+          "url": "https://events.cmu.edu/ai-sdm/event/33692-ai-sdm-seminar-series-tom-costello"
+        },
+        {
+          "uid": "livewhale:33694:2026-11-19T12:00:00-05:00",
+          "title": "AI-SDM Seminar Series: Jeannette Sutton",
+          "start": "2026-11-19T17:00:00.000Z",
+          "tags": [
+            "Seminars",
+            "AI Institute for Societal Decision Making Seminar"
+          ],
+          "url": "https://events.cmu.edu/ai-sdm/event/33694-ai-sdm-seminar-series-jeannette-sutton"
+        },
+        {
+          "uid": "livewhale:33693:2026-12-03T09:00:00-05:00",
+          "title": "AI-SDM Seminar Series: Aadirupa Saha",
+          "start": "2026-12-03T14:00:00.000Z",
+          "tags": [
+            "Seminars",
+            "AI Institute for Societal Decision Making Seminar"
+          ],
+          "url": "https://events.cmu.edu/ai-sdm/event/33693-ai-sdm-seminar-series-aadirupa-saha"
+        },
+        {
+          "uid": "https://www.cs.cmu.edu/calendar/206920986",
+          "title": "AI Institute for Societal Decision Making Seminar - Tom Costello",
+          "start": "2026-10-29T16:00:00.000Z",
+          "tags": [
+            "AI Institute for Societal Decision Making Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D206920986"
+        },
+        {
+          "uid": "https://www.cs.cmu.edu/calendar/206921015",
+          "title": "AI Institute for Societal Decision Making Seminar - Jeannette Sutton",
+          "start": "2026-11-19T17:00:00.000Z",
+          "tags": [
+            "AI Institute for Societal Decision Making Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D206921015"
+        },
+        {
+          "uid": "livewhale:34913:2026-10-29T15:00:00-04:00",
+          "title": "ACO Seminar: Zeyu Zheng (Carnegie Mellon University)",
+          "start": "2026-10-29T19:00:00.000Z",
+          "tags": [
+            "ACO - Algorithms Combinatorics and Optimization",
+            "Algorithms, Combinatorics and Optimization Seminar"
+          ],
+          "url": "https://events.cmu.edu/math/event/34913-aco-seminar-zeyu-zheng-carnegie-mellon-university"
+        },
+        {
+          "uid": "livewhale:33640:2026-11-05T15:00:00-05:00",
+          "title": "ACO Seminar: Huy Pham (Caltech)",
+          "start": "2026-11-05T20:00:00.000Z",
+          "tags": [
+            "ACO - Algorithms Combinatorics and Optimization",
+            "Algorithms, Combinatorics and Optimization Seminar"
+          ],
+          "url": "https://events.cmu.edu/math/event/33640-aco-seminar-huy-pham-caltech"
+        },
+        {
+          "uid": "livewhale:33641:2026-11-12T15:00:00-05:00",
+          "title": "ACO Seminar: Veit Elser (Cornell University)",
+          "start": "2026-11-12T20:00:00.000Z",
+          "tags": [
+            "ACO - Algorithms Combinatorics and Optimization",
+            "Algorithms, Combinatorics and Optimization Seminar"
+          ],
+          "url": "https://events.cmu.edu/math/event/33641-aco-seminar-veit-elser-cornell-university"
+        },
+        {
+          "uid": "livewhale:34915:2026-11-19T15:00:00-05:00",
+          "title": "ACO Seminar: Jonathan Leake (University of Waterloo)",
+          "start": "2026-11-19T20:00:00.000Z",
+          "tags": [
+            "ACO - Algorithms Combinatorics and Optimization",
+            "Algorithms, Combinatorics and Optimization Seminar"
+          ],
+          "url": "https://events.cmu.edu/math/event/34915-aco-seminar-jonathan-leake-university-of-waterloo"
+        },
+        {
+          "uid": "livewhale:34914:2026-12-03T15:00:00-05:00",
+          "title": "ACO Seminar: Aleyah Dawkins (Carnegie Mellon University)",
+          "start": "2026-12-03T20:00:00.000Z",
+          "tags": [
+            "ACO - Algorithms Combinatorics and Optimization",
+            "Algorithms, Combinatorics and Optimization Seminar"
+          ],
+          "url": "https://events.cmu.edu/math/event/34914-aco-seminar-aleyah-dawkins-carnegie-mellon-university"
+        },
+        {
+          "uid": "c1b17cdd72831a36a3663ebc",
+          "title": "Tight colorful no-dimensional Tverberg theorem",
+          "start": "2026-10-01T19:00:00.000Z",
+          "tags": [
+            "Algorithms, Combinatorics and Optimization Seminar"
+          ],
+          "url": "https://aco.math.cmu.edu/abs-26-27/oct1.html"
+        },
+        {
+          "uid": "48767971584e8d9cf5abcdde",
+          "title": "The ACO Seminar (2026–2027) — Cancelled",
+          "start": "2026-10-08T19:00:00.000Z",
+          "tags": [
+            "Algorithms, Combinatorics and Optimization Seminar"
+          ],
+          "url": "https://aco.math.cmu.edu/seminar.html"
+        },
+        {
+          "uid": "d2c2cb810850f034db4dcbfb",
+          "title": "Canonical labelling of random regular graphs",
+          "start": "2026-10-22T19:00:00.000Z",
+          "tags": [
+            "Algorithms, Combinatorics and Optimization Seminar"
+          ],
+          "url": "https://aco.math.cmu.edu/abs-26-27/oct22.html"
+        },
+        {
+          "uid": "729f79949ee136b1f80bdfb1",
+          "title": "CMU LayerZero CRYPTO SEMINAR — Qi Pang",
+          "start": "2026-10-28T17:30:00.000Z",
+          "tags": [
+            "Crypto Seminar"
+          ],
+          "url": "https://sites.google.com/view/crypto-seminar/home"
+        },
+        {
+          "uid": "9e22b691c86c744a1909a38d",
+          "title": "A Low-Communication Garbled RAM from Homomorphic Secret Sharing",
+          "start": "2026-11-05T21:30:00.000Z",
+          "tags": [
+            "Crypto Seminar"
+          ],
+          "url": "https://sites.google.com/view/crypto-seminar/home"
+        },
+        {
+          "uid": "be12e24d00076fdd7b53422c",
+          "title": "CMU LayerZero CRYPTO SEMINAR — Alper Çakan",
+          "start": "2026-11-19T21:30:00.000Z",
+          "tags": [
+            "Crypto Seminar"
+          ],
+          "url": "https://sites.google.com/view/crypto-seminar/home"
+        },
+        {
+          "uid": "livewhale:35372:2026-10-26T12:00:00-04:00",
+          "title": "CyLab Seminar: Rolfe Schmidt",
+          "start": "2026-10-26T16:00:00.000Z",
+          "tags": [
+            "Exclude from Main Calendar",
+            "Cylab Seminar"
+          ],
+          "url": "https://events.cmu.edu/cylab/event/35372-cylab-seminar-rolfe-schmidt"
+        },
+        {
+          "uid": "livewhale:35373:2026-11-02T12:00:00-05:00",
+          "title": "CyLab Seminar: Praneeth Vepakomma",
+          "start": "2026-11-02T17:00:00.000Z",
+          "tags": [
+            "Exclude from Main Calendar",
+            "Cylab Seminar"
+          ],
+          "url": "https://events.cmu.edu/cylab/event/35373-cylab-seminar-praneeth-vepakomma"
+        },
+        {
+          "uid": "livewhale:35374:2026-11-09T12:00:00-05:00",
+          "title": "CyLab Seminar: Franziska Roesner",
+          "start": "2026-11-09T17:00:00.000Z",
+          "tags": [
+            "Exclude from Main Calendar",
+            "Cylab Seminar"
+          ],
+          "url": "https://events.cmu.edu/cylab/event/35374-cylab-seminar-franziska-roesner"
+        },
+        {
+          "uid": "livewhale:35375:2026-11-16T12:00:00-05:00",
+          "title": "CyLab Seminar: Adam Smith",
+          "start": "2026-11-16T17:00:00.000Z",
+          "tags": [
+            "Exclude from Main Calendar",
+            "Cylab Seminar"
+          ],
+          "url": "https://events.cmu.edu/cylab/event/35375-cylab-seminar-adam-smith"
+        },
+        {
+          "uid": "livewhale:35376:2026-11-30T12:00:00-05:00",
+          "title": "CyLab Seminar: Andrew Ilyas",
+          "start": "2026-11-30T17:00:00.000Z",
+          "tags": [
+            "Exclude from Main Calendar",
+            "Cylab Seminar"
+          ],
+          "url": "https://events.cmu.edu/cylab/event/35376-cylab-seminar-andrew-ilyas"
+        },
+        {
+          "uid": "e67d238ea0f03c94fe266575",
+          "title": "Smirity kaushik",
+          "start": "2026-09-29",
+          "tags": [
+            "Current Topics in Privacy Seminar"
+          ],
+          "url": "https://events.cmu.edu/event/35156-current-topics-in-privacy-seminar-smirity-kaushik"
+        },
+        {
+          "uid": "040bad059ac0ecbd90fde953",
+          "title": "Sarah Radway",
+          "start": "2026-10-06",
+          "tags": [
+            "Current Topics in Privacy Seminar"
+          ],
+          "url": "https://privacy.s3d.cmu.edu/masters/seminar/abstracts/f26_radway.pdf"
+        },
+        {
+          "uid": "d0e2c1d5b35a84390c782c91",
+          "title": "Lea Kissner",
+          "start": "2026-10-20",
+          "tags": [
+            "Current Topics in Privacy Seminar"
+          ],
+          "url": "https://privacy.s3d.cmu.edu/masters/seminar/index.html"
+        },
+        {
+          "uid": "9cecb705fde327e27591ddf6",
+          "title": "Melissa Goldstein",
+          "start": "2026-10-27",
+          "tags": [
+            "Current Topics in Privacy Seminar"
+          ],
+          "url": "https://privacy.s3d.cmu.edu/masters/seminar/index.html"
+        },
+        {
+          "uid": "0cde0839cefb20d494164383",
+          "title": "Yaxing Yao",
+          "start": "2026-11-10",
+          "tags": [
+            "Current Topics in Privacy Seminar"
+          ],
+          "url": "https://privacy.s3d.cmu.edu/masters/seminar/index.html"
+        },
+        {
+          "uid": "07c530e53ce7906e8e4f1989",
+          "title": "Jonathan Kanter",
+          "start": "2026-11-17",
+          "tags": [
+            "Current Topics in Privacy Seminar"
+          ],
+          "url": "https://privacy.s3d.cmu.edu/masters/seminar/index.html"
+        },
+        {
+          "uid": "b389e9e27cf5326a5c7198f4",
+          "title": "Forthcoming",
+          "start": "2026-11-24",
+          "tags": [
+            "Current Topics in Privacy Seminar"
+          ],
+          "url": "https://privacy.s3d.cmu.edu/masters/seminar/index.html"
+        },
+        {
+          "uid": "5e36f129543049d6f8b6a8f9",
+          "title": "Everything Has Bugs. Here’s How Antithesis Catches Them.",
+          "start": "2026-09-28",
+          "tags": [
+            "Database Seminar"
+          ],
+          "url": "https://db.cs.cmu.edu/events/andy-at-sea-antithesis/"
+        },
+        {
+          "uid": "3802df7f98eb9a8c329ab42a",
+          "title": "Does Systems Engineering Matter Anymore?",
+          "start": "2026-10-05",
+          "tags": [
+            "Database Seminar"
+          ],
+          "url": "https://db.cs.cmu.edu/events/andy-at-sea-sentry-io/"
+        },
+        {
+          "uid": "b6b491d327962394346d114a",
+          "title": "Inside the Guts of FloeScan and other Interesting Design Magic",
+          "start": "2026-10-19",
+          "tags": [
+            "Database Seminar"
+          ],
+          "url": "https://db.cs.cmu.edu/events/andy-at-sea-floescan/"
+        },
+        {
+          "uid": "c1752d0bf044b46df466e210",
+          "title": "Lakebases, Lakehouses, and LTAP: Unifying Transactions and Analytics on Open Storage",
+          "start": "2026-10-26",
+          "tags": [
+            "Database Seminar"
+          ],
+          "url": "https://db.cs.cmu.edu/events/andy-at-sea-lakebase/"
+        },
+        {
+          "uid": "90a0e7cffc44436b64ce7881",
+          "title": "Unifying Postgres and ClickHouse Natively",
+          "start": "2026-11-02",
+          "tags": [
+            "Database Seminar"
+          ],
+          "url": "https://db.cs.cmu.edu/events/andy-at-sea-clickhouse-postgres/"
+        },
+        {
+          "uid": "72d4843891ab88313ccc2156",
+          "title": "Database for Visual Data and Robot Sensors: Beyond Vector Search, RAG and Timeseries",
+          "start": "2026-11-09",
+          "tags": [
+            "Database Seminar"
+          ],
+          "url": "https://db.cs.cmu.edu/events/andy-at-sea-daft/"
+        },
+        {
+          "uid": "2fd4a99a192811e7f1ebcb91",
+          "title": "Turso: An SQLite-compatible, Open-Contribution RDBMS",
+          "start": "2026-11-16",
+          "tags": [
+            "Database Seminar"
+          ],
+          "url": "https://db.cs.cmu.edu/events/andy-at-sea-turso/"
+        },
+        {
+          "uid": "9219b087427a279f8d88f823",
+          "title": "DB9: A Database for Agents, Built by Agents",
+          "start": "2026-11-23",
+          "tags": [
+            "Database Seminar"
+          ],
+          "url": "https://db.cs.cmu.edu/events/andy-at-sea-db9/"
+        },
+        {
+          "uid": "fe60e434628e7be0c0ccec0e",
+          "title": "Building Distributed Database Engine",
+          "start": "2026-11-30",
+          "tags": [
+            "Database Seminar"
+          ],
+          "url": "https://db.cs.cmu.edu/events/andy-at-sea-teradata/"
+        },
+        {
+          "uid": "https://www.cs.cmu.edu/calendar/211872614",
+          "title": "Database Seminar - Ippokratis Pandis",
+          "start": "2026-10-26T20:30:00.000Z",
+          "tags": [
+            "Database Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211872614"
+        },
+        {
+          "uid": "e8678ec9517b3a2869298d48",
+          "title": "CMU Econ-CS Seminar Series — Brian Zhang",
+          "start": "2026-09-29T18:00:00.000Z",
+          "tags": [
+            "Economics-CS Seminar"
+          ],
+          "url": "https://cmueconcs.github.io/"
+        },
+        {
+          "uid": "7d7af72feb3f8428742da463",
+          "title": "HCII Seminar Series - Sai Shruti Chivukula",
+          "start": "2026-10-30T18:00:00.000Z",
+          "tags": [
+            "Human-Computer Interaction Seminar"
+          ],
+          "url": "https://hcii.cmu.edu/index%2ephp/news/event/2026/10/hcii-seminar-series-sai-shruti-chivukula"
+        },
+        {
+          "uid": "47f29a1faefe643983d17a3d",
+          "title": "HCII Seminar Series - Xiang Anthony Chen",
+          "start": "2026-11-06T19:00:00.000Z",
+          "tags": [
+            "Human-Computer Interaction Seminar"
+          ],
+          "url": "https://hcii.cmu.edu/index%2ephp/news/event/2026/11/hcii-seminar-series-xiang-anthony-chen"
+        },
+        {
+          "uid": "acef4f0cfe2a6984f05a4909",
+          "title": "HCII Seminar Series - Brian Smith",
+          "start": "2026-11-13T19:00:00.000Z",
+          "tags": [
+            "Human-Computer Interaction Seminar"
+          ],
+          "url": "https://hcii.cmu.edu/index%2ephp/news/event/2026/11/hcii-seminar-series-brian-smith"
+        },
+        {
+          "uid": "710645489c1338d628f55e09",
+          "title": "HCII Seminar Series - Hee Rin Lee",
+          "start": "2026-11-20T19:00:00.000Z",
+          "tags": [
+            "Human-Computer Interaction Seminar"
+          ],
+          "url": "https://hcii.cmu.edu/index%2ephp/news/event/2026/11/hcii-seminar-series-hee-rin-lee"
+        },
+        {
+          "uid": "4fce1b115dec1cbc25d85b5b",
+          "title": "\"AI-powered cryogenic electron tomography enables sub-molecular resolution cell structures without averaging\"",
+          "start": "2026-10-30",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/"
+        },
+        {
+          "uid": "3532c999e141420dd1437419",
+          "title": "Learning Cellular Organization and Function Across Scales",
+          "start": "2027-01-15",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/"
+        },
+        {
+          "uid": "573afaec95675995d32f6cf1",
+          "title": "CPCB Seminar Series — Margot Williams",
+          "start": "2026-10-02T15:30:00.000Z",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+        },
+        {
+          "uid": "125234989a6756f72b2728aa",
+          "title": "CPCB Seminar Series — Mo Khalil",
+          "start": "2026-10-23T15:30:00.000Z",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+        },
+        {
+          "uid": "e189f4500ee69c995ebf2e49",
+          "title": "CPCB Seminar Series — Arvind Murugan",
+          "start": "2026-11-06T16:30:00.000Z",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+        },
+        {
+          "uid": "acf18c20747fc67aadd57b00",
+          "title": "CPCB Seminar Series — Erin Molloy",
+          "start": "2026-11-20T16:30:00.000Z",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+        },
+        {
+          "uid": "0b901ce1a757e56141a71569",
+          "title": "CPCB Seminar Series — Soojin Yi",
+          "start": "2027-01-29T16:30:00.000Z",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+        },
+        {
+          "uid": "acb31cebf6af5a6087b10fd2",
+          "title": "CPCB Seminar Series — Smita Krishnaswamy",
+          "start": "2027-02-05T16:30:00.000Z",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+        },
+        {
+          "uid": "bf62968a1d6732d825260719",
+          "title": "CPCB Seminar Series — Sohrab Shah",
+          "start": "2027-02-12T16:30:00.000Z",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+        },
+        {
+          "uid": "b731ac7151c600eea969234e",
+          "title": "CPCB Seminar Series — Ken Dill",
+          "start": "2027-02-19T16:30:00.000Z",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+        },
+        {
+          "uid": "d0bc68aa77ae2be761c512b4",
+          "title": "CPCB Seminar Series — Hannah Wayment-Steele",
+          "start": "2027-03-19T15:30:00.000Z",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+        },
+        {
+          "uid": "16c66ac88056eaa59b736ed8",
+          "title": "CPCB Seminar Series — Wei Zhou",
+          "start": "2027-03-26T15:30:00.000Z",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+        },
+        {
+          "uid": "6e3c985cdc6ad7d6ab1cd7e4",
+          "title": "CPCB Seminar Series — Pulin Li",
+          "start": "2027-04-02T15:30:00.000Z",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+        },
+        {
+          "uid": "729f35d052308dc5b18825b8",
+          "title": "CPCB Seminar Series — Nandita Garud",
+          "start": "2027-04-09T15:30:00.000Z",
+          "tags": [
+            "Joint CMU-Pitt Ph.D. in Computational Biology Seminar"
+          ],
+          "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+        },
+        {
+          "uid": "ac55791ad91764016c21cce9",
+          "title": "LTI Colloquium — Chenggang Xu",
+          "start": "2026-10-02T19:30:00.000Z",
+          "tags": [
+            "Language Technologies Institute Colloquium"
+          ],
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "uid": "855dbddd15341de4577deb77",
+          "title": "LTI Social",
+          "start": "2026-10-09T19:00:00.000Z",
+          "tags": [
+            "Language Technologies Institute Colloquium"
+          ],
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "uid": "64680c80311bc6c58bb9320e",
+          "title": "LTI Social",
+          "start": "2026-10-16T19:00:00.000Z",
+          "tags": [
+            "Language Technologies Institute Colloquium"
+          ],
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "uid": "fa7dd467ca12802e8c5c1240",
+          "title": "LTI Colloquium — Sewon Min",
+          "start": "2026-10-23T19:30:00.000Z",
+          "tags": [
+            "Language Technologies Institute Colloquium"
+          ],
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "uid": "1063438c075a8b12776bd330",
+          "title": "LTI Colloquium — Chris Potts",
+          "start": "2026-10-30T19:30:00.000Z",
+          "tags": [
+            "Language Technologies Institute Colloquium"
+          ],
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "uid": "8ade63473d54c056b7dc0b55",
+          "title": "LTI Social",
+          "start": "2026-11-06T20:00:00.000Z",
+          "tags": [
+            "Language Technologies Institute Colloquium"
+          ],
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "uid": "a222da3409e9873899b04664",
+          "title": "LTI Colloquium — Jocelyn Shen",
+          "start": "2026-11-13T20:30:00.000Z",
+          "tags": [
+            "Language Technologies Institute Colloquium"
+          ],
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "uid": "ed37296d20344308a44bff1c",
+          "title": "LTI Colloquium",
+          "start": "2026-11-20T20:30:00.000Z",
+          "tags": [
+            "Language Technologies Institute Colloquium"
+          ],
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "uid": "fcaf0e482627b3c18928ca47",
+          "title": "LTI Social",
+          "start": "2026-12-04T20:00:00.000Z",
+          "tags": [
+            "Language Technologies Institute Colloquium"
+          ],
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "uid": "bde742714ee95cafdacdc837",
+          "title": "Learning abstract representations of the world through control",
+          "start": "2026-10-02T14:00:00.000Z",
+          "tags": [
+            "Machine Learning - Artificial Intelligence Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~mlaiseminar/"
+        },
+        {
+          "uid": "ca637a4bc0bc55ba182a5388",
+          "title": "What is Missing with the Exploration that Language Models do?",
+          "start": "2026-10-23T14:00:00.000Z",
+          "tags": [
+            "Machine Learning - Artificial Intelligence Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~mlaiseminar/"
+        },
+        {
+          "uid": "b2e2e14c78751e5f10ace546",
+          "title": "Emanuel Tewolde",
+          "start": "2026-10-30T14:00:00.000Z",
+          "tags": [
+            "Machine Learning - Artificial Intelligence Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~mlaiseminar/"
+        },
+        {
+          "uid": "dd05591ac72b1baa92051905",
+          "title": "Veit Elser",
+          "start": "2026-11-13T15:00:00.000Z",
+          "tags": [
+            "Machine Learning - Artificial Intelligence Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~mlaiseminar/"
+        },
+        {
+          "uid": "4be249c20855d1b9aba12c6f",
+          "title": "Keegan Harris",
+          "start": "2026-11-20T15:00:00.000Z",
+          "tags": [
+            "Machine Learning - Artificial Intelligence Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~mlaiseminar/"
+        },
+        {
+          "uid": "e4060b7df8b6c39b749a3dbb",
+          "title": "Selina Carter",
+          "start": "2026-12-04T15:00:00.000Z",
+          "tags": [
+            "Machine Learning - Artificial Intelligence Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~mlaiseminar/"
+        },
+        {
+          "uid": "www.ri.cmu.edu?id=153339",
+          "title": "Shaping the Body of Robots with Soft Skin and Muscles",
+          "start": "2026-10-02T18:30:00.000Z",
+          "tags": [
+            "RI Seminar",
+            "Seminar",
+            "Robotics Institute Seminar"
+          ],
+          "url": "https://www.ri.cmu.edu/event/shaping-the-body-of-robots-with-soft-skin-and-muscles/"
+        },
+        {
+          "uid": "www.ri.cmu.edu?id=153343",
+          "title": "How Can Robots Learn to Interact and Coordinate with Others?",
+          "start": "2026-10-09T18:30:00.000Z",
+          "tags": [
+            "RI Seminar",
+            "Seminar",
+            "Robotics Institute Seminar"
+          ],
+          "url": "https://www.ri.cmu.edu/event/ri-seminar-with-negar-mehr/"
+        },
+        {
+          "uid": "www.ri.cmu.edu?id=153347",
+          "title": "Simulation-Driven Robot Learning for the Lazy Researcher",
+          "start": "2026-10-23T18:30:00.000Z",
+          "tags": [
+            "RI Seminar",
+            "Seminar",
+            "Robotics Institute Seminar"
+          ],
+          "url": "https://www.ri.cmu.edu/event/simulation-driven-robot-learning-for-the-lazy-researcher/"
+        },
+        {
+          "uid": "www.ri.cmu.edu?id=153351",
+          "title": "RI Seminar with Roberto Martín-Martín",
+          "start": "2026-10-30T18:30:00.000Z",
+          "tags": [
+            "RI Seminar",
+            "Seminar",
+            "Robotics Institute Seminar"
+          ],
+          "url": "https://www.ri.cmu.edu/event/ri-seminar-with-roberto-martin-martin/"
+        },
+        {
+          "uid": "www.ri.cmu.edu?id=153355",
+          "title": "RI Seminar with Ben Burchfiel",
+          "start": "2026-11-06T19:30:00.000Z",
+          "tags": [
+            "RI Seminar",
+            "Seminar",
+            "Robotics Institute Seminar"
+          ],
+          "url": "https://www.ri.cmu.edu/event/ri-seminar-with-ben-burchfiel/"
+        },
+        {
+          "uid": "www.ri.cmu.edu?id=153359",
+          "title": "RI Seminar with Farrell Helbling",
+          "start": "2026-11-20T19:30:00.000Z",
+          "tags": [
+            "RI Seminar",
+            "Seminar",
+            "Robotics Institute Seminar"
+          ],
+          "url": "https://www.ri.cmu.edu/event/ri-seminar-with-farrell-helbling/"
+        },
+        {
+          "uid": "www.ri.cmu.edu?id=153363",
+          "title": "RI Seminar with Jonathan Tsay",
+          "start": "2026-12-04T19:30:00.000Z",
+          "tags": [
+            "RI Seminar",
+            "Seminar",
+            "Robotics Institute Seminar"
+          ],
+          "url": "https://www.ri.cmu.edu/event/ri-seminar-with-jonathan-tsay/"
+        },
+        {
+          "uid": "4tkp3b6nsbrog4h75qbck3ast2@google.com",
+          "title": "S3D Seminar Series: Sauvik Das",
+          "start": "2026-12-02T17:00:00.000Z",
+          "tags": [
+            "Software and Societal Systems Department Seminar Series"
+          ],
+          "url": "https://calendar.google.com/calendar/ical/andrew.cmu.edu_n0lpkdiara2auhjiucnjlnehc8%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "uid": "01g889gd3d2h012bjmfa7t1rrs@google.com",
+          "title": "S3D Distinguished Speaker: Adam Tauman Kalai",
+          "start": "2027-04-28T16:00:00.000Z",
+          "tags": [
+            "Software and Societal Systems Department Seminar Series"
+          ],
+          "url": "https://calendar.google.com/calendar/ical/andrew.cmu.edu_n0lpkdiara2auhjiucnjlnehc8%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "uid": "2hhl3tg9v391hds8149uool8ka@google.com",
+          "title": "S3D Distinguished Speakers Series: Margaret-Anne Storey",
+          "start": "2026-10-28T16:00:00.000Z",
+          "tags": [
+            "Software and Societal Systems Department Seminar Series"
+          ],
+          "url": "https://calendar.google.com/calendar/ical/andrew.cmu.edu_n0lpkdiara2auhjiucnjlnehc8%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "uid": "5sio1oosofkj2s1gihr62dhvql@google.com",
+          "title": "S3D Seminar Series: Sarah Scheffler",
+          "start": "2027-02-24T17:00:00.000Z",
+          "tags": [
+            "Software and Societal Systems Department Seminar Series"
+          ],
+          "url": "https://calendar.google.com/calendar/ical/andrew.cmu.edu_n0lpkdiara2auhjiucnjlnehc8%40group.calendar.google.com/public/basic.ics"
+        },
+        {
+          "uid": "11b5975d33b81541d2254cf6",
+          "title": "Foundations of Mechanism Design for Decentralized Finance",
+          "start": "2026-10-21",
+          "tags": [
+            "Theory Lunch Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261021.html"
+        },
+        {
+          "uid": "8d694dd7171a3608e85ebb5f",
+          "title": "Bellman-Ford in Almost-Linear Time",
+          "start": "2026-09-30",
+          "tags": [
+            "Theory Lunch Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20260930.html"
+        },
+        {
+          "uid": "9e5665d693ba8718e5d50524",
+          "title": "The Joys of Stochastic Scheduling",
+          "start": "2026-10-02T17:00:00.000Z",
+          "tags": [
+            "Theory Lunch Seminar",
+            "Theory Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261002.html"
+        },
+        {
+          "uid": "becfdbdc5082f0bca2d69e2e",
+          "title": "Recent progress in alignment and testing of multiple correlated random graphs",
+          "start": "2026-10-07",
+          "tags": [
+            "Theory Lunch Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261007.html"
+        },
+        {
+          "uid": "78eacb1efe2f647eb40864b2",
+          "title": "Learning in Strategic Environments: Fair Classification and Grit",
+          "start": "2026-10-09T17:00:00.000Z",
+          "tags": [
+            "Theory Lunch Seminar",
+            "Theory Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261009.html"
+        },
+        {
+          "uid": "99de028bfaa2501d280370a9",
+          "title": "A Theory of Universal Learning",
+          "start": "2026-10-23T17:00:00.000Z",
+          "tags": [
+            "Theory Lunch Seminar",
+            "Theory Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261023.html"
+        },
+        {
+          "uid": "d651dc396ce2c6e682775c14",
+          "title": "Title TBD",
+          "start": "2026-10-28",
+          "tags": [
+            "Theory Lunch Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261028.html"
+        },
+        {
+          "uid": "30fafe63ee19cbef43f98915",
+          "title": "Title TBD",
+          "start": "2026-10-30T17:00:00.000Z",
+          "tags": [
+            "Theory Lunch Seminar",
+            "Theory Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261030.html"
+        },
+        {
+          "uid": "133897c0914a743a0c46630c",
+          "title": "Title TBD",
+          "start": "2026-11-04",
+          "tags": [
+            "Theory Lunch Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261104.html"
+        },
+        {
+          "uid": "059d6ef6156e1fa42afd3736",
+          "title": "Title TBD",
+          "start": "2026-11-06T18:00:00.000Z",
+          "tags": [
+            "Theory Lunch Seminar",
+            "Theory Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261106.html"
+        },
+        {
+          "uid": "f147c3df371445a5ca3c3c3f",
+          "title": "Title TBD",
+          "start": "2026-11-13T18:00:00.000Z",
+          "tags": [
+            "Theory Lunch Seminar",
+            "Theory Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261113.html"
+        },
+        {
+          "uid": "240e4e40b7a165e7b0e0753b",
+          "title": "Title TBD",
+          "start": "2026-11-18",
+          "tags": [
+            "Theory Lunch Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261118.html"
+        },
+        {
+          "uid": "ed165ae5ed724c8ca8931d0e",
+          "title": "Title TBD",
+          "start": "2026-11-20T18:00:00.000Z",
+          "tags": [
+            "Theory Lunch Seminar",
+            "Theory Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261120.html"
+        },
+        {
+          "uid": "3248afcea5b77a5851bda7df",
+          "title": "Title TBD",
+          "start": "2026-12-04T18:00:00.000Z",
+          "tags": [
+            "Theory Lunch Seminar",
+            "Theory Seminar"
+          ],
+          "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261204.html"
+        },
+        {
+          "uid": "www.ri.cmu.edu?id=153556",
+          "title": "From Capturing People to Teaching Robots",
+          "start": "2026-09-28T19:30:00.000Z",
+          "tags": [
+            "Seminar",
+            "VASC Seminar",
+            "Visions and Autonomous Systems Seminar"
+          ],
+          "url": "https://www.ri.cmu.edu/event/from-capturing-people-to-teaching-robots/"
+        },
+        {
+          "uid": "www.ri.cmu.edu?id=153744",
+          "title": "Video Intelligence for Understanding Behavior and Guiding Action",
+          "start": "2026-10-05T19:30:00.000Z",
+          "tags": [
+            "Seminar",
+            "VASC Seminar",
+            "Visions and Autonomous Systems Seminar"
+          ],
+          "url": "https://www.ri.cmu.edu/event/video-intelligence-for-understanding-behavior-and-guiding-action/"
+        },
+        {
+          "uid": "www.ri.cmu.edu?id=153944",
+          "title": "“Lawless Progress on Wicked Problems”: Shifting the Roles of Humans in Human-AI Systems",
+          "start": "2026-10-19T19:30:00.000Z",
+          "tags": [
+            "Seminar",
+            "VASC Seminar",
+            "Visions and Autonomous Systems Seminar"
+          ],
+          "url": "https://www.ri.cmu.edu/event/lawless-progress-on-wicked-problems-shifting-the-roles-of-humans-in-human-ai-systems/"
+        },
+        {
+          "uid": "www.ri.cmu.edu?id=153989",
+          "title": "Controllable, Efficient and Personalized Generative AI: From Long-Horizon Video to Interactive World Models",
+          "start": "2026-10-26T19:30:00.000Z",
+          "tags": [
+            "Seminar",
+            "VASC Seminar",
+            "Visions and Autonomous Systems Seminar"
+          ],
+          "url": "https://www.ri.cmu.edu/event/controllable-efficient-and-personalized-generative-ai-from-long-horizon-video-to-interactive-world-models/"
+        },
+        {
+          "uid": "www.ri.cmu.edu?id=153994",
+          "title": "Structured Learning for Fast Physical Prediction",
+          "start": "2026-11-05T20:30:00.000Z",
+          "tags": [
+            "Seminar",
+            "VASC Seminar",
+            "Visions and Autonomous Systems Seminar"
+          ],
+          "url": "https://www.ri.cmu.edu/event/structured-learning-for-fast-physical-prediction/"
+        },
+        {
+          "uid": "https://www.cs.cmu.edu/calendar/206882491",
+          "title": "SCS Distinguished Industry Lecture - Mark Russinovich",
+          "start": "2026-10-26T21:00:00.000Z",
+          "tags": [
+            "SCS Distinguished Lectures"
+          ],
+          "url": "https://www.cs.cmu.edu/calendar/206882491"
+        },
+        {
+          "uid": "https://www.cs.cmu.edu/calendar/210323038",
+          "title": "SCS Distinguished Industry Lecture - John Wilkes",
+          "start": "2026-11-12T20:30:00.000Z",
+          "tags": [
+            "Distinguished Lecture Series",
+            "SCS Distinguished Lectures"
+          ],
+          "url": "https://www.cs.cmu.edu/calendar/210323038"
+        },
+        {
+          "uid": "https://www.cs.cmu.edu/calendar/207066184",
+          "title": "President's Lecture Series",
+          "start": "2026-11-16T22:00:00.000Z",
+          "tags": [
+            "Distinguished Lecture Series",
+            "SCS Distinguished Lectures"
+          ],
+          "url": "https://www.cs.cmu.edu/calendar/207066184"
+        },
+        {
+          "uid": "https://www.cs.cmu.edu/calendar/211682283",
+          "title": "2026 Raj Reddy Artificial Intelligence Lecture - Oren Etzioni",
+          "start": "2026-11-18T22:15:00.000Z",
+          "tags": [
+            "SCS Distinguished Lectures"
+          ],
+          "url": "https://www.cs.cmu.edu/calendar/211682283"
+        },
+        {
+          "uid": "https://www.cs.cmu.edu/calendar/210669624",
+          "title": "CMU Dickson Prize in Science Lecture - Meg Urry",
+          "start": "2027-03-18T21:00:00.000Z",
+          "tags": [
+            "Distinguished Lecture Series",
+            "SCS Distinguished Lectures"
+          ],
+          "url": "https://www.cs.cmu.edu/calendar/210669624"
+        }
+      ]
+    },
+    {
+      "id": "4c4f223b8c8b",
+      "eventCount": 0,
+      "partial": true,
+      "undated": false,
+      "warnings": [
+        "Advertised public seminar resource failed (https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics): HTTP 404 from calendar.google.com"
+      ],
+      "coverage": {
+        "version": 1,
+        "kind": "semantic-seminar-resource",
+        "inspectionComplete": true,
+        "internalIssues": [],
+        "externalIssues": [
+          {
+            "url": "https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics",
+            "reason": "HTTP 404 from calendar.google.com"
+          }
+        ],
+        "nonBlockingIssues": [],
+        "counters": {
+          "resources": 3,
+          "datedRecords": 5,
+          "currentEvents": 0,
+          "internalIssues": 0,
+          "externalIssues": 1
+        },
+        "series": [
+          {
+            "name": "Robotics, Embodied AI and Learning — news and events",
+            "url": "https://www.cmu.edu/real/news-and-events/index.html",
+            "processed": true,
+            "undated": true,
+            "upcomingUndated": false,
+            "pendingSlots": 0,
+            "datedRecords": 0,
+            "currentEvents": 0,
+            "method": "semantic_public_html"
+          },
+          {
+            "name": "Robotics, Embodied AI and Learning — news and events",
+            "url": "https://sites.google.com/andrew.cmu.edu/cmu-lcs/home",
+            "processed": true,
+            "undated": false,
+            "upcomingUndated": true,
+            "pendingSlots": 0,
+            "datedRecords": 5,
+            "currentEvents": 0,
+            "method": "semantic_public_html"
+          },
+          {
+            "url": "https://calendar.google.com/calendar/ical/c_0c1dea11d4ea2e6c921bd6b47c076cff7d0e07ee47ec40be6fc1d6189c4a3cd0%40group.calendar.google.com/public/basic.ics",
+            "processed": true,
+            "method": "advertised_public_feed",
+            "currentEvents": 0
+          }
+        ]
+      },
+      "eventSummaries": []
+    }
+  ],
+  "completedAt": "2026-10-26T04:28:23.517Z",
+  "stats": {
+    "requests": 50,
+    "cacheHits": 0,
+    "bytes": 4059824
+  }
+}

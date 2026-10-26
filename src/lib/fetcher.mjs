@@ -66,6 +66,24 @@ async function readBody(response, maximum) {
 }
 
 /**
+ * Apply explicit per-request transfer budgets within bounded process limits.
+ * @param {Object} defaults Shared client defaults.
+ * @param {Object} requestOptions Optional media-specific byte/time limits.
+ * @return {Object} Validated maximumBytes and timeoutMs values.
+ */
+export function downloadLimits(defaults = {}, requestOptions = {}) {
+  const maximumBytes = requestOptions.maximumBytes ?? defaults.maximumBytes ?? 12 * 1024 * 1024;
+  const timeoutMs = requestOptions.timeoutMs ?? defaults.timeoutMs ?? 20000;
+  if (!Number.isSafeInteger(maximumBytes) || maximumBytes < 1 || maximumBytes > 128 * 1024 * 1024) {
+    throw new Error('Download maximumBytes must be a positive integer no greater than 128 MiB.');
+  }
+  if (!Number.isSafeInteger(timeoutMs) || timeoutMs < 1 || timeoutMs > 120000) {
+    throw new Error('Download timeoutMs must be a positive integer no greater than 120000.');
+  }
+  return { maximumBytes, timeoutMs };
+}
+
+/**
  * Allow only the publisher's anonymous event-clock read query.
  * A POST transport must never become a general form-submission capability.
  * @param {string} value Published Aura endpoint.
@@ -124,11 +142,13 @@ export function createFetcher(store, options = {}) {
    * @return {Promise<Buffer>} Fresh or server-revalidated body bytes.
    */
   async function download(value, requestOptions = {}) {
+    const limits = downloadLimits(options, requestOptions);
     const queryBody = requestOptions.publicQuery;
     if (queryBody !== undefined) validatePublicQuery(value, queryBody);
     const cacheable = queryBody === undefined && requestOptions.cache !== false;
     if (!cacheable && queryBody === undefined) store.deleteCache(value);
-    const cached = cacheable ? store.getCache(value) : null;
+    const candidate = cacheable ? store.getCache(value) : null;
+    const cached = candidate?.body?.length <= limits.maximumBytes ? candidate : null;
     for (let attempt = 0; attempt < 2; attempt++) {
       let current = value;
       try {
@@ -142,7 +162,7 @@ export function createFetcher(store, options = {}) {
             if (cached?.etag) headers['If-None-Match'] = cached.etag;
             if (cached?.modified) headers['If-Modified-Since'] = cached.modified;
             stats.requests++;
-            const response = await fetch(url, { headers, redirect: 'manual', dispatcher: dispatcherFor(url.hostname), signal: AbortSignal.timeout(options.timeoutMs || 20000),
+            const response = await (options.fetch || fetch)(url, { headers, redirect: 'manual', dispatcher: dispatcherFor(url.hostname), signal: AbortSignal.timeout(limits.timeoutMs),
               ...(queryBody !== undefined ? { method: 'POST', body: queryBody } : {}) });
             if (response.status === 304 && cached) { stats.cacheHits++; return Buffer.from(cached.body); }
             if ([301, 302, 303, 307, 308].includes(response.status)) {
@@ -159,7 +179,7 @@ export function createFetcher(store, options = {}) {
               error.retryable = response.status === 429 || response.status >= 500;
               throw error;
             }
-            const body = await readBody(response, options.maximumBytes || 12 * 1024 * 1024);
+            const body = await readBody(response, limits.maximumBytes);
             if (!body.length) throw new Error('Source returned an empty response body.');
             stats.bytes += body.length;
             if (cacheable) store.putCache(value, body, response.headers.get('etag'), response.headers.get('last-modified'));
@@ -183,9 +203,10 @@ export function createFetcher(store, options = {}) {
    * @return {Promise<Buffer>} Response bytes.
    */
   async function fetchBytes(url, requestOptions = {}) {
+    const limits = downloadLimits(options, requestOptions);
     const queryKey = requestOptions.publicQuery !== undefined
       ? `public-query:${createHash('sha256').update(requestOptions.publicQuery).digest('hex')}:` : '';
-    const key = `${queryKey}${requestOptions.cache === false ? 'uncached:' : ''}${url}`;
+    const key = `${queryKey}${requestOptions.cache === false ? 'uncached:' : ''}${limits.maximumBytes}:${limits.timeoutMs}:${url}`;
     if (!pending.has(key)) pending.set(key, download(url, requestOptions).finally(() => pending.delete(key)));
     return pending.get(key);
   }

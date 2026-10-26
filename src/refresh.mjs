@@ -1,5 +1,6 @@
 import { createFetcher } from './lib/fetcher.mjs';
 import { fetchEvents } from './adapters/index.mjs';
+import { normalizeCoverage } from './lib/source-coverage.mjs';
 
 /**
  * Rank broad public calendars first so a fresh installation becomes useful early.
@@ -49,6 +50,7 @@ export function createRefresher(store, plans, config) {
     const renderer = config.publicRendering
       ? (await import('./lib/public-render.mjs')).createPublicRenderer({ enabled: true }) : null;
     const context = { fetchText: fetcher.fetchText, fetchBytes: fetcher.fetchBytes, fetchPublicQuery: fetcher.fetchPublicQuery, now,
+      sourcePlans: plans, sourceScope: config.sourceScope,
       ...(renderer ? { renderPublic: renderer.renderPublic } : {}),
       windowStart: new Date(now.getTime() - config.lookBackDays * 86400000).toISOString(),
       windowEnd: new Date(now.getTime() + config.lookAheadDays * 86400000).toISOString() };
@@ -85,6 +87,7 @@ export function createRefresher(store, plans, config) {
         try {
           const result = await fetchEvents(plan, context);
           if (!result || !Array.isArray(result.events)) throw new Error('Adapter returned no event snapshot.');
+          store.setMeta(`sourceCoverage:${plan.id}`, normalizeCoverage(result.coverage, new Date().toISOString()));
           if (result.unsupported) throw new Error(`Extraction needs review: ${(result.warnings || []).join(' ') || 'No recognizable event structure.'}`);
           if (result.partial) store.mergePartial(plan.id, result.events, result.warnings || [], { singleEventUids: result.singleEventUids || [] });
           else store.replaceSource(plan.id, result.events, result.warnings || [], undefined, result.undated ? 'undated' : 'empty');
@@ -93,6 +96,7 @@ export function createRefresher(store, plans, config) {
           parsedCount = result.events.length;
           progress[result.partial ? 'error' : result.events.length ? 'ok' : result.undated ? 'undated' : 'empty']++;
         } catch (error) {
+          if (error.coverage) store.setMeta(`sourceCoverage:${plan.id}`, normalizeCoverage(error.coverage, new Date().toISOString()));
           store.failSource(plan.id, error);
           progress.error++;
         }

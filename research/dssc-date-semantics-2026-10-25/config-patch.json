@@ -1,0 +1,24 @@
+{
+  "sourceId": "31aa89be167d",
+  "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+  "deleteOptions": ["maxDetails"],
+  "options": {
+    "format": "text-schedule",
+    "timezone": "America/New_York",
+    "layout": "linked-consistent-details",
+    "linkSelector": "#content a[href*=\"events1/\"]",
+    "detailTitleSelector": "#content > .content > div:first-child > :first-child",
+    "detailContentSelector": "#content > .content"
+  },
+  "strategy": "Inspect every currently advertised same-origin review link. Resolve bounded event summaries, multiday ranges, repeated occurrences, explicitly dated series sessions, agenda days and auxiliary deadlines as different date roles. Preserve genuine title/summary/agenda conflicts without selecting a preferred year.",
+  "reason": "Directory-wide date-role parsing removes scan truncation and historical false conflicts while retaining two genuine publisher year conflicts. The current public directory has no verified events inside the ingestion window.",
+  "evidence": {
+    "semanticReview": {
+      "report": "research/dssc-date-semantics-2026-10-25/live-validation.json",
+      "script": "research/dssc-date-semantics-2026-10-25/validate-live.mjs",
+      "scope": "All currently advertised same-origin detail links, without an arbitrary detail count cap.",
+      "requiresReview": true,
+      "nextStep": "The publisher must correct the conflicting 2026 review title/header/agenda years. Daily refresh continues to inspect the complete live directory and keeps these conflicts separately auditable."
+    }
+  }
+}

@@ -179,6 +179,7 @@ export function openStore(filename) {
         const changed = previous && (previous.adapter !== plan.adapter || previous.fetchUrl !== plan.fetchUrl
           || previous.status !== plan.status || JSON.stringify(previous.options) !== JSON.stringify(plan.options));
         insert.run(plan.id, JSON.stringify(plan), state);
+        if (changed || state !== 'pending') db.prepare('DELETE FROM metadata WHERE key=?').run(`sourceCoverage:${plan.id}`);
         if (state !== 'pending') db.prepare('UPDATE sources SET state=?,error=NULL,warnings=NULL WHERE id=?').run(state, plan.id);
         else if (changed) db.prepare('UPDATE sources SET state=\'pending\',last_attempt=NULL,error=NULL WHERE id=?').run(plan.id);
         if (state === 'covered') {
@@ -189,6 +190,7 @@ export function openStore(filename) {
       const active = new Set(plans.map(plan => plan.id));
       for (const { id } of db.prepare('SELECT id FROM sources').all()) if (!active.has(id)) {
         db.prepare('DELETE FROM sources WHERE id=?').run(id);
+        db.prepare('DELETE FROM metadata WHERE key=?').run(`sourceCoverage:${id}`);
         db.prepare('DELETE FROM occurrences WHERE source_id=?').run(id);
       }
       db.exec('COMMIT');
@@ -401,7 +403,7 @@ export function openStore(filename) {
   function listSources() {
     return db.prepare('SELECT * FROM sources ORDER BY id').all().map(row => ({ ...JSON.parse(row.plan),
       state: row.state, lastAttempt: row.last_attempt, lastSuccess: row.last_success, error: row.error,
-      warnings: JSON.parse(row.warnings || '[]'), eventCount: row.event_count }));
+      warnings: JSON.parse(row.warnings || '[]'), eventCount: row.event_count, coverage: getMeta(`sourceCoverage:${row.id}`) }));
   }
 
   /**

@@ -28,7 +28,10 @@ test('visible dates require a printed year, a valid calendar day, and consistent
 test('clock precision never guesses cross-period AM/PM or a missing duration', () => {
   assert.deepEqual(mediaClock('4:00–5:30pm'), {start:'16:00:00',end:'17:30:00'});
   assert.deepEqual(mediaClock('10–11:30 am'), {start:'10:00:00',end:'11:30:00'});
-  assert.equal(mediaClock('9–1pm').ambiguous, true);
+  assert.deepEqual(mediaClock('9–1pm'), {start:'09:00:00',end:'13:00:00'});
+  assert.deepEqual(mediaClock('11–12:30pm'), {start:'11:00:00',end:'12:30:00'});
+  assert.deepEqual(mediaClock('noon–1:30pm'), {start:'12:00:00',end:'13:30:00'});
+  assert.equal(mediaClock('9–1am').ambiguous, true);
   assert.deepEqual(mediaClock('11:00am–1:30pm'), {start:'11:00:00',end:'13:30:00'});
   assert.deepEqual(mediaClock('Begins 3:00pm'), {start:'15:00:00'});
   assert.equal(mediaClock('9–11'), null);
@@ -43,7 +46,8 @@ test('real LTI OCR rows keep geometric pairing, printed clock labels, and DST', 
   assert.equal(result.events.filter(event => event.title === 'LTI Social').length, 6);
   assert.ok(result.events.every(event => event.location === 'NSH 4305'));
   assert.equal(result.events.find(event => event.start.startsWith('2026-11-20')).title, 'LTI Colloquium');
-  assert.equal(result.partial, true, 'uncertain OCR surname remains an explicit limitation');
+  assert.equal(result.partial, false, 'uncertain speaker metadata does not erase complete occurrence coverage');
+  assert.match(result.warnings.join(' '), /Speaker text is uncertain/);
   assert.ok(result.events.every(event => !event.title.includes('Mohit lyyer')));
 });
 
@@ -65,10 +69,11 @@ test('real white-on-color poster is read from the inverted treatment without inv
 });
 
 test('disagreement, multiple dates, and ambiguous clock ranges keep honest partial results', () => {
-  const ambiguous = parseMediaPoster({text:'Seminar\nNovember 20, 2026\n9–1pm',variants:[]}, {seriesTitle:'Seminar'}, plan);
+  const ambiguous = parseMediaPoster({text:'Seminar\nNovember 20, 2026\n9–1am',variants:[]}, {seriesTitle:'Seminar'}, plan);
   assert.equal(ambiguous.events[0].start, '2026-11-20');
   assert.equal(ambiguous.events[0].timePrecision, 'date');
-  assert.equal(ambiguous.partial, true);
+  assert.equal(ambiguous.partial, false);
+  assert.match(ambiguous.warnings.join(' '), /date-only/);
   const multiple = parseMediaPoster({text:'November 20, 2026\nNovember 21, 2026',variants:[]}, {seriesTitle:'Seminar'}, plan);
   assert.equal(multiple.events.length, 0);
   assert.equal(multiple.partial, true);
@@ -104,14 +109,17 @@ test('missing OCR or unreadable media never falls back to configured fixed revie
   assert.equal(missing.partial,true);
 });
 
-test('archive scan bounds remain partial rather than claiming all assets were checked', async () => {
+test('legacy asset caps never truncate complete semantic discovery', async () => {
   const source={...plan,options:{automaticMedia:[{selector:'a',attribute:'href',fromEnd:true,maxAssets:1,seriesTitle:'Seminar'}]}};
   const calls=[];
   const result=await fetchAutomaticMedia('<a href="one.pdf">Slides</a><a href="two.pdf">Slides</a>',source,{fetchBytes:async url=>{calls.push(url);return Buffer.from('pdf');},extractMedia:async()=>({text:'May 7, 2026',variants:[]})});
   assert.equal(calls[0],'https://example.edu/two.pdf');
-  assert.equal(result.recognized,1);
-  assert.equal(result.partial,true);
-  assert.match(result.warnings.join(' '),/1 of 2/);
+  assert.equal(result.recognized,2);
+  assert.equal(result.partial,false);
+  assert.equal(calls.length,2);
+  assert.equal(result.coverage.discovered,2);
+  assert.equal(result.coverage.inspectionComplete,true);
+  assert.deepEqual(result.coverage.internalIssues,[]);
 });
 
 /**

@@ -104,39 +104,66 @@ export function parseAlumniPublicCards(listing, details, plan = {}, context = {}
  */
 async function fetchAlumniPublic(plan, context) {
   if (typeof context.renderPublic !== 'function') throw new Error('Alumni public DOM discovery requires CMUEVENTS_RENDER_PUBLIC=1; fixed reviewed-card snapshots are not a live fallback');
-  const listing = await context.renderPublic({ url: LISTING, kind: 'alumni', maxPages: plan.options?.maxPages || 30, maxCards: 500 });
+  const listing = await sharedPublicRender(context, { url: LISTING, kind: 'alumni' });
   if (!Array.isArray(listing.rows)) throw new Error('Public Alumni renderer returned no visible-card collection');
   const details = new Map();
   const warnings = [];
+  const audit = { version: 1, kind: 'public-dom-pagination-and-details', inspectionComplete: !listing.partial,
+    pages: listing.pages, listingCards: listing.rows.length, inspectedDetails: [],
+    internalIssues: [], externalIssues: [], nonBlockingIssues: [] };
+  if (listing.partial) audit.internalIssues.push({ code: 'INCOMPLETE_PUBLIC_PAGINATION', warnings: listing.warnings || [] });
   const eligible = listing.rows.filter(row => publicEventUrl(row.url)
     && (!plan.options?.onlineOnly || /\b(?:virtual webinar,?\s*)?online\s*(?:\n|$)/i.test(row.text?.split('|').slice(1).join('|') || '')));
-  const failureLimit = Math.max(1, Math.min(12, Math.floor(Number(plan.options?.maxConsecutiveDetailFailures) || 4)));
-  let consecutiveFailures = 0;
+  for (const row of listing.rows) {
+    if (!publicEventUrl(row.url) || !explicitTextDate(row.dateText || '') || !plainText(row.title)) {
+      audit.internalIssues.push({ code: 'UNPARSED_VISIBLE_CARD', url: row.url || '', dateText: row.dateText || '' });
+    }
+  }
   for (let index = 0; index < eligible.length; index += 2) {
     const outcomes = await Promise.all(eligible.slice(index, index + 2).map(async row => {
       try {
-        const detail = await context.renderPublic({ url: row.url, kind: 'event-detail' });
-        if (!parseAlumniPublicDetail(detail)) throw new Error('Current visible Event Details has no explicit valid full date');
+        const detail = await sharedPublicRender(context, { url: row.url, kind: 'event-detail' });
+        if (!parseAlumniPublicDetail(detail)) throw Object.assign(new Error('Current visible Event Details has no explicit valid full date'), { code: 'UNPARSED_EVENT_DETAILS' });
         return { url: row.url, detail };
       } catch (error) { return { url: row.url, error }; }
     }));
     for (const outcome of outcomes) {
       if (outcome.error) {
-        consecutiveFailures++;
+        const diagnostic = outcome.error.publicRenderDiagnostic;
+        const issue = { code: diagnostic?.httpStatus >= 400 ? 'PUBLIC_DETAIL_ACCESS_FAILURE' : 'UNPARSED_EVENT_DETAILS',
+          url: outcome.url, reason: outcome.error.message, ...(diagnostic ? { diagnostic } : {}) };
+        (diagnostic?.httpStatus >= 400 ? audit.externalIssues : audit.internalIssues).push(issue);
+        audit.inspectedDetails.push({ url: outcome.url, outcome: issue.code });
         warnings.push(`Public original event detail failed (${outcome.url}): ${outcome.error.message}`);
       } else {
-        consecutiveFailures = 0;
+        const parsed = parseAlumniPublicDetail(outcome.detail);
         details.set(outcome.url, outcome.detail);
+        audit.inspectedDetails.push({ url: outcome.url, outcome: 'parsed' });
+        if (parsed.uncertain) audit.externalIssues.push({ code: 'UNSUPPORTED_PUBLISHED_CLOCK', url: outcome.url });
       }
     }
-    const remaining = eligible.length - Math.min(index + 2, eligible.length);
-    if (consecutiveFailures >= failureLimit && remaining > 0) {
-      warnings.push(`Stopped optional Alumni detail enrichment after ${consecutiveFailures} consecutive failures (limit ${failureLimit}); skipped ${remaining} remaining detail page(s). All current public listing cards remain included with their advertised dates.`);
-      break;
-    }
   }
+  audit.inspectionComplete &&= audit.internalIssues.length === 0 && audit.inspectedDetails.length === eligible.length;
   const result = parseAlumniPublicCards(listing, details, plan, context);
-  return { ...result, warnings: [...result.warnings, ...warnings] };
+  return { ...result, coverage: audit, warnings: [...result.warnings, ...warnings] };
+}
+
+const publicRenderRuns = new WeakMap();
+
+/**
+ * Share current anonymous listing/detail results between equivalent source scopes.
+ * Rejected promises remain shared only for this refresh; tomorrow retries all URLs.
+ * @param {Object} context Refresh-scoped renderer context.
+ * @param {Object} request Validated public render request.
+ * @return {Promise<Object>} Current visible document extraction.
+ */
+function sharedPublicRender(context, request) {
+  const run = context.collectionRun || context;
+  if (!publicRenderRuns.has(run)) publicRenderRuns.set(run, new Map());
+  const cache = publicRenderRuns.get(run);
+  const key = `${request.kind}:${request.url}`;
+  if (!cache.has(key)) cache.set(key, context.renderPublic(request));
+  return cache.get(key);
 }
 
 /**

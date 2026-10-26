@@ -3,7 +3,7 @@ import { absoluteUrl, normalizeEvent, inWindow, plainText, addDays, parseDate } 
 import { fetchIcs } from './ics.mjs';
 import { fetchPdfSchedule } from './pdfschedule.mjs';
 import { fetchReviewedImages, parseReviewedFragments } from './reviewed-images.mjs';
-import { fetchAutomaticMedia } from './automatic-media.mjs';
+import { fetchAutomaticMedia, mediaPeriod, mediaDates } from './automatic-media.mjs';
 import { parseGeneratedCalendar } from './generated-calendar.mjs';
 import { parseReviewedResources } from './reviewed-resources.mjs';
 
@@ -234,6 +234,8 @@ export function parseHtml(html, plan = {}, context = {}) {
   $('br').replaceWith(' ');
   const events = new Map();
   const groundedUrls = new Set();
+  const groundedSpans = [];
+  const detailContexts = [];
   const warnings = [];
   let recognized = 0;
   const base = plan.fetchUrl || plan.url;
@@ -244,6 +246,7 @@ export function parseHtml(html, plan = {}, context = {}) {
     if (!event) return;
     recognized++;
     groundedUrls.add(event.url);
+    groundedSpans.push({ url: event.url, start: event.start, end: event.end });
     if (inWindow(event, context)) events.set(`${event.url}|${event.start}|${event.title}`, event);
   };
   $('script[type="application/ld+json"]').each((_, element) => {
@@ -322,7 +325,10 @@ export function parseHtml(html, plan = {}, context = {}) {
         status: options.cancelledPattern && new RegExp(options.cancelledPattern, 'i').test(item.text()) ? 'cancelled' : undefined,
         mode: item.attr('data-online') === 'true' || item.attr('data-online') === '1' ? 'online' : undefined });
     }
-    if (url && url !== base && title && htmlDetailUrl(url)) detailLinks.add(url);
+    if (url && url !== base && title && htmlDetailUrl(url)) {
+      detailLinks.add(url);
+      detailContexts.push({ url, dateText });
+    }
   }
   if (options.detailLinkSelector) {
     detailLinks.clear();
@@ -359,7 +365,7 @@ export function parseHtml(html, plan = {}, context = {}) {
   if (unsupported) warnings.push('No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side');
   const paginationLinks = options.paginationSelector ? [...new Set($(options.paginationSelector).toArray()
     .map(element => absoluteUrl($(element).attr('href'), base)).filter(Boolean))] : [];
-  return { events: [...events.values()], warnings, detailLinks: [...detailLinks], paginationLinks, groundedUrls: [...groundedUrls], unsupported, recognized,
+  return { events: [...events.values()], warnings, detailLinks: [...detailLinks], paginationLinks, groundedUrls: [...groundedUrls], groundedSpans, detailContexts, unsupported, recognized,
     ...(warnings.some(warning => warning.startsWith('Invalid Event JSON-LD')) ? { partial: true } : {}) };
 }
 
@@ -421,10 +427,12 @@ async function parseDocument(html, plan, context) {
     ? parseNewsletter(html, plan, context) : parseHtml(html, plan, context);
   result.datedRecognized = Boolean(result.recognized || result.events.length);
   if (plan.options?.automaticMedia?.length) {
-    const media = await fetchAutomaticMedia(html, plan, context);
+    const media = await fetchAutomaticMedia(html, plan, { ...context, pageDateSpans: result.groundedSpans || [] });
     result.events.push(...media.events);
     result.warnings.push(...media.warnings);
-    if (media.recognized) { result.unsupported = false; result.datedRecognized = true; }
+    result.coverage = media.coverage;
+    if (media.recognized) result.unsupported = false;
+    if (media.datedRecognized) result.datedRecognized = true;
     if (media.partial) result.partial = true;
     if (!result.unsupported) result.warnings = result.warnings.filter(warning => !warning.startsWith('No events'));
   }
@@ -609,6 +617,65 @@ function mergeDetailEvents(events, detailEvents) {
 }
 
 /**
+ * Combine auditable coverage from a listing and its required detail pages.
+ * @param {Object|undefined} first Accumulated source coverage.
+ * @param {Object|undefined} second Current detail/media coverage.
+ * @return {Object|undefined} Combined public coverage contract.
+ */
+function mergeCoverage(first, second) {
+  if (!second) return first;
+  if (!first) return structuredClone(second);
+  const combined = { ...first, kind: first.kind === second.kind ? first.kind : 'html-and-media',
+    inspectionComplete: first.inspectionComplete !== false && second.inspectionComplete !== false };
+  for (const field of ['discovered', 'processed', 'excludedHistorical', 'excludedNonEvent', 'unresolved']) combined[field] = (first[field] || 0) + (second[field] || 0);
+  for (const field of ['internalIssues', 'externalIssues', 'nonBlockingIssues']) combined[field] = [...new Set([...(first[field] || []), ...(second[field] || [])])];
+  combined.assets = [...(first.assets || []), ...(second.assets || [])];
+  return combined;
+}
+
+/**
+ * Index exact advertised detail links with dates from their own card/section.
+ * Semester years come only from printed preceding headings, including strong
+ * paragraph headings; navigation and unrelated biography years are excluded.
+ * @param {string} html Current official listing or series page.
+ * @param {string} base Official page URL for resolving detail identities.
+ * @return {Object[]} Explicit linked date evidence, never filename dates.
+ */
+function linkedDetailDates(html, base) {
+  const $ = cheerio.load(html);
+  const records = [];
+  const scope = $('.filterable').length ? $.root() : $('.content').first().length ? $('.content').first() : $.root();
+  const ordered = scope.find('h1,h2,h3,strong,p,a').toArray();
+  scope.find('a[href]').each((_, node) => {
+    const anchor = $(node);
+    const url = absoluteUrl(anchor.attr('href'), base);
+    if (!url || !htmlDetailUrl(url)) return;
+    const card = anchor.closest('.filterable,article,li');
+    let text = card.length ? plainText($.html(card)) : '';
+    let heading = '';
+    if (!card.length) {
+      if (!/^(?:Read more|Details|Learn more)$/i.test(anchor.text().trim())) return;
+      heading = ordered.slice(0, ordered.indexOf(node)).reverse().map(item => $(item).text().trim())
+        .find(value => value.length < 120 && mediaPeriod(value)) || '';
+      const years = [...new Set(heading.match(/\b20\d{2}\b/g) || [])];
+      const grounding = { year: years.length === 1 ? +years[0] : null, allowContextYear: years.length === 1 };
+      let previous = anchor.closest('p').prev();
+      while (previous.length) {
+        if (previous.is('h1,h2,h3')) break;
+        const candidate = plainText($.html(previous));
+        const dates = mediaDates(candidate, grounding);
+        if (dates.dates.length === 1) { text = candidate; break; }
+        previous = previous.prev();
+      }
+    }
+    const years = [...new Set(heading.match(/\b20\d{2}\b/g) || [])];
+    const found = mediaDates(text, { year: years.length === 1 ? +years[0] : null, allowContextYear: years.length === 1 });
+    if (found.dates.length === 1 && !found.warnings.some(warning => /conflict|Invalid/.test(warning))) records.push({ url, ...found.dates[0], sourceUrl: base, text, heading });
+  });
+  return records;
+}
+
+/**
  * Fetch a listing and bounded same-origin details, prioritizing required discovery.
  * Independently dated parent records remain usable if optional enrichment fails;
  * explicit child selectors and ungrounded links require complete child extraction.
@@ -625,16 +692,48 @@ async function fetchHtmlPage(plan, context) {
   let partial = Boolean(result.partial);
   let datedRecognized = Boolean(result.datedRecognized);
   let undated = Boolean(result.undated);
+  let coverage = result.coverage;
   if (plan.options?.detailLinks && result.detailLinks) {
-    const maxDetails = Math.min(plan.options.maxDetails || 12, 50);
+    const fullTraversal = plan.options.completeDetailTraversal === true;
+    const historicalReferences = [];
+    const traversal = fullTraversal ? { version: 1, kind: 'html-detail', inspectionComplete: true, discovered: 0, processed: 0,
+      excludedHistorical: 0, excludedNonEvent: 0, unresolved: 0, internalIssues: [], externalIssues: [], nonBlockingIssues: [], assets: [] } : null;
     const origin = new URL(plan.fetchUrl || plan.url).origin;
-    const eligibleLinks = result.detailLinks.filter(url => new URL(url).origin === origin && htmlDetailUrl(url)
+    let eligibleLinks = result.detailLinks.filter(url => new URL(url).origin === origin && htmlDetailUrl(url)
       && (!plan.options.detailSemesterWindow || semesterMayOverlap(url, context)));
+    if (fullTraversal) eligibleLinks = eligibleLinks.filter(url => {
+      const spans = (result.groundedSpans || []).filter(span => span.url === url);
+      const description = (result.detailContexts || []).find(item => item.url === url)?.dateText || '';
+      const period = mediaPeriod(description);
+      const outside = spans.length ? spans.every(span => !inWindow(span, context))
+        : period && ((context.windowStart && Date.parse(period.end) <= Date.parse(context.windowStart)) || (context.windowEnd && Date.parse(period.start) >= Date.parse(context.windowEnd)));
+      traversal.discovered++;
+      if (outside) {
+        traversal.excludedHistorical++; traversal.assets.push({ url, classification: 'excluded-historical', evidence: description, ...(period ? { period } : {}) });
+        if (period && !spans.length) historicalReferences.push(url);
+      }
+      return !outside;
+    });
+    const maxDetails = fullTraversal ? eligibleLinks.length : Math.min(plan.options.maxDetails || 12, 50);
     const groundedUrls = new Set(result.groundedUrls || []);
     const requiredLinks = eligibleLinks.filter(url => plan.options.detailLinkSelector || !groundedUrls.has(url));
     const optionalLinks = eligibleLinks.filter(url => !requiredLinks.includes(url));
     const required = new Set(requiredLinks);
     const selectedLinks = [...requiredLinks, ...optionalLinks].slice(0, maxDetails);
+    const preloaded = new Map();
+    const linkedDates = linkedDetailDates(text, plan.fetchUrl || plan.url);
+    if (fullTraversal) {
+      const $ = cheerio.load(text);
+      const references = [...historicalReferences, ...(plan.options.detailDateIndexSelector ? $(plan.options.detailDateIndexSelector).toArray()
+        .map(node => absoluteUrl($(node).attr('href'), plan.fetchUrl || plan.url)) : [])].filter(Boolean);
+      for (const url of [...new Set([...selectedLinks, ...references])]) {
+        try {
+          const html = await context.fetchText(url);
+          preloaded.set(url, { html });
+          linkedDates.push(...linkedDetailDates(html, url));
+        } catch (error) { preloaded.set(url, { error }); }
+      }
+    }
     if (plan.options.detailSemesterWindow && result.detailLinks.length && !eligibleLinks.length) supported = true;
     for (const link of selectedLinks) {
       const isRequired = required.has(link);
@@ -642,7 +741,45 @@ async function fetchHtmlPage(plan, context) {
       try {
         const detailPlan = { ...plan, url: link, fetchUrl: link, options: { timezone: plan.options?.timezone,
           ...plan.options?.detailOptions, ...plan.options?.detailOptionsByUrl?.[link] } };
-        const detail = await parseDocument(await context.fetchText(link), detailPlan, context);
+        if (preloaded.get(link)?.error) throw preloaded.get(link).error;
+        const detailHtml = preloaded.get(link)?.html ?? await context.fetchText(link);
+        if (fullTraversal) {
+          const $ = cheerio.load(detailHtml);
+          const content = plainText($('.content,main,article').first().html() || '');
+          // Some legacy cards mix publication metadata with occurrence prose.
+          // Filter by the detail's printed month/day/weekday before uniqueness.
+          const candidates = linkedDates.filter(record => {
+            if (record.url !== link) return false;
+            const dates = mediaDates(content, { year: +record.start.slice(0, 4), allowContextYear: true });
+            return dates.dates.some(date => date.start === record.start) && !dates.warnings.some(warning => /conflict|Invalid/.test(warning));
+          });
+          const unique = new Map(candidates.map(record => [`${record.start}|${record.end}`, record]));
+          if (unique.size === 1) {
+            const evidence = [...unique.values()][0];
+            const dates = mediaDates(content, { year: +evidence.start.slice(0, 4), allowContextYear: true });
+            if (dates.dates.some(date => date.start === evidence.start) && !dates.warnings.some(warning => /conflict|Invalid/.test(warning)) && !inWindow(evidence, context)) {
+              traversal.excludedHistorical++; traversal.assets.push({ url: link, classification: 'excluded-historical', inspectedHtml: true, dateEvidence: evidence });
+              supported = true; datedRecognized = true; continue;
+            }
+          }
+        }
+        const detail = await parseDocument(detailHtml, detailPlan, context);
+        coverage = mergeCoverage(coverage, detail.coverage);
+        if (traversal) {
+          traversal.processed++;
+          const asset = { url: link, classification: detail.unsupported ? 'unresolved-publisher-date' : 'processed' };
+          traversal.assets.push(asset);
+          if (!detail.datedRecognized) {
+            const $ = cheerio.load(detailHtml);
+            const content = plainText($('.content,main,article').first().html() || '');
+            traversal.unresolved++;
+            if (isRequired) partial = true;
+            asset.dateEvidence = { visibleDateLines: content.split(/\r?\n/).filter(line => /\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/i.test(line)),
+              eventContentYears: [...new Set(content.match(/\b(?:19|20)\d{2}\b/g) || [])], mediaAssetsInspected: detail.coverage?.discovered || 0 };
+            if (!explicitTextDate(content) && (!detail.coverage || detail.coverage.inspectionComplete)) traversal.externalIssues.push(`Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (${link})`);
+            else { traversal.internalIssues.push(`Detail parser did not recognize an explicitly dated event (${link})`); traversal.inspectionComplete = false; }
+          }
+        }
         if (!detail.unsupported) supported = true;
         datedRecognized ||= Boolean(detail.datedRecognized);
         undated ||= Boolean(detail.undated);
@@ -650,13 +787,20 @@ async function fetchHtmlPage(plan, context) {
         for (const warning of detail.warnings || []) result.warnings.push(`${label} (${link}): ${warning}`);
         if (detail.unsupported && !detail.warnings?.length) result.warnings.push(`${label} (${link}): no verified event structure or empty state was recognized`);
         mergeDetailEvents(events, detail.events);
-      } catch (error) { if (isRequired) partial = true; result.warnings.push(`${label} fetch failed (${link}): ${error.message}`); }
+      } catch (error) {
+        if (isRequired) partial = true;
+        result.warnings.push(`${label} fetch failed (${link}): ${error.message}`);
+        if (traversal) { traversal.unresolved++; traversal.assets.push({ url: link, classification: 'unavailable', error: error.message }); traversal.externalIssues.push(`Publisher detail unavailable (${link}): ${error.message}`); }
+      }
     }
     if (requiredLinks.length > maxDetails) { partial = true; result.warnings.push(`Detail limit ${maxDetails} reached; ${requiredLinks.length - maxDetails} required child page(s) remain; configure pagination or a structured feed for complete ingestion`); }
     else if (eligibleLinks.length > maxDetails) result.warnings.push(`Optional detail enrichment limit ${maxDetails} reached; ${eligibleLinks.length - maxDetails} link(s) already grounded by the parent were not followed`);
+    coverage = mergeCoverage(coverage, traversal);
+    if (traversal) result.warnings.push(...traversal.internalIssues, ...traversal.externalIssues);
   }
   if (supported) result.warnings = result.warnings.filter(warning => !warning.startsWith('No events'));
   return { events: [...events.values()], warnings: result.warnings, unsupported: !supported,
+    ...(coverage ? { coverage } : {}),
     paginationLinks: result.paginationLinks || [], datedRecognized,
     ...(!datedRecognized && undated ? { undated: true } : {}), ...(partial ? { partial: true } : {}) };
 }

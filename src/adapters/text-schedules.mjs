@@ -1,6 +1,7 @@
 import * as cheerio from 'cheerio';
 import { normalizeEvent, inWindow, plainText, parseDate } from '../lib/normalize.mjs';
 import { explicitTextDate, explicitTextEnd, clockTime } from './html.mjs';
+import { extractCalendarSpans, resolveEventDateRoles } from '../lib/date-semantics.mjs';
 
 const WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -99,27 +100,73 @@ export async function fetchTextSchedule(plan, context) {
 }
 
 /**
- * Read a conference page only when all full event dates and its title agree.
- * Agenda clock ranges do not establish an overall event start or end time.
+ * Resolve a conference summary separately from agenda and auxiliary deadlines.
+ * Agenda clock ranges do not establish the overall event start or end time.
  * @param {string} html Current public conference detail HTML.
  * @param {Object} plan Content and title selectors for that publisher layout.
  * @param {Object} context Collection window.
- * @return {Object} One date-precision occurrence or an explicit conflict.
+ * @return {Object} Dated occurrences with auditable semantic date roles.
  */
 export function parseConsistentEventPage(html, plan, context = {}) {
   const $ = cheerio.load(html);
-  const options = plan.options;
+  const options = plan.options || {};
+  $('script,style,noscript,nav,footer,aside,.sidebar,.related,[class*="related-"],[id*="related-"],.copyright').remove();
+  $('h1,h2,h3,h4,h5,h6').each((_, node) => {
+    if (!/^(?:related|recommended|more)\s+(?:news|events|articles)|^you may also\b/i.test(plainText($(node).text()))) return;
+    const level = Number(node.name.slice(1));
+    for (const sibling of $(node).nextAll().toArray()) {
+      if (/^h[1-6]$/.test(sibling.name) && Number(sibling.name.slice(1)) <= level) break;
+      $(sibling).remove();
+    }
+    $(node).remove();
+  });
   const title = plainText($(options.detailTitleSelector).first().text());
-  const text = $(options.detailContentSelector).toArray().map(node => plainText($.html(node))).join('\n');
-  const matches = text.match(/\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+\d{1,2}(?:st|nd|rd|th)?[,]?\s+20\d{2}\b/gi) || [];
-  const dates = [...new Set(matches.map(value => explicitTextDate(value)).filter(value => value && parseDate(value)))];
-  const titleYears = [...new Set(title.match(/\b20\d{2}\b/g) || [])];
-  if (!title || dates.length !== 1 || titleYears.some(year => year !== dates[0].slice(0, 4))) {
-    return { events: [], partial: true, warnings: [`Public conference dates conflict or lack one unambiguous full date (${plan.url}); title year(s): ${titleYears.join(', ') || 'none'}; printed dates: ${dates.join(', ') || 'none'}`] };
+  const content = $(options.detailContentSelector);
+  const text = content.toArray().map(node => plainText($.html(node))).join('\n');
+  const summary = [];
+  const agenda = [];
+  const sessions = [];
+  const auxiliary = [];
+  const auxiliaryPattern = /\b(?:hotel|booking|reservations?|discount|cut\s*-?\s*off|deadline|registration (?:closes?|ends?|due)|register by|transportation|shuttle)\b/i;
+  const auxiliaryDatePattern = /\b(?:deadline|cut\s*-?\s*off|(?:registration|applications?|abstracts?|submissions?|tickets?|reservations?|bookings?)\s+(?:opens?|closes?|begins?|ends?|starts?|due)|(?:register|book|reserve)\s+by)\b/i;
+  // Siblings immediately after the title are the published event synopsis. Stop
+  // at the next section rather than scanning arbitrary narrative/footer dates.
+  for (const node of $(options.detailTitleSelector).first().nextAll().toArray()) {
+    if (/^h[1-6]$/.test(node.name) || node.name === 'table') break;
+    const copy = $(node).clone();
+    copy.find('h1,h2,h3,h4,h5,h6,table').remove();
+    for (const line of plainText($.html(copy)).split(/\n|;\s*/).filter(Boolean)) {
+      (auxiliaryDatePattern.test(line) ? auxiliary : summary).push(line);
+    }
   }
-  const event = normalizeEvent({ title, start: dates[0], url: plan.url, description: text }, plan);
-  return event ? { events: inWindow(event, context) ? [event] : [], recognized: 1, warnings: [] }
-    : { events: [], partial: true, warnings: [`Public conference date fields are invalid (${plan.url})`] };
+  for (const node of content.find('h1,h2,h3,h4,h5,h6,table tr:first-child').toArray()) {
+    const value = plainText($.html(node));
+    if (value.length > 500 || !extractCalendarSpans(value).spans.length) continue;
+    let section = '';
+    for (let ancestor = $(node); ancestor.length && !ancestor.is(options.detailContentSelector); ancestor = ancestor.parent()) {
+      const heading = ancestor.prevAll('h1,h2,h3,h4,h5,h6').first();
+      if (heading.length) { section = heading.text(); break; }
+    }
+    if (auxiliaryPattern.test(`${section}\n${value}`)) auxiliary.push(value);
+    else if (/^h[1-6]$/.test(node.name)) sessions.push(value);
+    else agenda.push(value);
+  }
+  for (const node of content.find('p,li').toArray()) {
+    const value = plainText($.html(node));
+    if (auxiliaryDatePattern.test(value) && extractCalendarSpans(value).spans.length) auxiliary.push(value);
+  }
+  const dateAnalysis = resolveEventDateRoles({ title, summary: summary.join('\n'), agenda, sessions,
+    auxiliary: [...new Set(auxiliary)], timeZone: options.timezone || 'America/New_York' });
+  if (!title) { dateAnalysis.conflicts.push('The public conference title is absent'); dateAnalysis.decision = 'unresolved'; }
+  if (dateAnalysis.conflicts.length) {
+    return { events: [], recognized: 0, partial: true, dateAnalysis,
+      warnings: [`Public conference date conflict or unresolved schedule (${plan.url}): ${dateAnalysis.conflicts.join('; ')}`] };
+  }
+  const occurrences = dateAnalysis.occurrences.map(occurrence => normalizeEvent({ title, start: occurrence.start,
+    end: occurrence.end, url: plan.url, description: text }, plan));
+  if (occurrences.some(event => !event)) return { events: [], recognized: 0, partial: true, dateAnalysis: { ...dateAnalysis, decision: 'invalid-fields' },
+    warnings: [`Public conference date fields are invalid (${plan.url})`] };
+  return { events: occurrences.filter(event => inWindow(event, context)), recognized: occurrences.length, warnings: [], dateAnalysis };
 }
 
 /**
@@ -136,23 +183,40 @@ async function fetchConsistentDetails(plan, context) {
     try { const url = new URL($(node).attr('href'), base); return url.origin === origin ? url.href : null; }
     catch { return null; }
   }).filter(Boolean))];
-  const maximum = Math.max(1, Math.min(100, Number(plan.options.maxDetails) || 40));
   const events = new Map();
   const warnings = [];
-  let partial = links.length > maximum || !links.length;
+  const details = [];
+  let partial = !links.length;
   let recognized = 0;
   if (!links.length) warnings.push('No advertised public conference detail links were found; directory structure needs review');
-  if (links.length > maximum) warnings.push(`Conference detail limit ${maximum} reached; advertised links remain`);
-  for (let index = 0; index < Math.min(links.length, maximum); index += 3) {
-    await Promise.all(links.slice(index, Math.min(index + 3, maximum)).map(async url => {
+  for (let index = 0; index < links.length; index += 3) {
+    await Promise.all(links.slice(index, index + 3).map(async url => {
       try {
         const result = parseConsistentEventPage(await context.fetchText(url), { ...plan, url }, context);
         recognized += result.recognized || 0;
         partial ||= Boolean(result.partial);
         warnings.push(...result.warnings);
+        details.push({ url, status: result.partial ? result.dateAnalysis.decision === 'conflict' ? 'conflict' : 'unresolved' : 'parsed', recognized: result.recognized || 0,
+          windowRecords: result.events.length, decision: result.dateAnalysis.decision, dateRoles: result.dateAnalysis.roles,
+          occurrences: result.dateAnalysis.occurrences, conflicts: result.dateAnalysis.conflicts, notes: result.dateAnalysis.notes });
         for (const event of result.events) events.set(event.uid, event);
-      } catch (error) { partial = true; warnings.push(`Public conference detail failed (${url}): ${error.message}`); }
+      } catch (error) { partial = true; warnings.push(`Public conference detail failed (${url}): ${error.message}`);
+        const incomplete = /\b(?:budget|scan limit|detail limit|download limit|maximumBytes|timeoutMs|deadline|unprocessed|circuit)\b/i.test(error.message);
+        details.push({ url, status: incomplete ? 'incomplete' : 'fetch-failed', recognized: 0, windowRecords: 0, conflicts: [error.message] }); }
     }));
   }
-  return { events: [...events.values()], warnings, recognized, ...(partial ? { partial: true } : {}) };
+  details.sort((left, right) => links.indexOf(left.url) - links.indexOf(right.url));
+  const processed = details.filter(detail => detail.status !== 'incomplete').length;
+  const internalIssues = details.filter(detail => ['unresolved', 'incomplete'].includes(detail.status)).map(detail => ({
+    code: detail.status === 'incomplete' ? 'detail-inspection-incomplete' : 'unresolved-date-semantics', url: detail.url, evidence: detail.conflicts }));
+  if (!links.length) internalIssues.push({ code: 'advertised-links-not-found', url: base });
+  const externalIssues = details.filter(detail => ['conflict', 'fetch-failed'].includes(detail.status)).map(detail => ({
+    code: detail.status === 'conflict' ? 'publisher-date-conflict' : 'publisher-detail-fetch-failed', url: detail.url, evidence: detail.conflicts }));
+  const nonBlockingIssues = details.filter(detail => detail.decision === 'explicit-series-sessions').map(detail => ({
+    code: 'series-envelope-not-expanded', url: detail.url, evidence: 'Only separately advertised dated sessions are occurrences; a recurrence envelope does not invent additional sessions.' }));
+  for (const detail of details) for (const note of detail.notes || []) nonBlockingIssues.push({ url: detail.url, ...note });
+  return { events: [...events.values()], warnings, recognized, ...(partial ? { partial: true } : {}),
+    coverage: { kind: 'semantic-linked-details', version: 1, inspectionComplete: links.length > 0 && processed === links.length && !internalIssues.length,
+      internalIssues, externalIssues, nonBlockingIssues, discovered: links.length, processed, recognized,
+      windowRecords: events.size, details } };
 }

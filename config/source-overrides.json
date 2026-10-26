@@ -9,11 +9,10 @@
         "timezone": "America/New_York",
         "format": "alumni",
         "discovery": "public-dom",
-        "maxPages": 30,
         "preferFeed": false,
         "upstreamScope": "public-dom-all"
       },
-      "strategy": "Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters.",
+      "strategy": "Render every visible public Alumni listing page until Next is disabled, inspect every eligible original detail through bounded concurrency, and share current results between scopes only within one refresh. Actual access failures preserve current listing dates with explicit upstream diagnostics.",
       "evidence": {
         "checkedAt": "2026-10-21T17:56:37.814Z",
         "httpStatus": 200,
@@ -68,7 +67,7 @@
         }
       },
       "status": "active",
-      "reason": "Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters."
+      "reason": "Render every visible public Alumni listing page until Next is disabled, inspect every eligible original detail through bounded concurrency, and share current results between scopes only within one refresh. Actual access failures preserve current listing dates with explicit upstream diagnostics."
     },
     "https://www.cmu.edu/engage/events/online-events": {
       "adapter": "html",
@@ -77,12 +76,11 @@
         "timezone": "America/New_York",
         "format": "alumni",
         "discovery": "public-dom",
-        "maxPages": 30,
         "onlineOnly": true,
         "preferFeed": false,
         "upstreamScope": "public-dom-online"
       },
-      "strategy": "Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters.",
+      "strategy": "Render every visible public Alumni listing page until Next is disabled, inspect every eligible original detail through bounded concurrency, and share current results between scopes only within one refresh. Actual access failures preserve current listing dates with explicit upstream diagnostics.",
       "evidence": {
         "checkedAt": "2026-10-21T17:56:37.663Z",
         "httpStatus": 200,
@@ -126,7 +124,7 @@
         }
       },
       "status": "active",
-      "reason": "Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters."
+      "reason": "Render every visible public Alumni listing page until Next is disabled, inspect every eligible original detail through bounded concurrency, and share current results between scopes only within one refresh. Actual access failures preserve current listing dates with explicit upstream diagnostics."
     },
     "https://www.cmu.edu/osher/index.html": {
       "adapter": "ics",
@@ -546,13 +544,13 @@
             "attribute": "href",
             "profile": "poster",
             "fromEnd": true,
-            "maxAssets": 8,
-            "seriesTitle": "EWO Seminar"
+            "seriesTitle": "EWO Seminar",
+            "documentArchive": true
           }
         ]
       },
-      "strategy": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
-      "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+      "strategy": "Inspect all currently advertised semantic candidates, account for proven historical/non-event assets, and read all necessary current text/OCR pages. Preserve actual publisher date/access limitations separately from internal collection gaps.",
+      "reason": "Inspect all currently advertised semantic candidates, account for proven historical/non-event assets, and read all necessary current text/OCR pages. Preserve actual publisher date/access limitations separately from internal collection gaps.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.149006+00:00",
@@ -591,6 +589,10 @@
           "status": "automated",
           "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
           "nextStep": "New media bytes trigger automatic extraction. Check source diagnostics for missing years, OCR disagreements or bounded archive coverage."
+        },
+        "coverageRepair": {
+          "report": "research/coverage-repair-2026-10-26/README.md",
+          "method": "Complete semantic media/detail discovery with explicit date evidence and non-event roles; no fixed occurrence payloads."
         }
       }
     },
@@ -695,12 +697,11 @@
         "timezone": "America/New_York",
         "layout": "linked-consistent-details",
         "linkSelector": "#content a[href*=\"events1/\"]",
-        "maxDetails": 40,
         "detailTitleSelector": "#content > .content > div:first-child > :first-child",
         "detailContentSelector": "#content > .content"
       },
-      "strategy": "Follow current same-origin review links and accept a date only when every printed full date agrees with its title year. Conflicting current pages stay partial; new consistent pages are discovered automatically.",
-      "reason": "Follow current same-origin review links and accept a date only when every printed full date agrees with its title year. Conflicting current pages stay partial; new consistent pages are discovered automatically.",
+      "strategy": "Inspect every currently advertised same-origin review link. Resolve bounded event summaries, multiday ranges, repeated occurrences, explicitly dated series sessions, agenda days and auxiliary deadlines as different date roles. Preserve genuine title/summary/agenda conflicts without selecting a preferred year.",
+      "reason": "Directory-wide date-role parsing removes scan truncation and historical false conflicts while retaining two genuine publisher year conflicts. The current public directory has no verified events inside the ingestion window.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:14.991835+00:00",
@@ -737,6 +738,13 @@
           "status": "automated",
           "reason": "Follow current same-origin review links and accept a date only when every printed full date agrees with its title year. Conflicting current pages stay partial; new consistent pages are discovered automatically.",
           "nextStep": "Runtime diagnostics identify any incomplete discovery, unsupported dates or source access changes."
+        },
+        "semanticReview": {
+          "report": "research/dssc-date-semantics-2026-10-25/live-validation.json",
+          "script": "research/dssc-date-semantics-2026-10-25/validate-live.mjs",
+          "scope": "All currently advertised same-origin detail links, without an arbitrary detail count cap.",
+          "requiresReview": true,
+          "nextStep": "The publisher must correct the conflicting 2026 review title/header/agenda years. Daily refresh continues to inspect the complete live directory and keeps these conflicts separately auditable."
         }
       }
     },
@@ -1755,8 +1763,8 @@
       "status": "active",
       "canonicalSourceId": null,
       "refreshHours": 6,
-      "strategy": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
-      "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+      "strategy": "Inspect all currently advertised semantic candidates, account for proven historical/non-event assets, and read all necessary current text/OCR pages. Preserve actual publisher date/access limitations separately from internal collection gaps.",
+      "reason": "Inspect all currently advertised semantic candidates, account for proven historical/non-event assets, and read all necessary current text/OCR pages. Preserve actual publisher date/access limitations separately from internal collection gaps.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T18:21:47.375185+00:00",
@@ -1783,34 +1791,35 @@
           "status": "automated",
           "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
           "nextStep": "New media bytes trigger automatic extraction. Check source diagnostics for missing years, OCR disagreements or bounded archive coverage."
+        },
+        "coverageRepair": {
+          "report": "research/coverage-repair-2026-10-26/README.md",
+          "method": "Complete semantic media/detail discovery with explicit date evidence and non-event roles; no fixed occurrence payloads."
         }
       },
       "options": {
         "timezone": "America/New_York",
         "detailLinks": true,
-        "maxDetails": 8,
         "eventSelector": ".grid.news .filterable",
         "titleSelector": "h2.name",
         "linkSelector": "a",
         "dateSelector": "span",
         "detailOptions": {
-          "eventSelector": ".content > div:has(>h1),.grid.boxes > div:has(img[alt^=\"Join us on\"])",
-          "titleSelector": "h1,strong",
-          "dateSelector": "img[alt^=\"Join us on\"]",
-          "dateAttribute": "alt",
-          "yearSelector": ".grid.boxes:has(img[alt^=\"Join us on\"]) > h1",
-          "linkSelector": "a.btn[href],a.cta[href]"
+          "eventSelector": ".content",
+          "titleSelector": "h1",
+          "dateSelector": ":scope",
+          "linkSelector": "a[data-event-link]",
+          "detailLinks": false,
+          "automaticMedia": [
+            {
+              "selector": ".content img",
+              "optional": true,
+              "classifyIllustrations": true,
+              "profile": "poster",
+              "singleEventDocument": true
+            }
+          ]
         },
-        "reviewedResources": [
-          {
-            "selector": ".grid.news .filterable:has(a[href^=\"previous-events/\"])",
-            "expectedCount": 78,
-            "sha256": "45b5b7a4193c49924b1ee101422920d166195eebbec64f97889928a8ba876dc4",
-            "kind": "legacy event archive",
-            "reason": "This publisher-labelled previous-events archive lists historical summaries from 2023 and earlier; many omit their year. It is monitored for changed text and destinations rather than assigned a current year.",
-            "excludeDetailLinks": true
-          }
-        ],
         "detailOptionsByUrl": {
           "https://www.cmu.edu/dietrich/humanities-center/center-events/constitution-day-conference.html": {
             "eventSelector": ".content > div:has(>h1)",
@@ -1833,12 +1842,13 @@
                 "contextSelector": ".grid.boxes",
                 "containerSelector": ".grid.boxes > div",
                 "titleSelector": "p > strong",
-                "seriesTitle": "Off the Shelves: Faculty Writing Workshop",
-                "maxAssets": 18
+                "seriesTitle": "Off the Shelves: Faculty Writing Workshop"
               }
             ]
           }
-        }
+        },
+        "completeDetailTraversal": true,
+        "detailDateIndexSelector": "a[href$=\"previous-events/index.html\"]"
       }
     },
     "https://www.cmu.edu/dietrich/hsp/events/index.html": {
@@ -2004,13 +2014,24 @@
           {
             "selector": "#content img",
             "profile": "poster",
-            "maxAssets": 8,
-            "seriesTitle": "CAUSE Speaker Series"
+            "seriesTitle": "CAUSE Speaker Series",
+            "announcementSelector": "#content p",
+            "yearHeadingPattern": "(?:20\\d{2}\\s+(?:Spring|Summer|Fall|Winter)|(?:Spring|Summer|Fall|Winter)\\s+20\\d{2})",
+            "dateIndexes": [
+              {
+                "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+                "selector": ".grid.news .filterable",
+                "titleSelector": "h2.name",
+                "dateSelector": "span",
+                "linkSelector": "a[href]",
+                "associationPattern": "organized by the Center for Africanamerican Urban Studies"
+              }
+            ]
           }
         ]
       },
-      "strategy": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
-      "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+      "strategy": "Inspect all currently advertised semantic candidates, account for proven historical/non-event assets, and read all necessary current text/OCR pages. Preserve actual publisher date/access limitations separately from internal collection gaps.",
+      "reason": "Inspect all currently advertised semantic candidates, account for proven historical/non-event assets, and read all necessary current text/OCR pages. Preserve actual publisher date/access limitations separately from internal collection gaps.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.329677+00:00",
@@ -2037,6 +2058,10 @@
           "status": "automated",
           "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
           "nextStep": "New media bytes trigger automatic extraction. Check source diagnostics for missing years, OCR disagreements or bounded archive coverage."
+        },
+        "coverageRepair": {
+          "report": "research/coverage-repair-2026-10-26/README.md",
+          "method": "Complete semantic media/detail discovery with explicit date evidence and non-event roles; no fixed occurrence payloads."
         }
       }
     },
@@ -2121,13 +2146,12 @@
             "selector": "h1:contains(\"Seminars\") + p img",
             "profile": "poster",
             "yearHeadingPattern": "^(?:Fall|Spring|Summer|Winter)\\s+20\\d{2}\\s+Seminars",
-            "maxAssets": 12,
             "seriesTitle": "Socialist Studies Seminar"
           }
         ]
       },
-      "strategy": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
-      "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+      "strategy": "Inspect all currently advertised semantic candidates, account for proven historical/non-event assets, and read all necessary current text/OCR pages. Preserve actual publisher date/access limitations separately from internal collection gaps.",
+      "reason": "Inspect all currently advertised semantic candidates, account for proven historical/non-event assets, and read all necessary current text/OCR pages. Preserve actual publisher date/access limitations separately from internal collection gaps.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.035557+00:00",
@@ -2154,6 +2178,10 @@
           "status": "automated",
           "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
           "nextStep": "New media bytes trigger automatic extraction. Check source diagnostics for missing years, OCR disagreements or bounded archive coverage."
+        },
+        "coverageRepair": {
+          "report": "research/coverage-repair-2026-10-26/README.md",
+          "method": "Complete semantic media/detail discovery with explicit date evidence and non-event roles; no fixed occurrence payloads."
         }
       }
     },
@@ -4326,51 +4354,16 @@
       "status": "active",
       "canonicalSourceId": null,
       "options": {
+        "format": "semantic-seminar",
+        "layout": "series-landing",
         "timezone": "America/New_York",
         "preferFeed": false,
-        "detailLinks": false,
-        "reviewedResources": [
-          {
-            "selector": "#content > .content",
-            "expectedCount": 1,
-            "sha256": "554dca6e43669fd3bac22249bc279fddc118b938c2d76f98ff110a2820c50b9d",
-            "kind": "series and example timetable",
-            "reason": "The page gives descriptions, periodicity and an explicitly labelled example workshop timetable, without specific occurrence dates."
-          }
-        ],
-        "additionalEndpoints": [
-          {
-            "url": "https://calendar.google.com/calendar/ical/c_0c1dea11d4ea2e6c921bd6b47c076cff7d0e07ee47ec40be6fc1d6189c4a3cd0%40group.calendar.google.com/public/basic.ics",
-            "publicURL": "https://sites.google.com/andrew.cmu.edu/cmu-lcs/home",
-            "adapter": "ics"
-          },
-          {
-            "url": "https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics",
-            "publicURL": "https://www.cmu.edu/real/news-and-events/index.html",
-            "adapter": "ics"
-          },
-          {
-            "url": "https://sites.google.com/andrew.cmu.edu/cmu-lcs/home",
-            "adapter": "html",
-            "options": {
-              "timezone": "America/New_York",
-              "detailLinks": false,
-              "reviewedFragmentsOnly": true,
-              "reviewedResources": [
-                {
-                  "selector": "body",
-                  "expectedCount": 1,
-                  "sha256": "fc95a6f8fbfa71309a2d271d0ce48e8eaf0ab61895f655b576a92261a9a01bf2",
-                  "kind": "undated next-talk page and historical archive",
-                  "reason": "The visually inspected next upcoming seminar is TBD and its dated archive is from 2024. Monitor this page independently of the linked ICS; new text or media requires review."
-                }
-              ]
-            }
-          }
-        ]
+        "contentSelector": "#content > .content",
+        "linkedResourcesSelector": "#content a:contains(\"Website\")",
+        "childLayout": "speaker-sections"
       },
-      "strategy": "Reuse the public LCS ICS independently; retry the publisher-advertised Manipulation ICS and preserve a partial-coverage diagnostic while it is unavailable. Never turn the example timetable or biweekly description into events.",
-      "reason": "REAL公开。LCS可匿名读取但只有2024历史，下一场TBD；Manipulation匿名embed401/public ICS404，存在授权/公开发布范围缺口，覆盖仍partial。",
+      "strategy": "Parse semantic series descriptions and currently advertised public calendars/linked speaker sections on every run. Treat an explicit next-talk TBD as undated, not a failed whole-page fingerprint; keep unavailable public feeds visible as external failures.",
+      "reason": "Parse semantic series descriptions and currently advertised public calendars/linked speaker sections on every run. Treat an explicit next-talk TBD as undated, not a failed whole-page fingerprint; keep unavailable public feeds visible as external failures.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.079570+00:00",
@@ -4399,6 +4392,10 @@
           "note": "主页面公开且有内容。Manipulation匿名嵌入401、公开ICS404；已有Google登录上下文的浏览器能显示其名称与2026年10月空网格，这不证明匿名公开，也不证明REAL没有活动。LCS公开站点和ICS均200，站点明确下一场TBD。",
           "report": "research/visual-recheck-2026-10-25/real-ideas-epp.json",
           "requiresReview": true
+        },
+        "coverageRepair": {
+          "report": "research/remaining-10-2026-10-26/directory-real-patch.json",
+          "method": "Live semantic discovery and exact publisher series scope; no fixed occurrence payloads."
         }
       }
     },
@@ -4443,42 +4440,54 @@
       "status": "active",
       "canonicalSourceId": null,
       "options": {
+        "format": "scs-directory",
         "timezone": "America/New_York",
         "preferFeed": false,
-        "detailLinks": false,
-        "reviewedResources": [
+        "directoryUrl": "https://www.cs.cmu.edu/rs-datasources/data-source/scs-seminar-events-data",
+        "fallbackSourceId": "26680f057d80",
+        "bindings": [
           {
-            "selector": "#rsRegion-mainContent",
-            "expectedCount": 1,
-            "sha256": "c74c1dbf73667e0fb4431740481e81dee58bf4f48415e3698a731738d58340af",
-            "kind": "partially connected academic seminar directory",
-            "reason": "The directory lists 26 seminar series. Two previously unconnected public schedules (Cryptography and Econ-CS) now contribute verified occurrences. This is partial current-event coverage; not all linked series have been mapped into this source.",
-            "requiresReview": true
-          }
-        ],
-        "additionalEndpoints": [
-          {
-            "url": "https://www.cs.cmu.edu/rs-datasources/data-source/scs-seminar-events-data",
-            "adapter": "html",
-            "options": {
-              "format": "reviewed-raw-resource",
-              "reviewedRawResource": {
-                "jsonFields": [
-                  "success",
-                  "live",
-                  "cols",
-                  "data"
-                ],
-                "sha256": "8872a3bb4cdab2caf83f7b72fdb188ff13586fe6d812f61b1d622669d26f68d0",
-                "kind": "seminar-series directory data",
-                "reason": "This public directory lists 26 series with day, clock, contact and website columns, not dated occurrences. Transport dt/msg fields are excluded; actual column schema and series rows remain monitored."
-              }
-            }
+            "name": "AI Institute for Societal Decision Making Seminar",
+            "sourceId": "5a47a3eb65bf",
+            "url": "https://www.cmu.edu/ai-sdm/events/index.html"
           },
           {
-            "url": "https://sites.google.com/view/crypto-seminar/home",
-            "adapter": "html",
-            "options": {
+            "name": "Algorithms, Combinatorics and Optimization Seminar",
+            "sourceId": "a35bf71459aa",
+            "profile": {
+              "format": "semantic-seminar",
+              "layout": "dated-cards",
+              "cardSelector": ".talk",
+              "seriesSelector": "h1",
+              "yearHeadingSelector": "h2",
+              "speakerSelector": "span.head:nth-of-type(2)",
+              "titleSelector": "a[href*=\"/abs-\"]",
+              "locationPattern": "(?:[ap]m),\\s*(.+)$"
+            },
+            "url": "https://aco.math.cmu.edu/seminar.html"
+          },
+          {
+            "name": "Center for Informed Democracy & Social - cybersecurity Seminar",
+            "profile": {
+              "eventSelector": "#content > .content > div:first-child > div:first-child",
+              "titleSelector": "h1:first-of-type",
+              "dateSelector": "h2:nth-of-type(2)",
+              "locationSelector": "h1:nth-of-type(2)",
+              "detailLinks": false
+            },
+            "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/seminars.html"
+          },
+          {
+            "name": "CMU Foundation and Language Model Seminar",
+            "sourceId": "7a5d5c3584ce",
+            "matchPattern": "\\bFLAME\\b.*\\b(?:seminar|meeting)\\b",
+            "undatedWhenEmpty": true,
+            "scopeNote": "Only explicitly named FLAME seminar/meeting records from the advertised center calendar; public symposia are not silently assigned to this members-only weekly series.",
+            "url": "https://www.cmu.edu/flame/events/index.html"
+          },
+          {
+            "name": "Crypto Seminar",
+            "profile": {
               "format": "text-schedule",
               "timezone": "America/New_York",
               "rowSelector": "section",
@@ -4503,12 +4512,12 @@
                   "index": 2
                 }
               }
-            }
+            },
+            "url": "https://sites.google.com/view/crypto-seminar/home"
           },
           {
-            "url": "https://cmueconcs.github.io/",
-            "adapter": "html",
-            "options": {
+            "name": "Economics-CS Seminar",
+            "profile": {
               "format": "text-schedule",
               "timezone": "America/New_York",
               "rowSelector": "table tbody tr",
@@ -4535,12 +4544,136 @@
                   "index": 4
                 }
               }
-            }
+            },
+            "url": "https://cmueconcs.github.io/"
+          },
+          {
+            "name": "Cylab Seminar",
+            "sourceId": "9903c32bf0ab",
+            "matchPattern": "^CyLab Seminar\\b"
+          },
+          {
+            "name": "Current Topics in Privacy Seminar",
+            "sourceId": "fbdc39977a83",
+            "scopeNote": "The directory legacy privacy.cs URL serves the same official Privacy Engineering series linked by the current privacy.s3d catalog source.",
+            "url": "https://privacy.cs.cmu.edu/masters/seminar/index.html"
+          },
+          {
+            "name": "Database Seminar",
+            "sourceId": "804b8b6951fe",
+            "scopeNote": "Use the official current /seminars/ index reached from the legacy /seminar2025/ page, rather than pinning April 2025.",
+            "url": "https://db.cs.cmu.edu/seminar2025/"
+          },
+          {
+            "name": "Human-Computer Interaction Seminar",
+            "sourceId": "83459e4d2608",
+            "url": "https://www.hcii.cmu.edu/seminar-series"
+          },
+          {
+            "name": "Joint CMU-Pitt Ph.D. in Computational Biology Seminar",
+            "sourceId": "1afa627d953d",
+            "profile": {
+              "format": "semantic-seminar",
+              "layout": "dated-table",
+              "cardSelector": "table tr",
+              "dateSelector": "td:nth-child(1)",
+              "speakerSelector": "td:nth-child(2) strong",
+              "titleSelector": "td:nth-child(4)",
+              "seriesTitle": "CPCB Seminar Series",
+              "contextSelector": "#content",
+              "clockPattern": "\\bTime:\\s*(\\d{1,2}:\\d{2}\\s*[ap]m)",
+              "locationPattern": "Location:\\s*([^\\n]+)"
+            },
+            "scopeNote": "Supplement the existing explicitly dated table with named-speaker rows whose topic is blank; omit NO SEMINAR and unnamed pending slots.",
+            "url": "https://www.compbio.cmu.edu/seminar-series/index.html"
+          },
+          {
+            "name": "Language Technologies Institute Colloquium",
+            "sourceId": "528193392a78",
+            "url": "https://www.lti.cmu.edu/misc-pages/lti-colloquium.html"
+          },
+          {
+            "name": "Machine Learning - Artificial Intelligence Seminar",
+            "sourceId": "276c414f1ee0",
+            "url": "https://www.cs.cmu.edu/~mlaiseminar/"
+          },
+          {
+            "name": "Parallel Data Laboratory Talk Series",
+            "profile": {
+              "format": "semantic-seminar",
+              "layout": "grouped-table",
+              "tableSelector": "table:has(b.color):not(:has(table))",
+              "dateSelector": "b.color",
+              "titleSelector": "td:nth-child(2) > a[href*=\".shtml\"]",
+              "speakerSelector": "td:first-child"
+            },
+            "url": "https://pdl.cmu.edu/talk-series/index.shtml"
+          },
+          {
+            "name": "Principles of Programming Seminar",
+            "sourceId": "a8e37996c63d",
+            "url": "https://www.cs.cmu.edu/~pop/seminar/"
+          },
+          {
+            "name": "Robotics Institute Seminar",
+            "sourceId": "b24d9c9bb1f5",
+            "matchTags": [
+              "RI Seminar"
+            ],
+            "scopeNote": "The advertised month URL is stale; reuse its official current Seminar API category, selecting only the publisher RI Seminar category tag.",
+            "url": "https://www.ri.cmu.edu/events/category/seminar/2025-04/"
+          },
+          {
+            "name": "Software and Societal Systems Department Seminar Series",
+            "sourceId": "d286f9c7c4b4",
+            "matchPattern": "^S3D (?:Distinguished Speakers?|Seminar)\\b",
+            "scopeNote": "The linked S3D public feed is department-wide. Only events explicitly naming this distinguished/seminar series are assigned here.",
+            "url": "https://s3d.cmu.edu/events/distinguished.html"
+          },
+          {
+            "name": "Software Research Seminar",
+            "sourceId": "13fff1668ca0",
+            "matchPattern": "\\b(?:SSSG|Software Research Seminar)\\b",
+            "undatedWhenEmpty": true,
+            "scopeNote": "The linked public calendar is department-wide; only explicit SSSG/Software Research Seminar labels ground this series. Its syllabus weekday rule does not create occurrences.",
+            "url": "https://s3d.cmu.edu/events/sssg.html"
+          },
+          {
+            "name": "Systems Design and Implementation Seminar",
+            "sourceId": "45f983439757",
+            "url": "https://pdl.cmu.edu/SDI/index.shtml"
+          },
+          {
+            "name": "Theory Lunch Seminar",
+            "sourceId": "a75d27bb1128",
+            "url": "https://www.cs.cmu.edu/~theorylunch/"
+          },
+          {
+            "name": "Theory Seminar",
+            "sourceId": "a75d27bb1128",
+            "matchPattern": "part of the Theory Seminar series",
+            "matchFields": [
+              "description"
+            ],
+            "scopeNote": "The shared Theory Lunch page explicitly labels these individual rows as part of the Theory Seminar series."
+          },
+          {
+            "name": "Visions and Autonomous Systems Seminar",
+            "sourceId": "b24d9c9bb1f5",
+            "matchTags": [
+              "VASC Seminar"
+            ],
+            "scopeNote": "Same official RI parent calendar as RI Seminar, but only publisher VASC Seminar category tags are assigned here.",
+            "url": "https://www.ri.cmu.edu/events/category/seminar/2025-04/"
+          },
+          {
+            "name": "SCS Distinguished Lectures",
+            "sourceId": "d31338711e1f"
           }
         ]
       },
-      "strategy": "Keep the 26-series discovery limitation explicit while parsing current Crypto and Econ-CS schedules from live structural rows and publisher-advertised weekday defaults; no fixed event annotations.",
-      "reason": "Keep the 26-series discovery limitation explicit while parsing current Crypto and Econ-CS schedules from live structural rows and publisher-advertised weekday defaults; no fixed event annotations.",
+      "strategy": "Discover every current public JSON series row, reuse exact catalog endpoints under explicit series scope, parse live linked schedules, and publish per-series coverage. Directory weekdays and clocks never generate recurrence.",
+      "reason": "Discover every current public JSON series row, reuse exact catalog endpoints under explicit series scope, parse live linked schedules, and publish per-series coverage. Directory weekdays and clocks never generate recurrence.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:14.972110+00:00",
@@ -4578,6 +4711,10 @@
           "status": "automated",
           "reason": "Keep the 26-series discovery limitation explicit while parsing current Crypto and Econ-CS schedules from live structural rows and publisher-advertised weekday defaults; no fixed event annotations.",
           "nextStep": "Runtime diagnostics identify any incomplete discovery, unsupported dates or source access changes."
+        },
+        "coverageRepair": {
+          "report": "research/remaining-10-2026-10-26/directory-real-patch.json",
+          "method": "Live semantic discovery and exact publisher series scope; no fixed occurrence payloads."
         }
       }
     },
@@ -4782,12 +4919,11 @@
             "selector": "h1:contains(\"Schedule\") + p img",
             "profile": "table",
             "yearHeadingPattern": "^(?:Fall|Spring|Summer|Winter)\\s+20\\d{2}\\s+Schedule",
-            "maxAssets": 6,
             "seriesTitle": "LTI Colloquium"
           }
         ]
       },
-      "strategy": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+      "strategy": "Inspect all currently advertised semantic candidates, account for proven historical/non-event assets, and read all necessary current text/OCR pages. Preserve actual publisher date/access limitations separately from internal collection gaps.",
       "evidence": {
         "checkedAt": "2026-10-21T18:05:52.996Z",
         "httpStatus": 200,
@@ -4813,10 +4949,14 @@
           "status": "automated",
           "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
           "nextStep": "New media bytes trigger automatic extraction. Check source diagnostics for missing years, OCR disagreements or bounded archive coverage."
+        },
+        "coverageRepair": {
+          "report": "research/coverage-repair-2026-10-26/README.md",
+          "method": "Complete semantic media/detail discovery with explicit date evidence and non-event roles; no fixed occurrence payloads."
         }
       },
       "status": "active",
-      "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+      "reason": "Inspect all currently advertised semantic candidates, account for proven historical/non-event assets, and read all necessary current text/OCR pages. Preserve actual publisher date/access limitations separately from internal collection gaps.",
       "canonicalSourceId": null
     },
     "https://www.cs.cmu.edu/~mlaiseminar/": {

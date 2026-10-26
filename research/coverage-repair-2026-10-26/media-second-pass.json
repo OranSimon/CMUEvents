@@ -1,0 +1,2028 @@
+{
+  "checkedAt": "2026-10-26T04:23:03.398Z",
+  "context": {
+    "windowStart": "2026-09-26T04:21:43.972Z",
+    "windowEnd": "2027-10-26T04:21:43.972Z"
+  },
+  "results": [
+    {
+      "id": "528193392a78",
+      "org": "LTI Colloquium",
+      "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+      "elapsedMs": 2036,
+      "eventCount": 9,
+      "partial": false,
+      "unsupported": false,
+      "warnings": [
+        "Speaker text is uncertain for 2026-11-20; publisher series title retained (https://www.lti.cs.cmu.edu/misc-pages/colloquium-series-fall-2026.png)"
+      ],
+      "coverage": {
+        "version": 1,
+        "kind": "automatic-media",
+        "inspectionComplete": true,
+        "discovered": 1,
+        "processed": 1,
+        "excludedHistorical": 0,
+        "excludedNonEvent": 0,
+        "unresolved": 0,
+        "internalIssues": [],
+        "externalIssues": [],
+        "nonBlockingIssues": [
+          "Speaker text is uncertain for 2026-11-20; publisher series title retained (https://www.lti.cs.cmu.edu/misc-pages/colloquium-series-fall-2026.png)"
+        ],
+        "assets": [
+          {
+            "url": "https://www.lti.cs.cmu.edu/misc-pages/colloquium-series-fall-2026.png",
+            "classification": "processed",
+            "recognized": 13
+          }
+        ]
+      },
+      "events": [
+        {
+          "title": "LTI Colloquium — Chenggang Xu",
+          "start": "2026-10-02T19:30:00.000Z",
+          "end": "2026-10-02T21:00:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Social",
+          "start": "2026-10-09T19:00:00.000Z",
+          "end": "2026-10-09T19:30:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Social",
+          "start": "2026-10-16T19:00:00.000Z",
+          "end": "2026-10-16T19:30:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Colloquium — Sewon Min",
+          "start": "2026-10-23T19:30:00.000Z",
+          "end": "2026-10-23T21:00:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Colloquium — Chris Potts",
+          "start": "2026-10-30T19:30:00.000Z",
+          "end": "2026-10-30T21:00:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Social",
+          "start": "2026-11-06T20:00:00.000Z",
+          "end": "2026-11-06T20:30:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Colloquium — Jocelyn Shen",
+          "start": "2026-11-13T20:30:00.000Z",
+          "end": "2026-11-13T22:00:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Colloquium",
+          "start": "2026-11-20T20:30:00.000Z",
+          "end": "2026-11-20T22:00:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        },
+        {
+          "title": "LTI Social",
+          "start": "2026-12-04T20:00:00.000Z",
+          "end": "2026-12-04T20:30:00.000Z",
+          "timePrecision": "time",
+          "location": "NSH 4305",
+          "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
+        }
+      ]
+    },
+    {
+      "id": "34fa7359276d",
+      "org": "Socialist Studies Seminar",
+      "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "elapsedMs": 9445,
+      "eventCount": 2,
+      "partial": false,
+      "unsupported": false,
+      "warnings": [],
+      "coverage": {
+        "version": 1,
+        "kind": "automatic-media",
+        "inspectionComplete": true,
+        "discovered": 18,
+        "processed": 2,
+        "excludedHistorical": 16,
+        "excludedNonEvent": 0,
+        "unresolved": 0,
+        "internalIssues": [],
+        "externalIssues": [],
+        "nonBlockingIssues": [],
+        "assets": [
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/brockmann-8.5x11.pdf",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2026-09-18",
+              "end": "2026-09-19",
+              "line": "Friday, September 18, 2026",
+              "weekday": "Friday"
+            },
+            "evidence": "Visible current document cover date/publication period",
+            "totalPages": 1
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/screenshot-2026-08-21-at-2.18.58pm.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2026-09-18",
+              "end": "2026-09-19",
+              "line": "Friday, September 18, 2026",
+              "weekday": "Friday"
+            },
+            "evidence": "Visible current document cover date/publication period"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/screenshot-2026-08-21-at-2.19.02pm.png",
+            "classification": "processed",
+            "recognized": 1
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/screenshot-2026-08-21-at-2.19.05pm.png",
+            "classification": "processed",
+            "recognized": 1
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/salimjan-flyer.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2026-01-01",
+              "end": "2026-07-01"
+            },
+            "evidence": "Spring 2026 Seminars"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/walke-flyer.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2026-01-01",
+              "end": "2026-07-01"
+            },
+            "evidence": "Spring 2026 Seminars"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/sternfeld-flyer.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2026-01-01",
+              "end": "2026-07-01"
+            },
+            "evidence": "Spring 2026 Seminars"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/zubovich-flyer.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-07-01",
+              "end": "2026-01-01"
+            },
+            "evidence": "zubovich-flyer.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/10-10-2025-socialist-seminar-8.5x111.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-07-01",
+              "end": "2026-01-01"
+            },
+            "evidence": "Fall 2025 Seminars"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/fall20251.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-01-01",
+              "end": "2025-07-01"
+            },
+            "evidence": "fall20251.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/fall20252.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-01-01",
+              "end": "2025-07-01"
+            },
+            "evidence": "fall20252.png"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/fall20253.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-01-01",
+              "end": "2025-07-01"
+            },
+            "evidence": "fall20253.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/11-15-2024_socialist-seminar-jaromir.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2024-07-01",
+              "end": "2025-01-01"
+            },
+            "evidence": "11-15-2024_socialist-seminar-jaromir.png"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/12-04-2024_the-socialist-studies-seminar_-nathans.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2024-07-01",
+              "end": "2025-01-01"
+            },
+            "evidence": "12-04-2024_the-socialist-studies-seminar_-nathans.png"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/v2spring-2023-socialist-seminar-graphic.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2023-01-01",
+              "end": "2023-07-01"
+            },
+            "evidence": "v2spring-2023-socialist-seminar-graphic.png"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/v2fall-2023-socialist-seminar-graphic.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2023-07-01",
+              "end": "2024-01-01"
+            },
+            "evidence": "v2fall-2023-socialist-seminar-graphic.png"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/v2spring-2022-socialist-seminar-graphic.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "v2spring-2022-socialist-seminar-graphic.png"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/history/centers-seminars/v2fall-2022-socialist-seminar-graphic.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-07-01",
+              "end": "2023-01-01"
+            },
+            "evidence": "v2fall-2022-socialist-seminar-graphic.png"
+          }
+        ]
+      },
+      "events": [
+        {
+          "title": "Socialist Studies Seminar",
+          "start": "2026-10-09T20:00:00.000Z",
+          "end": "2026-10-09T21:30:00.000Z",
+          "timePrecision": "time",
+          "location": "Baker/Porter Hall 246A, CMU",
+          "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html"
+        },
+        {
+          "title": "Socialist Studies Seminar — Anna Muller",
+          "start": "2026-11-20T21:00:00.000Z",
+          "end": "2026-11-20T22:30:00.000Z",
+          "timePrecision": "time",
+          "location": "Baker/Porter Hall 246A, CMU",
+          "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html"
+        }
+      ]
+    },
+    {
+      "id": "d861fd81e26d",
+      "org": "Center for African American Urban Studies and the Economy Events",
+      "url": "https://www.cmu.edu/history/cause/events/index.html",
+      "elapsedMs": 8433,
+      "eventCount": 0,
+      "partial": true,
+      "unsupported": false,
+      "warnings": [
+        "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/jay-aronson_credit-kevin-lorenzi-carnegie-mellon-university.jpg)",
+        "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/nico-slate-photo-small.jpeg)"
+      ],
+      "coverage": {
+        "version": 1,
+        "kind": "automatic-media",
+        "inspectionComplete": false,
+        "discovered": 38,
+        "processed": 3,
+        "excludedHistorical": 20,
+        "excludedNonEvent": 15,
+        "unresolved": 2,
+        "internalIssues": [
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/jay-aronson_credit-kevin-lorenzi-carnegie-mellon-university.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/history/cause/events/nico-slate-photo-small.jpeg)"
+        ],
+        "externalIssues": [],
+        "nonBlockingIssues": [],
+        "assets": [
+          {
+            "url": "https://www.cmu.edu/history/cause/events/speakerposter2.27.11x17.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2026-02-27",
+              "end": "2026-02-28",
+              "line": "Photo of Augustus Wood's guest speaker lecture on 2/27/2026  at Baker Hall room A53, at 4:30pm - 6:45pm.",
+              "weekday": null
+            },
+            "evidence": "Photo of Augustus Wood's guest speaker lecture on 2/27/2026  at Baker Hall room A53, at 4:30pm - 6:45pm."
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/joe-trotter-jr.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-11-07",
+              "end": "2025-11-08",
+              "line": "November 7, 2025",
+              "weekday": null
+            },
+            "evidence": "November 7, 2025\nLocation: Baker Hall A53 - Steinberg Auditorium\nSchedule of events:\n4:30 PM - 5:00 PM Reception\nFood and refreshments will be provided\n5:00 - 6:30 PM - Dr. Joe William Trotter Jr. Book Symposium"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-30th-anniversary-qr.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2025-04-11",
+              "end": "2025-04-13",
+              "line": "April 11-12, 2025",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/derek-headshot-1a.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/dsc_3806-edit.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/october-18.png",
+            "classification": "processed",
+            "recognized": 1,
+            "dateEvidence": {
+              "title": "Film Screening: The Cost of Inheritance",
+              "date": "2024-10-18",
+              "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+              "detailUrl": "https://www.cmu.edu/dietrich/humanities-center/center-events/cause-film-screening.html",
+              "associationVerified": true
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/20240507-085110-4533-153_fair_j_henry_web.aboutpage.photo.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.heinz.cmu.edu/heinz-shared/_files/img/diversity-and-inclusion/cause-speakers/gabriel-winant-250x250.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/drew-smith.jpeg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.heinz.cmu.edu/heinz-shared/_files/img/diversity-and-inclusion/cause-speakers/destin-jenkins-250x250.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.heinz.cmu.edu/heinz-shared/_files/img/diversity-and-inclusion/cause-speakers/ashley-farmer-250x250.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.heinz.cmu.edu/heinz-shared/_files/img/diversity-and-inclusion/cause-speakers/brian-goldstein-250x250.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.heinz.cmu.edu/heinz-shared/_files/img/diversity-and-inclusion/cause-speakers/darity-mullen-500x250.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/roger-mitchell_credit-jeff-suggs-jeff-suggs-photography.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/jay-aronson_credit-kevin-lorenzi-carnegie-mellon-university.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/brothers-cover-high-resolution.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/nico-slate-photo-small.jpeg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/klanderud-headshot-2023.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/wendell_adjetey.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/people/avinash_hingorani_cause_picture.jpeg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause_reception.png",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2024-09-13",
+              "end": "2024-09-14",
+              "line": "September 13, 2024",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause---heinz-speakers-april-8.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-04-08",
+              "end": "2022-04-09",
+              "line": "Friday, April 8, 2022 | 4:30pm - 6:30pm ET",
+              "weekday": "Friday"
+            },
+            "evidence": "cause---heinz-speakers-april-8.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause---heinz-speakers-march-11.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-03-11",
+              "end": "2022-03-12",
+              "line": "Friday, March 11, 2022 | 4:30pm - 6:30pm ET",
+              "weekday": "Friday"
+            },
+            "evidence": "cause---heinz-speakers-march-11.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-main-poster-.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "2022 SPRING SPEAKER SERIES"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-day-1-flyer.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "cause-day-1-flyer.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-day-2-flyer.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "cause-day-2-flyer.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-day-3-flyer.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "cause-day-3-flyer.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-day-4-flyer-2.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "cause-day-4-flyer-2.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause-day-5-flyer-2.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "cause-day-5-flyer-2.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/policing-public-forum3.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "policing-public-forum3.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/balto-poster.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "balto-poster.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/my-post.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2022-01-01",
+              "end": "2022-07-01"
+            },
+            "evidence": "my-post.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/michael-fortner-poster.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2021-04-09",
+              "end": "2021-04-10",
+              "line": "Friday, April 9, 2021 - 4:30-6:00pm ET",
+              "weekday": "Friday"
+            },
+            "evidence": "michael-fortner-poster.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause---heinz-speaker-series-march-262.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2021-03-26",
+              "end": "2021-03-27",
+              "line": "Friday, March 26, 2021 - 4:30-6:00pm",
+              "weekday": "Friday"
+            },
+            "evidence": "cause---heinz-speaker-series-march-262.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/aishah-scott-speaker-series-poster.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2021-01-01",
+              "end": "2021-07-01"
+            },
+            "evidence": "aishah-scott-speaker-series-poster.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause---nelson-heinz-speaker-series.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2021-01-01",
+              "end": "2021-07-01"
+            },
+            "evidence": "cause---nelson-heinz-speaker-series.jpg"
+          },
+          {
+            "url": "https://www.cmu.edu/history/cause/events/cause---gamble_heinz-speaker-series4.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2021-01-01",
+              "end": "2021-07-01"
+            },
+            "evidence": "cause---gamble_heinz-speaker-series4.jpg"
+          }
+        ]
+      },
+      "events": []
+    },
+    {
+      "id": "1468ddb723b2",
+      "org": "Humanities Center News and Events",
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "elapsedMs": 59508,
+      "eventCount": 0,
+      "partial": true,
+      "unsupported": false,
+      "warnings": [
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/anna-kornbluh.html): No events with explicit title, date and public URL were found; the page may require a source-specific selector or render client-side",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/living-on-the-internet.html): No explicit year for media date: September 22 (https://www.cmu.edu/dietrich/humanities-center/images/posters/rosenbaum_220x340.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/living-on-the-internet.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/rosenbaum_220x340.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/harbingers-of-future-war.html): No explicit year for media date: March 28 (https://www.cmu.edu/dietrich/humanities-center/images/posters/mcmasters-220.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/harbingers-of-future-war.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/mcmasters-220.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/terror.html): No explicit year for media date: NOVEMBER 20 (https://www.cmu.edu/dietrich/humanities-center/images/posters/terror_220x340.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/terror.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/terror_220x340.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-23-2014.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/rockstar-250.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-09-2014.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/ross-250.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/09-11-2014.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/denning.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/04-30-2014.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/chow.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/03-20-2014.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/zapatista-250.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/03-04-2014.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/moocs.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/12-05-2013.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/simpson-250.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-24-2013.html): No explicit year for media date: October 24 (https://www.cmu.edu/dietrich/humanities-center/images/posters/humanities-250.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-24-2013.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/humanities-250.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/09-26-2013.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/godzich-250.jpg)",
+        "Detail (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/11-09-2012.html): No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/nadel.jpg)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/anna-kornbluh.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/baltimore-after-progress.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-joseph.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/epoch-of-loss.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/alice-julier-seminars.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/communicating-climate-change.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-gamper.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/urban-water-governance.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/human-right-to-water.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/poioned-city.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/hayden-white.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/movies-narrative-emotions.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/computational-narrative-intelligence.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/empathy-and-immersion.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/steve-silberman.html)",
+        "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/dan-rosenberg.html)"
+      ],
+      "coverage": {
+        "version": 1,
+        "kind": "html-and-media",
+        "inspectionComplete": false,
+        "discovered": 216,
+        "processed": 89,
+        "excludedHistorical": 21,
+        "excludedNonEvent": 106,
+        "unresolved": 29,
+        "internalIssues": [
+          "No explicit year for media date: September 22 (https://www.cmu.edu/dietrich/humanities-center/images/posters/rosenbaum_220x340.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/rosenbaum_220x340.jpg)",
+          "No explicit year for media date: March 28 (https://www.cmu.edu/dietrich/humanities-center/images/posters/mcmasters-220.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/mcmasters-220.jpg)",
+          "No explicit year for media date: NOVEMBER 20 (https://www.cmu.edu/dietrich/humanities-center/images/posters/terror_220x340.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/terror_220x340.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/rockstar-250.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/ross-250.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/denning.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/chow.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/zapatista-250.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/moocs.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/simpson-250.jpg)",
+          "No explicit year for media date: October 24 (https://www.cmu.edu/dietrich/humanities-center/images/posters/humanities-250.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/humanities-250.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/godzich-250.jpg)",
+          "No complete, unambiguous visible media occurrence date (https://www.cmu.edu/dietrich/humanities-center/images/posters/nadel.jpg)"
+        ],
+        "externalIssues": [
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/anna-kornbluh.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/baltimore-after-progress.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-joseph.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/epoch-of-loss.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/alice-julier-seminars.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/communicating-climate-change.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-gamper.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/urban-water-governance.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/human-right-to-water.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/poioned-city.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/hayden-white.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/movies-narrative-emotions.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/computational-narrative-intelligence.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/empathy-and-immersion.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/steve-silberman.html)",
+          "Publisher event content has no uniquely grounded occurrence year/date after HTML and advertised media inspection (https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/dan-rosenberg.html)"
+        ],
+        "nonBlockingIssues": [],
+        "assets": [
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/sanford-levinson-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/aaron-hall-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/andrew-lanham-min-500x500.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/samantha-pinto-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/people/chris-warren-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/haider-ala-hamoudi-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/jeffrey-miller-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/richard-weisberg-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/doug-coulson-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/emma-brush-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/brian-soucek-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/simon-stern-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/lisa-tetrault-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/hc.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/lhi-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/otp-logo.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/dchss-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/libraries-min-constitution-day-400x200-1.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/english-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/hsp-min.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/baltimore_3x2.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/climate-justice-joseph-bg.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/climate_catastrophe_3x2.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/climate_food.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/climate-change-earth_turning_to_coal-3x2.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/climate-justice-book-cover.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/covid-conversations-pt1_900x600",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/covid-conversations-pt1-synd-900x600",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/college-food-insecurity_800x600.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/people/lisa-henry_800x1000.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/vibrant-storytelling_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/food-urban-india_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/agua-es-vida_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/agua-es-vida_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/agua-es-vida_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/robert-kass_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/hayden-white_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/movies_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/mark-riedl_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/empathy_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/minds-think_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/marx-card_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/dan-rosenberg_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/marx-panel_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/epps-addison_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/robots_900x600.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/steve-james_748x150.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/humanities-festival.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/festival-pricing.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/film-festival.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2017-04-09",
+              "end": "2017-04-10",
+              "line": "MARCH 23 - APRIL 9, 2017",
+              "weekday": null
+            },
+            "evidence": "Visible current document cover date/publication period"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/aaf-migrants_220x340.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/zeroes-ones_220x340.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/arclight_220x340.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/copyright_220x340.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/rosenbaum_220x340.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/mcmasters-220.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/unmanned_220.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/naimark-220.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/terror_220x340.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/saint-amour_220x340.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/mieskowski_220x340.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/atkinson-220.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/adams_headshot.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/humantiesfestival_350x215.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/rothenberg-220.jpg",
+            "classification": "excluded-non-event",
+            "reason": "Publisher marks a headshot/portrait or embeds the floated image in biography prose; dated announcement HTML is parsed separately"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/humanities-220.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/rockstar-250.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/ross-250.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/denning.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/chow.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/tunisa.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/zapatista-250.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/moocs.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/simpson-250.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/humanities-250.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/godzich-250.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/color-brain.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/life-and-debt.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/nadel.jpg",
+            "classification": "unresolved",
+            "recognized": 0
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/cas-small.gif",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/posters/Roundtable-img.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2012-09-06",
+              "end": "2012-09-07",
+              "line": "Thursday, September 6, 2012",
+              "weekday": "Thursday"
+            },
+            "evidence": "Visible current document cover date/publication period"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/banner1.jpg",
+            "classification": "excluded-historical",
+            "period": {
+              "start": "2011-10-27",
+              "end": "2011-10-31",
+              "line": "Arts of the Planet: National Conference, October 27-30, 2011",
+              "weekday": null
+            },
+            "evidence": "Arts of the Planet: National Conference, October 27-30, 2011"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/images/asap/asap3-logo-small.png",
+            "classification": "excluded-non-event",
+            "reason": "All OCR treatments inspect this editorial image without a calendar date or clock; the associated event prose is checked separately",
+            "inspectedTreatments": 3
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/in-exile-film-screening.html",
+            "classification": "excluded-historical",
+            "evidence": "Friday, Nov. 7, 2025, Harris Theater, Pittsburgh Cultural Trust"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html",
+            "classification": "excluded-historical",
+            "evidence": "A six-part workshop series for faculty interested in public-facing writing and trade publishing. Fall 2025 and Spring 2026",
+            "period": {
+              "start": "2025-07-01",
+              "end": "2026-07-01"
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/make-research-come-alive.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Apr. 17, 2025 9 - 12:00 p.m, William Pitt Union, University of Pittsburgh."
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/gilder-lehrman-lincoln-prize.html",
+            "classification": "excluded-historical",
+            "evidence": "Tuesday, Apr. 8, 2025,  8-9:00 p.m., Zoom"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/cause-anniversary-conference.html",
+            "classification": "excluded-historical",
+            "evidence": "Friday, Apr. 11 - Saturday Apr 12, 2025, Cohon University Center"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/environmental-humanities-slam.html",
+            "classification": "excluded-historical",
+            "evidence": "Tuesday, Apr. 1, 2025, 4:00 to 5:30 p.m., Posvar Hall, University of Pittsburgh"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/cause-film-screening.html",
+            "classification": "excluded-historical",
+            "evidence": "Friday, Oct. 18, 2024 6:00 to 7:30 p.m., McConomy Auditorium, Cohon University Center"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/shellen-xiao-wu.html",
+            "classification": "excluded-historical",
+            "evidence": "Wednesday, Sept. 25, 2024, 5:00 to 6:30 p.m., Connan Room, Cohon University Center"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/amy-cooter.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Apr. 18, 2024, 5:00 PM, Steinberg Auditorium (BH A 53)\n"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/michael-sawyer.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Feb. 22, 2024, 5:00 PM, Steinberg Auditorium (BH A 53)\n"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/claudio-lomnitz.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Jan. 25, 2024 5:00 PM, Posner Grand Room"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/paul-mcewan.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Nov. 30, 2023, 5:00, Steinberg Auditorium (BH A 53)"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/winter-counts.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Nov. 16, 2023, 12:00pm, Posner Grand Room"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/edward-baptist.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Oct. 26, 2023, 5:00pm\n"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/patrick-spero.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Oct. 5, 2023, 5:00, Steinberg Auditorium (BH A 53)"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/gregory-jones-katz.html",
+            "classification": "excluded-historical",
+            "evidence": "Thursday, Mar 30, 2023, 4:30pm, Posner Grand Room (Posner Hall 340)"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/spring-2019.html",
+            "classification": "excluded-historical",
+            "evidence": "Spring 2019 Events",
+            "period": {
+              "start": "2019-01-01",
+              "end": "2019-07-01"
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/manufacturing-mischief.html",
+            "classification": "excluded-historical",
+            "evidence": "May 10-12, 2018"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/constitution-day-conference.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/caroline-levine.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/jane-gallop.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/eric-hayot.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/bruce-robbins.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/anna-kornbluh.html",
+            "classification": "unresolved-publisher-date",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "September 22nd at 4:30 in Baker Hall 255B, the Swank Room",
+                "There will also be a seminar with Professor Kornbluh on “Marxist Cultural Criticism.” This workshop returns to two classics of dialectical cultural critique to explore some past and present questions about periodization, cultural studies, and marxist aesthetic theory. What should be our methods for cultural interpretation today?”",
+                "September 23, noon-1:15 in Baker Hall 254Q"
+              ],
+              "eventContentYears": [],
+              "mediaAssetsInspected": 0
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/baltimore-after-progress.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Thursday, Feb. 24th @ 4:30 p.m.",
+                "Friday, Feb. 25th @ noon"
+              ],
+              "eventContentYears": [],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-joseph.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Climate Justice Lecture & Seminar with May Joseph",
+                "Thursday, March 31st @ 4:30 pm (EST)",
+                "Friday, April 1st @ noon (EST)"
+              ],
+              "eventContentYears": [
+                "1937",
+                "2022"
+              ],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/epoch-of-loss.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Thursday, Nov. 11 at 4:30 (ES)",
+                "Friday, November 12 at 12:00-1:15 pm (ES)"
+              ],
+              "eventContentYears": [],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/alice-julier-seminars.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Alice Julier Lecture and Seminar",
+                "Alice Julier, Associate Professor of Sociology, Director of Food Studies, Chatham University",
+                "Thursday at 4:30:",
+                "Friday at Noon:"
+              ],
+              "eventContentYears": [],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/communicating-climate-change.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Tuesday, Oct. 12 @ 4:30 p.m. ET (Eastern time)"
+              ],
+              "eventContentYears": [],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-gamper.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Thursday, March 17 @ 4.30pm (EST)"
+              ],
+              "eventContentYears": [],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/covid-conversations-part2.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/covid-conversations-part1.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/college-food-insecurity.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/vibrant-storytelling.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/food-oasis-in-pittsburgh.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/urban-water-governance.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Wednesday October 23",
+                "Water is a finite resource whose governance requires cooperation of many individuals across multiple constituencies. While much emphasis has been given to agricultural water policy across the globe, urban water challenges have recently risen in visibility (Flint, Washington DC, Detroit). Why is urban water governance a “wicked problem” and how can we ensure that everyone has access to the vital liquid, particularly in the face of abrupt climatic events and increasing commodification? In this public lecture, Pacheco-Vega outlines the challenges we face and potential solutions we may want to implement. More importantly, Pacheco-Vega emphasizes the importance of collective action in jointly seeking solutions to address these challenges."
+              ],
+              "eventContentYears": [],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/human-right-to-water.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Wednesday September 25"
+              ],
+              "eventContentYears": [],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/poioned-city.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Wednesday September 11",
+                "When the people of Flint, Michigan, turned on their faucets in April 2014, the water pouring out was poisoned with lead and other toxins. Through a series of disastrous decisions, the state government had switched the city’s water to a source that corroded Flint’s aging lead pipes. Complaints about the foul-smelling water were dismissed: the residents of Flint­—a largely poor African American city of about 100,000 people—were not seen as credible, even in matters of their own lives.",
+                "Anna Clark’s book, The Poisoned City recounts the gripping story of Flint’s poisoned water through the people who caused it, suffered from it, and exposed it. It is a chronicle of one town, but could also be about any American city, all made precarious by the neglect of infrastructure and the erosion of democratic decision-making. Cities like Flint are set up to fail—and for the people who live and work in them, the consequences may be mortal., Journalist and Author, The Poisoned City: Flint’s Water and the American Urban Tragedy."
+              ],
+              "eventContentYears": [
+                "2014"
+              ],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/bread-and-water.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/perspective-statistics.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/hayden-white.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Friday, February 1"
+              ],
+              "eventContentYears": [
+                "2015",
+                "2019",
+                "2016",
+                "2013",
+                "1957",
+                "2007",
+                "2010",
+                "2000",
+                "2017"
+              ],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/movies-narrative-emotions.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Thursday, February 28",
+                "Noël Carroll will also speak at City of Asylum on Wednesday, February 27th at 6:00 PM. His talk, \"Sex and the City,” will discuss the theme of consumerism in the series and the moral problems that it raises, especially in terms of the way in which it encourages viewers to shrug them off. The talk is free, but please RSVP."
+              ],
+              "eventContentYears": [],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/computational-narrative-intelligence.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Tuesday, October 30",
+                "Dr. Mark Riedl is an Associate Professor in the Georgia Tech School of Interactive Computing and director of the Entertainment Intelligence Lab. Dr. Riedl’s research focuses on human-centered artificial intelligence—the development of artificial intelligence and machine learning technologies that understand and interact with human users in more natural ways. Dr. Riedl’s recent work has focused on story understanding and generation, computational creativity, explainable AI, and teaching virtual agents to behave safely. His research is supported by the NSF, DARPA, ONR, the U.S. Army, U.S. Health and Human Services, Disney, and Google. He is the recipient of a DARPA Young Faculty Award and an NSF CAREER Award."
+              ],
+              "eventContentYears": [],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/empathy-and-immersion.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Monday, October 8",
+                "This lecture addresses how and why immersion reading of narrative fiction may invite higher levels of narrative empathy than other kinds of reading? It queries how important the modality of reading may be to both immersion reading and empathy, asking how does our reading experiences change when we shift from codex to e-reader to interactive screen?",
+                "Suzanne Keen is Dean of the Faculty at Hamilton College. She works on narrative empathy. Her work draws on novels, narrative theory, neuroscience, developmental and social psychology, and affective science. Since writing Empathy and the Novel (2007), she has expanded on her theory of narrative empathy in articles and chapters treating authorial strategic narrative empathy, readers’ dispositions, empathetic techniques in graphic narratives, and narrative empathy evoked by nonfiction. Her current work investigates narrative personal distress, an aversive response to reading, and empathic inaccuracy. Her most recent book, Thomas Hardy’s Brains: Psychology, Neurology, and Hardy’s Imagination (2014), was short-listed for Phi Beta Kappa’s Christian Gauss Award.",
+                "Suzanne Keen will also be speaking at City of Asylum’s Alphabet City, 40 W North Ave, Pittsburgh, PA 15212, on Sunday, Oct. 7, 6:00-7:15. Her title is “Relatable: Empathy, Novels, and Picky Readers.”"
+              ],
+              "eventContentYears": [
+                "2007",
+                "2014"
+              ],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/steve-silberman.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Monday, March 5"
+              ],
+              "eventContentYears": [
+                "2015"
+              ],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/marx-at-200-art-exhibition.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/dan-rosenberg.html",
+            "classification": "processed",
+            "dateEvidence": {
+              "visibleDateLines": [
+                "Monday, March 26"
+              ],
+              "eventContentYears": [
+                "2015",
+                "2012",
+                "2016",
+                "2011"
+              ],
+              "mediaAssetsInspected": 1
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/writing-marx-history.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/building-communities-of-power.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/robotics-future-of-work-panel.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/marx-200-inagural-event.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/steve-james.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/humanities-festival-2017.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/film-festival.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/unlocking-everyday-treasures.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/less-than-zeroes-ones.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/arclights-zoom-lenses.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/copyright-and-culture.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/living-on-the-internet.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/harbingers-of-future-war.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/unmanned.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/horses-of-the-apocalypse.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/terror.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/perpetual-interwar.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/war-in-the-age-of-antisocial-media.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/war-and-humanities.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/bro-adams.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/humanities-festival.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/why-nature-is-musical.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/music-and-politics-panel.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-23-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-09-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/09-11-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/04-30-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/03-27-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/03-20-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/03-04-2014.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/12-05-2013.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-24-2013.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/09-26-2013.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/04-11-2013.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/03-04-2013.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/02-07-2013.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/11-09-2012.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-08-2012.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/09-06-2012.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/04-26-2012.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/03-22-2012.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/02-07-2012.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/08-15-2011.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-27-2011.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-14-2011.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/10-04-2011.html",
+            "classification": "processed"
+          },
+          {
+            "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/06-21-2011.html",
+            "classification": "processed"
+          }
+        ]
+      },
+      "events": []
+    }
+  ]
+}

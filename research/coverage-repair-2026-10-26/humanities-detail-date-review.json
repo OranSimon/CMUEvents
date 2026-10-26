@@ -1,0 +1,655 @@
+{
+  "checkedAt": "2026-10-26T04:24:16.061Z",
+  "sourceId": "1468ddb723b2",
+  "scope": "All16 details previously classified as lacking dates; current anonymous HTTP/DOM and current linked publisher series pages.",
+  "summary": {
+    "reviewed": 16,
+    "directDetailOccurrenceYears": 0,
+    "explicitSeriesDates": 5,
+    "strictCardBodyMatches": 3,
+    "stillUnverifiedOccurrenceYears": 8
+  },
+  "rules": [
+    "A global archive/card publication date must not be used as an occurrence year unless its exact month/day/weekday match the detail event synopsis.",
+    "Use explicit series term/date only when the dated event block directly links the target detail.",
+    "Ignore biography/book years, footer years, image filenames and placeholder metadata.",
+    "All recovered dates here are historical; none is inside the current ingestion window."
+  ],
+  "details": [
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/anna-kornbluh.html",
+      "httpStatus": 200,
+      "title": "Immediacy: Some Theses on Cultural Style",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "September 22nd at 4:30 in Baker Hall 255B, the Swank Room",
+        "September 23, noon-1:15 in Baker Hall 254Q"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"anna-kornbluh.html\"]",
+        "smallDate": "Tuesday, September 13, 2022",
+        "summary": "Sept. 22nd at 4:30pm; Sept. 23 noon-1:15pm"
+      },
+      "evidence": [],
+      "decision": "occurrence-year-still-unverified",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/kornbluh-headshot-2021-550x550-min.jpeg",
+          "alt": "kornbluh-headshot-2021-550x550-min.jpeg"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": [
+        "2019",
+        "2014"
+      ],
+      "remainingLimitation": "The activity synopsis prints no occurrence year. The linked news-card date differs from the advertised activity month/day (or the detail supplies only weekdays). A current-year/footer/publication/book/portrait-file year cannot complete that date safely."
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/baltimore-after-progress.html",
+      "httpStatus": 200,
+      "title": "Baltimore After Progress",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Thursday, Feb. 24th @ 4:30 p.m.",
+        "Friday, Feb. 25th @ noon"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"baltimore-after-progress.html\"]",
+        "smallDate": "Thursday, September 30, 2021",
+        "summary": "Feb. 24 @ 4:30 p.m. ET, Feb. 25 @ 12 p.m. ET"
+      },
+      "evidence": [],
+      "decision": "occurrence-year-still-unverified",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/baltimore_3x2.jpg",
+          "alt": "Baltimore cityscape"
+        },
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/people/chloe_ahmann.jpg",
+          "alt": "Chloe Ahmann"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": [],
+      "remainingLimitation": "The activity synopsis prints no occurrence year. The linked news-card date differs from the advertised activity month/day (or the detail supplies only weekdays). A current-year/footer/publication/book/portrait-file year cannot complete that date safely."
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-joseph.html",
+      "httpStatus": 200,
+      "title": "Climate Justice Lecture & Seminar with May Joseph",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Thursday, March 31st @ 4:30 pm (EST)",
+        "Friday, April 1st @ noon (EST)"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"climate-justice-joseph.html\"]",
+        "smallDate": "Thursday, September 30, 2021",
+        "summary": "Mar. 31 @ 4:30 p.m. ET"
+      },
+      "evidence": [],
+      "decision": "occurrence-year-still-unverified",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/climate-justice-joseph-bg.jpg",
+          "alt": "Ocean at sunset"
+        },
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/may-joseph.jpg",
+          "alt": "May Joseph"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": [
+        "1937",
+        "2022",
+        "1999",
+        "1995"
+      ],
+      "remainingLimitation": "The activity synopsis prints no occurrence year. The linked news-card date differs from the advertised activity month/day (or the detail supplies only weekdays). A current-year/footer/publication/book/portrait-file year cannot complete that date safely."
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/alice-julier-seminars.html",
+      "httpStatus": 200,
+      "title": "Alice Julier Lecture and Seminar",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Thursday at 4:30:",
+        "Friday at Noon:"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"alice-julier-seminars.html\"]",
+        "smallDate": "Thursday, September 30, 2021",
+        "summary": "Oct. 21 @ 4:30 p.m. ET, Oct. 22 @ 12 p.m. ET"
+      },
+      "evidence": [],
+      "decision": "occurrence-year-still-unverified",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/climate_food.jpg",
+          "alt": "Food at a supermarket with signs about climate"
+        },
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/people/alice-julier_300.jpg",
+          "alt": "Alice Julier"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": [],
+      "remainingLimitation": "The activity synopsis prints no occurrence year. The linked news-card date differs from the advertised activity month/day (or the detail supplies only weekdays). A current-year/footer/publication/book/portrait-file year cannot complete that date safely."
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/epoch-of-loss.html",
+      "httpStatus": 200,
+      "title": "Epoch of Loss",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Thursday, Nov. 11 at 4:30 (ES)",
+        "Friday, November 12 at 12:00-1:15 pm (ES)"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"epoch-of-loss.html\"]",
+        "smallDate": "Thursday, September 30, 2021",
+        "summary": "Thursday Nov. 11 4:30pm, Friday Nov. 12 12:00pm"
+      },
+      "evidence": [],
+      "decision": "occurrence-year-still-unverified",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/climate_catastrophe_3x2.jpg",
+          "alt": "Lightbulb with desert"
+        },
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/people/ruth_mostern.jpg",
+          "alt": "Ruth "
+        },
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/people/michael_goodhart.jpg",
+          "alt": "Michael Goodhart"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": [
+        "2021"
+      ],
+      "remainingLimitation": "The activity synopsis prints no occurrence year. The linked news-card date differs from the advertised activity month/day (or the detail supplies only weekdays). A current-year/footer/publication/book/portrait-file year cannot complete that date safely."
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/communicating-climate-change.html",
+      "httpStatus": 200,
+      "title": "Panel Discussion: Communicating Climate Change",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Tuesday, Oct. 12 @ 4:30 p.m. ET (Eastern time)"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"communicating-climate-change.html\"]",
+        "smallDate": "Thursday, September 30, 2021",
+        "summary": "Tuesday, Oct. 12 @ 4:30 p.m. ET"
+      },
+      "evidence": [],
+      "decision": "occurrence-year-still-unverified",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/climate-change-earth_turning_to_coal-3x2.jpg",
+          "alt": "Earth turning into coal"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": [],
+      "remainingLimitation": "The activity synopsis prints no occurrence year. The linked news-card date differs from the advertised activity month/day (or the detail supplies only weekdays). A current-year/footer/publication/book/portrait-file year cannot complete that date safely."
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/climate-justice-gamper.html",
+      "httpStatus": 200,
+      "title": "America's Energy Gamble: People, Economy and Planet",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Thursday, March 17 @ 4.30pm (EST)"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"climate-justice-gamper.html\"]",
+        "smallDate": "Thursday, September 30, 2021",
+        "summary": "Mar. 17 @ 4:30 p.m. ET"
+      },
+      "evidence": [],
+      "decision": "occurrence-year-still-unverified",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/events-body/climate-justice-book-cover.png",
+          "alt": "Cover of the book America's Energy Gamble: People, Economy and Planet"
+        },
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/people/gamper-rabindran-shanti.jpg",
+          "alt": "Shanti Gamper-Rabindran"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": [
+        "2018"
+      ],
+      "remainingLimitation": "The activity synopsis prints no occurrence year. The linked news-card date differs from the advertised activity month/day (or the detail supplies only weekdays). A current-year/footer/publication/book/portrait-file year cannot complete that date safely."
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/human-right-to-water.html",
+      "httpStatus": 200,
+      "title": "Human Right to Water and Water Justice",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Wednesday September 25"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"human-right-to-water.html\"]",
+        "smallDate": "Tuesday, August 27, 2019",
+        "summary": "Wednesday, September 25"
+      },
+      "evidence": [
+        {
+          "kind": "explicit-linked-occurrence-date",
+          "parentUrl": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/bread-and-water.html",
+          "selector": "#content > .content a.cta[href=\"human-right-to-water.html\"]",
+          "term": "FALL 2019",
+          "occurrenceText": "Wednesday, September 25, 2019, 4:30pm",
+          "date": "2019-09-25",
+          "linkRelationship": "The current publisher series page explicitly links this detail from the dated event block; use the preceding event paragraph, not navigation links."
+        }
+      ],
+      "decision": "recoverable-historical-from-linked-evidence",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/posters/agua-es-vida_900x600.jpg",
+          "alt": "Water is Life"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": []
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/urban-water-governance.html",
+      "httpStatus": 200,
+      "title": "Urban Water Governance as a Wicked Problem",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Wednesday October 23"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"urban-water-governance.html\"]",
+        "smallDate": "Wednesday, August 28, 2019",
+        "summary": "Wednesday, October 23"
+      },
+      "evidence": [
+        {
+          "kind": "explicit-linked-occurrence-date",
+          "parentUrl": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/bread-and-water.html",
+          "selector": "#content > .content a.cta[href=\"urban-water-governance.html\"]",
+          "term": "FALL 2019",
+          "occurrenceText": "Wednesday, October 23, 2019, 4:30pm",
+          "date": "2019-10-23",
+          "linkRelationship": "The current publisher series page explicitly links this detail from the dated event block; use the preceding event paragraph, not navigation links."
+        }
+      ],
+      "decision": "recoverable-historical-from-linked-evidence",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/posters/agua-es-vida_900x600.jpg",
+          "alt": "Water is Life"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": []
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/poioned-city.html",
+      "httpStatus": 200,
+      "title": "The Poisoned City: Flint’s Water and the American Urban Tragedy",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Wednesday September 11"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"poioned-city.html\"]",
+        "smallDate": "Tuesday, August 27, 2019",
+        "summary": "Wednesday, September 11"
+      },
+      "evidence": [
+        {
+          "kind": "explicit-linked-occurrence-date",
+          "parentUrl": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/bread-and-water.html",
+          "selector": "#content > .content a.cta[href=\"poioned-city.html\"]",
+          "term": "FALL 2019",
+          "occurrenceText": "Wednesday, September 11, 2019, 4:30pm",
+          "date": "2019-09-11",
+          "linkRelationship": "The current publisher series page explicitly links this detail from the dated event block; use the preceding event paragraph, not navigation links."
+        }
+      ],
+      "decision": "recoverable-historical-from-linked-evidence",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/posters/agua-es-vida_900x600.jpg",
+          "alt": "Water is Life"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": [
+        "2014"
+      ]
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/computational-narrative-intelligence.html",
+      "httpStatus": 200,
+      "title": "Computational Narrative Intelligence",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Tuesday, October 30"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"computational-narrative-intelligence.html\"]",
+        "smallDate": "Tuesday, October 30, 2018",
+        "summary": "Tuesday, October 30"
+      },
+      "evidence": [
+        {
+          "kind": "strict-card-body-date-match",
+          "parentUrl": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+          "selector": "#content .filterable a[href=\"computational-narrative-intelligence.html\"] > small",
+          "cardFullDate": "Tuesday, October 30, 2018",
+          "bodyMonthDayWeekday": "Tuesday, October 30",
+          "date": "2018-10-30",
+          "linkRelationship": "Full date belongs to this exact linked card and its month/day/weekday all match the detail synopsis. Never inherit other publication dates."
+        }
+      ],
+      "decision": "recoverable-historical-from-linked-evidence",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/posters/mark-riedl_900x600.jpg",
+          "alt": "Computational Narrative Intelligence"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": []
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/hayden-white.html",
+      "httpStatus": 200,
+      "title": "Hayden White and the Ethics of Truth",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Friday, February 1"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"hayden-white.html\"]",
+        "smallDate": "Friday, February 01, 2019",
+        "summary": "Friday, February 1"
+      },
+      "evidence": [
+        {
+          "kind": "explicit-linked-term",
+          "parentUrl": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/spring-2019.html",
+          "selector": "#content > .content a.cta[href=\"hayden-white.html\"]",
+          "term": "Spring 2019 Events",
+          "occurrenceText": "Friday, February 1 at 4:30pm",
+          "date": "2019-02-01",
+          "linkRelationship": "The current publisher series page explicitly links this detail from the dated event block; use the preceding event paragraph, not navigation links."
+        }
+      ],
+      "decision": "recoverable-historical-from-linked-evidence",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/posters/hayden-white_900x600.jpg",
+          "alt": "Hayden White and the Ethics of Truth"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": [
+        "2015",
+        "2019",
+        "2016",
+        "2013",
+        "1957",
+        "2007",
+        "2010",
+        "2000",
+        "2017"
+      ]
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/empathy-and-immersion.html",
+      "httpStatus": 200,
+      "title": "Empathy and Immersion Reading (on paper and on screen)",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Monday, October 8",
+        "Suzanne Keen will also be speaking at City of Asylum’s Alphabet City, 40 W North Ave, Pittsburgh, PA 15212, on Sunday, Oct. 7, 6:00-7:15. Her title is “Relatable: Empathy, Novels, and Picky Readers.”"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"empathy-and-immersion.html\"]",
+        "smallDate": "Monday, October 08, 2018",
+        "summary": "Monday, October 8"
+      },
+      "evidence": [
+        {
+          "kind": "strict-card-body-date-match",
+          "parentUrl": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+          "selector": "#content .filterable a[href=\"empathy-and-immersion.html\"] > small",
+          "cardFullDate": "Monday, October 08, 2018",
+          "bodyMonthDayWeekday": "Monday, October 8",
+          "date": "2018-10-08",
+          "linkRelationship": "Full date belongs to this exact linked card and its month/day/weekday all match the detail synopsis. Never inherit other publication dates."
+        }
+      ],
+      "decision": "recoverable-historical-from-linked-evidence",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/posters/empathy_900x600.jpg",
+          "alt": "Empathy and Immersion Reading (on paper and on screen)"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": [
+        "2007",
+        "2014"
+      ]
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/movies-narrative-emotions.html",
+      "httpStatus": 200,
+      "title": "Movies, Narrative, and Emotions",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Thursday, February 28",
+        "Noël Carroll will also speak at City of Asylum on Wednesday, February 27th at 6:00 PM. His talk, \"Sex and the City,” will discuss the theme of consumerism in the series and the moral problems that it raises, especially in terms of the way in which it encourages viewers to shrug them off. The talk is free, but please RSVP."
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"movies-narrative-emotions.html\"]",
+        "smallDate": "Thursday, November 08, 2018",
+        "summary": "Thursday, February 28"
+      },
+      "evidence": [
+        {
+          "kind": "explicit-linked-term",
+          "parentUrl": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/spring-2019.html",
+          "selector": "#content > .content a.cta[href=\"movies-narrative-emotions.html\"]",
+          "term": "Spring 2019 Events",
+          "occurrenceText": "Thursday, February 28th at 4:30pm",
+          "date": "2019-02-28",
+          "linkRelationship": "The current publisher series page explicitly links this detail from the dated event block; use the preceding event paragraph, not navigation links."
+        }
+      ],
+      "decision": "recoverable-historical-from-linked-evidence",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/posters/movies_900x600.jpg",
+          "alt": "Movies, Narrative, and Emotions"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": []
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/steve-silberman.html",
+      "httpStatus": 200,
+      "title": "Great Minds Don't Always Think Alike",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Monday, March 5"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"steve-silberman.html\"]",
+        "smallDate": "Monday, March 05, 2018",
+        "summary": "A deep look at the hidden history of autism and the promise of a future in which everyone is given the support they need to reach their maximum potential."
+      },
+      "evidence": [
+        {
+          "kind": "strict-card-body-date-match",
+          "parentUrl": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+          "selector": "#content .filterable a[href=\"steve-silberman.html\"] > small",
+          "cardFullDate": "Monday, March 05, 2018",
+          "bodyMonthDayWeekday": "Monday, March 5",
+          "date": "2018-03-05",
+          "linkRelationship": "Full date belongs to this exact linked card and its month/day/weekday all match the detail synopsis. Never inherit other publication dates."
+        }
+      ],
+      "decision": "recoverable-historical-from-linked-evidence",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/posters/minds-think_900x600.jpg",
+          "alt": "Great Minds Don't Always Think Alike"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": [
+        "2015"
+      ]
+    },
+    {
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/dan-rosenberg.html",
+      "httpStatus": 200,
+      "title": "Poet and Translator Dan Rosenberg",
+      "detailHasExplicitOccurrenceYear": false,
+      "bodyDateEvidence": [
+        "Monday, March 26"
+      ],
+      "parentCard": {
+        "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/previous-events/index.html",
+        "selector": "#content .filterable a[href=\"dan-rosenberg.html\"]",
+        "smallDate": "Monday, March 05, 2018",
+        "summary": "Monday, March 26"
+      },
+      "evidence": [],
+      "decision": "occurrence-year-still-unverified",
+      "images": [
+        {
+          "src": "https://www.cmu.edu/dietrich/humanities-center/images/posters/dan-rosenberg_900x600.jpg",
+          "alt": "Poet and Translator Dan Rosenberg"
+        }
+      ],
+      "metadataDateFields": [
+        {
+          "name": "article:published_time",
+          "value": "$dateFormat"
+        }
+      ],
+      "incidentalMainBodyYears": [
+        "2015",
+        "2012",
+        "2016",
+        "2011"
+      ],
+      "remainingLimitation": "The activity synopsis prints no occurrence year. The linked news-card date differs from the advertised activity month/day (or the detail supplies only weekdays). A current-year/footer/publication/book/portrait-file year cannot complete that date safely."
+    }
+  ],
+  "metadataFinding": "Date metadata is a literal unexpanded $dateFormat template across the reviewed pages; it supplies no usable publication or occurrence timestamp.",
+  "noProductionChanges": true
+}

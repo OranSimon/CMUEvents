@@ -1,15 +1,16 @@
 import { createHash } from 'node:crypto';
 import { execFile } from 'node:child_process';
-import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, writeFile, rename, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { PDFParse } from 'pdf-parse';
 
-const VERSION = 'tesseract-eng-psm11-invert-v1';
-const MAX_BYTES = 20 * 1024 * 1024;
+const VERSION = 'tesseract-eng-psm11-invert-pages-v3';
+const MAX_BYTES = 128 * 1024 * 1024;
 const MAX_PIXELS = 28_000_000;
 const OCR_TIMEOUT_MS = 90_000;
 const MAX_OCR_PROCESSES = 2;
+let cacheSequence = 0;
 let activeOcrProcesses = 0;
 const ocrWaiters = [];
 
@@ -145,23 +146,36 @@ async function recognizeImage(bytes) {
   if (!image.width || !image.height || image.width * image.height > MAX_PIXELS) throw new Error('Media dimensions exceed the OCR limit');
   const folder = await mkdtemp(join(tmpdir(), 'cmu-event-ocr-'));
   try {
-    const canvas = createCanvas(image.width, image.height);
+    // A quiet border keeps edge-aligned poster dates from being discarded as
+    // page-edge noise. Preserve it as white in both color treatments.
+    const border = 48;
+    const canvas = createCanvas(image.width + border * 2, image.height + border * 2);
     const drawing = canvas.getContext('2d');
-    drawing.drawImage(image, 0, 0);
+    drawing.fillStyle = 'white';
+    drawing.fillRect(0, 0, canvas.width, canvas.height);
+    drawing.drawImage(image, border, border);
     const original = join(folder, 'original.png');
     await writeFile(original, canvas.toBuffer('image/png'));
-    const pixels = drawing.getImageData(0, 0, image.width, image.height);
+    const pixels = drawing.getImageData(border, border, image.width, image.height);
     for (let i = 0; i < pixels.data.length; i += 4) {
       const grey = 255 - Math.round(.299 * pixels.data[i] + .587 * pixels.data[i + 1] + .114 * pixels.data[i + 2]);
       pixels.data[i] = pixels.data[i + 1] = pixels.data[i + 2] = grey;
       pixels.data[i + 3] = 255;
     }
-    drawing.putImageData(pixels, 0, 0);
+    drawing.putImageData(pixels, border, border);
     const inverted = join(folder, 'inverted.png');
     await writeFile(inverted, canvas.toBuffer('image/png'));
+    const naturalCanvas = createCanvas(image.width, image.height);
+    const naturalDrawing = naturalCanvas.getContext('2d');
+    naturalDrawing.drawImage(image, 0, 0);
+    const natural = join(folder, 'natural.png');
+    await writeFile(natural, naturalCanvas.toBuffer('image/png'));
+    naturalDrawing.putImageData(pixels, 0, 0);
+    const naturalInverted = join(folder, 'natural-inverted.png');
+    await writeFile(naturalInverted, naturalCanvas.toBuffer('image/png'));
     const variants = [];
     // Sequential work avoids running several memory-heavy OCR processes per source.
-    for (const [name, file] of [['original', original], ['inverted', inverted]]) {
+    for (const [name, file] of [['original', natural], ['inverted', naturalInverted], ['inverted-border', inverted]]) {
       const output = join(folder, name);
       await runTesseract(file, output);
       variants.push({ text: await readFile(`${output}.txt`, 'utf8'), words: parseOcrTsv(await readFile(`${output}.tsv`, 'utf8')) });
@@ -171,45 +185,100 @@ async function recognizeImage(bytes) {
 }
 
 /**
- * Read a current public image/PDF; cache raw extraction by bytes, never events.
- * PDF dates come only from visible page content, never filenames or metadata.
- * @param {Uint8Array} bytes Downloaded media bytes.
- * @param {Object} options Optional cache directory; false disables disk caching.
- * @return {Promise<Object>} Raw first-page text and/or OCR with a content hash.
+ * Save resumable raw extraction atomically; failed OCR never approves an event.
+ * @param {string|null} file Cache destination, or null to disable persistence.
+ * @param {Object} value Raw text, page OCR and extraction progress.
+ * @return {Promise<void>} Completion after replacing the cache file.
+ */
+async function saveMediaCache(file, value) {
+  if (!file) return;
+  await mkdir(file.slice(0, file.lastIndexOf('/')) || '.', { recursive: true });
+  const temporary = `${file}.${process.pid}.${++cacheSequence}.tmp`;
+  await writeFile(temporary, JSON.stringify(value));
+  await rename(temporary, file);
+}
+
+/**
+ * Read every PDF text page and resume OCR of scanned pages within a time budget.
+ * Cached progress is tied only to document bytes and extractor version. A later
+ * run continues pending pages rather than repeating a permanently fixed prefix.
+ * @param {Uint8Array} bytes Current PDF bytes.
+ * @param {Object|null} previous Compatible cached extraction progress.
+ * @param {Object} options OCR time budget and optional extra page OCR requests.
+ * @param {Function} persist Callback for durable raw-page checkpoints.
+ * @return {Promise<Object>} All text pages, OCR results and auditable progress.
+ */
+async function extractPdfPages(bytes, previous, options, persist) {
+  const parser = new PDFParse({ data: new Uint8Array(bytes) });
+  try {
+    const text = previous?.pages?.length ? null : await parser.getText();
+    const pages = previous?.pages?.map(page => ({ ...page })) || text.pages.map(page => ({ number: page.num, text: page.text, variants: [] }));
+    const budgetMs = Math.max(0, options.ocrBudgetMs ?? Infinity);
+    const deadline = performance.now() + budgetMs;
+    const forced = new Set(options.ocrPages || []);
+    const pending = pages.filter(page => (!page.text || page.text.replace(/\s/g, '').length < 40 || forced.has(page.number)) && !page.ocrDone)
+      .sort((first, second) => (first.ocrAttempts || 0) - (second.ocrAttempts || 0) || first.number - second.number);
+    const state = { kind: 'pdf', text: pages[0]?.text || '', variants: pages[0]?.variants || [], pages,
+      totalPages: previous?.totalPages || text?.total || pages.length, complete: pending.length === 0,
+      pendingPages: pending.map(page => page.number), pageErrors: [] };
+    await persist(state);
+    for (const page of pending) {
+      if (performance.now() >= deadline) break;
+      page.ocrAttempts = (page.ocrAttempts || 0) + 1;
+      try {
+        const rendered = await parser.getScreenshot({ partial: [page.number], desiredWidth: 1800, imageDataUrl: false });
+        if (!rendered.pages?.[0]?.data) throw new Error(`PDF page ${page.number} could not be rendered`);
+        const ocr = await recognizeImage(rendered.pages[0].data);
+        Object.assign(page, { variants: ocr.variants, width: ocr.width, height: ocr.height, ocrDone: true });
+        delete page.ocrError;
+      } catch (error) {
+        page.ocrError = error.message;
+        state.pageErrors.push({ page: page.number, error: error.message });
+      }
+      state.pendingPages = pending.filter(candidate => !candidate.ocrDone).map(candidate => candidate.number);
+      state.complete = state.pendingPages.length === 0;
+      state.variants = pages[0]?.variants || [];
+      await persist(state);
+      if (options.stopOcrWhen?.(state)) break;
+    }
+    state.pendingPages = pending.filter(page => !page.ocrDone).map(page => page.number);
+    state.complete = state.pendingPages.length === 0;
+    state.ocrPagesCompleted = pages.filter(page => page.ocrDone).length;
+    return state;
+  } finally { await parser.destroy(); }
+}
+
+/**
+ * Read current public media with resumable all-page PDF coverage and raw caching.
+ * No date is derived from a filename, metadata or previously approved fields.
+ * @param {Uint8Array} bytes Downloaded media bytes, up to the download budget.
+ * @param {Object} options Cache directory, OCR budget and optional page requests.
+ * @return {Promise<Object>} Raw text/OCR plus complete or pending page progress.
  */
 export async function extractMedia(bytes, options = {}) {
-  if (!bytes?.length || bytes.length > MAX_BYTES) throw new Error('Media bytes are missing or exceed the 20 MiB limit');
+  if (!bytes?.length || bytes.length > MAX_BYTES) throw new Error('Media bytes are missing or exceed the 128 MiB resource limit');
   const digest = createHash('sha256').update(bytes).digest('hex');
   const folder = options.cacheDir === false ? null : options.cacheDir || process.env.CMU_MEDIA_CACHE_DIR || '.cache/media-ocr';
   const cacheFile = folder && join(folder, `${VERSION}-${digest}.json`);
+  let cached;
   if (cacheFile) {
     try {
-      const cached = JSON.parse(await readFile(cacheFile, 'utf8'));
-      if (cached.version === VERSION && cached.sha256 === digest && Array.isArray(cached.variants)) return cached;
-    } catch { /* A missing or incomplete cache always triggers extraction. */ }
+      const candidate = JSON.parse(await readFile(cacheFile, 'utf8'));
+      if (candidate.version === VERSION && candidate.sha256 === digest && Array.isArray(candidate.variants)) cached = candidate;
+    } catch { /* Missing, older or partial writes cannot approve cached events. */ }
   }
+  const extraPages = options.ocrPages || [];
+  if (cached && cached.complete !== false && extraPages.every(number => cached.pages?.some(page => page.number === number && page.ocrDone))) return cached;
+  const persist = value => saveMediaCache(cacheFile, { ...value, version: VERSION, sha256: digest });
   let result;
   if (Buffer.from(bytes).subarray(0, 5).toString() === '%PDF-') {
-    const parser = new PDFParse({ data: new Uint8Array(bytes) });
-    try {
-      const page = await parser.getText({ partial: [1] });
-      const text = page.pages?.[0]?.text || page.text;
-      result = { kind: 'pdf', text: text || '', variants: [], pageLimit: 1 };
-      if ((text || '').replace(/\s/g, '').length < 40) {
-        const rendered = await parser.getScreenshot({ partial: [1], desiredWidth: 1800, imageDataUrl: false });
-        if (!rendered.pages?.[0]?.data) throw new Error('PDF first page could not be rendered');
-        result = { ...result, ...await recognizeImage(rendered.pages[0].data), kind: 'pdf' };
-      }
-    } finally { await parser.destroy(); }
+    result = await extractPdfPages(bytes, cached, options, persist);
   } else {
     const magic = Buffer.from(bytes).subarray(0, 12);
     if (!(magic[0] === 0x89 && magic.subarray(1, 4).toString() === 'PNG') && !(magic[0] === 0xff && magic[1] === 0xd8) && magic.subarray(0, 3).toString() !== 'GIF' && magic.subarray(8, 12).toString() !== 'WEBP') throw new Error('Unsupported image signature');
-    result = await recognizeImage(bytes);
+    result = { ...await recognizeImage(bytes), complete: true };
   }
   result = { ...result, version: VERSION, sha256: digest };
-  if (cacheFile) {
-    await mkdir(folder, { recursive: true });
-    await writeFile(cacheFile, JSON.stringify(result));
-  }
+  await saveMediaCache(cacheFile, result);
   return result;
 }

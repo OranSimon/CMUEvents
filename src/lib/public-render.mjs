@@ -44,12 +44,12 @@ export function createPublicNetworkGuard(options = {}) {
  * Read all visible public Alumni cards through the actual Next control.
  * This uses rendered DOM text and links only, never framework state or APIs.
  * @param {Object} page Anonymous Playwright page on the public listing.
- * @param {Object} options Explicit pagination and card safety bounds.
+ * @param {Object} options Optional explicit test budgets; production follows Next until exhausted.
  * @return {Promise<Object>} Current cards and transparent completeness state.
  */
 export async function collectAlumniCards(page, options = {}) {
-  const maxPages = Math.max(1, Math.min(100, Number(options.maxPages) || 30));
-  const maxCards = Math.max(1, Math.min(2000, Number(options.maxCards) || 500));
+  const maxPages = options.maxPages === undefined ? Infinity : Math.max(1, Math.floor(Number(options.maxPages)) || 1);
+  const maxCards = options.maxCards === undefined ? Infinity : Math.max(1, Math.floor(Number(options.maxCards)) || 1);
   const rows = new Map();
   const warnings = [];
   const seen = new Set();

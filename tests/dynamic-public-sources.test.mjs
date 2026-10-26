@@ -87,38 +87,96 @@ test('dynamic Alumni refresh requires visible discovered URLs and cannot fall ba
   await assert.rejects(fetchAlumni(plan, {}), /CMUEVENTS_RENDER_PUBLIC/);
 });
 
-test('consecutive detail failures stop optional enrichment while all discovered public card dates remain included', async () => {
+test('all23 Alumni details are attempted after structured upstream403 failures and their visible dates remain included', async () => {
   const listing = { rows: fixture.pages.flat(), partial: false };
   const requested = [];
   const result = await fetchAlumni(plan, { renderPublic: async request => {
     if (request.kind === 'alumni') return listing;
     requested.push(request.url);
-    throw new Error('Event Details timeout; public page diagnostic: {"httpStatus":403,"title":"Access unavailable"}');
+    throw Object.assign(new Error('Event Details inaccessible; current public response was403'), {
+      publicRenderDiagnostic: { httpStatus: 403, title: 'Access unavailable' },
+    });
   } });
-  assert.equal(requested.length, 4, 'the default circuit stops after two failed two-card batches');
+  assert.deepEqual(requested, listing.rows.map(row => row.url), 'early denied pages cannot skip later advertised originals');
   assert.equal(result.events.length, 23);
   assert.equal(result.partial, true);
   assert.ok(result.events.every(event => event.timePrecision === 'date'));
-  assert.match(result.warnings.join(' '), /skipped 19 remaining detail page/);
-  assert.match(result.warnings.join(' '), /httpStatus.*403/);
+  assert.doesNotMatch(result.warnings.join(' '), /skipped \d+ remaining detail page/);
+  assert.equal(result.coverage.inspectedDetails.length, 23);
+  assert.equal(result.coverage.inspectionComplete, true);
+  assert.deepEqual(result.coverage.internalIssues, []);
+  assert.equal(result.coverage.externalIssues.length, 23);
+  assert.ok(result.coverage.externalIssues.every(issue => issue.code === 'PUBLIC_DETAIL_ACCESS_FAILURE' && issue.diagnostic.httpStatus === 403));
 });
 
-test('a successful current detail resets the configurable failure circuit in deterministic card order', async () => {
+test('leading Alumni detail errors cannot starve the final two successful originals or become external from message text alone', async () => {
   const listing = { rows: fixture.pages.flat(), partial: false };
-  let calls = 0;
+  const requested = [];
   const result = await fetchAlumni({ ...plan, options: { ...plan.options, maxConsecutiveDetailFailures: 2 } }, {
     renderPublic: async request => {
       if (request.kind === 'alumni') return listing;
-      const index = calls++;
-      if (![1, 3].includes(index)) throw new Error('Original detail temporarily unavailable');
+      const index = requested.push(request.url) - 1;
+      if (index < listing.rows.length - 2) throw new Error('Detail extraction failed; text mentions httpStatus403 without a captured response diagnostic');
       const row = listing.rows.find(row => row.url === request.url);
       return { title: row.title, detailText: `Event Details\n${row.dateText} 8:00AM - 9:00AM EDT\nPublished venue`, description: 'Current public details' };
     },
   });
-  assert.equal(calls, 6, 'two successful details reset earlier failures, then two failures open the circuit');
+  assert.deepEqual(requested, listing.rows.map(row => row.url));
   assert.equal(result.events.length, 23);
-  assert.equal(result.events.filter(event => event.timePrecision === 'time').length, 2);
-  assert.match(result.warnings.join(' '), /skipped 17 remaining detail page/);
+  assert.deepEqual(result.events.filter(event => event.timePrecision === 'time').map(event => event.url), listing.rows.slice(-2).map(row => row.url));
+  assert.equal(result.coverage.inspectedDetails.length, 23);
+  assert.equal(result.coverage.inspectionComplete, false);
+  assert.equal(result.coverage.internalIssues.length, 21);
+  assert.ok(result.coverage.internalIssues.every(issue => issue.code === 'UNPARSED_EVENT_DETAILS'));
+  assert.deepEqual(result.coverage.externalIssues, []);
+  assert.doesNotMatch(result.warnings.join(' '), /skipped \d+ remaining detail page/);
+});
+
+test('all-events and online Alumni scopes share successful and rejected renders only within the current context and retry next run', async () => {
+  const listing = { rows: fixture.pages.flat(), partial: false, pages: fixture.pages.length };
+  const failedUrl = listing.rows.find(row => /\|\s*VIRTUAL WEBINAR,\s*ONLINE\b/i.test(row.text)).url;
+  const calls = new Map();
+  let generation = 1;
+  const renderPublic = async request => {
+    const key = `${request.kind}:${request.url}`;
+    calls.set(key, (calls.get(key) || 0) + 1);
+    if (request.kind === 'alumni') return listing;
+    if (generation === 1 && request.url === failedUrl) throw Object.assign(new Error('Current public original denied access'), {
+      publicRenderDiagnostic: { httpStatus: 403, title: 'Access unavailable' },
+    });
+    const row = listing.rows.find(row => row.url === request.url);
+    return { title: row.title, detailText: `Event Details\n${row.dateText} 8:00AM - 9:00AM EDT\nPublished venue`, description: 'Current public details' };
+  };
+  const currentContext = { renderPublic };
+  const [all, online] = await Promise.all([fetchAlumni(plan, currentContext), fetchAlumni({ ...plan,
+    options: { ...plan.options, onlineOnly: true } }, currentContext)]);
+  assert.equal(all.events.length, 23);
+  assert.equal(online.events.length, 4);
+  assert.equal(all.coverage.externalIssues.length, 1);
+  assert.equal(online.coverage.externalIssues.length, 1, 'the shared rejected original is external in both scopes');
+  assert.equal(all.coverage.inspectedDetails.length, 23);
+  assert.equal(online.coverage.inspectedDetails.length, 4);
+  assert.equal(calls.size, 24, 'one listing and23 advertised original URLs are rendered');
+  assert.ok([...calls.values()].every(count => count === 1), 'overlapping scopes reuse each render promise');
+  generation = 2;
+  const next = await fetchAlumni(plan, { renderPublic });
+  assert.equal(next.events.filter(event => event.timePrecision === 'time').length, 23);
+  assert.equal(next.coverage.inspectionComplete, true);
+  assert.deepEqual(next.coverage.internalIssues, []);
+  assert.deepEqual(next.coverage.externalIssues, []);
+  assert.ok([...calls.values()].every(count => count === 2), 'new refresh context retries successful and formerly rejected URLs');
+});
+
+test('visible Alumni originals without a full event date are internal extraction gaps rather than reported access denials', async () => {
+  const row = fixture.pages[0][0];
+  const result = await fetchAlumni(plan, { renderPublic: async request => request.kind === 'alumni'
+    ? { rows: [row], partial: false } : { title: row.title, detailText: 'Event Details\nDate to be announced\nPublished venue' } });
+  assert.equal(result.events.length, 1);
+  assert.equal(result.events[0].timePrecision, 'date');
+  assert.equal(result.coverage.inspectionComplete, false);
+  assert.equal(result.coverage.inspectedDetails.length, 1);
+  assert.equal(result.coverage.internalIssues[0].code, 'UNPARSED_EVENT_DETAILS');
+  assert.deepEqual(result.coverage.externalIssues, []);
 });
 
 test('online-only scope uses current visible location and does not classify incidental event-title words', async () => {

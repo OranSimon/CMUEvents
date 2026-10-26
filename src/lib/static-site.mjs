@@ -3,7 +3,7 @@ import path from 'node:path';
 import { inWindow } from './normalize.mjs';
 
 const SOURCE_FIELDS = ['id', 'department', 'org', 'url', 'kind', 'state', 'status', 'eventCount',
-  'lastAttempt', 'lastSuccess', 'error', 'warnings', 'reason', 'strategy', 'canonicalSourceId'];
+  'lastAttempt', 'lastSuccess', 'error', 'warnings', 'reason', 'strategy', 'canonicalSourceId', 'coverage'];
 
 /**
  * Reject incomplete or implausibly destructive refreshes before publication.
