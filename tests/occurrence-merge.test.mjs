@@ -267,3 +267,17 @@ test('sparse course announcements in distinct rooms cannot merge just from their
   ]);
   assert.equal(events.length, 2);
 });
+
+test('a shortened headline can merge with its complete headline only through the same individual link and compatible exact times', t => {
+  const url = 'https://example.edu/event/7654321';
+  const short = { url, title: 'Autumn programming week: collaborative coding sprint' };
+  const full = { ...short, title: `${short.title} and demonstration party` };
+  const events = materialize(t, [[short], [full]]);
+  assert.equal(events.length, 1);
+  assert.equal(events[0].sourceVariants.length, 2);
+  assert.equal(new Set(events[0].sourceVariants.map(variant => variant.title)).size, 2);
+  const distinct = materialize(t, [[short], [{ ...full, end: '2026-11-03T20:00:00Z' }]]);
+  assert.equal(distinct.length, 2, 'a title prefix cannot erase an explicit end conflict');
+  const noSharedLink = materialize(t, [[short], [{ ...full, url: 'https://other.example.edu/event/123' }]]);
+  assert.equal(noSharedLink.length, 2, 'title prefixes alone do not establish the same event');
+});

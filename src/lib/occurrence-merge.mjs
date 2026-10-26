@@ -97,7 +97,8 @@ function matchReason(left, right) {
   if (!compatibleTimes(left, right)) return null;
   const lt = titleWords(left), rt = titleWords(right);
   const ll = individualLink(left), rl = individualLink(right);
-  if (ll && ll === rl && lt === rt) return 'shared-event-link';
+  const matchingHeadline = lt === rt || (Math.min(lt.length, rt.length) >= 20 && (lt.startsWith(`${rt} `) || rt.startsWith(`${lt} `)));
+  if (ll && ll === rl && matchingHeadline) return 'shared-event-link';
   const lu = uidIdentity(left), ru = uidIdentity(right);
   if (lu && lu === ru) return 'scoped-uid';
   if (lt !== rt) return null;
