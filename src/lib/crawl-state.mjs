@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { occurrenceStorageKey } from './occurrence-merge.mjs';
 import { normalizeEvent, inWindow } from './normalize.mjs';
 import { normalizeCoverage } from './source-coverage.mjs';
 
@@ -97,7 +98,7 @@ export function restoreCrawlState(store, plans, snapshot, context = {}) {
       store.setMeta(`sourceCoverage:${row.id}`, row.coverage);
       store.db.prepare('DELETE FROM occurrences WHERE source_id=?').run(row.id);
       for (const event of row.events) {
-        const key = createHash('sha256').update(`uid:${event.uid}|${event.start}`).digest('hex').slice(0, 24);
+        const key = occurrenceStorageKey(event);
         insert.run(row.id, key, JSON.stringify(event));
       }
       update.run(row.state, row.lastAttempt || null, row.lastSuccess || null,

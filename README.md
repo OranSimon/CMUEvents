@@ -34,6 +34,7 @@ For local rendered-page collection, run `npx playwright install chromium`, then 
 - Combine **Department**, **Org**, topic, campus and attendance-mode filters.
 - Switch between list and grid views, bookmark the current filters, and open an event for its source-text summary, description, time, location and provenance.
 - Follow the original event link for current registration, eligibility and program details.
+- Reposts of the same dated occurrence share one card with every original event and source-listing link. Source versions retain differing descriptions and venue details; conflicting locations are flagged. Different dates, separate clocks and incompatible published ranges stay separate.
 - Open **Our sources** for all 318 original source links. Search by organization, department or URL; combine Department, Category and Coverage filters; load more or show the entire directory. Shared-feed aliases remain visible.
 - Open **Email subscriptions** for reviewed subscription channels, official signup instructions and access requirements. Subscriber-only emails are not imported. Four channels are email-only; two publishers also have tracked public calendars whose separately published events may appear in Discover.
 

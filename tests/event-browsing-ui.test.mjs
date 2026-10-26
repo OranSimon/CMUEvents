@@ -116,13 +116,105 @@ test('calendar downloads use an existing readable source alias and remain explic
   ] };
   const links = JSON.parse(app.run(`JSON.stringify(originalLinks(${JSON.stringify(event)}))`));
   assert.deepEqual(links[0], { url: 'https://example.edu/calendar', label: 'Open source listing' });
-  assert.ok(links.some(link => link.label === 'Download calendar feed'));
+  assert.ok(links.some(link => /Calendar feed \(download\)$/.test(link.label)));
   const feedOnly = JSON.parse(app.run(`JSON.stringify(originalLinks(${JSON.stringify({ ...event, sources: [] })}))`));
   assert.equal(feedOnly[0].label, 'Download calendar feed');
   const viewer = JSON.parse(app.run('JSON.stringify(originalLinks({url:"https://calendar.google.com/calendar/embed?src=public",linkKind:"calendar-viewer"}))'));
   assert.equal(viewer[0].label, 'Open published calendar');
   const detail = JSON.parse(app.run(`JSON.stringify(originalLinks(${JSON.stringify({ ...event, url: 'https://example.edu/event/42', linkKind: 'event-detail' })}))`));
   assert.deepEqual(detail[0], { url: 'https://example.edu/event/42', label: 'View original event' });
+});
+
+test('a merged occurrence keeps every distinct event and listing link, including several links from one publisher', () => {
+  const app = application(async () => ({}));
+  const event = { url: 'https://alpha.edu/event/42', linkKind: 'event-detail', sources: [
+    { id: 'alpha', org: 'Alpha calendar', eventUrl: 'https://alpha.edu/event/42', url: 'https://alpha.edu/calendar' },
+    { id: 'beta', org: 'Beta office', eventUrl: 'https://beta.edu/events/84', url: 'https://beta.edu/events' },
+    { id: 'beta', org: 'Beta office', eventUrl: 'https://beta.edu/news/84', url: 'https://beta.edu/events', link: 'https://beta.edu/announcements' },
+    { id: 'alpha', org: 'Alpha calendar', eventUrl: 'https://alpha.edu/event/42', url: 'https://alpha.edu/calendar' },
+    { id: 'unsafe', org: 'Rejected unsafe links', eventUrl: 'javascript:alert(1)', url: 'data:text/html,example' }
+  ] };
+  const links = JSON.parse(app.run(`JSON.stringify(originalLinks(${JSON.stringify(event)}))`));
+  assert.deepEqual(links[0], { url: event.url, label: 'View original event' });
+  assert.deepEqual(new Set(links.map(link => link.url)), new Set([
+    'https://alpha.edu/event/42', 'https://alpha.edu/calendar', 'https://beta.edu/events/84',
+    'https://beta.edu/events', 'https://beta.edu/news/84', 'https://beta.edu/announcements'
+  ]));
+  assert.equal(links.length, 6);
+  assert.equal(links.find(link => link.url === 'https://alpha.edu/calendar').label, 'Alpha calendar · Source listing');
+  assert.equal(links.find(link => link.url === 'https://beta.edu/events/84').label, 'Beta office · Event details');
+  assert.equal(links.find(link => link.url === 'https://beta.edu/news/84').label, 'Beta office · Event details');
+});
+
+test('readable event links outrank a download without discarding its feed or source listing', () => {
+  const app = application(async () => ({}));
+  const event = { url: 'https://calendar.example.edu/export?format=ical', linkKind: 'source-page', sources: [
+    { id: 'shared', org: 'Official calendar', eventUrl: 'https://calendar.example.edu/export?format=ical', url: 'https://calendar.example.edu/calendar' },
+    { id: 'department', org: 'Department', eventUrl: 'https://department.example.edu/talk/42', url: 'https://department.example.edu/talks' }
+  ] };
+  const links = JSON.parse(app.run(`JSON.stringify(originalLinks(${JSON.stringify(event)}))`));
+  assert.deepEqual(links[0], { url: 'https://department.example.edu/talk/42', label: 'View original event' });
+  assert.deepEqual(new Set(links.map(link => link.url)), new Set([
+    event.url, 'https://calendar.example.edu/calendar', 'https://department.example.edu/talk/42', 'https://department.example.edu/talks'
+  ]));
+  assert.equal(links.find(link => link.url === event.url).label, 'calendar.example.edu · Calendar feed (download)');
+});
+
+test('merged event details expose differing source claims and retain a shorter access note safely', () => {
+  const app = application(async () => ({}));
+  app.run('openDialog = () => {}');
+  const description = 'A detailed published research presentation with a substantial abstract and speaker biography.';
+  const sources = [
+    { id: 'department', org: 'Department calendar', url: 'https://department.edu/calendar', eventUrl: 'https://department.edu/talk/42' },
+    { id: 'center', org: 'Center & research office', url: 'https://center.edu/events', eventUrl: 'https://center.edu/event/84' }
+  ];
+  const event = { title: 'Research seminar', summary: 'Published seminar summary.', description, start: '2026-10-26T16:00:00Z', end: '2026-10-26T17:00:00Z',
+    timePrecision: 'time', timeZone: 'America/New_York', location: 'Conference Room 4105', status: 'scheduled', url: sources[0].eventUrl,
+    orgs: ['Department calendar', 'Center & research office'], sources, sourceConflicts: ['location', 'end', 'status', 'internal-code'], sourceVariants: [
+      { title: 'Research Seminar: Visiting Speaker', start: '2026-10-26T16:00:00Z', end: '2026-10-26T17:00:00Z', timeZone: 'America/New_York', timePrecision: 'time', allDay: false,
+        location: 'Conference Room 4105', organizer: 'Academic office', status: 'scheduled', descriptionMatchesCanonical: true, sourceIds: ['department'], urls: [sources[0].eventUrl] },
+      { title: 'Research seminar <speaker>', start: '2026-10-26T16:00:00Z', end: '2026-10-26T17:30:00Z', timeZone: 'America/New_York', timePrecision: 'time', allDay: false,
+        location: 'Conference Room 4501', status: 'postponed', description: 'Members only; confirm access before attending. <img src=x onerror=alert(1)>', sourceIds: ['center'], urls: [sources[1].eventUrl] }
+    ] };
+  app.run(`openEvent(${JSON.stringify(event)})`);
+  const $ = cheerio.load(app.elements.get('detail-content').innerHTML);
+  assert.match($('.notice').text(), /Source listings differ on location, end time, event status/);
+  assert.doesNotMatch($('.notice').text(), /internal-code/);
+  assert.equal($('.source-versions summary').text(), 'Source versions (2)');
+  assert.equal($('.source-version').length, 2);
+  const first = $('.source-version').eq(0).text();
+  const second = $('.source-version').eq(1).text();
+  assert.match(first, /Research Seminar: Visiting Speaker/);
+  assert.match(first, /Department calendar/);
+  assert.match(first, /Monday, October 26, 2026/);
+  assert.match(first, /12:00 PM – 1:00 PM EDT/);
+  assert.match(first, /Conference Room 4105/);
+  assert.match(first, /Status: Scheduled/);
+  assert.match(first, /substantial abstract and speaker biography/);
+  assert.match(second, /Center & research office/);
+  assert.match(second, /12:00 PM – 1:30 PM EDT/);
+  assert.match(second, /Conference Room 4501/);
+  assert.match(second, /Status: Postponed/);
+  assert.match(second, /Members only; confirm access before attending/);
+  assert.match(second, /Research seminar <speaker>/);
+  assert.equal($('img,script,speaker').length, 0);
+  assert.deepEqual(new Set($('a').toArray().map(node => $(node).attr('href'))), new Set(sources.flatMap(source => [source.url, source.eventUrl])));
+});
+
+test('source date-only claims respect exclusive ends without inventing a clock or a conflict notice', () => {
+  const app = application(async () => ({}));
+  app.run('openDialog = () => {}');
+  const event = { title: 'Dated program', description: '', start: '2027-04-15', end: '2027-04-18', allDay: true, endExclusive: true, timePrecision: 'date',
+    sources: [{ id: 'calendar', org: 'Official calendar', url: 'https://example.edu/calendar' }], sourceVariants: [
+      { title: 'Dated program', start: '2027-04-15', end: '2027-04-18', allDay: true, timePrecision: 'date', status: 'scheduled',
+        sourceIds: ['calendar'], descriptionMatchesCanonical: true }
+    ] };
+  app.run(`openEvent(${JSON.stringify(event)})`);
+  const $ = cheerio.load(app.elements.get('detail-content').innerHTML);
+  assert.equal($('.notice').length, 0);
+  assert.match($('.source-version').text(), /April 15, 2027 – April 17, 2027/);
+  assert.match($('.source-version').text(), /Time not listed/);
+  assert.doesNotMatch($('.source-version').text(), /April 18/);
 });
 
 test('switching views cancels a pending complete-Today fetch before it requests hidden later pages', async () => {

@@ -1,39 +1,8 @@
 import { DatabaseSync } from 'node:sqlite';
-import { createHash } from 'node:crypto';
 import { classifyEvent } from '../classify.mjs';
 import { localDay } from '../config.mjs';
 import { matchesEventView, calendarEligibility } from '../../web/event-semantics.js';
-
-/**
- * Build a short stable identifier for an event occurrence.
- * @param {string} value Canonical identity string.
- * @return {string} Stable hexadecimal identifier.
- */
-function identifier(value) {
-  return createHash('sha256').update(value).digest('hex').slice(0, 24);
-}
-
-/**
- * Normalize links for duplicate matching without discarding meaningful query IDs.
- * @param {string} value Original event link.
- * @return {string} URL without fragment and known tracking parameters.
- */
-function canonicalUrl(value) {
-  try {
-    const url = new URL(value);
-    url.hash = '';
-    if (['tartanconnect.cmu.edu', 'scottyconnect.qatar.cmu.edu'].includes(url.hostname)
-      && /\/(?:rsvp|rsvp_boot)$/.test(url.pathname) && /^\d+$/.test(url.searchParams.get('id') || '')) {
-      const eventID = url.searchParams.get('id');
-      url.pathname = '/rsvp';
-      url.search = '';
-      url.searchParams.set('id', eventID);
-    }
-    for (const key of [...url.searchParams.keys()]) if (/^(utm_|fbclid|gclid)/i.test(key)) url.searchParams.delete(key);
-    url.searchParams.sort();
-    return url.href.replace(/\/$/, '');
-  } catch { return value || ''; }
-}
+import { canonicalEventUrl as canonicalUrl, occurrenceStorageKey, mergeOccurrences } from './occurrence-merge.mjs';
 
 /**
  * Match a date-only listing to a timed detail on the same published local day.
@@ -75,49 +44,6 @@ function timedDayUpgrades(events) {
     upgrades.set(key, clocks[0]);
   }
   return upgrades;
-}
-
-/**
- * Generate evidence-based duplicate keys for one occurrence.
- * @param {Object} event Normalized event.
- * @return {Array<string>} UID and source-link keys including the occurrence start.
- */
-function occurrenceKeys(event) {
-  const title = event.title.toLocaleLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
-  const keys = [`url:${canonicalUrl(event.url)}|${event.start}|${title}`];
-  if (event.uid) keys.unshift(`uid:${event.uid}|${event.start}`);
-  const description = String(event.description || '').toLocaleLowerCase().replace(/\s+/g, ' ').trim();
-  const location = String(event.location || '').toLocaleLowerCase().replace(/\s+/g, ' ').trim();
-  if (title.length >= 20 && description.length >= 80 && location.length >= 5
-    && !/^(?:zoom|online|virtual|tba|tbd|to be announced|sign in|https?:)/i.test(location)) {
-    keys.push(`copy:${identifier(`${title}|${event.start}|${location}|${description}`)}`);
-  }
-  return keys;
-}
-
-/**
- * Combine duplicate occurrences and retain the richest source description.
- * @param {Object} target Existing canonical event.
- * @param {Object} incoming Additional occurrence and provenance.
- * @return {Object} Mutated target with combined sources.
- */
-function mergeEvent(target, incoming) {
-  if ((incoming.description || '').length > (target.description || '').length) {
-    target.description = incoming.description;
-    target.summary = incoming.summary;
-  }
-  if (!target.location && incoming.location) target.location = incoming.location;
-  if (!target.organizer && incoming.organizer) target.organizer = incoming.organizer;
-  if (incoming.status === 'cancelled') target.status = 'cancelled';
-  const sourceIds = new Set(target.sources.map(source => source.id));
-  for (const source of incoming.sources) if (!sourceIds.has(source.id)) {
-    target.sources.push(source);
-    sourceIds.add(source.id);
-  }
-  if (incoming.eventType === 'recurring' && incoming.recurrence && target.eventType !== 'recurring') { target.eventType = 'recurring'; target.recurrence = incoming.recurrence; }
-  if (incoming.scheduleKind === 'continuous') { target.scheduleKind = 'continuous'; if (incoming.dateEvidence) target.dateEvidence = incoming.dateEvidence; }
-  target.tags = [...new Set([...(target.tags || []), ...(incoming.tags || [])])];
-  return target;
 }
 
 /**
@@ -244,7 +170,7 @@ export function openStore(filename) {
     try {
       db.prepare('DELETE FROM occurrences WHERE source_id=?').run(sourceId);
       const insert = db.prepare('INSERT OR REPLACE INTO occurrences VALUES (?,?,?)');
-      for (const event of events) insert.run(sourceId, identifier(occurrenceKeys(event)[0]), JSON.stringify(event));
+      for (const event of events) insert.run(sourceId, occurrenceStorageKey(event), JSON.stringify(event));
       db.prepare('UPDATE sources SET state=?,last_attempt=?,last_success=?,error=?,warnings=?,event_count=? WHERE id=?')
         .run(partialError ? 'error' : events.length ? 'ok' : zeroState, now, now, partialError, JSON.stringify(warnings), events.length, sourceId);
       db.exec('COMMIT');
@@ -336,7 +262,7 @@ export function openStore(filename) {
       }
       for (const key of removeKeys) remove.run(sourceId, key);
       const insert = db.prepare('INSERT OR REPLACE INTO occurrences VALUES (?,?,?)');
-      for (const event of acceptedEvents) insert.run(sourceId, identifier(occurrenceKeys(event)[0]), JSON.stringify(event));
+      for (const event of acceptedEvents) insert.run(sourceId, occurrenceStorageKey(event), JSON.stringify(event));
       const count = db.prepare('SELECT COUNT(*) AS count FROM occurrences WHERE source_id=?').get(sourceId).count;
       db.prepare('UPDATE sources SET state=\'error\',last_attempt=?,error=?,warnings=?,event_count=? WHERE id=?')
         .run(new Date().toISOString(), `Incomplete extraction; previous records retained. ${effectiveWarnings.join(' ')}`.slice(0, 1200), JSON.stringify(effectiveWarnings), count, sourceId);
@@ -357,8 +283,7 @@ export function openStore(filename) {
       list.push(plan);
       aliases.set(plan.canonicalSourceId, list);
     }
-    const merged = new Map();
-    const keyMap = new Map();
+    const prepared = [];
     const rows = db.prepare('SELECT source_id,data FROM occurrences ORDER BY source_id,occurrence_key').all()
       .filter(row => byId.has(row.source_id) && byId.get(row.source_id).status !== 'covered')
       .map(row => ({ ...row, event: JSON.parse(row.data) }));
@@ -368,22 +293,13 @@ export function openStore(filename) {
       if (!plan || plan.status === 'covered') continue;
       let event = row.event;
       const clock = event.timePrecision === 'date' ? upgrades.get(detailDayKey(event)) : null;
-      if (clock) event = { ...event, start: clock.start, end: clock.end, timeZone: clock.timeZone, timePrecision: 'time', allDay: false };
+      if (clock) event = { ...event, _sourceClaim: { ...event }, start: clock.start, end: clock.end, timeZone: clock.timeZone, timePrecision: 'time', allDay: false };
       event.sources = [plan, ...(aliases.get(plan.id) || [])].map(source => ({
         id: source.id, department: source.department, org: source.org, url: source.url, eventUrl: event.url,
       }));
-      const keys = occurrenceKeys(event);
-      const matches = [...new Set(keys.map(key => keyMap.get(key)).filter(Boolean))];
-      const id = matches[0] || identifier(keys[0]);
-      if (!merged.has(id)) merged.set(id, { ...event, id });
-      else mergeEvent(merged.get(id), event);
-      for (const extraId of matches.slice(1)) {
-        mergeEvent(merged.get(id), merged.get(extraId));
-        merged.delete(extraId);
-        for (const [key, value] of keyMap) if (value === extraId) keyMap.set(key, id);
-      }
-      for (const key of keys) keyMap.set(key, id);
+      prepared.push(event);
     }
+    const { events: merged, report: mergeReport } = mergeOccurrences(prepared);
     db.exec('BEGIN');
     try {
       db.exec('DELETE FROM events; DELETE FROM event_search;');
@@ -391,7 +307,7 @@ export function openStore(filename) {
       const search = db.prepare('INSERT INTO event_search VALUES (?,?,?,?)');
       let publishedCount = 0;
       const exclusions = [];
-      for (const raw of merged.values()) {
+      for (const raw of merged) {
         const eligibility = calendarEligibility(raw);
         if (!eligibility.eligible) { exclusions.push({ uid: raw.uid, title: raw.title, url: raw.url, sourceIds: raw.sources.map(source => source.id), code: eligibility.code, reason: eligibility.reason }); continue; }
         publishedCount++;
@@ -406,6 +322,7 @@ export function openStore(filename) {
         insert.run(event.id, event.start, event.end, startDay, endDay, JSON.stringify(event));
         search.run(event.id, event.title, [...departments, ...orgs, ...event.tags, event.location].join(' '), event.description);
       }
+      setMeta('eventMerges', { ...mergeReport, checkedAt: new Date().toISOString() });
       setMeta('eventExclusions', { checkedAt: new Date().toISOString(), count: exclusions.length, records: exclusions });
       db.exec('COMMIT');
       return publishedCount;

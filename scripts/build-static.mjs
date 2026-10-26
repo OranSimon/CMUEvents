@@ -42,7 +42,7 @@ async function main(args = process.argv.slice(2)) {
     const refresh = await refresher.refresh({ force: true });
     await mkdir(path.dirname(stateOut), { recursive: true });
     await writeFile(path.join(path.dirname(stateOut), 'publication-attempt.json'), `${JSON.stringify({
-      checkedAt: new Date().toISOString(), refresh, previousEventCount, eventExclusions: store.getMeta('eventExclusions'),
+      checkedAt: new Date().toISOString(), refresh, previousEventCount, eventExclusions: store.getMeta('eventExclusions'), eventMerges: store.getMeta('eventMerges'),
       sources: store.listSources().map(({ id, org, url, state, eventCount, lastSuccess, error, warnings, coverage }) =>
         ({ id, org, url, state, eventCount, lastSuccess, error, warnings, coverage })),
     }, null, 2)}\n`);
@@ -55,7 +55,7 @@ async function main(args = process.argv.slice(2)) {
     const report = await buildStaticSite({ store, plans, subscriptions, webRoot: path.join(ROOT, 'web'), output,
       licensePath: path.join(ROOT, 'LICENSE'), context, previousEventCount, allowEventDrop: args.includes('--allow-event-drop') });
     await writeFile(stateOut, `${JSON.stringify(exportCrawlState(store, context))}\n`);
-    await writeFile(path.join(path.dirname(stateOut), 'publication-report.json'), `${JSON.stringify({ ...report, refresh, coverage, eventExclusions: store.getMeta('eventExclusions') }, null, 2)}\n`);
+    await writeFile(path.join(path.dirname(stateOut), 'publication-report.json'), `${JSON.stringify({ ...report, refresh, coverage, eventExclusions: store.getMeta('eventExclusions'), eventMerges: store.getMeta('eventMerges') }, null, 2)}\n`);
     console.log(JSON.stringify(report, null, 2));
     if (process.env.GITHUB_STEP_SUMMARY) await writeFile(process.env.GITHUB_STEP_SUMMARY,
       `## Daily public event publication\n\n- ${report.quality.eventCount} occurrences from ${report.quality.sourceCount} retained sources.\n- ${report.quality.completeSources}/${report.quality.checkedSources} source checks complete; other sources retain explicit diagnostics.\n- Last successful data update: ${report.manifest.lastUpdated}.\n- Published snapshot generation: ${report.manifest.generatedAt}.\n`, { flag: 'a' });

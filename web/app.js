@@ -746,29 +746,37 @@ function showToast(message) {
  * @return {Array<{url:string,label:string}>} Safe source links.
  */
 function originalLinks(event) {
-  const links = [];
   const sources = Array.isArray(event.sources) ? event.sources : [];
+  const records = new Map();
   const download = url => {
     const parsed = new URL(url);
     return /\.ics$/i.test(parsed.pathname) || /\/calendar\/ical\//i.test(parsed.pathname)
       || ["format", "output"].some(key => /^(?:ics|ical|icalendar)$/i.test(parsed.searchParams.get(key) || ""));
   };
-  let primary = safeUrl(event.url || event.originalUrl || event.link);
-  let label = event.linkKind === "calendar-viewer" ? "Open published calendar" : event.linkKind === "source-page" ? "Open source listing" : "View original event";
-  if (primary && download(primary)) {
-    const detail = sources.map(source => safeUrl(source?.eventUrl)).find(url => url && !download(url));
-    const listing = sources.map(source => safeUrl(typeof source === "string" ? source : source.url || source.link)).find(url => url && !download(url));
-    primary = detail || listing || primary;
-    label = download(primary) ? "Download calendar feed" : detail && detail !== listing ? "View original event" : "Open source listing";
-  }
-  if (primary) links.push({ url: primary, label });
+  const add = (value, kind, owner = "") => {
+    const url = safeUrl(value);
+    if (!url || records.has(url)) return;
+    records.set(url, { url, kind: download(url) ? "calendar-download" : kind, owner });
+  };
+  const primaryKind = event.linkKind === "calendar-viewer" ? "calendar-viewer" : event.linkKind === "source-page" ? "source-page" : "event-detail";
+  [event.url, event.originalUrl, event.link].forEach(url => add(url, primaryKind));
   sources.forEach(source => {
-    const eventUrl = safeUrl(typeof source === "string" ? source : source.eventUrl);
-    const listing = safeUrl(typeof source === "string" ? source : source.url || source.link);
-    const url = eventUrl && !download(eventUrl) ? eventUrl : listing && !download(listing) ? listing : eventUrl || listing;
-    if (url && !links.some(link => link.url === url)) links.push({ url, label: download(url) ? "Download calendar feed" : typeof source === "string" ? new URL(url).hostname : source.org || source.name || source.title || source.department || new URL(url).hostname });
+    if (typeof source === "string") { add(source, "source-page"); return; }
+    if (!source || typeof source !== "object") return;
+    const owner = String(source.org || source.name || source.title || source.department || "").trim();
+    const eventUrl = safeUrl(source.eventUrl);
+    const listings = [source.url, source.link].map(safeUrl).filter(Boolean);
+    add(eventUrl, listings.includes(eventUrl) ? "source-page" : "event-detail", owner);
+    listings.forEach(url => add(url, "source-page", owner));
   });
-  return links;
+  const links = [...records.values()];
+  let primary = links[0];
+  if (primary?.kind === "calendar-download") primary = links.find(link => link.kind === "event-detail")
+    || links.find(link => link.kind === "calendar-viewer") || links.find(link => link.kind !== "calendar-download") || primary;
+  const primaryLabels = { "event-detail": "View original event", "source-page": "Open source listing", "calendar-viewer": "Open published calendar", "calendar-download": "Download calendar feed" };
+  const sourceLabels = { "event-detail": "Event details", "source-page": "Source listing", "calendar-viewer": "Published calendar", "calendar-download": "Calendar feed (download)" };
+  return primary ? [primary, ...links.filter(link => link !== primary)].map((link, index) => ({ url: link.url,
+    label: index === 0 ? primaryLabels[link.kind] : `${link.owner || new URL(link.url).hostname} · ${sourceLabels[link.kind]}` })) : [];
 }
 
 /**
@@ -801,13 +809,27 @@ function openEvent(event) {
   const timezone = event.timeZone || event.timezone;
   const continuous = event.scheduleKind === "continuous";
   const status = /cancel|postpon/i.test(event.status || "") ? `<p class="notice"><strong>This event is ${escapeHtml(event.status.toLowerCase())}. Check the original listing for updates.</strong></p>` : "";
+  const variants = Array.isArray(event.sourceVariants) ? event.sourceVariants.filter(variant => variant && typeof variant === "object") : [];
+  const conflictLabels = { location: "location", end: "end time", status: "event status" };
+  const conflicts = [...new Set((Array.isArray(event.sourceConflicts) ? event.sourceConflicts : []).map(field => conflictLabels[field]).filter(Boolean))];
+  const sourceNotice = conflicts.length ? `<p class="notice"><strong>Source listings differ on ${escapeHtml(conflicts.join(", "))}.</strong> Compare source versions and confirm current details with the organizer.</p>` : "";
+  const sourceVersions = variants.length ? `<details class="full-description source-versions"><summary>Source versions (${variants.length})</summary><div class="full-description-text">${variants.map(variant => {
+    const sourceIds = new Set(Array.isArray(variant.sourceIds) ? variant.sourceIds : []);
+    const publishers = [...new Set((Array.isArray(event.sources) ? event.sources : []).filter(source => source && sourceIds.has(source.id))
+      .map(source => source.org || source.name || source.title || source.department).filter(Boolean))];
+    const version = { ...variant, endExclusive: variant.endExclusive ?? Boolean(variant.allDay) };
+    const versionDescription = typeof variant.description === "string" ? variant.description : variant.descriptionMatchesCanonical === true ? description : "";
+    const versionStatus = ({ scheduled: "Scheduled", cancelled: "Cancelled", postponed: "Postponed" })[variant.status] || variant.status || "Not listed";
+    return `<section class="source-version"><p><strong>${escapeHtml(variant.title || title)}</strong><br>${escapeHtml(publishers.join(" · ") || "Original source")}</p><p>${escapeHtml(eventDateLabel(version))}<br>${escapeHtml(eventTime(version))}${variant.timeZone ? `<br>Source time zone: ${escapeHtml(variant.timeZone)}` : ""}<br>Location: ${escapeHtml(variant.location?.name || variant.location || "Not listed")}<br>Status: ${escapeHtml(versionStatus)}${variant.organizer ? `<br>Organizer: ${escapeHtml(variant.organizer)}` : ""}</p>${versionDescription ? `<p>${escapeHtml(versionDescription)}</p>` : '<p>The source did not include an event description.</p>'}</section>`;
+  }).join("")}</div></details>` : "";
   element("dialog-eyebrow").textContent = "A CLOSER LOOK";
   element("detail-content").innerHTML = `<div class="detail-body"><div class="detail-tags">${tags.map(tag => `<span class="category-label" data-color="${tagColor(tag)}">${escapeHtml(tag)}</span>`).join("")}</div>
-    <h2 class="detail-title" id="detail-title">${escapeHtml(title)}</h2><p class="detail-org">Hosted by ${escapeHtml(orgs.join(" · "))}${departments.length ? `<br>${escapeHtml(departments.join(" · "))}` : ""}</p>${status}${continuous ? '<p class="period-note">This is an exhibition or program date range. Check the original listing for opening days, session times, and closures.</p>' : ""}${event.eventType === "recurring" ? `<p class="recurrence-note">${escapeHtml(recurrenceLabel(event))}. This card represents the published occurrence on ${escapeHtml(eventDateLabel(event))}.</p>` : ""}
+    <h2 class="detail-title" id="detail-title">${escapeHtml(title)}</h2><p class="detail-org">Hosted by ${escapeHtml(orgs.join(" · "))}${departments.length ? `<br>${escapeHtml(departments.join(" · "))}` : ""}</p>${status}${sourceNotice}${continuous ? '<p class="period-note">This is an exhibition or program date range. Check the original listing for opening days, session times, and closures.</p>' : ""}${event.eventType === "recurring" ? `<p class="recurrence-note">${escapeHtml(recurrenceLabel(event))}. This card represents the published occurrence on ${escapeHtml(eventDateLabel(event))}.</p>` : ""}
     <div class="detail-facts"><div class="detail-fact">${icon("calendar")}<div><strong>${escapeHtml(eventDateLabel(event))}</strong><small>${escapeHtml(eventTime(event))}${timezone && timezone !== DISPLAY_TIMEZONE && !event.allDay ? ` · Source time zone: ${escapeHtml(timezone)}` : ""}</small></div></div>
     <div class="detail-fact">${icon(modeSlug(event.mode) === "online" ? "screen" : "pin")}<div><strong>${escapeHtml(location)}</strong><small>${escapeHtml([event.campus, event.mode && modeLabel(event.mode)].filter(Boolean).join(" · "))}</small></div></div></div>
     <h3 class="detail-section-heading">At a glance</h3><p class="detail-summary">${escapeHtml(summary)}</p><p class="summary-note">${plainText(event.summary) || description ? 'A concise excerpt from the published event information.' : 'The source did not include an event description.'}</p>
     ${description && description !== summary ? `<details class="full-description"><summary>Read full event description</summary><div class="full-description-text">${escapeHtml(description)}</div></details>` : ""}
+    ${sourceVersions}
     ${links.length ? `<a class="button-primary detail-link" href="${escapeHtml(links[0].url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(links[0].label)}<span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><p class="original-note">Registration, eligibility, tickets, and the latest changes live with the organizer.</p>` : '<p class="original-note">The source did not provide a public event link.</p>'}
     ${links.length > 1 ? `<section class="other-sources"><h3 class="detail-section-heading">Also listed by</h3>${links.slice(1).map(link => `<a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>`).join("")}</section>` : ""}</div>`;
   openDialog();
