@@ -31,6 +31,6 @@ Anna Kornbluh、Baltimore After Progress、May Joseph、Epoch of Loss、Alice Ju
 
 50/50 定向回归通过，包括新增 25 项以上媒体相关契约：超过旧资产上限、完整详情遍历、学期排除、头像与正文活动分离、官方关联身份及日期匹配、父系列年份和旧卡片发布日冲突、PDF 后页议程、逐页预算续传、贴边日期实际 OCR、页脚/论文日期不造事件、空 OCR 不能洗为非活动、明确超时和并发控制等。
 
-本机 EWO 首次全量验证约 7 分钟，其余四源最新热原始缓存验证合计约 20 秒。GitHub Ubuntu 的实际冷运行由根任务继续核对；未把本机结果当作云端已通过。每天会重新验证当前媒体字节，缓存只复用原文/OCR和页进度，不复用人工批准的活动字段。
+本机 EWO 首次全量验证约 7 分钟，其余四源最新热原始缓存验证合计约 20 秒。GitHub Ubuntu 冷运行与两轮状态/缓存恢复均已通过：最终覆盖检查仍全部 internalIssues=[]。冷运行 EWO 单源约16分23秒，最终缓存恢复约59秒；完整构建由19分49秒降至3分26秒。详见总报告与 final-deployment.json。每天会重新验证当前媒体字节，缓存只复用原文/OCR和页进度，不复用人工批准的活动字段。
 
 最终配置建议：`media-config-patches.json`。最终结构化证据：`media-coverage-final.json`。独立详情日期审计：`humanities-detail-date-review.json`。

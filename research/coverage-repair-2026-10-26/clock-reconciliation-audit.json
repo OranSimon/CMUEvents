@@ -1,0 +1,197 @@
+{
+  "checkedAt": "2026-10-26T05:33:47.588Z",
+  "method": "Independent read-only immutable cold-state grouping; current production store rebuild in isolated :memory: SQLite. No production database or code changed.",
+  "immutableColdState": {
+    "commit": "5e107743f5a54d584a304dac857a85a62dbe3e46",
+    "url": "https://raw.githubusercontent.com/OranSimon/CMUEvents/5e107743f5a54d584a304dac857a85a62dbe3e46/state.json",
+    "generatedAt": "2026-10-26T04:57:42.778Z"
+  },
+  "reconciliation": {
+    "beforePublished": 4426,
+    "afterCurrentStoreRebuild": 4423,
+    "removedDuplicates": 3,
+    "actualEventsDeleted": 0,
+    "reason": "Three RSS unknown-clock copies merge with the same original RI event in its current WordPress API. The published clock and both source identities remain."
+  },
+  "sourceIdentities": [
+    {
+      "id": "4c3b04290d02",
+      "org": "Robotics Institute Events",
+      "adapter": "rss",
+      "url": "https://www.ri.cmu.edu/events/feed/",
+      "fetchUrl": "https://www.ri.cmu.edu/events/feed/"
+    },
+    {
+      "id": "cfd02b9dd433",
+      "org": "Robotics Institute Events",
+      "adapter": "wordpress",
+      "url": "https://www.ri.cmu.edu/events/",
+      "fetchUrl": "https://www.ri.cmu.edu/wp-json/tribe/events/v1/events?per_page=100"
+    }
+  ],
+  "datePrecisionNote": "allDay:true on these RSS rows is the internal representation of date-only precision. timePrecision is date, never explicit all-day. Each unknown end is exactly the next exclusive day.",
+  "groups": [
+    {
+      "title": "RI PhD Thesis Proposal – Yilin Wu",
+      "canonicalURL": "https://www.ri.cmu.edu/event/ri-phd-thesis-proposal-yilin-wu",
+      "publishedLocalDay": "2026-10-26",
+      "dateOnly": [
+        {
+          "sourceID": "4c3b04290d02",
+          "uid": "https://www.ri.cmu.edu/?post_type=tribe_events&#038;p=154003",
+          "start": "2026-10-26",
+          "endExclusive": "2026-10-27",
+          "timePrecision": "date",
+          "allDayInternalFlag": true
+        }
+      ],
+      "timed": [
+        {
+          "sourceID": "cfd02b9dd433",
+          "uid": "www.ri.cmu.edu?id=154003",
+          "start": "2026-10-26T14:00:00.000Z",
+          "end": "2026-10-26T15:30:00.000Z",
+          "timeZone": "America/New_York",
+          "timePrecision": "time",
+          "allDay": false
+        }
+      ],
+      "proof": {
+        "sameCanonicalURL": true,
+        "sameExactNormalizedTitle": true,
+        "samePublisherLocalDay": true,
+        "unknownUIDCount": 1,
+        "uniqueClockCount": 1,
+        "unknownDurationsDays": [
+          1
+        ],
+        "explicitAllDayRecords": 0,
+        "multiDayUnknownRecords": 0
+      }
+    },
+    {
+      "title": "RI PhD Thesis Proposal – Sriram Narayanan",
+      "canonicalURL": "https://www.ri.cmu.edu/event/ri-phd-thesis-proposal-sriram-narayanan",
+      "publishedLocalDay": "2026-10-27",
+      "dateOnly": [
+        {
+          "sourceID": "4c3b04290d02",
+          "uid": "https://www.ri.cmu.edu/?post_type=tribe_events&#038;p=153979",
+          "start": "2026-10-27",
+          "endExclusive": "2026-10-28",
+          "timePrecision": "date",
+          "allDayInternalFlag": true
+        }
+      ],
+      "timed": [
+        {
+          "sourceID": "cfd02b9dd433",
+          "uid": "www.ri.cmu.edu?id=153979",
+          "start": "2026-10-27T18:00:00.000Z",
+          "end": "2026-10-27T19:30:00.000Z",
+          "timeZone": "America/New_York",
+          "timePrecision": "time",
+          "allDay": false
+        }
+      ],
+      "proof": {
+        "sameCanonicalURL": true,
+        "sameExactNormalizedTitle": true,
+        "samePublisherLocalDay": true,
+        "unknownUIDCount": 1,
+        "uniqueClockCount": 1,
+        "unknownDurationsDays": [
+          1
+        ],
+        "explicitAllDayRecords": 0,
+        "multiDayUnknownRecords": 0
+      }
+    },
+    {
+      "title": "RI PhD Thesis Proposal – Chen Wu",
+      "canonicalURL": "https://www.ri.cmu.edu/event/ri-phd-thesis-proposal-chen-wu",
+      "publishedLocalDay": "2026-10-28",
+      "dateOnly": [
+        {
+          "sourceID": "4c3b04290d02",
+          "uid": "https://www.ri.cmu.edu/?post_type=tribe_events&#038;p=154008",
+          "start": "2026-10-28",
+          "endExclusive": "2026-10-29",
+          "timePrecision": "date",
+          "allDayInternalFlag": true
+        }
+      ],
+      "timed": [
+        {
+          "sourceID": "cfd02b9dd433",
+          "uid": "www.ri.cmu.edu?id=154008",
+          "start": "2026-10-28T15:00:00.000Z",
+          "end": "2026-10-28T16:30:00.000Z",
+          "timeZone": "America/New_York",
+          "timePrecision": "time",
+          "allDay": false
+        }
+      ],
+      "proof": {
+        "sameCanonicalURL": true,
+        "sameExactNormalizedTitle": true,
+        "samePublisherLocalDay": true,
+        "unknownUIDCount": 1,
+        "uniqueClockCount": 1,
+        "unknownDurationsDays": [
+          1
+        ],
+        "explicitAllDayRecords": 0,
+        "multiDayUnknownRecords": 0
+      }
+    }
+  ],
+  "cpcbFreshReplay": {
+    "checkedAt": "2026-10-26T05:04:11.325Z",
+    "method": "Fresh safe anonymous production fetcher, memory-only response cache, live directory plus reused catalog sources. Entire cold raw state also rebuilt only in :memory:.",
+    "advertisedSeries": 26,
+    "processedSeries": 26,
+    "catalogReusedSeries": 19,
+    "sourceEventsBefore": 107,
+    "sourceEventsAfter": 107,
+    "allSourceUIDsUnchanged": true,
+    "currentCPCBEvents": 14,
+    "currentCPCBEventsWithClock": 14,
+    "memoryGlobalBefore": 4423,
+    "memoryGlobalAfter": 4423,
+    "productionDBOpened": false,
+    "upgrades": [
+      {
+        "uid": "4fce1b115dec1cbc25d85b5b",
+        "title": "\"AI-powered cryogenic electron tomography enables sub-molecular resolution cell structures without averaging\"",
+        "url": "https://www.compbio.cmu.edu/seminar-series/",
+        "fromStart": "2026-10-30",
+        "toStart": "2026-10-30T15:30:00.000Z",
+        "timeZone": "America/New_York",
+        "localClock": "11:30 EDT",
+        "identityTitleAndURLPreserved": true
+      },
+      {
+        "uid": "3532c999e141420dd1437419",
+        "title": "Learning Cellular Organization and Function Across Scales",
+        "url": "https://www.compbio.cmu.edu/seminar-series/",
+        "fromStart": "2027-01-15",
+        "toStart": "2027-01-15T16:30:00.000Z",
+        "timeZone": "America/New_York",
+        "localClock": "11:30 EST",
+        "identityTitleAndURLPreserved": true
+      }
+    ]
+  },
+  "regression": {
+    "command": "node --test tests/seminar-discovery.test.mjs",
+    "passed": 14,
+    "newReconciliationTests": 3,
+    "checks": [
+      "Unique speaker/local-day clock preserves original UID/title/URL and existing location",
+      "Empty existing location alone may be enriched",
+      "Explicit all-day, multiday and ambiguous old/fresh rows are retained",
+      "Actual memory store merges original catalog date and directory clock with both official sources"
+    ]
+  }
+}
