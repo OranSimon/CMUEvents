@@ -1,45 +1,46 @@
 {
   "manifest": {
     "version": 1,
+    "eventSchema": 2,
     "mode": "static",
-    "generatedAt": "2026-10-26T05:33:39.443Z",
-    "lastUpdated": "2026-10-26T05:33:39.297Z",
+    "generatedAt": "2026-10-26T15:41:46.819Z",
+    "lastUpdated": "2026-10-26T15:41:46.669Z",
     "updateIntervalHours": 24,
     "staleAfterHours": 48,
-    "eventCount": 4425,
+    "eventCount": 3659,
     "sourceCount": 318,
     "sourceRepository": "https://github.com/OranSimon/CMUEvents",
     "workflowUrl": "https://github.com/OranSimon/CMUEvents/actions/workflows/daily-pages.yml"
   },
   "quality": {
-    "eventCount": 4425,
+    "eventCount": 3659,
     "sourceCount": 318,
-    "checkedSources": 276,
+    "checkedSources": 277,
     "completeSources": 270,
-    "successRatio": 0.9782608695652174,
-    "previousEventCount": 4428,
-    "retainedRatio": 0.9993224932249323,
+    "successRatio": 0.9747292418772563,
+    "previousEventCount": 4425,
+    "retainedRatio": 0.8268926553672317,
     "allowEventDrop": false
   },
   "refresh": {
-    "startedAt": "2026-10-26T05:31:20.155Z",
-    "completedAt": "2026-10-26T05:33:39.298Z",
-    "total": 276,
-    "completed": 276,
-    "ok": 190,
-    "empty": 76,
+    "startedAt": "2026-10-26T15:39:19.998Z",
+    "completedAt": "2026-10-26T15:41:46.669Z",
+    "total": 277,
+    "completed": 277,
+    "ok": 188,
+    "empty": 78,
     "undated": 4,
-    "error": 6,
-    "totalEvents": 4425,
+    "error": 7,
+    "totalEvents": 3659,
     "transfers": {
-      "requests": 777,
+      "requests": 779,
       "cacheHits": 0,
-      "bytes": 691035053
+      "bytes": 691145161
     }
   },
   "coverage": {
     "version": 1,
-    "checkedAt": "2026-10-26T05:33:39.441Z",
+    "checkedAt": "2026-10-26T15:41:46.815Z",
     "passed": true,
     "sourceCount": 10,
     "passedSources": 10,
@@ -524,7 +525,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-26T05:32:37.363Z"
+          "checkedAt": "2026-10-26T15:40:50.765Z"
         }
       },
       {
@@ -2071,7 +2072,7 @@
               }
             }
           ],
-          "checkedAt": "2026-10-26T05:32:49.527Z"
+          "checkedAt": "2026-10-26T15:41:02.867Z"
         }
       },
       {
@@ -2982,7 +2983,7 @@
               "notes": []
             }
           ],
-          "checkedAt": "2026-10-26T05:32:31.277Z"
+          "checkedAt": "2026-10-26T15:40:45.889Z"
         }
       },
       {
@@ -3166,7 +3167,7 @@
               "evidence": "v2fall-2022-socialist-seminar-graphic.png"
             }
           ],
-          "checkedAt": "2026-10-26T05:32:32.244Z"
+          "checkedAt": "2026-10-26T15:40:47.158Z"
         }
       },
       {
@@ -3226,7 +3227,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-26T05:32:37.813Z"
+          "checkedAt": "2026-10-26T15:40:52.554Z"
         }
       },
       {
@@ -3258,7 +3259,7 @@
               "recognized": 13
             }
           ],
-          "checkedAt": "2026-10-26T05:32:37.904Z"
+          "checkedAt": "2026-10-26T15:40:52.843Z"
         }
       },
       {
@@ -4575,7 +4576,7 @@
               "totalPages": 51
             }
           ],
-          "checkedAt": "2026-10-26T05:33:37.591Z"
+          "checkedAt": "2026-10-26T15:41:43.936Z"
         }
       },
       {
@@ -4590,8 +4591,8 @@
           "version": 1,
           "kind": "public-dom-pagination-and-details",
           "inspectionComplete": true,
-          "pages": 3,
-          "listingCards": 23,
+          "pages": 4,
+          "listingCards": 28,
           "inspectedDetails": [
             {
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
@@ -4615,12 +4616,12 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -4658,7 +4659,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T05:32:45.317Z"
+          "checkedAt": "2026-10-26T15:41:02.383Z"
         }
       },
       {
@@ -4666,15 +4667,15 @@
         "org": "CMU Alumni and Community Events",
         "url": "https://www.cmu.edu/engage/events",
         "state": "error",
-        "eventCount": 23,
+        "eventCount": 28,
         "passed": true,
         "internalIssues": [],
         "coverage": {
           "version": 1,
           "kind": "public-dom-pagination-and-details",
           "inspectionComplete": true,
-          "pages": 3,
-          "listingCards": 23,
+          "pages": 4,
+          "listingCards": 28,
           "inspectedDetails": [
             {
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians",
@@ -4749,7 +4750,19 @@
               "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
             },
             {
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer",
+              "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
+            },
+            {
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
+              "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
+            },
+            {
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/chi-neighborhood-social-lunch",
+              "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
+            },
+            {
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cranberry-township-neighborhood-luncheon-november-2026",
               "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
             },
             {
@@ -4766,6 +4779,14 @@
             },
             {
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain",
+              "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
+            },
+            {
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-next-era-of-neuroscience-at-cmu",
+              "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
+            },
+            {
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-2027-cmu-multi-college-lunar-new-year-celebration",
               "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
             }
           ],
@@ -4785,45 +4806,45 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -4960,11 +4981,44 @@
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "diagnostic": {
+                "httpStatus": 403,
+                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer",
+                "title": "Just a moment...",
+                "firstVisibleH1": null
+              }
+            },
+            {
+              "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
               "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
+                "title": "Just a moment...",
+                "firstVisibleH1": null
+              }
+            },
+            {
+              "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/chi-neighborhood-social-lunch",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/chi-neighborhood-social-lunch\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "diagnostic": {
+                "httpStatus": 403,
+                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/chi-neighborhood-social-lunch",
+                "title": "Just a moment...",
+                "firstVisibleH1": null
+              }
+            },
+            {
+              "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cranberry-township-neighborhood-luncheon-november-2026",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cranberry-township-neighborhood-luncheon-november-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "diagnostic": {
+                "httpStatus": 403,
+                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cranberry-township-neighborhood-luncheon-november-2026",
                 "title": "Just a moment...",
                 "firstVisibleH1": null
               }
@@ -5012,10 +5066,32 @@
                 "title": "Just a moment...",
                 "firstVisibleH1": null
               }
+            },
+            {
+              "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-next-era-of-neuroscience-at-cmu",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-next-era-of-neuroscience-at-cmu\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "diagnostic": {
+                "httpStatus": 403,
+                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-next-era-of-neuroscience-at-cmu",
+                "title": "Just a moment...",
+                "firstVisibleH1": null
+              }
+            },
+            {
+              "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-2027-cmu-multi-college-lunar-new-year-celebration",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-2027-cmu-multi-college-lunar-new-year-celebration\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "diagnostic": {
+                "httpStatus": 403,
+                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-2027-cmu-multi-college-lunar-new-year-celebration",
+                "title": "Just a moment...",
+                "firstVisibleH1": null
+              }
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T05:32:48.323Z"
+          "checkedAt": "2026-10-26T15:41:11.057Z"
         }
       },
       {
@@ -5333,8 +5409,957 @@
               "evidence": "cause---gamble_heinz-speaker-series4.jpg"
             }
           ],
-          "checkedAt": "2026-10-26T05:33:01.614Z"
+          "checkedAt": "2026-10-26T15:41:17.633Z"
         }
+      }
+    ]
+  },
+  "eventExclusions": {
+    "checkedAt": "2026-10-26T15:41:46.602Z",
+    "count": 84,
+    "records": [
+      {
+        "uid": "livewhale:33106:range:2027-03-08",
+        "title": "Spring Break; No Classes",
+        "url": "https://events.cmu.edu/live/events/33069-spring-break-no-classes",
+        "sourceIds": [
+          "064e900f29b4",
+          "afe4cdd6eb3a",
+          "58220d8df81e",
+          "68c9b0b21fb8",
+          "7493d352b89a",
+          "aa8390d8ece6",
+          "fc7db2cca6a2"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:33095:range:2026-12-31",
+        "title": "Winter Break",
+        "url": "https://events.cmu.edu/live/events/33066-winter-break",
+        "sourceIds": [
+          "064e900f29b4",
+          "afe4cdd6eb3a",
+          "58220d8df81e",
+          "68c9b0b21fb8",
+          "7493d352b89a",
+          "aa8390d8ece6",
+          "fc7db2cca6a2"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:33083:range:2026-11-25",
+        "title": "Thanksgiving Break; University Closed",
+        "url": "https://events.cmu.edu/live/events/33058-thanksgiving-break-university-closed",
+        "sourceIds": [
+          "064e900f29b4",
+          "afe4cdd6eb3a",
+          "58220d8df81e",
+          "68c9b0b21fb8",
+          "7493d352b89a",
+          "aa8390d8ece6",
+          "fc7db2cca6a2"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:33091:range:2026-12-24",
+        "title": "Winter Break",
+        "url": "https://events.cmu.edu/live/events/33065-winter-break",
+        "sourceIds": [
+          "064e900f29b4",
+          "afe4cdd6eb3a",
+          "58220d8df81e",
+          "68c9b0b21fb8",
+          "7493d352b89a",
+          "aa8390d8ece6",
+          "fc7db2cca6a2"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:34750:range:2026-10-26T10:00:00.000Z",
+        "title": "Open Enrollment for 2027 Benefits",
+        "url": "https://events.cmu.edu/hr/event/34750-open-enrollment-for-2027-benefits",
+        "sourceIds": [
+          "15e1f25e2dd5",
+          "e8b71eac1119",
+          "f924f93134be"
+        ],
+        "code": "registration-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:35302:range:2026-11-16T07:00:00.000Z",
+        "title": "Entrepreneurship Development and Impact Program",
+        "url": "https://events.cmu.edu/afretec/event/35302-entrepreneurship-development-and-impact-program",
+        "sourceIds": [
+          "50ee08b31e1a",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:32218:range:2026-09-01",
+        "title": "Change Management Center of Excellence (CoE)",
+        "url": "https://events.cmu.edu/computing/event/32218-change-management-center-of-excellence-coe",
+        "sourceIds": [
+          "580e4a2ea37b",
+          "e8b71eac1119"
+        ],
+        "code": "registration-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:34857:range:2026-11-25",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34857-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:34881:2027-02-24",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34881-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34886:2027-03-31",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34886-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34883:2027-03-10",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34883-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34880:2027-02-17",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34880-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34888:2027-04-14",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34888-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34889:2027-04-21",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34889-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34867:2026-11-18",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34867-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34885:2027-03-24",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34885-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34879:2027-02-10",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34879-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34882:2027-03-03",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34882-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34884:2027-03-17",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34884-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34858:range:2026-12-07",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34858-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:34866:2026-11-11",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34866-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34864:2026-10-28",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34864-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34887:2027-04-07",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34887-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34869:2026-12-02",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34869-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34865:2026-11-04",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34865-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34878:2027-02-03",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34878-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:35288:range:2026-09-28T16:00:00.000Z",
+        "title": "CMU-Africa Bridge Program",
+        "url": "https://events.cmu.edu/africa/event/35288-cmu-africa-bridge-program",
+        "sourceIds": [
+          "5b91dc2b95fc",
+          "e8b71eac1119",
+          "eb4e83783836"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:35464:range:2026-11-10T10:30:00.000Z",
+        "title": "Global Entrepreneurship Week",
+        "url": "https://events.cmu.edu/africa/event/35464-global-entrepreneurship-week",
+        "sourceIds": [
+          "5b91dc2b95fc",
+          "e8b71eac1119",
+          "eb4e83783836"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "420063e3d33882cb542245ca77823a02582026_4:10:05_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1936003",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "6c7d8a0d0ab317350774fe6631e103c8582026_4:03:10_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935985",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "d38847265012164620fb36aee1f743f7582026_4:10:10_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1936006",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "ef541a13b095d32ebf38451c1be3e591582026_4:10:15_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1936010",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "aa1d1d522190a200913c313368337c12582026_4:09:59_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935999",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "702a831933f1f0461525deab1dbff89f582026_4:03:14_PM@campusgroups.com",
+        "title": "HOLD for MCC Event – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935988",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "af321d80995b364eec8dc14bff84a5597242026_1:46:49_PM@campusgroups.com",
+        "title": "HOLD for Corporate Presentation",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1936290",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "22d9dd6c4323d01105f07965e631ad14582026_4:10:11_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1936007",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "9e9c69698225a0804bbb77b34223219b10202026_2:06:32_PM@campusgroups.com",
+        "title": "[BBA] 2026-2027 Merch",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1938213",
+        "sourceIds": [
+          "5d10172e6358"
+        ],
+        "code": "sales-window",
+        "reason": "This multi-day interval is a merchandise ordering/sales window, not an activity session."
+      },
+      {
+        "uid": "2f7e3d5266db034b351165504fa19147582026_4:03:16_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935989",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "2483da2f12011dbf030ea56cc78650e8582026_4:10:02_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1936001",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "1c7472c7613a6e795883b80beb63c70e582026_4:10:14_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1936009",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "e20d0c1ef1a9d5af6f2c174bc79017cd582026_4:10:08_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1936005",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "f46f71bcf436cd5875692bc4aeb39d493262026_6:26:48_PM@campusgroups.com",
+        "title": "[ABA] 2026-2027 MERCH",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935731",
+        "sourceIds": [
+          "5d10172e6358"
+        ],
+        "code": "sales-window",
+        "reason": "This multi-day interval is a merchandise ordering/sales window, not an activity session."
+      },
+      {
+        "uid": "1c95585dbdd1c41f695cdd8503eb931e582026_4:03:18_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935991",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "6dfe898edff4a1fdaebf7c38becbf4a0582026_4:03:13_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935987",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "5d9e83b6dcdb4493367f584961e74298582026_4:03:22_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935993",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "211f72d0cc89c5c5366c38cf1f9daced582026_4:03:05_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935981",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "cf1924eec155418027c175d4d0c15a30582026_4:03:11_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935986",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "84abc1f41fd03c09638b8a3c87081d3d552026_2:30:16_PM@campusgroups.com",
+        "title": "HOLD for MCC Workshop",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935955",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "e3137821764084f02115e5a4d8cefb81582026_4:03:23_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935994",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "84178c3b4725d6579285cab1e23e26c2582026_4:10:01_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1936000",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "4987912a1da37425e434e249ff554280582026_4:03:17_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935990",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "79a9a9b42104e508911ff3069f7dd7f0582026_4:03:25_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935995",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "89503ecb9b73e6539bb64190a3cd1bc8582026_4:10:12_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1936008",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "e3cd917aad9aa31632a4a60b4657b1ef582026_4:03:09_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935984",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "f31605903ee9f1c3a26b09f9eb8f7c7e582026_4:03:20_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935992",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "f850aef480c2baab276ae88f0bcaa0dd582026_4:10:07_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1936004",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "78370f6588132b4dc1d9687b31ad4b34582026_4:10:04_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1936002",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "eaf775858771147225d88d9f50dedc2f582026_4:03:06_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935982",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "8e1cad716e6fd21040652bea58443ab7582026_4:03:07_PM@campusgroups.com",
+        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935983",
+        "sourceIds": [
+          "5d10172e6358",
+          "da985925fb40"
+        ],
+        "code": "administrative-hold",
+        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
+      },
+      {
+        "uid": "livewhale:34770:range:2027-04-09",
+        "title": "Bridges and Borders conference",
+        "url": "https://events.cmu.edu/english/event/34770-bridges-and-borders-conference",
+        "sourceIds": [
+          "7dd208226033",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:33065:range:2026-12-24",
+        "title": "Winter Break",
+        "url": "https://events.cmu.edu/mcs/event/33065-winter-break",
+        "sourceIds": [
+          "be4c1ac74f16",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:33058:range:2026-11-25",
+        "title": "Thanksgiving Break; University Closed",
+        "url": "https://events.cmu.edu/mcs/event/33058-thanksgiving-break-university-closed",
+        "sourceIds": [
+          "be4c1ac74f16",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:33066:range:2026-12-31",
+        "title": "Winter Break",
+        "url": "https://events.cmu.edu/mcs/event/33066-winter-break",
+        "sourceIds": [
+          "be4c1ac74f16",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:33069:range:2027-03-08",
+        "title": "Spring Break; No Classes",
+        "url": "https://events.cmu.edu/mcs/event/33069-spring-break-no-classes",
+        "sourceIds": [
+          "be4c1ac74f16",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:32548:range:2027-01-07",
+        "title": "Nativity of Our Lord",
+        "url": "https://events.cmu.edu/interfaith-calendar/event/32548-nativity-of-our-lord",
+        "sourceIds": [
+          "c6bf444aa58e",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:32145:range:2027-04-15",
+        "title": "Spring Carnival",
+        "url": "https://events.cmu.edu/dietrich/event/32145-spring-carnival",
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:32112:range:2026-11-25",
+        "title": "Thanksgiving Break; University Closed",
+        "url": "https://events.cmu.edu/dietrich/event/32112-thanksgiving-break-university-closed",
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:32109:range:2026-11-16",
+        "title": "Spring 2027 Registration",
+        "url": "https://events.cmu.edu/dietrich/event/32109-spring-2027-registration",
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:32088:range:2026-12-24",
+        "title": "Winter Break",
+        "url": "https://events.cmu.edu/dietrich/event/32088-winter-break",
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:32089:range:2026-12-31",
+        "title": "Winter Break",
+        "url": "https://events.cmu.edu/dietrich/event/32089-winter-break",
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:32133:range:2027-03-08",
+        "title": "Spring Break; No Classes",
+        "url": "https://events.cmu.edu/dietrich/event/32133-spring-break-no-classes",
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:32117:range:2026-12-10",
+        "title": "Final Exams",
+        "url": "https://events.cmu.edu/dietrich/event/32117-final-exams",
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:32115:range:2026-12-07",
+        "title": "Final Exams",
+        "url": "https://events.cmu.edu/dietrich/event/32115-final-exams",
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:32147:range:2027-04-19",
+        "title": "Fall 2027 Registration",
+        "url": "https://events.cmu.edu/dietrich/event/32147-fall-2027-registration",
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:31793:range:2026-11-16",
+        "title": "Spring 2027 Registration",
+        "url": "https://events.cmu.edu/academic-calendar/event/31793-spring-2027-registration",
+        "sourceIds": [
+          "e8b71eac1119",
+          "fe717318a657"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:31807:range:2026-12-24",
+        "title": "University Closed",
+        "url": "https://events.cmu.edu/academic-calendar/event/31807-university-closed",
+        "sourceIds": [
+          "e8b71eac1119",
+          "fe717318a657"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:31799:range:2026-12-07",
+        "title": "Final Exams",
+        "url": "https://events.cmu.edu/academic-calendar/event/31799-final-exams",
+        "sourceIds": [
+          "e8b71eac1119",
+          "fe717318a657"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:32687:range:2026-11-25",
+        "title": "Thanksgiving Break; No Classes",
+        "url": "https://events.cmu.edu/live/events/31796-thanksgiving-break-university-closed",
+        "sourceIds": [
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:31820:range:2027-03-08",
+        "title": "Spring Break; No Classes",
+        "url": "https://events.cmu.edu/academic-calendar/event/31820-spring-break-no-classes",
+        "sourceIds": [
+          "e8b71eac1119",
+          "fe717318a657"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:31808:range:2026-12-28",
+        "title": "University Closed",
+        "url": "https://events.cmu.edu/academic-calendar/event/31808-university-closed",
+        "sourceIds": [
+          "e8b71eac1119",
+          "fe717318a657"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:31827:range:2027-04-15",
+        "title": "Spring Carnival",
+        "url": "https://events.cmu.edu/academic-calendar/event/31827-spring-carnival",
+        "sourceIds": [
+          "e8b71eac1119",
+          "fe717318a657"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:31830:range:2027-04-19",
+        "title": "Fall 2027 Registration",
+        "url": "https://events.cmu.edu/academic-calendar/event/31830-fall-2027-registration",
+        "sourceIds": [
+          "e8b71eac1119",
+          "fe717318a657"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:31801:range:2026-12-10",
+        "title": "Final Exams",
+        "url": "https://events.cmu.edu/academic-calendar/event/31801-final-exams",
+        "sourceIds": [
+          "e8b71eac1119",
+          "fe717318a657"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:31796:range:2026-11-25",
+        "title": "Thanksgiving Break; No Classes",
+        "url": "https://events.cmu.edu/academic-calendar/event/31796-thanksgiving-break-no-classes",
+        "sourceIds": [
+          "fe717318a657"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
       }
     ]
   }
