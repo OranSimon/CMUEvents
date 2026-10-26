@@ -38,6 +38,8 @@ jobs:
       contents: write
     env:
       CMUEVENTS_RENDER_PUBLIC: '1'
+      CMUEVENTS_LOG_PROGRESS: '1'
+      OMP_THREAD_LIMIT: '1'
       CMUEVENTS_CONCURRENCY: '4'
       CMUEVENTS_BUILD_DATA_DIR: ${{ github.workspace }}/.cache/daily-build
       ALLOW_EVENT_DROP: ${{ github.event_name == 'workflow_dispatch' && inputs.allow_event_drop }}

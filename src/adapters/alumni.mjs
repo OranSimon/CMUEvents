@@ -110,11 +110,30 @@ async function fetchAlumniPublic(plan, context) {
   const warnings = [];
   const eligible = listing.rows.filter(row => publicEventUrl(row.url)
     && (!plan.options?.onlineOnly || /\b(?:virtual webinar,?\s*)?online\s*(?:\n|$)/i.test(row.text?.split('|').slice(1).join('|') || '')));
+  const failureLimit = Math.max(1, Math.min(12, Math.floor(Number(plan.options?.maxConsecutiveDetailFailures) || 4)));
+  let consecutiveFailures = 0;
   for (let index = 0; index < eligible.length; index += 2) {
-    await Promise.all(eligible.slice(index, index + 2).map(async row => {
-      try { details.set(row.url, await context.renderPublic({ url: row.url, kind: 'event-detail' })); }
-      catch (error) { warnings.push(`Public original event detail failed (${row.url}): ${error.message}`); }
+    const outcomes = await Promise.all(eligible.slice(index, index + 2).map(async row => {
+      try {
+        const detail = await context.renderPublic({ url: row.url, kind: 'event-detail' });
+        if (!parseAlumniPublicDetail(detail)) throw new Error('Current visible Event Details has no explicit valid full date');
+        return { url: row.url, detail };
+      } catch (error) { return { url: row.url, error }; }
     }));
+    for (const outcome of outcomes) {
+      if (outcome.error) {
+        consecutiveFailures++;
+        warnings.push(`Public original event detail failed (${outcome.url}): ${outcome.error.message}`);
+      } else {
+        consecutiveFailures = 0;
+        details.set(outcome.url, outcome.detail);
+      }
+    }
+    const remaining = eligible.length - Math.min(index + 2, eligible.length);
+    if (consecutiveFailures >= failureLimit && remaining > 0) {
+      warnings.push(`Stopped optional Alumni detail enrichment after ${consecutiveFailures} consecutive failures (limit ${failureLimit}); skipped ${remaining} remaining detail page(s). All current public listing cards remain included with their advertised dates.`);
+      break;
+    }
   }
   const result = parseAlumniPublicCards(listing, details, plan, context);
   return { ...result, warnings: [...result.warnings, ...warnings] };

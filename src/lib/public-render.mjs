@@ -128,8 +128,10 @@ export function createPublicRenderer(options = {}) {
     const url = publicRenderUrl(request);
     const context = await (await browser()).newContext({ locale: 'en-US', timezoneId: 'America/New_York',
       acceptDownloads: false, serviceWorkers: 'block' });
+    let page;
+    let response;
     try {
-      const page = await context.newPage();
+      page = await context.newPage();
       const publicNetwork = createPublicNetworkGuard({ lookup: options.lookup });
       await context.route('**/*', async route => {
         try {
@@ -143,7 +145,7 @@ export function createPublicRenderer(options = {}) {
       });
       if (context.routeWebSocket) await context.routeWebSocket('**/*', socket => socket.close());
       page.setDefaultTimeout(30000);
-      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
+      response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
       if (request.kind === 'alumni') return { url, ...await collectAlumniCards(page, request) };
       const heading = page.getByRole('heading', { name: 'Event Details', exact: true });
       await heading.waitFor({ state: 'visible', timeout: 30000 });
@@ -158,6 +160,20 @@ export function createPublicRenderer(options = {}) {
       const description = await page.locator('#event-tabpanel').isVisible()
         ? await page.locator('#event-tabpanel').innerText() : '';
       return { url, title, detailText, description, partial: false };
+    } catch (error) {
+      const diagnostic = { httpStatus: response?.status() ?? null, finalUrl: url, title: null, firstVisibleH1: null };
+      try {
+        const final = new URL(page?.url() || url);
+        diagnostic.finalUrl = `${final.origin}${final.pathname}`;
+      } catch { /* Preserve the validated original URL if navigation is unavailable. */ }
+      try { diagnostic.title = String(await page.title()).slice(0, 240); } catch { /* No document title was available. */ }
+      try {
+        const heading = page.locator('h1:visible').first();
+        if (await heading.count()) diagnostic.firstVisibleH1 = (await heading.innerText({ timeout: 1500 })).slice(0, 240);
+      } catch { /* Read neither body text nor hidden fallback state. */ }
+      const failure = new Error(`${error.message}; public page diagnostic: ${JSON.stringify(diagnostic)}`, { cause: error });
+      failure.publicRenderDiagnostic = diagnostic;
+      throw failure;
     } finally { await context.close(); }
   }
 

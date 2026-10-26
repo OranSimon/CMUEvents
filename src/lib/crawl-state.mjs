@@ -12,6 +12,19 @@ export function extractionSignature(plan) {
 }
 
 /**
+ * Read the previous published count independently of compatible-source restore.
+ * Version-one legacy states recorded this total in lastRefresh instead.
+ * @param {Object} snapshot Previously published portable crawler state.
+ * @return {number} Nonnegative published count, or zero when no baseline exists.
+ */
+export function savedPublicationEventCount(snapshot) {
+  const count = snapshot?.metadata?.publishedEventCount ?? snapshot?.metadata?.lastRefresh?.totalEvents;
+  if (count === undefined || count === null) return 0;
+  if (!Number.isSafeInteger(count) || count < 0) throw new Error('Invalid saved publication event count.');
+  return count;
+}
+
+/**
  * Save normalized source snapshots without raw HTTP caches or credentials.
  * @param {Object} store Open event store.
  * @param {Object} context Optional rolling-window bounds.
@@ -25,8 +38,10 @@ export function exportCrawlState(store, context = {}) {
     if (!occurrences.has(row.source_id)) occurrences.set(row.source_id, []);
     occurrences.get(row.source_id).push(event);
   }
+  const publishedEventCount = store.db.prepare('SELECT data FROM events').all()
+    .reduce((count, row) => count + Number(inWindow(JSON.parse(row.data), context)), 0);
   return { version: 1, generatedAt: new Date().toISOString(),
-    metadata: { lastUpdated: store.getMeta('lastUpdated'), lastRefresh: store.getMeta('lastRefresh') },
+    metadata: { lastUpdated: store.getMeta('lastUpdated'), lastRefresh: store.getMeta('lastRefresh'), publishedEventCount },
     sources: store.listSources().filter(source => !['covered', 'subscription_only', 'unsupported', 'blocked'].includes(source.status))
       .map(source => ({ id: source.id, contract: extractionSignature(source), state: source.state,
         lastAttempt: source.lastAttempt, lastSuccess: source.lastSuccess, error: source.error,

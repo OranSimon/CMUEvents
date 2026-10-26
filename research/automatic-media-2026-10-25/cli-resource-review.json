@@ -1,0 +1,102 @@
+{
+  "checkedAt": "2026-10-26T03:24:41.408Z",
+  "runtime": {
+    "platform": "darwin",
+    "node": "v25.2.1"
+  },
+  "firstCloudFailureCause": "Unconfirmed. The prior error retained only Command failed and normal Estimating resolution stderr; it did not preserve timeout/killed/signal/exit status.",
+  "officialSources": [
+    {
+      "url": "https://tesseract-ocr.github.io/tessdoc/FAQ.html",
+      "finding": "The official FAQ recommends single-threaded Tesseract processes for many images and documents OMP_THREAD_LIMIT=1."
+    },
+    {
+      "url": "https://tesseract-ocr.github.io/tessdoc/Benchmarks.html",
+      "finding": "The official benchmarks discuss OpenMP overhead and recommend OMP_THREAD_LIMIT=1 for applicable builds."
+    }
+  ],
+  "executionPolicy": {
+    "ompThreadLimit": 1,
+    "maxConcurrentProcessesPerNodeProcess": 2,
+    "timeoutMsPerTreatment": 90000,
+    "timeoutSignal": "SIGKILL",
+    "diagnostics": [
+      "elapsedMs",
+      "queueMs",
+      "timeoutMs",
+      "timedOut",
+      "killed",
+      "signal",
+      "exitCode",
+      "code"
+    ],
+    "parsingChanges": false
+  },
+  "actualCliRuns": [
+    {
+      "input": "research/remaining-19-2026-10-25/evidence/lti-fall-2026.png",
+      "elapsedMs": 420,
+      "queueMs": 0,
+      "timeoutMs": 90000,
+      "timedOut": false,
+      "killed": false,
+      "signal": null,
+      "exitCode": 0,
+      "code": null
+    },
+    {
+      "input": "research/remaining-19-2026-10-25/evidence/socialist-fall-3.png",
+      "elapsedMs": 693,
+      "queueMs": 2,
+      "timeoutMs": 90000,
+      "timedOut": false,
+      "killed": false,
+      "signal": null,
+      "exitCode": 0,
+      "code": null
+    },
+    {
+      "input": ".cache/automatic-media/lti-inverted.png",
+      "elapsedMs": 608,
+      "queueMs": 420,
+      "timeoutMs": 90000,
+      "timedOut": false,
+      "killed": false,
+      "signal": null,
+      "exitCode": 0,
+      "code": null
+    },
+    {
+      "input": ".cache/automatic-media/socialist-3-inverted.png",
+      "elapsedMs": 1090,
+      "queueMs": 695,
+      "timeoutMs": 90000,
+      "timedOut": false,
+      "killed": false,
+      "signal": null,
+      "exitCode": 0,
+      "code": null
+    }
+  ],
+  "uncachedFullPipelineSamples": [
+    {
+      "input": "research/remaining-19-2026-10-25/evidence/lti-fall-2026.png",
+      "elapsedMs": 1253,
+      "recognized": 13,
+      "eventCount": 13,
+      "partial": true,
+      "warnings": [
+        "Speaker text is uncertain for 2026-11-20; publisher series title retained"
+      ]
+    },
+    {
+      "input": "research/remaining-19-2026-10-25/evidence/socialist-fall-3.png",
+      "elapsedMs": 2094,
+      "recognized": 1,
+      "eventCount": 1,
+      "partial": false,
+      "warnings": []
+    }
+  ],
+  "cloudConclusion": "This macOS run verifies the new process policy and unchanged conservative parsing. Recovery of the Linux deployment remains to be verified in the next GitHub Actions run."
+}

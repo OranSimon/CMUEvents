@@ -20,6 +20,7 @@ export function readConfig(env = process.env) {
     concurrency: Math.max(1, Math.min(12, Number(env.CMUEVENTS_CONCURRENCY) || 6)),
     autoRefresh: env.CMUEVENTS_AUTO_REFRESH !== '0',
     publicRendering: env.CMUEVENTS_RENDER_PUBLIC === '1',
+    logProgress: env.CMUEVENTS_LOG_PROGRESS === '1',
     refreshTickMs: 15 * 60 * 1000,
     lookBackDays: 30, lookAheadDays: 365,
     sourceScope: createSourceScope(JSON.parse(readFileSync(path.join(ROOT, 'config/source-scope.json'), 'utf8'))),

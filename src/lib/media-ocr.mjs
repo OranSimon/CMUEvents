@@ -1,15 +1,74 @@
 import { createHash } from 'node:crypto';
 import { execFile } from 'node:child_process';
-import { promisify } from 'node:util';
 import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { PDFParse } from 'pdf-parse';
 
-const execute = promisify(execFile);
 const VERSION = 'tesseract-eng-psm11-invert-v1';
 const MAX_BYTES = 20 * 1024 * 1024;
 const MAX_PIXELS = 28_000_000;
+const OCR_TIMEOUT_MS = 90_000;
+const MAX_OCR_PROCESSES = 2;
+let activeOcrProcesses = 0;
+const ocrWaiters = [];
+
+/**
+ * Reserve one process-wide OCR slot across all concurrently collected sources.
+ * @return {Promise<Function>} Release callback for the reserved slot.
+ */
+async function reserveOcrProcess() {
+  if (activeOcrProcesses >= MAX_OCR_PROCESSES) await new Promise(resolve => ocrWaiters.push(resolve));
+  else activeOcrProcesses++;
+  return () => {
+    const next = ocrWaiters.shift();
+    if (next) next();
+    else activeOcrProcesses--;
+  };
+}
+
+/**
+ * Run one bounded single-threaded Tesseract process with safe failure evidence.
+ * The parent controls timeout kills explicitly so diagnostics do not infer a
+ * timeout merely from an ordinary nonzero exit or from Tesseract's stderr.
+ * @param {string} input Public media's temporary image path.
+ * @param {string} output Temporary output basename for text and TSV files.
+ * @param {Object} options Optional executable and shorter diagnostic-test limit.
+ * @return {Promise<Object>} Elapsed/queue timing for the completed invocation.
+ */
+export async function runTesseract(input, output, options = {}) {
+  const queuedAt = performance.now();
+  const release = await reserveOcrProcess();
+  const startedAt = performance.now();
+  const timeoutMs = Math.min(OCR_TIMEOUT_MS, Math.max(1, Number(options.timeoutMs) || OCR_TIMEOUT_MS));
+  try {
+    return await new Promise((resolve, reject) => {
+      let timedOut = false;
+      let timer;
+      const child = execFile(options.executable || process.env.CMU_TESSERACT_PATH || 'tesseract',
+        [input, output, '-l', 'eng', '--psm', '11', 'txt', 'tsv'],
+        { env: { ...process.env, OMP_THREAD_LIMIT: '1' }, maxBuffer: 2 * 1024 * 1024 },
+        (error, _stdout, stderr) => {
+          clearTimeout(timer);
+          const diagnostics = { elapsedMs: Math.round(performance.now() - startedAt), queueMs: Math.round(startedAt - queuedAt), timeoutMs,
+            timedOut, killed: Boolean(child.killed || error?.killed), signal: error?.signal || null,
+            exitCode: typeof error?.code === 'number' ? error.code : error ? null : 0, code: error?.code ?? null };
+          if (!error) { resolve(diagnostics); return; }
+          // Do not echo a shell command, executable path, environment, or input
+          // contents into the public source diagnostics.
+          const detail = String(stderr || '').replaceAll(input, '[input]').replaceAll(output, '[output]')
+            .replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(-600);
+          const failure = new Error(`Tesseract CLI failed (${Object.entries(diagnostics).map(([key, value]) => `${key}=${value ?? 'none'}`).join(', ')})${detail ? `: ${detail}` : ''}`);
+          failure.name = 'OcrProcessError';
+          failure.diagnostics = diagnostics;
+          reject(failure);
+        });
+      // SIGKILL also bounds a wedged child that ignores the normal SIGTERM.
+      timer = setTimeout(() => { timedOut = true; child.kill('SIGKILL'); }, timeoutMs);
+      timer.unref();
+    });
+  } finally { release(); }
+}
 
 /**
  * Check common raster dimensions before allocating a decoded image buffer.
@@ -104,7 +163,7 @@ async function recognizeImage(bytes) {
     // Sequential work avoids running several memory-heavy OCR processes per source.
     for (const [name, file] of [['original', original], ['inverted', inverted]]) {
       const output = join(folder, name);
-      await execute(process.env.CMU_TESSERACT_PATH || 'tesseract', [file, output, '-l', 'eng', '--psm', '11', 'txt', 'tsv'], { timeout: 45_000, maxBuffer: 2 * 1024 * 1024 });
+      await runTesseract(file, output);
       variants.push({ text: await readFile(`${output}.txt`, 'utf8'), words: parseOcrTsv(await readFile(`${output}.tsv`, 'utf8')) });
     }
     return { kind: 'image', width: image.width, height: image.height, variants };

@@ -79,6 +79,9 @@ export function createRefresher(store, plans, config) {
     async function worker() {
       while (cursor < due.length && !stopped) {
         const plan = due[cursor++];
+        const sourceStarted = Date.now();
+        let outcome = 'error';
+        let parsedCount = 0;
         try {
           const result = await fetchEvents(plan, context);
           if (!result || !Array.isArray(result.events)) throw new Error('Adapter returned no event snapshot.');
@@ -86,12 +89,15 @@ export function createRefresher(store, plans, config) {
           if (result.partial) store.mergePartial(plan.id, result.events, result.warnings || [], { singleEventUids: result.singleEventUids || [] });
           else store.replaceSource(plan.id, result.events, result.warnings || [], undefined, result.undated ? 'undated' : 'empty');
           successfulSincePublish++;
+          outcome = result.partial ? 'partial' : result.events.length ? 'ok' : result.undated ? 'undated' : 'empty';
+          parsedCount = result.events.length;
           progress[result.partial ? 'error' : result.events.length ? 'ok' : result.undated ? 'undated' : 'empty']++;
         } catch (error) {
           store.failSource(plan.id, error);
           progress.error++;
         }
         progress.completed++;
+        if (config.logProgress) console.log(`[source] ${plan.id} ${outcome}; ${parsedCount} parsed; ${Date.now() - sourceStarted} ms; ${progress.completed}/${progress.total}`);
         if ((progress.completed <= 12 && Date.now() - lastPublish > 2000)
           || (successfulSincePublish >= 60 && Date.now() - lastPublish > 10000)) publish();
       }

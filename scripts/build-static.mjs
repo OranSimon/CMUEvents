@@ -4,7 +4,7 @@ import { readConfig, loadPlans, ROOT } from '../src/config.mjs';
 import { openStore } from '../src/lib/store.mjs';
 import { createRefresher } from '../src/refresh.mjs';
 import { createSourceSubscriptions } from '../src/lib/source-subscriptions.mjs';
-import { exportCrawlState, restoreCrawlState } from '../src/lib/crawl-state.mjs';
+import { exportCrawlState, restoreCrawlState, savedPublicationEventCount } from '../src/lib/crawl-state.mjs';
 import { buildStaticSite } from '../src/lib/static-site.mjs';
 
 /**
@@ -33,8 +33,8 @@ async function main(args = process.argv.slice(2)) {
     if (stateIn) {
       if ((await stat(stateIn)).size > 64 * 1024 * 1024) throw new Error('Crawler state exceeds its 64 MB bound.');
       const snapshot = JSON.parse(await readFile(stateIn, 'utf8'));
+      previousEventCount = savedPublicationEventCount(snapshot);
       const restored = restoreCrawlState(store, plans, snapshot, context);
-      previousEventCount = store.status().totalEvents;
       console.log(`[state] ${JSON.stringify(restored)}`);
     }
     const refresher = createRefresher(store, plans, config);

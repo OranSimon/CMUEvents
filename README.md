@@ -4,6 +4,8 @@ A public event discovery app with **318 non-club publishing sources**, a GitHub 
 
 ## GitHub Pages and daily updates
 
+[Open CMU Events](https://oransimon.github.io/CMUEvents/) · [View collection and deployment runs](https://github.com/OranSimon/CMUEvents/actions/workflows/daily-pages.yml)
+
 The deployed site uses static HTML/CSS/JavaScript and versioned JSON snapshots. It needs no continuously running server. [Daily events and Pages](.github/workflows/daily-pages.yml) runs at **06:17 America/New_York**, on application changes, and on manual dispatch. GitHub may delay scheduled runs. See [deployment and maintenance](docs/deployment.md) for the full build, state recovery, source limitations and manual recovery process.
 
 The workflow fetches every automatic source once, validates the result and deploys through GitHub Pages. Per-source last-good snapshots survive between runners on the dedicated `codex/crawl-state` branch. Individual failures remain visible; widespread collection failures, an empty dataset or an unexplained event-count decrease greater than 30% block publication and preserve the deployed site. The browser displays the actual successful data-update time and warns after 48 hours without a fresh update. Its reload button checks published data rather than starting a crawl from a visitor's browser.

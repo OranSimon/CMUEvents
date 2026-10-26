@@ -87,6 +87,40 @@ test('dynamic Alumni refresh requires visible discovered URLs and cannot fall ba
   await assert.rejects(fetchAlumni(plan, {}), /CMUEVENTS_RENDER_PUBLIC/);
 });
 
+test('consecutive detail failures stop optional enrichment while all discovered public card dates remain included', async () => {
+  const listing = { rows: fixture.pages.flat(), partial: false };
+  const requested = [];
+  const result = await fetchAlumni(plan, { renderPublic: async request => {
+    if (request.kind === 'alumni') return listing;
+    requested.push(request.url);
+    throw new Error('Event Details timeout; public page diagnostic: {"httpStatus":403,"title":"Access unavailable"}');
+  } });
+  assert.equal(requested.length, 4, 'the default circuit stops after two failed two-card batches');
+  assert.equal(result.events.length, 23);
+  assert.equal(result.partial, true);
+  assert.ok(result.events.every(event => event.timePrecision === 'date'));
+  assert.match(result.warnings.join(' '), /skipped 19 remaining detail page/);
+  assert.match(result.warnings.join(' '), /httpStatus.*403/);
+});
+
+test('a successful current detail resets the configurable failure circuit in deterministic card order', async () => {
+  const listing = { rows: fixture.pages.flat(), partial: false };
+  let calls = 0;
+  const result = await fetchAlumni({ ...plan, options: { ...plan.options, maxConsecutiveDetailFailures: 2 } }, {
+    renderPublic: async request => {
+      if (request.kind === 'alumni') return listing;
+      const index = calls++;
+      if (![1, 3].includes(index)) throw new Error('Original detail temporarily unavailable');
+      const row = listing.rows.find(row => row.url === request.url);
+      return { title: row.title, detailText: `Event Details\n${row.dateText} 8:00AM - 9:00AM EDT\nPublished venue`, description: 'Current public details' };
+    },
+  });
+  assert.equal(calls, 6, 'two successful details reset earlier failures, then two failures open the circuit');
+  assert.equal(result.events.length, 23);
+  assert.equal(result.events.filter(event => event.timePrecision === 'time').length, 2);
+  assert.match(result.warnings.join(' '), /skipped 17 remaining detail page/);
+});
+
 test('online-only scope uses current visible location and does not classify incidental event-title words', async () => {
   const listing = { rows: fixture.pages.flat() };
   const result = parseAlumniPublicCards(listing, new Map(), { ...plan, options: { ...plan.options, onlineOnly: true } });
@@ -155,6 +189,31 @@ test('renderer uses a fresh context, blocks downloads/workers and validates subr
   assert.equal(contexts.length, 2, 'no browser context or cookies are reused');
   await renderer.close();
   assert.equal(browserClosed, 1);
+});
+
+test('render failures report response status, final path, document title and visible h1 without body or Guest List reads', async () => {
+  let closed = 0;
+  const inspected = [];
+  const page = { setDefaultTimeout() {}, mainFrame: () => ({}),
+    goto: async () => ({ status: () => 403 }), url: () => `${fixture.detail.url}?ephemeral=do-not-persist`,
+    title: async () => 'Public access unavailable',
+    getByRole: () => ({ waitFor: async () => { throw new Error('Event Details heading timed out'); } }),
+    locator: selector => { inspected.push(selector); assert.equal(selector, 'h1:visible');
+      return { first: () => ({ count: async () => 1, innerText: async () => 'Request could not be completed' }) }; },
+  };
+  const renderer = createPublicRenderer({ enabled: true, launch: async () => ({
+    newContext: async () => ({ newPage: async () => page, route: async () => {}, close: async () => { closed++; } }), close: async () => {},
+  }) });
+  await assert.rejects(renderer.renderPublic({ url: fixture.detail.url, kind: 'event-detail' }), error => {
+    assert.deepEqual(error.publicRenderDiagnostic, { httpStatus: 403, finalUrl: fixture.detail.url,
+      title: 'Public access unavailable', firstVisibleH1: 'Request could not be completed' });
+    assert.match(error.message, /Event Details heading timed out.*httpStatus.*403/);
+    assert.ok(!error.message.includes('ephemeral'));
+    return true;
+  });
+  assert.equal(closed, 1);
+  assert.deepEqual(inspected, ['h1:visible']);
+  await renderer.close();
 });
 
 const tablePlan = { url: 'https://example.edu/seminars', options: { format: 'text-schedule', rowSelector: 'tbody tr', seriesSelector: 'h1',
