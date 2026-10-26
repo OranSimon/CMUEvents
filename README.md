@@ -30,14 +30,14 @@ For local rendered-page collection, run `npx playwright install chromium`, then 
 ## Discover events
 
 - Search titles, descriptions, locations, departments, organizations and topic tags.
-- Filter by upcoming/today/next 7 days/next 30 days or an inclusive custom date range.
+- Browse **Today**, **Upcoming**, **Recurring** or **Ongoing**. Today shows the complete matching list. The other views append more results in the same selected view; Upcoming offers the next 7 days, next 30 days or an inclusive custom range.
 - Combine **Department**, **Org**, topic, campus and attendance-mode filters.
 - Switch between list and grid views, bookmark the current filters, and open an event for its source-text summary, description, time, location and provenance.
 - Follow the original event link for current registration, eligibility and program details.
 - Open **Our sources** for all 318 original source links. Search by organization, department or URL; combine Department, Category and Coverage filters; load more or show the entire directory. Shared-feed aliases remain visible.
 - Open **Email subscriptions** for reviewed subscription channels, official signup instructions and access requirements. Subscriber-only emails are not imported. Four channels are email-only; two publishers also have tracked public calendars whose separately published events may appear in Discover.
 
-Timed events are displayed in **America/New_York**; details retain the source timezone. Date-only entries retain date precision. Long-running events appear as ongoing. Broad tags are deterministic suggestions configured in [`config/taxonomy.json`](config/taxonomy.json), not official CMU labels or generated factual claims.
+Timed events are displayed in **America/New_York**; details retain the source timezone. Date-only entries retain date precision. Ongoing contains genuine published exhibition and program ranges, with a reminder to check actual opening and session times. Source-backed repeating activities have their own view. Administrative holds, ordering/registration windows and stale empty calendar templates do not become activity categories. Broad tags are deterministic suggestions configured in [`config/taxonomy.json`](config/taxonomy.json), not official CMU labels or generated factual claims.
 
 ## Refresh and maintain
 

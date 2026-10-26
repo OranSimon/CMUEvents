@@ -48,5 +48,33 @@
   "screenshots": [
     "today-desktop.png",
     "today-mobile-390.png"
-  ]
+  ],
+  "finalPublication": {
+    "checkedAt": "2026-10-26T18:25:07.021Z",
+    "runId": "40362543224",
+    "event": "schedule",
+    "generatedAt": "2026-10-26T16:50:55.999Z",
+    "eventCount": 3665,
+    "today": {
+      "total": 69,
+      "renderedCards": 69,
+      "complete": true
+    },
+    "ongoing": {
+      "total": 3,
+      "fullRangeAndOpeningTimesConfirmed": true
+    },
+    "feedNavigation": {
+      "primaryLabel": "Open source listing",
+      "primaryUrl": "https://csd.cmu.edu/calendar",
+      "downloadLabeledSeparately": true
+    },
+    "evidence": [
+      "final-feed-listing-live-ax.txt",
+      "final-period-live-ax.txt"
+    ],
+    "localCandidateScreenshots": [
+      "period-detail-mobile-390.png"
+    ]
+  }
 }
