@@ -2,44 +2,44 @@
   "manifest": {
     "version": 1,
     "mode": "static",
-    "generatedAt": "2026-10-26T04:57:42.584Z",
-    "lastUpdated": "2026-10-26T04:57:42.540Z",
+    "generatedAt": "2026-10-26T05:03:02.531Z",
+    "lastUpdated": "2026-10-26T05:03:02.484Z",
     "updateIntervalHours": 24,
     "staleAfterHours": 48,
-    "eventCount": 4426,
+    "eventCount": 4428,
     "sourceCount": 318,
     "sourceRepository": "https://github.com/OranSimon/CMUEvents",
     "workflowUrl": "https://github.com/OranSimon/CMUEvents/actions/workflows/daily-pages.yml"
   },
   "quality": {
-    "eventCount": 4426,
+    "eventCount": 4428,
     "sourceCount": 318,
     "checkedSources": 276,
     "completeSources": 270,
     "successRatio": 0.9782608695652174,
-    "previousEventCount": 4415,
-    "retainedRatio": 1.0024915062287656,
+    "previousEventCount": 4426,
+    "retainedRatio": 1.000451875282422,
     "allowEventDrop": false
   },
   "refresh": {
-    "startedAt": "2026-10-26T04:38:53.002Z",
-    "completedAt": "2026-10-26T04:57:42.541Z",
+    "startedAt": "2026-10-26T04:59:55.046Z",
+    "completedAt": "2026-10-26T05:03:02.484Z",
     "total": 276,
     "completed": 276,
     "ok": 190,
     "empty": 76,
     "undated": 4,
     "error": 6,
-    "totalEvents": 4426,
+    "totalEvents": 4428,
     "transfers": {
-      "requests": 778,
+      "requests": 777,
       "cacheHits": 0,
-      "bytes": 691044441
+      "bytes": 691036592
     }
   },
   "coverage": {
     "version": 1,
-    "checkedAt": "2026-10-26T04:57:42.581Z",
+    "checkedAt": "2026-10-26T05:03:02.527Z",
     "passed": true,
     "sourceCount": 10,
     "passedSources": 10,
@@ -524,7 +524,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-26T04:41:33.327Z"
+          "checkedAt": "2026-10-26T05:01:28.238Z"
         }
       },
       {
@@ -2071,7 +2071,7 @@
               }
             }
           ],
-          "checkedAt": "2026-10-26T04:41:37.241Z"
+          "checkedAt": "2026-10-26T05:01:42.130Z"
         }
       },
       {
@@ -2982,7 +2982,7 @@
               "notes": []
             }
           ],
-          "checkedAt": "2026-10-26T04:40:47.651Z"
+          "checkedAt": "2026-10-26T05:01:22.245Z"
         }
       },
       {
@@ -3166,7 +3166,7 @@
               "evidence": "v2fall-2022-socialist-seminar-graphic.png"
             }
           ],
-          "checkedAt": "2026-10-26T04:41:02.088Z"
+          "checkedAt": "2026-10-26T05:01:23.123Z"
         }
       },
       {
@@ -3226,7 +3226,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-26T04:41:03.352Z"
+          "checkedAt": "2026-10-26T05:01:29.267Z"
         }
       },
       {
@@ -3258,7 +3258,7 @@
               "recognized": 13
             }
           ],
-          "checkedAt": "2026-10-26T04:41:14.626Z"
+          "checkedAt": "2026-10-26T05:01:29.268Z"
         }
       },
       {
@@ -3274,8 +3274,8 @@
           "kind": "automatic-media",
           "inspectionComplete": true,
           "discovered": 123,
-          "processed": 49,
-          "excludedHistorical": 73,
+          "processed": 47,
+          "excludedHistorical": 75,
           "excludedNonEvent": 0,
           "unresolved": 1,
           "internalIssues": [],
@@ -3552,61 +3552,15 @@
             },
             {
               "url": "https://egon.cheme.cmu.edu/ewo/docs/AC_Network-Constrained_Unit_Commitment_Conejo.pdf",
-              "classification": "processed",
-              "recognized": 1,
-              "totalPages": 49,
-              "pendingPages": [
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                15,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23,
-                24,
-                25,
-                26,
-                27,
-                28,
-                29,
-                30,
-                31,
-                32,
-                33,
-                34,
-                35,
-                36,
-                37,
-                38,
-                39,
-                40,
-                41,
-                42,
-                43,
-                44,
-                45,
-                46,
-                47,
-                48,
-                49
-              ],
-              "ocrPagesCompleted": 1,
-              "reason": "The explicitly dated presentation cover resolves this single seminar; every text page was inspected and later slide-image OCR is unnecessary"
+              "classification": "excluded-historical",
+              "period": {
+                "start": "2021-04-20",
+                "end": "2021-04-21",
+                "line": "April 20, 2021",
+                "weekday": null
+              },
+              "evidence": "Visible current document cover date/publication period",
+              "totalPages": 49
             },
             {
               "url": "https://egon.cheme.cmu.edu/ewo/docs/RuthMisener_2020_03_30.pdf",
@@ -3908,75 +3862,15 @@
             },
             {
               "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_27_2016.pdf",
-              "classification": "processed",
-              "recognized": 1,
-              "totalPages": 67,
-              "pendingPages": [
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12,
-                13,
-                14,
-                16,
-                17,
-                18,
-                19,
-                20,
-                21,
-                22,
-                23,
-                24,
-                25,
-                26,
-                27,
-                28,
-                29,
-                30,
-                31,
-                33,
-                34,
-                35,
-                36,
-                37,
-                38,
-                39,
-                40,
-                42,
-                43,
-                44,
-                45,
-                46,
-                47,
-                48,
-                49,
-                50,
-                51,
-                52,
-                53,
-                54,
-                55,
-                56,
-                57,
-                58,
-                59,
-                60,
-                61,
-                62,
-                63,
-                64,
-                65,
-                67
-              ],
-              "ocrPagesCompleted": 1,
-              "reason": "The explicitly dated presentation cover resolves this single seminar; every text page was inspected and later slide-image OCR is unnecessary"
+              "classification": "excluded-historical",
+              "period": {
+                "start": "2016-09-27",
+                "end": "2016-09-28",
+                "line": "EWO Seminar - Carnegie Mellon University - September 27, 2016",
+                "weekday": null
+              },
+              "evidence": "Visible current document cover date/publication period",
+              "totalPages": 67
             },
             {
               "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_05_11_2016.pdf",
@@ -4681,7 +4575,7 @@
               "totalPages": 51
             }
           ],
-          "checkedAt": "2026-10-26T04:57:40.115Z"
+          "checkedAt": "2026-10-26T05:03:00.018Z"
         }
       },
       {
@@ -4721,23 +4615,23 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
@@ -4764,7 +4658,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T04:41:42.347Z"
+          "checkedAt": "2026-10-26T05:01:37.871Z"
         }
       },
       {
@@ -4891,12 +4785,12 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -4924,45 +4818,45 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-                "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
-              }
-            },
-            {
-              "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
-              "diagnostic": {
-                "httpStatus": 403,
-                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
                 "title": "Just a moment...",
                 "firstVisibleH1": null
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
-                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects",
+                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
                 "title": "Just a moment...",
                 "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "diagnostic": {
+                "httpStatus": 403,
+                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects",
+                "title": "Just a moment...",
+                "firstVisibleH1": null
+              }
+            },
+            {
+              "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -5100,12 +4994,12 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-festival-of-lights-tartan-diwali-celebration",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-festival-of-lights-tartan-diwali-celebration\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-festival-of-lights-tartan-diwali-celebration\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-festival-of-lights-tartan-diwali-celebration",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -5121,7 +5015,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T04:41:56.241Z"
+          "checkedAt": "2026-10-26T05:01:43.358Z"
         }
       },
       {
@@ -5439,7 +5333,7 @@
               "evidence": "cause---gamble_heinz-speaker-series4.jpg"
             }
           ],
-          "checkedAt": "2026-10-26T04:42:17.347Z"
+          "checkedAt": "2026-10-26T05:01:55.256Z"
         }
       }
     ]
