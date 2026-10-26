@@ -120,6 +120,7 @@ function eventDay(event) {
  */
 function eventTime(event) {
   const start = event.start || event.startDate || event.date;
+  if (event.scheduleKind === "continuous") return "Check original opening and session times";
   if (event.timePrecision === "date") return "Time not listed";
   if (event.allDay || /^\d{4}-\d{2}-\d{2}$/.test(start || "")) return "All day";
   const date = new Date(start);

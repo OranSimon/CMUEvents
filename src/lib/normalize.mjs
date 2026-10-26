@@ -160,9 +160,9 @@ export function normalizeEvent(input, plan = {}) {
   const description = plainText([input.description, plan.options?.eventContext].filter(Boolean).join('\n'));
   const recurrence = normalizeRecurrence(input.recurrence) || publishedSchedule({ ...input, title, description }, plan);
   const scheduleKind = ['occurrence', 'continuous', 'date-window', 'registration-window'].includes(input.scheduleKind) ? input.scheduleKind : 'occurrence';
-  const dateEvidence = input.dateEvidence?.kind === 'range-window' && typeof input.dateEvidence.source === 'string'
+  const dateEvidence = ['range-window', 'provider-date-range'].includes(input.dateEvidence?.kind) && typeof input.dateEvidence.source === 'string'
     && parseDate(input.dateEvidence.start, timeZone) && parseDate(input.dateEvidence.end, timeZone)
-    ? { kind: 'range-window', source: input.dateEvidence.source, start: input.dateEvidence.start, end: input.dateEvidence.end } : null;
+    ? { kind: input.dateEvidence.kind, source: input.dateEvidence.source, start: input.dateEvidence.start, end: input.dateEvidence.end } : null;
   const uid = String(input.uid || createHash('sha256').update(`${url}|${start}|${title}`).digest('hex').slice(0, 24));
   return {
     uid, title, description, linkKind: ['event-detail', 'calendar-viewer', 'source-page'].includes(input.linkKind) ? input.linkKind : input.url ? 'event-detail' : 'source-page', eventType: recurrence ? 'recurring' : 'scheduled', scheduleKind,

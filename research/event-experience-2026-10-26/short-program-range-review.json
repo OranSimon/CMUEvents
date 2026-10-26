@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-10-26T16:12:04.553Z",
+  "method": "Fresh provider API fields; explicit bounded range plus positive activity label and original public event detail URL; sparse prose and absent venue do not invalidate date-only programs.",
+  "records": [
+    {
+      "sourceId": "50ee08b31e1a",
+      "rawDisplayRows": 5,
+      "title": "Entrepreneurship Development and Impact Program",
+      "start": "2026-11-16T07:00:00.000Z",
+      "end": "2026-11-20T16:00:00.000Z",
+      "scheduleKind": "occurrence",
+      "dateEvidence": {
+        "kind": "provider-date-range",
+        "source": "livewhale",
+        "start": "2026-11-16T07:00:00.000Z",
+        "end": "2026-11-20T16:00:00.000Z"
+      },
+      "originalUrl": "https://events.cmu.edu/afretec/event/35302-entrepreneurship-development-and-impact-program"
+    },
+    {
+      "sourceId": "7dd208226033",
+      "rawDisplayRows": 2,
+      "title": "Bridges and Borders conference",
+      "start": "2027-04-09",
+      "end": "2027-04-11",
+      "scheduleKind": "occurrence",
+      "dateEvidence": {
+        "kind": "provider-date-range",
+        "source": "livewhale",
+        "start": "2027-04-09",
+        "end": "2027-04-11"
+      },
+      "originalUrl": "https://events.cmu.edu/english/event/34770-bridges-and-borders-conference"
+    },
+    {
+      "sourceId": "d93abdb4309a",
+      "rawDisplayRows": 3,
+      "title": "Spring Carnival",
+      "start": "2027-04-15",
+      "end": "2027-04-18",
+      "scheduleKind": "occurrence",
+      "dateEvidence": {
+        "kind": "provider-date-range",
+        "source": "livewhale",
+        "start": "2027-04-15",
+        "end": "2027-04-18"
+      },
+      "originalUrl": "https://events.cmu.edu/dietrich/event/32145-spring-carnival"
+    },
+    {
+      "sourceId": "fe717318a657",
+      "rawDisplayRows": 3,
+      "title": "Spring Carnival",
+      "start": "2027-04-15",
+      "end": "2027-04-18",
+      "scheduleKind": "occurrence",
+      "dateEvidence": {
+        "kind": "provider-date-range",
+        "source": "livewhale",
+        "start": "2027-04-15",
+        "end": "2027-04-18"
+      },
+      "originalUrl": "https://events.cmu.edu/academic-calendar/event/31827-spring-carnival"
+    }
+  ]
+}

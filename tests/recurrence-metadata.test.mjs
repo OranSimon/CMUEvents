@@ -194,8 +194,35 @@ test('short explicitly typed multi-day programs retain one real occurrence while
     assert.equal(result[0].start, '2026-10-26');
     assert.equal(result[0].end, '2026-10-29');
   }
-  const unknown = parseLiveWhale([{ ...program, description: 'Dates for a public program.' }], plan, context).events[0];
+  const unknown = parseLiveWhale([{ ...program, title: 'Calendar period', url: undefined, description: 'Dates for a public program.' }], plan, context).events[0];
   assert.equal(unknown.scheduleKind, 'date-window');
   const enrollment = parseLiveWhale([{ ...program, title: 'Public workshop', description: 'Registration is open throughout the published window. Participants register for separately scheduled sessions and attendance details follow later.' }], plan, context).events[0];
   assert.equal(enrollment.scheduleKind, 'registration-window');
+});
+
+const shortProgramFixture = JSON.parse(readFileSync(new URL('./fixtures/livewhale-short-programs.json', import.meta.url), 'utf8'));
+
+test('published short conference, carnival and program ranges remain real activities even without venue or rich prose', () => {
+  const reviewWindow = { windowStart: '2026-10-26T00:00:00Z', windowEnd: '2027-10-26T00:00:00Z' };
+  for (const record of shortProgramFixture.records) {
+    const event = parseLiveWhale([record.row], plan, reviewWindow).events[0];
+    assert.ok(event, `the publisher supplied an explicit range for ${record.row.title}`);
+    assert.equal(event.scheduleKind, 'occurrence');
+    assert.equal(event.eventType, 'scheduled');
+    assert.equal(event.dateEvidence?.kind, 'provider-date-range');
+    assert.ok(Date.parse(event.end) > Date.parse(event.start));
+    assert.equal(event.url, record.row.url);
+  }
+  const sparseConference = shortProgramFixture.records.find(record => /conference/i.test(record.row.title)).row;
+  assert.equal(sparseConference.location, null);
+  const sparseCarnival = shortProgramFixture.records.find(record => /carnival/i.test(record.row.title)).row;
+  assert.ok(String(sparseCarnival.summary || '').length < 80);
+});
+
+test('positive program labels do not override an explicitly stated registration window or justify an unknown long range', () => {
+  const first = shortProgramFixture.records[1].row;
+  const registration = parseLiveWhale([{ ...first, description: 'The registration period is open throughout this window; the conference session dates will be announced separately.' }], plan, { windowStart: '2026-10-26', windowEnd: '2027-10-26' }).events[0];
+  assert.equal(registration.scheduleKind, 'registration-window');
+  const broadPeriod = parseLiveWhale([{ ...first, repeats_start: '2027-04-01 04:00:00', repeats_end: '2027-05-30 04:00:00' }], plan, { windowStart: '2026-10-26', windowEnd: '2027-10-26' }).events[0];
+  assert.equal(broadPeriod.scheduleKind, 'date-window');
 });

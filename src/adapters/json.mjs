@@ -68,10 +68,13 @@ function liveWhaleRange(row, timeZone) {
   const location = plainText(typeof row.location === 'object' ? row.location?.title || row.location?.name : row.location).trim();
   const place = (location.length >= 3 && !/^(?:tbd|tba|to be announced|sign in|not specified|unknown)\b/i.test(location))
     || [true, 1, '1'].includes(row.is_online);
-  const shortProgram = Date.parse(last) - Date.parse(first) <= 14 * 86400000 && text.length >= 80 && place
-    && /\b(?:conferences?|camps?|symposi(?:um|a)|workshops?|conventions?|festivals?|homecoming|retreats?|summits?|orientations?|tournaments?)\b/i.test(`${types} ${plainText(row.title)}`);
+  const originalUrl = row.url || row.href || row.external_url;
+  const publishedDetail = typeof originalUrl === 'string' && originalUrl.trim()
+    && Boolean(absoluteUrl(originalUrl, 'https://events.cmu.edu'));
+  const shortProgram = Date.parse(last) - Date.parse(first) <= 14 * 86400000 && (publishedDetail || (text.length >= 80 && place))
+    && /\b(?:conferences?|camps?|symposi(?:um|a)|workshops?|conventions?|festivals?|carnivals?|program(?:me)?s?|homecoming|retreats?|summits?|orientations?|tournaments?)\b/i.test(`${types} ${plainText(row.title)}`);
   const scheduleKind = registration || shortCohort ? 'registration-window' : continuous ? 'continuous' : shortProgram ? 'occurrence' : 'date-window';
-  return { start, end, allDay, scheduleKind, dateEvidence: { kind: 'range-window', source: 'livewhale', start, end } };
+  return { start, end, allDay, scheduleKind, dateEvidence: { kind: scheduleKind === 'occurrence' ? 'provider-date-range' : 'range-window', source: 'livewhale', start, end } };
 }
 
 /**

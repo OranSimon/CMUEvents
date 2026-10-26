@@ -139,7 +139,7 @@ export function queryEventsSnapshot(snapshot, filters = {}, context = {}) {
   if (!Array.isArray(snapshot?.events)) throw new Error("The published snapshot has no events array.");
   const options = filters instanceof URLSearchParams ? Object.fromEntries(filters) : filters;
   const timeZone = context.timeZone || TIME_ZONE;
-  const from = options.from ? calendarDay(options.from) : context.today || zonedDay(Date.now(), timeZone);
+  const from = options.from ? calendarDay(options.from) : context.today || zonedDay(context.now ?? Date.now(), timeZone);
   const to = options.to ? calendarDay(options.to) : "";
   if (!from || (options.to && !to)) throw new Error("Dates must use a valid YYYY-MM-DD value.");
   if (to && to < from) throw new Error("The end date must be on or after the start date.");
@@ -254,7 +254,7 @@ export function createDataClient(options = {}) {
     if (mode === "api") return readJson("api/events", { params: params instanceof URLSearchParams ? params : new URLSearchParams(params), signal: request.signal });
     const data = await withSignal(loadStatic(), request.signal);
     const status = publishedStatus(data);
-    return { ...queryEventsSnapshot(data.events, params, { lastUpdated: status.lastUpdated }), mode, generatedAt: status.generatedAt, refreshing: false };
+    return { ...queryEventsSnapshot(data.events, params, { lastUpdated: status.lastUpdated, now: clock() }), mode, generatedAt: status.generatedAt, refreshing: false };
   }
 
   /**
