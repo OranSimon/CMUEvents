@@ -1,0 +1,367 @@
+{
+  "checkedAt": "2026-10-26T23:08:02.144Z",
+  "runId": "40417016595",
+  "runUrl": "https://github.com/OranSimon/CMUEvents/actions/runs/40417016595",
+  "execution": {
+    "headSha": "764ac24f0c8c9848f2fb8b121a280835e4e3a77b",
+    "event": "push",
+    "jobs": [
+      {
+        "id": 121901781841,
+        "name": "build",
+        "conclusion": "success",
+        "startedAt": "2026-10-26T23:03:18Z",
+        "completedAt": "2026-10-26T23:06:38Z"
+      },
+      {
+        "id": 121903141194,
+        "name": "deploy",
+        "conclusion": "success",
+        "startedAt": "2026-10-26T23:06:41Z",
+        "completedAt": "2026-10-26T23:06:52Z"
+      }
+    ]
+  },
+  "manifest": {
+    "version": 1,
+    "eventSchema": 2,
+    "mode": "static",
+    "generatedAt": "2026-10-26T23:06:28.462Z",
+    "lastUpdated": "2026-10-26T23:06:28.412Z",
+    "updateIntervalHours": 24,
+    "staleAfterHours": 48,
+    "eventCount": 3483,
+    "sourceCount": 318,
+    "sourceRepository": "https://github.com/OranSimon/CMUEvents",
+    "workflowUrl": "https://github.com/OranSimon/CMUEvents/actions/workflows/daily-pages.yml"
+  },
+  "sourceStates": {
+    "total": 318,
+    "ok": 187,
+    "empty": 77,
+    "undated": 4,
+    "error": 9,
+    "covered": 37,
+    "unsupported": 0,
+    "subscription_only": 4,
+    "blocked": 0,
+    "pending": 0
+  },
+  "quality": {
+    "eventCount": 3483,
+    "sourceCount": 318,
+    "checkedSources": 277,
+    "completeSources": 268,
+    "successRatio": 0.9675090252707581,
+    "previousEventCount": 3488,
+    "retainedRatio": 0.9985665137614679,
+    "allowEventDrop": false
+  },
+  "sourceCount": 318,
+  "subscriptionChannels": 6,
+  "fileHashes": {
+    "manifest": "e280529aa854fa6e7a6c4931537424f914282b84386274b6ef526abce983a3b0",
+    "events": "f2c3fbbb847589dd67c22addc731ec9d3bc002382e729ac4ac88548c64c1ba50",
+    "sources": "fb33ef81933a57e2cdb0f8d05db530c2e625767709371146e06c6246f9a80237",
+    "status": "b02eb802e8f2ef2339e2450b3adc9ee308df2c9f2f209ca6206f6ba0b7560d52"
+  },
+  "applicationHashes": {
+    "app.js": "c29481a0a522ce37b93124adb0f9c11f0863dd758acab25a95570fad97b686e8",
+    "data-client.js": "75440f12912b640c161f9242bd1a6a5abeae61f54aa39fa641164a3268198bca",
+    "event-semantics.js": "500e36dc1efde8eb968aaa703b86bf4f37bae3572f3d05255bba0130772709ea",
+    "styles.css": "087b1c2fcf6b436cfc80f0765a93951987fe6a27e1832c446ff2613321949565"
+  },
+  "implementationHashes": {
+    "src/lib/occurrence-merge.mjs": "e2935f52bc0bc5209deda1c906c2370857bea6eb65e4d94b9bf5988fb63cb315",
+    "src/lib/store.mjs": "7c28bafd469dd3564a239b4daaa96fc97d2ef577e0b04b8fd3fd950978ab026f",
+    "src/lib/crawl-state.mjs": "ea65fa13c5c04b5118b61f8a884be23d737939533513efe72b5d51fbbe90ab9d"
+  },
+  "matchingStateReport": {
+    "ref": "cc1f45a461c47de0b1b220d4b11f26bed3b455fa",
+    "sha256": "540bab64cdd57007ecbb3b60b9cf79eddc871d4b31716e0b3f43b4bee8110d10"
+  },
+  "temporalGuards": {
+    "mergedGroups": 1123,
+    "variantsChecked": 1459,
+    "provenanceClaims": 6493,
+    "temporalViolations": [],
+    "allOriginalVariantUrlsRetained": true
+  },
+  "eventMergeAudit": {
+    "inputOccurrences": 5719,
+    "outputOccurrences": 3555,
+    "mergedGroups": 1193,
+    "absorbedOccurrences": 2164,
+    "publishedMergedGroups": 1123,
+    "reasonCounts": {
+      "shared-event-link": 1152,
+      "copied-description": 129,
+      "specific-title-and-venue": 9,
+      "scoped-uid": 18
+    }
+  },
+  "viewCounts": {
+    "today": 58,
+    "upcoming": 2221,
+    "recurring": 477,
+    "ongoing": 3
+  },
+  "viewPartition": {
+    "mutuallyExclusive": true,
+    "completeCurrentFutureOverlap": true,
+    "occurrences": 2759
+  },
+  "examples": {
+    "rolfeSchmidt": {
+      "baselineCards": 3,
+      "currentCards": 1,
+      "availableOriginalUrls": [
+        "https://events.cmu.edu/cylab/event/35372-cylab-seminar-rolfe-schmidt",
+        "https://csd.cmu.edu/ical/ical.ics",
+        "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211812748"
+      ],
+      "unavailableOriginalUrls": [],
+      "expectedSingleOccurrenceAsserted": true,
+      "currentIds": [
+        "3468114831e6ca9ca55da33a"
+      ],
+      "sourceVersionCounts": [
+        3
+      ],
+      "sourceConflicts": [
+        "location"
+      ]
+    },
+    "springCarnival": {
+      "baselineCards": 2,
+      "currentCards": 1,
+      "availableOriginalUrls": [
+        "https://events.cmu.edu/dietrich/event/32145-spring-carnival",
+        "https://events.cmu.edu/academic-calendar/event/31827-spring-carnival"
+      ],
+      "unavailableOriginalUrls": [],
+      "expectedSingleOccurrenceAsserted": true,
+      "currentIds": [
+        "c00f9f28ebdcddd42fe08b0b"
+      ],
+      "sourceVersionCounts": [
+        2
+      ],
+      "sourceConflicts": [],
+      "sharedCalendarClaims": [
+        {
+          "sourceId": "e8b71eac1119",
+          "eventUrls": [
+            "https://events.cmu.edu/academic-calendar/event/31827-spring-carnival",
+            "https://events.cmu.edu/dietrich/event/32145-spring-carnival"
+          ]
+        }
+      ]
+    },
+    "preparingToVibeCode": {
+      "baselineCards": 3,
+      "currentCards": 1,
+      "availableOriginalUrls": [
+        "https://cmu.libcal.com/event/17428830",
+        "https://tartanconnect.cmu.edu/rsvp?id=1938123",
+        "https://cmu.libcal.com/event/17310554"
+      ],
+      "unavailableOriginalUrls": [],
+      "expectedSingleOccurrenceAsserted": true,
+      "currentIds": [
+        "94747ab99b75a0dea4c765af"
+      ],
+      "sourceVersionCounts": [
+        3
+      ],
+      "sourceConflicts": []
+    },
+    "grievingTogether": {
+      "baselineCards": 16,
+      "baselineDistinctStarts": 8,
+      "currentlyAvailableStarts": 8,
+      "groups": [
+        {
+          "start": "2026-10-26T20:00:00.000Z",
+          "currentCards": 1,
+          "id": "e1d91b9dca85d11b8478aedf",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-11-02T21:00:00.000Z",
+          "currentCards": 1,
+          "id": "dc11bd0eba4682c5b2f90004",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-11-09T21:00:00.000Z",
+          "currentCards": 1,
+          "id": "390ff813500a6eafec1585cf",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-11-16T21:00:00.000Z",
+          "currentCards": 1,
+          "id": "8956a8ee3cba36bcd7b8c14a",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-11-23T21:00:00.000Z",
+          "currentCards": 1,
+          "id": "1410ee3db59976c10627fc34",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-11-30T21:00:00.000Z",
+          "currentCards": 1,
+          "id": "9fbe81acb7a2db43d86c5458",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-12-07T21:00:00.000Z",
+          "currentCards": 1,
+          "id": "46febdc1d09ad6b54fbbee20",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-12-14T21:00:00.000Z",
+          "currentCards": 1,
+          "id": "e3e1a32a04454283d15f931f",
+          "status": "present-as-separate-occurrence"
+        }
+      ]
+    },
+    "humanitiesHang": {
+      "baselineCards": 16,
+      "baselineDistinctStarts": 8,
+      "currentlyAvailableStarts": 8,
+      "groups": [
+        {
+          "start": "2026-10-30T18:00:00.000Z",
+          "currentCards": 1,
+          "id": "b84e7422b37e0a31fcb373f6",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-11-06T19:00:00.000Z",
+          "currentCards": 1,
+          "id": "e3a0786d57990f9bf7de69a2",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-11-13T19:00:00.000Z",
+          "currentCards": 1,
+          "id": "ec57b3cb338a3610c871a1e9",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-11-20T19:00:00.000Z",
+          "currentCards": 1,
+          "id": "e34a896fa8897144ccd37673",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-11-27T19:00:00.000Z",
+          "currentCards": 1,
+          "id": "2da4ddcff9fb7f384b56215a",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-12-04T19:00:00.000Z",
+          "currentCards": 1,
+          "id": "e7dce4a352bf4bfba6773d0f",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-12-11T19:00:00.000Z",
+          "currentCards": 1,
+          "id": "d7a332df51e05ccc4daa5fd6",
+          "status": "present-as-separate-occurrence"
+        },
+        {
+          "start": "2026-12-18T19:00:00.000Z",
+          "currentCards": 1,
+          "id": "497e8c88449d8c07f89f0947",
+          "status": "present-as-separate-occurrence"
+        }
+      ]
+    },
+    "explicitEndConflict": {
+      "baselineCards": 2,
+      "currentCards": 2,
+      "knownEnds": [
+        "2026-10-30T22:00:00.000Z",
+        "2026-10-31T00:00:00.000Z"
+      ],
+      "preservedAsSeparateRecords": true,
+      "unavailableOriginalUrls": []
+    }
+  },
+  "coverage": {
+    "passed": true,
+    "passedSources": 10,
+    "sourceCount": 10,
+    "sources": [
+      {
+        "id": "1185bc345a9a",
+        "passed": true,
+        "internalIssues": 0,
+        "externalIssues": 0
+      },
+      {
+        "id": "1468ddb723b2",
+        "passed": true,
+        "internalIssues": 0,
+        "externalIssues": 8
+      },
+      {
+        "id": "31aa89be167d",
+        "passed": true,
+        "internalIssues": 0,
+        "externalIssues": 2
+      },
+      {
+        "id": "34fa7359276d",
+        "passed": true,
+        "internalIssues": 0,
+        "externalIssues": 0
+      },
+      {
+        "id": "4c4f223b8c8b",
+        "passed": true,
+        "internalIssues": 0,
+        "externalIssues": 1
+      },
+      {
+        "id": "528193392a78",
+        "passed": true,
+        "internalIssues": 0,
+        "externalIssues": 0
+      },
+      {
+        "id": "5ade174c3483",
+        "passed": true,
+        "internalIssues": 0,
+        "externalIssues": 1
+      },
+      {
+        "id": "79e7cdffd54d",
+        "passed": true,
+        "internalIssues": 0,
+        "externalIssues": 4
+      },
+      {
+        "id": "8f00fc7f2c7c",
+        "passed": true,
+        "internalIssues": 0,
+        "externalIssues": 27
+      },
+      {
+        "id": "d861fd81e26d",
+        "passed": true,
+        "internalIssues": 0,
+        "externalIssues": 0
+      }
+    ]
+  }
+}

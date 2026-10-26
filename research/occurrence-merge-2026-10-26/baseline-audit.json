@@ -1,0 +1,1001 @@
+{
+  "checkedAt": "2026-10-26T22:45:00.853Z",
+  "baseline": {
+    "sourceCommit": "fc78447e0984a01728b8dbfdb5cd0a80ff599c68",
+    "generatedAt": "2026-10-26T16:50:55.999Z",
+    "eventCount": 3665,
+    "sourceCount": 318,
+    "coherentGeneration": true,
+    "filesSha256": {
+      "events": "f6d1ca7890fff46b3a378fc1e63e7383b1196c2f82b0d95756443893080ca052",
+      "sources": "46d9b2c73922c8b9036487d198c2c5d5ebbc746eb9cfb2c3f56b8b617981621b",
+      "status": "4803e6ddaadda4014c8f948a43ed23e1f9035f09e2246c63026797ebbaa227fe",
+      "manifest": "e8889870f4ecd504154ebfb6b0e3193331e9e9ec4079e67bf083e3229f2675c2"
+    }
+  },
+  "candidateStats": {
+    "sameNormalizedTitleAndExactStartGroups": 262,
+    "extraRecordsWithinTheseGroups": 284,
+    "classification": "Candidate inventory only. Same title/start is not sufficient proof of duplication."
+  },
+  "focusCases": {
+    "rolfeSchmidt": {
+      "classification": "Same named seminar/date/clock across publisher calendars, with venue wording/number conflict that must remain visible.",
+      "records": [
+        {
+          "id": "0ccc19df2bc5c9e6bce8f2ef",
+          "uid": "livewhale:35372:2026-10-26T12:00:00-04:00",
+          "title": "CyLab Seminar: Rolfe Schmidt",
+          "start": "2026-10-26T16:00:00.000Z",
+          "end": "2026-10-26T16:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Zoom and CIC 4501, Panther Hollow Conference Room",
+          "organizer": "CyLab",
+          "eventType": "scheduled",
+          "description": {
+            "length": 265,
+            "normalizedSha256": "1d2e45a0b0e6f0bdbcebdd9f9433e42aa545bcfed13c92aa264e0ab8f50b57fd",
+            "excerpt": "In this installment of the CyLab Seminar Series, Rolfe Schmidt of Signal Messenger will share his latest research.\n\nSpeaker:\nRolfe Schmidt\n\nResearch Engineer\n\nSignal Messenger\n\nTalk Title:\nTalk title coming soon\n\nAbstract:\nAbstract coming soon\n\nBio:\nBio coming soon"
+          },
+          "url": "https://events.cmu.edu/cylab/event/35372-cylab-seminar-rolfe-schmidt",
+          "sources": [
+            {
+              "id": "9903c32bf0ab",
+              "department": "College of Engineering / CyLab",
+              "org": "CyLab Events",
+              "url": "https://www.cylab.cmu.edu/events/index.html",
+              "eventUrl": "https://events.cmu.edu/cylab/event/35372-cylab-seminar-rolfe-schmidt"
+            },
+            {
+              "id": "1185bc345a9a",
+              "department": "School of Computer Science",
+              "org": "SCS Seminars directory",
+              "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+              "eventUrl": "https://events.cmu.edu/cylab/event/35372-cylab-seminar-rolfe-schmidt"
+            },
+            {
+              "id": "e8b71eac1119",
+              "department": "University-wide",
+              "org": "CMU Events Calendar",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/cylab/event/35372-cylab-seminar-rolfe-schmidt"
+            }
+          ]
+        },
+        {
+          "id": "77fc7dd3619a672664a79264",
+          "uid": "6adf7ba50c867",
+          "title": "CyLab Seminar - Rolfe Schmidt",
+          "start": "2026-10-26T16:00:00.000Z",
+          "end": "2026-10-26T17:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Panther Hollow Conference Room, Mehrabian Collaborative Innovation\nCenter 4105",
+          "organizer": "",
+          "eventType": "scheduled",
+          "description": {
+            "length": 1825,
+            "normalizedSha256": "939055f9d74cbc6c15cb65c7632c9f7289701db8d1d41012b3a28f78b1816847",
+            "excerpt": "Speaker: ROLFE SCHMIDT, Research Engineer, Signal Messenger\n\nTalk Title: Signal is More Than the Signal Protocol: A Tour of\nVulnerabilities the Proofs Missed\n\nThe Signal Protocol is among the most heavily analyzed cryptographic\nprotocols ever deployed: pen-and-paper proofs, symbolic models, and\nmachine-checked computational proofs all attest to its security. Those\nresults are real. Nevertheless, over the years we hav"
+          },
+          "url": "https://csd.cmu.edu/ical/ical.ics",
+          "sources": [
+            {
+              "id": "b965a95677c6",
+              "department": "School of Computer Science / Computer Science Department",
+              "org": "CSD Events Calendar",
+              "url": "https://csd.cmu.edu/ical/ical.ics",
+              "eventUrl": "https://csd.cmu.edu/ical/ical.ics"
+            },
+            {
+              "id": "4c5426677e95",
+              "department": "School of Computer Science / Computer Science Department",
+              "org": "CSD Events Calendar",
+              "url": "https://csd.cmu.edu/calendar",
+              "eventUrl": "https://csd.cmu.edu/ical/ical.ics"
+            }
+          ]
+        },
+        {
+          "id": "800f9d6a8780a5fe9869d606",
+          "uid": "https://www.cs.cmu.edu/calendar/211812748",
+          "title": "CyLab Seminar - Rolfe Schmidt",
+          "start": "2026-10-26T16:00:00.000Z",
+          "end": "2026-10-26T17:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Panther Hollow Conference Room, Mehrabian Collaborative Innovation Center 4105",
+          "organizer": "",
+          "eventType": "scheduled",
+          "description": {
+            "length": 1708,
+            "normalizedSha256": "a22641ad96017e3adb0ba3c8bc436913879f58a94a3047e5ab1fd39b9c30aec0",
+            "excerpt": "The Signal Protocol is among the most heavily analyzed cryptographic protocols ever deployed: pen-and-paper proofs, symbolic models, and machine-checked computational proofs all attest to its security. Those results are real. Nevertheless, over the years we have found — and fixed — vulnerabilities in Signal that degraded the security of real conversations.\n\nThis talk surveys a few of them, ranging from the core proto"
+          },
+          "url": "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211812748",
+          "sources": [
+            {
+              "id": "26680f057d80",
+              "department": "School of Computer Science",
+              "org": "SCS Events Calendar",
+              "url": "https://www.cs.cmu.edu/calendar/export.ics",
+              "eventUrl": "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211812748"
+            },
+            {
+              "id": "426866c33d9d",
+              "department": "School of Computer Science",
+              "org": "SCS Events Calendar",
+              "url": "https://www.cs.cmu.edu/calendar/",
+              "eventUrl": "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211812748"
+            },
+            {
+              "id": "d5814b89c528",
+              "department": "School of Computer Science",
+              "org": "SCS Events Calendar",
+              "url": "https://www.cs.cmu.edu/calendar/feed/rss.xml",
+              "eventUrl": "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211812748"
+            }
+          ]
+        }
+      ],
+      "observations": [
+        "CSD and SCS have matching 16:00–17:00Z and substantial shared abstract despite provider-specific wrapper text.",
+        "CyLab has the same named speaker and start but an older coming-soon body, no useful end, and CIC4501 instead of4105.",
+        "Colon/hyphen title formatting should not prevent candidate comparison. A room-number conflict must not be silently discarded."
+      ]
+    },
+    "grievingTogether": {
+      "publishedRecords": 16,
+      "distinctOccurrenceStarts": 8,
+      "expectedSafePerOccurrenceGroups": [
+        {
+          "start": "2026-10-26T20:00:00.000Z",
+          "recordIds": [
+            "0dc5d73ba9793c4e92b16d9e",
+            "712c5eccdc9b9dcb3d4b1169"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/live/events/35555-grieving-together",
+            "https://events.cmu.edu/student-affairs/event/35555-grieving-together"
+          ]
+        },
+        {
+          "start": "2026-11-02T21:00:00.000Z",
+          "recordIds": [
+            "0c2d8a6c565ec76a2ab9a477",
+            "d7a7788c0f5545b3308251a2"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/live/events/35556-grieving-together",
+            "https://events.cmu.edu/student-affairs/event/35556-grieving-together"
+          ]
+        },
+        {
+          "start": "2026-11-09T21:00:00.000Z",
+          "recordIds": [
+            "2278ed72a426b167f59a7868",
+            "699f33064b4ba4d9a679b9b1"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/live/events/35557-grieving-together",
+            "https://events.cmu.edu/student-affairs/event/35557-grieving-together"
+          ]
+        },
+        {
+          "start": "2026-11-16T21:00:00.000Z",
+          "recordIds": [
+            "cf74ab2355f11dc0bc4232e8",
+            "f8cd9a1a74fbc3f4b76d6f16"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/student-affairs/event/35558-grieving-together",
+            "https://events.cmu.edu/live/events/35558-grieving-together"
+          ]
+        },
+        {
+          "start": "2026-11-23T21:00:00.000Z",
+          "recordIds": [
+            "35bb197fec173693bb7540c8",
+            "ec43cd9e9b25b0568f011d6d"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/student-affairs/event/35559-grieving-together",
+            "https://events.cmu.edu/live/events/35559-grieving-together"
+          ]
+        },
+        {
+          "start": "2026-11-30T21:00:00.000Z",
+          "recordIds": [
+            "7ab3f927a8bd260f3402fb76",
+            "aa0e22f24662bff69f7a75cb"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/student-affairs/event/35560-grieving-together",
+            "https://events.cmu.edu/live/events/35560-grieving-together"
+          ]
+        },
+        {
+          "start": "2026-12-07T21:00:00.000Z",
+          "recordIds": [
+            "5afa19cf97e517a08a8f45a6",
+            "7e0fe7b3ca2e95f9a5aee819"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/live/events/35561-grieving-together",
+            "https://events.cmu.edu/student-affairs/event/35561-grieving-together"
+          ]
+        },
+        {
+          "start": "2026-12-14T21:00:00.000Z",
+          "recordIds": [
+            "b66b5fb3283ad759cda110a5",
+            "d2f7c239146dbb23e70a4b7f"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/live/events/35562-grieving-together",
+            "https://events.cmu.edu/student-affairs/event/35562-grieving-together"
+          ]
+        }
+      ],
+      "sampleRecords": [
+        {
+          "id": "0dc5d73ba9793c4e92b16d9e",
+          "uid": "livewhale:35820:2026-10-26T16:00:00-04:00",
+          "title": "Grieving Together",
+          "start": "2026-10-26T20:00:00.000Z",
+          "end": "2026-10-26T21:00:00.000Z",
+          "timePrecision": "time",
+          "location": "CaPS Offices",
+          "organizer": "Student Affairs",
+          "eventType": "recurring",
+          "recurrence": {
+            "seriesId": "livewhale:events.cmu.edu:35820",
+            "frequency": "weekly",
+            "source": "provider"
+          },
+          "description": {
+            "length": 297,
+            "normalizedSha256": "0be8527558a42af2b0544989095c3ddad1b50880cf47f0152287c8a1a21b162e",
+            "excerpt": "Grieving Together is a support group where students who are navigating grief and loss can come together while processing their thoughts and feelings in a supportive, healing environment.\n\nJoin Grieving Together to share, listen, and find comfort in community. A pre-group consultation is required."
+          },
+          "url": "https://events.cmu.edu/live/events/35555-grieving-together",
+          "sources": [
+            {
+              "id": "d93abdb4309a",
+              "department": "Dietrich College",
+              "org": "Dietrich College of Humanities and Social Sciences",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/live/events/35555-grieving-together"
+            }
+          ]
+        },
+        {
+          "id": "712c5eccdc9b9dcb3d4b1169",
+          "uid": "livewhale:35555:2026-10-26T16:00:00-04:00",
+          "title": "Grieving Together",
+          "start": "2026-10-26T20:00:00.000Z",
+          "end": "2026-10-26T21:00:00.000Z",
+          "timePrecision": "time",
+          "location": "CaPS Offices",
+          "organizer": "Student Affairs",
+          "eventType": "recurring",
+          "recurrence": {
+            "seriesId": "livewhale:events.cmu.edu:35555",
+            "frequency": "weekly",
+            "source": "provider"
+          },
+          "description": {
+            "length": 297,
+            "normalizedSha256": "0be8527558a42af2b0544989095c3ddad1b50880cf47f0152287c8a1a21b162e",
+            "excerpt": "Grieving Together is a support group where students who are navigating grief and loss can come together while processing their thoughts and feelings in a supportive, healing environment.\n\nJoin Grieving Together to share, listen, and find comfort in community. A pre-group consultation is required."
+          },
+          "url": "https://events.cmu.edu/student-affairs/event/35555-grieving-together",
+          "sources": [
+            {
+              "id": "07130c683752",
+              "department": "Student Affairs",
+              "org": "Student Affairs",
+              "url": "https://events.cmu.edu/student-affairs/all",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35555-grieving-together"
+            },
+            {
+              "id": "e8b71eac1119",
+              "department": "University-wide",
+              "org": "CMU Events Calendar",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35555-grieving-together"
+            }
+          ]
+        },
+        {
+          "id": "0c2d8a6c565ec76a2ab9a477",
+          "uid": "livewhale:35821:2026-11-02T16:00:00-05:00",
+          "title": "Grieving Together",
+          "start": "2026-11-02T21:00:00.000Z",
+          "end": "2026-11-02T22:00:00.000Z",
+          "timePrecision": "time",
+          "location": "CaPS Offices",
+          "organizer": "Student Affairs",
+          "eventType": "recurring",
+          "recurrence": {
+            "seriesId": "livewhale:events.cmu.edu:35821",
+            "frequency": "weekly",
+            "source": "provider"
+          },
+          "description": {
+            "length": 297,
+            "normalizedSha256": "0be8527558a42af2b0544989095c3ddad1b50880cf47f0152287c8a1a21b162e",
+            "excerpt": "Grieving Together is a support group where students who are navigating grief and loss can come together while processing their thoughts and feelings in a supportive, healing environment.\n\nJoin Grieving Together to share, listen, and find comfort in community. A pre-group consultation is required."
+          },
+          "url": "https://events.cmu.edu/live/events/35556-grieving-together",
+          "sources": [
+            {
+              "id": "d93abdb4309a",
+              "department": "Dietrich College",
+              "org": "Dietrich College of Humanities and Social Sciences",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/live/events/35556-grieving-together"
+            }
+          ]
+        },
+        {
+          "id": "d7a7788c0f5545b3308251a2",
+          "uid": "livewhale:35556:2026-11-02T16:00:00-05:00",
+          "title": "Grieving Together",
+          "start": "2026-11-02T21:00:00.000Z",
+          "end": "2026-11-02T22:00:00.000Z",
+          "timePrecision": "time",
+          "location": "CaPS Offices",
+          "organizer": "Student Affairs",
+          "eventType": "recurring",
+          "recurrence": {
+            "seriesId": "livewhale:events.cmu.edu:35556",
+            "frequency": "weekly",
+            "source": "provider"
+          },
+          "description": {
+            "length": 297,
+            "normalizedSha256": "0be8527558a42af2b0544989095c3ddad1b50880cf47f0152287c8a1a21b162e",
+            "excerpt": "Grieving Together is a support group where students who are navigating grief and loss can come together while processing their thoughts and feelings in a supportive, healing environment.\n\nJoin Grieving Together to share, listen, and find comfort in community. A pre-group consultation is required."
+          },
+          "url": "https://events.cmu.edu/student-affairs/event/35556-grieving-together",
+          "sources": [
+            {
+              "id": "07130c683752",
+              "department": "Student Affairs",
+              "org": "Student Affairs",
+              "url": "https://events.cmu.edu/student-affairs/all",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35556-grieving-together"
+            },
+            {
+              "id": "e8b71eac1119",
+              "department": "University-wide",
+              "org": "CMU Events Calendar",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35556-grieving-together"
+            }
+          ]
+        }
+      ],
+      "rule": "Merge copies only within one exact occurrence start; never merge these separate weekly dates under a series ID."
+    },
+    "humanitiesHang": {
+      "publishedRecords": 16,
+      "distinctOccurrenceStarts": 8,
+      "expectedSafePerOccurrenceGroups": [
+        {
+          "start": "2026-10-30T18:00:00.000Z",
+          "recordIds": [
+            "5fc45fb24584e8ce1a726b4b",
+            "cdb9bf11f66ed2acae7ee938"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/dietrich/event/34934-humanities-hang",
+            "https://events.cmu.edu/live/events/34934-humanities-hang"
+          ]
+        },
+        {
+          "start": "2026-11-06T19:00:00.000Z",
+          "recordIds": [
+            "ac7209bb89f1199f16fadf75",
+            "e1e472f49ec00f4cc67a2c5b"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/dietrich/event/34935-humanities-hang",
+            "https://events.cmu.edu/live/events/34935-humanities-hang"
+          ]
+        },
+        {
+          "start": "2026-11-13T19:00:00.000Z",
+          "recordIds": [
+            "7b331fed347e1a59573c880c",
+            "d49b7eaca41a4d9d616f2e30"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/dietrich/event/34936-humanities-hang",
+            "https://events.cmu.edu/live/events/34936-humanities-hang"
+          ]
+        },
+        {
+          "start": "2026-11-20T19:00:00.000Z",
+          "recordIds": [
+            "43ce02113b20e03b95c86dbc",
+            "5716fa57be638499306aebc8"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/dietrich/event/34937-humanities-hang",
+            "https://events.cmu.edu/live/events/34937-humanities-hang"
+          ]
+        },
+        {
+          "start": "2026-11-27T19:00:00.000Z",
+          "recordIds": [
+            "244786eb97d9bccfdc83a08a",
+            "59281b20440eee1ce51a3620"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/live/events/34938-humanities-hang",
+            "https://events.cmu.edu/dietrich/event/34938-humanities-hang"
+          ]
+        },
+        {
+          "start": "2026-12-04T19:00:00.000Z",
+          "recordIds": [
+            "05a73453d555cb125535d22d",
+            "f5d5f3cc5328ebd06e7fbb55"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/live/events/34939-humanities-hang",
+            "https://events.cmu.edu/dietrich/event/34939-humanities-hang"
+          ]
+        },
+        {
+          "start": "2026-12-11T19:00:00.000Z",
+          "recordIds": [
+            "a319d6840e00aa561e72052b",
+            "d62d2eb771d9467bb9ab4508"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/dietrich/event/34940-humanities-hang",
+            "https://events.cmu.edu/live/events/34940-humanities-hang"
+          ]
+        },
+        {
+          "start": "2026-12-18T19:00:00.000Z",
+          "recordIds": [
+            "2c7a29815d7473b4bc7d8ca7",
+            "794b60e4e2cf83011a30c0d4"
+          ],
+          "sourceEventUrls": [
+            "https://events.cmu.edu/live/events/34941-humanities-hang",
+            "https://events.cmu.edu/dietrich/event/34941-humanities-hang"
+          ]
+        }
+      ],
+      "sampleRecords": [
+        {
+          "id": "5fc45fb24584e8ce1a726b4b",
+          "uid": "livewhale:34934:2026-10-30T14:00:00-04:00",
+          "title": "Humanities Hang",
+          "start": "2026-10-30T18:00:00.000Z",
+          "end": "2026-10-30T18:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Baker Hall, Voices Lounge (126D)",
+          "organizer": "Dietrich College of Humanities and Social Sciences",
+          "eventType": "recurring",
+          "recurrence": {
+            "seriesId": "livewhale:events.cmu.edu:34934",
+            "frequency": "weekly",
+            "source": "provider"
+          },
+          "description": {
+            "length": 326,
+            "normalizedSha256": "621b231d7c1a89fc114191a10a3d928f8eba4f34a99485a8eb399e19a57c41b2",
+            "excerpt": "Humanities Hangs will be occurring weekly on Fridays from 2 to 4 p.m.! Come work or just relax with your fellow humanities students.\n\nThere will be snacks!\n\nCome work with other humanities students on coursework, improve your study skills, relax with your fellow humanities students, and chat with your Humanities Ambassadors."
+          },
+          "url": "https://events.cmu.edu/dietrich/event/34934-humanities-hang",
+          "sources": [
+            {
+              "id": "d93abdb4309a",
+              "department": "Dietrich College",
+              "org": "Dietrich College of Humanities and Social Sciences",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34934-humanities-hang"
+            },
+            {
+              "id": "e8b71eac1119",
+              "department": "University-wide",
+              "org": "CMU Events Calendar",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34934-humanities-hang"
+            }
+          ]
+        },
+        {
+          "id": "cdb9bf11f66ed2acae7ee938",
+          "uid": "livewhale:35441:2026-10-30T14:00:00-04:00",
+          "title": "Humanities Hang",
+          "start": "2026-10-30T18:00:00.000Z",
+          "end": "2026-10-30T18:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Baker Hall, Voices Lounge (126D)",
+          "organizer": "Dietrich College of Humanities and Social Sciences",
+          "eventType": "recurring",
+          "recurrence": {
+            "seriesId": "livewhale:events.cmu.edu:35441",
+            "frequency": "weekly",
+            "source": "provider"
+          },
+          "description": {
+            "length": 326,
+            "normalizedSha256": "621b231d7c1a89fc114191a10a3d928f8eba4f34a99485a8eb399e19a57c41b2",
+            "excerpt": "Humanities Hangs will be occurring weekly on Fridays from 2 to 4 p.m.! Come work or just relax with your fellow humanities students.\n\nThere will be snacks!\n\nCome work with other humanities students on coursework, improve your study skills, relax with your fellow humanities students, and chat with your Humanities Ambassadors."
+          },
+          "url": "https://events.cmu.edu/live/events/34934-humanities-hang",
+          "sources": [
+            {
+              "id": "c84cc1c34efc",
+              "department": "Dietrich College / Languages, Cultures and Applied Linguistics",
+              "org": "Languages, Cultures & Applied Linguistics Department",
+              "url": "https://events.cmu.edu/lcal/all",
+              "eventUrl": "https://events.cmu.edu/live/events/34934-humanities-hang"
+            },
+            {
+              "id": "fac3ce8cfb40",
+              "department": "Dietrich College / Languages, Cultures and Applied Linguistics",
+              "org": "LCAL News and Events",
+              "url": "https://www.cmu.edu/dietrich/lcal/news-events/index.html",
+              "eventUrl": "https://events.cmu.edu/live/events/34934-humanities-hang"
+            }
+          ]
+        },
+        {
+          "id": "ac7209bb89f1199f16fadf75",
+          "uid": "livewhale:34935:2026-11-06T14:00:00-05:00",
+          "title": "Humanities Hang",
+          "start": "2026-11-06T19:00:00.000Z",
+          "end": "2026-11-06T19:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Baker Hall, Voices Lounge (126D)",
+          "organizer": "Dietrich College of Humanities and Social Sciences",
+          "eventType": "recurring",
+          "recurrence": {
+            "seriesId": "livewhale:events.cmu.edu:34935",
+            "frequency": "weekly",
+            "source": "provider"
+          },
+          "description": {
+            "length": 326,
+            "normalizedSha256": "621b231d7c1a89fc114191a10a3d928f8eba4f34a99485a8eb399e19a57c41b2",
+            "excerpt": "Humanities Hangs will be occurring weekly on Fridays from 2 to 4 p.m.! Come work or just relax with your fellow humanities students.\n\nThere will be snacks!\n\nCome work with other humanities students on coursework, improve your study skills, relax with your fellow humanities students, and chat with your Humanities Ambassadors."
+          },
+          "url": "https://events.cmu.edu/dietrich/event/34935-humanities-hang",
+          "sources": [
+            {
+              "id": "d93abdb4309a",
+              "department": "Dietrich College",
+              "org": "Dietrich College of Humanities and Social Sciences",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34935-humanities-hang"
+            },
+            {
+              "id": "e8b71eac1119",
+              "department": "University-wide",
+              "org": "CMU Events Calendar",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34935-humanities-hang"
+            }
+          ]
+        },
+        {
+          "id": "e1e472f49ec00f4cc67a2c5b",
+          "uid": "livewhale:35442:2026-11-06T14:00:00-05:00",
+          "title": "Humanities Hang",
+          "start": "2026-11-06T19:00:00.000Z",
+          "end": "2026-11-06T19:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Baker Hall, Voices Lounge (126D)",
+          "organizer": "Dietrich College of Humanities and Social Sciences",
+          "eventType": "recurring",
+          "recurrence": {
+            "seriesId": "livewhale:events.cmu.edu:35442",
+            "frequency": "weekly",
+            "source": "provider"
+          },
+          "description": {
+            "length": 326,
+            "normalizedSha256": "621b231d7c1a89fc114191a10a3d928f8eba4f34a99485a8eb399e19a57c41b2",
+            "excerpt": "Humanities Hangs will be occurring weekly on Fridays from 2 to 4 p.m.! Come work or just relax with your fellow humanities students.\n\nThere will be snacks!\n\nCome work with other humanities students on coursework, improve your study skills, relax with your fellow humanities students, and chat with your Humanities Ambassadors."
+          },
+          "url": "https://events.cmu.edu/live/events/34935-humanities-hang",
+          "sources": [
+            {
+              "id": "c84cc1c34efc",
+              "department": "Dietrich College / Languages, Cultures and Applied Linguistics",
+              "org": "Languages, Cultures & Applied Linguistics Department",
+              "url": "https://events.cmu.edu/lcal/all",
+              "eventUrl": "https://events.cmu.edu/live/events/34935-humanities-hang"
+            },
+            {
+              "id": "fac3ce8cfb40",
+              "department": "Dietrich College / Languages, Cultures and Applied Linguistics",
+              "org": "LCAL News and Events",
+              "url": "https://www.cmu.edu/dietrich/lcal/news-events/index.html",
+              "eventUrl": "https://events.cmu.edu/live/events/34935-humanities-hang"
+            }
+          ]
+        }
+      ],
+      "rule": "Merge copies only within one exact occurrence start; never merge these separate weekly dates under a series ID."
+    },
+    "springCarnival": {
+      "classification": "Two copies of one identical all-day range, despite short description and no venue.",
+      "records": [
+        {
+          "id": "0d5f0845e31d546048301cc7",
+          "uid": "livewhale:32145:range:2027-04-15",
+          "title": "Spring Carnival",
+          "start": "2027-04-15",
+          "end": "2027-04-18",
+          "timePrecision": "all-day",
+          "location": "",
+          "organizer": "Dietrich College of Humanities and Social Sciences",
+          "eventType": "scheduled",
+          "description": {
+            "length": 34,
+            "normalizedSha256": "4e2c31b4958a201ad7b36c6b61674fd8e39c9672ee13fa3eed86b3b8f99541ad",
+            "excerpt": "No Classes. Enjoy Spring Carnival!"
+          },
+          "url": "https://events.cmu.edu/dietrich/event/32145-spring-carnival",
+          "sources": [
+            {
+              "id": "d93abdb4309a",
+              "department": "Dietrich College",
+              "org": "Dietrich College of Humanities and Social Sciences",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/32145-spring-carnival"
+            },
+            {
+              "id": "e8b71eac1119",
+              "department": "University-wide",
+              "org": "CMU Events Calendar",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/32145-spring-carnival"
+            }
+          ]
+        },
+        {
+          "id": "8dd8651f2e1a69b73ba191de",
+          "uid": "livewhale:31827:range:2027-04-15",
+          "title": "Spring Carnival",
+          "start": "2027-04-15",
+          "end": "2027-04-18",
+          "timePrecision": "all-day",
+          "location": "",
+          "organizer": "Academic Calendar",
+          "eventType": "scheduled",
+          "description": {
+            "length": 34,
+            "normalizedSha256": "4e2c31b4958a201ad7b36c6b61674fd8e39c9672ee13fa3eed86b3b8f99541ad",
+            "excerpt": "No classes. Enjoy Spring Carnival!"
+          },
+          "url": "https://events.cmu.edu/academic-calendar/event/31827-spring-carnival",
+          "sources": [
+            {
+              "id": "fe717318a657",
+              "department": "Enrollment Management",
+              "org": "Academic Calendar",
+              "url": "https://events.cmu.edu/academic-calendar/all",
+              "eventUrl": "https://events.cmu.edu/academic-calendar/event/31827-spring-carnival"
+            },
+            {
+              "id": "e8b71eac1119",
+              "department": "University-wide",
+              "org": "CMU Events Calendar",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/academic-calendar/event/31827-spring-carnival"
+            }
+          ]
+        }
+      ],
+      "sharedSourceIdsWithDistinctEventLinks": [
+        {
+          "sourceId": "e8b71eac1119",
+          "eventUrls": [
+            "https://events.cmu.edu/dietrich/event/32145-spring-carnival",
+            "https://events.cmu.edu/academic-calendar/event/31827-spring-carnival"
+          ]
+        }
+      ]
+    },
+    "preparingToVibeCode": {
+      "classification": "Three same-clock copies; one blank description and one shortened copy still have independent title/time/venue/content evidence.",
+      "records": [
+        {
+          "id": "1097296fc02a4ed18641474d",
+          "uid": "LibCal-9148-17428830",
+          "title": "AI Fluency Week: Preparing to (Vibe) Code",
+          "start": "2026-10-26T21:00:00.000Z",
+          "end": "2026-10-26T22:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Hunt Library, IDeATe Studio A, Hunt Library",
+          "organizer": "Erin Higgins",
+          "eventType": "scheduled",
+          "description": {
+            "length": 1164,
+            "normalizedSha256": "4fb436720984f09084ed66446ba032e922a05b8fccaec7c3bd73dffe70cc4d1c",
+            "excerpt": "This workshop’s goal is to equip participants with knowledge of foundational software project management best practices. Specifically participants will:\n\nFormulate a concise problem statement, define project scope, and identify necessary documentation artifacts\nDiscuss how to use these pre-project planning materials to set parameters when vibe coding with genAI\nApply Kanban principles to project tasks and translate r"
+          },
+          "url": "https://cmu.libcal.com/event/17428830",
+          "sources": [
+            {
+              "id": "982c26d90129",
+              "department": "Heinz College",
+              "org": "Heinz College Events",
+              "url": "https://www.heinz.cmu.edu/events/",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            },
+            {
+              "id": "c7a2fb7ee246",
+              "department": "Heinz College",
+              "org": "Heinz College of Information Systems and Public Policy",
+              "url": "https://events.cmu.edu/heinz/all",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            },
+            {
+              "id": "6bab7f11462d",
+              "department": "University Libraries",
+              "org": "Libraries",
+              "url": "https://events.cmu.edu/library/all",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            },
+            {
+              "id": "491df87feb08",
+              "department": "University Libraries",
+              "org": "Libraries Events and Workshops",
+              "url": "https://www.library.cmu.edu/about/news/events",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            },
+            {
+              "id": "b37d02b73df8",
+              "department": "University Libraries",
+              "org": "Libraries LibCal — events and workshops",
+              "url": "https://cmu.libcal.com/",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            },
+            {
+              "id": "7f03d1a54c59",
+              "department": "University Libraries",
+              "org": "Libraries LibCal — workshops",
+              "url": "https://cmu.libcal.com/calendar/workshops",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            },
+            {
+              "id": "e8b71eac1119",
+              "department": "University-wide",
+              "org": "CMU Events Calendar",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            }
+          ]
+        },
+        {
+          "id": "4e7f4cab787603308cf96ac2",
+          "uid": "970b654636351ef507c6576d4adcc87810122026_10:59:54_AM@campusgroups.com",
+          "title": "AI Fluency Week: Preparing to (Vibe) Code",
+          "start": "2026-10-26T21:00:00.000Z",
+          "end": "2026-10-26T22:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Sign in to download the location",
+          "organizer": "University Libraries",
+          "eventType": "scheduled",
+          "description": {
+            "length": 185,
+            "normalizedSha256": "15ea6c44cd2410fae78a63cf54f2e5a9aae2b3c09f6790ae8df3509a712a2b99",
+            "excerpt": "This workshop’s goal is to equip participants with knowledge of foundational software project management best practices.\n---\nEvent Details: https://tartanconnect.cmu.edu/rsvp?id=1938123"
+          },
+          "url": "https://tartanconnect.cmu.edu/rsvp?id=1938123",
+          "sources": [
+            {
+              "id": "5d10172e6358",
+              "department": "Student Affairs",
+              "org": "The TartanConnect Calendar of Events (all public events from all groups)",
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_tepper.ics",
+              "eventUrl": "https://tartanconnect.cmu.edu/rsvp?id=1938123"
+            },
+            {
+              "id": "9390a36d167b",
+              "department": "University Offices",
+              "org": "University Libraries",
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71457.ics",
+              "eventUrl": "https://tartanconnect.cmu.edu/rsvp?id=1938123"
+            }
+          ]
+        },
+        {
+          "id": "5c27ee1823fce78cf0cb71c3",
+          "uid": "livewhale:33662:2026-10-26T17:00:00-04:00",
+          "title": "AI Fluency Week: Preparing to (Vibe) Code",
+          "start": "2026-10-26T21:00:00.000Z",
+          "end": "2026-10-26T22:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Hunt Library, IDeATe Studio A",
+          "organizer": "Libraries",
+          "eventType": "scheduled",
+          "description": {
+            "length": 0,
+            "normalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "excerpt": ""
+          },
+          "url": "https://cmu.libcal.com/event/17310554",
+          "sources": [
+            {
+              "id": "07130c683752",
+              "department": "Student Affairs",
+              "org": "Student Affairs",
+              "url": "https://events.cmu.edu/student-affairs/all",
+              "eventUrl": "https://cmu.libcal.com/event/17310554"
+            }
+          ]
+        }
+      ]
+    },
+    "explicitEndConflict": {
+      "classification": "Do not silently select one duration. Both source ends are explicit and unequal.",
+      "records": [
+        {
+          "id": "0ace8d0f2da5f0d740f9dfe7",
+          "uid": "LibCal-7168-17529213",
+          "title": "AI Fluency Week: Vibe Code Sprint Halloween Party",
+          "start": "2026-10-30T21:00:00.000Z",
+          "end": "2026-10-31T00:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Hunt Library, IDeATe Studio A",
+          "organizer": "Tom Hughes",
+          "eventType": "scheduled",
+          "description": {
+            "length": 1156,
+            "normalizedSha256": "a06042da0894ee1cbad6f7ea931eb1a3a01d86d8e68ffb087836109b6a9277a1",
+            "excerpt": "Join us for a creative and bewitching cap to AI Fluency week with a halloween-themed vibe code sprint! Whether you're building a Haunted House Choose-Your-Own-Adventure game, a Horror Movie Score Generator, or a Paranormal Activity Detector, this is your chance to turn wild prompt ideas into functional web apps using AI coding tools.\n\nNo advanced programming experience required—if you can describe it, you can vibe-co"
+          },
+          "url": "https://cmu.libcal.com/event/17529213",
+          "sources": [
+            {
+              "id": "491df87feb08",
+              "department": "University Libraries",
+              "org": "Libraries Events and Workshops",
+              "url": "https://www.library.cmu.edu/about/news/events",
+              "eventUrl": "https://cmu.libcal.com/event/17529213"
+            },
+            {
+              "id": "b37d02b73df8",
+              "department": "University Libraries",
+              "org": "Libraries LibCal — events and workshops",
+              "url": "https://cmu.libcal.com/",
+              "eventUrl": "https://cmu.libcal.com/event/17529213"
+            }
+          ]
+        },
+        {
+          "id": "33ca91db26ff7be4d8a3c3cc",
+          "uid": "c51189740e5ecc4ca08fda7c4d03d3cd10122026_1:24:38_PM@campusgroups.com",
+          "title": "AI Fluency Week: Vibe Code Sprint Halloween Party",
+          "start": "2026-10-30T21:00:00.000Z",
+          "end": "2026-10-30T22:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Hunt Library, IDeATe Studio A, 4909 Frew Street, Pittsburgh 15213, United States",
+          "organizer": "University Libraries",
+          "eventType": "scheduled",
+          "description": {
+            "length": 105,
+            "normalizedSha256": "2d7f7ebafb41238cbdae6499b835da98661cedc41529a2e8d871b40a2a6f4435",
+            "excerpt": "This session is part of AI Fluency Week.\n---\nEvent Details: https://tartanconnect.cmu.edu/rsvp?id=1938132"
+          },
+          "url": "https://tartanconnect.cmu.edu/rsvp?id=1938132",
+          "sources": [
+            {
+              "id": "5d10172e6358",
+              "department": "Student Affairs",
+              "org": "The TartanConnect Calendar of Events (all public events from all groups)",
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_tepper.ics",
+              "eventUrl": "https://tartanconnect.cmu.edu/rsvp?id=1938132"
+            },
+            {
+              "id": "9390a36d167b",
+              "department": "University Offices",
+              "org": "University Libraries",
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71457.ics",
+              "eventUrl": "https://tartanconnect.cmu.edu/rsvp?id=1938132"
+            }
+          ]
+        }
+      ]
+    },
+    "ambiguousPublisherDuplicates": {
+      "classification": "Different CampusGroups IDs do not establish distinct activities: same organizer/time/body except event-link boilerplate. Needs strong content evidence or explicit ambiguous status; generic title alone is insufficient.",
+      "records": [
+        {
+          "id": "1f2d322949b4068798dcab4b",
+          "uid": "27fe65766b68468fb15ec9031a30a5db9132026_1:54:03_PM@campusgroups.com",
+          "title": "Club Meeting",
+          "start": "2026-10-26T21:00:00.000Z",
+          "end": "2026-10-26T23:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Sign in to download the location",
+          "organizer": "Origami Club",
+          "eventType": "scheduled",
+          "description": {
+            "length": 120,
+            "normalizedSha256": "0918380ed607c7de2e0dad8f6ad755ed3dcd565446d106a563ce2487a76b04f1",
+            "excerpt": "Come fold with us! We meet in the CUC Class of '89 room\n---\nEvent Details: https://tartanconnect.cmu.edu/rsvp?id=1937751"
+          },
+          "url": "https://tartanconnect.cmu.edu/rsvp?id=1937751",
+          "sources": [
+            {
+              "id": "5d10172e6358",
+              "department": "Student Affairs",
+              "org": "The TartanConnect Calendar of Events (all public events from all groups)",
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_tepper.ics",
+              "eventUrl": "https://tartanconnect.cmu.edu/rsvp?id=1937751"
+            }
+          ]
+        },
+        {
+          "id": "63edbd62c284cb8228755769",
+          "uid": "c8f89b9206b58ebff6b3793a6aca61649132026_1:53:28_PM@campusgroups.com",
+          "title": "Club Meeting",
+          "start": "2026-10-26T21:00:00.000Z",
+          "end": "2026-10-26T23:00:00.000Z",
+          "timePrecision": "time",
+          "location": "Sign in to download the location",
+          "organizer": "Origami Club",
+          "eventType": "scheduled",
+          "description": {
+            "length": 120,
+            "normalizedSha256": "aef9ebc623a4020a0e8f544028e33bf2b6a1be9ac1a3d358b7a945ef401b2f5c",
+            "excerpt": "Come fold with us! We meet in the CUC Class of '89 room\n---\nEvent Details: https://tartanconnect.cmu.edu/rsvp?id=1937720"
+          },
+          "url": "https://tartanconnect.cmu.edu/rsvp?id=1937720",
+          "sources": [
+            {
+              "id": "5d10172e6358",
+              "department": "Student Affairs",
+              "org": "The TartanConnect Calendar of Events (all public events from all groups)",
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_tepper.ics",
+              "eventUrl": "https://tartanconnect.cmu.edu/rsvp?id=1937720"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "implementationFindings": [
+    {
+      "file": "src/lib/store.mjs",
+      "symbol": "occurrenceKeys",
+      "finding": "Exact syndicated-copy key requires title length>=20, body>=80 and exact physical venue/body equality; this misses short named activities and harmless provider wrappers."
+    },
+    {
+      "file": "src/lib/store.mjs",
+      "symbol": "canonicalUrl",
+      "finding": "Current canonicalization covers CampusGroups and tracking parameters but not equivalent LiveWhale /live/events/<id> and /<group>/event/<id> routes."
+    },
+    {
+      "file": "src/lib/store.mjs",
+      "symbol": "occurrenceKeys",
+      "finding": "UID matching is not publisher-scoped; a generic UID can collide across unrelated providers. Every identity must retain occurrence start and range precision."
+    },
+    {
+      "file": "src/lib/store.mjs",
+      "symbol": "mergeEvent",
+      "finding": "Provenance is deduplicated only by source.id. This drops distinct eventUrl claims from the same shared calendar. Source attribution and link identity need separate deduplication."
+    }
+  ],
+  "recommendedRules": [
+    "Partition candidate matching by exact occurrence start; date-only and timed records need an explicit unique same-local-day enrichment rule and must not bridge multiple clocked sessions.",
+    "Strong provider detail identity can canonicalize equivalent routes, scoped to provider origin and event ID, always qualified by occurrence date/time. Feed/viewer/listing URLs are not unique event identities.",
+    "For independent copied records require multiple signals: normalized specific title, compatible dates/times, meaningful shared body or published original link, compatible organizer/venue; titles alone are insufficient.",
+    "Keep occurrence-level pairwise safeguards during transitive merges; one low-information record must not join incompatible timed or location claims.",
+    "Retain every unique (source id, original event URL, source listing URL) claim and expose all links; keep unique department/org facets separately.",
+    "Preserve published field conflicts rather than selecting whichever record was processed first or had the longest description.",
+    "Official calendar reposts of student-club hosted events remain eligible; deduplication must not become publisher-scope filtering."
+  ]
+}

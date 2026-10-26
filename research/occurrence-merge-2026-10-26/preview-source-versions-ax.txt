@@ -1,0 +1,107 @@
+Browser tab: 283303917, Title: "Rolfe · CMU Events", URL: "http://127.0.0.1:4176/CMUEvents/?query=Rolfe".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 24-25
++			40 container
++				41 button (expanded) Source versions (3), Secondary Actions: Collapse
++					42 text Source versions (3)
++				43 container
++					44 text CyLab Seminar: Rolfe Schmidt
++					45 text CyLab Events · SCS Seminars directory · CMU Events Calendar
++				46 container
++					47 text Monday, October 26, 2026
++					48 text 12:00 PM EDT
++					49 text Source time zone: America/New_York
++					50 text Location: Zoom and CIC 4501, Panther Hollow Conference Room
++					51 text Status: Scheduled
++					52 text Organizer: CyLab
++				53 text In this installment of the CyLab Seminar Series, Rolfe Schmidt of Signal Messenger will share his latest research.
+
+Speaker:
+Rolfe Schmidt
+
+Research Engineer
+
+Signal Messenger
+
+Talk Title:
+Talk title coming soon
+
+Abstract:
+Abstract coming soon
+
+Bio:
+Bio coming soon
++				54 container
++					55 text CyLab Seminar - Rolfe Schmidt
++					56 text SCS Events Calendar
++				57 container
++					58 text Monday, October 26, 2026
++					59 text 12:00 PM – 1:00 PM EDT
++					60 text Source time zone: America/New_York
++					61 text Location: Panther Hollow Conference Room, Mehrabian Collaborative Innovation Center 4105
++					62 text Status: Scheduled
++				63 text The Signal Protocol is among the most heavily analyzed cryptographic protocols ever deployed: pen-and-paper proofs, symbolic models, and machine-checked computational proofs all attest to its security. Those results are real. Nevertheless, over the years we have found — and fixed — vulnerabilities in Signal that degraded the security of real conversations.
+
+This talk surveys a few of them, ranging from the core protocol implementation to product features layered well above it. For each, I answer the obvious question: what did the proofs actually cover, and why did the deployed system fall outside that coverage? These were not errors in the analysis. They were gaps between the mathematical abstractions and the engineering ones.
+
+To put those cases in context, I show a bird's-eye view of Signal's codebase: how small a fraction is the protocol proper, and how much of the rest determines the security users actually experience. I close with how I think the research community and industry can narrow the gap, and how advances in formal verification are letting us analyze the code that ships.
+
+—
+
+Rolfe Schmidt:
+https://www.linkedin.com/in/rolfeschmidt is a Research Engineer at Signal Messenger, where he works to bridge academic research with Signal's engineering and security needs. He co-designed the PQXDH key agreement protocol and the SPQR post-quantum ratchet, and has worked on Signal's ORAM-backed contact discovery, Secure Value Recovery, and anonymous credential systems. He collaborates widely on formal analysis of deployed protocols.
+
+→ The CyLab Seminars are only open to CyLab Partnersand current CMU faculty, staff and students.
+
+In Person and Zoom Participation. See announcement.
++				64 container
++					65 text CyLab Seminar - Rolfe Schmidt
++					66 text CSD Events Calendar
++				67 container
++					68 text Monday, October 26, 2026
++					69 text 12:00 PM – 1:00 PM EDT
++					70 text Source time zone: America/New_York
++					71 text Location: Panther Hollow Conference Room, Mehrabian Collaborative Innovation
+Center 4105
++					72 text Status: Scheduled
++				73 text Speaker: ROLFE SCHMIDT, Research Engineer, Signal Messenger
+
+Talk Title: Signal is More Than the Signal Protocol: A Tour of
+Vulnerabilities the Proofs Missed
+
+The Signal Protocol is among the most heavily analyzed cryptographic
+protocols ever deployed: pen-and-paper proofs, symbolic models, and
+machine-checked computational proofs all attest to its security. Those
+results are real. Nevertheless, over the years we have found — and
+fixed — vulnerabilities in Signal that degraded the security of real
+conversations.
+
+This talk surveys a few of them, ranging from the core protocol
+implementation to product features layered well above it. For each, I
+answer the obvious question: what did the proofs actually cover, and
+why did the deployed system fall outside that coverage? These were not
+errors in the analysis. They were gaps between the mathematical
+abstractions and the engineering ones.
+
+To put those cases in context, I show a bird's-eye view of Signal's
+codebase: how small a fraction is the protocol proper, and how much of
+the rest determines the security users actually experience. I close
+with how I think the research community and industry can narrow the
+gap, and how advances in formal verification are letting us analyze
+the code that ships.
+
+—
+
+Rolfe Schmidt is a Research Engineer at Signal Messenger, where he
+works to bridge academic research with Signal's engineering and
+security needs. He co-designed the PQXDH key agreement protocol and
+the SPQR post-quantum ratchet, and has worked on Signal's ORAM-backed
+contact discovery, Secure Value Recovery, and anonymous credential
+systems. He collaborates widely on formal analysis of deployed
+protocols.
+
+→ The CyLab Seminars are only open to CyLab Partnersand current CMU
+faculty, staff and students.
+
+In Person and Zoom Participation. See announcement.
+The focused UI element is 41 button (expanded) Source versions (3), Secondary Actions: Collapse

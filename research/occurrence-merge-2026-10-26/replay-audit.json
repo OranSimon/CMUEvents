@@ -1,0 +1,1515 @@
+{
+  "checkedAt": "2026-10-26T22:57:14.831Z",
+  "evidenceType": "Offline replay from current saved raw crawler state, not a new public-site generation.",
+  "baselineGeneratedAt": "2026-10-26T16:50:55.999Z",
+  "replayFileModifiedAt": "2026-10-26T22:56:13.322Z",
+  "implementationSha256": "94238b820a46e13e866da96b8a1d76f7a7cbfa7d4ca83b5db27dae7b00f62c0a",
+  "replaySha256": "1edbe9507edd459985951058a7c7d313628e36f99dd845f0a1f34e9e882edf53",
+  "baselinePublishedRecords": 3665,
+  "replayedPublishedRecords": 3470,
+  "mergeReportSummary": {
+    "inputOccurrences": 5755,
+    "outputOccurrences": 3542,
+    "mergedGroups": 1198,
+    "absorbedOccurrences": 2213
+  },
+  "allMergedSourceVariantGuards": {
+    "checkedGroups": 1128,
+    "violations": {
+      "differentTimedStarts": [],
+      "differentKnownTimedEnds": [],
+      "differentRangeEnds": [],
+      "dateOnlyLocalDayMismatch": []
+    },
+    "passed": true
+  },
+  "cases": {
+    "rolfeSchmidt": {
+      "baselinePublishedRecords": 3,
+      "replayedPublishedRecords": 1,
+      "baselineOccurrenceStarts": [
+        "2026-10-26T16:00:00.000Z"
+      ],
+      "replayedOccurrenceStarts": [
+        "2026-10-26T16:00:00.000Z"
+      ],
+      "distinctDatesPreserved": true,
+      "baselineProvenanceClaims": 8,
+      "baselineLinksMissingFromReplay": [],
+      "replayedRecords": [
+        {
+          "id": "3468114831e6ca9ca55da33a",
+          "title": "CyLab Seminar - Rolfe Schmidt",
+          "start": "2026-10-26T16:00:00.000Z",
+          "end": "2026-10-26T17:00:00.000Z",
+          "sourceConflicts": [
+            "location"
+          ],
+          "sourceVariants": [
+            {
+              "title": "CyLab Seminar: Rolfe Schmidt",
+              "start": "2026-10-26T16:00:00.000Z",
+              "end": "2026-10-26T16:00:00.000Z",
+              "location": "Zoom and CIC 4501, Panther Hollow Conference Room",
+              "timePrecision": "time",
+              "sourceIds": [
+                "1185bc345a9a",
+                "9903c32bf0ab",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/cylab/event/35372-cylab-seminar-rolfe-schmidt"
+              ]
+            },
+            {
+              "title": "CyLab Seminar - Rolfe Schmidt",
+              "start": "2026-10-26T16:00:00.000Z",
+              "end": "2026-10-26T17:00:00.000Z",
+              "location": "Panther Hollow Conference Room, Mehrabian Collaborative Innovation Center 4105",
+              "timePrecision": "time",
+              "sourceIds": [
+                "26680f057d80",
+                "426866c33d9d",
+                "d5814b89c528"
+              ],
+              "urls": [
+                "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211812748"
+              ]
+            },
+            {
+              "title": "CyLab Seminar - Rolfe Schmidt",
+              "start": "2026-10-26T16:00:00.000Z",
+              "end": "2026-10-26T17:00:00.000Z",
+              "location": "Panther Hollow Conference Room, Mehrabian Collaborative Innovation\nCenter 4105",
+              "timePrecision": "time",
+              "sourceIds": [
+                "4c5426677e95",
+                "b965a95677c6"
+              ],
+              "urls": [
+                "https://csd.cmu.edu/ical/ical.ics"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "9903c32bf0ab",
+              "url": "https://www.cylab.cmu.edu/events/index.html",
+              "eventUrl": "https://events.cmu.edu/cylab/event/35372-cylab-seminar-rolfe-schmidt"
+            },
+            {
+              "id": "26680f057d80",
+              "url": "https://www.cs.cmu.edu/calendar/export.ics",
+              "eventUrl": "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211812748"
+            },
+            {
+              "id": "426866c33d9d",
+              "url": "https://www.cs.cmu.edu/calendar/",
+              "eventUrl": "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211812748"
+            },
+            {
+              "id": "d5814b89c528",
+              "url": "https://www.cs.cmu.edu/calendar/feed/rss.xml",
+              "eventUrl": "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211812748"
+            },
+            {
+              "id": "1185bc345a9a",
+              "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+              "eventUrl": "https://events.cmu.edu/cylab/event/35372-cylab-seminar-rolfe-schmidt"
+            },
+            {
+              "id": "4c5426677e95",
+              "url": "https://csd.cmu.edu/calendar",
+              "eventUrl": "https://csd.cmu.edu/ical/ical.ics"
+            },
+            {
+              "id": "b965a95677c6",
+              "url": "https://csd.cmu.edu/ical/ical.ics",
+              "eventUrl": "https://csd.cmu.edu/ical/ical.ics"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/cylab/event/35372-cylab-seminar-rolfe-schmidt"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "copied-description",
+              "shared-event-link",
+              "specific-title-and-venue"
+            ],
+            "sourceOccurrences": 5
+          }
+        }
+      ]
+    },
+    "grievingTogether": {
+      "baselinePublishedRecords": 16,
+      "replayedPublishedRecords": 8,
+      "baselineOccurrenceStarts": [
+        "2026-10-26T20:00:00.000Z",
+        "2026-11-02T21:00:00.000Z",
+        "2026-11-09T21:00:00.000Z",
+        "2026-11-16T21:00:00.000Z",
+        "2026-11-23T21:00:00.000Z",
+        "2026-11-30T21:00:00.000Z",
+        "2026-12-07T21:00:00.000Z",
+        "2026-12-14T21:00:00.000Z"
+      ],
+      "replayedOccurrenceStarts": [
+        "2026-10-26T20:00:00.000Z",
+        "2026-11-02T21:00:00.000Z",
+        "2026-11-09T21:00:00.000Z",
+        "2026-11-16T21:00:00.000Z",
+        "2026-11-23T21:00:00.000Z",
+        "2026-11-30T21:00:00.000Z",
+        "2026-12-07T21:00:00.000Z",
+        "2026-12-14T21:00:00.000Z"
+      ],
+      "distinctDatesPreserved": true,
+      "baselineProvenanceClaims": 24,
+      "baselineLinksMissingFromReplay": [],
+      "replayedRecords": [
+        {
+          "id": "e1d91b9dca85d11b8478aedf",
+          "title": "Grieving Together",
+          "start": "2026-10-26T20:00:00.000Z",
+          "end": "2026-10-26T21:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Grieving Together",
+              "start": "2026-10-26T20:00:00.000Z",
+              "end": "2026-10-26T21:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "07130c683752",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/student-affairs/event/35555-grieving-together"
+              ]
+            },
+            {
+              "title": "Grieving Together",
+              "start": "2026-10-26T20:00:00.000Z",
+              "end": "2026-10-26T21:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/35555-grieving-together"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/live/events/35555-grieving-together"
+            },
+            {
+              "id": "07130c683752",
+              "url": "https://events.cmu.edu/student-affairs/all",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35555-grieving-together"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35555-grieving-together"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 3
+          }
+        },
+        {
+          "id": "dc11bd0eba4682c5b2f90004",
+          "title": "Grieving Together",
+          "start": "2026-11-02T21:00:00.000Z",
+          "end": "2026-11-02T22:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Grieving Together",
+              "start": "2026-11-02T21:00:00.000Z",
+              "end": "2026-11-02T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "07130c683752",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/student-affairs/event/35556-grieving-together"
+              ]
+            },
+            {
+              "title": "Grieving Together",
+              "start": "2026-11-02T21:00:00.000Z",
+              "end": "2026-11-02T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/35556-grieving-together"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/live/events/35556-grieving-together"
+            },
+            {
+              "id": "07130c683752",
+              "url": "https://events.cmu.edu/student-affairs/all",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35556-grieving-together"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35556-grieving-together"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 3
+          }
+        },
+        {
+          "id": "390ff813500a6eafec1585cf",
+          "title": "Grieving Together",
+          "start": "2026-11-09T21:00:00.000Z",
+          "end": "2026-11-09T22:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Grieving Together",
+              "start": "2026-11-09T21:00:00.000Z",
+              "end": "2026-11-09T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "07130c683752",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/student-affairs/event/35557-grieving-together"
+              ]
+            },
+            {
+              "title": "Grieving Together",
+              "start": "2026-11-09T21:00:00.000Z",
+              "end": "2026-11-09T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/35557-grieving-together"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/live/events/35557-grieving-together"
+            },
+            {
+              "id": "07130c683752",
+              "url": "https://events.cmu.edu/student-affairs/all",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35557-grieving-together"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35557-grieving-together"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 3
+          }
+        },
+        {
+          "id": "8956a8ee3cba36bcd7b8c14a",
+          "title": "Grieving Together",
+          "start": "2026-11-16T21:00:00.000Z",
+          "end": "2026-11-16T22:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Grieving Together",
+              "start": "2026-11-16T21:00:00.000Z",
+              "end": "2026-11-16T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "07130c683752",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/student-affairs/event/35558-grieving-together"
+              ]
+            },
+            {
+              "title": "Grieving Together",
+              "start": "2026-11-16T21:00:00.000Z",
+              "end": "2026-11-16T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/35558-grieving-together"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/live/events/35558-grieving-together"
+            },
+            {
+              "id": "07130c683752",
+              "url": "https://events.cmu.edu/student-affairs/all",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35558-grieving-together"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35558-grieving-together"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 3
+          }
+        },
+        {
+          "id": "1410ee3db59976c10627fc34",
+          "title": "Grieving Together",
+          "start": "2026-11-23T21:00:00.000Z",
+          "end": "2026-11-23T22:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Grieving Together",
+              "start": "2026-11-23T21:00:00.000Z",
+              "end": "2026-11-23T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "07130c683752",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/student-affairs/event/35559-grieving-together"
+              ]
+            },
+            {
+              "title": "Grieving Together",
+              "start": "2026-11-23T21:00:00.000Z",
+              "end": "2026-11-23T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/35559-grieving-together"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/live/events/35559-grieving-together"
+            },
+            {
+              "id": "07130c683752",
+              "url": "https://events.cmu.edu/student-affairs/all",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35559-grieving-together"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35559-grieving-together"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 3
+          }
+        },
+        {
+          "id": "9fbe81acb7a2db43d86c5458",
+          "title": "Grieving Together",
+          "start": "2026-11-30T21:00:00.000Z",
+          "end": "2026-11-30T22:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Grieving Together",
+              "start": "2026-11-30T21:00:00.000Z",
+              "end": "2026-11-30T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "07130c683752",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/student-affairs/event/35560-grieving-together"
+              ]
+            },
+            {
+              "title": "Grieving Together",
+              "start": "2026-11-30T21:00:00.000Z",
+              "end": "2026-11-30T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/35560-grieving-together"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/live/events/35560-grieving-together"
+            },
+            {
+              "id": "07130c683752",
+              "url": "https://events.cmu.edu/student-affairs/all",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35560-grieving-together"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35560-grieving-together"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 3
+          }
+        },
+        {
+          "id": "46febdc1d09ad6b54fbbee20",
+          "title": "Grieving Together",
+          "start": "2026-12-07T21:00:00.000Z",
+          "end": "2026-12-07T22:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Grieving Together",
+              "start": "2026-12-07T21:00:00.000Z",
+              "end": "2026-12-07T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "07130c683752",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/student-affairs/event/35561-grieving-together"
+              ]
+            },
+            {
+              "title": "Grieving Together",
+              "start": "2026-12-07T21:00:00.000Z",
+              "end": "2026-12-07T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/35561-grieving-together"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/live/events/35561-grieving-together"
+            },
+            {
+              "id": "07130c683752",
+              "url": "https://events.cmu.edu/student-affairs/all",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35561-grieving-together"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35561-grieving-together"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 3
+          }
+        },
+        {
+          "id": "e3e1a32a04454283d15f931f",
+          "title": "Grieving Together",
+          "start": "2026-12-14T21:00:00.000Z",
+          "end": "2026-12-14T22:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Grieving Together",
+              "start": "2026-12-14T21:00:00.000Z",
+              "end": "2026-12-14T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "07130c683752",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/student-affairs/event/35562-grieving-together"
+              ]
+            },
+            {
+              "title": "Grieving Together",
+              "start": "2026-12-14T21:00:00.000Z",
+              "end": "2026-12-14T22:00:00.000Z",
+              "location": "CaPS Offices",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/35562-grieving-together"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/live/events/35562-grieving-together"
+            },
+            {
+              "id": "07130c683752",
+              "url": "https://events.cmu.edu/student-affairs/all",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35562-grieving-together"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/student-affairs/event/35562-grieving-together"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 3
+          }
+        }
+      ]
+    },
+    "humanitiesHang": {
+      "baselinePublishedRecords": 16,
+      "replayedPublishedRecords": 8,
+      "baselineOccurrenceStarts": [
+        "2026-10-30T18:00:00.000Z",
+        "2026-11-06T19:00:00.000Z",
+        "2026-11-13T19:00:00.000Z",
+        "2026-11-20T19:00:00.000Z",
+        "2026-11-27T19:00:00.000Z",
+        "2026-12-04T19:00:00.000Z",
+        "2026-12-11T19:00:00.000Z",
+        "2026-12-18T19:00:00.000Z"
+      ],
+      "replayedOccurrenceStarts": [
+        "2026-10-30T18:00:00.000Z",
+        "2026-11-06T19:00:00.000Z",
+        "2026-11-13T19:00:00.000Z",
+        "2026-11-20T19:00:00.000Z",
+        "2026-11-27T19:00:00.000Z",
+        "2026-12-04T19:00:00.000Z",
+        "2026-12-11T19:00:00.000Z",
+        "2026-12-18T19:00:00.000Z"
+      ],
+      "distinctDatesPreserved": true,
+      "baselineProvenanceClaims": 32,
+      "baselineLinksMissingFromReplay": [],
+      "replayedRecords": [
+        {
+          "id": "b84e7422b37e0a31fcb373f6",
+          "title": "Humanities Hang",
+          "start": "2026-10-30T18:00:00.000Z",
+          "end": "2026-10-30T18:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Humanities Hang",
+              "start": "2026-10-30T18:00:00.000Z",
+              "end": "2026-10-30T18:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "c84cc1c34efc",
+                "fac3ce8cfb40"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/34934-humanities-hang"
+              ]
+            },
+            {
+              "title": "Humanities Hang",
+              "start": "2026-10-30T18:00:00.000Z",
+              "end": "2026-10-30T18:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/dietrich/event/34934-humanities-hang"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34934-humanities-hang"
+            },
+            {
+              "id": "c84cc1c34efc",
+              "url": "https://events.cmu.edu/lcal/all",
+              "eventUrl": "https://events.cmu.edu/live/events/34934-humanities-hang"
+            },
+            {
+              "id": "fac3ce8cfb40",
+              "url": "https://www.cmu.edu/dietrich/lcal/news-events/index.html",
+              "eventUrl": "https://events.cmu.edu/live/events/34934-humanities-hang"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34934-humanities-hang"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 4
+          }
+        },
+        {
+          "id": "e3a0786d57990f9bf7de69a2",
+          "title": "Humanities Hang",
+          "start": "2026-11-06T19:00:00.000Z",
+          "end": "2026-11-06T19:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Humanities Hang",
+              "start": "2026-11-06T19:00:00.000Z",
+              "end": "2026-11-06T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "c84cc1c34efc",
+                "fac3ce8cfb40"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/34935-humanities-hang"
+              ]
+            },
+            {
+              "title": "Humanities Hang",
+              "start": "2026-11-06T19:00:00.000Z",
+              "end": "2026-11-06T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/dietrich/event/34935-humanities-hang"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34935-humanities-hang"
+            },
+            {
+              "id": "c84cc1c34efc",
+              "url": "https://events.cmu.edu/lcal/all",
+              "eventUrl": "https://events.cmu.edu/live/events/34935-humanities-hang"
+            },
+            {
+              "id": "fac3ce8cfb40",
+              "url": "https://www.cmu.edu/dietrich/lcal/news-events/index.html",
+              "eventUrl": "https://events.cmu.edu/live/events/34935-humanities-hang"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34935-humanities-hang"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 4
+          }
+        },
+        {
+          "id": "ec57b3cb338a3610c871a1e9",
+          "title": "Humanities Hang",
+          "start": "2026-11-13T19:00:00.000Z",
+          "end": "2026-11-13T19:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Humanities Hang",
+              "start": "2026-11-13T19:00:00.000Z",
+              "end": "2026-11-13T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "c84cc1c34efc",
+                "fac3ce8cfb40"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/34936-humanities-hang"
+              ]
+            },
+            {
+              "title": "Humanities Hang",
+              "start": "2026-11-13T19:00:00.000Z",
+              "end": "2026-11-13T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/dietrich/event/34936-humanities-hang"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34936-humanities-hang"
+            },
+            {
+              "id": "c84cc1c34efc",
+              "url": "https://events.cmu.edu/lcal/all",
+              "eventUrl": "https://events.cmu.edu/live/events/34936-humanities-hang"
+            },
+            {
+              "id": "fac3ce8cfb40",
+              "url": "https://www.cmu.edu/dietrich/lcal/news-events/index.html",
+              "eventUrl": "https://events.cmu.edu/live/events/34936-humanities-hang"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34936-humanities-hang"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 4
+          }
+        },
+        {
+          "id": "e34a896fa8897144ccd37673",
+          "title": "Humanities Hang",
+          "start": "2026-11-20T19:00:00.000Z",
+          "end": "2026-11-20T19:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Humanities Hang",
+              "start": "2026-11-20T19:00:00.000Z",
+              "end": "2026-11-20T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "c84cc1c34efc",
+                "fac3ce8cfb40"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/34937-humanities-hang"
+              ]
+            },
+            {
+              "title": "Humanities Hang",
+              "start": "2026-11-20T19:00:00.000Z",
+              "end": "2026-11-20T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/dietrich/event/34937-humanities-hang"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34937-humanities-hang"
+            },
+            {
+              "id": "c84cc1c34efc",
+              "url": "https://events.cmu.edu/lcal/all",
+              "eventUrl": "https://events.cmu.edu/live/events/34937-humanities-hang"
+            },
+            {
+              "id": "fac3ce8cfb40",
+              "url": "https://www.cmu.edu/dietrich/lcal/news-events/index.html",
+              "eventUrl": "https://events.cmu.edu/live/events/34937-humanities-hang"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34937-humanities-hang"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 4
+          }
+        },
+        {
+          "id": "2da4ddcff9fb7f384b56215a",
+          "title": "Humanities Hang",
+          "start": "2026-11-27T19:00:00.000Z",
+          "end": "2026-11-27T19:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Humanities Hang",
+              "start": "2026-11-27T19:00:00.000Z",
+              "end": "2026-11-27T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "c84cc1c34efc",
+                "fac3ce8cfb40"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/34938-humanities-hang"
+              ]
+            },
+            {
+              "title": "Humanities Hang",
+              "start": "2026-11-27T19:00:00.000Z",
+              "end": "2026-11-27T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/dietrich/event/34938-humanities-hang"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34938-humanities-hang"
+            },
+            {
+              "id": "c84cc1c34efc",
+              "url": "https://events.cmu.edu/lcal/all",
+              "eventUrl": "https://events.cmu.edu/live/events/34938-humanities-hang"
+            },
+            {
+              "id": "fac3ce8cfb40",
+              "url": "https://www.cmu.edu/dietrich/lcal/news-events/index.html",
+              "eventUrl": "https://events.cmu.edu/live/events/34938-humanities-hang"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34938-humanities-hang"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 4
+          }
+        },
+        {
+          "id": "e7dce4a352bf4bfba6773d0f",
+          "title": "Humanities Hang",
+          "start": "2026-12-04T19:00:00.000Z",
+          "end": "2026-12-04T19:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Humanities Hang",
+              "start": "2026-12-04T19:00:00.000Z",
+              "end": "2026-12-04T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "c84cc1c34efc",
+                "fac3ce8cfb40"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/34939-humanities-hang"
+              ]
+            },
+            {
+              "title": "Humanities Hang",
+              "start": "2026-12-04T19:00:00.000Z",
+              "end": "2026-12-04T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/dietrich/event/34939-humanities-hang"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34939-humanities-hang"
+            },
+            {
+              "id": "c84cc1c34efc",
+              "url": "https://events.cmu.edu/lcal/all",
+              "eventUrl": "https://events.cmu.edu/live/events/34939-humanities-hang"
+            },
+            {
+              "id": "fac3ce8cfb40",
+              "url": "https://www.cmu.edu/dietrich/lcal/news-events/index.html",
+              "eventUrl": "https://events.cmu.edu/live/events/34939-humanities-hang"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34939-humanities-hang"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 4
+          }
+        },
+        {
+          "id": "d7a332df51e05ccc4daa5fd6",
+          "title": "Humanities Hang",
+          "start": "2026-12-11T19:00:00.000Z",
+          "end": "2026-12-11T19:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Humanities Hang",
+              "start": "2026-12-11T19:00:00.000Z",
+              "end": "2026-12-11T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "c84cc1c34efc",
+                "fac3ce8cfb40"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/34940-humanities-hang"
+              ]
+            },
+            {
+              "title": "Humanities Hang",
+              "start": "2026-12-11T19:00:00.000Z",
+              "end": "2026-12-11T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/dietrich/event/34940-humanities-hang"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34940-humanities-hang"
+            },
+            {
+              "id": "c84cc1c34efc",
+              "url": "https://events.cmu.edu/lcal/all",
+              "eventUrl": "https://events.cmu.edu/live/events/34940-humanities-hang"
+            },
+            {
+              "id": "fac3ce8cfb40",
+              "url": "https://www.cmu.edu/dietrich/lcal/news-events/index.html",
+              "eventUrl": "https://events.cmu.edu/live/events/34940-humanities-hang"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34940-humanities-hang"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 4
+          }
+        },
+        {
+          "id": "497e8c88449d8c07f89f0947",
+          "title": "Humanities Hang",
+          "start": "2026-12-18T19:00:00.000Z",
+          "end": "2026-12-18T19:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Humanities Hang",
+              "start": "2026-12-18T19:00:00.000Z",
+              "end": "2026-12-18T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "c84cc1c34efc",
+                "fac3ce8cfb40"
+              ],
+              "urls": [
+                "https://events.cmu.edu/live/events/34941-humanities-hang"
+              ]
+            },
+            {
+              "title": "Humanities Hang",
+              "start": "2026-12-18T19:00:00.000Z",
+              "end": "2026-12-18T19:00:00.000Z",
+              "location": "Baker Hall, Voices Lounge (126D)",
+              "timePrecision": "time",
+              "sourceIds": [
+                "d93abdb4309a",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/dietrich/event/34941-humanities-hang"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34941-humanities-hang"
+            },
+            {
+              "id": "c84cc1c34efc",
+              "url": "https://events.cmu.edu/lcal/all",
+              "eventUrl": "https://events.cmu.edu/live/events/34941-humanities-hang"
+            },
+            {
+              "id": "fac3ce8cfb40",
+              "url": "https://www.cmu.edu/dietrich/lcal/news-events/index.html",
+              "eventUrl": "https://events.cmu.edu/live/events/34941-humanities-hang"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/34941-humanities-hang"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 4
+          }
+        }
+      ]
+    },
+    "springCarnival": {
+      "baselinePublishedRecords": 2,
+      "replayedPublishedRecords": 1,
+      "baselineOccurrenceStarts": [
+        "2027-04-15"
+      ],
+      "replayedOccurrenceStarts": [
+        "2027-04-15"
+      ],
+      "distinctDatesPreserved": true,
+      "baselineProvenanceClaims": 4,
+      "baselineLinksMissingFromReplay": [],
+      "replayedRecords": [
+        {
+          "id": "c00f9f28ebdcddd42fe08b0b",
+          "title": "Spring Carnival",
+          "start": "2027-04-15",
+          "end": "2027-04-18",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "Spring Carnival",
+              "start": "2027-04-15",
+              "end": "2027-04-18",
+              "location": "",
+              "timePrecision": "all-day",
+              "sourceIds": [
+                "d93abdb4309a",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://events.cmu.edu/dietrich/event/32145-spring-carnival"
+              ]
+            },
+            {
+              "title": "Spring Carnival",
+              "start": "2027-04-15",
+              "end": "2027-04-18",
+              "location": "",
+              "timePrecision": "all-day",
+              "sourceIds": [
+                "e8b71eac1119",
+                "fe717318a657"
+              ],
+              "urls": [
+                "https://events.cmu.edu/academic-calendar/event/31827-spring-carnival"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "d93abdb4309a",
+              "url": "https://events.cmu.edu/dietrich/all",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/32145-spring-carnival"
+            },
+            {
+              "id": "fe717318a657",
+              "url": "https://events.cmu.edu/academic-calendar/all",
+              "eventUrl": "https://events.cmu.edu/academic-calendar/event/31827-spring-carnival"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/academic-calendar/event/31827-spring-carnival"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://events.cmu.edu/dietrich/event/32145-spring-carnival"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "copied-description",
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 4
+          }
+        }
+      ]
+    },
+    "preparingToVibeCode": {
+      "baselinePublishedRecords": 3,
+      "replayedPublishedRecords": 1,
+      "baselineOccurrenceStarts": [
+        "2026-10-26T21:00:00.000Z"
+      ],
+      "replayedOccurrenceStarts": [
+        "2026-10-26T21:00:00.000Z"
+      ],
+      "distinctDatesPreserved": true,
+      "baselineProvenanceClaims": 10,
+      "baselineLinksMissingFromReplay": [],
+      "replayedRecords": [
+        {
+          "id": "94747ab99b75a0dea4c765af",
+          "title": "AI Fluency Week: Preparing to (Vibe) Code",
+          "start": "2026-10-26T21:00:00.000Z",
+          "end": "2026-10-26T22:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "AI Fluency Week: Preparing to (Vibe) Code",
+              "start": "2026-10-26T21:00:00.000Z",
+              "end": "2026-10-26T22:00:00.000Z",
+              "location": "Hunt Library, IDeATe Studio A",
+              "timePrecision": "time",
+              "sourceIds": [
+                "07130c683752",
+                "6bab7f11462d",
+                "982c26d90129",
+                "c7a2fb7ee246",
+                "e8b71eac1119"
+              ],
+              "urls": [
+                "https://cmu.libcal.com/event/17310554",
+                "https://cmu.libcal.com/event/17428830"
+              ]
+            },
+            {
+              "title": "AI Fluency Week: Preparing to (Vibe) Code",
+              "start": "2026-10-26T21:00:00.000Z",
+              "end": "2026-10-26T22:00:00.000Z",
+              "location": "Hunt Library, IDeATe Studio A, Hunt Library",
+              "timePrecision": "time",
+              "sourceIds": [
+                "491df87feb08",
+                "7f03d1a54c59",
+                "b37d02b73df8"
+              ],
+              "urls": [
+                "https://cmu.libcal.com/event/17428830"
+              ]
+            },
+            {
+              "title": "AI Fluency Week: Preparing to (Vibe) Code",
+              "start": "2026-10-26T21:00:00.000Z",
+              "end": "2026-10-26T22:00:00.000Z",
+              "location": "Sign in to download the location",
+              "timePrecision": "time",
+              "sourceIds": [
+                "5d10172e6358",
+                "9390a36d167b"
+              ],
+              "urls": [
+                "https://tartanconnect.cmu.edu/rsvp?id=1938123"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "982c26d90129",
+              "url": "https://www.heinz.cmu.edu/events/",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            },
+            {
+              "id": "c7a2fb7ee246",
+              "url": "https://events.cmu.edu/heinz/all",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            },
+            {
+              "id": "07130c683752",
+              "url": "https://events.cmu.edu/student-affairs/all",
+              "eventUrl": "https://cmu.libcal.com/event/17310554"
+            },
+            {
+              "id": "5d10172e6358",
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_tepper.ics",
+              "eventUrl": "https://tartanconnect.cmu.edu/rsvp?id=1938123"
+            },
+            {
+              "id": "6bab7f11462d",
+              "url": "https://events.cmu.edu/library/all",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            },
+            {
+              "id": "491df87feb08",
+              "url": "https://www.library.cmu.edu/about/news/events",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            },
+            {
+              "id": "b37d02b73df8",
+              "url": "https://cmu.libcal.com/",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            },
+            {
+              "id": "7f03d1a54c59",
+              "url": "https://cmu.libcal.com/calendar/workshops",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            },
+            {
+              "id": "9390a36d167b",
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71457.ics",
+              "eventUrl": "https://tartanconnect.cmu.edu/rsvp?id=1938123"
+            },
+            {
+              "id": "e8b71eac1119",
+              "url": "https://events.cmu.edu/",
+              "eventUrl": "https://cmu.libcal.com/event/17428830"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "copied-description",
+              "shared-event-link",
+              "specific-title-and-venue"
+            ],
+            "sourceOccurrences": 9
+          }
+        }
+      ]
+    },
+    "explicitEndConflict": {
+      "baselinePublishedRecords": 2,
+      "replayedPublishedRecords": 2,
+      "baselineOccurrenceStarts": [
+        "2026-10-30T21:00:00.000Z"
+      ],
+      "replayedOccurrenceStarts": [
+        "2026-10-30T21:00:00.000Z"
+      ],
+      "distinctDatesPreserved": true,
+      "baselineProvenanceClaims": 4,
+      "baselineLinksMissingFromReplay": [],
+      "replayedRecords": [
+        {
+          "id": "865a4fcb44480f54d84de54f",
+          "title": "AI Fluency Week: Vibe Code Sprint Halloween Party",
+          "start": "2026-10-30T21:00:00.000Z",
+          "end": "2026-10-31T00:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceClaims": [
+            {
+              "id": "491df87feb08",
+              "url": "https://www.library.cmu.edu/about/news/events",
+              "eventUrl": "https://cmu.libcal.com/event/17529213"
+            },
+            {
+              "id": "b37d02b73df8",
+              "url": "https://cmu.libcal.com/",
+              "eventUrl": "https://cmu.libcal.com/event/17529213"
+            }
+          ]
+        },
+        {
+          "id": "c5142476d1214880bb139837",
+          "title": "AI Fluency Week: Vibe Code Sprint Halloween Party",
+          "start": "2026-10-30T21:00:00.000Z",
+          "end": "2026-10-30T22:00:00.000Z",
+          "sourceConflicts": [],
+          "sourceVariants": [
+            {
+              "title": "AI Fluency Week: Vibe Code Sprint Halloween Party",
+              "start": "2026-10-30T21:00:00.000Z",
+              "end": "2026-10-30T22:00:00.000Z",
+              "location": "Hunt Library, IDeATe Studio A, 4909 Frew Street, Pittsburgh 15213, United States",
+              "timePrecision": "time",
+              "sourceIds": [
+                "5d10172e6358",
+                "9390a36d167b"
+              ],
+              "urls": [
+                "https://tartanconnect.cmu.edu/rsvp?id=1938132"
+              ]
+            }
+          ],
+          "sourceClaims": [
+            {
+              "id": "5d10172e6358",
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_tepper.ics",
+              "eventUrl": "https://tartanconnect.cmu.edu/rsvp?id=1938132"
+            },
+            {
+              "id": "9390a36d167b",
+              "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71457.ics",
+              "eventUrl": "https://tartanconnect.cmu.edu/rsvp?id=1938132"
+            }
+          ],
+          "mergeEvidence": {
+            "version": 1,
+            "reasons": [
+              "shared-event-link"
+            ],
+            "sourceOccurrences": 2
+          }
+        }
+      ]
+    }
+  },
+  "sharedCalendarDistinctCarnivalEventUrls": [
+    "https://events.cmu.edu/academic-calendar/event/31827-spring-carnival",
+    "https://events.cmu.edu/dietrich/event/32145-spring-carnival"
+  ],
+  "allRepresentativeDatesAndBaselineLinksPreserved": true,
+  "limitations": [
+    "A zero guard violation count validates source-variant timing/range invariants; it does not prove every semantic merge in the entire catalog.",
+    "Known explicit end conflicts remain separate records. Ambiguous title-only matches remain conservative.",
+    "Representative counts refer to this saved replay, not subsequent live refreshes."
+  ]
+}
