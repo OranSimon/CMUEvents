@@ -13,6 +13,7 @@ import { fetchTepper } from './tepper.mjs';
  */
 async function fetchEndpoint(plan, context) {
   if (plan.options?.format === 'alumni') return (await import('./alumni.mjs')).fetchAlumni(plan, context);
+  if (plan.options?.format === 'text-schedule') return (await import('./text-schedules.mjs')).fetchTextSchedule(plan, context);
   if (plan.options?.format === 'reviewed-raw-resource') return (await import('./reviewed-resources.mjs')).fetchReviewedRawResource(plan, context);
   if (plan.options?.format === 'campusgroups-json') return (await import('./campusgroups.mjs')).fetchCampusGroups(plan, context);
   if (plan.options?.format === 'wrct') return (await import('./wrct.mjs')).fetchWrct(plan, context);

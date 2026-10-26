@@ -7,221 +7,13 @@
       "fetchUrl": "https://community.cmu.edu/s/events",
       "options": {
         "timezone": "America/New_York",
-        "preferFeed": false,
         "format": "alumni",
-        "upstreamScope": "reviewed-public-all-cards",
-        "onlineOnly": false,
-        "reviewedPublicEvents": {
-          "schemaVersion": 1,
-          "checkedAt": "2026-10-26T01:18:10.430Z",
-          "listingURL": "https://community.cmu.edu/s/events",
-          "scope": "Exactly23 cards publicly rendered across three inspected pages. Only visible card text, URLs, dates, location labels and the IDs required by their public clock getter are retained. No descriptions, hidden addresses, registration counts or unadvertised records retained. New event discovery remains incomplete.",
-          "records": [
-            {
-              "id": "a7DUk000000PQKJMA4",
-              "title": "PIT – CMU School of Music Chamber Series Opening: Inon Barnathan with PSO Musicians",
-              "date": "2026-10-26",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians",
-              "location": "PITTSBURGH, PA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000OnpFMAS",
-              "title": "Sydney - Alumni Coffee and Catch-Up",
-              "date": "2026-10-27",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
-              "location": "",
-              "clockPolicy": "reviewed_detail",
-              "clockReviewReason": "The original public detail establishes 08:00–09:30 AEDT on October 28, 2026, the same instant as October 27 at 17:00–18:30 in New York.",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg",
-              "detailReview": {
-                "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
-                "checkedAt": "2026-10-26T01:18:10.430Z",
-                "evidence": "research/visual-recheck-2026-10-25/evidence/alumni-sydney-date-time-venue.png",
-                "start": "2026-10-28T08:00:00",
-                "end": "2026-10-28T09:30:00",
-                "timeZone": "Australia/Sydney",
-                "location": "Planar Restaurant, ICC Sydney, Shop C08, Ground Floor/14 Darling Dr, Darling Harbour NSW 2000, Australia",
-                "description": "Sydney alumni and friends are welcome to an informal coffee gathering at Planar Restaurant. Local event time: October 28, 2026, 8:00–9:30 AM AEDT in Sydney (October 27, 5:00–6:30 PM in New York). Registration is shown as closed since October 6, 2026, 11:59 PM AEDT; confirm attendance arrangements with the organizer."
-              }
-            },
-            {
-              "id": "a7DUk000000O7upMAC",
-              "title": "NYC - Public Speaking for Tartan Introverts",
-              "date": "2026-10-27",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts",
-              "location": "NEW YORK, NY",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000PFGnMAO",
-              "title": "An Evening with Carnegie Mellon University - Washington, DC",
-              "date": "2026-10-27",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc",
-              "location": "WASHINGTON, DC",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000PrAoMAK",
-              "title": "Sports Betting and the Brain - October 2026",
-              "date": "2026-10-28",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-              "location": "VIRTUAL WEBINAR, ONLINE",
-              "mode": "online",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000Oh5UMAS",
-              "title": "Communicating with Confidence 2026: Interactive Practice for Real-World Speaking",
-              "date": "2026-10-29",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
-              "location": "VIRTUAL WEBINAR, ONLINE",
-              "mode": "online",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000PoZVMA0",
-              "title": "Cracking the Code: Deciphering Bacterial Language and Dialects",
-              "date": "2026-10-29",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects",
-              "location": "NEW YORK, NY",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000PvuLMAS",
-              "title": "Tepper San Francisco: Leading in an Agentic World: How AI Will Reshape Strategy, Innovation, and Competitive Advantage",
-              "date": "2026-10-29",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage",
-              "location": "PALO ALTO, CA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000PXTpMAO",
-              "title": "HI - A Globally Plaid Halloween at HoMA",
-              "date": "2026-10-30",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa",
-              "location": "HONOLULU, HI",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000Q1uxMAC",
-              "title": "SF - Plaid, Potions and Pubs: Halloween Bar Crawl",
-              "date": "2026-10-31",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-plaid-potions-and-pubs-halloween-bar-crawl",
-              "location": "SAN FRANCISCO, CA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000MJqTMAW",
-              "title": "DC - CMU Sunday Night Football: Commanders vs. Eagles",
-              "date": "2026-11-01",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles",
-              "location": "LANDOVER, MD",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000QJv3MAG",
-              "title": "Slaying Organizational Monsters",
-              "date": "2026-11-02",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters",
-              "location": "",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000QJv4MAG",
-              "title": "NYC x PIT - The 59th Carnegie International & Beyond",
-              "date": "2026-11-06",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond",
-              "location": "",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000PnSDMA0",
-              "title": "NYC – Coffee with LLM API Users",
-              "date": "2026-11-07",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-coffee-with-llm-api-users",
-              "location": "NEW YORK, NY",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000PnSCMA0",
-              "title": "DEN - Macbeth Opera Opening Night: Verdi’s Dramatic Masterpiece",
-              "date": "2026-11-07",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece",
-              "location": "DENVER, CO",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000QLFKMA4",
-              "title": "Rethinking Chronic Pain and Disease",
-              "date": "2026-11-10",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease",
-              "location": "VIRTUAL WEBINAR, ONLINE",
-              "mode": "online",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000Mw2EMAS",
-              "title": "LA - Volunteer Opportunity: Project Angel Food Service Day 2026",
-              "date": "2026-11-11",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/la-volunteer-opportunity-project-angel-food-service-day-2026",
-              "location": "LOS ANGELES, CA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000OnpMMAS",
-              "title": "SF - Heated Rivalry: Penguins vs. Sharks",
-              "date": "2026-11-11",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-heated-rivalry-penguins-vs-sharks",
-              "location": "SAN JOSE, CA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000Q1uwMAC",
-              "title": "PIT – Tartans on Tap: Wexford",
-              "date": "2026-11-12",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
-              "location": "WEXFORD, PA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
-            },
-            {
-              "id": "a7DUk000000NTCfMAO",
-              "title": "HLAA - Dulces & Connections: HLAA Holiday Cookie Making Event",
-              "date": "2026-11-14",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-dulces-connections-hlaa-holiday-cookie-making-event",
-              "location": "PITTSBURGH, PA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
-            },
-            {
-              "id": "a7DUk000000QDw7MAG",
-              "title": "BOS - Tartan High Tea and Salem Stroll",
-              "date": "2026-11-14",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll",
-              "location": "SALEM, MA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
-            },
-            {
-              "id": "a7DUk000000QDw5MAG",
-              "title": "DEN - Festival of Lights: Tartan Diwali Celebration",
-              "date": "2026-11-14",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-festival-of-lights-tartan-diwali-celebration",
-              "location": "CENTENNIAL, CO",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
-            },
-            {
-              "id": "a7DUk000000QLFJMA4",
-              "title": "The Menopause Transition and the Brain",
-              "date": "2026-11-17",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain",
-              "location": "VIRTUAL WEBINAR, ONLINE",
-              "mode": "online",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
-            }
-          ],
-          "reviewScope": "Existing 23 public cards retained; Sydney original public registration detail additionally reviewed. New-announcement discovery remains incomplete."
-        }
+        "discovery": "public-dom",
+        "maxPages": 30,
+        "preferFeed": false,
+        "upstreamScope": "public-dom-all"
       },
-      "strategy": "Reuse the bounded public-card adapter and the publisher’s anonymous per-card clock getter. Restrict identities and display fields to visually verified public cards, preserve reviewed dates on missing or conflicting clocks, and always expose partial discovery coverage.",
+      "strategy": "Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters.",
       "evidence": {
         "checkedAt": "2026-10-21T17:56:37.814Z",
         "httpStatus": 200,
@@ -267,231 +59,30 @@
           "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
           "outcome": "public_detail_time_resolved_discovery_still_partial",
           "note": "Three public calendar pages still match all 23 reviewed card titles/dates. The original Sydney detail is publicly browser-readable and establishes October 28, 2026, 08:00–09:30 AEDT and Planar Restaurant; automatic new-card discovery remains incomplete."
+        },
+        "followupResolution": {
+          "checkedAt": "2026-10-26T02:55:03.661Z",
+          "status": "automated",
+          "reason": "Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters.",
+          "nextStep": "Runtime diagnostics identify any incomplete discovery, unsupported dates or source access changes."
         }
       },
       "status": "active",
-      "reason": "Only the 23 individually verified public cards are ingested, with anonymous publisher clock checks. The public list-view identity remains unresolved, so new announcements and title/venue changes still require another public review."
+      "reason": "Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters."
     },
     "https://www.cmu.edu/engage/events/online-events": {
       "adapter": "html",
       "fetchUrl": "https://community.cmu.edu/s/events",
       "options": {
         "timezone": "America/New_York",
-        "preferFeed": false,
         "format": "alumni",
-        "upstreamScope": "reviewed-public-online-cards",
+        "discovery": "public-dom",
+        "maxPages": 30,
         "onlineOnly": true,
-        "reviewedPublicEvents": {
-          "schemaVersion": 1,
-          "checkedAt": "2026-10-26T01:18:10.430Z",
-          "listingURL": "https://community.cmu.edu/s/events",
-          "scope": "Exactly23 cards publicly rendered across three inspected pages. Only visible card text, URLs, dates, location labels and the IDs required by their public clock getter are retained. No descriptions, hidden addresses, registration counts or unadvertised records retained. New event discovery remains incomplete.",
-          "records": [
-            {
-              "id": "a7DUk000000PQKJMA4",
-              "title": "PIT – CMU School of Music Chamber Series Opening: Inon Barnathan with PSO Musicians",
-              "date": "2026-10-26",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians",
-              "location": "PITTSBURGH, PA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000OnpFMAS",
-              "title": "Sydney - Alumni Coffee and Catch-Up",
-              "date": "2026-10-27",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
-              "location": "",
-              "clockPolicy": "reviewed_detail",
-              "clockReviewReason": "The original public detail establishes 08:00–09:30 AEDT on October 28, 2026, the same instant as October 27 at 17:00–18:30 in New York.",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg",
-              "detailReview": {
-                "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
-                "checkedAt": "2026-10-26T01:18:10.430Z",
-                "evidence": "research/visual-recheck-2026-10-25/evidence/alumni-sydney-date-time-venue.png",
-                "start": "2026-10-28T08:00:00",
-                "end": "2026-10-28T09:30:00",
-                "timeZone": "Australia/Sydney",
-                "location": "Planar Restaurant, ICC Sydney, Shop C08, Ground Floor/14 Darling Dr, Darling Harbour NSW 2000, Australia",
-                "description": "Sydney alumni and friends are welcome to an informal coffee gathering at Planar Restaurant. Local event time: October 28, 2026, 8:00–9:30 AM AEDT in Sydney (October 27, 5:00–6:30 PM in New York). Registration is shown as closed since October 6, 2026, 11:59 PM AEDT; confirm attendance arrangements with the organizer."
-              }
-            },
-            {
-              "id": "a7DUk000000O7upMAC",
-              "title": "NYC - Public Speaking for Tartan Introverts",
-              "date": "2026-10-27",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts",
-              "location": "NEW YORK, NY",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000PFGnMAO",
-              "title": "An Evening with Carnegie Mellon University - Washington, DC",
-              "date": "2026-10-27",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc",
-              "location": "WASHINGTON, DC",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000PrAoMAK",
-              "title": "Sports Betting and the Brain - October 2026",
-              "date": "2026-10-28",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-              "location": "VIRTUAL WEBINAR, ONLINE",
-              "mode": "online",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000Oh5UMAS",
-              "title": "Communicating with Confidence 2026: Interactive Practice for Real-World Speaking",
-              "date": "2026-10-29",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
-              "location": "VIRTUAL WEBINAR, ONLINE",
-              "mode": "online",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000PoZVMA0",
-              "title": "Cracking the Code: Deciphering Bacterial Language and Dialects",
-              "date": "2026-10-29",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects",
-              "location": "NEW YORK, NY",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000PvuLMAS",
-              "title": "Tepper San Francisco: Leading in an Agentic World: How AI Will Reshape Strategy, Innovation, and Competitive Advantage",
-              "date": "2026-10-29",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage",
-              "location": "PALO ALTO, CA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000PXTpMAO",
-              "title": "HI - A Globally Plaid Halloween at HoMA",
-              "date": "2026-10-30",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa",
-              "location": "HONOLULU, HI",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
-            },
-            {
-              "id": "a7DUk000000Q1uxMAC",
-              "title": "SF - Plaid, Potions and Pubs: Halloween Bar Crawl",
-              "date": "2026-10-31",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-plaid-potions-and-pubs-halloween-bar-crawl",
-              "location": "SAN FRANCISCO, CA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000MJqTMAW",
-              "title": "DC - CMU Sunday Night Football: Commanders vs. Eagles",
-              "date": "2026-11-01",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles",
-              "location": "LANDOVER, MD",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000QJv3MAG",
-              "title": "Slaying Organizational Monsters",
-              "date": "2026-11-02",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters",
-              "location": "",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000QJv4MAG",
-              "title": "NYC x PIT - The 59th Carnegie International & Beyond",
-              "date": "2026-11-06",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond",
-              "location": "",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000PnSDMA0",
-              "title": "NYC – Coffee with LLM API Users",
-              "date": "2026-11-07",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-coffee-with-llm-api-users",
-              "location": "NEW YORK, NY",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000PnSCMA0",
-              "title": "DEN - Macbeth Opera Opening Night: Verdi’s Dramatic Masterpiece",
-              "date": "2026-11-07",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece",
-              "location": "DENVER, CO",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000QLFKMA4",
-              "title": "Rethinking Chronic Pain and Disease",
-              "date": "2026-11-10",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease",
-              "location": "VIRTUAL WEBINAR, ONLINE",
-              "mode": "online",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000Mw2EMAS",
-              "title": "LA - Volunteer Opportunity: Project Angel Food Service Day 2026",
-              "date": "2026-11-11",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/la-volunteer-opportunity-project-angel-food-service-day-2026",
-              "location": "LOS ANGELES, CA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000OnpMMAS",
-              "title": "SF - Heated Rivalry: Penguins vs. Sharks",
-              "date": "2026-11-11",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-heated-rivalry-penguins-vs-sharks",
-              "location": "SAN JOSE, CA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
-            },
-            {
-              "id": "a7DUk000000Q1uwMAC",
-              "title": "PIT – Tartans on Tap: Wexford",
-              "date": "2026-11-12",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
-              "location": "WEXFORD, PA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
-            },
-            {
-              "id": "a7DUk000000NTCfMAO",
-              "title": "HLAA - Dulces & Connections: HLAA Holiday Cookie Making Event",
-              "date": "2026-11-14",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-dulces-connections-hlaa-holiday-cookie-making-event",
-              "location": "PITTSBURGH, PA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
-            },
-            {
-              "id": "a7DUk000000QDw7MAG",
-              "title": "BOS - Tartan High Tea and Salem Stroll",
-              "date": "2026-11-14",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll",
-              "location": "SALEM, MA",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
-            },
-            {
-              "id": "a7DUk000000QDw5MAG",
-              "title": "DEN - Festival of Lights: Tartan Diwali Celebration",
-              "date": "2026-11-14",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-festival-of-lights-tartan-diwali-celebration",
-              "location": "CENTENNIAL, CO",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
-            },
-            {
-              "id": "a7DUk000000QLFJMA4",
-              "title": "The Menopause Transition and the Brain",
-              "date": "2026-11-17",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain",
-              "location": "VIRTUAL WEBINAR, ONLINE",
-              "mode": "online",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
-            }
-          ],
-          "reviewScope": "Existing 23 public cards retained; Sydney original public registration detail additionally reviewed. New-announcement discovery remains incomplete."
-        }
+        "preferFeed": false,
+        "upstreamScope": "public-dom-online"
       },
-      "strategy": "Reuse the bounded public-card adapter and the publisher’s anonymous per-card clock getter. Restrict identities and display fields to visually verified public cards, preserve reviewed dates on missing or conflicting clocks, and always expose partial discovery coverage.",
+      "strategy": "Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters.",
       "evidence": {
         "checkedAt": "2026-10-21T17:56:37.663Z",
         "httpStatus": 200,
@@ -526,10 +117,16 @@
           "note": "All three public calendar pages were checked after dates loaded. Exactly four cards explicitly label an online venue; discovery of new cards still requires public review.",
           "report": "research/visual-recheck-2026-10-25/alumni.json",
           "requiresReview": true
+        },
+        "followupResolution": {
+          "checkedAt": "2026-10-26T02:55:03.662Z",
+          "status": "automated",
+          "reason": "Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters.",
+          "nextStep": "Runtime diagnostics identify any incomplete discovery, unsupported dates or source access changes."
         }
       },
       "status": "active",
-      "reason": "Only the four visually confirmed cards with an explicit online venue are ingested. New online-announcement discovery is not yet connected; the exact public list-view identity remains unresolved."
+      "reason": "Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters."
     },
     "https://www.cmu.edu/osher/index.html": {
       "adapter": "ics",
@@ -943,36 +540,19 @@
         "timezone": "America/New_York",
         "detailLinks": false,
         "reviewedFragmentsOnly": true,
-        "reviewedResources": [
+        "automaticMedia": [
           {
-            "selector": "body > .container",
-            "expectedCount": 1,
-            "sha256": "935fd588e8c75a212d219e5f6913e36ef0f5ad09bebf8550e1d694154c07f826",
-            "kind": "historical seminar slide archive",
-            "reason": "This archive includes at least one precisely dated seminar: Fred Gardi, May 7, 2026. Reviewed John Hooker slides give only April 2026, and the Lara title page has no full occurrence date. These are historical resources, not a current scheduled calendar.",
-            "reviewedAt": "2026-10-25",
-            "undated": false
-          }
-        ],
-        "reviewedImages": [
-          {
-            "selector": "a[href=\"docs/EWO Seminar Carnegie Mellon - Fred Gardi - Hexaly.pdf\"]",
+            "selector": "body > .container a[href$=\".pdf\"]",
             "attribute": "href",
-            "sha256": "28710b3e961e6ad8b977a716d32c61630107f3208cfdd6027d5ffeee67cb80e7",
-            "events": [
-              {
-                "title": "Beyond MILP: Hexaly, a Hybrid Optimization Solver — Fred Gardi",
-                "start": "2026-05-07",
-                "end": "2026-05-08",
-                "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
-                "description": "EWO Seminar. Speaker: Fred Gardi. Time and room are not listed."
-              }
-            ]
+            "profile": "poster",
+            "fromEnd": true,
+            "maxAssets": 8,
+            "seriesTitle": "EWO Seminar"
           }
         ]
       },
-      "strategy": "Reuse the SHA-256-bound reviewed media adapter for the publisher-advertised PDF href, with full archive content monitoring. Distinguish accepted historical dates from undated current schedules.",
-      "reason": "Visual review corrected the prior undated classification: Fred Gardi’s public slides explicitly give May 7, 2026. The accepted dated occurrence is outside the collection window. Other reviewed files lack a full date; filenames, PDF metadata and month-only captions are not used to invent occurrences.",
+      "strategy": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+      "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.149006+00:00",
@@ -1005,6 +585,12 @@
           "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
           "outcome": "correction_dated_historical_document_found",
           "note": "官网主页面为EWO Seminar Slides，系列首页也称a list of seminars with slides to download，确实属于演讲资料档案。 最新Fred Gardi演示文稿首屏实际打印EWO Seminar, Carnegie Mellon University和May7,2026，故不能一概称为无日期。它可复用链接文档SHA校验接入为历史、当前窗口外记录。 John Hooker首屏只打印CMU, April2026，没有day；不能补成某一天。 Lara封面本身无日期，文件名January22/PDF元数据01-21均不当作活动日期。"
+        },
+        "followupResolution": {
+          "checkedAt": "2026-10-26T02:55:03.662Z",
+          "status": "automated",
+          "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+          "nextStep": "New media bytes trigger automatic extraction. Check source diagnostics for missing years, OCR disagreements or bounded archive coverage."
         }
       }
     },
@@ -1105,106 +691,16 @@
       "status": "active",
       "canonicalSourceId": null,
       "options": {
+        "format": "text-schedule",
         "timezone": "America/New_York",
-        "preferFeed": false,
-        "detailLinks": false,
-        "reviewedFragmentsOnly": true,
-        "reviewedResources": [
-          {
-            "selector": "#content > .content",
-            "expectedCount": 1,
-            "sha256": "bfd089f72a2ffeeda546315b49b57e94fc76109cecb668a8b1343568ce68ab11",
-            "kind": "technical-review directory",
-            "reason": "This page advertises technical-review child pages; each reviewed child is checked separately."
-          }
-        ],
-        "additionalEndpoints": [
-          {
-            "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Japan%20Technical%20Review.html",
-            "adapter": "html",
-            "options": {
-              "detailLinks": false,
-              "reviewedFragmentsOnly": true,
-              "reviewedResources": [
-                {
-                  "selector": "#content > .content",
-                  "expectedCount": 2,
-                  "sha256": "1647856a8e198f28a2e8563c64d7ceb1ac5608f61bd65a3ae19a39c89d6ff59a",
-                  "kind": "conflicting event dates",
-                  "reason": "The page title says 2026 but the heading gives June 30, 2025; the agenda gives Tuesday, June 30 without a year. Neither year is selected.",
-                  "requiresReview": true
-                }
-              ]
-            }
-          },
-          {
-            "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Spring%20Technical%20Review.html",
-            "adapter": "html",
-            "options": {
-              "detailLinks": false,
-              "reviewedFragmentsOnly": true,
-              "reviewedResources": [
-                {
-                  "selector": "#content > .content",
-                  "expectedCount": 1,
-                  "sha256": "93be3b951fb483550e861b0fcb4dfc463e5880111f38751a4fad8c93e32e5a0e",
-                  "kind": "conflicting event dates",
-                  "reason": "The page heading gives June 9, 2025 while the agenda explicitly gives June 9, 2026. Neither date is selected.",
-                  "requiresReview": true
-                }
-              ]
-            }
-          },
-          {
-            "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Japan%20Technical%20Review.html",
-            "adapter": "html",
-            "options": {
-              "detailLinks": false,
-              "reviewedFragmentsOnly": true,
-              "reviewedFragments": [
-                {
-                  "selector": "#content > .content",
-                  "expectedCount": 2,
-                  "sha256": "5ecd6fb6768232b66b916941e9df141ec061c0f663f1c227f2709f177c1770e7",
-                  "events": [
-                    {
-                      "title": "DSSC Japan Technical Review 2025",
-                      "start": "2025-05-22",
-                      "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Japan%20Technical%20Review.html",
-                      "description": "The full event date is consistent on the official page. No clock time is inferred."
-                    }
-                  ]
-                }
-              ]
-            }
-          },
-          {
-            "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Spring%20Technical%20Review.html",
-            "adapter": "html",
-            "options": {
-              "detailLinks": false,
-              "reviewedFragmentsOnly": true,
-              "reviewedFragments": [
-                {
-                  "selector": "#content > .content",
-                  "expectedCount": 1,
-                  "sha256": "9201ef908460c1e6c2d3670e8c09eda9e20bb9e9d9770d6dbabdcbe07dd0b691",
-                  "events": [
-                    {
-                      "title": "DSSC Spring Technical Review 2025",
-                      "start": "2025-03-04",
-                      "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Spring%20Technical%20Review.html",
-                      "description": "The full event date is consistent on the official page. No clock time is inferred."
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        ]
+        "layout": "linked-consistent-details",
+        "linkSelector": "#content a[href*=\"events1/\"]",
+        "maxDetails": 40,
+        "detailTitleSelector": "#content > .content > div:first-child > :first-child",
+        "detailContentSelector": "#content > .content"
       },
-      "strategy": "Check the publisher directory and four reviewed child pages every refresh. Reuse reviewed fragments for consistent historical dates and hash-guarded unresolved-resource diagnostics for conflicting years; never select one contradictory date silently.",
-      "reason": "公开目录和正文均可正常浏览；两场2026技术会议存在真实年份冲突，Japan还链接了2025旧报名表。受限演讲附件未能提供额外公共核实依据。保留冲突并继续监测，不猜定年份、不称整站无法访问。",
+      "strategy": "Follow current same-origin review links and accept a date only when every printed full date agrees with its title year. Conflicting current pages stay partial; new consistent pages are discovered automatically.",
+      "reason": "Follow current same-origin review links and accept a date only when every printed full date agrees with its title year. Conflicting current pages stay partial; new consistent pages are discovered automatically.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:14.991835+00:00",
@@ -1235,6 +731,12 @@
           "nextStep": "等待DSSC修正醒目会议日期/过期报名链接，或发布明确的公开完整议程。Spring可在诊断中展示2026议程日期这一强证据，但在冲突未解决前不发布唯一确定日期。",
           "report": "research/visual-recheck-2026-10-25/dssc.json",
           "requiresReview": true
+        },
+        "followupResolution": {
+          "checkedAt": "2026-10-26T02:55:03.662Z",
+          "status": "automated",
+          "reason": "Follow current same-origin review links and accept a date only when every printed full date agrees with its title year. Conflicting current pages stay partial; new consistent pages are discovered automatically.",
+          "nextStep": "Runtime diagnostics identify any incomplete discovery, unsupported dates or source access changes."
         }
       }
     },
@@ -2253,8 +1755,8 @@
       "status": "active",
       "canonicalSourceId": null,
       "refreshHours": 6,
-      "strategy": "Parse dated parent event cards; follow undated detail summaries using reviewed title/date containers and accessible poster date text with its explicit semester header.",
-      "reason": "Published dated parent records and Constitution Day remain parsed. Unchanged legacy archive summaries and Fall2025/Spring2026 poster resources are monitored with explicit fingerprints; changed resources require review. No current year or recurrence is inferred.",
+      "strategy": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+      "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T18:21:47.375185+00:00",
@@ -2275,6 +1777,12 @@
           "report": "research/remaining-19-2026-10-25/partial-family.json",
           "reason": "Published dated parent records and Constitution Day remain parsed. Unchanged legacy archive summaries and Fall2025/Spring2026 poster resources are monitored with explicit fingerprints; changed resources require review. No current year or recurrence is inferred.",
           "nextStep": "Continue scheduled refreshes using the verified parser and publisher-advertised links; changed undated resources require review."
+        },
+        "followupResolution": {
+          "checkedAt": "2026-10-26T02:55:03.662Z",
+          "status": "automated",
+          "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+          "nextStep": "New media bytes trigger automatic extraction. Check source diagnostics for missing years, OCR disagreements or bounded archive coverage."
         }
       },
       "options": {
@@ -2318,45 +1826,15 @@
             "dateAttribute": "alt",
             "yearSelector": ".grid.boxes:has(img[alt^=\"Join us on\"]) > h1",
             "linkSelector": "a.btn[href],a.cta[href]",
-            "reviewedResources": [
+            "reviewedFragmentsOnly": true,
+            "automaticMedia": [
               {
-                "selector": ".grid.boxes",
-                "expectedCount": 2,
-                "sha256": "3c6c79895a821f7ff656fc903c0bde7d77b783b8f3563fd14b43c37843247706",
-                "kind": "historical workshop schedule",
-                "reason": "The schedule explicitly says Fall2025 and Spring2026; its image-led workshops precede the collection window. The accessible January28 workshop retains its printed Spring2026 year; other poster dates are not inferred."
-              }
-            ],
-            "reviewedImages": [
-              {
-                "selector": ".grid.boxes img[src=\"002_off-the-shelves_01_session-1-min.jpg\"]",
-                "sha256": "2e56424c6970d997a42257bc30a6b2aa653dac61c0e49dd8ef34ccd1aeaf17cb",
-                "events": []
-              },
-              {
-                "selector": ".grid.boxes img[src=\"session-2-off-the-shelves_min.jpg\"]",
-                "sha256": "717ba40eca4eb74aff82b157a6252eb53dc84cf40d319c1136e2b170e0162712",
-                "events": []
-              },
-              {
-                "selector": ".grid.boxes img[src=\"session-3_off-the-shelves_03_-min.jpg\"]",
-                "sha256": "8e80556b62a64db2eb954f6e3a4a8434f8045ad0d470e1fe6928cf87bb6f0ee5",
-                "events": []
-              },
-              {
-                "selector": ".grid.boxes img[src=\"writing-workshop-icon-4.png\"]",
-                "sha256": "9b96e87a608c9de8d043e63a2fe2a077686bf6ca9258fce2c23081e1b5362e6b",
-                "events": []
-              },
-              {
-                "selector": ".grid.boxes img[src=\"session-5_off-the-shelves_05-min.jpg\"]",
-                "sha256": "a50ed23e3640fd371d48b2bb781486dce8a0f9a18f26ffbbf6d37a4a7e4c264b",
-                "events": []
-              },
-              {
-                "selector": ".grid.boxes img[src=\"workshop-6-off-the-shelves-min.png\"]",
-                "sha256": "98d47fb7200a3a23e7bc4661c740fac79ab803f4195dcbad7af0a6cd522e4db0",
-                "events": []
+                "selector": ".grid.boxes img",
+                "contextSelector": ".grid.boxes",
+                "containerSelector": ".grid.boxes > div",
+                "titleSelector": "p > strong",
+                "seriesTitle": "Off the Shelves: Faculty Writing Workshop",
+                "maxAssets": 18
               }
             ]
           }
@@ -2522,38 +2000,17 @@
         "timezone": "America/New_York",
         "detailLinks": false,
         "reviewedFragmentsOnly": true,
-        "reviewedImages": [
+        "automaticMedia": [
           {
-            "selector": "#content img:first",
-            "sha256": "2538a3f27493988033d0ff31325b6a3505cd1d53813ec726eb5f1aae3f3b9737",
-            "reviewedAt": "2026-10-25",
-            "events": [
-              {
-                "uid": "cause-augustus-wood-2026-02-27",
-                "title": "Vine City as the World Trade Center: Structural Violence in Atlanta and the Crisis of the Black Worker Today — Augustus Wood",
-                "start": "2026-02-27T16:30:00",
-                "end": "2026-02-27T18:45:00",
-                "location": "Baker Hall A53 — Steinberg Auditorium, Carnegie Mellon University",
-                "description": "CAUSE–Heinz Speaker Series. Dr. Augustus Wood, Assistant Professor, University of Illinois Urbana-Champaign.",
-                "organizer": "Center for Africanamerican Urban Studies and the Economy",
-                "url": "https://www.cmu.edu/history/cause/events/index.html"
-              }
-            ]
-          }
-        ],
-        "reviewedResources": [
-          {
-            "selector": "#content",
-            "expectedCount": 1,
-            "sha256": "0ebc3bacede4e88e0b0417908f6f616dba5621c9028b2fe7b79456cfafb78acf",
-            "kind": "historical announcement archive",
-            "reason": "The leading poster is explicitly dated February 27, 2026; remaining announcements are older. No dated occurrence in the current window was found. Changes to text or advertised media require renewed review.",
-            "reviewedAt": "2026-10-25"
+            "selector": "#content img",
+            "profile": "poster",
+            "maxAssets": 8,
+            "seriesTitle": "CAUSE Speaker Series"
           }
         ]
       },
-      "strategy": "Verify the leading dated CAUSE poster and monitor the complete reviewed archive content and media destinations for additions or changes. Historical dates remain historical.",
-      "reason": "",
+      "strategy": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+      "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.329677+00:00",
@@ -2574,6 +2031,12 @@
           "report": "research/remaining-19-2026-10-25/academic.json",
           "reason": "The latest complete event is February27,2026 and is outside the current window; the prior unsupported state was an extraction/structure gap rather than lack of dates or anonymous access.",
           "nextStep": "Automatically refresh the hash checks; a newly added or changed announcement becomes a review alert instead of silently remaining empty."
+        },
+        "followupResolution": {
+          "checkedAt": "2026-10-26T02:55:03.662Z",
+          "status": "automated",
+          "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+          "nextStep": "New media bytes trigger automatic extraction. Check source diagnostics for missing years, OCR disagreements or bounded archive coverage."
         }
       }
     },
@@ -2653,62 +2116,18 @@
         "timezone": "America/New_York",
         "detailLinks": false,
         "reviewedFragmentsOnly": true,
-        "reviewedImages": [
+        "automaticMedia": [
           {
-            "selector": "h1:contains(\"Fall 2026 Seminars\") + p img[src=\"screenshot-2026-08-21-at-2.18.58pm.png\"]",
-            "sha256": "142eebf6dc73e174ce3384bb2be6896ece0653389fe6abf41013eb94ab91e227",
-            "reviewedAt": "2026-10-25",
-            "events": [
-              {
-                "uid": "socialist-studies-2026-09-18",
-                "title": "Anna Seghers: The Legacy of a German-Jewish Socialist and Antifascist Writer — Stephen Brockmann",
-                "start": "2026-09-18T15:00:00",
-                "end": "2026-09-18T16:30:00",
-                "location": "Baker/Porter Hall 246A, Carnegie Mellon University",
-                "description": "Socialist Studies Seminar. Speaker: Stephen Brockmann, Carnegie Mellon University.",
-                "organizer": "Socialist Studies Seminar",
-                "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html"
-              }
-            ]
-          },
-          {
-            "selector": "h1:contains(\"Fall 2026 Seminars\") + p img[src=\"screenshot-2026-08-21-at-2.19.02pm.png\"]",
-            "sha256": "88b8992ad540c5da898fc55fd9d1f10f4b2b33cff77d75034e52bc4859a3a32a",
-            "reviewedAt": "2026-10-25",
-            "events": [
-              {
-                "uid": "socialist-studies-2026-10-09",
-                "title": "Hiding Patterns: Evasion and Postwar Justice between Romania and the Soviet Union — Diana Dumitru",
-                "start": "2026-10-09T16:00:00",
-                "end": "2026-10-09T17:30:00",
-                "location": "Baker/Porter Hall 246A, Carnegie Mellon University",
-                "description": "Socialist Studies Seminar. Speaker: Diana Dumitru, Georgetown University.",
-                "organizer": "Socialist Studies Seminar",
-                "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html"
-              }
-            ]
-          },
-          {
-            "selector": "h1:contains(\"Fall 2026 Seminars\") + p img[src=\"screenshot-2026-08-21-at-2.19.05pm.png\"]",
-            "sha256": "d691db7402295950339a12ffc4a0a393f2199cd5a8a22c4065c3c8edb89df445",
-            "reviewedAt": "2026-10-25",
-            "events": [
-              {
-                "uid": "socialist-studies-2026-11-20",
-                "title": "Becoming Radicals: Polish Jewish Women’s Paths to the Spanish Civil War — Anna Muller",
-                "start": "2026-11-20T16:00:00",
-                "end": "2026-11-20T17:30:00",
-                "location": "Baker/Porter Hall 246A, Carnegie Mellon University",
-                "description": "Socialist Studies Seminar. Speaker: Anna Muller, University of Michigan-Dearborn.",
-                "organizer": "Socialist Studies Seminar",
-                "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html"
-              }
-            ]
+            "selector": "h1:contains(\"Seminars\") + p img",
+            "profile": "poster",
+            "yearHeadingPattern": "^(?:Fall|Spring|Summer|Winter)\\s+20\\d{2}\\s+Seminars",
+            "maxAssets": 12,
+            "seriesTitle": "Socialist Studies Seminar"
           }
         ]
       },
-      "strategy": "Verify each currently advertised Fall 2026 poster hash and publish only its visually reviewed complete date, title, speaker, venue and time range.",
-      "reason": "",
+      "strategy": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+      "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.035557+00:00",
@@ -2729,6 +2148,12 @@
           "report": "research/remaining-19-2026-10-25/academic.json",
           "reason": "Three current-semester posters publish full dates and times; the Brockmann PDF visually matches the September18 image and is not a separate event.",
           "nextStep": "Review changed/missing poster assets before importing replacements; do not generate monthly dates from the introductory prose."
+        },
+        "followupResolution": {
+          "checkedAt": "2026-10-26T02:55:03.662Z",
+          "status": "automated",
+          "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+          "nextStep": "New media bytes trigger automatic extraction. Check source diagnostics for missing years, OCR disagreements or bounded archive coverage."
         }
       }
     },
@@ -3511,47 +2936,17 @@
         "preferFeed": false,
         "detailLinks": false,
         "reviewedFragmentsOnly": true,
-        "reviewedImages": [
+        "automaticMedia": [
           {
-            "selector": "#content img[src$=\"updated-24_univ-ex_comms-email-banner_04.png\"]",
-            "sha256": "8a2a7c99bb665f3978fca04b54dbe3060b1ef3491521570c64e0c19c567fd559",
-            "events": [
-              {
-                "title": "The University Exchange with Carnegie Mellon 2024",
-                "start": "2024-04-03",
-                "end": "2024-04-05",
-                "url": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
-                "description": "Dates read from the official event banner. Clock times and location are not stated in the banner."
-              }
-            ]
-          },
-          {
-            "selector": "#content img[src$=\"exchange-bannre.png\"]",
-            "sha256": "f8f71fe7aa3ba7b52903a54382f5ef15545ff62ab1d4aa5486de3a5f22c0fb83",
-            "events": [
-              {
-                "title": "The University Exchange with Carnegie Mellon — The evolution of AI, trust and value",
-                "start": "2023-04-26",
-                "end": "2023-04-28",
-                "url": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
-                "description": "Dates read from the official event banner. Clock times and location are not stated in the banner."
-              }
-            ]
-          }
-        ],
-        "reviewedResources": [
-          {
-            "selector": "#content > .content",
-            "expectedCount": 2,
-            "sha256": "6417c6ce99d70d2d9897d9da54111beafd12ac1c0c68a62f509b51ca72c6daef",
-            "kind": "dated historical archive",
-            "reason": "The dated banners are April 3–4, 2024 and April 26–27, 2023; the summer research program is from 2020. These are historical records outside the current collection window.",
-            "undated": false
+            "selector": "#content img",
+            "profile": "poster",
+            "minAspectRatio": 2,
+            "maxAssets": 12
           }
         ]
       },
-      "strategy": "Parse visually verified, byte-bound historical event banners and monitor archive text, links and media for changes. Preserve date-only precision and exclusive end dates; do not import unrelated events from a redirected generic PwC page.",
-      "reason": "Both event banners have complete dates, but all verified occurrences are outside the collection window. The former agenda URL now redirects to a generic PwC Exchange calendar, which does not establish CMU attribution.",
+      "strategy": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+      "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.112772+00:00",
@@ -3572,6 +2967,12 @@
           "report": "research/remaining-19-2026-10-25/root-investigation.json",
           "reason": "Both event banners have complete dates, but all verified occurrences are outside the collection window. The former agenda URL now redirects to a generic PwC Exchange calendar, which does not establish CMU attribution.",
           "nextStep": "Any archive content or banner-byte change requires another review; newly dated CMU announcements can reuse this same parser."
+        },
+        "followupResolution": {
+          "checkedAt": "2026-10-26T02:55:03.662Z",
+          "status": "automated",
+          "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+          "nextStep": "New media bytes trigger automatic extraction. Check source diagnostics for missing years, OCR disagreements or bounded archive coverage."
         }
       }
     },
@@ -5078,125 +4479,68 @@
             "url": "https://sites.google.com/view/crypto-seminar/home",
             "adapter": "html",
             "options": {
+              "format": "text-schedule",
               "timezone": "America/New_York",
-              "detailLinks": false,
-              "reviewedFragmentsOnly": true,
-              "reviewedFragments": [
-                {
-                  "selector": "body",
-                  "expectedCount": 1,
-                  "sha256": "a936ae5b2297b2ba4279cc643d1b55c3f39a4aafe743ec8bb9bda134dcd9c6cd",
-                  "events": [
-                    {
-                      "uid": "cmu-crypto-qi-pang-2026-10-28",
-                      "title": "CMU LayerZero Crypto Seminar — Qi Pang",
-                      "start": "2026-10-28T13:30:00",
-                      "location": "GHC 7501; Zoom",
-                      "mode": "hybrid",
-                      "url": "https://sites.google.com/view/crypto-seminar/home",
-                      "description": "Speaker: Qi Pang. Talk topic and abstract to be announced. Special session on Wednesday at 1:30 PM Eastern Time. CMU LayerZero Crypto Seminar."
-                    },
-                    {
-                      "uid": "cmu-crypto-chase-fickes-2026-11-05",
-                      "title": "A Low-Communication Garbled RAM from Homomorphic Secret Sharing",
-                      "start": "2026-11-05T16:30:00",
-                      "location": "GHC 7501; Zoom",
-                      "mode": "hybrid",
-                      "url": "https://sites.google.com/view/crypto-seminar/home",
-                      "description": "Speaker: Chase Fickes. CMU LayerZero Crypto Seminar."
-                    },
-                    {
-                      "uid": "cmu-crypto-alper-cakan-2026-11-19",
-                      "title": "CMU LayerZero Crypto Seminar — Alper Çakan",
-                      "start": "2026-11-19T16:30:00",
-                      "location": "GHC 7501; Zoom",
-                      "mode": "hybrid",
-                      "url": "https://sites.google.com/view/crypto-seminar/home",
-                      "description": "Speaker: Alper Çakan. Talk topic and abstract to be announced. CMU LayerZero Crypto Seminar."
-                    }
-                  ]
+              "rowSelector": "section",
+              "startHeading": "Coming Talks",
+              "endHeading": "Previous Talks",
+              "seriesSelector": "h1",
+              "contextSelector": "section:has(p):first",
+              "requirePublishedClock": true,
+              "defaultTimePattern": "meets every (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) at (.+?) ET",
+              "defaultLocationPattern": "meet in person at (.+?) for the (F\\d{2}) semester",
+              "fields": {
+                "title": {
+                  "selector": "p",
+                  "index": 0
+                },
+                "speaker": {
+                  "selector": "p",
+                  "index": 1
+                },
+                "date": {
+                  "selector": "p",
+                  "index": 2
                 }
-              ],
-              "reviewedResources": [
-                {
-                  "selector": "body",
-                  "expectedCount": 1,
-                  "sha256": "8e6ce173690595da3b2b2d8c03e2b7592bcd4e7d2bb1a0aa50542fe00d301c54",
-                  "kind": "visually reviewed academic seminar schedule",
-                  "undated": false,
-                  "reason": "Individual dates and the selected default/exception clocks were visually reviewed. Changed text, destinations, media or structured metadata requires renewed review before reusing these fixed fields."
-                }
-              ]
+              }
             }
           },
           {
             "url": "https://cmueconcs.github.io/",
             "adapter": "html",
             "options": {
+              "format": "text-schedule",
               "timezone": "America/New_York",
-              "detailLinks": false,
-              "reviewedFragmentsOnly": true,
-              "reviewedFragments": [
-                {
-                  "selector": "body",
-                  "expectedCount": 1,
-                  "sha256": "9627c3e9e15116f2e6ed4cfef1b5efa3c4f6c67d5975ca9447566875438fe7fd",
-                  "events": [
-                    {
-                      "uid": "cmu-econcs-nihar-shah-2026-09-15",
-                      "title": "ArabIan Nights: Tales of AI, Science, and Trouble",
-                      "start": "2026-09-15T14:00:00",
-                      "location": "NSH 3305; Zoom",
-                      "mode": "hybrid",
-                      "description": "Speaker: Nihar Shah (CMU). CMU Econ-CS Seminar.",
-                      "url": "https://cmueconcs.github.io/"
-                    },
-                    {
-                      "uid": "cmu-econcs-kate-donahue-2026-09-23",
-                      "title": "One AI, two AI, red AI, blue AI: Impacts of Aggregation on Model Diversity and Consumer Utility",
-                      "start": "2026-09-23T15:30:00",
-                      "location": "GHC 6115; Zoom",
-                      "mode": "hybrid",
-                      "description": "Speaker: Kate Donahue (UIUC). CMU Econ-CS Seminar.",
-                      "url": "https://cmueconcs.github.io/"
-                    },
-                    {
-                      "uid": "cmu-econcs-jiannan-xu-2026-09-23",
-                      "title": "Escaping the Nash Trap: Structural Estimation and Alignment of Strategic Reasoning in Large Language Models",
-                      "start": "2026-09-23T16:30:00",
-                      "location": "GHC 6115; Zoom",
-                      "mode": "hybrid",
-                      "description": "Speaker: Jiannan Xu (UMD). CMU Econ-CS Seminar.",
-                      "url": "https://cmueconcs.github.io/"
-                    },
-                    {
-                      "uid": "cmu-econcs-brian-zhang-2026-09-29",
-                      "title": "CMU Econ-CS Seminar — Brian Zhang",
-                      "start": "2026-09-29T14:00:00",
-                      "location": "NSH 3305; Zoom",
-                      "mode": "hybrid",
-                      "description": "Speaker: Brian Zhang (MIT). Talk topic to be announced. CMU Econ-CS Seminar.",
-                      "url": "https://cmueconcs.github.io/"
-                    }
-                  ]
+              "rowSelector": "table tbody tr",
+              "seriesSelector": "h1",
+              "fields": {
+                "date": {
+                  "selector": "td",
+                  "index": 0
+                },
+                "location": {
+                  "selector": "td",
+                  "index": 1
+                },
+                "speaker": {
+                  "selector": "td",
+                  "index": 2
+                },
+                "affiliation": {
+                  "selector": "td",
+                  "index": 3
+                },
+                "title": {
+                  "selector": "td",
+                  "index": 4
                 }
-              ],
-              "reviewedResources": [
-                {
-                  "selector": "body",
-                  "expectedCount": 1,
-                  "sha256": "33c4d878e0954e3e81ab2b150043c45b7f4aa4ae6e8f0f7cb7a5202fd992cab0",
-                  "kind": "visually reviewed academic seminar schedule",
-                  "undated": false,
-                  "reason": "Individual dates and the selected default/exception clocks were visually reviewed. Changed text, destinations, media or structured metadata requires renewed review before reusing these fixed fields."
-                }
-              ]
+              }
             }
           }
         ]
       },
-      "strategy": "Monitor the official 26-series directory and its JSON projection, and reuse reviewed-fragment HTML extraction for the two explicitly linked public schedules. Preserve the Wednesday time exception, printed fall-room context, missing talk topics and absent end times.",
-      "reason": "Visual review found concrete dated activities on two official directory-linked sites that the directory-only monitor had missed. Import 3 future Cryptography talks and 1 in-window Econ-CS talk using reviewed public schedules; keep partial coverage explicit for the remaining directory scope.",
+      "strategy": "Keep the 26-series discovery limitation explicit while parsing current Crypto and Econ-CS schedules from live structural rows and publisher-advertised weekday defaults; no fixed event annotations.",
+      "reason": "Keep the 26-series discovery limitation explicit while parsing current Crypto and Econ-CS schedules from live structural rows and publisher-advertised weekday defaults; no fixed event annotations.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:14.972110+00:00",
@@ -5228,6 +4572,12 @@
           "report": "research/visual-recheck-2026-10-25/undated-four.json",
           "requiresReview": true,
           "url": "https://www.cs.cmu.edu/events/scs-seminar-series"
+        },
+        "followupResolution": {
+          "checkedAt": "2026-10-26T02:55:03.662Z",
+          "status": "automated",
+          "reason": "Keep the 26-series discovery limitation explicit while parsing current Crypto and Econ-CS schedules from live structural rows and publisher-advertised weekday defaults; no fixed event annotations.",
+          "nextStep": "Runtime diagnostics identify any incomplete discovery, unsupported dates or source access changes."
         }
       }
     },
@@ -5427,148 +4777,17 @@
         "timezone": "America/New_York",
         "detailLinks": false,
         "reviewedFragmentsOnly": true,
-        "reviewedImages": [
+        "automaticMedia": [
           {
-            "selector": "h1:contains(\"Fall 2026 Schedule\") + p img[src=\"colloquium-series-fall-2026.png\"]",
-            "sha256": "30a43498ba23dce5bcd1ad701e68aba9821841ccbc31af0c69577a17ae110cb2",
-            "reviewedAt": "2026-10-25",
-            "events": [
-              {
-                "uid": "lti-social-2026-09-04",
-                "title": "LTI Social",
-                "start": "2026-09-04T15:00:00",
-                "end": "2026-09-04T15:30:00",
-                "location": "NSH 4305, Carnegie Mellon University",
-                "description": "LTI Social, as individually listed in the Fall 2026 schedule.",
-                "organizer": "Language Technologies Institute",
-                "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
-              },
-              {
-                "uid": "lti-colloquium-2026-09-11",
-                "title": "LTI Colloquium — Diyi Yang",
-                "start": "2026-09-11T15:30:00",
-                "end": "2026-09-11T17:00:00",
-                "location": "NSH 4305, Carnegie Mellon University",
-                "description": "Speaker: Diyi Yang. Affiliation: Stanford University.",
-                "organizer": "Language Technologies Institute",
-                "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
-              },
-              {
-                "uid": "lti-social-2026-09-18",
-                "title": "LTI Social",
-                "start": "2026-09-18T15:00:00",
-                "end": "2026-09-18T15:30:00",
-                "location": "NSH 4305, Carnegie Mellon University",
-                "description": "LTI Social, as individually listed in the Fall 2026 schedule.",
-                "organizer": "Language Technologies Institute",
-                "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
-              },
-              {
-                "uid": "lti-colloquium-2026-09-25",
-                "title": "LTI Colloquium — Yaser Sheikh",
-                "start": "2026-09-25T15:30:00",
-                "end": "2026-09-25T17:00:00",
-                "location": "NSH 4305, Carnegie Mellon University",
-                "description": "Speaker: Yaser Sheikh. Affiliation: Carnegie Mellon University.",
-                "organizer": "Language Technologies Institute",
-                "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
-              },
-              {
-                "uid": "lti-colloquium-2026-10-02",
-                "title": "LTI Colloquium — Chenggang Xu",
-                "start": "2026-10-02T15:30:00",
-                "end": "2026-10-02T17:00:00",
-                "location": "NSH 4305, Carnegie Mellon University",
-                "description": "Speaker: Chenggang Xu. Affiliation: Stanford University.",
-                "organizer": "Language Technologies Institute",
-                "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
-              },
-              {
-                "uid": "lti-social-2026-10-09",
-                "title": "LTI Social",
-                "start": "2026-10-09T15:00:00",
-                "end": "2026-10-09T15:30:00",
-                "location": "NSH 4305, Carnegie Mellon University",
-                "description": "LTI Social, as individually listed in the Fall 2026 schedule.",
-                "organizer": "Language Technologies Institute",
-                "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
-              },
-              {
-                "uid": "lti-social-2026-10-16",
-                "title": "LTI Social",
-                "start": "2026-10-16T15:00:00",
-                "end": "2026-10-16T15:30:00",
-                "location": "NSH 4305, Carnegie Mellon University",
-                "description": "LTI Social, as individually listed in the Fall 2026 schedule.",
-                "organizer": "Language Technologies Institute",
-                "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
-              },
-              {
-                "uid": "lti-colloquium-2026-10-23",
-                "title": "LTI Colloquium — Sewon Min",
-                "start": "2026-10-23T15:30:00",
-                "end": "2026-10-23T17:00:00",
-                "location": "NSH 4305, Carnegie Mellon University",
-                "description": "Speaker: Sewon Min. Affiliation: UC Berkeley.",
-                "organizer": "Language Technologies Institute",
-                "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
-              },
-              {
-                "uid": "lti-colloquium-2026-10-30",
-                "title": "LTI Colloquium — Chris Potts",
-                "start": "2026-10-30T15:30:00",
-                "end": "2026-10-30T17:00:00",
-                "location": "NSH 4305, Carnegie Mellon University",
-                "description": "Speaker: Chris Potts. Affiliation: Stanford University.",
-                "organizer": "Language Technologies Institute",
-                "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
-              },
-              {
-                "uid": "lti-social-2026-11-06",
-                "title": "LTI Social",
-                "start": "2026-11-06T15:00:00",
-                "end": "2026-11-06T15:30:00",
-                "location": "NSH 4305, Carnegie Mellon University",
-                "description": "LTI Social, as individually listed in the Fall 2026 schedule.",
-                "organizer": "Language Technologies Institute",
-                "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
-              },
-              {
-                "uid": "lti-colloquium-2026-11-13",
-                "title": "LTI Colloquium — Jocelyn Shen",
-                "start": "2026-11-13T15:30:00",
-                "end": "2026-11-13T17:00:00",
-                "location": "NSH 4305, Carnegie Mellon University",
-                "description": "Speaker: Jocelyn Shen. Affiliation: Google DeepMind.",
-                "organizer": "Language Technologies Institute",
-                "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
-              },
-              {
-                "uid": "lti-colloquium-2026-11-20",
-                "title": "LTI Colloquium — Mohit Iyyer",
-                "start": "2026-11-20T15:30:00",
-                "end": "2026-11-20T17:00:00",
-                "location": "NSH 4305, Carnegie Mellon University",
-                "description": "Speaker: Mohit Iyyer. Affiliation: University of Maryland.",
-                "organizer": "Language Technologies Institute",
-                "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
-              },
-              {
-                "uid": "lti-social-2026-12-04",
-                "title": "LTI Social",
-                "start": "2026-12-04T15:00:00",
-                "end": "2026-12-04T15:30:00",
-                "location": "NSH 4305, Carnegie Mellon University",
-                "description": "LTI Social, as individually listed in the Fall 2026 schedule.",
-                "organizer": "Language Technologies Institute",
-                "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html"
-              }
-            ],
-            "evidenceContext": "The adjacent heading explicitly supplies Fall 2026. The poster lists each date, venue and separate social/colloquium times; only listed rows are transcribed."
+            "selector": "h1:contains(\"Schedule\") + p img",
+            "profile": "table",
+            "yearHeadingPattern": "^(?:Fall|Spring|Summer|Winter)\\s+20\\d{2}\\s+Schedule",
+            "maxAssets": 6,
+            "seriesTitle": "LTI Colloquium"
           }
         ]
       },
-      "strategy": "Verify the explicitly selected Fall 2026 schedule image hash, then reuse visually reviewed per-row dates and printed session clocks. A changed image or semester heading requires review.",
+      "strategy": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
       "evidence": {
         "checkedAt": "2026-10-21T18:05:52.996Z",
         "httpStatus": 200,
@@ -5588,10 +4807,16 @@
           "report": "research/remaining-19-2026-10-25/academic.json",
           "reason": "The current public schedule is readable after visual review and bound to the exact image bytes. No OCR or recurrence inference is used.",
           "nextStep": "Review a changed schedule before accepting new rows; do not keep applying 2026 to another semester."
+        },
+        "followupResolution": {
+          "checkedAt": "2026-10-26T02:55:03.662Z",
+          "status": "automated",
+          "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
+          "nextStep": "New media bytes trigger automatic extraction. Check source diagnostics for missing years, OCR disagreements or bounded archive coverage."
         }
       },
       "status": "active",
-      "reason": "",
+      "reason": "Discover current publisher-advertised images or PDFs on every refresh; extract accessible text, PDF text or OCR, validate explicit years and dates, and publish only grounded event fields. Uncertain fields and discovery limits remain explicit.",
       "canonicalSourceId": null
     },
     "https://www.cs.cmu.edu/~mlaiseminar/": {
@@ -8172,33 +7397,24 @@
             "url": "https://www.cmu.edu/wellbeing/resources/wellness-initiatives/religious-spiritual/",
             "adapter": "html",
             "options": {
+              "format": "text-schedule",
               "timezone": "America/New_York",
-              "detailLinks": false,
-              "reviewedFragments": [
-                {
-                  "selector": "#content > div:nth-child(8) > div:nth-child(3) > p:nth-child(2)",
-                  "expectedCount": 1,
-                  "sha256": "5cd5cc5a438a97e4ad84aa44f531a080729fe0f95c770b4653b71530aef22412",
-                  "events": [
-                    {
-                      "uid": "cmu-rsl-friendsgiving-2026-11-23",
-                      "title": "CMU Friendsgiving",
-                      "start": "2026-11-23",
-                      "url": "https://www.cmu.edu/wellbeing/resources/wellness-initiatives/religious-spiritual/",
-                      "description": "Save the Date! On Monday evening, November 23, 2026, CMU will host Friendsgiving, the annual Thanksgiving feast at CMU that celebrates friendship, gratitude, and food. Events are open to all. Only evening is published; exact clock and venue are not listed.",
-                      "organizer": "CMU Religious and Spiritual Life",
-                      "location": ""
-                    }
-                  ]
-                }
-              ],
-              "reviewedFragmentsOnly": true
+              "rowSelector": "#content h3",
+              "followingSections": true
             }
           }
         ]
       },
-      "strategy": "Read the public Wellness and Meaning-Making Programs ICS. Also read the parent office’s public Religious and Spiritual Life Friendsgiving announcement, bound to its reviewed exact text and explicit year. Attribute it to RSL and preserve date-only precision, rather than assigning it to the self-paced ILD badge program.",
-      "reason": "A dated public RSL event is advertised on the office website but omitted from the existing calendar snapshot."
+      "strategy": "Combine the public office calendar with current explicitly dated RSL heading announcements; dates and titles are read afresh rather than stored in reviewedFragments.",
+      "reason": "Combine the public office calendar with current explicitly dated RSL heading announcements; dates and titles are read afresh rather than stored in reviewedFragments.",
+      "evidence": {
+        "followupResolution": {
+          "checkedAt": "2026-10-26T02:55:03.662Z",
+          "status": "automated",
+          "reason": "Combine the public office calendar with current explicitly dated RSL heading announcements; dates and titles are read afresh rather than stored in reviewedFragments.",
+          "nextStep": "Runtime diagnostics identify any incomplete discovery, unsupported dates or source access changes."
+        }
+      }
     }
   }
 }

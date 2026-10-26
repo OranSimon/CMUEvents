@@ -14,13 +14,17 @@
     "refresh": "node scripts/refresh-events.mjs",
     "plan": "node scripts/plan-sources.mjs",
     "test": "node --test",
-    "check": "node scripts/check-project.mjs"
+    "check": "node scripts/check-project.mjs",
+    "build:static": "node scripts/build-static.mjs",
+    "preview:static": "node scripts/preview-static.mjs"
   },
   "dependencies": {
+    "@napi-rs/canvas": "0.1.80",
     "cheerio": "^1.1.2",
     "fast-xml-parser": "^5.3.0",
     "ical.js": "^2.2.1",
     "pdf-parse": "^2.4.5",
+    "playwright": "1.64.1",
     "undici": "^7.30.1"
   }
 }

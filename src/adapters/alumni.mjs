@@ -1,10 +1,124 @@
 import * as cheerio from 'cheerio';
 import { absoluteUrl, inWindow, normalizeEvent, parseDate, plainText } from '../lib/normalize.mjs';
+import { explicitTextDate, explicitTextEnd } from './html.mjs';
 
 const LISTING = 'https://community.cmu.edu/s/events';
 const QUERY = 'https://community.cmu.edu/s/sfsites/aura';
 const CLOCK = 'apex://CommunityEventTileController/ACTION$getEventStartDate';
 const RECORD_ID = /^[A-Za-z0-9]{15}(?:[A-Za-z0-9]{3})?$/;
+const PUBLIC_ZONES = {
+  AEDT: ['+11:00', 'Australia/Sydney'], AEST: ['+10:00', 'Australia/Brisbane'],
+  EDT: ['-04:00', 'Etc/GMT+4'], EST: ['-05:00', 'Etc/GMT+5'],
+  PDT: ['-07:00', 'Etc/GMT+7'], PST: ['-08:00', 'Etc/GMT+8'],
+  HST: ['-10:00', 'Pacific/Honolulu'], JST: ['+09:00', 'Asia/Tokyo'],
+  UTC: ['+00:00', 'UTC'], GMT: ['+00:00', 'UTC'],
+};
+
+/**
+ * Accept only a visible card's original public CMU registration link.
+ * @param {string} value Link read from the anonymous visible listing.
+ * @return {string|null} Canonical public URL, or null outside that scope.
+ */
+function publicEventUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && !url.username && !url.password && !url.search
+      && ['www.givecampus.com', 'givecampus.com'].includes(url.hostname)
+      && /^\/schools\/CarnegieMellonUniversity\/events\/[^/]+\/?$/.test(url.pathname) ? url.href : null;
+  } catch { return null; }
+}
+
+/**
+ * Normalize the current original Event Details card, excluding signup deadlines.
+ * Only unambiguous printed zone abbreviations establish an instant; unsupported
+ * zones retain date precision instead of borrowing a clock or location default.
+ * @param {Object} detail Visible title, Event Details and Details-tab text.
+ * @return {Object|null} Explicit public fields and clock uncertainty.
+ */
+export function parseAlumniPublicDetail(detail) {
+  const lines = String(detail?.detailText || '').split(/\n+/).map(line => line.trim()).filter(Boolean);
+  const dateIndex = lines.findIndex(line => explicitTextDate(line));
+  if (dateIndex < 0) return null;
+  const dateText = lines[dateIndex];
+  const localStart = explicitTextDate(dateText);
+  if (!localStart || !parseDate(localStart.slice(0, 10))) return null;
+  const zoneLabel = dateText.match(/\b(AEDT|AEST|EDT|EST|PDT|PST|HST|JST|UTC|GMT)\b/)?.[1];
+  const zone = PUBLIC_ZONES[zoneLabel];
+  const localEnd = explicitTextEnd(dateText, localStart);
+  const start = localStart.includes('T') && zone ? parseDate(`${localStart}${zone[0]}`) : localStart.slice(0, 10);
+  const end = localEnd?.includes('T') && zone ? parseDate(`${localEnd}${zone[0]}`) : undefined;
+  const location = lines.slice(dateIndex + 1).filter(line => !/^(?:Free|\$[\d,.]+(?:\s.*)?)$/i.test(line)).join(' · ');
+  return { title: plainText(detail.title), start, end: end && end > start ? end : undefined,
+    timeZone: zone?.[1] || 'America/New_York', location, description: plainText(detail.description || ''),
+    uncertain: !start?.includes('T') || Boolean(localEnd && (!end || end <= start)) };
+}
+
+/**
+ * Parse newly discovered visible public cards without fixed IDs, dates or titles.
+ * @param {Object} listing Current anonymous rendered listing and completeness.
+ * @param {Map<string,Object>} details Current original detail fields by public URL.
+ * @param {Object} plan Source provenance and optional online-only scope.
+ * @param {Object} context Collection window.
+ * @return {Object} Current public occurrences and explicit partial diagnostics.
+ */
+export function parseAlumniPublicCards(listing, details, plan = {}, context = {}) {
+  const events = new Map();
+  const warnings = [...(listing.warnings || [])];
+  let partial = Boolean(listing.partial);
+  for (const row of listing.rows || []) {
+    const url = publicEventUrl(row.url);
+    const date = explicitTextDate(row.dateText || '')?.slice(0, 10);
+    if (!url || !date || !parseDate(date) || !plainText(row.title)) {
+      partial = true; warnings.push('A visible Alumni card has no valid public URL, title or explicit full date'); continue;
+    }
+    const locationText = row.text?.split('|').slice(1).join('|').split('\n')[0].trim() || '';
+    const online = /^(?:virtual webinar,?\s*)?online$/i.test(locationText);
+    if (plan.options?.onlineOnly && !online) continue;
+    const detail = parseAlumniPublicDetail(details.get(url));
+    let start = detail?.start || date;
+    if (!detail) { partial = true; warnings.push(`Original public event details unavailable (${url}); only its current visible listing date is included`); }
+    if (detail?.uncertain) { partial = true; warnings.push(`Original public event clock or zone needs review (${url}); no unsupported clock or end was inferred`); }
+    if (detail?.start?.includes('T')) {
+      const easternDay = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(detail.start));
+      if (easternDay !== date) { partial = true; warnings.push(`Public listing date ${date} differs from the current original event instant (${url}); original detail fields are shown`); }
+    } else if (detail?.start && detail.start !== date) {
+      partial = true;
+      warnings.push(`Public listing date ${date} conflicts with original detail date ${detail.start} without a verified source clock (${url}); retained the current listing date`);
+      start = date;
+    }
+    const event = normalizeEvent({ uid: `alumni:${url}`, title: detail?.title || row.title, url,
+      start, end: detail?.end, timeZone: detail?.timeZone || 'America/New_York',
+      description: detail?.description || '', location: detail?.location || locationText,
+      organizer: 'Carnegie Mellon University Alumni Association', ...(online ? { mode: 'online' } : {}) }, plan);
+    if (!event) { partial = true; warnings.push(`Current public Alumni event fields are invalid (${url})`); }
+    else if (inWindow(event, context)) events.set(event.uid, event);
+  }
+  return { events: [...events.values()], warnings, ...(partial ? { partial: true } : {}), singleEventUids: [...events.keys()] };
+}
+
+/**
+ * Discover all currently visible public Alumni cards and fetch their originals.
+ * @param {Object} plan Source with discovery='public-dom'; no snapshot required.
+ * @param {Object} context Explicit anonymous renderer and collection window.
+ * @return {Promise<Object>} Dynamically discovered public event snapshot.
+ */
+async function fetchAlumniPublic(plan, context) {
+  if (typeof context.renderPublic !== 'function') throw new Error('Alumni public DOM discovery requires CMUEVENTS_RENDER_PUBLIC=1; fixed reviewed-card snapshots are not a live fallback');
+  const listing = await context.renderPublic({ url: LISTING, kind: 'alumni', maxPages: plan.options?.maxPages || 30, maxCards: 500 });
+  if (!Array.isArray(listing.rows)) throw new Error('Public Alumni renderer returned no visible-card collection');
+  const details = new Map();
+  const warnings = [];
+  const eligible = listing.rows.filter(row => publicEventUrl(row.url)
+    && (!plan.options?.onlineOnly || /\b(?:virtual webinar,?\s*)?online\s*(?:\n|$)/i.test(row.text?.split('|').slice(1).join('|') || '')));
+  for (let index = 0; index < eligible.length; index += 2) {
+    await Promise.all(eligible.slice(index, index + 2).map(async row => {
+      try { details.set(row.url, await context.renderPublic({ url: row.url, kind: 'event-detail' })); }
+      catch (error) { warnings.push(`Public original event detail failed (${row.url}): ${error.message}`); }
+    }));
+  }
+  const result = parseAlumniPublicCards(listing, details, plan, context);
+  return { ...result, warnings: [...result.warnings, ...warnings] };
+}
 
 /**
  * Decode the anonymous page bootstrap without executing publisher JavaScript.
@@ -175,6 +289,7 @@ export function parseAlumniEvents(rows, clocks, plan = {}, context = {}) {
  * @return {Promise<Object>} Always-partial reviewed occurrences.
  */
 export async function fetchAlumni(plan, context) {
+  if (plan.options?.discovery === 'public-dom') return fetchAlumniPublic(plan, context);
   const snapshot = plan.options?.reviewedPublicEvents;
   if (snapshot?.listingURL !== LISTING || !Number.isFinite(Date.parse(snapshot?.checkedAt))
     || !Array.isArray(snapshot.records) || !snapshot.records.length || snapshot.records.length > 200

@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-mode="api">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#a6192e" />
     <meta name="description" content="Discover Carnegie Mellon events from academic departments, research centers, and university offices." />
     <title>CMU Events · Discover your campus</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="/styles.css" />
-    <script type="module" src="/app.js"></script>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#results">Skip to events</a>
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="/" aria-label="CMU Events home">
+        <a class="brand" href="./" aria-label="CMU Events home">
           <span class="brand-mark" aria-hidden="true">CMU<span class="brand-rule"></span></span>
           <span class="brand-name">events<span class="brand-note">A campus. Many possibilities.</span></span>
         </a>
@@ -115,6 +115,7 @@
             </div>
           </div>
           <div class="active-filters" id="active-filters" hidden></div>
+          <div class="notice snapshot-notice" id="snapshot-notice" role="status" hidden><span aria-hidden="true">↻</span><div><strong id="snapshot-title">Updated daily</strong><p id="snapshot-message"></p></div></div>
           <div class="notice error-notice" id="error-notice" role="alert" hidden><span aria-hidden="true">!</span><div><strong id="error-title">We couldn’t load events.</strong><p id="error-message">Please try again in a moment.</p></div><button class="text-button" id="retry-button" type="button">Try again</button></div>
           <div class="notice refresh-notice" id="refresh-notice" role="status" hidden><span class="small-spinner" aria-hidden="true"></span><div><strong>Checking for new events</strong><p>You can keep browsing while sources refresh.</p></div></div>
           <p class="sr-only" id="results-announcement" role="status" aria-live="polite"></p>
@@ -126,7 +127,7 @@
       </div>
     </main>
 
-    <footer class="site-footer"><div><span class="footer-brand">CMU<span>events</span></span><p>An independent guide to public Carnegie Mellon events.</p></div><div class="footer-status"><span class="status-dot" id="footer-status-dot"></span><span id="last-updated">Connecting to event sources…</span></div></footer>
+    <footer class="site-footer"><div><span class="footer-brand">CMU<span>events</span></span><p>An independent guide to public Carnegie Mellon events.</p><a class="footer-source" href="https://github.com/OranSimon/CMUEvents" target="_blank" rel="noopener noreferrer">Source code on GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div><div class="footer-status"><span class="status-dot" id="footer-status-dot"></span><span id="last-updated">Connecting to event sources…</span></div></footer>
 
     <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title"><div class="dialog-toolbar"><span class="eyebrow" id="dialog-eyebrow">A CLOSER LOOK</span><button class="icon-button dialog-close" id="dialog-close" type="button" aria-label="Close event details">×</button></div><div id="detail-content"></div></dialog>
     <dialog class="detail-dialog source-dialog" id="sources-dialog" aria-labelledby="sources-title"><div class="dialog-toolbar"><span class="eyebrow">BEHIND THE CALENDAR</span><button class="icon-button dialog-close" id="sources-close" type="button" aria-label="Close source directory">×</button></div><div id="sources-content"></div></dialog>

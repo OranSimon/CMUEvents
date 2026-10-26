@@ -1,7 +1,11 @@
+import { createDataClient, publicationFreshness } from "./data-client.js";
+
 const DISPLAY_TIMEZONE = "America/New_York";
 const PAGE_SIZE = 24;
 const SOURCE_PAGE_SIZE = 30;
 const INITIAL_TITLE = "CMU Events · Discover your campus";
+const STATIC_MODE = document.documentElement.dataset.mode === "static";
+const dataClient = createDataClient({ mode: STATIC_MODE ? "static" : "api", baseUrl: new URL("./", import.meta.url) });
 
 /**
  * Find a required interface element by its ID.
@@ -201,7 +205,7 @@ function icon(kind) {
   return `<svg viewBox="0 0 24 24" aria-hidden="true">${paths[kind] || paths.calendar}</svg>`;
 }
 
-const today = dateKey(new Date());
+let today = dateKey(new Date());
 const urlState = new URLSearchParams(window.location.search);
 const state = {
   query: (urlState.get("query") || urlState.get("q") || "").slice(0, 200),
@@ -235,6 +239,17 @@ const sourcePanelState = {
   subscriptions: { query: "", department: "", category: "", coverage: "all", limit: SOURCE_PAGE_SIZE },
 };
 const sourcePanelFocus = new Map();
+
+/**
+ * Advance relative date controls when an open page crosses a calendar day.
+ * @return {void} No return value.
+ */
+function syncToday() {
+  today = dateKey(new Date());
+  element("today-month").textContent = calendarLabel(today, { month: "short" }).toUpperCase();
+  element("today-number").textContent = calendarLabel(today, { day: "numeric" });
+  element("today-weekday").textContent = calendarLabel(today, { weekday: "long" }).toUpperCase();
+}
 
 /**
  * Compute inclusive calendar boundaries for the selected date preset.
@@ -456,6 +471,7 @@ function renderLoading() {
  * @return {Promise<void>} Completion of the current request.
  */
 async function loadEvents(scroll = false) {
+  syncToday();
   const requestId = ++requestNumber;
   requestController?.abort();
   requestController = new AbortController();
@@ -477,9 +493,7 @@ async function loadEvents(scroll = false) {
   renderLoading();
   if (scroll) element("results").scrollIntoView({ block: "start", behavior: "smooth" });
   try {
-    const response = await fetch(`/api/events?${params}`, { signal: requestController.signal, headers: { Accept: "application/json" } });
-    if (!response.ok) throw new Error(`The event service returned ${response.status}.`);
-    const data = await response.json();
+    const data = await dataClient.getEvents(params, { signal: requestController.signal });
     if (!Array.isArray(data.events)) throw new Error("The event service returned an unexpected response.");
     if (requestId !== requestNumber) return;
     if (!data.events.length && data.total > 0 && state.page > 1) {
@@ -497,7 +511,7 @@ async function loadEvents(scroll = false) {
     element("event-results").innerHTML = "";
     element("error-notice").hidden = false;
     element("error-title").textContent = "We couldn’t load events.";
-    element("error-message").textContent = `${error.message} Check that the local server is running, then try again.`;
+    element("error-message").textContent = `${error.message} ${STATIC_MODE ? "Reload the published data or try again shortly." : "Check that the local server is running, then try again."}`;
     element("event-count").textContent = "—";
     element("results-announcement").textContent = "Events could not be loaded. Use Try again to retry.";
   } finally {
@@ -543,6 +557,23 @@ function updatedLabel(value) {
 }
 
 /**
+ * Explain publication age using the successful collection time, not build time.
+ * @param {Object} data Published status and optional freshness threshold.
+ * @return {boolean} Whether the successful collection time is missing or stale.
+ */
+function updateSnapshotNotice(data) {
+  if (!STATIC_MODE) return false;
+  const { lastSuccessfulUpdate: lastSuccess, thresholdHours: threshold, known, stale } = publicationFreshness(data);
+  element("snapshot-notice").hidden = false;
+  element("snapshot-notice").classList.toggle("is-stale", stale);
+  element("snapshot-title").textContent = stale ? "Published data may be out of date" : "Updated daily";
+  element("snapshot-message").textContent = !known ? "The published data has no successful update time. Reload to check for a newer publication."
+    : stale ? `Last successful update: ${updatedLabel(lastSuccess)}. The data is more than ${threshold} hours old; check original listings for changes.`
+    : `Updates are published daily. Last successful update: ${updatedLabel(lastSuccess)}. Reload checks for newer published data.`;
+  return stale;
+}
+
+/**
  * Reflect crawler health and refresh state in persistent interface elements.
  * @param {Object|null} data Current source status.
  * @return {void}
@@ -551,17 +582,21 @@ function updateStatus(data) {
   if (!data) return;
   statusData = data;
   const sources = data.sources || {};
-  const refreshing = Boolean(data.refreshing);
+  const refreshing = !STATIC_MODE && Boolean(data.refreshing);
+  const stale = updateSnapshotNotice(data);
   const total = sources.total;
-  element("header-status").textContent = refreshing ? "Updating sources…" : total ? `${total.toLocaleString()} non-club sources` : "University events";
-  element("last-updated").textContent = data.lastUpdated ? `Last updated ${updatedLabel(data.lastUpdated)}` : "Waiting for the first source refresh";
-  element("refresh-button").classList.toggle("refreshing", refreshing);
+  element("header-status").textContent = STATIC_MODE ? `${stale ? "Update overdue" : "Updated daily"}${total ? ` · ${total.toLocaleString()} sources` : ""}` : refreshing ? "Updating sources…" : total ? `${total.toLocaleString()} non-club sources` : "University events";
+  const successfulUpdate = data.lastSuccessfulUpdate || data.lastUpdated;
+  element("last-updated").textContent = STATIC_MODE ? successfulUpdate ? `Last successful update ${updatedLabel(successfulUpdate)}${stale ? " · may be out of date" : ""}` : "No successful update time published" : data.lastUpdated ? `Last updated ${updatedLabel(data.lastUpdated)}` : "Waiting for the first source refresh";
+  element("refresh-button").classList.toggle("refreshing", refreshing || refreshRequested);
   element("refresh-button").disabled = refreshing || refreshRequested;
-  element("refresh-button").setAttribute("aria-label", refreshing ? "Sources are refreshing" : "Refresh event sources");
+  const refreshLabel = STATIC_MODE ? refreshRequested ? "Reloading published events" : "Reload published events" : refreshing ? "Sources are refreshing" : "Refresh event sources";
+  element("refresh-button").setAttribute("aria-label", refreshLabel);
+  element("refresh-button").title = refreshLabel;
   element("refresh-notice").hidden = !refreshing;
-  ["header-status-dot", "footer-status-dot"].forEach(id => element(id).classList.toggle("warning", Number(sources.error || 0) + Number(sources.blocked || 0) > 0));
+  ["header-status-dot", "footer-status-dot"].forEach(id => element(id).classList.toggle("warning", stale || Number(sources.error || 0) + Number(sources.blocked || 0) > 0));
   clearTimeout(statusTimer);
-  statusTimer = setTimeout(loadStatus, refreshing ? 4000 : 30000);
+  statusTimer = setTimeout(loadStatus, STATIC_MODE ? 15 * 60000 : refreshing ? 4000 : 30000);
 }
 
 /**
@@ -570,10 +605,9 @@ function updateStatus(data) {
  */
 async function loadStatus() {
   try {
-    const response = await fetch("/api/status", { headers: { Accept: "application/json" } });
-    if (!response.ok) throw new Error("Status unavailable");
-    const data = await response.json();
-    const changed = currentData && data.lastUpdated && currentData.lastUpdated !== data.lastUpdated;
+    const data = await dataClient.getStatus();
+    const changed = currentData && ((data.lastUpdated && currentData.lastUpdated !== data.lastUpdated)
+      || (STATIC_MODE && data.generatedAt && currentData.generatedAt !== data.generatedAt));
     const firstBatchAvailable = currentData?.total === 0 && !currentData?.lastUpdated && data.totalEvents > 0;
     updateStatus(data);
     if (changed && (!data.refreshing || firstBatchAvailable)) {
@@ -582,34 +616,43 @@ async function loadStatus() {
       if (!element("detail-dialog").open) loadEvents();
     }
   } catch {
-    element("last-updated").textContent = statusData?.lastUpdated ? `Last updated ${updatedLabel(statusData.lastUpdated)} · status unavailable` : "Source status temporarily unavailable";
+    const lastSuccess = statusData?.lastSuccessfulUpdate || statusData?.lastUpdated;
+    element("last-updated").textContent = STATIC_MODE ? lastSuccess ? `Last successful update ${updatedLabel(lastSuccess)} · update check unavailable` : "Published update status temporarily unavailable" : lastSuccess ? `Last updated ${updatedLabel(lastSuccess)} · status unavailable` : "Source status temporarily unavailable";
+    if (STATIC_MODE) {
+      element("snapshot-notice").hidden = false;
+      element("snapshot-notice").classList.add("is-stale");
+      element("snapshot-title").textContent = "Couldn’t check for published updates";
+      element("snapshot-message").textContent = `${lastSuccess ? `Last successful update: ${updatedLabel(lastSuccess)}. ` : ""}Reload to try again; check original listings for the latest details.`;
+    }
     element("footer-status-dot").classList.add("warning");
     clearTimeout(statusTimer);
-    statusTimer = setTimeout(loadStatus, 30000);
+    statusTimer = setTimeout(loadStatus, STATIC_MODE ? 60000 : 30000);
   }
 }
 
 /**
- * Request a server-managed refresh without blocking event browsing.
+ * Reload published JSON in static mode or request a local collection refresh.
  * @return {Promise<void>} Refresh request completion.
  */
 async function refreshSources() {
-  if (refreshRequested || statusData?.refreshing) return;
+  if (refreshRequested || (!STATIC_MODE && statusData?.refreshing)) return;
   refreshRequested = true;
   element("refresh-button").disabled = true;
   element("refresh-button").classList.add("refreshing");
   try {
-    const response = await fetch("/api/refresh", { method: "POST", headers: { Accept: "application/json" } });
-    if (!response.ok) throw new Error(`The refresh request returned ${response.status}.`);
-    showToast("Source refresh requested. You can keep exploring.");
+    await dataClient.refresh();
+    if (STATIC_MODE) sourceData = null;
+    showToast(STATIC_MODE ? "Published data reloaded. New collections are published daily." : "Source refresh requested. You can keep exploring.");
     await loadStatus();
-    if (!statusData?.refreshing) await loadEvents();
+    if (STATIC_MODE || !statusData?.refreshing) await loadEvents();
+    if (STATIC_MODE && sourcePanelsOpen()) await loadSourceDirectory();
   } catch (error) {
-    showToast(`Couldn’t start a refresh. ${error.message}`);
+    showToast(`${STATIC_MODE ? "Couldn’t reload published data." : "Couldn’t start a refresh."} ${error.message}`);
   } finally {
     refreshRequested = false;
-    element("refresh-button").disabled = Boolean(statusData?.refreshing);
-    element("refresh-button").classList.toggle("refreshing", Boolean(statusData?.refreshing));
+    element("refresh-button").disabled = !STATIC_MODE && Boolean(statusData?.refreshing);
+    element("refresh-button").classList.toggle("refreshing", !STATIC_MODE && Boolean(statusData?.refreshing));
+    if (statusData) updateStatus(statusData);
   }
 }
 
@@ -868,7 +911,7 @@ function sourceCard(source, panel) {
  * @return {string} Calendar explanation markup.
  */
 function howItWorksMarkup(open = false) {
-  return `<details class="source-how-it-works source-card-review" id="sources-how-it-works"${open ? " open" : ""}><summary>How the calendar works</summary><div class="source-explanation"><h3>From across the university</h3><p>CMU Events follows university calendars, academic departments, research centers, offices, and other non-club publishers. Independent student-club websites and their own feeds are excluded. Activities published by retained sources are kept, including events hosted by student clubs.</p><h3>Refreshed automatically</h3><p>The server checks public sources on its refresh schedule. The refresh button requests an update; existing events remain available while the next snapshot is collected.</p><h3>What the collection window covers</h3><p>Each refresh imports occurrences from the previous 30 days through the next 365 days. Zero imported events describes that source and window. It does not mean the original page or organization has no activities. An automated check and a recorded visual review are identified separately in each source’s coverage notes.</p><h3>Useful context stays attached</h3><p>Department and organization come from the source catalogue. Topics are discovery aids based on published event text. Matching events from several calendars can be combined; summaries remain excerpts, and every event keeps its original public link.</p><h3>Check the original listing</h3><p>Registration, tickets, eligibility, audience requirements, and the latest updates belong to the organizer. Public calendar coverage can work while a separate member or email channel remains restricted.</p><h3>Email announcements</h3><p>Subscriber-only emails are not received or imported by CMU Events. The email directory lists reviewed subscription channels and their access instructions.</p><button class="text-button" type="button" data-open-subscriptions>Browse email subscriptions <span aria-hidden="true">↗</span></button></div></details>`;
+  return `<details class="source-how-it-works source-card-review" id="sources-how-it-works"${open ? " open" : ""}><summary>How the calendar works</summary><div class="source-explanation"><h3>From across the university</h3><p>CMU Events follows university calendars, academic departments, research centers, offices, and other non-club publishers. Independent student-club websites and their own feeds are excluded. Activities published by retained sources are kept, including events hosted by student clubs.</p><h3>${STATIC_MODE ? "Published daily" : "Refreshed automatically"}</h3><p>${STATIC_MODE ? "New event collections are published daily. Reload checks for the latest published data; it does not start a new collection. The last successful update and any stale-data warning remain visible while you browse." : "The server checks public sources on its refresh schedule. The refresh button requests an update; existing events remain available while the next snapshot is collected."}</p><h3>What the collection window covers</h3><p>Each refresh imports occurrences from the previous 30 days through the next 365 days. Zero imported events describes that source and window. It does not mean the original page or organization has no activities. An automated check and a recorded visual review are identified separately in each source’s coverage notes.</p><h3>Useful context stays attached</h3><p>Department and organization come from the source catalogue. Topics are discovery aids based on published event text. Matching events from several calendars can be combined; summaries remain excerpts, and every event keeps its original public link.</p><h3>Check the original listing</h3><p>Registration, tickets, eligibility, audience requirements, and the latest updates belong to the organizer. Public calendar coverage can work while a separate member or email channel remains restricted.</p><h3>Email announcements</h3><p>Subscriber-only emails are not received or imported by CMU Events. The email directory lists reviewed subscription channels and their access instructions.</p><button class="text-button" type="button" data-open-subscriptions>Browse email subscriptions <span aria-hidden="true">↗</span></button></div></details>`;
 }
 
 /**
@@ -949,9 +992,7 @@ async function loadSourceDirectory(force = false) {
   if (!sourceData && !sourceRequest) {
     sourceLoadError = "";
     sourceRequest = (async () => {
-      const response = await fetch("/api/sources", { headers: { Accept: "application/json" } });
-      if (!response.ok) throw new Error(`The source request returned ${response.status}.`);
-      const payload = await response.json();
+      const payload = await dataClient.getSources();
       if (!Array.isArray(payload.sources)) throw new Error("The server did not return a source directory.");
       sourceData = payload.sources.filter(source => source && typeof source === "object");
     })();
@@ -1120,10 +1161,14 @@ function bindEvents() {
  * @return {void}
  */
 function initialize() {
-  element("today-month").textContent = calendarLabel(today, { month: "short" }).toUpperCase();
-  element("today-number").textContent = calendarLabel(today, { day: "numeric" });
-  element("today-weekday").textContent = calendarLabel(today, { weekday: "long" }).toUpperCase();
+  syncToday();
   element("display-timezone").textContent = DISPLAY_TIMEZONE;
+  if (STATIC_MODE) {
+    element("refresh-button").setAttribute("aria-label", "Reload published events");
+    element("refresh-button").title = "Reload published events";
+    element("snapshot-notice").hidden = false;
+    element("snapshot-message").textContent = "Loading the latest published data. Updates are published daily.";
+  }
   syncControls();
   bindEvents();
   loadEvents();

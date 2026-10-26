@@ -1,0 +1,127 @@
+{
+  "description": "Apply each remove/options at plan.options[path] in both overrides and generated plans. No event fields or asset allowlist hashes.",
+  "patches": [
+    {
+      "id": "5ade174c3483",
+      "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "path": [],
+      "remove": [
+        "reviewedImages",
+        "reviewedResources"
+      ],
+      "options": {
+        "automaticMedia": [
+          {
+            "selector": "body > .container a[href$=\".pdf\"]",
+            "attribute": "href",
+            "profile": "poster",
+            "fromEnd": true,
+            "maxAssets": 8,
+            "seriesTitle": "EWO Seminar"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1468ddb723b2",
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "path": [
+        "detailOptionsByUrl",
+        "https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html"
+      ],
+      "remove": [
+        "reviewedImages",
+        "reviewedResources"
+      ],
+      "options": {
+        "reviewedFragmentsOnly": true,
+        "automaticMedia": [
+          {
+            "selector": ".grid.boxes img",
+            "contextSelector": ".grid.boxes",
+            "containerSelector": ".grid.boxes > div",
+            "titleSelector": "p > strong",
+            "seriesTitle": "Off the Shelves: Faculty Writing Workshop",
+            "maxAssets": 18
+          }
+        ]
+      }
+    },
+    {
+      "id": "d861fd81e26d",
+      "url": "https://www.cmu.edu/history/cause/events/index.html",
+      "path": [],
+      "remove": [
+        "reviewedImages",
+        "reviewedResources"
+      ],
+      "options": {
+        "automaticMedia": [
+          {
+            "selector": "#content img",
+            "profile": "poster",
+            "maxAssets": 8,
+            "seriesTitle": "CAUSE Speaker Series"
+          }
+        ]
+      }
+    },
+    {
+      "id": "34fa7359276d",
+      "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "path": [],
+      "remove": [
+        "reviewedImages"
+      ],
+      "options": {
+        "automaticMedia": [
+          {
+            "selector": "h1:contains(\"Seminars\") + p img",
+            "profile": "poster",
+            "yearHeadingPattern": "^(?:Fall|Spring|Summer|Winter)\\s+20\\d{2}\\s+Seminars",
+            "maxAssets": 12,
+            "seriesTitle": "Socialist Studies Seminar"
+          }
+        ]
+      }
+    },
+    {
+      "id": "54c24d7416bb",
+      "url": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+      "path": [],
+      "remove": [
+        "reviewedImages",
+        "reviewedResources"
+      ],
+      "options": {
+        "automaticMedia": [
+          {
+            "selector": "#content img",
+            "profile": "poster",
+            "minAspectRatio": 2,
+            "maxAssets": 12
+          }
+        ]
+      }
+    },
+    {
+      "id": "528193392a78",
+      "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+      "path": [],
+      "remove": [
+        "reviewedImages"
+      ],
+      "options": {
+        "automaticMedia": [
+          {
+            "selector": "h1:contains(\"Schedule\") + p img",
+            "profile": "table",
+            "yearHeadingPattern": "^(?:Fall|Spring|Summer|Winter)\\s+20\\d{2}\\s+Schedule",
+            "maxAssets": 6,
+            "seriesTitle": "LTI Colloquium"
+          }
+        ]
+      }
+    }
+  ]
+}

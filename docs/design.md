@@ -2,9 +2,9 @@
 
 ## Scope and principles
 
-Provide one local discovery interface over retained non-club publishing sources. Independent student-club websites and calendars are excluded at the source-registry level. University calendars, departments, offices, student governance and other publishers remain. Their activities are preserved irrespective of organizer; there is no event-level club filter. Users can search, combine date/Department/Org/topic/campus/mode filters, inspect a grounded event summary, and follow the original event URL. The running server refreshes sources without credentials, using one Node process, one SQLite file, and static browser assets.
+Provide one discovery interface over retained non-club publishing sources, delivered as a daily-updated GitHub Pages site or an optional local API application. Independent student-club websites and calendars are excluded at the source-registry level. University calendars, departments, offices, student governance and other publishers remain. Their activities are preserved irrespective of organizer; there is no event-level club filter. Users can search, combine date/Department/Org/topic/campus/mode filters, inspect a grounded event summary, and follow the original event URL. The local application uses one SQLite file; Actions uses an isolated temporary database and durable portable source snapshots.
 
-Source availability, extraction support, successful empty responses and failed extraction are different states. Preserve the last good snapshot on failure. Never infer an event's start from a page publication date, never execute source scripts, and never invent descriptions, locations, attendance restrictions or missing years.
+Source availability, extraction support, successful empty responses and failed extraction are different states. Preserve the last good snapshot on failure. Never infer an event's start from a page publication date or invent descriptions, locations, attendance restrictions or missing years. HTTP parsers never evaluate publisher scripts. The optional production renderer executes a publisher's client application only inside an isolated anonymous browser and reads the visible public DOM.
 
 ## Folder responsibilities
 
@@ -20,6 +20,7 @@ Source availability, extraction support, successful empty responses and failed e
 | `src/server.mjs` | Local HTTP lifecycle, static assets and small REST API | Source-specific selectors |
 | `web/` | Buildless HTML/CSS/JS, accessible interactions, filter URL state and source-grounded presentation | Crawling external sites or private application secrets |
 | `scripts/` | One-shot refresh, complete plan generation, project checks and original catalog research/export tools | An independent always-running crawler service |
+| `.github/workflows/` | Daily isolated collection, validation, durable snapshot commits and Pages deployment | Browser credentials or event facts |
 | `tests/` | Offline format fixtures, recurrence edge cases, classification, deduplication, search/filter and API contracts | Live-site availability assertions or production seed data |
 | `research/` | Auditable discovery evidence, exclusions, candidates and runtime endpoint investigation | Claims that old checks imply current extraction success |
 | `docs/` | Reader-facing architecture and catalog maintenance documentation | Runtime state |
@@ -46,6 +47,9 @@ flowchart LR
   Classify --> Search[SQLite events + FTS5]
   Search --> API[Local HTTP API]
   API --> UI[web/ discovery interface]
+  Search --> Export[Validated static export]
+  Export --> Pages[GitHub Pages JSON + assets]
+  Pages --> UI
 ```
 
 ## Source planning and extraction
@@ -65,7 +69,9 @@ Each source plan contains `id`, `department`, `org`, original `url`, `adapter`, 
 | Music preparatory recital PDF | `adapters/pdfschedule.mjs` | Discover the advertised PDF; require printed season-year and allowed recital sections; exclude colored class/cancellation grids |
 | WRCT text calendars | `adapters/wrct.mjs` | Explicit date-group headers or event-local short dates with a printed year; preserve date-only precision when no clock is supplied |
 | Reviewed resources without dated schedules | `adapters/reviewed-resources.mjs` | Fingerprint scoped text, links and media references; show `undated`, and raise a review diagnostic on changes |
-| Reviewed Alumni public cards | `adapters/alumni.mjs` | Import only visually verified public identities and card fields; query their anonymous publisher clocks; always expose incomplete new-card discovery |
+| Dynamic Alumni public pages | `adapters/alumni.mjs` and `lib/public-render.mjs` | Anonymous visible cards, real pagination and original public Event Details; no fixed card allowlist or hidden framework data |
+| Live text schedules | `adapters/text-schedules.mjs` | Current row fields and publisher defaults, new linked conference pages, explicit dates and unresolved conflict diagnostics |
+| Current posters and PDF flyers | `adapters/automatic-media.mjs` and `lib/media-ocr.mjs` | Accessible text/PDF text first; bounded OCR with positions, confidence, printed years/weekdays and changed-byte re-extraction |
 | Subscription-only or unsupported archives | No automatic event invention | Retain original source and explicit limitation |
 
 Covered sources are fetched once through their canonical source, then their original department, organization and listing URL are attached as aliases. A source's plan status records the strategy at investigation time; `sources.state` records the latest runtime outcome. Unrecognized HTML with no reliable event structure produces a failed extraction diagnostic instead of erasing previous events. Recognized empty feeds remain ordinary successful zero-event snapshots.
@@ -78,11 +84,11 @@ HTML child links have two roles. A listing that already normalizes an explicit t
 
 Listing pagination follows only advertised same-origin HTML links, with a bounded page limit. A reviewed undated archive can exclude its own detail links only while the selected text, media references and structured metadata match its approved fingerprint. Publisher date conflicts remain partial even when their resource bytes have not changed. Distinct filters on a shared endpoint use `upstreamScope` so that an online-only source cannot become an alias of an in-person calendar.
 
-Alumni clock requests use one allowlisted read-only Aura action on the exact public host/path. They send no cookies or authentication tokens, do not persist POST responses, reject redirects, and query only IDs from the reviewed public-card scope. The broader unfiltered event-list action is not enabled. A missing clock, a date drift or an unresolved timezone ambiguity produces a conservative date-only fallback without inventing a clock or end time. New cards, titles and venues still require public review, so this adapter always remains partial.
+Alumni collection discovers current public cards through the visible Next control and follows only advertised CMU GiveCampus event links. It reads the visible Event Details and Details-tab text rather than guest lists, hidden framework state or broad event-list getters. Fresh browser contexts do not reuse user credentials; downloads, service workers, WebSockets and non-public network targets are blocked. Missing or ambiguous detail clocks retain current listing dates with explicit partial diagnostics.
 
-An independently reviewed original event page can resolve a card's timezone ambiguity and supply an explicitly printed end and venue. Its timed fields are reused only while the anonymous publisher clock still matches the reviewed start instant. Sydney's original page gives October 28, 2026, 08:00–09:30 AEDT, which is October 27 in the application's New York display zone. This is one occurrence. Explicit single-event provider identities permit partial-source reconciliation by UID across local-day changes; unrelated records and recurring UID series retain the usual partial-snapshot behavior.
+An original public event page supplies the current printed time, zone and venue on every run. Explicit provider identities permit partial-source reconciliation by UID across local-day changes; unrelated records and recurring UID series retain the usual partial-snapshot behavior. The older reviewed-card/clock-query path remains only for historical regression fixtures and is absent from active source options.
 
-The reviewed media guard also supports `attribute: "href"` for a single publisher-advertised PDF link. It uses the same byte SHA-256 check as image `src` references. This does not add OCR: reviewed document fields remain fixed until another visual review, and changed bytes require review before new values are accepted.
+Current media selectors describe structure rather than fixed event identities or approved asset hashes. Each discovered asset is downloaded again; accessible text, a PDF text layer or bounded Tesseract OCR supplies its fields. Raw extraction is cached by bytes and extractor version, while events are parsed afresh with current HTML context. Unknown years, disagreeing date/clock readings and scan limits remain partial. Active plans cannot contain fixed reviewed event payloads; `npm run check` enforces that recursively.
 
 The [October 21 review](../research/source-review-2026-10-21.md) checks every previously failing, unsupported and subscription-only entry. Evidence records distinguish upstream omissions and conflicting dates, authenticated archives, image-only schedules, remaining extractor gaps, repaired parsers and verified empty schedules. HTTP success and parser support are separate checks. A review snapshot does not guarantee that publishers will keep the same format.
 
@@ -132,7 +138,7 @@ The rolling ingestion window is now minus 30 days through now plus 365 days. Bro
 
 `lib/tls.mjs` can supply a reviewed missing intermediate for an exact host from `config/tls-intermediates.json`. The bundled public certificate must match the configured SHA-256 fingerprint, be a currently valid CA and verify directly against an existing Node trusted root. The dispatcher keeps certificate and hostname verification enabled; redirects choose the mapping for their destination host. The current entry repairs Eberly's incomplete server chain. Review its issuer, validity and fingerprint when that upstream chain changes.
 
-Concurrent API refresh requests share one in-process job. The standalone CLI is for a stopped server or a separate data directory; running two writers against the same snapshots can overwrite each other's partial publication. Background updates require the local process to stay running. The app does not configure a system daemon, scheduler or hosted service.
+Concurrent API refresh requests share one in-process job. The standalone CLI is for a stopped server or a separate data directory; running two writers against the same snapshots can overwrite each other's partial publication. Local background updates require that local process to stay running. The independent GitHub Actions workflow runs daily, restores compatible source state, fetches all automatic sources, and exports a validated Pages artifact. See [deployment](deployment.md) for scheduling, quality gates and failure recovery.
 
 ## HTTP interface
 
@@ -144,10 +150,12 @@ Concurrent API refresh requests share one in-process job. The standalone CLI is 
 | `GET /api/sources` | Full source strategies and per-source runtime warnings/errors |
 | `POST /api/refresh` | Start/reuse a refresh job; same-origin mutation only; returns HTTP 202 |
 
-Static files come only from `web/`. The server binds to loopback by default. Source HTML is converted to plain text and browser templates escape text; source scripts are never evaluated. Public fetches reject credentials, local/private addresses and unsafe redirect protocols. The UI does not expose arbitrary URL fetching. No authentication is implemented for remote hosting; online deployment requires a separate explicit design.
+Local static files come only from `web/`. The server binds to loopback by default. Source HTML becomes plain text and browser templates escape text. Public HTTP and rendered-page requests reject credentials and non-public network targets. The UI does not expose arbitrary URL fetching. The local API is not exposed by the hosted deployment.
+
+`lib/static-site.mjs` publishes only frontend assets, license and public JSON documents for manifest/events/sources/status. Source-parser options, raw responses and SQLite files are not included. `web/data-client.js` uses the same query/facet/overlap contract in the browser, including source provenance and complete detail fields. All resources resolve relative to the repository subpath. A visitor's reload performs GETs for a coherent published generation; it does not invoke the crawler. Snapshot age uses the actual successful data-update timestamp, independently of packaging time.
 
 ## Verification and maintenance
 
 Run `npm test` for meaningful offline edge cases and API contracts. Run `npm run check` for syntax, key documents and complete source-plan mapping. To verify a source change, fetch its exact advertised endpoint, inspect an original event against normalized title/date/zone/link, and check `/api/sources` for warnings. HTTP 200 alone is not proof that the event extractor works.
 
-Before presenting a UI change, inspect desktop and narrow layouts, keyboard focus/escape behavior, date/filter/search combinations, detail content, source links, loading/empty/failure states and refresh progress with actual public data. Keep screenshots and transient runtime artifacts out of Git. Live event counts and source health are snapshots, not permanent guarantees.
+Before presenting a UI change, inspect desktop and narrow layouts, keyboard focus/escape behavior, date/filter/search combinations, detail content, source links, loading/empty/failure states and refresh progress with actual public data. Keep transient runtime artifacts out of Git; deliberately selected public evidence may be retained under research. Live event counts and source health are snapshots, not permanent guarantees.

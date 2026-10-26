@@ -46,7 +46,10 @@ export function createRefresher(store, plans, config) {
       total: 0, completed: 0, ok: 0, empty: 0, undated: 0, error: 0, totalEvents: store.status().totalEvents };
     progress = { startedAt: now.toISOString(), completedAt: null, total: due.length, completed: 0, ok: 0, empty: 0, undated: 0, error: 0, totalEvents: store.status().totalEvents };
     store.setMeta('lastRefresh', progress);
+    const renderer = config.publicRendering
+      ? (await import('./lib/public-render.mjs')).createPublicRenderer({ enabled: true }) : null;
     const context = { fetchText: fetcher.fetchText, fetchBytes: fetcher.fetchBytes, fetchPublicQuery: fetcher.fetchPublicQuery, now,
+      ...(renderer ? { renderPublic: renderer.renderPublic } : {}),
       windowStart: new Date(now.getTime() - config.lookBackDays * 86400000).toISOString(),
       windowEnd: new Date(now.getTime() + config.lookAheadDays * 86400000).toISOString() };
     let cursor = 0;
@@ -93,8 +96,10 @@ export function createRefresher(store, plans, config) {
           || (successfulSincePublish >= 60 && Date.now() - lastPublish > 10000)) publish();
       }
     }
-    await Promise.all(Array.from({ length: config.concurrency }, () => worker()));
-    publish(true);
+    try {
+      await Promise.all(Array.from({ length: config.concurrency }, () => worker()));
+      publish(true);
+    } finally { await renderer?.close(); }
     console.log(`[refresh] ${progress.completed}/${progress.total} sources checked; ${progress.ok} populated, ${progress.empty} empty, ${progress.undated} undated resources, ${progress.error} need review; ${progress.totalEvents} distinct occurrences.`);
     return { ...progress, transfers: { ...fetcher.stats } };
   }

@@ -14,6 +14,23 @@ function sourceFiles(directory) {
     ? sourceFiles(path.join(directory, entry.name)) : /\.(?:mjs|js)$/.test(entry.name) ? [path.join(directory, entry.name)] : []);
 }
 
+/**
+ * Keep fixed reviewed occurrence payloads out of unattended source contracts.
+ * @param {unknown} value Runtime options or nested child options.
+ * @param {string} location Source ID and option path for a useful failure.
+ * @return {void}
+ */
+function assertLiveOptions(value, location) {
+  if (!value || typeof value !== 'object') return;
+  for (const [key, child] of Object.entries(value)) {
+    if (['reviewedPublicEvents', 'reviewedImages', 'reviewedFragments'].includes(key)
+      && (Array.isArray(child) ? child.length > 0 : Boolean(child))) {
+      throw new Error(`Fixed reviewed event payload cannot power unattended updates: ${location}.${key}`);
+    }
+    assertLiveOptions(child, `${location}.${key}`);
+  }
+}
+
 const catalog = JSON.parse(readFileSync(path.join(ROOT, 'data/event_sources.json'), 'utf8'));
 const rows = Array.isArray(catalog) ? catalog : catalog.sources;
 const plans = loadPlans();
@@ -25,6 +42,7 @@ const sourceScope = createSourceScope(scopeConfig);
 const excludedIDs = new Set(scopeConfig.blockedSourceIds || []);
 if (byId.size !== plans.length) throw new Error('Source IDs must be unique.');
 for (const plan of plans) {
+  assertLiveOptions(plan.options, plan.id);
   if (excludedIDs.has(plan.id) || !sourceAllowed(plan, sourceScope)) {
     throw new Error(`Excluded club source in the active institutional catalog: ${plan.url}`);
   }

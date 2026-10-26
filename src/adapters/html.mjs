@@ -3,6 +3,7 @@ import { absoluteUrl, normalizeEvent, inWindow, plainText, addDays, parseDate } 
 import { fetchIcs } from './ics.mjs';
 import { fetchPdfSchedule } from './pdfschedule.mjs';
 import { fetchReviewedImages, parseReviewedFragments } from './reviewed-images.mjs';
+import { fetchAutomaticMedia } from './automatic-media.mjs';
 import { parseGeneratedCalendar } from './generated-calendar.mjs';
 import { parseReviewedResources } from './reviewed-resources.mjs';
 
@@ -419,6 +420,14 @@ async function parseDocument(html, plan, context) {
     : plan.adapter === 'newsletter' || plan.options?.headingSections
     ? parseNewsletter(html, plan, context) : parseHtml(html, plan, context);
   result.datedRecognized = Boolean(result.recognized || result.events.length);
+  if (plan.options?.automaticMedia?.length) {
+    const media = await fetchAutomaticMedia(html, plan, context);
+    result.events.push(...media.events);
+    result.warnings.push(...media.warnings);
+    if (media.recognized) { result.unsupported = false; result.datedRecognized = true; }
+    if (media.partial) result.partial = true;
+    if (!result.unsupported) result.warnings = result.warnings.filter(warning => !warning.startsWith('No events'));
+  }
   if (plan.options?.generatedCalendar) {
     const calendar = parseGeneratedCalendar(html, plan, context);
     result.events.push(...calendar.events);

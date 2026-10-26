@@ -1,0 +1,695 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-26T02:53:03.811Z",
+  "scope": "Audit of all318 retained source plans; remove active nonimage concrete event snapshots in favor of current public structure. No local production SQLite mutation, login, subscription or private API access.",
+  "catalogCount": 318,
+  "inventory": [
+    {
+      "sourceId": "8f00fc7f2c7c",
+      "displayName": "CMU Alumni and Community Events",
+      "url": "https://www.cmu.edu/engage/events",
+      "entries": [
+        {
+          "path": "options.reviewedPublicEvents",
+          "kind": "reviewed_public_card_snapshot",
+          "records": 23,
+          "fields": [
+            "id",
+            "title",
+            "date",
+            "url",
+            "location"
+          ],
+          "owner": "nonimage"
+        }
+      ]
+    },
+    {
+      "sourceId": "79e7cdffd54d",
+      "displayName": "CMU Alumni Online Events",
+      "url": "https://www.cmu.edu/engage/events/online-events",
+      "entries": [
+        {
+          "path": "options.reviewedPublicEvents",
+          "kind": "reviewed_public_card_snapshot",
+          "records": 23,
+          "fields": [
+            "id",
+            "title",
+            "date",
+            "url",
+            "location"
+          ],
+          "owner": "nonimage"
+        }
+      ]
+    },
+    {
+      "sourceId": "5ade174c3483",
+      "displayName": "Enterprise-Wide Optimization Seminars",
+      "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "entries": [
+        {
+          "path": "options.reviewedImages.0.events",
+          "kind": "reviewed_asset_event_snapshot",
+          "records": 1,
+          "owner": "image_status_check"
+        }
+      ]
+    },
+    {
+      "sourceId": "31aa89be167d",
+      "displayName": "Data Storage Systems Center Events",
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "entries": [
+        {
+          "path": "options.additionalEndpoints.2.options.reviewedFragments.0.events",
+          "kind": "reviewed_text_event_snapshot",
+          "records": 1,
+          "owner": "nonimage"
+        },
+        {
+          "path": "options.additionalEndpoints.3.options.reviewedFragments.0.events",
+          "kind": "reviewed_text_event_snapshot",
+          "records": 1,
+          "owner": "nonimage"
+        }
+      ]
+    },
+    {
+      "sourceId": "d861fd81e26d",
+      "displayName": "Center for African American Urban Studies and the Economy Events",
+      "url": "https://www.cmu.edu/history/cause/events/index.html",
+      "entries": [
+        {
+          "path": "options.reviewedImages.0.events",
+          "kind": "reviewed_asset_event_snapshot",
+          "records": 1,
+          "owner": "image_status_check"
+        }
+      ]
+    },
+    {
+      "sourceId": "34fa7359276d",
+      "displayName": "Socialist Studies Seminar",
+      "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "entries": [
+        {
+          "path": "options.reviewedImages.0.events",
+          "kind": "reviewed_asset_event_snapshot",
+          "records": 1,
+          "owner": "image_status_check"
+        },
+        {
+          "path": "options.reviewedImages.1.events",
+          "kind": "reviewed_asset_event_snapshot",
+          "records": 1,
+          "owner": "image_status_check"
+        },
+        {
+          "path": "options.reviewedImages.2.events",
+          "kind": "reviewed_asset_event_snapshot",
+          "records": 1,
+          "owner": "image_status_check"
+        }
+      ]
+    },
+    {
+      "sourceId": "54c24d7416bb",
+      "displayName": "PwC Center for Business and Risk — special events and programs",
+      "url": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+      "entries": [
+        {
+          "path": "options.reviewedImages.0.events",
+          "kind": "reviewed_asset_event_snapshot",
+          "records": 1,
+          "owner": "image_status_check"
+        },
+        {
+          "path": "options.reviewedImages.1.events",
+          "kind": "reviewed_asset_event_snapshot",
+          "records": 1,
+          "owner": "image_status_check"
+        }
+      ]
+    },
+    {
+      "sourceId": "1185bc345a9a",
+      "displayName": "SCS Seminars directory",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "entries": [
+        {
+          "path": "options.additionalEndpoints.1.options.reviewedFragments.0.events",
+          "kind": "reviewed_text_event_snapshot",
+          "records": 3,
+          "owner": "nonimage"
+        },
+        {
+          "path": "options.additionalEndpoints.2.options.reviewedFragments.0.events",
+          "kind": "reviewed_text_event_snapshot",
+          "records": 4,
+          "owner": "nonimage"
+        }
+      ]
+    },
+    {
+      "sourceId": "528193392a78",
+      "displayName": "LTI Colloquium",
+      "url": "https://www.lti.cs.cmu.edu/misc-pages/lti-colloquium.html",
+      "entries": [
+        {
+          "path": "options.reviewedImages.0.events",
+          "kind": "reviewed_asset_event_snapshot",
+          "records": 13,
+          "owner": "image_status_check"
+        }
+      ]
+    },
+    {
+      "sourceId": "40f7fd9f957c",
+      "displayName": "Wellness and Meaning-Making Programs",
+      "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71389.ics",
+      "entries": [
+        {
+          "path": "options.additionalEndpoints.0.options.reviewedFragments.0.events",
+          "kind": "reviewed_text_event_snapshot",
+          "records": 1,
+          "owner": "nonimage"
+        }
+      ]
+    }
+  ],
+  "resourceGuards": [
+    {
+      "sourceId": "5ade174c3483",
+      "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "path": "options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "body > .container",
+          "kind": "historical seminar slide archive",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "31aa89be167d",
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "path": "options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "#content > .content",
+          "kind": "technical-review directory",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "31aa89be167d",
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "path": "options.additionalEndpoints.0.options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "#content > .content",
+          "kind": "conflicting event dates",
+          "requiresReview": true,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "31aa89be167d",
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "path": "options.additionalEndpoints.1.options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "#content > .content",
+          "kind": "conflicting event dates",
+          "requiresReview": true,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "b453fc62eac4",
+      "url": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+      "path": "options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "#maincontent",
+          "kind": "undated recording archive",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "e3acb99b6056",
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html",
+      "path": "options.detailOptionsByUrl.https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": ".content",
+          "kind": "undated seminar series",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "e3acb99b6056",
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/index.html",
+      "path": "options.detailOptionsByUrl.https://www.cmu.edu/ideas-social-cybersecurity/events/ideas-hewlett.html.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": ".content,.grid.js-list",
+          "kind": "undated seminar resources",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "1468ddb723b2",
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "path": "options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": ".grid.news .filterable:has(a[href^=\"previous-events/\"])",
+          "kind": "legacy event archive",
+          "requiresReview": false,
+          "excludeDetailLinks": true
+        }
+      ]
+    },
+    {
+      "sourceId": "1468ddb723b2",
+      "url": "https://www.cmu.edu/dietrich/humanities-center/center-events/index.html",
+      "path": "options.detailOptionsByUrl.https://www.cmu.edu/dietrich/humanities-center/center-events/faculty-writing-workshops.html.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": ".grid.boxes",
+          "kind": "historical workshop schedule",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "d89f616f8462",
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+      "path": "options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": ".content",
+          "kind": "undated seminar series",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "d861fd81e26d",
+      "url": "https://www.cmu.edu/history/cause/events/index.html",
+      "path": "options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "#content",
+          "kind": "historical announcement archive",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "97bebc670839",
+      "url": "https://www.sv.cmu.edu/events/index.html",
+      "path": "options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": ".eventListing",
+          "kind": "navigation-only monthly calendar",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "97bebc670839",
+      "url": "https://www.sv.cmu.edu/events/index.html",
+      "path": "options.additionalEndpoints.0.options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": ".eventListing",
+          "kind": "navigation-only monthly calendar",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "54c24d7416bb",
+      "url": "https://www.cmu.edu/risk-reg-center/news-and-events/index.html",
+      "path": "options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "#content > .content",
+          "kind": "dated historical archive",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "1aa9b956ba78",
+      "url": "https://www.cmu.edu/ctp/workshops/index.html",
+      "path": "options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "#content > .grid",
+          "kind": "on-demand workshop catalog",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "1aa9b956ba78",
+      "url": "https://www.cmu.edu/ctp/workshops/index.html",
+      "path": "options.additionalEndpoints.0.options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "#content > .content:not(.wide)",
+          "kind": "on-demand workshop",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "1aa9b956ba78",
+      "url": "https://www.cmu.edu/ctp/workshops/index.html",
+      "path": "options.additionalEndpoints.1.options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "#content > .content:not(.wide)",
+          "kind": "on-demand workshop",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "1aa9b956ba78",
+      "url": "https://www.cmu.edu/ctp/workshops/index.html",
+      "path": "options.additionalEndpoints.2.options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "#content > .content:not(.wide)",
+          "kind": "on-demand workshop",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "4c4f223b8c8b",
+      "url": "https://www.cmu.edu/real/news-and-events/index.html",
+      "path": "options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "#content > .content",
+          "kind": "series and example timetable",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "4c4f223b8c8b",
+      "url": "https://www.cmu.edu/real/news-and-events/index.html",
+      "path": "options.additionalEndpoints.2.options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "body",
+          "kind": "undated next-talk page and historical archive",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "1185bc345a9a",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "path": "options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "#rsRegion-mainContent",
+          "kind": "partially connected academic seminar directory",
+          "requiresReview": true,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "1185bc345a9a",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "path": "options.additionalEndpoints.1.options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "body",
+          "kind": "visually reviewed academic seminar schedule",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "1185bc345a9a",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "path": "options.additionalEndpoints.2.options.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": "body",
+          "kind": "visually reviewed academic seminar schedule",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    },
+    {
+      "sourceId": "a8c3a641e8c5",
+      "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences",
+      "path": "options.detailOptionsByUrl.https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/sustainability-forum.reviewedResources",
+      "kind": "content_change_guard_not_event_snapshot",
+      "rules": [
+        {
+          "selector": ".ContentSidebar__content",
+          "kind": "undated recording archive",
+          "requiresReview": false,
+          "excludeDetailLinks": false
+        }
+      ]
+    }
+  ],
+  "structuralRules": "Selectors, table-column maps, provider/group IDs, endpoint scopes, same-origin detail bounds and patterns that read a currently advertised weekday default are structural configuration. They do not fix a concrete event ID/title/date. Content SHA guards describe undated/conflicting resources and remain explicit change-review limitations; they never establish recurring meetings.",
+  "replacements": [
+    {
+      "sourceId": "8f00fc7f2c7c",
+      "url": "https://www.cmu.edu/engage/events",
+      "discovery": "public-dom",
+      "replaceOptions": true
+    },
+    {
+      "sourceId": "79e7cdffd54d",
+      "url": "https://www.cmu.edu/engage/events/online-events",
+      "discovery": "public-dom",
+      "replaceOptions": true
+    },
+    {
+      "sourceId": "1185bc345a9a",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "discovery": "explicit live additional endpoints",
+      "replaceOptions": true
+    },
+    {
+      "sourceId": "31aa89be167d",
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "discovery": "text-schedule",
+      "replaceOptions": true
+    },
+    {
+      "sourceId": "40f7fd9f957c",
+      "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71389.ics",
+      "discovery": "explicit live additional endpoints",
+      "replaceOptions": true
+    }
+  ],
+  "patch": "research/long-term-dynamic-sources-2026-10-25/config-patch-nonimage.json",
+  "alumni": {
+    "method": "Opt-in production anonymous Playwright visible DOM collection; no hidden framework state or broad getEvents/clock getter calls.",
+    "enable": "CMUEVENTS_RENDER_PUBLIC=1",
+    "lifecycle": "createPublicRenderer({enabled:true}) => renderPublic(request),close(); fresh isolated browser context per request, lazy browser reusable until close.",
+    "visibleSelectors": {
+      "cards": ".cCommunity_Event_Tile",
+      "titleLink": "a.evt_name",
+      "date": "lightning-formatted-date-time",
+      "pagination": "visible Next button, must be disabled to confirm final nonempty page",
+      "originalDetails": "Event Details heading and its separate visible card; #event-tabpanel for public Details description"
+    },
+    "cuaEvidence": {
+      "checkedAt": "2026-10-26T02:43:56.443Z",
+      "pages": 3,
+      "visibleCards": 23,
+      "onlineCards": 4,
+      "fixture": "tests/fixtures/alumni-public-dom.json",
+      "detailTitle": "Sydney - Alumni Coffee and Catch-Up"
+    },
+    "publicScope": "Only URLs actually displayed on the anonymous public list authorize their original detail render. No fixed Salesforce IDs/date/title allowlist remains required by discovery=public-dom.",
+    "network": "Downloads and service workers disabled; HTTPS/default port/credentials/public DNS checked for all routed network requests and redirects; private/loopback/link-local/mixed DNS rejected. Main-frame URLs restricted to Alumni listing and CMU GiveCampus events. WebSockets disabled; non-proxied WebRTC UDP disabled.",
+    "clocks": "Fresh original explicit source time/zone/end are authoritative; unsupported abbreviations retain date precision and partial warnings. Different original/listing days are checked against the same Eastern display instant; genuine conflicts remain partial."
+  },
+  "liveReplay": [
+    {
+      "name": "crypto",
+      "url": "https://sites.google.com/view/crypto-seminar/home",
+      "eventCount": 3,
+      "recognized": 3,
+      "partial": false,
+      "warnings": [],
+      "events": [
+        {
+          "title": "CMU LayerZero CRYPTO SEMINAR — Qi Pang",
+          "start": "2026-10-28T17:30:00.000Z",
+          "end": "2026-10-28T17:30:00.000Z",
+          "timeZone": "America/New_York",
+          "location": "GHC 7501 · Zoom",
+          "timePrecision": "time"
+        },
+        {
+          "title": "A Low-Communication Garbled RAM from Homomorphic Secret Sharing",
+          "start": "2026-11-05T21:30:00.000Z",
+          "end": "2026-11-05T21:30:00.000Z",
+          "timeZone": "America/New_York",
+          "location": "GHC 7501 · Zoom",
+          "timePrecision": "time"
+        },
+        {
+          "title": "CMU LayerZero CRYPTO SEMINAR — Alper Çakan",
+          "start": "2026-11-19T21:30:00.000Z",
+          "end": "2026-11-19T21:30:00.000Z",
+          "timeZone": "America/New_York",
+          "location": "GHC 7501 · Zoom",
+          "timePrecision": "time"
+        }
+      ]
+    },
+    {
+      "name": "econcs",
+      "url": "https://cmueconcs.github.io/",
+      "eventCount": 1,
+      "recognized": 4,
+      "partial": false,
+      "warnings": [],
+      "events": [
+        {
+          "title": "CMU Econ-CS Seminar Series — Brian Zhang",
+          "start": "2026-09-29T18:00:00.000Z",
+          "end": "2026-09-29T18:00:00.000Z",
+          "timeZone": "America/New_York",
+          "location": "NSH 3305 Zoom",
+          "timePrecision": "time"
+        }
+      ]
+    },
+    {
+      "name": "wellness",
+      "url": "https://www.cmu.edu/wellbeing/resources/wellness-initiatives/religious-spiritual/",
+      "eventCount": 1,
+      "recognized": 1,
+      "partial": false,
+      "warnings": [],
+      "events": [
+        {
+          "title": "Friendsgiving",
+          "start": "2026-11-23",
+          "end": "2026-11-24",
+          "timeZone": "America/New_York",
+          "location": "",
+          "timePrecision": "date"
+        }
+      ]
+    },
+    {
+      "name": "dssc",
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "eventCount": 0,
+      "recognized": 13,
+      "partial": true,
+      "warnings": [
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Japan%20Technical%20Review.html); title year(s): 2026; printed dates: 2025-06-30",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Spring%20Technical%20Review.html); title year(s): 2026; printed dates: 2025-06-09, 2026-06-09",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/fall-review-2021.html); title year(s): 2021; printed dates: 2021-11-17, 2021-12-02",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/west-coast-2022.html); title year(s): 2022; printed dates: 2022-05-18, 2022-05-19",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/spring-review-2020.html); title year(s): 2020; printed dates: 2020-06-30, 2020-05-19, 2020-06-02, 2020-06-16",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/west-coast-2019.html); title year(s): 2019; printed dates: none",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/west-coast-2018.html); title year(s): 2018; printed dates: none",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/fall-review-2017.html); title year(s): 2017; printed dates: 2017-11-06, 2017-10-15",
+        "Public conference dates conflict or lack one unambiguous full date (https://www.dssc.ece.cmu.edu/news/events1/fall-review-2014.html); title year(s): 2014; printed dates: 2014-10-01, 2014-09-14"
+      ],
+      "events": []
+    }
+  ],
+  "tests": {
+    "command": "node --test tests/dynamic-public-sources.test.mjs tests/alumni.test.mjs tests/visual-recheck.test.mjs",
+    "passed": 27,
+    "failed": 0,
+    "includes": [
+      "all23 current public cards plus an entirely new fourth page",
+      "pagination/card caps, repeated pages and missing Next control",
+      "Sydney live detail time/end/zone; missing/ambiguous clock fallback",
+      "current online location scope; no incidental-title inference",
+      "public scope URL and all network DNS/redirect bounds",
+      "fresh contexts, downloads/worker blocking and lifecycle",
+      "new table/section rows, published defaults and explicit exceptions",
+      "no stale semester room carryover",
+      "new heading announcement year/date",
+      "new advertised conference links and conflicting years",
+      "Alumni all/online upstreamScope stays distinct"
+    ]
+  },
+  "limitations": [
+    "Production headless collection was not run locally as a research substitute. CUA verified the current live DOM; Actions performs the actual production renderer run with Chromium.",
+    "An inaccessible, changed or CAPTCHA-protected original detail preserves current public card date and marks partial; the collector does not log in or bypass restrictions.",
+    "Supported printed zone abbreviations are explicitly mapped to offsets. Other zone labels stay date-only/partial rather than guessing.",
+    "SCS parent directory still truthfully has only two child schedules connected among26 series.",
+    "DSSC currently has genuine2026 date conflicts; automatic consistency checks retain partial until publisher corrections, without hardcoding either year.",
+    "Asset-only snapshot removal belongs to image_status_check.",
+    "Legacy reviewed-card parsing exports remain for historical regression fixtures, but the supplied live options select public-dom and contain no reviewedPublicEvents."
+  ]
+}

@@ -136,6 +136,11 @@ select { width: 100%; color: var(--ink); border: 1px solid #deded7; border-radiu
 .notice p { margin: 2px 0 0; color: var(--muted); font-size: 10px; }
 .notice .text-button { margin-left: auto; white-space: nowrap; }
 .refresh-notice { background: #f0f4f0; border-color: #dce5da; }
+.snapshot-notice { align-items: flex-start; background: #f1f5f0; border-color: #dce5da; }
+.snapshot-notice > span:first-child { color: #55734f; }
+.snapshot-notice p { line-height: 1.7; }
+.snapshot-notice.is-stale { background: #fff7e9; border-color: #e8d4a8; }
+.snapshot-notice.is-stale > span:first-child { color: #936823; }
 .small-spinner { width: 17px; height: 17px; border: 2px solid #c1d3c1; border-top-color: var(--green); border-radius: 50%; animation: spin 1s linear infinite; flex: none; }
 .date-group + .date-group { margin-top: 27px; }
 .date-group-heading { display: flex; align-items: center; gap: 12px; margin: 0 0 12px; font-size: 10px; font-weight: 600; color: #6d736e; }
@@ -202,10 +207,11 @@ select { width: 100%; color: var(--ink); border: 1px solid #deded7; border-radiu
 .skeleton-line:nth-child(3) { width: 87%; }
 .skeleton-line:nth-child(4) { width: 47%; height: 8px; }
 .site-footer { max-width: 1440px; padding: 25px 56px 29px; margin: auto; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 25px; }
-.site-footer > div:first-child { display: flex; gap: 18px; align-items: center; }
+.site-footer > div:first-child { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
 .footer-brand { font-size: 12px; font-weight: 700; color: var(--red); letter-spacing: -.3px; }
 .footer-brand span { font-weight: 400; color: var(--ink); margin-left: 4px; }
 .site-footer p { font-size: 9px; color: #969b93; margin: 0; }
+.footer-source { display: inline-flex; align-items: center; gap: 5px; min-height: 44px; font-size: 10px; white-space: nowrap; }
 .footer-status { display: flex; align-items: center; gap: 7px; font-size: 9px; color: #969b93; }
 .detail-dialog { position: fixed; margin: 0 0 0 auto; top: 0; bottom: 0; right: 0; width: min(620px, 100%); height: 100dvh; max-height: none; padding: 0; max-width: none; border: 0; color: var(--ink); background: var(--paper); box-shadow: -10px 0 40px #171d241c; }
 .detail-dialog::backdrop { background: #222b3560; backdrop-filter: blur(2px); }

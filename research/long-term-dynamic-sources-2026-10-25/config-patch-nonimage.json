@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-26T02:47:27.412Z",
+  "instructions": "For each source URL, replace the complete options object in source-overrides with options below; remove stale reviewedPublicEvents/reviewedFragments/reviewedFragmentsOnly from these replaced scopes. Do not deep-merge old snapshot properties. Keep existing source identity/status unless explicitly supplied.",
+  "sources": [
+    {
+      "sourceId": "8f00fc7f2c7c",
+      "url": "https://www.cmu.edu/engage/events",
+      "replaceOptions": true,
+      "options": {
+        "timezone": "America/New_York",
+        "format": "alumni",
+        "discovery": "public-dom",
+        "maxPages": 30,
+        "preferFeed": false,
+        "upstreamScope": "public-dom-all"
+      },
+      "strategy": "Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters."
+    },
+    {
+      "sourceId": "79e7cdffd54d",
+      "url": "https://www.cmu.edu/engage/events/online-events",
+      "replaceOptions": true,
+      "options": {
+        "timezone": "America/New_York",
+        "format": "alumni",
+        "discovery": "public-dom",
+        "maxPages": 30,
+        "onlineOnly": true,
+        "preferFeed": false,
+        "upstreamScope": "public-dom-online"
+      },
+      "strategy": "Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters."
+    },
+    {
+      "sourceId": "1185bc345a9a",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "replaceOptions": true,
+      "options": {
+        "timezone": "America/New_York",
+        "preferFeed": false,
+        "detailLinks": false,
+        "reviewedResources": [
+          {
+            "selector": "#rsRegion-mainContent",
+            "expectedCount": 1,
+            "sha256": "c74c1dbf73667e0fb4431740481e81dee58bf4f48415e3698a731738d58340af",
+            "kind": "partially connected academic seminar directory",
+            "reason": "The directory lists 26 seminar series. Two previously unconnected public schedules (Cryptography and Econ-CS) now contribute verified occurrences. This is partial current-event coverage; not all linked series have been mapped into this source.",
+            "requiresReview": true
+          }
+        ],
+        "additionalEndpoints": [
+          {
+            "url": "https://www.cs.cmu.edu/rs-datasources/data-source/scs-seminar-events-data",
+            "adapter": "html",
+            "options": {
+              "format": "reviewed-raw-resource",
+              "reviewedRawResource": {
+                "jsonFields": [
+                  "success",
+                  "live",
+                  "cols",
+                  "data"
+                ],
+                "sha256": "8872a3bb4cdab2caf83f7b72fdb188ff13586fe6d812f61b1d622669d26f68d0",
+                "kind": "seminar-series directory data",
+                "reason": "This public directory lists 26 series with day, clock, contact and website columns, not dated occurrences. Transport dt/msg fields are excluded; actual column schema and series rows remain monitored."
+              }
+            }
+          },
+          {
+            "url": "https://sites.google.com/view/crypto-seminar/home",
+            "adapter": "html",
+            "options": {
+              "format": "text-schedule",
+              "timezone": "America/New_York",
+              "rowSelector": "section",
+              "startHeading": "Coming Talks",
+              "endHeading": "Previous Talks",
+              "seriesSelector": "h1",
+              "contextSelector": "section:has(p):first",
+              "requirePublishedClock": true,
+              "defaultTimePattern": "meets every (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday) at (.+?) ET",
+              "defaultLocationPattern": "meet in person at (.+?) for the (F\\d{2}) semester",
+              "fields": {
+                "title": {
+                  "selector": "p",
+                  "index": 0
+                },
+                "speaker": {
+                  "selector": "p",
+                  "index": 1
+                },
+                "date": {
+                  "selector": "p",
+                  "index": 2
+                }
+              }
+            }
+          },
+          {
+            "url": "https://cmueconcs.github.io/",
+            "adapter": "html",
+            "options": {
+              "format": "text-schedule",
+              "timezone": "America/New_York",
+              "rowSelector": "table tbody tr",
+              "seriesSelector": "h1",
+              "fields": {
+                "date": {
+                  "selector": "td",
+                  "index": 0
+                },
+                "location": {
+                  "selector": "td",
+                  "index": 1
+                },
+                "speaker": {
+                  "selector": "td",
+                  "index": 2
+                },
+                "affiliation": {
+                  "selector": "td",
+                  "index": 3
+                },
+                "title": {
+                  "selector": "td",
+                  "index": 4
+                }
+              }
+            }
+          }
+        ]
+      },
+      "strategy": "Keep the 26-series discovery limitation explicit while parsing current Crypto and Econ-CS schedules from live structural rows and publisher-advertised weekday defaults; no fixed event annotations."
+    },
+    {
+      "sourceId": "31aa89be167d",
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "replaceOptions": true,
+      "options": {
+        "format": "text-schedule",
+        "timezone": "America/New_York",
+        "layout": "linked-consistent-details",
+        "linkSelector": "#content a[href*=\"events1/\"]",
+        "maxDetails": 40,
+        "detailTitleSelector": "#content > .content > div:first-child > :first-child",
+        "detailContentSelector": "#content > .content"
+      },
+      "strategy": "Follow current same-origin review links and accept a date only when every printed full date agrees with its title year. Conflicting current pages stay partial; new consistent pages are discovered automatically."
+    },
+    {
+      "sourceId": "40f7fd9f957c",
+      "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_club_71389.ics",
+      "replaceOptions": true,
+      "options": {
+        "timezone": "America/New_York",
+        "additionalEndpoints": [
+          {
+            "url": "https://www.cmu.edu/wellbeing/resources/wellness-initiatives/religious-spiritual/",
+            "adapter": "html",
+            "options": {
+              "format": "text-schedule",
+              "timezone": "America/New_York",
+              "rowSelector": "#content h3",
+              "followingSections": true
+            }
+          }
+        ]
+      },
+      "strategy": "Combine the public office calendar with current explicitly dated RSL heading announcements; dates and titles are read afresh rather than stored in reviewedFragments."
+    }
+  ]
+}
