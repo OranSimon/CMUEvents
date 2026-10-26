@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-10-26T01:18:10.430Z",
+  "sourceIDs": [
+    "79e7cdffd54d",
+    "8f00fc7f2c7c"
+  ],
+  "method": "CUA browser screenshot and visible event-detail text; no login, form submission or attendee-data collection",
+  "findings": [
+    {
+      "classification": "correction",
+      "subject": "Sydney date and clock precision",
+      "previous": "Date-only October 27 because of apparent timezone ambiguity",
+      "current": {
+        "sourceLocalStart": "2026-10-28T08:00:00",
+        "sourceLocalEnd": "2026-10-28T09:30:00",
+        "sourceZone": "Australia/Sydney",
+        "utcStart": "2026-10-27T21:00:00Z",
+        "utcEnd": "2026-10-27T22:30:00Z",
+        "location": "Planar Restaurant, ICC Sydney, Shop C08, Ground Floor/14 Darling Dr, Darling Harbour NSW 2000, Australia",
+        "registration": "Closed as shown on public detail"
+      },
+      "evidence": "research/visual-recheck-2026-10-25/evidence/alumni-sydney-public-detail.jpg",
+      "additionalEvidence": "research/visual-recheck-2026-10-25/evidence/alumni-sydney-date-time-venue.png"
+    },
+    {
+      "classification": "limitation_confirmed",
+      "subject": "Automatic discovery of new public cards",
+      "reason": "Public calendar visibly has list, tile and calendar views. No public collection endpoint or export was identified; currently reviewed cards remain bounded, and both sources stay partial."
+    }
+  ],
+  "publicDataScope": "Only public event fields were recorded; guest-list and account data were excluded.",
+  "snapshot": "research/visual-recheck-2026-10-25/alumni-reviewed-public-events.json",
+  "scopeRecheck": "alumni-public-scope-recheck.json"
+}

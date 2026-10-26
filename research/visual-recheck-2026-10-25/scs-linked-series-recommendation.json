@@ -1,0 +1,137 @@
+{
+  "checkedAt": "2026-10-26T01:20:58.111Z",
+  "sourceID": "1185bc345a9a",
+  "sourceURL": "https://www.cs.cmu.edu/events/scs-seminar-series",
+  "finding": "官方目录确有26个系列，没有实际日期列；但两个先前未独立接入的官方链接页面已公布实际场次，故仅监测目录会遗漏这些场次。",
+  "additionalEndpoints": [
+    {
+      "url": "https://sites.google.com/view/crypto-seminar/home",
+      "adapter": "html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": false,
+        "reviewedFragmentsOnly": true,
+        "reviewedFragments": [
+          {
+            "selector": "body",
+            "expectedCount": 1,
+            "sha256": "a936ae5b2297b2ba4279cc643d1b55c3f39a4aafe743ec8bb9bda134dcd9c6cd",
+            "events": [
+              {
+                "uid": "cmu-crypto-qi-pang-2026-10-28",
+                "title": "CMU LayerZero Crypto Seminar — Qi Pang",
+                "start": "2026-10-28T13:30:00",
+                "location": "GHC 7501 (published F26 room); Zoom",
+                "mode": "hybrid",
+                "url": "https://sites.google.com/view/crypto-seminar/home",
+                "description": "The coming-talk card explicitly lists Wednesday, October 28, 2026 at 1:30 pm. The talk topic and abstract remain TBD. The series page states ET and its F26 room; do not substitute the regular Thursday 4:30 pm slot."
+              },
+              {
+                "uid": "cmu-crypto-chase-fickes-2026-11-05",
+                "title": "A Low-Communication Garbled RAM from Homomorphic Secret Sharing",
+                "start": "2026-11-05T16:30:00",
+                "location": "GHC 7501 (published F26 room); Zoom",
+                "mode": "hybrid",
+                "url": "https://sites.google.com/view/crypto-seminar/home",
+                "description": "Speaker: Chase Fickes. The individual card prints November 5, 2026. Its time uses the page’s explicit Thursday 4:30 pm ET rule; no end time is published."
+              },
+              {
+                "uid": "cmu-crypto-alper-cakan-2026-11-19",
+                "title": "CMU LayerZero Crypto Seminar — Alper Çakan",
+                "start": "2026-11-19T16:30:00",
+                "location": "GHC 7501 (published F26 room); Zoom",
+                "mode": "hybrid",
+                "url": "https://sites.google.com/view/crypto-seminar/home",
+                "description": "The individual coming-talk card prints November 19, 2026. The topic and abstract remain TBD. Its time uses the page’s explicit Thursday 4:30 pm ET rule; no end time is published."
+              }
+            ]
+          }
+        ],
+        "reviewedResources": [
+          {
+            "selector": "body",
+            "expectedCount": 1,
+            "sha256": "8e6ce173690595da3b2b2d8c03e2b7592bcd4e7d2bb1a0aa50542fe00d301c54",
+            "kind": "visually reviewed academic seminar schedule",
+            "undated": false,
+            "reason": "Individual dates and the selected default/exception clocks were visually reviewed. Changed text, destinations, media or structured metadata requires renewed review before reusing these fixed fields."
+          }
+        ]
+      }
+    },
+    {
+      "url": "https://cmueconcs.github.io/",
+      "adapter": "html",
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": false,
+        "reviewedFragmentsOnly": true,
+        "reviewedFragments": [
+          {
+            "selector": "body",
+            "expectedCount": 1,
+            "sha256": "9627c3e9e15116f2e6ed4cfef1b5efa3c4f6c67d5975ca9447566875438fe7fd",
+            "events": [
+              {
+                "uid": "cmu-econcs-nihar-shah-2026-09-15",
+                "title": "ArabIan Nights: Tales of AI, Science, and Trouble",
+                "start": "2026-09-15T14:00:00",
+                "location": "NSH 3305; Zoom",
+                "mode": "hybrid",
+                "description": "CMU Econ-CS Seminar. Speaker: Nihar Shah (CMU). Exact date, time and location are printed in the Fall 2026 row.",
+                "url": "https://cmueconcs.github.io/"
+              },
+              {
+                "uid": "cmu-econcs-kate-donahue-2026-09-23",
+                "title": "One AI, two AI, red AI, blue AI: Impacts of Aggregation on Model Diversity and Consumer Utility",
+                "start": "2026-09-23T15:30:00",
+                "location": "GHC 6115; Zoom",
+                "mode": "hybrid",
+                "description": "CMU Econ-CS Seminar. Speaker: Kate Donahue (UIUC). Exact date, time and location are printed in the Fall 2026 row.",
+                "url": "https://cmueconcs.github.io/"
+              },
+              {
+                "uid": "cmu-econcs-jiannan-xu-2026-09-23",
+                "title": "Escaping the Nash Trap: Structural Estimation and Alignment of Strategic Reasoning in Large Language Models",
+                "start": "2026-09-23T16:30:00",
+                "location": "GHC 6115; Zoom",
+                "mode": "hybrid",
+                "description": "CMU Econ-CS Seminar. Speaker: Jiannan Xu (UMD). Exact date, time and location are printed in the Fall 2026 row.",
+                "url": "https://cmueconcs.github.io/"
+              },
+              {
+                "uid": "cmu-econcs-brian-zhang-2026-09-29",
+                "title": "CMU Econ-CS Seminar — Brian Zhang",
+                "start": "2026-09-29T14:00:00",
+                "location": "NSH 3305; Zoom",
+                "mode": "hybrid",
+                "description": "The Fall 2026 schedule explicitly names Brian Zhang (MIT), September 29, 2026 at 2:00 pm Eastern Time, NSH 3305 and Zoom. The talk topic is still TBD; a speaker-named seminar title does not invent the missing topic.",
+                "url": "https://cmueconcs.github.io/"
+              }
+            ]
+          }
+        ],
+        "reviewedResources": [
+          {
+            "selector": "body",
+            "expectedCount": 1,
+            "sha256": "33c4d878e0954e3e81ab2b150043c45b7f4aa4ae6e8f0f7cb7a5202fd992cab0",
+            "kind": "visually reviewed academic seminar schedule",
+            "undated": false,
+            "reason": "Individual dates and the selected default/exception clocks were visually reviewed. Changed text, destinations, media or structured metadata requires renewed review before reusing these fixed fields."
+          }
+        ]
+      }
+    }
+  ],
+  "scopeCaution": "Only these two linked series were visually verified for this repair. Do not claim complete dated coverage of all 26 series. Preserve an explicit partial diagnostic while the remaining linked-series coverage has not been reconciled.",
+  "safeFixtureNote": "No complete Google Sites HTML is saved, because its public Zoom link contains an access code. Fields and hashes contain no meeting URL/access code; the AX evidence omits that URL.",
+  "evidence": [
+    "research/visual-recheck-2026-10-25/evidence/scs-rendered-series.json",
+    "research/visual-recheck-2026-10-25/evidence/scs-directory-all-top.jpg",
+    "research/visual-recheck-2026-10-25/evidence/scs-directory-last-rows.jpg",
+    "research/visual-recheck-2026-10-25/evidence/scs-econ-fall-2026.jpg",
+    "research/visual-recheck-2026-10-25/evidence/scs-crypto-coming-talks.jpg",
+    "research/visual-recheck-2026-10-25/evidence/scs-crypto-all-coming-expanded.jpg"
+  ]
+}

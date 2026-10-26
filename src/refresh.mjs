@@ -80,7 +80,7 @@ export function createRefresher(store, plans, config) {
           const result = await fetchEvents(plan, context);
           if (!result || !Array.isArray(result.events)) throw new Error('Adapter returned no event snapshot.');
           if (result.unsupported) throw new Error(`Extraction needs review: ${(result.warnings || []).join(' ') || 'No recognizable event structure.'}`);
-          if (result.partial) store.mergePartial(plan.id, result.events, result.warnings || []);
+          if (result.partial) store.mergePartial(plan.id, result.events, result.warnings || [], { singleEventUids: result.singleEventUids || [] });
           else store.replaceSource(plan.id, result.events, result.warnings || [], undefined, result.undated ? 'undated' : 'empty');
           successfulSincePublish++;
           progress[result.partial ? 'error' : result.events.length ? 'ok' : result.undated ? 'undated' : 'empty']++;

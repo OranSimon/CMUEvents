@@ -54,6 +54,7 @@ export async function fetchEvents(plan, context) {
       warnings: [`Primary endpoint failed (${plan.fetchUrl || plan.url}): ${error.message}`] };
   }
   const events = new Map(primary.events.map(event => [event.uid, event]));
+  const singleEventUids = new Set(primary.singleEventUids || []);
   let supported = !primary.unsupported;
   let partial = Boolean(primary.partial || primary.unsupported);
   let undated = Boolean(primary.undated);
@@ -66,6 +67,7 @@ export async function fetchEvents(plan, context) {
         options: { ...(endpoint.legacy ? plan.options : { timezone: plan.options?.timezone }),
           ...endpoint.options, additionalFetchUrls: [], additionalEndpoints: [] } };
       const extra = await fetchEndpoint(extraPlan, context);
+      for (const uid of extra.singleEventUids || []) singleEventUids.add(uid);
       undated &&= Boolean(extra.undated);
       if (!extra.unsupported) supported = true;
       if (extra.partial || extra.unsupported) partial = true;
@@ -74,7 +76,8 @@ export async function fetchEvents(plan, context) {
     } catch (error) { partial = true; warnings.push(`Additional endpoint failed (${url}): ${error.message}`); }
   }
   return { events: [...events.values()], warnings: [...new Set(warnings)], ...(!supported ? { unsupported: true } : {}), ...(partial ? { partial: true } : {}),
-    ...(undated && !events.size ? { undated: true } : {}) };
+    ...(undated && !events.size ? { undated: true } : {}),
+    ...(singleEventUids.size ? { singleEventUids: [...singleEventUids].filter(uid => events.has(uid)) } : {}) };
 }
 
 export { parseIcs } from './ics.mjs';

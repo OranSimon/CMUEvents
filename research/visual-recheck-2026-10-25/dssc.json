@@ -1,0 +1,162 @@
+{
+  "checkedAt": "2026-10-26T01:12:10.168Z",
+  "sourceId": "31aa89be167d",
+  "sourceURL": "https://www.dssc.ece.cmu.edu/news/Events.html",
+  "method": {
+    "browser": "CUA Chrome 专用DOM研究标签页",
+    "screenshots": true,
+    "visibleDOM": true,
+    "nativeForegroundActions": false,
+    "headlessBrowser": false,
+    "networkInterception": false,
+    "loginOrFormSubmission": false,
+    "codeConfigDatabaseChanges": false
+  },
+  "conclusion": {
+    "falseNegativeFound": false,
+    "dateConflictConfirmed": true,
+    "parserSelectingIrrelevantHeading": false,
+    "clearOfficialActualDateResolved": false,
+    "summary": "实际浏览器确认：两个2026会议页面的2025日期确实位于会议正文醒目位置，不是页脚或无关标题。未找到可公开访问且能消除全部矛盾的独立议程日期依据，继续保留日期冲突诊断。"
+  },
+  "observations": [
+    {
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "kind": "公开会议档案目录",
+      "visibleEvidence": [
+        "Event Archive 标题",
+        "分别链接2026 Japan、2026 Spring及两个2025技术会议"
+      ],
+      "screenshot": "research/visual-recheck-2026-10-25/dssc-archive.jpg",
+      "dom": "research/visual-recheck-2026-10-25/dssc-archive-dom.txt"
+    },
+    {
+      "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Japan%20Technical%20Review.html",
+      "kind": "Japan 2026 正文与内嵌议程",
+      "visibleEvidence": [
+        "页面面包屑和醒目标题：2026 DSSC Japan Review",
+        "同一会议标题下加粗日期：June 30, 2025",
+        "时间：11:00a-6:00p JST",
+        "内嵌 Agenda 表头：Tuesday, June 30，没有年份"
+      ],
+      "interpretation": "这里有真正的页面年份矛盾。不能仅从2026标题或星期匹配推定活动年份。",
+      "screenshot": "research/visual-recheck-2026-10-25/dssc-japan-2026.jpg",
+      "dom": "research/visual-recheck-2026-10-25/dssc-japan-2026-dom.txt"
+    },
+    {
+      "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Spring%20Technical%20Review.html",
+      "kind": "Spring 2026 正文与内嵌议程",
+      "visibleEvidence": [
+        "醒目标题：2026 DSSC Spring Technical Review",
+        "标题下加粗日期：June 9, 2025",
+        "内嵌 Agenda 表头完整写明：Tuesday, June 9, 2026",
+        "议程地点：Carnegie Mellon University, Silicon Valley Campus"
+      ],
+      "interpretation": "2026-06-09有同页官方议程的明确支持，但顶部2025-06-09仍直接冲突。当前证据不足以静默删除任一值或宣称冲突已消除。",
+      "screenshot": "research/visual-recheck-2026-10-25/dssc-spring-2026.jpg",
+      "dom": "research/visual-recheck-2026-10-25/dssc-spring-2026-dom.txt"
+    },
+    {
+      "url": "https://form.jotform.com/250493774390161",
+      "kind": "2026 Japan 页面实际链接的公开报名表",
+      "visibleEvidence": [
+        "报名表标题：2025 DSSC Japan Technical Review",
+        "表头完整日期：Thursday, May 22, 2025: 9:30 - 6:00 JST",
+        "Details 再次写明 Thursday May 22 9:30a - 6:00p JST"
+      ],
+      "interpretation": "这是2025旧会议的报名表，2026页面存在过期/错误注册链接；它不能证明2026会议应为2025-05-22。仅查看，没有填写或提交。",
+      "screenshot": "research/visual-recheck-2026-10-25/dssc-japan-registration-2025.jpg",
+      "dom": "research/visual-recheck-2026-10-25/dssc-japan-registration-2025-dom.txt"
+    },
+    {
+      "url": "https://www.dssc.ece.cmu.edu/_files/sponsors/reviews/2026%20DSSC%20Japan%20Technical%20Review/01_Jimmy_Zhu-DSSC_2026_State%20of%20DSSC.pdf",
+      "kind": "Japan 实际公布的演讲PDF",
+      "visibleEvidence": [
+        "浏览器标题401 Unauthorized",
+        "正文Unauthorized，要求授权访问文档"
+      ],
+      "interpretation": "链接并非当前可匿名读取的公共PDF。未尝试登录、密码或绕过。",
+      "screenshot": "research/visual-recheck-2026-10-25/dssc-japan-pdf-401.jpg",
+      "dom": "research/visual-recheck-2026-10-25/dssc-japan-pdf-401-dom.txt"
+    },
+    {
+      "url": "https://www.dssc.ece.cmu.edu/_files/sponsors/reviews/2026%20DSSC%20Spring%20Technical%20Review/01_Jimmy_Zhu_DSSC_2026_State%20of%20DSSC-Overview.pdf",
+      "kind": "Spring 实际公布的演讲PDF",
+      "visibleEvidence": [
+        "浏览器显示Unauthorized，要求授权访问文档"
+      ],
+      "interpretation": "未能通过公开附件消除正文年份冲突。未尝试认证。",
+      "screenshot": "research/visual-recheck-2026-10-25/dssc-spring-pdf-401.jpg",
+      "dom": "research/visual-recheck-2026-10-25/dssc-spring-pdf-401-dom.txt"
+    }
+  ],
+  "recommendedPatch": {
+    "sourceId": "31aa89be167d",
+    "assignEventDates": [],
+    "preservePartial": true,
+    "retainSource": true,
+    "productionPatchRequired": false,
+    "evidence": {
+      "visualReview": {
+        "checkedAt": "2026-10-26T01:12:10.168Z",
+        "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+        "outcome": "publisher_date_conflict_visually_confirmed",
+        "note": "CUA截图确认Japan正文2025-06-30与2026标题矛盾，Spring正文2025-06-09与议程2026-06-09矛盾；Japan报名链接指向2025-05-22旧会，两份演讲PDF均要求授权。不是无法打开主页，也不是解析器误取页脚。"
+      }
+    },
+    "recommendedReason": "公开目录和正文均可正常浏览；两场2026技术会议存在真实年份冲突，Japan还链接了2025旧报名表。受限演讲附件未能提供额外公共核实依据。保留冲突并继续监测，不猜定年份、不称整站无法访问。",
+    "nextStep": "等待DSSC修正醒目会议日期/过期报名链接，或发布明确的公开完整议程。Spring可在诊断中展示2026议程日期这一强证据，但在冲突未解决前不发布唯一确定日期。"
+  },
+  "windowNote": "2025与2026年6月的候选日期均早于2026-10-25的前30天导入窗口；此次复查未发现窗口内被漏掉的DSSC活动，但不能据此说该组织没有活动。",
+  "officialClubReposts": "未作任何活动主办方排除；官方来源转载规则保持不变。",
+  "files": [
+    {
+      "file": "research/visual-recheck-2026-10-25/dssc-archive-dom.txt",
+      "sha256": "3f0fbd7d06cf1431159bd07e464f4669d18d0b5aab6e5cc922a27a8d140594d6"
+    },
+    {
+      "file": "research/visual-recheck-2026-10-25/dssc-archive.jpg",
+      "sha256": "8402038f4fbb3afb6524410b38b624a6dc4f39ef0615ade29bac981cbdc5b975"
+    },
+    {
+      "file": "research/visual-recheck-2026-10-25/dssc-japan-2026-dom.txt",
+      "sha256": "6924386bb44d1c2cfce77bc22d2f22059bf1636a613d9ea5476054d64bb6305b"
+    },
+    {
+      "file": "research/visual-recheck-2026-10-25/dssc-japan-2026.jpg",
+      "sha256": "4bef2975cd65ff62a852fc552542de57b1c46225944904a6164934ee7c88aca3"
+    },
+    {
+      "file": "research/visual-recheck-2026-10-25/dssc-japan-pdf-401-dom.txt",
+      "sha256": "53803dd132f95be85331a732bd0f468381b0575b695e8e6c088b9a5acc5ba2ea"
+    },
+    {
+      "file": "research/visual-recheck-2026-10-25/dssc-japan-pdf-401.jpg",
+      "sha256": "9f65425bf55b9e6b7afd26e44d2aeefefa54c8822055c94ce018ff6a691dab98"
+    },
+    {
+      "file": "research/visual-recheck-2026-10-25/dssc-japan-registration-2025-dom.txt",
+      "sha256": "526d07c3bf5adf9505873384a70118fec290138c3a98e9ba2f2a846b0c096739"
+    },
+    {
+      "file": "research/visual-recheck-2026-10-25/dssc-japan-registration-2025.jpg",
+      "sha256": "3b3539e067d804092cd54a9dd8f6d67037d611ae977d54e6bb240738d0716b82"
+    },
+    {
+      "file": "research/visual-recheck-2026-10-25/dssc-spring-2026-dom.txt",
+      "sha256": "20b645686f018399881ac33b8a3e49596428d603532b22383463a14aaf8c6f0c"
+    },
+    {
+      "file": "research/visual-recheck-2026-10-25/dssc-spring-2026.jpg",
+      "sha256": "6d50134b9cbb68c34fdb4a017dad3e2d4e2088e71394a488e2f9c67862d57aa3"
+    },
+    {
+      "file": "research/visual-recheck-2026-10-25/dssc-spring-pdf-401-dom.txt",
+      "sha256": "53803dd132f95be85331a732bd0f468381b0575b695e8e6c088b9a5acc5ba2ea"
+    },
+    {
+      "file": "research/visual-recheck-2026-10-25/dssc-spring-pdf-401.jpg",
+      "sha256": "9f65425bf55b9e6b7afd26e44d2aeefefa54c8822055c94ce018ff6a691dab98"
+    }
+  ]
+}

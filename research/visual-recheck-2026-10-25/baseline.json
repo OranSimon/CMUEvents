@@ -1,0 +1,1222 @@
+{
+  "checkedAt": "2026-10-26T01:11:26.236Z",
+  "status": {
+    "lastUpdated": "2026-10-26T01:07:50.562Z",
+    "totalEvents": 4412,
+    "sources": {
+      "total": 318,
+      "ok": 189,
+      "empty": 77,
+      "undated": 6,
+      "error": 4,
+      "covered": 38,
+      "unsupported": 0,
+      "subscription_only": 4,
+      "blocked": 0,
+      "pending": 0
+    },
+    "lastRefresh": {
+      "startedAt": "2026-10-26T01:07:41.294Z",
+      "completedAt": "2026-10-26T01:07:51.714Z",
+      "total": 2,
+      "completed": 2,
+      "ok": 0,
+      "empty": 0,
+      "undated": 0,
+      "error": 2,
+      "totalEvents": 4412
+    },
+    "refreshing": false
+  },
+  "sources": [
+    {
+      "id": "1185bc345a9a",
+      "department": "School of Computer Science",
+      "org": "SCS Seminars directory",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "kind": "event_listing",
+      "adapter": "html",
+      "fetchUrl": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "options": {
+        "timezone": "America/New_York",
+        "preferFeed": false,
+        "detailLinks": false,
+        "reviewedResources": [
+          {
+            "selector": "#rsRegion-mainContent",
+            "expectedCount": 1,
+            "sha256": "c74c1dbf73667e0fb4431740481e81dee58bf4f48415e3698a731738d58340af",
+            "kind": "seminar-series directory",
+            "reason": "The page is an index of series and points its JavaScript table to a public series-directory data source. Series weekdays and clock times do not establish calendar occurrence dates."
+          }
+        ],
+        "additionalEndpoints": [
+          {
+            "url": "https://www.cs.cmu.edu/rs-datasources/data-source/scs-seminar-events-data",
+            "adapter": "html",
+            "options": {
+              "format": "reviewed-raw-resource",
+              "reviewedRawResource": {
+                "jsonFields": [
+                  "success",
+                  "live",
+                  "cols",
+                  "data"
+                ],
+                "sha256": "8872a3bb4cdab2caf83f7b72fdb188ff13586fe6d812f61b1d622669d26f68d0",
+                "kind": "seminar-series directory data",
+                "reason": "This public directory lists 26 series with day, clock, contact and website columns, not dated occurrences. Transport dt/msg fields are excluded; actual column schema and series rows remain monitored."
+              }
+            }
+          }
+        ]
+      },
+      "strategy": "Monitor the scoped HTML and the public series-directory JSON projection for additions or changed calendars. Individually configured series retain their own event ingestion; no recurring occurrences are inferred from directory weekdays.",
+      "reason": "The source is a public series directory rather than a dated event listing; its directory data is monitored independently of the static shell.",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:14.972110+00:00",
+        "httpStatus": 200,
+        "structure": "The live SCS data source is a seminar-series directory with weekday/time/contact columns, not dated occurrences. Exact event dates must come from the individually linked series sources; the directory cannot ground a recurring event calendar.",
+        "accessReview": {
+          "checkedAt": "2026-10-25T21:01:23.783Z",
+          "status": "monitored_series_directory",
+          "reason": "The official series data contains no occurrence date; a projected content fingerprint avoids constant false alerts from the publisher’s generated timestamp.",
+          "nextStep": "Review a changed directory or new linked calendar and configure the specific series; do not alias the entire SCS calendar.",
+          "httpStatus": 200,
+          "primaryTransportAvailable": true,
+          "attention": false,
+          "report": "research/remaining-19-2026-10-25/alumni-other-sources.json"
+        },
+        "solutionReview": {
+          "checkedAt": "2026-10-25T21:01:23.782Z",
+          "report": "research/remaining-19-2026-10-25/alumni-other-sources.json",
+          "reason": "The official series data contains no occurrence date; a projected content fingerprint avoids constant false alerts from the publisher’s generated timestamp.",
+          "nextStep": "Review a changed directory or new linked calendar and configure the specific series; do not alias the entire SCS calendar."
+        }
+      },
+      "state": "undated",
+      "lastAttempt": "2026-10-25T21:03:42.549Z",
+      "lastSuccess": "2026-10-25T21:03:42.549Z",
+      "error": null,
+      "warnings": [
+        "Monitored seminar-series directory: The page is an index of series and points its JavaScript table to a public series-directory data source. Series weekdays and clock times do not establish calendar occurrence dates.",
+        "Monitored seminar-series directory data: This public directory lists 26 series with day, clock, contact and website columns, not dated occurrences. Transport dt/msg fields are excluded; actual column schema and series rows remain monitored."
+      ],
+      "eventCount": 0
+    },
+    {
+      "id": "1aa9b956ba78",
+      "department": "School of Computer Science",
+      "org": "Center for Transformational Play Workshops",
+      "url": "https://www.cmu.edu/ctp/workshops/index.html",
+      "kind": "event_listing",
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/ctp/workshops/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "options": {
+        "timezone": "America/New_York",
+        "preferFeed": false,
+        "detailLinks": false,
+        "reviewedResources": [
+          {
+            "selector": "#content > .grid",
+            "expectedCount": 2,
+            "sha256": "4a0eea9444975854720b5bd3e45cae4aca688860e621c097b75eab868ef1d979",
+            "kind": "on-demand workshop catalog",
+            "reason": "All three advertised workshops are available for group booking; no individually dated occurrence is published."
+          }
+        ],
+        "additionalEndpoints": [
+          {
+            "url": "https://www.cmu.edu/ctp/workshops/exploring_ai.html",
+            "adapter": "html",
+            "options": {
+              "detailLinks": false,
+              "reviewedResources": [
+                {
+                  "selector": "#content > .content:not(.wide)",
+                  "expectedCount": 1,
+                  "sha256": "a515f176fb76533229e2a3b5e592c6d23b8a96220b4ac18f2292061c4c8f605e",
+                  "kind": "on-demand workshop",
+                  "reason": "The publisher explicitly says this workshop is available for group booking and supplies duration, capacity and an interest form, without an occurrence date."
+                }
+              ]
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/ctp/workshops/building_joyful_products.html",
+            "adapter": "html",
+            "options": {
+              "detailLinks": false,
+              "reviewedResources": [
+                {
+                  "selector": "#content > .content:not(.wide)",
+                  "expectedCount": 1,
+                  "sha256": "ae744dde6659b1b8ec1a5af10ddf17e2c19b8d5454f26454dba4ee97140bb617",
+                  "kind": "on-demand workshop",
+                  "reason": "The publisher explicitly says this workshop is available for group booking and supplies duration, capacity and an interest form, without an occurrence date."
+                }
+              ]
+            }
+          },
+          {
+            "url": "https://www.cmu.edu/ctp/workshops/unlocking-high-quality-feedback.html",
+            "adapter": "html",
+            "options": {
+              "detailLinks": false,
+              "reviewedResources": [
+                {
+                  "selector": "#content > .content:not(.wide)",
+                  "expectedCount": 1,
+                  "sha256": "797e3654d1ae325104e3fa0186084714cad96c9cc48b9c324bff5f3441175fd5",
+                  "kind": "on-demand workshop",
+                  "reason": "The publisher explicitly says this workshop is available for group booking and supplies duration, capacity and an interest form, without an occurrence date."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "strategy": "Monitor the public workshop catalog and each booking page; distinguish undated offerings from an empty scheduled calendar. Any content or advertised URL change requires review.",
+      "reason": "All three advertised workshops are available for group booking; no individually dated occurrence is published.",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:14.974876+00:00",
+        "httpStatus": 200,
+        "structure": "Both inspected workshop detail pages say workshops are available for group booking and provide no scheduled occurrence date. These are on-demand offerings, not dated events.",
+        "accessReview": {
+          "checkedAt": "2026-10-25T20:48:50.451Z",
+          "status": "monitored_undated_resource",
+          "reason": "All three advertised workshops are available for group booking; no individually dated occurrence is published.",
+          "nextStep": "If any monitored page publishes a date, its changed fingerprint raises a review item for conversion into a scheduled event.",
+          "httpStatus": 200,
+          "primaryTransportAvailable": true,
+          "attention": false,
+          "report": "research/remaining-19-2026-10-25/root-investigation.json"
+        },
+        "solutionReview": {
+          "checkedAt": "2026-10-25T20:48:50.451Z",
+          "report": "research/remaining-19-2026-10-25/root-investigation.json",
+          "reason": "All three advertised workshops are available for group booking; no individually dated occurrence is published.",
+          "nextStep": "If any monitored page publishes a date, its changed fingerprint raises a review item for conversion into a scheduled event."
+        }
+      },
+      "state": "undated",
+      "lastAttempt": "2026-10-25T21:03:44.545Z",
+      "lastSuccess": "2026-10-25T21:03:44.545Z",
+      "error": null,
+      "warnings": [
+        "Monitored on-demand workshop catalog: All three advertised workshops are available for group booking; no individually dated occurrence is published.",
+        "Monitored on-demand workshop: The publisher explicitly says this workshop is available for group booking and supplies duration, capacity and an interest form, without an occurrence date."
+      ],
+      "eventCount": 0
+    },
+    {
+      "id": "31aa89be167d",
+      "department": "College of Engineering / Electrical and Computer Engineering",
+      "org": "Data Storage Systems Center Events",
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "kind": "event_listing",
+      "adapter": "html",
+      "fetchUrl": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "options": {
+        "timezone": "America/New_York",
+        "preferFeed": false,
+        "detailLinks": false,
+        "reviewedFragmentsOnly": true,
+        "reviewedResources": [
+          {
+            "selector": "#content > .content",
+            "expectedCount": 1,
+            "sha256": "bfd089f72a2ffeeda546315b49b57e94fc76109cecb668a8b1343568ce68ab11",
+            "kind": "technical-review directory",
+            "reason": "This page advertises technical-review child pages; each reviewed child is checked separately."
+          }
+        ],
+        "additionalEndpoints": [
+          {
+            "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Japan%20Technical%20Review.html",
+            "adapter": "html",
+            "options": {
+              "detailLinks": false,
+              "reviewedFragmentsOnly": true,
+              "reviewedResources": [
+                {
+                  "selector": "#content > .content",
+                  "expectedCount": 2,
+                  "sha256": "1647856a8e198f28a2e8563c64d7ceb1ac5608f61bd65a3ae19a39c89d6ff59a",
+                  "kind": "conflicting event dates",
+                  "reason": "The page title says 2026 but the heading gives June 30, 2025; the agenda gives Tuesday, June 30 without a year. Neither year is selected.",
+                  "requiresReview": true
+                }
+              ]
+            }
+          },
+          {
+            "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Spring%20Technical%20Review.html",
+            "adapter": "html",
+            "options": {
+              "detailLinks": false,
+              "reviewedFragmentsOnly": true,
+              "reviewedResources": [
+                {
+                  "selector": "#content > .content",
+                  "expectedCount": 1,
+                  "sha256": "93be3b951fb483550e861b0fcb4dfc463e5880111f38751a4fad8c93e32e5a0e",
+                  "kind": "conflicting event dates",
+                  "reason": "The page heading gives June 9, 2025 while the agenda explicitly gives June 9, 2026. Neither date is selected.",
+                  "requiresReview": true
+                }
+              ]
+            }
+          },
+          {
+            "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Japan%20Technical%20Review.html",
+            "adapter": "html",
+            "options": {
+              "detailLinks": false,
+              "reviewedFragmentsOnly": true,
+              "reviewedFragments": [
+                {
+                  "selector": "#content > .content",
+                  "expectedCount": 2,
+                  "sha256": "5ecd6fb6768232b66b916941e9df141ec061c0f663f1c227f2709f177c1770e7",
+                  "events": [
+                    {
+                      "title": "DSSC Japan Technical Review 2025",
+                      "start": "2025-05-22",
+                      "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Japan%20Technical%20Review.html",
+                      "description": "The full event date is consistent on the official page. No clock time is inferred."
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Spring%20Technical%20Review.html",
+            "adapter": "html",
+            "options": {
+              "detailLinks": false,
+              "reviewedFragmentsOnly": true,
+              "reviewedFragments": [
+                {
+                  "selector": "#content > .content",
+                  "expectedCount": 1,
+                  "sha256": "9201ef908460c1e6c2d3670e8c09eda9e20bb9e9d9770d6dbabdcbe07dd0b691",
+                  "events": [
+                    {
+                      "title": "DSSC Spring Technical Review 2025",
+                      "start": "2025-03-04",
+                      "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Spring%20Technical%20Review.html",
+                      "description": "The full event date is consistent on the official page. No clock time is inferred."
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "strategy": "Check the publisher directory and four reviewed child pages every refresh. Reuse reviewed fragments for consistent historical dates and hash-guarded unresolved-resource diagnostics for conflicting years; never select one contradictory date silently.",
+      "reason": "Two 2025 technical reviews have consistent full dates and are recognized outside the current window. Two pages labelled 2026 conflict with 2025 headings; both contradictory values remain visible as partial coverage and all pages continue being checked.",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:14.991835+00:00",
+        "httpStatus": 200,
+        "structure": "Dated child pages exist, but the 2026 Japan review heading says June 30, 2025 and the 2026 Spring review heading says June 9, 2025 while its agenda says June 9, 2026. Conflicting source years are not resolved by guessing from titles.",
+        "accessReview": {
+          "checkedAt": "2026-10-25T20:54:07.458Z",
+          "status": "partial_publisher_date_conflicts",
+          "reason": "Two 2025 technical reviews have consistent full dates and are recognized outside the current window. Two pages labelled 2026 conflict with 2025 headings; both contradictory values remain visible as partial coverage and all pages continue being checked.",
+          "nextStep": "DSSC should correct the visible event headings or publish an unambiguous official dated calendar/agenda. All competing dates currently predate the ingestion window, but that does not remove the source conflict.",
+          "httpStatus": 200,
+          "primaryTransportAvailable": true,
+          "attention": false,
+          "report": "research/remaining-19-2026-10-25/root-investigation.json"
+        },
+        "solutionReview": {
+          "checkedAt": "2026-10-25T20:54:07.457Z",
+          "report": "research/remaining-19-2026-10-25/root-investigation.json",
+          "reason": "Two 2025 technical reviews have consistent full dates and are recognized outside the current window. Two pages labelled 2026 conflict with 2025 headings; both contradictory values remain visible as partial coverage and all pages continue being checked.",
+          "nextStep": "DSSC should correct the visible event headings or publish an unambiguous official dated calendar/agenda. All competing dates currently predate the ingestion window, but that does not remove the source conflict."
+        }
+      },
+      "state": "error",
+      "lastAttempt": "2026-10-26T00:35:30.776Z",
+      "lastSuccess": null,
+      "error": "Incomplete extraction; previous records retained. Monitored technical-review directory: This page advertises technical-review child pages; each reviewed child is checked separately. Unresolved conflicting event dates: The page title says 2026 but the heading gives June 30, 2025; the agenda gives Tuesday, June 30 without a year. Neither year is selected. Unresolved conflicting event dates: The page heading gives June 9, 2025 while the agenda explicitly gives June 9, 2026. Neither date is selected.",
+      "warnings": [
+        "Monitored technical-review directory: This page advertises technical-review child pages; each reviewed child is checked separately.",
+        "Unresolved conflicting event dates: The page title says 2026 but the heading gives June 30, 2025; the agenda gives Tuesday, June 30 without a year. Neither year is selected.",
+        "Unresolved conflicting event dates: The page heading gives June 9, 2025 while the agenda explicitly gives June 9, 2026. Neither date is selected."
+      ],
+      "eventCount": 0
+    },
+    {
+      "id": "4c4f223b8c8b",
+      "department": "School of Computer Science",
+      "org": "Robotics, Embodied AI and Learning — news and events",
+      "url": "https://www.cmu.edu/real/news-and-events/index.html",
+      "kind": "event_listing",
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/real/news-and-events/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "options": {
+        "timezone": "America/New_York",
+        "preferFeed": false,
+        "detailLinks": false,
+        "reviewedResources": [
+          {
+            "selector": "#content > .content",
+            "expectedCount": 1,
+            "sha256": "554dca6e43669fd3bac22249bc279fddc118b938c2d76f98ff110a2820c50b9d",
+            "kind": "series and example timetable",
+            "reason": "The page gives descriptions, periodicity and an explicitly labelled example workshop timetable, without specific occurrence dates."
+          }
+        ],
+        "additionalEndpoints": [
+          {
+            "url": "https://calendar.google.com/calendar/ical/c_0c1dea11d4ea2e6c921bd6b47c076cff7d0e07ee47ec40be6fc1d6189c4a3cd0%40group.calendar.google.com/public/basic.ics",
+            "publicURL": "https://sites.google.com/andrew.cmu.edu/cmu-lcs/home",
+            "adapter": "ics"
+          },
+          {
+            "url": "https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics",
+            "publicURL": "https://www.cmu.edu/real/news-and-events/index.html",
+            "adapter": "ics"
+          }
+        ]
+      },
+      "strategy": "Reuse the public LCS ICS independently; retry the publisher-advertised Manipulation ICS and preserve a partial-coverage diagnostic while it is unavailable. Never turn the example timetable or biweekly description into events.",
+      "reason": "Learning and Control has a verified public ICS with independently dated historical events. The advertised Manipulation public ICS returns HTTP 404, leaving REAL coverage partial.",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.079570+00:00",
+        "httpStatus": 200,
+        "structure": "The REAL page describes recurring discussion series and an example workshop timetable without calendar dates. Its advertised manipulation public Google ICS is unavailable; the linked Learning and Control site is public but its next seminar is TBD and its dated archive ends in May 2024; its separate public ICS is reachable and contains four independently dated 2024 events. The manipulation feed remains unavailable, so this does not supply complete current REAL coverage. No example timetable is converted into events.",
+        "accessReview": {
+          "checkedAt": "2026-10-25T20:48:50.451Z",
+          "status": "partial_upstream_calendar_unavailable",
+          "reason": "Learning and Control has a verified public ICS with independently dated historical events. The advertised Manipulation public ICS returns HTTP 404, leaving REAL coverage partial.",
+          "nextStep": "The publisher must publish or repair the Manipulation calendar; the application retries it and retains the explicit gap.",
+          "httpStatus": 200,
+          "primaryTransportAvailable": true,
+          "attention": false,
+          "report": "research/remaining-19-2026-10-25/root-investigation.json"
+        },
+        "solutionReview": {
+          "checkedAt": "2026-10-25T20:48:50.451Z",
+          "report": "research/remaining-19-2026-10-25/root-investigation.json",
+          "reason": "Learning and Control has a verified public ICS with independently dated historical events. The advertised Manipulation public ICS returns HTTP 404, leaving REAL coverage partial.",
+          "nextStep": "The publisher must publish or repair the Manipulation calendar; the application retries it and retains the explicit gap."
+        }
+      },
+      "state": "error",
+      "lastAttempt": "2026-10-26T00:35:29.156Z",
+      "lastSuccess": null,
+      "error": "Incomplete extraction; previous records retained. Monitored series and example timetable: The page gives descriptions, periodicity and an explicitly labelled example workshop timetable, without specific occurrence dates. Additional endpoint failed (https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics): HTTP 404 from calendar.google.com",
+      "warnings": [
+        "Monitored series and example timetable: The page gives descriptions, periodicity and an explicitly labelled example workshop timetable, without specific occurrence dates.",
+        "Additional endpoint failed (https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics): HTTP 404 from calendar.google.com"
+      ],
+      "eventCount": 0
+    },
+    {
+      "id": "5ade174c3483",
+      "department": "College of Engineering / Chemical Engineering",
+      "org": "Enterprise-Wide Optimization Seminars",
+      "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "kind": "event_listing",
+      "adapter": "html",
+      "fetchUrl": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": false,
+        "reviewedFragmentsOnly": true,
+        "reviewedResources": [
+          {
+            "selector": "body > .container",
+            "expectedCount": 1,
+            "sha256": "935fd588e8c75a212d219e5f6913e36ef0f5ad09bebf8550e1d694154c07f826",
+            "kind": "undated recording archive",
+            "reason": "This is the EWO Seminar Slides archive with downloadable slides and recordings. The EWO parent overview explicitly describes it as a list of seminar slides; no current occurrence schedule is published in the inspected page. File names and media timestamps are not event dates.",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      "strategy": "Monitor the scoped public recording archive by text and advertised-resource fingerprint. Unchanged resource content is explicitly undated; changed content requires review before publishing event fields.",
+      "reason": "",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.149006+00:00",
+        "httpStatus": 200,
+        "structure": "The public page lists seminar/tutorial slides and recordings without explicit occurrence dates; it is an undated resource archive.",
+        "accessReview": {
+          "checkedAt": "2026-10-25T20:48:50.450Z",
+          "status": "active",
+          "reason": "This is the EWO Seminar Slides archive with downloadable slides and recordings. The EWO parent overview explicitly describes it as a list of seminar slides; no current occurrence schedule is published in the inspected page. File names and media timestamps are not event dates.",
+          "nextStep": "If a dated schedule is added, the changed fingerprint raises a review alert; add an extractor only after full event dates are published.",
+          "httpStatus": 200,
+          "primaryTransportAvailable": true,
+          "attention": false,
+          "report": "research/remaining-19-2026-10-25/academic.json"
+        },
+        "solutionReview": {
+          "checkedAt": "2026-10-25T20:48:50.450Z",
+          "report": "research/remaining-19-2026-10-25/academic.json",
+          "reason": "This is the EWO Seminar Slides archive with downloadable slides and recordings. The EWO parent overview explicitly describes it as a list of seminar slides; no current occurrence schedule is published in the inspected page. File names and media timestamps are not event dates.",
+          "nextStep": "If a dated schedule is added, the changed fingerprint raises a review alert; add an extractor only after full event dates are published."
+        }
+      },
+      "state": "undated",
+      "lastAttempt": "2026-10-25T21:03:47.226Z",
+      "lastSuccess": "2026-10-25T21:03:47.226Z",
+      "error": null,
+      "warnings": [
+        "Monitored undated recording archive: This is the EWO Seminar Slides archive with downloadable slides and recordings. The EWO parent overview explicitly describes it as a list of seminar slides; no current occurrence schedule is published in the inspected page. File names and media timestamps are not event dates."
+      ],
+      "eventCount": 0
+    },
+    {
+      "id": "79e7cdffd54d",
+      "department": "Alumni and Community",
+      "org": "CMU Alumni Online Events",
+      "url": "https://www.cmu.edu/engage/events/online-events",
+      "kind": "event_listing",
+      "adapter": "html",
+      "fetchUrl": "https://community.cmu.edu/s/events",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "options": {
+        "timezone": "America/New_York",
+        "preferFeed": false,
+        "format": "alumni",
+        "upstreamScope": "reviewed-public-online-cards",
+        "onlineOnly": true,
+        "reviewedPublicEvents": {
+          "schemaVersion": 1,
+          "checkedAt": "2026-10-25T21:04:50.468Z",
+          "listingURL": "https://community.cmu.edu/s/events",
+          "scope": "Exactly23 cards publicly rendered across three inspected pages. Only visible card text, URLs, dates, location labels and the IDs required by their public clock getter are retained. No descriptions, hidden addresses, registration counts or unadvertised records retained. New event discovery remains incomplete.",
+          "records": [
+            {
+              "id": "a7DUk000000PQKJMA4",
+              "title": "PIT – CMU School of Music Chamber Series Opening: Inon Barnathan with PSO Musicians",
+              "date": "2026-10-26",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians",
+              "location": "PITTSBURGH, PA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000OnpFMAS",
+              "title": "Sydney - Alumni Coffee and Catch-Up",
+              "date": "2026-10-27",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
+              "location": "",
+              "clockPolicy": "date_only",
+              "clockReviewReason": "Publisher clock zone does not unambiguously establish the local time of the city named in the public card.",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000O7upMAC",
+              "title": "NYC - Public Speaking for Tartan Introverts",
+              "date": "2026-10-27",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts",
+              "location": "NEW YORK, NY",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000PFGnMAO",
+              "title": "An Evening with Carnegie Mellon University - Washington, DC",
+              "date": "2026-10-27",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc",
+              "location": "WASHINGTON, DC",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000PrAoMAK",
+              "title": "Sports Betting and the Brain - October 2026",
+              "date": "2026-10-28",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
+              "location": "VIRTUAL WEBINAR, ONLINE",
+              "mode": "online",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000Oh5UMAS",
+              "title": "Communicating with Confidence 2026: Interactive Practice for Real-World Speaking",
+              "date": "2026-10-29",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
+              "location": "VIRTUAL WEBINAR, ONLINE",
+              "mode": "online",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000PoZVMA0",
+              "title": "Cracking the Code: Deciphering Bacterial Language and Dialects",
+              "date": "2026-10-29",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects",
+              "location": "NEW YORK, NY",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000PvuLMAS",
+              "title": "Tepper San Francisco: Leading in an Agentic World: How AI Will Reshape Strategy, Innovation, and Competitive Advantage",
+              "date": "2026-10-29",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage",
+              "location": "PALO ALTO, CA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000PXTpMAO",
+              "title": "HI - A Globally Plaid Halloween at HoMA",
+              "date": "2026-10-30",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa",
+              "location": "HONOLULU, HI",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000Q1uxMAC",
+              "title": "SF - Plaid, Potions and Pubs: Halloween Bar Crawl",
+              "date": "2026-10-31",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-plaid-potions-and-pubs-halloween-bar-crawl",
+              "location": "SAN FRANCISCO, CA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000MJqTMAW",
+              "title": "DC - CMU Sunday Night Football: Commanders vs. Eagles",
+              "date": "2026-11-01",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles",
+              "location": "LANDOVER, MD",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000QJv3MAG",
+              "title": "Slaying Organizational Monsters",
+              "date": "2026-11-02",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters",
+              "location": "",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000QJv4MAG",
+              "title": "NYC x PIT - The 59th Carnegie International & Beyond",
+              "date": "2026-11-06",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond",
+              "location": "",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000PnSDMA0",
+              "title": "NYC – Coffee with LLM API Users",
+              "date": "2026-11-07",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-coffee-with-llm-api-users",
+              "location": "NEW YORK, NY",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000PnSCMA0",
+              "title": "DEN - Macbeth Opera Opening Night: Verdi’s Dramatic Masterpiece",
+              "date": "2026-11-07",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece",
+              "location": "DENVER, CO",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000QLFKMA4",
+              "title": "Rethinking Chronic Pain and Disease",
+              "date": "2026-11-10",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease",
+              "location": "VIRTUAL WEBINAR, ONLINE",
+              "mode": "online",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000Mw2EMAS",
+              "title": "LA - Volunteer Opportunity: Project Angel Food Service Day 2026",
+              "date": "2026-11-11",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/la-volunteer-opportunity-project-angel-food-service-day-2026",
+              "location": "LOS ANGELES, CA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000OnpMMAS",
+              "title": "SF - Heated Rivalry: Penguins vs. Sharks",
+              "date": "2026-11-11",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-heated-rivalry-penguins-vs-sharks",
+              "location": "SAN JOSE, CA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000Q1uwMAC",
+              "title": "PIT – Tartans on Tap: Wexford",
+              "date": "2026-11-12",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
+              "location": "WEXFORD, PA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
+            },
+            {
+              "id": "a7DUk000000NTCfMAO",
+              "title": "HLAA - Dulces & Connections: HLAA Holiday Cookie Making Event",
+              "date": "2026-11-14",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-dulces-connections-hlaa-holiday-cookie-making-event",
+              "location": "PITTSBURGH, PA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
+            },
+            {
+              "id": "a7DUk000000QDw7MAG",
+              "title": "BOS - Tartan High Tea and Salem Stroll",
+              "date": "2026-11-14",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll",
+              "location": "SALEM, MA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
+            },
+            {
+              "id": "a7DUk000000QDw5MAG",
+              "title": "DEN - Festival of Lights: Tartan Diwali Celebration",
+              "date": "2026-11-14",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-festival-of-lights-tartan-diwali-celebration",
+              "location": "CENTENNIAL, CO",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
+            },
+            {
+              "id": "a7DUk000000QLFJMA4",
+              "title": "The Menopause Transition and the Brain",
+              "date": "2026-11-17",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain",
+              "location": "VIRTUAL WEBINAR, ONLINE",
+              "mode": "online",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
+            }
+          ]
+        }
+      },
+      "strategy": "Reuse the bounded public-card adapter and the publisher’s anonymous per-card clock getter. Restrict identities and display fields to visually verified public cards, preserve reviewed dates on missing or conflicting clocks, and always expose partial discovery coverage.",
+      "reason": "Only the four visually confirmed cards with an explicit online venue are ingested. New online-announcement discovery is not yet connected; the exact public list-view identity remains unresolved.",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:37.663Z",
+        "httpStatus": 200,
+        "structure": "Both official overview pages direct readers to the public alumni community. The actual linked calendar returned HTTP 200 but only 42 readable characters and no event data in the inspected response.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot.",
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "HTTP 200 does not verify that the JavaScript alumni calendar or its underlying event API is usable. This is an unverified dynamic list, not evidence of zero alumni events."
+        ],
+        "observedChildUrls": [],
+        "accessReview": {
+          "checkedAt": "2026-10-25T21:09:17.881Z",
+          "status": "public_cards_imported_discovery_partial",
+          "reason": "Only the four visually confirmed cards with an explicit online venue are ingested. New online-announcement discovery is not yet connected; the exact public list-view identity remains unresolved.",
+          "nextStep": "Resolve the exact public calendar list-view identity or implement another publisher-advertised public discovery endpoint; continue visual public-card review until then. No account, broad unfiltered list or private detail is used.",
+          "httpStatus": 200,
+          "primaryTransportAvailable": true,
+          "attention": false,
+          "report": "research/remaining-19-2026-10-25/alumni-discovery.json"
+        },
+        "solutionReview": {
+          "checkedAt": "2026-10-25T21:09:17.881Z",
+          "report": "research/remaining-19-2026-10-25/alumni-discovery.json",
+          "reason": "Only the four visually confirmed cards with an explicit online venue are ingested. New online-announcement discovery is not yet connected; the exact public list-view identity remains unresolved.",
+          "nextStep": "Resolve the exact public calendar list-view identity or implement another publisher-advertised public discovery endpoint; continue visual public-card review until then. No account, broad unfiltered list or private detail is used."
+        }
+      },
+      "state": "error",
+      "lastAttempt": "2026-10-26T01:07:43.675Z",
+      "lastSuccess": null,
+      "error": "Incomplete extraction; previous records retained. Alumni public-card snapshot verified 2026-10-25T21:04:50.468Z. Alumni coverage is limited to explicitly reviewed public cards. New events, title/venue changes and full calendar discovery require another public review.",
+      "warnings": [
+        "Alumni public-card snapshot verified 2026-10-25T21:04:50.468Z.",
+        "Alumni coverage is limited to explicitly reviewed public cards. New events, title/venue changes and full calendar discovery require another public review."
+      ],
+      "eventCount": 4
+    },
+    {
+      "id": "8f00fc7f2c7c",
+      "department": "Alumni and Community",
+      "org": "CMU Alumni and Community Events",
+      "url": "https://www.cmu.edu/engage/events",
+      "kind": "event_listing",
+      "adapter": "html",
+      "fetchUrl": "https://community.cmu.edu/s/events",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "options": {
+        "timezone": "America/New_York",
+        "preferFeed": false,
+        "format": "alumni",
+        "upstreamScope": "reviewed-public-all-cards",
+        "onlineOnly": false,
+        "reviewedPublicEvents": {
+          "schemaVersion": 1,
+          "checkedAt": "2026-10-25T21:04:50.468Z",
+          "listingURL": "https://community.cmu.edu/s/events",
+          "scope": "Exactly23 cards publicly rendered across three inspected pages. Only visible card text, URLs, dates, location labels and the IDs required by their public clock getter are retained. No descriptions, hidden addresses, registration counts or unadvertised records retained. New event discovery remains incomplete.",
+          "records": [
+            {
+              "id": "a7DUk000000PQKJMA4",
+              "title": "PIT – CMU School of Music Chamber Series Opening: Inon Barnathan with PSO Musicians",
+              "date": "2026-10-26",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians",
+              "location": "PITTSBURGH, PA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000OnpFMAS",
+              "title": "Sydney - Alumni Coffee and Catch-Up",
+              "date": "2026-10-27",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
+              "location": "",
+              "clockPolicy": "date_only",
+              "clockReviewReason": "Publisher clock zone does not unambiguously establish the local time of the city named in the public card.",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000O7upMAC",
+              "title": "NYC - Public Speaking for Tartan Introverts",
+              "date": "2026-10-27",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts",
+              "location": "NEW YORK, NY",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000PFGnMAO",
+              "title": "An Evening with Carnegie Mellon University - Washington, DC",
+              "date": "2026-10-27",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc",
+              "location": "WASHINGTON, DC",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000PrAoMAK",
+              "title": "Sports Betting and the Brain - October 2026",
+              "date": "2026-10-28",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
+              "location": "VIRTUAL WEBINAR, ONLINE",
+              "mode": "online",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000Oh5UMAS",
+              "title": "Communicating with Confidence 2026: Interactive Practice for Real-World Speaking",
+              "date": "2026-10-29",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
+              "location": "VIRTUAL WEBINAR, ONLINE",
+              "mode": "online",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000PoZVMA0",
+              "title": "Cracking the Code: Deciphering Bacterial Language and Dialects",
+              "date": "2026-10-29",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects",
+              "location": "NEW YORK, NY",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000PvuLMAS",
+              "title": "Tepper San Francisco: Leading in an Agentic World: How AI Will Reshape Strategy, Innovation, and Competitive Advantage",
+              "date": "2026-10-29",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage",
+              "location": "PALO ALTO, CA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000PXTpMAO",
+              "title": "HI - A Globally Plaid Halloween at HoMA",
+              "date": "2026-10-30",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa",
+              "location": "HONOLULU, HI",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+            },
+            {
+              "id": "a7DUk000000Q1uxMAC",
+              "title": "SF - Plaid, Potions and Pubs: Halloween Bar Crawl",
+              "date": "2026-10-31",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-plaid-potions-and-pubs-halloween-bar-crawl",
+              "location": "SAN FRANCISCO, CA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000MJqTMAW",
+              "title": "DC - CMU Sunday Night Football: Commanders vs. Eagles",
+              "date": "2026-11-01",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles",
+              "location": "LANDOVER, MD",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000QJv3MAG",
+              "title": "Slaying Organizational Monsters",
+              "date": "2026-11-02",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters",
+              "location": "",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000QJv4MAG",
+              "title": "NYC x PIT - The 59th Carnegie International & Beyond",
+              "date": "2026-11-06",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond",
+              "location": "",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000PnSDMA0",
+              "title": "NYC – Coffee with LLM API Users",
+              "date": "2026-11-07",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-coffee-with-llm-api-users",
+              "location": "NEW YORK, NY",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000PnSCMA0",
+              "title": "DEN - Macbeth Opera Opening Night: Verdi’s Dramatic Masterpiece",
+              "date": "2026-11-07",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece",
+              "location": "DENVER, CO",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000QLFKMA4",
+              "title": "Rethinking Chronic Pain and Disease",
+              "date": "2026-11-10",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease",
+              "location": "VIRTUAL WEBINAR, ONLINE",
+              "mode": "online",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000Mw2EMAS",
+              "title": "LA - Volunteer Opportunity: Project Angel Food Service Day 2026",
+              "date": "2026-11-11",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/la-volunteer-opportunity-project-angel-food-service-day-2026",
+              "location": "LOS ANGELES, CA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000OnpMMAS",
+              "title": "SF - Heated Rivalry: Penguins vs. Sharks",
+              "date": "2026-11-11",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-heated-rivalry-penguins-vs-sharks",
+              "location": "SAN JOSE, CA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page2.jpg"
+            },
+            {
+              "id": "a7DUk000000Q1uwMAC",
+              "title": "PIT – Tartans on Tap: Wexford",
+              "date": "2026-11-12",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
+              "location": "WEXFORD, PA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
+            },
+            {
+              "id": "a7DUk000000NTCfMAO",
+              "title": "HLAA - Dulces & Connections: HLAA Holiday Cookie Making Event",
+              "date": "2026-11-14",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-dulces-connections-hlaa-holiday-cookie-making-event",
+              "location": "PITTSBURGH, PA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
+            },
+            {
+              "id": "a7DUk000000QDw7MAG",
+              "title": "BOS - Tartan High Tea and Salem Stroll",
+              "date": "2026-11-14",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll",
+              "location": "SALEM, MA",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
+            },
+            {
+              "id": "a7DUk000000QDw5MAG",
+              "title": "DEN - Festival of Lights: Tartan Diwali Celebration",
+              "date": "2026-11-14",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-festival-of-lights-tartan-diwali-celebration",
+              "location": "CENTENNIAL, CO",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
+            },
+            {
+              "id": "a7DUk000000QLFJMA4",
+              "title": "The Menopause Transition and the Brain",
+              "date": "2026-11-17",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain",
+              "location": "VIRTUAL WEBINAR, ONLINE",
+              "mode": "online",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
+            }
+          ]
+        }
+      },
+      "strategy": "Reuse the bounded public-card adapter and the publisher’s anonymous per-card clock getter. Restrict identities and display fields to visually verified public cards, preserve reviewed dates on missing or conflicting clocks, and always expose partial discovery coverage.",
+      "reason": "Only the 23 individually verified public cards are ingested, with anonymous publisher clock checks. The public list-view identity remains unresolved, so new announcements and title/venue changes still require another public review.",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:37.814Z",
+        "httpStatus": 200,
+        "structure": "Fresh overview HTTP 200 and linked https://community.cmu.edu/s/events HTTP 200 were both inspected. The child contains only the application/error shell, so publisher events cannot be paired with dates from these responses.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot.",
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "The failed/unverified dynamic calendar is not classified as a publisher-empty event list."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://community.cmu.edu/s/events",
+            "httpStatus": 200,
+            "finalUrl": "https://community.cmu.edu/s/events",
+            "title": "CMU Alumni"
+          }
+        ],
+        "accessReview": {
+          "checkedAt": "2026-10-25T21:09:17.881Z",
+          "status": "public_cards_imported_discovery_partial",
+          "reason": "Only the 23 individually verified public cards are ingested, with anonymous publisher clock checks. The public list-view identity remains unresolved, so new announcements and title/venue changes still require another public review.",
+          "nextStep": "Resolve the exact public calendar list-view identity or implement another publisher-advertised public discovery endpoint; continue visual public-card review until then. No account, broad unfiltered list or private detail is used.",
+          "httpStatus": 200,
+          "primaryTransportAvailable": true,
+          "attention": false,
+          "report": "research/remaining-19-2026-10-25/alumni-discovery.json"
+        },
+        "solutionReview": {
+          "checkedAt": "2026-10-25T21:09:17.879Z",
+          "report": "research/remaining-19-2026-10-25/alumni-discovery.json",
+          "reason": "Only the 23 individually verified public cards are ingested, with anonymous publisher clock checks. The public list-view identity remains unresolved, so new announcements and title/venue changes still require another public review.",
+          "nextStep": "Resolve the exact public calendar list-view identity or implement another publisher-advertised public discovery endpoint; continue visual public-card review until then. No account, broad unfiltered list or private detail is used."
+        }
+      },
+      "state": "error",
+      "lastAttempt": "2026-10-26T01:07:49.250Z",
+      "lastSuccess": null,
+      "error": "Incomplete extraction; previous records retained. Alumni public-card snapshot verified 2026-10-25T21:04:50.468Z. Alumni coverage is limited to explicitly reviewed public cards. New events, title/venue changes and full calendar discovery require another public review. Alumni card a7DUk000000OnpFMAS: the reviewed public clock has an unresolved timezone ambiguity; retained reviewed date 2026-10-27 without a clock",
+      "warnings": [
+        "Alumni public-card snapshot verified 2026-10-25T21:04:50.468Z.",
+        "Alumni coverage is limited to explicitly reviewed public cards. New events, title/venue changes and full calendar discovery require another public review.",
+        "Alumni card a7DUk000000OnpFMAS: the reviewed public clock has an unresolved timezone ambiguity; retained reviewed date 2026-10-27 without a clock"
+      ],
+      "eventCount": 23
+    },
+    {
+      "id": "97bebc670839",
+      "department": "Global Locations / Silicon Valley",
+      "org": "CMU Silicon Valley Events",
+      "url": "https://www.sv.cmu.edu/events/index.html",
+      "kind": "event_listing",
+      "adapter": "html",
+      "fetchUrl": "https://www.sv.cmu.edu/events/index.html",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "options": {
+        "timezone": "America/Los_Angeles",
+        "preferFeed": false,
+        "detailLinks": false,
+        "reviewedResources": [
+          {
+            "selector": ".eventListing",
+            "expectedCount": 2,
+            "sha256": "6e29a2b76d0d5ab25ad654660154fde6327921cc88ad6cba23f503c43d430d00",
+            "kind": "navigation-only monthly calendar",
+            "reason": "The rendered October2026 view shows its month heading and previous/next navigation without event cards, a dated schedule, or an explicit no-events notice. This describes this view only; it does not prove the campus has no events."
+          }
+        ],
+        "additionalEndpoints": [
+          {
+            "url": "https://www.sv.cmu.edu/events/2026/11/index.html",
+            "adapter": "html",
+            "options": {
+              "detailLinks": false,
+              "reviewedResources": [
+                {
+                  "selector": ".eventListing",
+                  "expectedCount": 1,
+                  "sha256": "b5abf9ae0022b20b06c3563ab987defe929d8e7d8be3a41fece3c90dd743797d",
+                  "kind": "navigation-only monthly calendar",
+                  "reason": "The publisher-linked November2026 view likewise renders only month navigation, without occurrence cards or a dated schedule. Content changes require review; no month/day events are synthesized."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "strategy": "Monitor both the visible current calendar view and its explicitly advertised next-month page. Treat unchanged navigation-only views as unpublished/undated resources, not evidence of a hidden dynamic widget or campus-wide absence of events.",
+      "reason": "Both inspected public month views are anonymously readable but publish no occurrence records; no event-list feed or client data component was observed.",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:38.100Z",
+        "httpStatus": 200,
+        "structure": "Both current and next-month URLs return HTTP 200 and their month headings, but no actual events. The current parser cannot prove a healthy empty state from navigation-only HTML.",
+        "adapterAudit": "The current parser recognized zero independently dated event records in the inspected HTML snapshot.",
+        "reviewMethod": "Fresh anonymous landing and observed child requests; saved response fixtures replayed through the configured adapter.",
+        "reviewLimitations": [
+          "No events were observed in these two month pages; this does not prove the campus has no events elsewhere."
+        ],
+        "observedChildUrls": [
+          {
+            "url": "https://www.sv.cmu.edu/events/2026/11/index.html",
+            "httpStatus": 200,
+            "finalUrl": "https://www.sv.cmu.edu/events/2026/11/index.html",
+            "title": "November - Carnegie Mellon University Silicon ValleySearch"
+          }
+        ],
+        "accessReview": {
+          "checkedAt": "2026-10-25T21:01:23.783Z",
+          "status": "monitored_navigation_only_calendar_views",
+          "reason": "The earlier dynamic-calendar explanation is unsupported by the rendered and static evidence. The inspected views are public but unpopulated.",
+          "nextStep": "A changed month heading, published event card or new advertised resource triggers review. Continue relying on the independently configured official SV feed for its own scope.",
+          "httpStatus": 200,
+          "primaryTransportAvailable": true,
+          "attention": false,
+          "report": "research/remaining-19-2026-10-25/alumni-other-sources.json"
+        },
+        "solutionReview": {
+          "checkedAt": "2026-10-25T21:01:23.783Z",
+          "report": "research/remaining-19-2026-10-25/alumni-other-sources.json",
+          "reason": "The earlier dynamic-calendar explanation is unsupported by the rendered and static evidence. The inspected views are public but unpopulated.",
+          "nextStep": "A changed month heading, published event card or new advertised resource triggers review. Continue relying on the independently configured official SV feed for its own scope."
+        }
+      },
+      "state": "undated",
+      "lastAttempt": "2026-10-25T21:03:50.572Z",
+      "lastSuccess": "2026-10-25T21:03:50.572Z",
+      "error": null,
+      "warnings": [
+        "Monitored navigation-only monthly calendar: The rendered October2026 view shows its month heading and previous/next navigation without event cards, a dated schedule, or an explicit no-events notice. This describes this view only; it does not prove the campus has no events.",
+        "Monitored navigation-only monthly calendar: The publisher-linked November2026 view likewise renders only month navigation, without occurrence cards or a dated schedule. Content changes require review; no month/day events are synthesized."
+      ],
+      "eventCount": 0
+    },
+    {
+      "id": "b453fc62eac4",
+      "department": "College of Engineering / Engineering and Public Policy",
+      "org": "EPP Faculty Seminar Series",
+      "url": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+      "kind": "event_listing",
+      "adapter": "html",
+      "fetchUrl": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": false,
+        "reviewedFragmentsOnly": true,
+        "reviewedResources": [
+          {
+            "selector": "#maincontent",
+            "expectedCount": 1,
+            "sha256": "fafe4418903015637e1d8a5f7fd2f7d1770c09275f59160087e20ff370b876b6",
+            "kind": "undated recording archive",
+            "reason": "The page describes monthly faculty seminars and lists recordings of past talks, without per-occurrence full dates. Monthly frequency and video publication dates cannot define a scheduled event.",
+            "reviewedAt": "2026-10-25"
+          }
+        ]
+      },
+      "strategy": "Monitor the scoped public recording archive by text and advertised-resource fingerprint. Unchanged resource content is explicitly undated; changed content requires review before publishing event fields.",
+      "reason": "",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.238034+00:00",
+        "httpStatus": 200,
+        "structure": "The faculty seminar page is an undated list of recorded talks and speaker information. No full event occurrence dates are printed, so recording/publication dates cannot be used as seminar dates.",
+        "accessReview": {
+          "checkedAt": "2026-10-25T20:48:50.450Z",
+          "status": "active",
+          "reason": "The page describes monthly faculty seminars and lists recordings of past talks, without per-occurrence full dates. Monthly frequency and video publication dates cannot define a scheduled event.",
+          "nextStep": "If a dated schedule is added, the changed fingerprint raises a review alert; add an extractor only after full event dates are published.",
+          "httpStatus": 200,
+          "primaryTransportAvailable": true,
+          "attention": false,
+          "report": "research/remaining-19-2026-10-25/academic.json"
+        },
+        "solutionReview": {
+          "checkedAt": "2026-10-25T20:48:50.450Z",
+          "report": "research/remaining-19-2026-10-25/academic.json",
+          "reason": "The page describes monthly faculty seminars and lists recordings of past talks, without per-occurrence full dates. Monthly frequency and video publication dates cannot define a scheduled event.",
+          "nextStep": "If a dated schedule is added, the changed fingerprint raises a review alert; add an extractor only after full event dates are published."
+        }
+      },
+      "state": "undated",
+      "lastAttempt": "2026-10-25T21:03:53.524Z",
+      "lastSuccess": "2026-10-25T21:03:53.524Z",
+      "error": null,
+      "warnings": [
+        "Monitored undated recording archive: The page describes monthly faculty seminars and lists recordings of past talks, without per-occurrence full dates. Monthly frequency and video publication dates cannot define a scheduled event."
+      ],
+      "eventCount": 0
+    },
+    {
+      "id": "d89f616f8462",
+      "department": "Dietrich College",
+      "org": "IDeaS Virtual Social Cybersecurity Seminar",
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+      "kind": "event_listing",
+      "adapter": "html",
+      "fetchUrl": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+      "status": "active",
+      "canonicalSourceId": null,
+      "refreshHours": 6,
+      "options": {
+        "timezone": "America/New_York",
+        "detailLinks": false,
+        "reviewedResources": [
+          {
+            "selector": ".content",
+            "expectedCount": 1,
+            "sha256": "6b04849d3e47e93d05c9f93a3fbe3164f657b426cc66d9257abc3016156d01f8",
+            "kind": "undated seminar series",
+            "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented."
+          }
+        ]
+      },
+      "strategy": "Retain the public source and exact inspected limitation; enable ingestion only when occurrence dates can be grounded.",
+      "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented.",
+      "evidence": {
+        "anonymousAccessVerified": true,
+        "checkedAt": "2026-10-21T17:56:15.333205+00:00",
+        "httpStatus": 200,
+        "structure": "The page states first-Thursday-of-month timing and lists past month/year speakers, but supplies no exact dated upcoming occurrences or recurrence start/end anchors. A monthly schedule cannot be materialized without inventing calendar bounds.",
+        "accessReview": {
+          "checkedAt": "2026-10-25T20:49:29.492Z",
+          "status": "monitored_undated_resource",
+          "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented.",
+          "nextStep": "Continue monitoring; review changes before accepting newly dated announcements.",
+          "httpStatus": 200,
+          "primaryTransportAvailable": true,
+          "attention": false,
+          "report": "research/remaining-19-2026-10-25/partial-family.json"
+        },
+        "solutionReview": {
+          "checkedAt": "2026-10-25T20:49:29.492Z",
+          "report": "research/remaining-19-2026-10-25/partial-family.json",
+          "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented.",
+          "nextStep": "Continue monitoring; review changes before accepting newly dated announcements."
+        }
+      },
+      "state": "undated",
+      "lastAttempt": "2026-10-25T21:03:58.636Z",
+      "lastSuccess": "2026-10-25T21:03:58.636Z",
+      "error": null,
+      "warnings": [
+        "Monitored undated seminar series: The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented."
+      ],
+      "eventCount": 0
+    }
+  ]
+}

@@ -13,7 +13,7 @@
         "onlineOnly": false,
         "reviewedPublicEvents": {
           "schemaVersion": 1,
-          "checkedAt": "2026-10-25T21:04:50.468Z",
+          "checkedAt": "2026-10-26T01:18:10.430Z",
           "listingURL": "https://community.cmu.edu/s/events",
           "scope": "Exactly23 cards publicly rendered across three inspected pages. Only visible card text, URLs, dates, location labels and the IDs required by their public clock getter are retained. No descriptions, hidden addresses, registration counts or unadvertised records retained. New event discovery remains incomplete.",
           "records": [
@@ -31,9 +31,19 @@
               "date": "2026-10-27",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
               "location": "",
-              "clockPolicy": "date_only",
-              "clockReviewReason": "Publisher clock zone does not unambiguously establish the local time of the city named in the public card.",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+              "clockPolicy": "reviewed_detail",
+              "clockReviewReason": "The original public detail establishes 08:00–09:30 AEDT on October 28, 2026, the same instant as October 27 at 17:00–18:30 in New York.",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg",
+              "detailReview": {
+                "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
+                "checkedAt": "2026-10-26T01:18:10.430Z",
+                "evidence": "research/visual-recheck-2026-10-25/evidence/alumni-sydney-date-time-venue.png",
+                "start": "2026-10-28T08:00:00",
+                "end": "2026-10-28T09:30:00",
+                "timeZone": "Australia/Sydney",
+                "location": "Planar Restaurant, ICC Sydney, Shop C08, Ground Floor/14 Darling Dr, Darling Harbour NSW 2000, Australia",
+                "description": "Sydney alumni and friends are welcome to an informal coffee gathering at Planar Restaurant. Local event time: October 28, 2026, 8:00–9:30 AM AEDT in Sydney (October 27, 5:00–6:30 PM in New York). Registration is shown as closed since October 6, 2026, 11:59 PM AEDT; confirm attendance arrangements with the organizer."
+              }
             },
             {
               "id": "a7DUk000000O7upMAC",
@@ -207,7 +217,8 @@
               "mode": "online",
               "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
             }
-          ]
+          ],
+          "reviewScope": "Existing 23 public cards retained; Sydney original public registration detail additionally reviewed. New-announcement discovery remains incomplete."
         }
       },
       "strategy": "Reuse the bounded public-card adapter and the publisher’s anonymous per-card clock getter. Restrict identities and display fields to visually verified public cards, preserve reviewed dates on missing or conflicting clocks, and always expose partial discovery coverage.",
@@ -230,20 +241,32 @@
           }
         ],
         "accessReview": {
-          "checkedAt": "2026-10-25T21:09:17.881Z",
-          "status": "public_cards_imported_discovery_partial",
-          "reason": "Only the 23 individually verified public cards are ingested, with anonymous publisher clock checks. The public list-view identity remains unresolved, so new announcements and title/venue changes still require another public review.",
-          "nextStep": "Resolve the exact public calendar list-view identity or implement another publisher-advertised public discovery endpoint; continue visual public-card review until then. No account, broad unfiltered list or private detail is used.",
+          "checkedAt": "2026-10-26T01:29:18.514Z",
+          "status": "public_detail_time_resolved_discovery_still_partial",
+          "reason": "Three public calendar pages still match all 23 reviewed card titles/dates. The original Sydney detail is publicly browser-readable and establishes October 28, 2026, 08:00–09:30 AEDT and Planar Restaurant; automatic new-card discovery remains incomplete.",
+          "nextStep": "Continue anonymous clock checks for reviewed IDs; resolve a publisher-advertised public discovery mechanism before declaring full coverage.",
           "httpStatus": 200,
           "primaryTransportAvailable": true,
-          "attention": false,
-          "report": "research/remaining-19-2026-10-25/alumni-discovery.json"
+          "attention": true,
+          "report": "research/visual-recheck-2026-10-25/alumni.json"
         },
         "solutionReview": {
           "checkedAt": "2026-10-25T21:09:17.879Z",
           "report": "research/remaining-19-2026-10-25/alumni-discovery.json",
           "reason": "Only the 23 individually verified public cards are ingested, with anonymous publisher clock checks. The public list-view identity remains unresolved, so new announcements and title/venue changes still require another public review.",
           "nextStep": "Resolve the exact public calendar list-view identity or implement another publisher-advertised public discovery endpoint; continue visual public-card review until then. No account, broad unfiltered list or private detail is used."
+        },
+        "visualReview": {
+          "checkedAt": "2026-10-26T01:18:10.430Z",
+          "method": "CUA visible public calendar and original registration detail",
+          "status": "public_detail_accessible_and_sydney_time_resolved",
+          "reason": "The original GiveCampus page is browser-accessible and resolves Sydney local date/time, venue and registration status. The anonymous node transport limitation does not mean the public page requires login.",
+          "nextStep": "Keep new-announcement discovery partial; reuse the reviewed detail only while the anonymous publisher clock agrees with its start.",
+          "report": "research/visual-recheck-2026-10-25/alumni.json",
+          "requiresReview": true,
+          "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
+          "outcome": "public_detail_time_resolved_discovery_still_partial",
+          "note": "Three public calendar pages still match all 23 reviewed card titles/dates. The original Sydney detail is publicly browser-readable and establishes October 28, 2026, 08:00–09:30 AEDT and Planar Restaurant; automatic new-card discovery remains incomplete."
         }
       },
       "status": "active",
@@ -260,7 +283,7 @@
         "onlineOnly": true,
         "reviewedPublicEvents": {
           "schemaVersion": 1,
-          "checkedAt": "2026-10-25T21:04:50.468Z",
+          "checkedAt": "2026-10-26T01:18:10.430Z",
           "listingURL": "https://community.cmu.edu/s/events",
           "scope": "Exactly23 cards publicly rendered across three inspected pages. Only visible card text, URLs, dates, location labels and the IDs required by their public clock getter are retained. No descriptions, hidden addresses, registration counts or unadvertised records retained. New event discovery remains incomplete.",
           "records": [
@@ -278,9 +301,19 @@
               "date": "2026-10-27",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
               "location": "",
-              "clockPolicy": "date_only",
-              "clockReviewReason": "Publisher clock zone does not unambiguously establish the local time of the city named in the public card.",
-              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg"
+              "clockPolicy": "reviewed_detail",
+              "clockReviewReason": "The original public detail establishes 08:00–09:30 AEDT on October 28, 2026, the same instant as October 27 at 17:00–18:30 in New York.",
+              "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page1.jpg",
+              "detailReview": {
+                "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
+                "checkedAt": "2026-10-26T01:18:10.430Z",
+                "evidence": "research/visual-recheck-2026-10-25/evidence/alumni-sydney-date-time-venue.png",
+                "start": "2026-10-28T08:00:00",
+                "end": "2026-10-28T09:30:00",
+                "timeZone": "Australia/Sydney",
+                "location": "Planar Restaurant, ICC Sydney, Shop C08, Ground Floor/14 Darling Dr, Darling Harbour NSW 2000, Australia",
+                "description": "Sydney alumni and friends are welcome to an informal coffee gathering at Planar Restaurant. Local event time: October 28, 2026, 8:00–9:30 AM AEDT in Sydney (October 27, 5:00–6:30 PM in New York). Registration is shown as closed since October 6, 2026, 11:59 PM AEDT; confirm attendance arrangements with the organizer."
+              }
             },
             {
               "id": "a7DUk000000O7upMAC",
@@ -454,7 +487,8 @@
               "mode": "online",
               "evidence": "research/club-source-removal-2026-10-25/evidence/access-alumni-community-page3.jpg"
             }
-          ]
+          ],
+          "reviewScope": "Existing 23 public cards retained; Sydney original public registration detail additionally reviewed. New-announcement discovery remains incomplete."
         }
       },
       "strategy": "Reuse the bounded public-card adapter and the publisher’s anonymous per-card clock getter. Restrict identities and display fields to visually verified public cards, preserve reviewed dates on missing or conflicting clocks, and always expose partial discovery coverage.",
@@ -470,20 +504,28 @@
         ],
         "observedChildUrls": [],
         "accessReview": {
-          "checkedAt": "2026-10-25T21:09:17.881Z",
-          "status": "public_cards_imported_discovery_partial",
-          "reason": "Only the four visually confirmed cards with an explicit online venue are ingested. New online-announcement discovery is not yet connected; the exact public list-view identity remains unresolved.",
-          "nextStep": "Resolve the exact public calendar list-view identity or implement another publisher-advertised public discovery endpoint; continue visual public-card review until then. No account, broad unfiltered list or private detail is used.",
+          "checkedAt": "2026-10-26T01:29:18.514Z",
+          "status": "public_online_scope_visually_confirmed",
+          "reason": "All three public calendar pages were checked after dates loaded. Exactly four cards explicitly label an online venue; discovery of new cards still requires public review.",
+          "nextStep": "Continue anonymous clock checks for reviewed IDs; resolve a publisher-advertised public discovery mechanism before declaring full coverage.",
           "httpStatus": 200,
           "primaryTransportAvailable": true,
-          "attention": false,
-          "report": "research/remaining-19-2026-10-25/alumni-discovery.json"
+          "attention": true,
+          "report": "research/visual-recheck-2026-10-25/alumni.json"
         },
         "solutionReview": {
           "checkedAt": "2026-10-25T21:09:17.881Z",
           "report": "research/remaining-19-2026-10-25/alumni-discovery.json",
           "reason": "Only the four visually confirmed cards with an explicit online venue are ingested. New online-announcement discovery is not yet connected; the exact public list-view identity remains unresolved.",
           "nextStep": "Resolve the exact public calendar list-view identity or implement another publisher-advertised public discovery endpoint; continue visual public-card review until then. No account, broad unfiltered list or private detail is used."
+        },
+        "visualReview": {
+          "checkedAt": "2026-10-26T01:29:18.514Z",
+          "url": "https://community.cmu.edu/s/events",
+          "outcome": "public_online_scope_visually_confirmed",
+          "note": "All three public calendar pages were checked after dates loaded. Exactly four cards explicitly label an online venue; discovery of new cards still requires public review.",
+          "report": "research/visual-recheck-2026-10-25/alumni.json",
+          "requiresReview": true
         }
       },
       "status": "active",
@@ -906,34 +948,63 @@
             "selector": "body > .container",
             "expectedCount": 1,
             "sha256": "935fd588e8c75a212d219e5f6913e36ef0f5ad09bebf8550e1d694154c07f826",
-            "kind": "undated recording archive",
-            "reason": "This is the EWO Seminar Slides archive with downloadable slides and recordings. The EWO parent overview explicitly describes it as a list of seminar slides; no current occurrence schedule is published in the inspected page. File names and media timestamps are not event dates.",
-            "reviewedAt": "2026-10-25"
+            "kind": "historical seminar slide archive",
+            "reason": "This archive includes at least one precisely dated seminar: Fred Gardi, May 7, 2026. Reviewed John Hooker slides give only April 2026, and the Lara title page has no full occurrence date. These are historical resources, not a current scheduled calendar.",
+            "reviewedAt": "2026-10-25",
+            "undated": false
+          }
+        ],
+        "reviewedImages": [
+          {
+            "selector": "a[href=\"docs/EWO Seminar Carnegie Mellon - Fred Gardi - Hexaly.pdf\"]",
+            "attribute": "href",
+            "sha256": "28710b3e961e6ad8b977a716d32c61630107f3208cfdd6027d5ffeee67cb80e7",
+            "events": [
+              {
+                "title": "Beyond MILP: Hexaly, a Hybrid Optimization Solver — Fred Gardi",
+                "start": "2026-05-07",
+                "end": "2026-05-08",
+                "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+                "description": "EWO Seminar. Speaker: Fred Gardi. Time and room are not listed."
+              }
+            ]
           }
         ]
       },
-      "strategy": "Monitor the scoped public recording archive by text and advertised-resource fingerprint. Unchanged resource content is explicitly undated; changed content requires review before publishing event fields.",
-      "reason": "",
+      "strategy": "Reuse the SHA-256-bound reviewed media adapter for the publisher-advertised PDF href, with full archive content monitoring. Distinguish accepted historical dates from undated current schedules.",
+      "reason": "Visual review corrected the prior undated classification: Fred Gardi’s public slides explicitly give May 7, 2026. The accepted dated occurrence is outside the collection window. Other reviewed files lack a full date; filenames, PDF metadata and month-only captions are not used to invent occurrences.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.149006+00:00",
         "httpStatus": 200,
         "structure": "The public page lists seminar/tutorial slides and recordings without explicit occurrence dates; it is an undated resource archive.",
         "accessReview": {
-          "checkedAt": "2026-10-25T20:48:50.450Z",
-          "status": "active",
-          "reason": "This is the EWO Seminar Slides archive with downloadable slides and recordings. The EWO parent overview explicitly describes it as a list of seminar slides; no current occurrence schedule is published in the inspected page. File names and media timestamps are not event dates.",
-          "nextStep": "If a dated schedule is added, the changed fingerprint raises a review alert; add an extractor only after full event dates are published.",
+          "checkedAt": "2026-10-26T01:24:57.859Z",
+          "status": "correction_dated_historical_document_found",
+          "reason": "官网主页面为EWO Seminar Slides，系列首页也称a list of seminars with slides to download，确实属于演讲资料档案。 最新Fred Gardi演示文稿首屏实际打印EWO Seminar, Carnegie Mellon University和May7,2026，故不能一概称为无日期。它可复用链接文档SHA校验接入为历史、当前窗口外记录。 John Hooker首屏只打印CMU, April2026，没有day；不能补成某一天。 Lara封面本身无日期，文件名January22/PDF元数据01-21均不当作活动日期。",
+          "nextStep": "为公开PDF锚点复用已审核资源字节哈希和人工视觉字段；archive resource guard设置undated:false，保持日期精度。限定为本轮读过的三个最新PDF首屏及明确找到的一条完整历史日期，不声称已经复核全部旧PDF。",
           "httpStatus": 200,
           "primaryTransportAvailable": true,
           "attention": false,
-          "report": "research/remaining-19-2026-10-25/academic.json"
+          "report": "research/visual-recheck-2026-10-25/undated-four.json"
         },
         "solutionReview": {
           "checkedAt": "2026-10-25T20:48:50.450Z",
           "report": "research/remaining-19-2026-10-25/academic.json",
           "reason": "This is the EWO Seminar Slides archive with downloadable slides and recordings. The EWO parent overview explicitly describes it as a list of seminar slides; no current occurrence schedule is published in the inspected page. File names and media timestamps are not event dates.",
           "nextStep": "If a dated schedule is added, the changed fingerprint raises a review alert; add an extractor only after full event dates are published."
+        },
+        "visualReview": {
+          "checkedAt": "2026-10-26T01:24:57.859Z",
+          "method": "CUA public archive and three public PDF title pages",
+          "status": "historical_date_recovered_from_public_pdf",
+          "reason": "Visual review corrected the prior undated classification: Fred Gardi’s public slides explicitly give May 7, 2026. The accepted dated occurrence is outside the collection window. Other reviewed files lack a full date; filenames, PDF metadata and month-only captions are not used to invent occurrences.",
+          "nextStep": "Review changed archive links or document bytes before accepting new fields; no claim of exhaustive historical PDF coverage.",
+          "report": "research/visual-recheck-2026-10-25/undated-four.json",
+          "requiresReview": false,
+          "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+          "outcome": "correction_dated_historical_document_found",
+          "note": "官网主页面为EWO Seminar Slides，系列首页也称a list of seminars with slides to download，确实属于演讲资料档案。 最新Fred Gardi演示文稿首屏实际打印EWO Seminar, Carnegie Mellon University和May7,2026，故不能一概称为无日期。它可复用链接文档SHA校验接入为历史、当前窗口外记录。 John Hooker首屏只打印CMU, April2026，没有day；不能补成某一天。 Lara封面本身无日期，文件名January22/PDF元数据01-21均不当作活动日期。"
         }
       }
     },
@@ -1133,27 +1204,37 @@
         ]
       },
       "strategy": "Check the publisher directory and four reviewed child pages every refresh. Reuse reviewed fragments for consistent historical dates and hash-guarded unresolved-resource diagnostics for conflicting years; never select one contradictory date silently.",
-      "reason": "Two 2025 technical reviews have consistent full dates and are recognized outside the current window. Two pages labelled 2026 conflict with 2025 headings; both contradictory values remain visible as partial coverage and all pages continue being checked.",
+      "reason": "公开目录和正文均可正常浏览；两场2026技术会议存在真实年份冲突，Japan还链接了2025旧报名表。受限演讲附件未能提供额外公共核实依据。保留冲突并继续监测，不猜定年份、不称整站无法访问。",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:14.991835+00:00",
         "httpStatus": 200,
         "structure": "Dated child pages exist, but the 2026 Japan review heading says June 30, 2025 and the 2026 Spring review heading says June 9, 2025 while its agenda says June 9, 2026. Conflicting source years are not resolved by guessing from titles.",
         "accessReview": {
-          "checkedAt": "2026-10-25T20:54:07.458Z",
-          "status": "partial_publisher_date_conflicts",
-          "reason": "Two 2025 technical reviews have consistent full dates and are recognized outside the current window. Two pages labelled 2026 conflict with 2025 headings; both contradictory values remain visible as partial coverage and all pages continue being checked.",
-          "nextStep": "DSSC should correct the visible event headings or publish an unambiguous official dated calendar/agenda. All competing dates currently predate the ingestion window, but that does not remove the source conflict.",
+          "checkedAt": "2026-10-26T01:29:18.514Z",
+          "status": "publisher_date_conflict_visually_confirmed",
+          "reason": "公开目录和正文均可正常浏览；两场2026技术会议存在真实年份冲突，Japan还链接了2025旧报名表。受限演讲附件未能提供额外公共核实依据。保留冲突并继续监测，不猜定年份、不称整站无法访问。",
+          "nextStep": "等待DSSC修正醒目会议日期/过期报名链接，或发布明确的公开完整议程。Spring可在诊断中展示2026议程日期这一强证据，但在冲突未解决前不发布唯一确定日期。",
           "httpStatus": 200,
           "primaryTransportAvailable": true,
-          "attention": false,
-          "report": "research/remaining-19-2026-10-25/root-investigation.json"
+          "attention": true,
+          "report": "research/visual-recheck-2026-10-25/dssc.json"
         },
         "solutionReview": {
           "checkedAt": "2026-10-25T20:54:07.457Z",
           "report": "research/remaining-19-2026-10-25/root-investigation.json",
           "reason": "Two 2025 technical reviews have consistent full dates and are recognized outside the current window. Two pages labelled 2026 conflict with 2025 headings; both contradictory values remain visible as partial coverage and all pages continue being checked.",
           "nextStep": "DSSC should correct the visible event headings or publish an unambiguous official dated calendar/agenda. All competing dates currently predate the ingestion window, but that does not remove the source conflict."
+        },
+        "visualReview": {
+          "checkedAt": "2026-10-26T01:12:10.168Z",
+          "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+          "outcome": "publisher_date_conflict_visually_confirmed",
+          "note": "CUA截图确认Japan正文2025-06-30与2026标题矛盾，Spring正文2025-06-09与议程2026-06-09矛盾；Japan报名链接指向2025-05-22旧会，两份演讲PDF均要求授权。不是无法打开主页，也不是解析器误取页脚。",
+          "reason": "公开目录和正文均可正常浏览；两场2026技术会议存在真实年份冲突，Japan还链接了2025旧报名表。受限演讲附件未能提供额外公共核实依据。保留冲突并继续监测，不猜定年份、不称整站无法访问。",
+          "nextStep": "等待DSSC修正醒目会议日期/过期报名链接，或发布明确的公开完整议程。Spring可在诊断中展示2026议程日期这一强证据，但在冲突未解决前不发布唯一确定日期。",
+          "report": "research/visual-recheck-2026-10-25/dssc.json",
+          "requiresReview": true
         }
       }
     },
@@ -1270,27 +1351,35 @@
         ]
       },
       "strategy": "Monitor the scoped public recording archive by text and advertised-resource fingerprint. Unchanged resource content is explicitly undated; changed content requires review before publishing event fields.",
-      "reason": "",
+      "reason": "Faculty页为Past Seminars录像档案，monthly文字和YouTube上传日均非逐场活动日期；其他当前EPP公开活动由独立LiveWhale来源1b0f0b6e62fa覆盖。",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.238034+00:00",
         "httpStatus": 200,
         "structure": "The faculty seminar page is an undated list of recorded talks and speaker information. No full event occurrence dates are printed, so recording/publication dates cannot be used as seminar dates.",
         "accessReview": {
-          "checkedAt": "2026-10-25T20:48:50.450Z",
-          "status": "active",
-          "reason": "The page describes monthly faculty seminars and lists recordings of past talks, without per-occurrence full dates. Monthly frequency and video publication dates cannot define a scheduled event.",
-          "nextStep": "If a dated schedule is added, the changed fingerprint raises a review alert; add an extractor only after full event dates are published.",
+          "checkedAt": "2026-10-26T01:26:34.193600+00:00",
+          "status": "public_recording_archive_date_limitation_confirmed",
+          "reason": "特定页面是无发生日期录像档案，公开可达。EPP整个组织并非无活动；不能把档案日期不足扩大成整个组织empty。",
+          "nextStep": "保留faculty档案资源指纹监测；日期发布后再提取。当前部门日程继续由1b0f0b6e62fa的LiveWhale widget630覆盖，不将更宽日历别名到faculty档案。",
           "httpStatus": 200,
           "primaryTransportAvailable": true,
           "attention": false,
-          "report": "research/remaining-19-2026-10-25/academic.json"
+          "report": "research/visual-recheck-2026-10-25/real-ideas-epp.json"
         },
         "solutionReview": {
           "checkedAt": "2026-10-25T20:48:50.450Z",
           "report": "research/remaining-19-2026-10-25/academic.json",
           "reason": "The page describes monthly faculty seminars and lists recordings of past talks, without per-occurrence full dates. Monthly frequency and video publication dates cannot define a scheduled event.",
           "nextStep": "If a dated schedule is added, the changed fingerprint raises a review alert; add an extractor only after full event dates are published."
+        },
+        "visualReview": {
+          "checkedAt": "2026-10-26T01:26:34.193600+00:00",
+          "url": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+          "outcome": "public_recording_archive_date_limitation_confirmed",
+          "note": "Faculty Seminar页是monthly介绍和20个Past Seminars录像标题，没有当前发生日期。实际展开首条Daniel Armanios与末条Kate Whitefoot的官方视频说明，仅有上传日2025-04-10/2025-02-28和一般内容简介。相邻EPP Events确有2026-11-09 Sonia讲座，由另一独立已配置来源覆盖。",
+          "report": "research/visual-recheck-2026-10-25/real-ideas-epp.json",
+          "requiresReview": false
         }
       }
     },
@@ -2346,27 +2435,35 @@
         ]
       },
       "strategy": "Retain the public source and exact inspected limitation; enable ingestion only when occurrence dates can be grounded.",
-      "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented.",
+      "reason": "公开折叠内容已核对，三位upcoming与Evan介绍无日期；合办工作组Upcoming为TBD，公开ICS最新2022且混有其他范围。保持undated监测，不推算无限月度重复。",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.333205+00:00",
         "httpStatus": 200,
         "structure": "The page states first-Thursday-of-month timing and lists past month/year speakers, but supplies no exact dated upcoming occurrences or recurrence start/end anchors. A monthly schedule cannot be materialized without inventing calendar bounds.",
         "accessReview": {
-          "checkedAt": "2026-10-25T20:49:29.492Z",
-          "status": "monitored_undated_resource",
-          "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented.",
-          "nextStep": "Continue monitoring; review changes before accepting newly dated announcements.",
+          "checkedAt": "2026-10-26T01:26:34.193600+00:00",
+          "status": "public_undated_series_confirmed",
+          "reason": "公开可达，缺当前场次日期；不是登录或订阅障碍。合办日历混合其他工作组、会议、CFP，不能整体别名到CMU该系列。",
+          "nextStep": "保留undated监测；出现明确年份/日期再采集。合办日历可作独立监测候选，但自动导入前需证实系列过滤，不能全部导入。",
           "httpStatus": 200,
           "primaryTransportAvailable": true,
           "attention": false,
-          "report": "research/remaining-19-2026-10-25/partial-family.json"
+          "report": "research/visual-recheck-2026-10-25/real-ideas-epp.json"
         },
         "solutionReview": {
           "checkedAt": "2026-10-25T20:49:29.492Z",
           "report": "research/remaining-19-2026-10-25/partial-family.json",
           "reason": "The first-Thursday monthly text has no first/last occurrence anchors; upcoming speaker names lack exact dates and historical speakers are listed by month/year. No recurrence bounds or current-year dates are invented.",
           "nextStep": "Continue monitoring; review changes before accepting newly dated announcements."
+        },
+        "visualReview": {
+          "checkedAt": "2026-10-26T01:26:34.193600+00:00",
+          "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+          "outcome": "public_undated_series_confirmed",
+          "note": "实际展开Upcoming/Past：三位upcoming只有姓名主题，无日期；历史区明确Spring2024、2023、2022。Evan介绍和first Thursday 11–12规则没有当前场次年份/边界。沿合办官网发现公开Google日历：工作组Upcoming Speakers为TBD，2026年10月日历完成加载为空；ICS91条均2017–2022且无RRULE。",
+          "report": "research/visual-recheck-2026-10-25/real-ideas-epp.json",
+          "requiresReview": false
         }
       }
     },
@@ -3285,20 +3382,28 @@
           }
         ],
         "accessReview": {
-          "checkedAt": "2026-10-25T21:01:23.783Z",
-          "status": "monitored_navigation_only_calendar_views",
-          "reason": "The earlier dynamic-calendar explanation is unsupported by the rendered and static evidence. The inspected views are public but unpopulated.",
-          "nextStep": "A changed month heading, published event card or new advertised resource triggers review. Continue relying on the independently configured official SV feed for its own scope.",
+          "checkedAt": "2026-10-26T01:24:57.859Z",
+          "status": "confirmed_unpopulated_inspected_month_views",
+          "reason": "实际视觉检查当前入口October2026、显式October归档、November以及September页面。四页活动区均只有月份标题与前后月链接，没有活动卡片或具体日期条目。 没有观察到活动筛选控件；站点搜索与隐藏导航控件不属于活动日期筛选。没有观察到日历数据组件，页面里的无关嵌入不当成活动日历。 这只能确认所检视图未列出场次；不能据此声称SV校园没有活动，其他独立SV官方日历继续保留各自范围。",
+          "nextStep": "维持该页面视图的变更监测，保留导航页/未公布场次的具体原因；不改成组织层面empty，也不发明动态API失效原因。",
           "httpStatus": 200,
           "primaryTransportAvailable": true,
           "attention": false,
-          "report": "research/remaining-19-2026-10-25/alumni-other-sources.json"
+          "report": "research/visual-recheck-2026-10-25/undated-four.json"
         },
         "solutionReview": {
           "checkedAt": "2026-10-25T21:01:23.783Z",
           "report": "research/remaining-19-2026-10-25/alumni-other-sources.json",
           "reason": "The earlier dynamic-calendar explanation is unsupported by the rendered and static evidence. The inspected views are public but unpopulated.",
           "nextStep": "A changed month heading, published event card or new advertised resource triggers review. Continue relying on the independently configured official SV feed for its own scope."
+        },
+        "visualReview": {
+          "checkedAt": "2026-10-26T01:24:57.859Z",
+          "url": "https://www.sv.cmu.edu/events/index.html",
+          "outcome": "confirmed_unpopulated_inspected_month_views",
+          "note": "实际视觉检查当前入口October2026、显式October归档、November以及September页面。四页活动区均只有月份标题与前后月链接，没有活动卡片或具体日期条目。 没有观察到活动筛选控件；站点搜索与隐藏导航控件不属于活动日期筛选。没有观察到日历数据组件，页面里的无关嵌入不当成活动日历。 这只能确认所检视图未列出场次；不能据此声称SV校园没有活动，其他独立SV官方日历继续保留各自范围。",
+          "report": "research/visual-recheck-2026-10-25/undated-four.json",
+          "requiresReview": false
         }
       },
       "status": "active",
@@ -4774,20 +4879,28 @@
         "httpStatus": 200,
         "structure": "Both inspected workshop detail pages say workshops are available for group booking and provide no scheduled occurrence date. These are on-demand offerings, not dated events.",
         "accessReview": {
-          "checkedAt": "2026-10-25T20:48:50.451Z",
-          "status": "monitored_undated_resource",
-          "reason": "All three advertised workshops are available for group booking; no individually dated occurrence is published.",
-          "nextStep": "If any monitored page publishes a date, its changed fingerprint raises a review item for conversion into a scheduled event.",
+          "checkedAt": "2026-10-26T01:24:57.859Z",
+          "status": "confirmed_on_demand_resource_not_empty_organization",
+          "reason": "浏览器目录列出三种课程和custom workshops。三条Learn More均实际打开。 三种详情均明确写currently available for group booking；仅给半日或2小时、最低8人及20/24人容量，无具体举办日期。 同一Contact Form实际只读核对，询问姓名、邮箱、所属机构、是否想预约、想预约哪种课程；没有日期选项。未填写、未提交、未订阅。",
+          "nextStep": "维持可预约资源监测；描述为尚未公布具体排期，不把课程时长变成发生日期，也不说CTP没有活动。",
           "httpStatus": 200,
           "primaryTransportAvailable": true,
           "attention": false,
-          "report": "research/remaining-19-2026-10-25/root-investigation.json"
+          "report": "research/visual-recheck-2026-10-25/undated-four.json"
         },
         "solutionReview": {
           "checkedAt": "2026-10-25T20:48:50.451Z",
           "report": "research/remaining-19-2026-10-25/root-investigation.json",
           "reason": "All three advertised workshops are available for group booking; no individually dated occurrence is published.",
           "nextStep": "If any monitored page publishes a date, its changed fingerprint raises a review item for conversion into a scheduled event."
+        },
+        "visualReview": {
+          "checkedAt": "2026-10-26T01:24:57.859Z",
+          "url": "https://www.cmu.edu/ctp/workshops/index.html",
+          "outcome": "confirmed_on_demand_resource_not_empty_organization",
+          "note": "浏览器目录列出三种课程和custom workshops。三条Learn More均实际打开。 三种详情均明确写currently available for group booking；仅给半日或2小时、最低8人及20/24人容量，无具体举办日期。 同一Contact Form实际只读核对，询问姓名、邮箱、所属机构、是否想预约、想预约哪种课程；没有日期选项。未填写、未提交、未订阅。",
+          "report": "research/visual-recheck-2026-10-25/undated-four.json",
+          "requiresReview": false
         }
       }
     },
@@ -4834,31 +4947,57 @@
             "url": "https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics",
             "publicURL": "https://www.cmu.edu/real/news-and-events/index.html",
             "adapter": "ics"
+          },
+          {
+            "url": "https://sites.google.com/andrew.cmu.edu/cmu-lcs/home",
+            "adapter": "html",
+            "options": {
+              "timezone": "America/New_York",
+              "detailLinks": false,
+              "reviewedFragmentsOnly": true,
+              "reviewedResources": [
+                {
+                  "selector": "body",
+                  "expectedCount": 1,
+                  "sha256": "fc95a6f8fbfa71309a2d271d0ce48e8eaf0ab61895f655b576a92261a9a01bf2",
+                  "kind": "undated next-talk page and historical archive",
+                  "reason": "The visually inspected next upcoming seminar is TBD and its dated archive is from 2024. Monitor this page independently of the linked ICS; new text or media requires review."
+                }
+              ]
+            }
           }
         ]
       },
       "strategy": "Reuse the public LCS ICS independently; retry the publisher-advertised Manipulation ICS and preserve a partial-coverage diagnostic while it is unavailable. Never turn the example timetable or biweekly description into events.",
-      "reason": "Learning and Control has a verified public ICS with independently dated historical events. The advertised Manipulation public ICS returns HTTP 404, leaving REAL coverage partial.",
+      "reason": "REAL公开。LCS可匿名读取但只有2024历史，下一场TBD；Manipulation匿名embed401/public ICS404，存在授权/公开发布范围缺口，覆盖仍partial。",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:15.079570+00:00",
         "httpStatus": 200,
         "structure": "The REAL page describes recurring discussion series and an example workshop timetable without calendar dates. Its advertised manipulation public Google ICS is unavailable; the linked Learning and Control site is public but its next seminar is TBD and its dated archive ends in May 2024; its separate public ICS is reachable and contains four independently dated 2024 events. The manipulation feed remains unavailable, so this does not supply complete current REAL coverage. No example timetable is converted into events.",
         "accessReview": {
-          "checkedAt": "2026-10-25T20:48:50.451Z",
-          "status": "partial_upstream_calendar_unavailable",
-          "reason": "Learning and Control has a verified public ICS with independently dated historical events. The advertised Manipulation public ICS returns HTTP 404, leaving REAL coverage partial.",
-          "nextStep": "The publisher must publish or repair the Manipulation calendar; the application retries it and retains the explicit gap.",
+          "checkedAt": "2026-10-26T01:26:34.193600+00:00",
+          "status": "partial_anonymous_calendar_authorization",
+          "reason": "限制在Manipulation匿名授权/公开发布范围；REAL主站访问正常。双周、每年两次频率及示例工作坊时间表没有独立发生日期。",
+          "nextStep": "保留REAL主站监测和LCS公开ICS；重试Manipulation并保留partial。由主办方公开日历/匿名日程后接入，不使用浏览器账号或邮件订阅弥补。",
           "httpStatus": 200,
           "primaryTransportAvailable": true,
-          "attention": false,
-          "report": "research/remaining-19-2026-10-25/root-investigation.json"
+          "attention": true,
+          "report": "research/visual-recheck-2026-10-25/real-ideas-epp.json"
         },
         "solutionReview": {
           "checkedAt": "2026-10-25T20:48:50.451Z",
           "report": "research/remaining-19-2026-10-25/root-investigation.json",
           "reason": "Learning and Control has a verified public ICS with independently dated historical events. The advertised Manipulation public ICS returns HTTP 404, leaving REAL coverage partial.",
           "nextStep": "The publisher must publish or repair the Manipulation calendar; the application retries it and retains the explicit gap."
+        },
+        "visualReview": {
+          "checkedAt": "2026-10-26T01:26:34.193600+00:00",
+          "url": "https://www.cmu.edu/real/news-and-events/index.html",
+          "outcome": "partial_anonymous_calendar_authorization",
+          "note": "主页面公开且有内容。Manipulation匿名嵌入401、公开ICS404；已有Google登录上下文的浏览器能显示其名称与2026年10月空网格，这不证明匿名公开，也不证明REAL没有活动。LCS公开站点和ICS均200，站点明确下一场TBD。",
+          "report": "research/visual-recheck-2026-10-25/real-ideas-epp.json",
+          "requiresReview": true
         }
       }
     },
@@ -4911,8 +5050,9 @@
             "selector": "#rsRegion-mainContent",
             "expectedCount": 1,
             "sha256": "c74c1dbf73667e0fb4431740481e81dee58bf4f48415e3698a731738d58340af",
-            "kind": "seminar-series directory",
-            "reason": "The page is an index of series and points its JavaScript table to a public series-directory data source. Series weekdays and clock times do not establish calendar occurrence dates."
+            "kind": "partially connected academic seminar directory",
+            "reason": "The directory lists 26 seminar series. Two previously unconnected public schedules (Cryptography and Econ-CS) now contribute verified occurrences. This is partial current-event coverage; not all linked series have been mapped into this source.",
+            "requiresReview": true
           }
         ],
         "additionalEndpoints": [
@@ -4933,31 +5073,161 @@
                 "reason": "This public directory lists 26 series with day, clock, contact and website columns, not dated occurrences. Transport dt/msg fields are excluded; actual column schema and series rows remain monitored."
               }
             }
+          },
+          {
+            "url": "https://sites.google.com/view/crypto-seminar/home",
+            "adapter": "html",
+            "options": {
+              "timezone": "America/New_York",
+              "detailLinks": false,
+              "reviewedFragmentsOnly": true,
+              "reviewedFragments": [
+                {
+                  "selector": "body",
+                  "expectedCount": 1,
+                  "sha256": "a936ae5b2297b2ba4279cc643d1b55c3f39a4aafe743ec8bb9bda134dcd9c6cd",
+                  "events": [
+                    {
+                      "uid": "cmu-crypto-qi-pang-2026-10-28",
+                      "title": "CMU LayerZero Crypto Seminar — Qi Pang",
+                      "start": "2026-10-28T13:30:00",
+                      "location": "GHC 7501; Zoom",
+                      "mode": "hybrid",
+                      "url": "https://sites.google.com/view/crypto-seminar/home",
+                      "description": "Speaker: Qi Pang. Talk topic and abstract to be announced. Special session on Wednesday at 1:30 PM Eastern Time. CMU LayerZero Crypto Seminar."
+                    },
+                    {
+                      "uid": "cmu-crypto-chase-fickes-2026-11-05",
+                      "title": "A Low-Communication Garbled RAM from Homomorphic Secret Sharing",
+                      "start": "2026-11-05T16:30:00",
+                      "location": "GHC 7501; Zoom",
+                      "mode": "hybrid",
+                      "url": "https://sites.google.com/view/crypto-seminar/home",
+                      "description": "Speaker: Chase Fickes. CMU LayerZero Crypto Seminar."
+                    },
+                    {
+                      "uid": "cmu-crypto-alper-cakan-2026-11-19",
+                      "title": "CMU LayerZero Crypto Seminar — Alper Çakan",
+                      "start": "2026-11-19T16:30:00",
+                      "location": "GHC 7501; Zoom",
+                      "mode": "hybrid",
+                      "url": "https://sites.google.com/view/crypto-seminar/home",
+                      "description": "Speaker: Alper Çakan. Talk topic and abstract to be announced. CMU LayerZero Crypto Seminar."
+                    }
+                  ]
+                }
+              ],
+              "reviewedResources": [
+                {
+                  "selector": "body",
+                  "expectedCount": 1,
+                  "sha256": "8e6ce173690595da3b2b2d8c03e2b7592bcd4e7d2bb1a0aa50542fe00d301c54",
+                  "kind": "visually reviewed academic seminar schedule",
+                  "undated": false,
+                  "reason": "Individual dates and the selected default/exception clocks were visually reviewed. Changed text, destinations, media or structured metadata requires renewed review before reusing these fixed fields."
+                }
+              ]
+            }
+          },
+          {
+            "url": "https://cmueconcs.github.io/",
+            "adapter": "html",
+            "options": {
+              "timezone": "America/New_York",
+              "detailLinks": false,
+              "reviewedFragmentsOnly": true,
+              "reviewedFragments": [
+                {
+                  "selector": "body",
+                  "expectedCount": 1,
+                  "sha256": "9627c3e9e15116f2e6ed4cfef1b5efa3c4f6c67d5975ca9447566875438fe7fd",
+                  "events": [
+                    {
+                      "uid": "cmu-econcs-nihar-shah-2026-09-15",
+                      "title": "ArabIan Nights: Tales of AI, Science, and Trouble",
+                      "start": "2026-09-15T14:00:00",
+                      "location": "NSH 3305; Zoom",
+                      "mode": "hybrid",
+                      "description": "Speaker: Nihar Shah (CMU). CMU Econ-CS Seminar.",
+                      "url": "https://cmueconcs.github.io/"
+                    },
+                    {
+                      "uid": "cmu-econcs-kate-donahue-2026-09-23",
+                      "title": "One AI, two AI, red AI, blue AI: Impacts of Aggregation on Model Diversity and Consumer Utility",
+                      "start": "2026-09-23T15:30:00",
+                      "location": "GHC 6115; Zoom",
+                      "mode": "hybrid",
+                      "description": "Speaker: Kate Donahue (UIUC). CMU Econ-CS Seminar.",
+                      "url": "https://cmueconcs.github.io/"
+                    },
+                    {
+                      "uid": "cmu-econcs-jiannan-xu-2026-09-23",
+                      "title": "Escaping the Nash Trap: Structural Estimation and Alignment of Strategic Reasoning in Large Language Models",
+                      "start": "2026-09-23T16:30:00",
+                      "location": "GHC 6115; Zoom",
+                      "mode": "hybrid",
+                      "description": "Speaker: Jiannan Xu (UMD). CMU Econ-CS Seminar.",
+                      "url": "https://cmueconcs.github.io/"
+                    },
+                    {
+                      "uid": "cmu-econcs-brian-zhang-2026-09-29",
+                      "title": "CMU Econ-CS Seminar — Brian Zhang",
+                      "start": "2026-09-29T14:00:00",
+                      "location": "NSH 3305; Zoom",
+                      "mode": "hybrid",
+                      "description": "Speaker: Brian Zhang (MIT). Talk topic to be announced. CMU Econ-CS Seminar.",
+                      "url": "https://cmueconcs.github.io/"
+                    }
+                  ]
+                }
+              ],
+              "reviewedResources": [
+                {
+                  "selector": "body",
+                  "expectedCount": 1,
+                  "sha256": "33c4d878e0954e3e81ab2b150043c45b7f4aa4ae6e8f0f7cb7a5202fd992cab0",
+                  "kind": "visually reviewed academic seminar schedule",
+                  "undated": false,
+                  "reason": "Individual dates and the selected default/exception clocks were visually reviewed. Changed text, destinations, media or structured metadata requires renewed review before reusing these fixed fields."
+                }
+              ]
+            }
           }
         ]
       },
-      "strategy": "Monitor the scoped HTML and the public series-directory JSON projection for additions or changed calendars. Individually configured series retain their own event ingestion; no recurring occurrences are inferred from directory weekdays.",
-      "reason": "The source is a public series directory rather than a dated event listing; its directory data is monitored independently of the static shell.",
+      "strategy": "Monitor the official 26-series directory and its JSON projection, and reuse reviewed-fragment HTML extraction for the two explicitly linked public schedules. Preserve the Wednesday time exception, printed fall-room context, missing talk topics and absent end times.",
+      "reason": "Visual review found concrete dated activities on two official directory-linked sites that the directory-only monitor had missed. Import 3 future Cryptography talks and 1 in-window Econ-CS talk using reviewed public schedules; keep partial coverage explicit for the remaining directory scope.",
       "evidence": {
         "anonymousAccessVerified": true,
         "checkedAt": "2026-10-21T17:56:14.972110+00:00",
         "httpStatus": 200,
         "structure": "The live SCS data source is a seminar-series directory with weekday/time/contact columns, not dated occurrences. Exact event dates must come from the individually linked series sources; the directory cannot ground a recurring event calendar.",
         "accessReview": {
-          "checkedAt": "2026-10-25T21:01:23.783Z",
-          "status": "monitored_series_directory",
-          "reason": "The official series data contains no occurrence date; a projected content fingerprint avoids constant false alerts from the publisher’s generated timestamp.",
-          "nextStep": "Review a changed directory or new linked calendar and configure the specific series; do not alias the entire SCS calendar.",
+          "checkedAt": "2026-10-26T01:24:57.859Z",
+          "status": "correction_linked_series_have_missing_dated_occurrences",
+          "reason": "等待动态表格真正加载后，将entries per page改为All，浏览器显示26 of26。列只有系列名称、简称、星期、时刻、联系入口，没有个别场次日期。 目录判断本身正确，但不能由此认为所有官方链接都没有日期。两项尚未独立接入的公开链接实测有明确排期。 Crypto页面Coming Talks实际列出Qi Pang2026-10-28周三13:30ET例外、Chase Fickes2026-11-05、Alper Çakan2026-11-19。后两者应用页面明确的周四16:30ET时刻；F26房间GHC7501并有Zoom直播。三条均展开复核。 Econ-CS Fall2026表格有4条完整date/time记录，其中Sept29 Brian Zhang14:00ET、NSH3305/Zoom位于当前回看窗口；该条talk topic仍TBD，不能丢掉已经明确排定的系列+speaker场次，也不能编造主题。 目录的LTI默认14:00与现行2026海报所列15:30不同，说明目录星期/时刻可能过时，不应覆盖个别当前公告。",
+          "nextStep": "在同一SCS目录来源ID下追加两个已视觉核实的学术系列HTML端点，复用reviewedFragments及资源变化监测。仅修复这两个子系列，不声称完成26个系列的所有日期覆盖；维持明确partial范围说明。",
           "httpStatus": 200,
           "primaryTransportAvailable": true,
-          "attention": false,
-          "report": "research/remaining-19-2026-10-25/alumni-other-sources.json"
+          "attention": true,
+          "report": "research/visual-recheck-2026-10-25/undated-four.json"
         },
         "solutionReview": {
           "checkedAt": "2026-10-25T21:01:23.782Z",
           "report": "research/remaining-19-2026-10-25/alumni-other-sources.json",
           "reason": "The official series data contains no occurrence date; a projected content fingerprint avoids constant false alerts from the publisher’s generated timestamp.",
           "nextStep": "Review a changed directory or new linked calendar and configure the specific series; do not alias the entire SCS calendar."
+        },
+        "visualReview": {
+          "checkedAt": "2026-10-26T01:24:57.859Z",
+          "method": "CUA public directory, expanded coming-talk cards and semester table",
+          "outcome": "correction_linked_series_have_missing_dated_occurrences",
+          "note": "等待动态表格真正加载后，将entries per page改为All，浏览器显示26 of26。列只有系列名称、简称、星期、时刻、联系入口，没有个别场次日期。 目录判断本身正确，但不能由此认为所有官方链接都没有日期。两项尚未独立接入的公开链接实测有明确排期。 Crypto页面Coming Talks实际列出Qi Pang2026-10-28周三13:30ET例外、Chase Fickes2026-11-05、Alper Çakan2026-11-19。后两者应用页面明确的周四16:30ET时刻；F26房间GHC7501并有Zoom直播。三条均展开复核。 Econ-CS Fall2026表格有4条完整date/time记录，其中Sept29 Brian Zhang14:00ET、NSH3305/Zoom位于当前回看窗口；该条talk topic仍TBD，不能丢掉已经明确排定的系列+speaker场次，也不能编造主题。 目录的LTI默认14:00与现行2026海报所列15:30不同，说明目录星期/时刻可能过时，不应覆盖个别当前公告。",
+          "reason": "Visual review found concrete dated activities on two official directory-linked sites that the directory-only monitor had missed. Import 3 future Cryptography talks and 1 in-window Econ-CS talk using reviewed public schedules; keep partial coverage explicit for the remaining directory scope.",
+          "nextStep": "Review changed child schedules and map additional directory links before claiming complete series coverage.",
+          "report": "research/visual-recheck-2026-10-25/undated-four.json",
+          "requiresReview": true,
+          "url": "https://www.cs.cmu.edu/events/scs-seminar-series"
         }
       }
     },

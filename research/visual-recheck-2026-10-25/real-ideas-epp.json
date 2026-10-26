@@ -1,0 +1,471 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-26T01:26:34.193600+00:00",
+  "localReviewDate": "2026-10-25",
+  "timezone": "America/New_York",
+  "sourceCount": 3,
+  "method": "逐项新鲜CUA截图和可见DOM；匿名HTTP仅补充。只操作自己的Chrome DOM标签。无登录、切换账号、订阅、邮件、表单/CAPTCHA操作；未改生产代码、配置、数据库。",
+  "summary": {
+    "currentSourceSpecificDatedOmissionsFound": 0,
+    "refinedAuthorizationExplanation": [
+      "4c4f223b8c8b"
+    ],
+    "newPublicCalendarCandidate": [
+      "d89f616f8462"
+    ],
+    "broaderCurrentCalendarSeparatelyCovered": [
+      "b453fc62eac4"
+    ],
+    "mustNotInferOrganizationEmpty": true
+  },
+  "sources": [
+    {
+      "sourceID": "4c4f223b8c8b",
+      "sourceURL": "https://www.cmu.edu/real/news-and-events/index.html",
+      "checkedAt": "2026-10-26T01:26:34.193600+00:00",
+      "outcome": "partial_anonymous_calendar_authorization",
+      "category": "public_page_with_restricted_calendar",
+      "requiresFix": true,
+      "inspectedURLs": [
+        "https://www.cmu.edu/real/news-and-events/index.html",
+        "https://calendar.google.com/calendar/embed?src=c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com&ctz=America%2FNew_York",
+        "https://sites.google.com/andrew.cmu.edu/cmu-lcs/home",
+        "https://calendar.google.com/calendar/ical/c_0c1dea11d4ea2e6c921bd6b47c076cff7d0e07ee47ec40be6fc1d6189c4a3cd0%40group.calendar.google.com/public/basic.ics"
+      ],
+      "note": "主页面公开且有内容。Manipulation匿名嵌入401、公开ICS404；已有Google登录上下文的浏览器能显示其名称与2026年10月空网格，这不证明匿名公开，也不证明REAL没有活动。LCS公开站点和ICS均200，站点明确下一场TBD。",
+      "reason": "限制在Manipulation匿名授权/公开发布范围；REAL主站访问正常。双周、每年两次频率及示例工作坊时间表没有独立发生日期。",
+      "nextStep": "保留REAL主站监测和LCS公开ICS；重试Manipulation并保留partial。由主办方公开日历/匿名日程后接入，不使用浏览器账号或邮件订阅弥补。",
+      "screenshot": "research/visual-recheck-2026-10-25/evidence/real-main.png",
+      "additionalScreenshots": [
+        "research/visual-recheck-2026-10-25/evidence/real-example-timetable.png",
+        "research/visual-recheck-2026-10-25/evidence/real-lcs-next-tbd.png",
+        "research/visual-recheck-2026-10-25/evidence/real-lcs-calendar-and-archive.png",
+        "research/visual-recheck-2026-10-25/evidence/real-manipulation-authenticated-empty.png"
+      ],
+      "visibleEvidence": [
+        {
+          "url": "https://www.cmu.edu/real/news-and-events/index.html",
+          "text": "Manipulation有CALENDAR链接；Learning and Control有WEBSITE；Community Events明确example schedule，10AM–3PM不是某日活动。"
+        },
+        {
+          "url": "https://sites.google.com/andrew.cmu.edu/cmu-lcs/home",
+          "text": "Next upcoming seminar: TBD；议程显示到2027-10-24无当前条目；历史档案有精确2024日期。",
+          "historicalDates": [
+            "2024-05-01",
+            "2024-04-17",
+            "2024-04-03",
+            "2024-03-13",
+            "2024-02-21"
+          ]
+        },
+        {
+          "url": "https://calendar.google.com/calendar/embed?src=c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com&ctz=America%2FNew_York",
+          "text": "已有登录上下文只显示2026年10月空网格。",
+          "anonymousEvidence": false,
+          "emptyScopeClaim": false
+        }
+      ],
+      "details": {
+        "anonymousChecksFile": "research/visual-recheck-2026-10-25/real-anonymous-http.json",
+        "supplementalChecksFile": "research/visual-recheck-2026-10-25/real-ideas-anonymous-support.json",
+        "lcsPublicICSEventCount": 4,
+        "lcsICSDates": [
+          "2024-02-21",
+          "2024-03-13",
+          "2024-04-17",
+          "2024-05-01"
+        ],
+        "historicalSiteOnlyDate": "2024-04-03",
+        "historicalOmissionIsCurrentOmission": false,
+        "accessRestrictions": [
+          {
+            "type": "calendar_authorization",
+            "url": "https://calendar.google.com/calendar/embed?src=c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com&ctz=America%2FNew_York",
+            "reason": "匿名embed401、public ICS404，已有登录上下文显示不改变匿名限制。",
+            "nextStep": "主办方公开日历或提供匿名日期列表。",
+            "requiredForPublicCoverage": true
+          }
+        ],
+        "oldJudgmentAssessment": "未发现漏采当前明确日期。旧“公开日历不可用”需精确改为“Manipulation未对匿名访问公开/需授权”；LCS公开成功独立记录。"
+      },
+      "recommendedPatch": {
+        "productionChanged": false,
+        "reason": "REAL公开。LCS可匿名读取但只有2024历史，下一场TBD；Manipulation匿名embed401/public ICS404，存在授权/公开发布范围缺口，覆盖仍partial。",
+        "evidence.accessReview.status": "partial_calendar_authorization",
+        "evidence.accessReview.nextStep": "继续LCS和主站监测；等待Manipulation匿名公开日程，保留partial。",
+        "preserveAdditionalEndpoints": true,
+        "mustNotMaterialize": [
+          "双周文字频率",
+          "每年两次工作坊",
+          "example schedule"
+        ],
+        "optionalFutureImprovement": "另监测LCS官网TBD区域变化；LCS数据变化独立于REAL主HTML。"
+      }
+    },
+    {
+      "sourceID": "d89f616f8462",
+      "sourceURL": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+      "checkedAt": "2026-10-26T01:26:34.193600+00:00",
+      "outcome": "public_undated_series_confirmed",
+      "category": "no_current_dated_announcement",
+      "requiresFix": false,
+      "inspectedURLs": [
+        "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+        "https://www.cmu.edu/ideas-social-cybersecurity/events/seminars.html",
+        "https://southbigdatahub.org/programs",
+        "https://southbigdatahub.org/newsblog/social-cybersecurity-working-group",
+        "https://sites.google.com/view/social-cybersec/",
+        "https://sites.google.com/view/social-cybersec/events",
+        "https://calendar.google.com/calendar/embed?src=andrew.cmu.edu_o4ek1olhvbut61b1ut4l7fj0l8%40group.calendar.google.com&ctz=America%2FNew_York",
+        "https://calendar.google.com/calendar/ical/andrew.cmu.edu_o4ek1olhvbut61b1ut4l7fj0l8%40group.calendar.google.com/public/basic.ics"
+      ],
+      "note": "实际展开Upcoming/Past：三位upcoming只有姓名主题，无日期；历史区明确Spring2024、2023、2022。Evan介绍和first Thursday 11–12规则没有当前场次年份/边界。沿合办官网发现公开Google日历：工作组Upcoming Speakers为TBD，2026年10月日历完成加载为空；ICS91条均2017–2022且无RRULE。",
+      "reason": "公开可达，缺当前场次日期；不是登录或订阅障碍。合办日历混合其他工作组、会议、CFP，不能整体别名到CMU该系列。",
+      "nextStep": "保留undated监测；出现明确年份/日期再采集。合办日历可作独立监测候选，但自动导入前需证实系列过滤，不能全部导入。",
+      "screenshot": "research/visual-recheck-2026-10-25/evidence/ideas-upcoming-expanded.png",
+      "additionalScreenshots": [
+        "research/visual-recheck-2026-10-25/evidence/ideas-past-expanded.png",
+        "research/visual-recheck-2026-10-25/evidence/ideas-current-speaker-and-rule.png",
+        "research/visual-recheck-2026-10-25/evidence/ideas-distinct-center-series.png",
+        "research/visual-recheck-2026-10-25/evidence/ideas-hub-working-group.png",
+        "research/visual-recheck-2026-10-25/evidence/ideas-working-group-events-tbd.png",
+        "research/visual-recheck-2026-10-25/evidence/ideas-working-group-calendar-october.png"
+      ],
+      "visibleEvidence": [
+        {
+          "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+          "text": "Upcoming: Uttara Ananthakrishnan、Gordon Pennycook、Joseph B. Walther均无日期。历史Spring2024/2023/2022，first Thursday规则无边界。"
+        },
+        {
+          "url": "https://sites.google.com/view/social-cybersec/events",
+          "text": "SOCIAL CYBER-SECURITY WORKING GROUP SPEAKER SERIES / UPCOMING SPEAKERS: TBD；同页另列IDeaS Center Seminar Series，范围不同。"
+        },
+        {
+          "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/seminars.html",
+          "text": "不同Center Series明确2026-04-28 Alex Abdo；Upcoming说Fall2026细节将发布，不能把该日期赋给本页无日期讲者。"
+        }
+      ],
+      "details": {
+        "anonymousChecksFile": "research/visual-recheck-2026-10-25/real-ideas-anonymous-support.json",
+        "workingGroupCalendar": {
+          "publicICS": "https://calendar.google.com/calendar/ical/andrew.cmu.edu_o4ek1olhvbut61b1ut4l7fj0l8%40group.calendar.google.com/public/basic.ics",
+          "anonymousStatus": 200,
+          "eventCount": 91,
+          "dateYears": [
+            "2017",
+            "2018",
+            "2019",
+            "2021",
+            "2022"
+          ],
+          "latestDtStart": "20221010",
+          "latestDtEnd": "20221013",
+          "RRULECount": 0,
+          "recurrenceIdCount": 0,
+          "futureOccurrences": 0,
+          "scopeWarning": "混合日历，不等同d89单系列。"
+        },
+        "accessRestrictions": [],
+        "oldJudgmentAssessment": "原日期不足判断得到视觉确认；新增合办日历支持，不是新认证障碍；不据此判断组织无活动。"
+      },
+      "recommendedPatch": {
+        "productionChanged": false,
+        "keepCurrentAdapter": true,
+        "reason": "公开折叠内容已核对，三位upcoming与Evan介绍无日期；合办工作组Upcoming为TBD，公开ICS最新2022且混有其他范围。保持undated监测，不推算无限月度重复。",
+        "evidence.solutionReview.report": "research/visual-recheck-2026-10-25/real-ideas-epp.json",
+        "candidatePublicCalendar": "https://calendar.google.com/calendar/ical/andrew.cmu.edu_o4ek1olhvbut61b1ut4l7fj0l8%40group.calendar.google.com/public/basic.ics",
+        "candidateCalendarAction": "仅记录独立监测候选；确定系列过滤后再接入。"
+      }
+    },
+    {
+      "sourceID": "b453fc62eac4",
+      "sourceURL": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+      "checkedAt": "2026-10-26T01:26:34.193600+00:00",
+      "outcome": "public_recording_archive_date_limitation_confirmed",
+      "category": "no_current_dated_announcement",
+      "requiresFix": false,
+      "inspectedURLs": [
+        "https://epp.engineering.cmu.edu/events/seminar-series.html",
+        "https://www.youtube.com/watch?v=GU-XVDgerTY",
+        "https://www.youtube.com/watch?v=rP_O2xoraE0",
+        "https://epp.engineering.cmu.edu/events/index.html",
+        "https://events.cmu.edu/epp/event/35467-epp-seminar-sonia-mangones-transportation-air",
+        "https://events.cmu.edu/live/widget/630/response_fields/location,tags,summary,description,group_title,status,event_types,registration@JSON"
+      ],
+      "note": "Faculty Seminar页是monthly介绍和20个Past Seminars录像标题，没有当前发生日期。实际展开首条Daniel Armanios与末条Kate Whitefoot的官方视频说明，仅有上传日2025-04-10/2025-02-28和一般内容简介。相邻EPP Events确有2026-11-09 Sonia讲座，由另一独立已配置来源覆盖。",
+      "reason": "特定页面是无发生日期录像档案，公开可达。EPP整个组织并非无活动；不能把档案日期不足扩大成整个组织empty。",
+      "nextStep": "保留faculty档案资源指纹监测；日期发布后再提取。当前部门日程继续由1b0f0b6e62fa的LiveWhale widget630覆盖，不将更宽日历别名到faculty档案。",
+      "screenshot": "research/visual-recheck-2026-10-25/evidence/epp-main.png",
+      "additionalScreenshots": [
+        "research/visual-recheck-2026-10-25/evidence/epp-video-public-description.png",
+        "research/visual-recheck-2026-10-25/evidence/epp-kate-public-description.png",
+        "research/visual-recheck-2026-10-25/evidence/epp-events-index.png",
+        "research/visual-recheck-2026-10-25/evidence/epp-sonia-2026.png"
+      ],
+      "visibleEvidence": [
+        {
+          "url": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+          "text": "monthly presentations by EPP faculty members / Past seminars；20个公开嵌入录像，无逐场日期。"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=GU-XVDgerTY",
+          "title": "Daniel Armanios: The Role of Physical Infrastructure on Inequality",
+          "uploadDate": "2025-04-10",
+          "eventDate": null,
+          "description": "EPP’s Daniel Armanios gives a seminar on the role of physical infrastructure on inequality."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=rP_O2xoraE0",
+          "title": "Kate Whitefoot: Strategic engineering design for economic, environmental, and social sustainability",
+          "uploadDate": "2025-02-28",
+          "eventDate": null,
+          "description": "Kate Whitefoot presents a lecture on strategic engineering design for economic, environmental, and social sustainability."
+        },
+        {
+          "url": "https://events.cmu.edu/epp/event/35467-epp-seminar-sonia-mangones-transportation-air",
+          "title": "EPP Seminar: Sonia Mangones — Transportation, Air Pollution, and Inequalities: Evidence from Bogotá, Colombia",
+          "eventDate": "2026-11-09",
+          "startTime": "12:00",
+          "endTime": "13:00",
+          "publisherTimezone": "EST",
+          "ianaTimezone": "America/New_York",
+          "location": "Wean Hall 4110",
+          "scope": "EPP部门日历；外校副教授/CMU访问学者，未证实是该Faculty档案系列。"
+        }
+      ],
+      "details": {
+        "anonymousChecksFile": "research/visual-recheck-2026-10-25/real-ideas-anonymous-support.json",
+        "verifiedBroaderCalendarSourceID": "1b0f0b6e62fa",
+        "verifiedBroaderCalendarAdapter": "livewhale",
+        "verifiedBroaderCalendarWidget": "630",
+        "widgetContainsEvent35467": true,
+        "videoReviewScope": "实际核对首条与末条完整展开说明；未穷举20个录像片内字幕。",
+        "registrationSpreadsheetVisited": false,
+        "accessRestrictions": [],
+        "oldJudgmentAssessment": "原无发生日期判断得到支持；修正任何EPP无活动的宽泛表述，当前活动由独立部门日历明确发布。"
+      },
+      "recommendedPatch": {
+        "productionChanged": false,
+        "keepCurrentAdapter": true,
+        "preserveReviewedFragmentsOnly": true,
+        "reason": "Faculty页为Past Seminars录像档案，monthly文字和YouTube上传日均非逐场活动日期；其他当前EPP公开活动由独立LiveWhale来源1b0f0b6e62fa覆盖。",
+        "evidence.solutionReview.report": "research/visual-recheck-2026-10-25/real-ideas-epp.json",
+        "coverageCheck": {
+          "sourceID": "1b0f0b6e62fa",
+          "eventID": "35467",
+          "anonymousWidgetContainsEvent": true,
+          "mustNotAliasBroaderCalendar": true
+        }
+      }
+    }
+  ],
+  "privacyAudit": {
+    "screenshots": "逐图检查公开页面。Manipulation仅空网格/月/标题，无邮箱、头像或私有事件，不能证明匿名公开。YouTube裁至官方标题/说明，无账号工具栏、评论者或推荐列表。",
+    "removed": "删除含自动账号索引的Manipulation原AX；其他Google AX规范化去除账号索引/authuser。YouTube只存公开区域文本，无整页AX/重定向token。",
+    "rawTemporaryScreenshotsRemoved": true,
+    "browserAuthorizationContextNotAnonymousProof": true,
+    "accountContextNormalizedOutOfEvidence": true,
+    "visualContactSheetReviewed": true,
+    "screenshotCount": 17
+  },
+  "evidenceManifest": [
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-events-index.ax.txt",
+      "bytes": 10185,
+      "sha256": "8db1a0cb5bfc2c488f085ee571fde7598d0fc493356327df47b19f58ccc3b427",
+      "savedAt": "2026-10-26T01:25:37.838607+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-events-index.png",
+      "bytes": 80765,
+      "sha256": "75c9ab22110c1c9298f03d052bcf1294e7b4c907ed305b0272394cdb3ce0c6cb",
+      "savedAt": "2026-10-26T01:20:25.474362+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-kate-public-description.png",
+      "bytes": 191337,
+      "sha256": "75aa68949ac51269d75bf11221e3aadbc1d89827d7d52f7b2290ad7115a1dfe3",
+      "savedAt": "2026-10-26T01:22:38.022608+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-kate-public-description.txt",
+      "bytes": 569,
+      "sha256": "6999bd5e021f2dde7221d47f19e5e62f49742321636021a9c673dd4d2f1e0656",
+      "savedAt": "2026-10-26T01:22:30.725104+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-main.ax.txt",
+      "bytes": 31323,
+      "sha256": "b9f9e4aa3bd312c801a853d5e9be7335fcfa15ff7e4f94781115888589ce9611",
+      "savedAt": "2026-10-26T01:25:37.838331+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-main.png",
+      "bytes": 99578,
+      "sha256": "8f15cbab396f01ebfe5cad460ad07d69c789d41337c558c3b33dbb9b14edddd4",
+      "savedAt": "2026-10-26T01:18:48.191939+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-sonia-2026.ax.txt",
+      "bytes": 20545,
+      "sha256": "8fdd33520ecdcd0776513b1da551585ebcf3b22cea25151c6b9432d6a21f1d5d",
+      "savedAt": "2026-10-26T01:25:37.836209+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-sonia-2026.png",
+      "bytes": 153512,
+      "sha256": "a8d32631c45c1d7918ee1ab8fae0183fda14a5d5de5d9e5c0e1b274509d8c098",
+      "savedAt": "2026-10-26T01:22:58.535722+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-video-public-description.png",
+      "bytes": 188447,
+      "sha256": "5487358c9e8259390cdfb0fc1be99e5203d5081f24432bf6084fc3f33536a5df",
+      "savedAt": "2026-10-26T01:20:06.072024+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-video-public-description.txt",
+      "bytes": 506,
+      "sha256": "e5e7ffe67d1585a6f4426ca7c8e5f844d2aca3c98209fca85239ce8aadfb6746",
+      "savedAt": "2026-10-26T01:19:47.393602+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-current-speaker-and-rule.png",
+      "bytes": 77151,
+      "sha256": "2a73f4351ef741a9e53b70e292ce04140f5bf98c60387090f59f2a15db3bf4f3",
+      "savedAt": "2026-10-26T01:14:57.320828+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-distinct-center-series.ax.txt",
+      "bytes": 20663,
+      "sha256": "2a85341995e4181663e0523c05cc1040d5bc1c660a702c0a53ce4d37c69d25fa",
+      "savedAt": "2026-10-26T01:25:37.837842+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-distinct-center-series.png",
+      "bytes": 115204,
+      "sha256": "0ef9d9be630f4d835a0383d6f16cb5677652d81b1008d016ad2e2e90a3a9e361",
+      "savedAt": "2026-10-26T01:18:39.344557+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-hub-working-group.ax.txt",
+      "bytes": 7443,
+      "sha256": "88fe11ab50ee1ba3faa666baabf0e92419650cb30aad5866200e118435637838",
+      "savedAt": "2026-10-26T01:25:37.838950+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-hub-working-group.png",
+      "bytes": 118108,
+      "sha256": "1012ceebcbb273e22f80737e284e0912b8b7163cd9241216deefeb45daac7070",
+      "savedAt": "2026-10-26T01:20:48.516016+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-past-expanded.ax.txt",
+      "bytes": 13383,
+      "sha256": "3e2a52cf4ecf95817438e73289078288cb9eb707b2a6bf99b1c3e21161a908d6",
+      "savedAt": "2026-10-26T01:25:37.840292+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-past-expanded.png",
+      "bytes": 69376,
+      "sha256": "5a990922c696385f329c32eda2751d9cf50c9a0d22cf804a96151d20ba60db24",
+      "savedAt": "2026-10-26T01:14:57.045080+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-upcoming-expanded.png",
+      "bytes": 82305,
+      "sha256": "28f4a8ad37ead0b1b276bc07dc858ff2e451ead20ee8e42430dd38dd3098e093",
+      "savedAt": "2026-10-26T01:14:34.546928+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-upcoming.ax.txt",
+      "bytes": 8797,
+      "sha256": "793e00414f497900c66bbec55e8d9d16f555f675498d4be417d3a1812a6b8e11",
+      "savedAt": "2026-10-26T01:25:37.839248+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-working-group-calendar-october.ax.txt",
+      "bytes": 8413,
+      "sha256": "23a0051924d0fc483ee783fc80414ee95ee59edd769917d2353f6ab8373ad57c",
+      "savedAt": "2026-10-26T01:25:37.837023+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-working-group-calendar-october.png",
+      "bytes": 38968,
+      "sha256": "be89ffd9fffde8c75d3be7e7cd12e6f2eaf78f1c328b95a7ad3dbf4e8d97bd96",
+      "savedAt": "2026-10-26T01:21:42.519317+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-working-group-events-tbd.png",
+      "bytes": 137490,
+      "sha256": "f3de1a4cdd0f2197b25e48a6512fc9e652ed07bffbf0f5df58e1067b4a76cb79",
+      "savedAt": "2026-10-26T01:21:25.786864+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-working-group-events.ax.txt",
+      "bytes": 7688,
+      "sha256": "43b8d7a7d0a778f4afa6cc8ad67c11dd1d38f9ecb45e834e8bfa11a88fe4a0da",
+      "savedAt": "2026-10-26T01:25:37.837408+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/real-example-timetable.png",
+      "bytes": 90811,
+      "sha256": "7eb0b1852c1b5900fd54277e6daf74c5097605be1a94e2cd8d09a931b4413bd3",
+      "savedAt": "2026-10-26T01:10:17.605065+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/real-lcs-calendar-and-archive.png",
+      "bytes": 45671,
+      "sha256": "526d5caac03c8925df1aae8b71897407cb8cb08a8dc76efdea1f85c08d59b068",
+      "savedAt": "2026-10-26T01:13:21.765958+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/real-lcs-next-tbd.png",
+      "bytes": 213532,
+      "sha256": "cc67c0c27e8b96c4195c0590c5e6f1a9d38a2f2c67ea2fcf350b84af352cc1f1",
+      "savedAt": "2026-10-26T01:13:06.505392+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/real-lcs.ax.txt",
+      "bytes": 14183,
+      "sha256": "f82c9f42d43d916e5f0d68e652e085b56778dcd4b9b1d6f53216fedde0a19343",
+      "savedAt": "2026-10-26T01:25:37.839862+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/real-main.ax.txt",
+      "bytes": 5937,
+      "sha256": "d015578701bb20aadc04b0f2c4b92132e6e6a3238395d3983b793a1f67bbada1",
+      "savedAt": "2026-10-26T01:27:03.054208+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/real-main.png",
+      "bytes": 100138,
+      "sha256": "abc8c1a28851175d6ef6e731d16e2202488e0af1733590e1202b9d8390eaf0f3",
+      "savedAt": "2026-10-26T01:09:29.843223+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/real-manipulation-authenticated-empty.png",
+      "bytes": 38980,
+      "sha256": "0e00637563eb6a1e4b3f38f8d7255abb2fa2d148d4938fa12453e7a436e265cf",
+      "savedAt": "2026-10-26T01:12:32.204933+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/real-anonymous-http.json",
+      "bytes": 1091,
+      "sha256": "07ecd40728876c6370d190fd7fc6d396b2c41f459ef2f759a91be116be134834",
+      "savedAt": "2026-10-26T01:23:49.077756+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/real-ideas-anonymous-support.json",
+      "bytes": 4462,
+      "sha256": "670fed3509299fdab16808604ad7abb2a67910ce53b37dd9aeefbd386ea9ca98",
+      "savedAt": "2026-10-26T01:23:49.076483+00:00"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/real-ideas-epp-privacy-contact-sheet.jpg",
+      "bytes": 167213,
+      "sha256": "6d0b537a06842cecd0bdecdfada51edf339a71b1a61fd63fec603629d4857304",
+      "savedAt": "2026-10-26T01:26:34.308343+00:00"
+    }
+  ]
+}

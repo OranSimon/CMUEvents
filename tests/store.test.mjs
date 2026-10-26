@@ -177,6 +177,85 @@ test('partial timed enrichment replaces only a unique same-link same-title unkno
   assert.equal(store.db.prepare('SELECT COUNT(*) AS count FROM occurrences WHERE source_id=?').get('a').count, 3);
 });
 
+test('declared single-event UIDs atomically replace date-only snapshots across source time zones', t => {
+  const store = openStore(':memory:');
+  t.after(() => store.close());
+  store.registerPlans(plans);
+  const old = event({ uid: 'alumni:sydney', title: 'Sydney alumni coffee', start: '2026-10-27', end: '2026-10-28',
+    timePrecision: 'date', allDay: true, url: 'https://example.edu/alumni/sydney' });
+  const timed = { ...old, start: '2026-10-27T21:00:00.000Z', end: '2026-10-27T22:30:00.000Z',
+    timeZone: 'Australia/Sydney', timePrecision: 'time', allDay: false };
+  const unrelated = event({ uid: 'another', url: 'https://example.edu/another' });
+  store.replaceSource('a', [old, unrelated], [], '2026-10-01T00:00:00.000Z');
+  store.replaceSource('c', [old]);
+  store.mergePartial('a', [timed], ['Public listing discovery is incomplete'], { singleEventUids: [timed.uid] });
+  const records = store.db.prepare('SELECT data FROM occurrences WHERE source_id=?').all('a').map(row => JSON.parse(row.data));
+  assert.equal(records.length, 2);
+  assert.deepEqual(records.find(row => row.uid === timed.uid), timed);
+  assert.deepEqual(records.find(row => row.uid === unrelated.uid), unrelated);
+  assert.equal(JSON.parse(store.db.prepare('SELECT data FROM occurrences WHERE source_id=?').get('c').data).start, old.start,
+    'the same provider identity in a different source is untouched');
+  const source = store.listSources().find(row => row.id === 'a');
+  assert.equal(source.state, 'error');
+  assert.equal(source.lastSuccess, '2026-10-01T00:00:00.000Z');
+  assert.equal(source.eventCount, 2);
+});
+
+test('single-event clock loss retains the accepted timed record without inserting a date-only duplicate', t => {
+  const store = openStore(':memory:');
+  t.after(() => store.close());
+  store.registerPlans(plans);
+  const accepted = event({ uid: 'alumni:sydney', title: 'Sydney alumni coffee', start: '2026-10-27T21:00:00.000Z',
+    end: '2026-10-27T22:30:00.000Z', timeZone: 'Australia/Sydney', timePrecision: 'time',
+    url: 'https://example.edu/alumni/sydney' });
+  const fallback = { ...accepted, start: '2026-10-27', end: '2026-10-28', timeZone: 'America/New_York',
+    timePrecision: 'date', allDay: true };
+  store.replaceSource('a', [accepted, fallback], [], '2026-10-01T00:00:00.000Z');
+  const warnings = ['Live clock is unavailable'];
+  store.mergePartial('a', [fallback], warnings, { singleEventUids: [accepted.uid] });
+  const records = store.db.prepare('SELECT data FROM occurrences WHERE source_id=?').all('a').map(row => JSON.parse(row.data));
+  assert.deepEqual(records, [accepted]);
+  const source = store.listSources().find(row => row.id === 'a');
+  assert.equal(source.state, 'error');
+  assert.equal(source.lastSuccess, '2026-10-01T00:00:00.000Z');
+  assert.match(source.warnings.join(' '), /Retained the last accepted clock/);
+  assert.deepEqual(warnings, ['Live clock is unavailable'], 'caller diagnostics are not mutated');
+});
+
+test('single-event date-only updates replace earlier dates when no accepted clock exists', t => {
+  const store = openStore(':memory:');
+  t.after(() => store.close());
+  store.registerPlans(plans);
+  const old = event({ uid: 'alumni:unknown-clock', start: '2026-10-27', end: '2026-10-28', timePrecision: 'date', allDay: true });
+  const fresh = { ...old, start: '2026-10-28', end: '2026-10-29' };
+  store.replaceSource('a', [old]);
+  store.mergePartial('a', [fresh], ['Clock not published'], { singleEventUids: [fresh.uid] });
+  const records = store.db.prepare('SELECT data FROM occurrences WHERE source_id=?').all('a').map(row => JSON.parse(row.data));
+  assert.deepEqual(records, [fresh]);
+});
+
+test('single-event reconciliation leaves unmentioned identities and multi-occurrence series intact', t => {
+  const store = openStore(':memory:');
+  t.after(() => store.close());
+  store.registerPlans(plans);
+  const oldRecurring = event({ uid: 'weekly-series', start: '2026-11-01T22:00:00.000Z', end: '2026-11-01T23:00:00.000Z', timePrecision: 'time' });
+  const freshRecurring = [event({ uid: oldRecurring.uid, timePrecision: 'time' }), event({ uid: oldRecurring.uid,
+    start: '2026-11-10T22:00:00.000Z', end: '2026-11-10T23:00:00.000Z', timePrecision: 'time' })];
+  const unmentioned = event({ uid: 'unmentioned', title: 'An unrelated event', url: 'https://example.edu/unmentioned',
+    start: '2026-10-27', end: '2026-10-28', timePrecision: 'date', allDay: true });
+  store.replaceSource('a', [oldRecurring, unmentioned]);
+  store.mergePartial('a', freshRecurring, ['Another endpoint failed'], { singleEventUids: [oldRecurring.uid] });
+  let records = store.db.prepare('SELECT data FROM occurrences WHERE source_id=?').all('a').map(row => JSON.parse(row.data));
+  assert.equal(records.filter(row => row.uid === oldRecurring.uid).length, 3, 'a multi-occurrence UID bypasses replacement');
+  assert.deepEqual(records.find(row => row.uid === unmentioned.uid), unmentioned);
+  const singleFresh = { ...unmentioned, start: '2026-10-28T01:00:00.000Z', end: '2026-10-28T02:00:00.000Z', timePrecision: 'time', allDay: false };
+  store.mergePartial('a', [singleFresh], ['Another endpoint failed']);
+  records = store.db.prepare('SELECT data FROM occurrences WHERE source_id=?').all('a').map(row => JSON.parse(row.data));
+  assert.equal(records.filter(row => row.uid === oldRecurring.uid).length, 3);
+  assert.equal(records.find(row => row.uid === unmentioned.uid).start, singleFresh.start,
+    'the existing independent same-day enrichment rule remains available without a single-event declaration');
+});
+
 test('syndicated copies merge only with identical substantial descriptions, titles, times and physical venues', t => {
   const store = openStore(':memory:');
   t.after(() => store.close());

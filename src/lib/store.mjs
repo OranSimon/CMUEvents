@@ -233,20 +233,60 @@ export function openStore(filename) {
    * @param {string} sourceId Source identifier.
    * @param {Array<Object>} events Valid records from an incomplete extraction.
    * @param {Array<string>} warnings Reasons the snapshot is incomplete.
+   * @param {Object} options Explicit nonrecurring provider identities to reconcile.
+   * @param {Array<string>} options.singleEventUids UIDs that identify one event, never a recurring series.
    * @return {void}
    */
-  function mergePartial(sourceId, events, warnings = []) {
+  function mergePartial(sourceId, events, warnings = [], options = {}) {
     db.exec('BEGIN');
     try {
       const previous = db.prepare('SELECT occurrence_key,data FROM occurrences WHERE source_id=?').all(sourceId)
         .map(row => ({ key: row.occurrence_key, event: JSON.parse(row.data) }));
+      const singleEventUids = new Set(Array.isArray(options.singleEventUids)
+        ? options.singleEventUids.filter(uid => typeof uid === 'string' && uid.trim()) : []);
+      const freshByUid = new Map();
+      const previousByUid = new Map();
+      for (const event of events) if (singleEventUids.has(event.uid)) {
+        freshByUid.set(event.uid, [...(freshByUid.get(event.uid) || []), event]);
+      }
+      for (const row of previous) if (singleEventUids.has(row.event.uid)) {
+        previousByUid.set(row.event.uid, [...(previousByUid.get(row.event.uid) || []), row]);
+      }
+      const timed = event => typeof event.start === 'string' && event.start.includes('T')
+        && Number.isFinite(Date.parse(event.start));
+      const dateOnly = event => typeof event.start === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(event.start);
+      const removeKeys = new Set();
+      const handledUids = new Set();
+      const skippedEvents = new Set();
+      const effectiveWarnings = [...warnings];
+      for (const [uid, fresh] of freshByUid) {
+        // A UID shared by multiple fresh occurrences may describe recurrence.
+        if (fresh.length !== 1) continue;
+        const old = previousByUid.get(uid) || [];
+        if (timed(fresh[0])) {
+          handledUids.add(uid);
+          for (const row of old) removeKeys.add(row.key);
+        } else if (dateOnly(fresh[0])) {
+          handledUids.add(uid);
+          if (old.some(row => timed(row.event))) {
+            skippedEvents.add(fresh[0]);
+            effectiveWarnings.push(`Retained the last accepted clock for ${uid}; the partial response supplies only a date.`);
+          }
+          // Retain accepted clocks if current verification failed, but discard
+          // superseded date-only versions of this explicitly single event.
+          for (const row of old) if (dateOnly(row.event)) removeKeys.add(row.key);
+        }
+      }
+      const acceptedEvents = events.filter(event => !skippedEvents.has(event));
       const freshByDay = new Map();
       const previousByDay = new Map();
-      for (const event of events) {
+      for (const event of acceptedEvents) {
+        if (handledUids.has(event.uid)) continue;
         const key = detailDayKey(event);
         if (key) freshByDay.set(key, [...(freshByDay.get(key) || []), event]);
       }
       for (const row of previous) {
+        if (removeKeys.has(row.key) || handledUids.has(row.event.uid)) continue;
         const key = detailDayKey(row.event);
         if (key) previousByDay.set(key, [...(previousByDay.get(key) || []), row]);
       }
@@ -258,13 +298,14 @@ export function openStore(filename) {
         if (fresh.length !== 1 || old?.length !== 1) continue;
         if (fresh[0].timePrecision !== 'time' || old[0].event.timePrecision !== 'date') continue;
         if (Date.parse(old[0].event.end) - Date.parse(old[0].event.start) !== 86400000) continue;
-        remove.run(sourceId, old[0].key);
+        removeKeys.add(old[0].key);
       }
+      for (const key of removeKeys) remove.run(sourceId, key);
       const insert = db.prepare('INSERT OR REPLACE INTO occurrences VALUES (?,?,?)');
-      for (const event of events) insert.run(sourceId, identifier(occurrenceKeys(event)[0]), JSON.stringify(event));
+      for (const event of acceptedEvents) insert.run(sourceId, identifier(occurrenceKeys(event)[0]), JSON.stringify(event));
       const count = db.prepare('SELECT COUNT(*) AS count FROM occurrences WHERE source_id=?').get(sourceId).count;
       db.prepare('UPDATE sources SET state=\'error\',last_attempt=?,error=?,warnings=?,event_count=? WHERE id=?')
-        .run(new Date().toISOString(), `Incomplete extraction; previous records retained. ${warnings.join(' ')}`.slice(0, 1200), JSON.stringify(warnings), count, sourceId);
+        .run(new Date().toISOString(), `Incomplete extraction; previous records retained. ${effectiveWarnings.join(' ')}`.slice(0, 1200), JSON.stringify(effectiveWarnings), count, sourceId);
       db.exec('COMMIT');
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }

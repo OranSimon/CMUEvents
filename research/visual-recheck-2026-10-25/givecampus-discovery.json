@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-26T01:15:46.721Z",
+  "method": "CUA Chrome专用研究标签页读取可见DOM；另读取页面已公布的公共JavaScript资产。无登录、无表单提交、无隐藏框架状态、无网络拦截、无headless浏览器。",
+  "checkedPublicPages": [
+    {
+      "requested": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events",
+      "observed": "https://www.givecampus.com/schools/CarnegieMellonUniversity",
+      "finding": "浏览器重定向到CMU筹款主页；显示Sorry, we couldn’t find that campaign、Active Tartanfunder Campaigns、Search Campaigns，没有公共活动目录或活动ICS入口。",
+      "screenshot": "research/visual-recheck-2026-10-25/givecampus-parent-redirect.jpg"
+    },
+    {
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
+      "finding": "已公布的单场活动详情可正常渲染，提供Details、分享按钮与Event Details；没有观察到All Events、公共活动目录、ICS导出或日历订阅入口。没有点击Guest List，也没有保存或使用宾客预览内容。"
+    }
+  ],
+  "publicAssetsRead": [
+    "component_loader-N93VMDDK.js",
+    "LandingPage-ByywRD27.js",
+    "EventDetailsCard-BfJZP7at.js",
+    "ShareEventCard-B5aWb42i.js",
+    "EventInfo-DJjze7uW.js"
+  ],
+  "assetFinding": "公开LandingPage、EventInfo、EventDetailsCard使用传入的单场event属性展示详情；已读文件中未发现可替换Salesforce列表范围的公共活动集合API、ICS或订阅入口。未读取GuestList资产或调用宾客接口。",
+  "conclusion": "本次已检查的公开路径未提供可持续发现新活动的发布方目录。单场GiveCampus详情可补充已知公开活动日期，但不能据此宣称完整日历发现已解决。应继续把有界公开卡片快照标为partial，直到找到发布方明确提供的集合入口。",
+  "codeConfigDatabaseChanges": false
+}

@@ -1,0 +1,44 @@
+- main:
+  - heading "2025 DSSC Japan Technical Review" [level=1]
+  - generic: "Thursday, May 22, 2025: 9:30 - 6:00 JST"
+  - heading "About" [level=3]
+  - generic: The DSSC Japan Technical Review, is an opportunity for center members, invited guests, and DSSC personnel to be brought up-to-date on current DSSC research progress through oral presentations and poster sessions that highlight the center's project areas.
+  - heading "DSSC Review Structure" [level=3]
+  - generic: In particular, the highlights of this technical review includes research progress on an alternative HAMR NFT design and analysis as well its fabrication; Granular FePt-L10 media with h-BN grain boundary material that enables small and tall grains, micromagnetic modeling analysis on HAMR media design and recording analysis, HAMR ADC analysis as well as a novel reader design. We also plan to report on our development of NV-center probe based nano-magnetometry and its applications as well as recent progress on compute in memory technology.
+  - heading "Details" [level=2]
+  - generic: "Date: Thursday May 22 9:30a - 6:00p, JST Location: Pacific Century Place Marunouchi 29th floor, Marunouchi 1-11-1"
+  - generic: Name*
+  - group "Name":
+    - textbox "First Name"
+    - generic: First Name
+    - textbox "Last Name"
+    - generic: Last Name
+  - generic: Email*
+  - textbox "Email example@example.com"
+  - generic: example@example.com
+  - generic: Company*
+  - textbox "Company"
+  - generic: Job Title*
+  - textbox "Job Title"
+  - generic: Please select the sessions you will attend*
+  - group "Please select the sessions you will attend":
+    - checkbox "Morning"
+    - generic: Morning
+    - checkbox "Afternoon"
+    - generic: Afternoon
+  - generic: Will you attend the evening reception?*
+  - radiogroup "Will you attend the evening reception?":
+    - radio "Yes"
+    - generic: "Yes"
+    - radio "No"
+    - generic: "No"
+  - generic: Do you have any dietary restrictions? (Please list them here)
+  - textbox "Do you have any dietary restrictions? (Please list them here)"
+  - button "Submit"
+- link "Jotform Logo":
+  - /url: https://www.jotform.com/products/form-builder/?utm_source=formfooter&utm_medium=banner&utm_term=250493774390161&utm_content=jotform_logo&utm_campaign=powered_by_jotform_le
+  - img "Jotform Logo"
+- generic: Now create your own Jotform - It’s free!
+- link "Create your own Jotform":
+  - /url: https://www.jotform.com/products/form-builder/?utm_source=formfooter&utm_medium=banner&utm_term=250493774390161&utm_content=jotform_button&utm_campaign=powered_by_jotform_le
+- status

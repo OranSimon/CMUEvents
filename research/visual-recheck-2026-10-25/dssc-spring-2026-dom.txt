@@ -1,0 +1,270 @@
+- banner:
+  - link "Carnegie Mellon University":
+    - /url: http://www.cmu.edu/
+  - link "Navigation":
+    - /url: "#nav"
+  - link:
+    - /url: javascript:void(0) // Nav - Toggle Menu
+    - generic: —
+    - generic: —
+    - generic: —
+  - textbox:
+    - /placeholder: Search
+  - button "Search"
+  - heading "Data Storage Systems Center" [level=1]:
+    - link "Data Storage Systems Center":
+      - /url: ../../index.html
+  - heading "College of Engineering" [level=2]
+  - navigation:
+    - list:
+      - link:
+        - /url: ../../about/index.html
+        - text: About
+      - link:
+        - /url: ../../research/index.html
+        - text: Research
+      - link:
+        - /url: ../../people/index.html
+        - text: People
+      - link:
+        - /url: ../index.html
+        - text: News and Events
+      - link:
+        - /url: ../../sponsors/index.html
+        - text: Sponsors
+      - link:
+        - /url: ../../TMRC2021/index.html
+        - text: TMRC 2021
+- text: College of Engineering ›
+- link "Data Storage Systems Center":
+  - /url: ../../index.html
+- text: ›
+- link "News and Events":
+  - /url: ../index.html
+- text: › events › 2026 DSSC Spring Technical Review
+- heading "2026 DSSC Spring Technical Review" [level=1]:
+  - strong: 2026 DSSC Spring Technical Review
+- paragraph:
+  - strong: June 9, 2025
+  - text: Carnegie Mellon University, Silicon Valley
+  - link "NASA Ames Research Park Bldg. 23, Moffet Field, CA 94035":
+    - /url: https://www.google.com/maps/place/Carnegie+Mellon+University+-+Silicon+Valley+Campus/@37.4104342,-122.061947,17z/data=!3m1!4b1!4m2!3m1!1s0x808fb75dbcdb0b75:0xe1c97f568e4373db
+- paragraph: The DSSC Technical Review at Carnegie Mellon University is an opportunity for center members, invited guests, and DSSC personnel to be brought up-to-date on current DSSC research progress through oral presentations and poster sessions that highlight the center's project areas.
+- heading "Agenda" [level=1]:
+  - strong: Agenda
+- table:
+  - rowgroup:
+    - row "Tuesday, June 9, 2026 All sessions will be held at Carnegie Mellon University, Silicon Valley Campus":
+      - cell "Tuesday, June 9, 2026 All sessions will be held at Carnegie Mellon University, Silicon Valley Campus":
+        - strong: Tuesday, June 9, 2026
+        - text: All sessions will be held at Carnegie Mellon University, Silicon Valley Campus
+    - row "8:30-8:50 PST 11:30-11:50 EST Breakfast":
+      - cell "8:30-8:50 PST 11:30-11:50 EST":
+        - paragraph:
+          - strong: 8:30-8:50 PST
+          - text: 11:30-11:50 EST
+          - strong
+      - cell "Breakfast"
+      - cell
+    - row "8:50-9:00 PST 11:50-12:00 EST Welcome Jim Bain":
+      - cell "8:50-9:00 PST 11:50-12:00 EST":
+        - strong: 8:50-9:00 PST
+        - generic: 11:50-12:00 EST
+      - cell "Welcome Jim Bain":
+        - emphasis: Welcome
+        - generic: Jim Bain
+      - cell
+    - row "9:00-9:25 PST 12:00-12:25 EST State of DSSC Jimmy Zhu this is an image of a file icon vid-icon.gif":
+      - cell "9:00-9:25 PST 12:00-12:25 EST":
+        - strong: 9:00-9:25 PST
+        - generic: 12:00-12:25 EST
+      - cell "State of DSSC Jimmy Zhu":
+        - emphasis: State of DSSC
+        - generic: Jimmy Zhu
+      - cell "this is an image of a file icon vid-icon.gif":
+        - link "this is an image of a file icon":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/01_Jimmy_Zhu_DSSC_2026_State of DSSC-Overview.pdf
+          - img "this is an image of a file icon"
+        - link "vid-icon.gif":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/01 Jimmy Zhu Intro Default.mp4
+          - img "vid-icon.gif"
+    - row "9:30 - 9:50 PST 12:30 - 12:50 EST Multilayer Magnetic Recording Media by Flip-Disk Bonding Brandon Reese this is an image of a file icon vid-icon.gif":
+      - cell "9:30 - 9:50 PST 12:30 - 12:50 EST":
+        - strong: 9:30 - 9:50 PST
+        - generic: 12:30 - 12:50 EST
+      - cell "Multilayer Magnetic Recording Media by Flip-Disk Bonding Brandon Reese":
+        - emphasis: Multilayer Magnetic Recording Media by Flip-Disk Bonding
+        - generic: Brandon Reese
+      - cell "this is an image of a file icon vid-icon.gif":
+        - link "this is an image of a file icon":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/02_Brandon_Reese_Bonding.pdf
+          - img "this is an image of a file icon"
+        - link "vid-icon.gif":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/02_Brandon_Reese_Bonding_default.mp4
+          - img "vid-icon.gif"
+    - row "9:50 - 10:10 PST 12:50 - 1:10 EST Viability of Three Level Recording with Flip-Disk Bonding Jimmy Zhu this is an image of a file icon vid-icon.gif":
+      - cell "9:50 - 10:10 PST 12:50 - 1:10 EST":
+        - strong: 9:50 - 10:10 PST
+        - generic: 12:50 - 1:10 EST
+      - cell "Viability of Three Level Recording with Flip-Disk Bonding Jimmy Zhu":
+        - emphasis: Viability of Three Level Recording with Flip-Disk Bonding
+        - generic: Jimmy Zhu
+      - cell "this is an image of a file icon vid-icon.gif":
+        - link "this is an image of a file icon":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/03_Jimmy_Zhu_HAMR-3Level-Recording.pdf
+          - img "this is an image of a file icon"
+        - link "vid-icon.gif":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/03_Jimmy_Zhu_HAMR_default.mp4
+          - img "vid-icon.gif"
+    - row "10:10 - 10:30 PST 1:10 - 1:30 EST Direct Growth of Multiplayerd Magnetic Recording Media by a Novel Interlayer Brandon Reese this is an image of a file icon vid-icon.gif":
+      - cell "10:10 - 10:30 PST 1:10 - 1:30 EST":
+        - strong: 10:10 - 10:30 PST
+        - generic: 1:10 - 1:30 EST
+      - cell "Direct Growth of Multiplayerd Magnetic Recording Media by a Novel Interlayer Brandon Reese":
+        - emphasis: Direct Growth of Multiplayerd Magnetic Recording Media by a Novel Interlayer
+        - generic: Brandon Reese
+      - cell "this is an image of a file icon vid-icon.gif":
+        - link "this is an image of a file icon":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/04_Brandon_Reese_PtTa_Talk.pdf
+          - img "this is an image of a file icon"
+        - link "vid-icon.gif":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/04_Brandon_Reese_TaPt_default.mp4
+          - img "vid-icon.gif"
+    - row "10:30 - 10:50 PST 1:30 - 1:50 EST Dual-Layer Media with Ir Spacer Layer for Multilevel Recording Julia Chang this is an image of a file icon vid-icon.gif":
+      - cell "10:30 - 10:50 PST 1:30 - 1:50 EST":
+        - strong: 10:30 - 10:50 PST
+        - generic: 1:30 - 1:50 EST
+      - cell "Dual-Layer Media with Ir Spacer Layer for Multilevel Recording Julia Chang":
+        - emphasis: Dual-Layer Media with Ir Spacer Layer for Multilevel Recording
+        - generic: Julia Chang
+      - cell "this is an image of a file icon vid-icon.gif":
+        - link "this is an image of a file icon":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/05_Julia_Chang.pdf
+          - img "this is an image of a file icon"
+        - link "vid-icon.gif":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/05_Julia_Chang_default.mp4
+          - img "vid-icon.gif"
+    - row "10:50-11:05 PST 1:50 - 2:05 EST Coffee Break":
+      - cell "10:50-11:05 PST 1:50 - 2:05 EST":
+        - strong: 10:50-11:05 PST
+        - generic: 1:50 - 2:05 EST
+      - cell "Coffee Break"
+      - cell
+    - row "11:05 - 11:25 PST 2:05 - 2:25 EST Read Head Design for Vector Recording Jimmy Zhu this is an image of a file icon vid-icon.gif":
+      - cell "11:05 - 11:25 PST 2:05 - 2:25 EST":
+        - strong: 11:05 - 11:25 PST
+        - generic: 2:05 - 2:25 EST
+      - cell "Read Head Design for Vector Recording Jimmy Zhu":
+        - emphasis: Read Head Design for Vector Recording
+        - generic: Jimmy Zhu
+      - cell "this is an image of a file icon vid-icon.gif":
+        - link "this is an image of a file icon":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/06_Jimmy_Zhu_Advanced Reader for Vector Recording.pdf
+          - img "this is an image of a file icon"
+        - link "vid-icon.gif":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/06 Jimmy Zhu Read Head Default.mp4
+          - img "vid-icon.gif"
+    - row "11:25 - 11:45 PST 2:25 - 2:45 EST ML Data Detection Channel Cheng-De (Jerry) Lin this is an image of a file icon vid-icon.gif":
+      - cell "11:25 - 11:45 PST 2:25 - 2:45 EST":
+        - strong: 11:25 - 11:45 PST
+        - generic: 2:25 - 2:45 EST
+      - cell "ML Data Detection Channel Cheng-De (Jerry) Lin":
+        - emphasis: ML Data Detection Channel
+        - generic: Cheng-De (Jerry) Lin
+      - cell "this is an image of a file icon vid-icon.gif":
+        - link "this is an image of a file icon":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/07_Jerry_Lin.pdf
+          - img "this is an image of a file icon"
+        - link "vid-icon.gif":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/07_Jerry_Lin_default.mp4
+          - img "vid-icon.gif"
+    - row "11:45 - 12:05 PST 2:45 - 3:05 EST Sputtered h-BN as a Thermal Conductive Dieletric for 3D Chip Cooling Brandon Reese this is an image of a file icon vid-icon.gif":
+      - cell "11:45 - 12:05 PST 2:45 - 3:05 EST":
+        - strong: 11:45 - 12:05 PST
+        - generic: 2:45 - 3:05 EST
+      - cell "Sputtered h-BN as a Thermal Conductive Dieletric for 3D Chip Cooling Brandon Reese":
+        - emphasis: Sputtered h-BN as a Thermal Conductive Dieletric for 3D Chip Cooling
+        - generic: Brandon Reese
+      - cell "this is an image of a file icon vid-icon.gif":
+        - link "this is an image of a file icon":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/08_Brandon_Reese_hBN_Talk.pdf
+          - img "this is an image of a file icon"
+        - link:
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/07_Jerry_Lin.pdf
+        - link "vid-icon.gif":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/08_Brandon_Reese_hBN_default.mp4
+          - img "vid-icon.gif"
+    - row "12:05 - 12:25 PST 3:05 - 3:25 EST Probabilistic Reversible Computing Jimmy Zhu for Shreyes Nallan this is an image of a file icon vid-icon.gif":
+      - cell "12:05 - 12:25 PST 3:05 - 3:25 EST":
+        - strong: 12:05 - 12:25 PST
+        - generic: 3:05 - 3:25 EST
+      - cell "Probabilistic Reversible Computing Jimmy Zhu for Shreyes Nallan":
+        - emphasis: Probabilistic Reversible Computing
+        - generic: Jimmy Zhu for Shreyes Nallan
+      - cell "this is an image of a file icon vid-icon.gif":
+        - link "this is an image of a file icon":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/09_Jimmy_Zhu_for_Shreyes_Nallan_Reversible Probabilistic Computing.pdf
+          - img "this is an image of a file icon"
+        - link "vid-icon.gif":
+          - /url: ../../_files/sponsors/reviews/2026 DSSC Spring Technical Review/09 Jimmy Zhu For Shreyes Nallan Default.mp4
+          - img "vid-icon.gif"
+    - row "12:30 - 1:30 PST 3:30 - 4:30 EST Lunch and Feedback / Discussion":
+      - cell "12:30 - 1:30 PST 3:30 - 4:30 EST":
+        - strong: 12:30 - 1:30 PST
+        - generic: 3:30 - 4:30 EST
+      - cell "Lunch and Feedback / Discussion":
+        - generic: Lunch and Feedback / Discussion
+      - cell
+- contentinfo:
+  - paragraph:
+    - text: Data Storage Systems Center
+    - text: College of Engineering
+    - text: Carnegie Mellon University
+    - text: 5000 Forbes Avenue
+    - text: Pittsburgh, PA 15213
+  - list:
+    - link "Legal Info":
+      - /url: http://www.cmu.edu/legal/
+    - text: "|"
+    - link "www.cmu.edu":
+      - /url: http://www.cmu.edu/
+  - list:
+    - listitem: © 2016 Carnegie Mellon University
+- navigation:
+  - heading "Data Storage Systems Center" [level=1]:
+    - link "Data Storage Systems Center":
+      - /url: ../../index.html
+  - link:
+    - /url: javascript:void(0)
+    - text: ▾
+  - link:
+    - /url: javascript:void(0)
+    - text: ▾
+  - list:
+    - link "About":
+      - /url: ../../about/index.html
+    - link:
+      - /url: "javascript:void(0); // Nav - Toggle Parent:              About\n        \n"
+      - text: ›
+    - link "Research":
+      - /url: ../../research/index.html
+    - link:
+      - /url: "javascript:void(0); // Nav - Toggle Parent:              Research\n        \n"
+      - text: ›
+    - link "People":
+      - /url: ../../people/index.html
+    - link:
+      - /url: "javascript:void(0); // Nav - Toggle Parent:              People\n        \n"
+      - text: ›
+    - link "News and Events":
+      - /url: ../index.html
+    - link:
+      - /url: "javascript:void(0); // Nav - Toggle Parent:              News and Events\n        \n"
+      - text: ›
+    - link "Sponsors":
+      - /url: ../../sponsors/index.html
+    - link "TMRC 2021":
+      - /url: ../../TMRC2021/index.html
+    - link:
+      - /url: "javascript:void(0); // Nav - Toggle Parent:              TMRC 2021\n        \n"
+      - text: ›

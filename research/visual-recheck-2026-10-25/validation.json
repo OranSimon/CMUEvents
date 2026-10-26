@@ -1,0 +1,611 @@
+{
+  "checkedAt": "2026-10-26T01:44:22.491Z",
+  "method": "CUA screenshots and visible DOM, public documents and explicitly anonymous endpoint controls",
+  "sourcesReviewed": 10,
+  "corrections": [
+    "1185bc345a9a",
+    "5ade174c3483",
+    "8f00fc7f2c7c"
+  ],
+  "sources": [
+    {
+      "id": "1185bc345a9a",
+      "org": "SCS Seminars directory",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "previousState": "undated",
+      "state": "error",
+      "eventCount": 4,
+      "lastAttempt": "2026-10-26T01:40:32.738Z",
+      "reason": "Visual review found concrete dated activities on two official directory-linked sites that the directory-only monitor had missed. Import 3 future Cryptography talks and 1 in-window Econ-CS talk using reviewed public schedules; keep partial coverage explicit for the remaining directory scope.",
+      "error": "Incomplete extraction; previous records retained. Unresolved partially connected academic seminar directory: The directory lists 26 seminar series. Two previously unconnected public schedules (Cryptography and Econ-CS) now contribute verified occurrences. This is partial current-event coverage; not all linked series have been mapped into this source. Monitored seminar-series directory data: This public directory lists 26 series with day, clock, contact and website columns, not dated occurrences. Transport dt/msg fields are excluded; actual column schema and series rows remain monitored. Monitored visually reviewed academic seminar schedule: Individual dates and the selected default/exception clocks were visually reviewed. Changed text, destinations, media or structured metadata requires renewed review before reusing these fixed fields.",
+      "visualReview": {
+        "checkedAt": "2026-10-26T01:24:57.859Z",
+        "method": "CUA public directory, expanded coming-talk cards and semester table",
+        "outcome": "correction_linked_series_have_missing_dated_occurrences",
+        "note": "等待动态表格真正加载后，将entries per page改为All，浏览器显示26 of26。列只有系列名称、简称、星期、时刻、联系入口，没有个别场次日期。 目录判断本身正确，但不能由此认为所有官方链接都没有日期。两项尚未独立接入的公开链接实测有明确排期。 Crypto页面Coming Talks实际列出Qi Pang2026-10-28周三13:30ET例外、Chase Fickes2026-11-05、Alper Çakan2026-11-19。后两者应用页面明确的周四16:30ET时刻；F26房间GHC7501并有Zoom直播。三条均展开复核。 Econ-CS Fall2026表格有4条完整date/time记录，其中Sept29 Brian Zhang14:00ET、NSH3305/Zoom位于当前回看窗口；该条talk topic仍TBD，不能丢掉已经明确排定的系列+speaker场次，也不能编造主题。 目录的LTI默认14:00与现行2026海报所列15:30不同，说明目录星期/时刻可能过时，不应覆盖个别当前公告。",
+        "reason": "Visual review found concrete dated activities on two official directory-linked sites that the directory-only monitor had missed. Import 3 future Cryptography talks and 1 in-window Econ-CS talk using reviewed public schedules; keep partial coverage explicit for the remaining directory scope.",
+        "nextStep": "Review changed child schedules and map additional directory links before claiming complete series coverage.",
+        "report": "research/visual-recheck-2026-10-25/undated-four.json",
+        "requiresReview": true,
+        "url": "https://www.cs.cmu.edu/events/scs-seminar-series"
+      },
+      "judgment": "纠正：漏跟进目录链接",
+      "finding": "补收 Crypto 三场未来讲座、Econ-CS 一场窗口内讲座；只覆盖目录中的两个系列，继续标为部分覆盖。"
+    },
+    {
+      "id": "1aa9b956ba78",
+      "org": "Center for Transformational Play Workshops",
+      "url": "https://www.cmu.edu/ctp/workshops/index.html",
+      "previousState": "undated",
+      "state": "undated",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-26T01:29:52.590Z",
+      "reason": "All three advertised workshops are available for group booking; no individually dated occurrence is published.",
+      "error": null,
+      "visualReview": {
+        "checkedAt": "2026-10-26T01:24:57.859Z",
+        "url": "https://www.cmu.edu/ctp/workshops/index.html",
+        "outcome": "confirmed_on_demand_resource_not_empty_organization",
+        "note": "浏览器目录列出三种课程和custom workshops。三条Learn More均实际打开。 三种详情均明确写currently available for group booking；仅给半日或2小时、最低8人及20/24人容量，无具体举办日期。 同一Contact Form实际只读核对，询问姓名、邮箱、所属机构、是否想预约、想预约哪种课程；没有日期选项。未填写、未提交、未订阅。",
+        "report": "research/visual-recheck-2026-10-25/undated-four.json",
+        "requiresReview": false
+      },
+      "judgment": "确认可预约资源",
+      "finding": "三条详情均写 group booking，只给时长、人数和预约兴趣表，未公布具体排期。"
+    },
+    {
+      "id": "31aa89be167d",
+      "org": "Data Storage Systems Center Events",
+      "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+      "previousState": "error",
+      "state": "error",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-26T01:29:52.587Z",
+      "reason": "公开目录和正文均可正常浏览；两场2026技术会议存在真实年份冲突，Japan还链接了2025旧报名表。受限演讲附件未能提供额外公共核实依据。保留冲突并继续监测，不猜定年份、不称整站无法访问。",
+      "error": "Incomplete extraction; previous records retained. Monitored technical-review directory: This page advertises technical-review child pages; each reviewed child is checked separately. Unresolved conflicting event dates: The page title says 2026 but the heading gives June 30, 2025; the agenda gives Tuesday, June 30 without a year. Neither year is selected. Unresolved conflicting event dates: The page heading gives June 9, 2025 while the agenda explicitly gives June 9, 2026. Neither date is selected.",
+      "visualReview": {
+        "checkedAt": "2026-10-26T01:12:10.168Z",
+        "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+        "outcome": "publisher_date_conflict_visually_confirmed",
+        "note": "CUA截图确认Japan正文2025-06-30与2026标题矛盾，Spring正文2025-06-09与议程2026-06-09矛盾；Japan报名链接指向2025-05-22旧会，两份演讲PDF均要求授权。不是无法打开主页，也不是解析器误取页脚。",
+        "reason": "公开目录和正文均可正常浏览；两场2026技术会议存在真实年份冲突，Japan还链接了2025旧报名表。受限演讲附件未能提供额外公共核实依据。保留冲突并继续监测，不猜定年份、不称整站无法访问。",
+        "nextStep": "等待DSSC修正醒目会议日期/过期报名链接，或发布明确的公开完整议程。Spring可在诊断中展示2026议程日期这一强证据，但在冲突未解决前不发布唯一确定日期。",
+        "report": "research/visual-recheck-2026-10-25/dssc.json",
+        "requiresReview": true
+      },
+      "judgment": "确认发布方冲突",
+      "finding": "2026 标题与 2025 正文年份矛盾真实存在；Japan 注册链接指向 2025 旧会，PDF 附件显示 401，未找到消除歧义的公开依据。"
+    },
+    {
+      "id": "4c4f223b8c8b",
+      "org": "Robotics, Embodied AI and Learning — news and events",
+      "url": "https://www.cmu.edu/real/news-and-events/index.html",
+      "previousState": "error",
+      "state": "error",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-26T01:29:52.716Z",
+      "reason": "REAL公开。LCS可匿名读取但只有2024历史，下一场TBD；Manipulation匿名embed401/public ICS404，存在授权/公开发布范围缺口，覆盖仍partial。",
+      "error": "Incomplete extraction; previous records retained. Monitored series and example timetable: The page gives descriptions, periodicity and an explicitly labelled example workshop timetable, without specific occurrence dates. Additional endpoint failed (https://calendar.google.com/calendar/ical/c_b7b9af5e32917907f37e33bcfe0399d267a15c550fad853518793053f65c42b4%40group.calendar.google.com/public/basic.ics): HTTP 404 from calendar.google.com Reviewed resource changed or is missing; check for a newly published dated schedule (https://sites.google.com/andrew.cmu.edu/cmu-lcs/home)",
+      "visualReview": {
+        "checkedAt": "2026-10-26T01:26:34.193600+00:00",
+        "url": "https://www.cmu.edu/real/news-and-events/index.html",
+        "outcome": "partial_anonymous_calendar_authorization",
+        "note": "主页面公开且有内容。Manipulation匿名嵌入401、公开ICS404；已有Google登录上下文的浏览器能显示其名称与2026年10月空网格，这不证明匿名公开，也不证明REAL没有活动。LCS公开站点和ICS均200，站点明确下一场TBD。",
+        "report": "research/visual-recheck-2026-10-25/real-ideas-epp.json",
+        "requiresReview": true
+      },
+      "judgment": "细化：匿名访问受限",
+      "finding": "Manipulation 匿名嵌入返回 401、公开 ICS 返回 404；登录上下文的空网格不能证明公开无活动。LCS 公开可读但下一场 TBD，另增加官网变更监测。"
+    },
+    {
+      "id": "5ade174c3483",
+      "org": "Enterprise-Wide Optimization Seminars",
+      "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "previousState": "undated",
+      "state": "empty",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-26T01:40:30.734Z",
+      "reason": "Visual review corrected the prior undated classification: Fred Gardi’s public slides explicitly give May 7, 2026. The accepted dated occurrence is outside the collection window. Other reviewed files lack a full date; filenames, PDF metadata and month-only captions are not used to invent occurrences.",
+      "error": null,
+      "visualReview": {
+        "checkedAt": "2026-10-26T01:24:57.859Z",
+        "method": "CUA public archive and three public PDF title pages",
+        "status": "historical_date_recovered_from_public_pdf",
+        "reason": "Visual review corrected the prior undated classification: Fred Gardi’s public slides explicitly give May 7, 2026. The accepted dated occurrence is outside the collection window. Other reviewed files lack a full date; filenames, PDF metadata and month-only captions are not used to invent occurrences.",
+        "nextStep": "Review changed archive links or document bytes before accepting new fields; no claim of exhaustive historical PDF coverage.",
+        "report": "research/visual-recheck-2026-10-25/undated-four.json",
+        "requiresReview": false,
+        "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+        "outcome": "correction_dated_historical_document_found",
+        "note": "官网主页面为EWO Seminar Slides，系列首页也称a list of seminars with slides to download，确实属于演讲资料档案。 最新Fred Gardi演示文稿首屏实际打印EWO Seminar, Carnegie Mellon University和May7,2026，故不能一概称为无日期。它可复用链接文档SHA校验接入为历史、当前窗口外记录。 John Hooker首屏只打印CMU, April2026，没有day；不能补成某一天。 Lara封面本身无日期，文件名January22/PDF元数据01-21均不当作活动日期。"
+      },
+      "judgment": "纠正：历史日期被漏读",
+      "finding": "Fred Gardi PDF 标题页明确写 2026-05-07；改为已识别历史日期、当前窗口内为零。"
+    },
+    {
+      "id": "79e7cdffd54d",
+      "org": "CMU Alumni Online Events",
+      "url": "https://www.cmu.edu/engage/events/online-events",
+      "previousState": "error",
+      "state": "error",
+      "eventCount": 4,
+      "lastAttempt": "2026-10-26T01:40:33.863Z",
+      "reason": "Only the four visually confirmed cards with an explicit online venue are ingested. New online-announcement discovery is not yet connected; the exact public list-view identity remains unresolved.",
+      "error": "Incomplete extraction; previous records retained. Alumni public-card snapshot verified 2026-10-26T01:18:10.430Z. Alumni coverage is limited to explicitly reviewed public cards. New events, title/venue changes and full calendar discovery require another public review.",
+      "visualReview": {
+        "checkedAt": "2026-10-26T01:29:18.514Z",
+        "url": "https://community.cmu.edu/s/events",
+        "outcome": "public_online_scope_visually_confirmed",
+        "note": "All three public calendar pages were checked after dates loaded. Exactly four cards explicitly label an online venue; discovery of new cards still requires public review.",
+        "report": "research/visual-recheck-2026-10-25/alumni.json",
+        "requiresReview": true
+      },
+      "judgment": "确认公开范围",
+      "finding": "三页公开日历的 23 项与快照一致，其中四项明确线上；新增活动发现仍不完整。"
+    },
+    {
+      "id": "8f00fc7f2c7c",
+      "org": "CMU Alumni and Community Events",
+      "url": "https://www.cmu.edu/engage/events",
+      "previousState": "error",
+      "state": "error",
+      "eventCount": 23,
+      "lastAttempt": "2026-10-26T01:40:38.067Z",
+      "reason": "Only the 23 individually verified public cards are ingested, with anonymous publisher clock checks. The public list-view identity remains unresolved, so new announcements and title/venue changes still require another public review.",
+      "error": "Incomplete extraction; previous records retained. Alumni public-card snapshot verified 2026-10-26T01:18:10.430Z. Alumni coverage is limited to explicitly reviewed public cards. New events, title/venue changes and full calendar discovery require another public review.",
+      "visualReview": {
+        "checkedAt": "2026-10-26T01:18:10.430Z",
+        "method": "CUA visible public calendar and original registration detail",
+        "status": "public_detail_accessible_and_sydney_time_resolved",
+        "reason": "The original GiveCampus page is browser-accessible and resolves Sydney local date/time, venue and registration status. The anonymous node transport limitation does not mean the public page requires login.",
+        "nextStep": "Keep new-announcement discovery partial; reuse the reviewed detail only while the anonymous publisher clock agrees with its start.",
+        "report": "research/visual-recheck-2026-10-25/alumni.json",
+        "requiresReview": true,
+        "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
+        "outcome": "public_detail_time_resolved_discovery_still_partial",
+        "note": "Three public calendar pages still match all 23 reviewed card titles/dates. The original Sydney detail is publicly browser-readable and establishes October 28, 2026, 08:00–09:30 AEDT and Planar Restaurant; automatic new-card discovery remains incomplete."
+      },
+      "judgment": "纠正：详情可读、时间可补全",
+      "finding": "原始公开报名页给出 Sydney 2026-10-28 08:00–09:30 AEDT、Planar Restaurant；与纽约 10-27 17:00 为同一时刻。仍未接通新增卡片发现。"
+    },
+    {
+      "id": "97bebc670839",
+      "org": "CMU Silicon Valley Events",
+      "url": "https://www.sv.cmu.edu/events/index.html",
+      "previousState": "undated",
+      "state": "undated",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-26T01:29:52.801Z",
+      "reason": "Both inspected public month views are anonymously readable but publish no occurrence records; no event-list feed or client data component was observed.",
+      "error": null,
+      "visualReview": {
+        "checkedAt": "2026-10-26T01:24:57.859Z",
+        "url": "https://www.sv.cmu.edu/events/index.html",
+        "outcome": "confirmed_unpopulated_inspected_month_views",
+        "note": "实际视觉检查当前入口October2026、显式October归档、November以及September页面。四页活动区均只有月份标题与前后月链接，没有活动卡片或具体日期条目。 没有观察到活动筛选控件；站点搜索与隐藏导航控件不属于活动日期筛选。没有观察到日历数据组件，页面里的无关嵌入不当成活动日历。 这只能确认所检视图未列出场次；不能据此声称SV校园没有活动，其他独立SV官方日历继续保留各自范围。",
+        "report": "research/visual-recheck-2026-10-25/undated-four.json",
+        "requiresReview": false
+      },
+      "judgment": "确认所检月份未列场次",
+      "finding": "入口及九月、十月、十一月页均只有月份导航；只说明这些视图，不代表 SV 校园没有活动。"
+    },
+    {
+      "id": "b453fc62eac4",
+      "org": "EPP Faculty Seminar Series",
+      "url": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+      "previousState": "undated",
+      "state": "undated",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-26T01:29:52.635Z",
+      "reason": "Faculty页为Past Seminars录像档案，monthly文字和YouTube上传日均非逐场活动日期；其他当前EPP公开活动由独立LiveWhale来源1b0f0b6e62fa覆盖。",
+      "error": null,
+      "visualReview": {
+        "checkedAt": "2026-10-26T01:26:34.193600+00:00",
+        "url": "https://epp.engineering.cmu.edu/events/seminar-series.html",
+        "outcome": "public_recording_archive_date_limitation_confirmed",
+        "note": "Faculty Seminar页是monthly介绍和20个Past Seminars录像标题，没有当前发生日期。实际展开首条Daniel Armanios与末条Kate Whitefoot的官方视频说明，仅有上传日2025-04-10/2025-02-28和一般内容简介。相邻EPP Events确有2026-11-09 Sonia讲座，由另一独立已配置来源覆盖。",
+        "report": "research/visual-recheck-2026-10-25/real-ideas-epp.json",
+        "requiresReview": false
+      },
+      "judgment": "确认特定档案范围",
+      "finding": "Faculty 页是无逐场日期的录像档案；11-09 Sonia 讲座已由独立 EPP 事件日历收录，不能把整个 EPP 称为空。"
+    },
+    {
+      "id": "d89f616f8462",
+      "org": "IDeaS Virtual Social Cybersecurity Seminar",
+      "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+      "previousState": "undated",
+      "state": "undated",
+      "eventCount": 0,
+      "lastAttempt": "2026-10-26T01:29:52.651Z",
+      "reason": "公开折叠内容已核对，三位upcoming与Evan介绍无日期；合办工作组Upcoming为TBD，公开ICS最新2022且混有其他范围。保持undated监测，不推算无限月度重复。",
+      "error": null,
+      "visualReview": {
+        "checkedAt": "2026-10-26T01:26:34.193600+00:00",
+        "url": "https://www.cmu.edu/ideas-social-cybersecurity/events/virtual-social-cybersecurity-seminar.html",
+        "outcome": "public_undated_series_confirmed",
+        "note": "实际展开Upcoming/Past：三位upcoming只有姓名主题，无日期；历史区明确Spring2024、2023、2022。Evan介绍和first Thursday 11–12规则没有当前场次年份/边界。沿合办官网发现公开Google日历：工作组Upcoming Speakers为TBD，2026年10月日历完成加载为空；ICS91条均2017–2022且无RRULE。",
+        "report": "research/visual-recheck-2026-10-25/real-ideas-epp.json",
+        "requiresReview": false
+      },
+      "judgment": "确认缺当前日期",
+      "finding": "折叠区域展开后仍无当前场次日期；新找到的合办日历只有 2017–2022 历史，且范围更广，不整体并入。"
+    }
+  ],
+  "current": {
+    "lastUpdated": "2026-10-26T01:40:39.332Z",
+    "totalEvents": 4416,
+    "sources": {
+      "total": 318,
+      "ok": 189,
+      "empty": 78,
+      "undated": 4,
+      "error": 5,
+      "covered": 38,
+      "unsupported": 0,
+      "subscription_only": 4,
+      "blocked": 0,
+      "pending": 0
+    },
+    "lastRefresh": {
+      "startedAt": "2026-10-26T01:40:30.479Z",
+      "completedAt": "2026-10-26T01:40:40.334Z",
+      "total": 4,
+      "completed": 4,
+      "ok": 0,
+      "empty": 1,
+      "undated": 0,
+      "error": 3,
+      "totalEvents": 4416
+    },
+    "refreshing": false
+  },
+  "tests": {
+    "passed": 179,
+    "failed": 0
+  },
+  "projectCheck": "npm run check",
+  "allAPIEventsInspected": 4416,
+  "newSeminars": {
+    "cmu-crypto-qi-pang-2026-10-28": "2026-10-28T17:30:00.000Z",
+    "cmu-crypto-chase-fickes-2026-11-05": "2026-11-05T21:30:00.000Z",
+    "cmu-crypto-alper-cakan-2026-11-19": "2026-11-19T21:30:00.000Z",
+    "cmu-econcs-brian-zhang-2026-09-29": "2026-09-29T18:00:00.000Z"
+  },
+  "sydney": {
+    "uid": "alumni:a7DUk000000OnpFMAS",
+    "title": "Sydney - Alumni Coffee and Catch-Up",
+    "description": "Sydney alumni and friends are welcome to an informal coffee gathering at Planar Restaurant. Local event time: October 28, 2026, 8:00–9:30 AM AEDT in Sydney (October 27, 5:00–6:30 PM in New York). Registration is shown as closed since October 6, 2026, 11:59 PM AEDT; confirm attendance arrangements with the organizer.",
+    "summary": "Sydney alumni and friends are welcome to an informal coffee gathering at Planar Restaurant. Local event time: October 28, 2026, 8:00–9:30 AM AEDT in Sydney (October 27, 5:00–6:30 PM in New York). Registration is shown as closed since October 6, 2026, 11:59 PM AEDT; confirm attendance arrangements with the organizer.",
+    "start": "2026-10-27T21:00:00.000Z",
+    "end": "2026-10-27T22:30:00.000Z",
+    "allDay": false,
+    "timePrecision": "time",
+    "timeZone": "Australia/Sydney",
+    "location": "Planar Restaurant, ICC Sydney, Shop C08, Ground Floor/14 Darling Dr, Darling Harbour NSW 2000, Australia",
+    "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
+    "organizer": "Carnegie Mellon University Alumni Association",
+    "status": "scheduled",
+    "tags": []
+  },
+  "officialReposts": [
+    {
+      "title": "Society of Physics Students BBQ",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "Gender Minorities and Women in Physics",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "Gender Minorities and Women in Physics",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "Gender Minorities and Women in Physics",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "NOVA: The GenAI Hackathon",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "Red Robot Hackathon 2026",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "AES@CMU Presents: Maqam-Persian Music - Music of Iran",
+      "rawMatches": 3,
+      "apiMatches": 1
+    },
+    {
+      "title": "AES@CMU Presents: Maqam-Persian Music - Music of Iran",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "Hack-A-Startup: Kick-Off Weekend",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "Biophilic Design Club - intro meeting",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "Tepper Masters Students Friday Socials",
+      "rawMatches": 1,
+      "apiMatches": 1
+    },
+    {
+      "title": "IEEE Research Paper Workshop",
+      "rawMatches": 3,
+      "apiMatches": 1
+    }
+  ],
+  "evidenceManifest": [
+    {
+      "path": "research/visual-recheck-2026-10-25/dssc-archive.jpg",
+      "bytes": 135792,
+      "sha256": "8402038f4fbb3afb6524410b38b624a6dc4f39ef0615ade29bac981cbdc5b975"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/dssc-japan-2026.jpg",
+      "bytes": 158393,
+      "sha256": "4bef2975cd65ff62a852fc552542de57b1c46225944904a6164934ee7c88aca3"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/dssc-japan-pdf-401.jpg",
+      "bytes": 27415,
+      "sha256": "9f65425bf55b9e6b7afd26e44d2aeefefa54c8822055c94ce018ff6a691dab98"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/dssc-japan-registration-2025.jpg",
+      "bytes": 90096,
+      "sha256": "3b3539e067d804092cd54a9dd8f6d67037d611ae977d54e6bb240738d0716b82"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/dssc-spring-2026.jpg",
+      "bytes": 198463,
+      "sha256": "6d50134b9cbb68c34fdb4a017dad3e2d4e2088e71394a488e2f9c67862d57aa3"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/dssc-spring-pdf-401.jpg",
+      "bytes": 27415,
+      "sha256": "9f65425bf55b9e6b7afd26e44d2aeefefa54c8822055c94ce018ff6a691dab98"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/alumni-page1.jpg",
+      "bytes": 190138,
+      "sha256": "53e9934edfe96371336a1e510533db18fd0ea9c0898d81f4d757c11dab942505"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/alumni-page2.jpg",
+      "bytes": 145850,
+      "sha256": "c017dbd6699b40f014f1418ecd797b1b427d36080e63af0fcb718992b211c864"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/alumni-page3.jpg",
+      "bytes": 129486,
+      "sha256": "012f199fd5b389210a59ca2708346beb3c75762da98ca7cb4472b6e8cfec2256"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/alumni-sydney-date-time-venue.png",
+      "bytes": 13691,
+      "sha256": "acbeed3a38f152ebbf4200ccbfdb30dce14a3a082e2880248bf8cb4d5611c20b"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/alumni-sydney-public-detail.jpg",
+      "bytes": 181055,
+      "sha256": "66584671d0692a55a35d7feae9be3c9776c6ba69e37d69488a9aea395bc9024c"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/app-scs-recovered.jpg",
+      "bytes": 81304,
+      "sha256": "4aaebbc9d0e2bda046761d2b5197fc8905fd757a2c32293d8e63d6bd6f5325b9"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/app-sydney-corrected.jpg",
+      "bytes": 69445,
+      "sha256": "9e1771a8c7720a9af04fbd1f8db8f4c41164520268cb1e168589430809d2dcae"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ctp-ai-booking.jpg",
+      "bytes": 189796,
+      "sha256": "c504d0a423f45ae00d504b550a374ce17518ac20d192a3e4e0a69a845bdabaaa"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ctp-catalog.jpg",
+      "bytes": 204063,
+      "sha256": "0af5678fe605c31c7ca97b759f332c017f85c08d7fefae079db4ca4d973d46d5"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ctp-feedback-booking.jpg",
+      "bytes": 173538,
+      "sha256": "c461b15ffc4601931ed23280dce1c7c611d4f4292f36174d78b126fc1a876916"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ctp-joyful-booking.jpg",
+      "bytes": 162238,
+      "sha256": "e69fe3627a4568d8d7937ea7ffc0f828bccda1c98d3dba96a1fe7b89f097f115"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-events-index.png",
+      "bytes": 80765,
+      "sha256": "75c9ab22110c1c9298f03d052bcf1294e7b4c907ed305b0272394cdb3ce0c6cb"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-kate-public-description.png",
+      "bytes": 191337,
+      "sha256": "75aa68949ac51269d75bf11221e3aadbc1d89827d7d52f7b2290ad7115a1dfe3"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-main.png",
+      "bytes": 99578,
+      "sha256": "8f15cbab396f01ebfe5cad460ad07d69c789d41337c558c3b33dbb9b14edddd4"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-sonia-2026.png",
+      "bytes": 153512,
+      "sha256": "a8d32631c45c1d7918ee1ab8fae0183fda14a5d5de5d9e5c0e1b274509d8c098"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/epp-video-public-description.png",
+      "bytes": 188447,
+      "sha256": "5487358c9e8259390cdfb0fc1be99e5203d5081f24432bf6084fc3f33536a5df"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ewo-archive-top.jpg",
+      "bytes": 75131,
+      "sha256": "10329e60858a7d14ee1f5a4cfb0f15ef9c576ee406e1e3a1ff06adbcb3f00383"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ewo-cristiana-lara-title.jpg",
+      "bytes": 51640,
+      "sha256": "76eb73fca533f76c69b45978e31979cd9f6fdcc76d16bda327def747b78d5e6b"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ewo-fred-gardi-title.jpg",
+      "bytes": 61067,
+      "sha256": "d64a1d65c17938f484ba6764630ae8ba6341c6bbd26dca1ed5f34a6197b5fd49"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ewo-john-hooker-title.jpg",
+      "bytes": 59209,
+      "sha256": "0d3462b2eadefa871a9854a16e36354ca425b5bb26c48892d2128d2bd57098da"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ewo-parent.jpg",
+      "bytes": 106473,
+      "sha256": "3f8b4d1c24d4ff2999b279a7b0a9b9de139c10f8a9ff9ec140fc69ada76e28fc"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-current-speaker-and-rule.png",
+      "bytes": 77151,
+      "sha256": "2a73f4351ef741a9e53b70e292ce04140f5bf98c60387090f59f2a15db3bf4f3"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-distinct-center-series.png",
+      "bytes": 115204,
+      "sha256": "0ef9d9be630f4d835a0383d6f16cb5677652d81b1008d016ad2e2e90a3a9e361"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-hub-working-group.png",
+      "bytes": 118108,
+      "sha256": "1012ceebcbb273e22f80737e284e0912b8b7163cd9241216deefeb45daac7070"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-past-expanded.png",
+      "bytes": 69376,
+      "sha256": "5a990922c696385f329c32eda2751d9cf50c9a0d22cf804a96151d20ba60db24"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-upcoming-expanded.png",
+      "bytes": 82305,
+      "sha256": "28f4a8ad37ead0b1b276bc07dc858ff2e451ead20ee8e42430dd38dd3098e093"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-working-group-calendar-october.png",
+      "bytes": 38968,
+      "sha256": "be89ffd9fffde8c75d3be7e7cd12e6f2eaf78f1c328b95a7ad3dbf4e8d97bd96"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ideas-working-group-events-tbd.png",
+      "bytes": 137490,
+      "sha256": "f3de1a4cdd0f2197b25e48a6512fc9e652ed07bffbf0f5df58e1067b4a76cb79"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/real-example-timetable.png",
+      "bytes": 90811,
+      "sha256": "7eb0b1852c1b5900fd54277e6daf74c5097605be1a94e2cd8d09a931b4413bd3"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/real-lcs-calendar-and-archive.png",
+      "bytes": 45671,
+      "sha256": "526d5caac03c8925df1aae8b71897407cb8cb08a8dc76efdea1f85c08d59b068"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/real-lcs-next-tbd.png",
+      "bytes": 213532,
+      "sha256": "cc67c0c27e8b96c4195c0590c5e6f1a9d38a2f2c67ea2fcf350b84af352cc1f1"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/real-main.png",
+      "bytes": 100138,
+      "sha256": "abc8c1a28851175d6ef6e731d16e2202488e0af1733590e1202b9d8390eaf0f3"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/real-manipulation-authenticated-empty.png",
+      "bytes": 38980,
+      "sha256": "0e00637563eb6a1e4b3f38f8d7255abb2fa2d148d4938fa12453e7a436e265cf"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-crypto-all-coming-expanded.jpg",
+      "bytes": 100000,
+      "sha256": "efe4d90a53fd88b9dbadc0f016baf8a5ec1573c1cc745db6dc4a107324ba1d25"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-crypto-coming-talks.jpg",
+      "bytes": 80314,
+      "sha256": "2138c853ae7e4ab6988e6b9dd73093fe29132f98d0456950642bfd2167937e5d"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-directory-all-bottom.jpg",
+      "bytes": 87177,
+      "sha256": "9f96f5d98208e37156030049719f125e28ad9fb361120a1b85bcde56492f2709"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-directory-all-top.jpg",
+      "bytes": 73443,
+      "sha256": "4a0168bc00463fed543b84ab55a06c4b4f2f951656b8e88d78353663ec040a4f"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-directory-last-rows.jpg",
+      "bytes": 76066,
+      "sha256": "7ca03016b0fa53d927cb80ddaccb71db9c631b400d50f479ebc75a59d0537ac5"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-econ-fall-2026.jpg",
+      "bytes": 133882,
+      "sha256": "50a63633e7ba13a2b80e636ab3eee051f377991707364cf721ec193eff462526"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/sv-november.jpg",
+      "bytes": 52036,
+      "sha256": "6c16b52c12af11f88d48b38649c752f4ab88b3cd3ce08f3b344d5ec3dd089e1f"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/sv-october-explicit.jpg",
+      "bytes": 51705,
+      "sha256": "c251f47b552afc962406f63507f86d6a1b87fe05edce957e14482798262aac26"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/sv-october.jpg",
+      "bytes": 44880,
+      "sha256": "89384333e282db8f866f42276f2edf5a076f512b35f19850d6d54e771e614d0b"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/sv-september.jpg",
+      "bytes": 52423,
+      "sha256": "b836a098bc4552fcb0fe951e77d217010b2c42ebeaf5edd4d5ee16e6cfcc33f6"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/givecampus-parent-redirect.jpg",
+      "bytes": 217383,
+      "sha256": "ab19eccfbdff22f20baa62f0af092763f1ac89bd623fa1f0eb000b1432e62e4e"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/real-ideas-epp-privacy-contact-sheet.jpg",
+      "bytes": 167213,
+      "sha256": "6d0b537a06842cecd0bdecdfada51edf339a71b1a61fd63fec603629d4857304"
+    }
+  ],
+  "accessBoundaries": "No account changes, login, subscription, form submission or private event/guest-list collection."
+}

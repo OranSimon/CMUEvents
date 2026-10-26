@@ -1,0 +1,138 @@
+{
+  "checkedAt": "2026-10-26T01:36:46.210Z",
+  "reviewMode": "源码与离线内存数据库复核；未修改运行数据库、来源配置或执行刷新。经 root 后续授权，仅修正 src/lib/store.mjs 并补充 tests/store.test.mjs。",
+  "files": {
+    "src/adapters/alumni.mjs": "f4c75474cbdb06bdb7c18e0decba0ebccaf5d4f448dec10407ec2b82c89c31bc",
+    "src/adapters/reviewed-images.mjs": "f99a4087bec3743e54b86b2e64d281a3e14ddb6a6194ba91bcd80efa6f2d8317",
+    "src/adapters/index.mjs": "10bfa0bdb903286bf4cd4541669b258ce6089ec87c8a9b880686a8bffa8b8e8e",
+    "src/refresh.mjs": "ab9d55cfc76d6de540547cf87ea187e7045afa005c7191341686afca9777b1f9",
+    "src/lib/store.mjs": "909d1da5de5342ce227cdfed99f8f8b9e53a7755c9dbd4ed506f85d013293821",
+    "tests/store.test.mjs": "6ab3bb7381acdea6457078901bc2a54bd5b9cc5093844b0446e5764434b8a987",
+    "tests/alumni.test.mjs": "e37284976f0abe5fad34e25e769385437c24117081a425fa7e10d904a5a6d2c0",
+    "tests/visual-recheck.test.mjs": "9db2fbcc8c6dec443b26a361dfaa907e02315ec7e7def78f0ce79c38dcd2b81f",
+    "tests/empty-followup.test.mjs": "4ed87ee46f34581660cf5239e139e90ddee1ac5e17e3b385b2c55c830ae41596"
+  },
+  "checks": [
+    {
+      "subject": "Sydney 原始公开详情",
+      "result": "通过",
+      "reason": "仅当实时公开时钟的 UTC 瞬间等于经过校验的原始详情 start 时，采用 Australia/Sydney、明确结束时间及地点。实时钟点缺失、无效或漂移时，当前解析输出仅保留复核日期，不混入旧详情钟点或结束时间。"
+    },
+    {
+      "subject": "快照校验早于联网",
+      "result": "通过",
+      "reason": "fetchAlumni 在任何 listing GET 或 clock getter 前校验全部记录；无效 ID、非公开 GiveCampus URL、日期、标题和 detailReview 均拒绝。额外负例确认 end<=start 时网络调用为 0。"
+    },
+    {
+      "subject": "PDF 与海报字节保护",
+      "result": "通过",
+      "reason": "attribute 默认为 src，新增 href 路径仍要求唯一匹配节点、合法 SHA-256、抓取字节完全一致。缺失或替换字节返回 partial，且无该注释的新记录；默认图片路径回归测试通过。"
+    },
+    {
+      "subject": "partial 持久化",
+      "result": "通过（已修正发现的问题）",
+      "reason": "changed PDF 和失败子端点由 refresh 的 partial 路径交给 mergePartial，保留先前快照。Alumni 额外显式声明单活动 UID，使已验证的新时间可原子替换同源旧版本；钟点降级则保留最后接受的有钟点记录并留下警告。"
+    },
+    {
+      "subject": "SCS 新端点范围",
+      "result": "通过",
+      "reason": "两个显式额外研讨会端点没有伪装成完整 26 系列覆盖；父级 reviewedResources.requiresReview 维持 partial。只发布带明确证据的日期和钟点，未补造结束时间。",
+      "sourceId": "1185bc345a9a",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "additionalEndpoints": [
+        {
+          "url": "https://www.cs.cmu.edu/rs-datasources/data-source/scs-seminar-events-data",
+          "adapter": "html"
+        },
+        {
+          "url": "https://sites.google.com/view/crypto-seminar/home",
+          "adapter": "html"
+        },
+        {
+          "url": "https://cmueconcs.github.io/",
+          "adapter": "html"
+        }
+      ]
+    },
+    {
+      "subject": "EWO 明确日期 PDF",
+      "result": "通过",
+      "reason": "Fred Gardi PDF 注释为 2026-05-07 日期精度、exclusive end 为 2026-05-08；未宣称全天或补造钟点。日期位于现有窗口之外，报告与快照语义仍区分历史日期和未知日期。",
+      "sourceId": "5ade174c3483",
+      "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "reviewedDocuments": [
+        {
+          "selector": "a[href=\"docs/EWO Seminar Carnegie Mellon - Fred Gardi - Hexaly.pdf\"]",
+          "attribute": "href",
+          "sha256": "28710b3e961e6ad8b977a716d32c61630107f3208cfdd6027d5ffeee67cb80e7",
+          "events": [
+            {
+              "title": "Beyond MILP: Hexaly, a Hybrid Optimization Solver — Fred Gardi",
+              "start": "2026-05-07",
+              "end": "2026-05-08"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "severity": "required",
+      "status": "resolved_and_tested",
+      "area": "单活动 UID 的 partial 合并",
+      "originalProblem": "旧 Sydney 日期是 2026-10-27/New York，正确原始详情是 2026-10-28/Sydney（实际 UTC 瞬间为 2026-10-27T21:00Z）。原先仅按相同本地日期匹配的 partial 升级逻辑无法移除旧版本；钟点后续失效也可能再生成日期重复项。",
+      "correction": "mergePartial 第四参数 singleEventUids 只接受显式单活动身份。恰好一个新有钟点记录时，原子移除该来源同 UID 旧版本后写入。日期降级遇到旧有钟点版本时跳过新日期项、清理旧日期版本、保留既有时刻并加警告。相同 UID 出现多个新记录时跳过本规则，保护重复日程；其他 UID 和其他来源不受此规则影响。",
+      "integration": "Alumni result -> adapters/index -> refresh -> store 的 singleEventUids 传递已在源码中确认。"
+    }
+  ],
+  "tests": [
+    {
+      "command": "node --test tests/store.test.mjs tests/alumni.test.mjs tests/visual-recheck.test.mjs",
+      "passed": 27,
+      "failed": 0,
+      "newStoreFixtures": 4
+    },
+    {
+      "command": "node --test tests/empty-followup.test.mjs",
+      "passed": 10,
+      "failed": 0
+    },
+    {
+      "kind": "额外离线负例（未写入测试源码）",
+      "passed": 4,
+      "failed": 0,
+      "cases": [
+        {
+          "label": "missing clock",
+          "passed": true,
+          "start": "2026-10-27",
+          "end": "2026-10-28"
+        },
+        {
+          "label": "invalid clock zone",
+          "passed": true,
+          "start": "2026-10-27",
+          "end": "2026-10-28"
+        },
+        {
+          "label": "moved clock",
+          "passed": true,
+          "start": "2026-10-27",
+          "end": "2026-10-28"
+        },
+        {
+          "label": "invalid detail end before start rejects before network",
+          "passed": true,
+          "networkCalls": 0
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Alumni 始终为 partial；新增公开活动发现、标题或地点漂移仍需新的公开复核。",
+    "时钟失败后保留的既有有钟点记录是最后一次接受的快照，来源会继续显示 partial/error 与明确警告，不能当作本轮重新验证。",
+    "SCS 只连接已明确记录的子系列，其他系列仍未完成发现。"
+  ],
+  "unhandledRequiredFindings": []
+}

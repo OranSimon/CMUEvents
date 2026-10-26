@@ -1,0 +1,22 @@
+{
+  "sourceID": "5ade174c3483",
+  "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO%20Seminar%20Carnegie%20Mellon%20-%20Fred%20Gardi%20-%20Hexaly.pdf",
+  "selector": "a[href=\"docs/EWO Seminar Carnegie Mellon - Fred Gardi - Hexaly.pdf\"]",
+  "attribute": "href",
+  "sha256": "28710b3e961e6ad8b977a716d32c61630107f3208cfdd6027d5ffeee67cb80e7",
+  "httpStatus": 200,
+  "bytes": 1640214,
+  "title": "Beyond MILP: Hexaly, a Hybrid Optimization Solver",
+  "speaker": "Fred Gardi",
+  "start": "2026-05-07",
+  "end": "2026-05-08",
+  "timePrecision": "date",
+  "eventPage": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+  "sourceContext": "Title page visibly prints EWO Seminar, Carnegie Mellon University; May 7, 2026.",
+  "screenshot": "research/visual-recheck-2026-10-25/evidence/ewo-fred-gardi-title.jpg",
+  "notInferred": [
+    "No clock time or room is supplied",
+    "John Hooker title page only says April2026: no day inferred",
+    "Lara first page has no visible date; filename Jan22 vs PDF metadata Jan21 not used as an event date"
+  ]
+}

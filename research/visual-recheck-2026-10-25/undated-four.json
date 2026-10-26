@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-26T01:24:57.859Z",
+  "scope": "四个此前标作undated的保留官方来源。每个主页面均实际使用CUA浏览器视觉/DOM核对，并沿具体链接检查；未修改生产代码、配置或数据库。",
+  "method": "CUA Chrome独立研究页签；DOM定位和浏览器截图。PDF由浏览器PDF查看器实际显示第一页。补充匿名HTTP仅用于已视觉确认PDF的字节哈希及表单可达性，不替代视觉核对。",
+  "observations": [
+    {
+      "sourceID": "1aa9b956ba78",
+      "name": "Center for Transformational Play Workshops",
+      "url": "https://www.cmu.edu/ctp/workshops/index.html",
+      "previousJudgment": "无具体场次日期的预约课程目录",
+      "outcome": "confirmed_on_demand_resource_not_empty_organization",
+      "correctionRequired": false,
+      "findings": [
+        "浏览器目录列出三种课程和custom workshops。三条Learn More均实际打开。",
+        "三种详情均明确写currently available for group booking；仅给半日或2小时、最低8人及20/24人容量，无具体举办日期。",
+        "同一Contact Form实际只读核对，询问姓名、邮箱、所属机构、是否想预约、想预约哪种课程；没有日期选项。未填写、未提交、未订阅。"
+      ],
+      "visitedURLs": [
+        "https://www.cmu.edu/ctp/workshops/index.html",
+        "https://www.cmu.edu/ctp/workshops/exploring_ai.html",
+        "https://www.cmu.edu/ctp/workshops/building_joyful_products.html",
+        "https://www.cmu.edu/ctp/workshops/unlocking-high-quality-feedback.html",
+        "https://docs.google.com/forms/d/e/1FAIpQLSeEveXqvawd16smLFj4Yt2u0DvMcqrQDWwJNZoQtyaTQYST2g/viewform"
+      ],
+      "anonymousFormProbe": {
+        "status": 200,
+        "hasBookingQuestion": true,
+        "hasWorkshopInterestPrompt": true
+      },
+      "recommendation": "维持可预约资源监测；描述为尚未公布具体排期，不把课程时长变成发生日期，也不说CTP没有活动。",
+      "evidence": [
+        "research/visual-recheck-2026-10-25/evidence/ctp-ai-booking.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/ctp-ai-booking.jpg",
+        "research/visual-recheck-2026-10-25/evidence/ctp-catalog.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/ctp-catalog.jpg",
+        "research/visual-recheck-2026-10-25/evidence/ctp-feedback-booking.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/ctp-feedback-booking.jpg",
+        "research/visual-recheck-2026-10-25/evidence/ctp-interest-form-redacted.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/ctp-joyful-booking.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/ctp-joyful-booking.jpg"
+      ],
+      "privacyNote": "Google Form账号区域没有截图保存；文本证据中的账号标识与账户切换链接已删除。"
+    },
+    {
+      "sourceID": "5ade174c3483",
+      "name": "Enterprise-Wide Optimization Seminars",
+      "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+      "previousJudgment": "undated recording archive",
+      "outcome": "correction_dated_historical_document_found",
+      "correctionRequired": true,
+      "findings": [
+        "官网主页面为EWO Seminar Slides，系列首页也称a list of seminars with slides to download，确实属于演讲资料档案。",
+        "最新Fred Gardi演示文稿首屏实际打印EWO Seminar, Carnegie Mellon University和May7,2026，故不能一概称为无日期。它可复用链接文档SHA校验接入为历史、当前窗口外记录。",
+        "John Hooker首屏只打印CMU, April2026，没有day；不能补成某一天。",
+        "Lara封面本身无日期，文件名January22/PDF元数据01-21均不当作活动日期。"
+      ],
+      "visitedURLs": [
+        "https://egon.cheme.cmu.edu/ewo/seminars.html",
+        "https://egon.cheme.cmu.edu/ewo/index.html",
+        "https://egon.cheme.cmu.edu/ewo/docs/EWO%20Seminar%20Carnegie%20Mellon%20-%20Fred%20Gardi%20-%20Hexaly.pdf",
+        "https://egon.cheme.cmu.edu/ewo/docs/DDsChemE2026.pdf",
+        "https://egon.cheme.cmu.edu/ewo/docs/EWO_January_22_2026_Lara.pdf"
+      ],
+      "recommendationFile": "research/visual-recheck-2026-10-25/ewo-dated-pdf-recommendation.json",
+      "recommendation": "为公开PDF锚点复用已审核资源字节哈希和人工视觉字段；archive resource guard设置undated:false，保持日期精度。限定为本轮读过的三个最新PDF首屏及明确找到的一条完整历史日期，不声称已经复核全部旧PDF。",
+      "evidence": [
+        "research/visual-recheck-2026-10-25/evidence/ewo-archive-top.jpg",
+        "research/visual-recheck-2026-10-25/evidence/ewo-archive.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/ewo-cristiana-lara-title.jpg",
+        "research/visual-recheck-2026-10-25/evidence/ewo-fred-gardi-title.jpg",
+        "research/visual-recheck-2026-10-25/evidence/ewo-john-hooker-title.jpg",
+        "research/visual-recheck-2026-10-25/evidence/ewo-parent.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/ewo-parent.jpg"
+      ]
+    },
+    {
+      "sourceID": "1185bc345a9a",
+      "name": "SCS Seminars directory",
+      "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
+      "previousJudgment": "只监测无具体日期的系列目录",
+      "outcome": "correction_linked_series_have_missing_dated_occurrences",
+      "correctionRequired": true,
+      "findings": [
+        "等待动态表格真正加载后，将entries per page改为All，浏览器显示26 of26。列只有系列名称、简称、星期、时刻、联系入口，没有个别场次日期。",
+        "目录判断本身正确，但不能由此认为所有官方链接都没有日期。两项尚未独立接入的公开链接实测有明确排期。",
+        "Crypto页面Coming Talks实际列出Qi Pang2026-10-28周三13:30ET例外、Chase Fickes2026-11-05、Alper Çakan2026-11-19。后两者应用页面明确的周四16:30ET时刻；F26房间GHC7501并有Zoom直播。三条均展开复核。",
+        "Econ-CS Fall2026表格有4条完整date/time记录，其中Sept29 Brian Zhang14:00ET、NSH3305/Zoom位于当前回看窗口；该条talk topic仍TBD，不能丢掉已经明确排定的系列+speaker场次，也不能编造主题。",
+        "目录的LTI默认14:00与现行2026海报所列15:30不同，说明目录星期/时刻可能过时，不应覆盖个别当前公告。"
+      ],
+      "visitedURLs": [
+        "https://www.cs.cmu.edu/events/scs-seminar-series",
+        "https://sites.google.com/view/crypto-seminar/home",
+        "https://cmueconcs.github.io/"
+      ],
+      "recommendationFile": "research/visual-recheck-2026-10-25/scs-linked-series-recommendation.json",
+      "liveReplayFile": "research/visual-recheck-2026-10-25/scs-linked-series-live-replay.json",
+      "recommendation": "在同一SCS目录来源ID下追加两个已视觉核实的学术系列HTML端点，复用reviewedFragments及资源变化监测。仅修复这两个子系列，不声称完成26个系列的所有日期覆盖；维持明确partial范围说明。",
+      "evidence": [
+        "research/visual-recheck-2026-10-25/evidence/scs-crypto-all-coming-expanded.jpg",
+        "research/visual-recheck-2026-10-25/evidence/scs-crypto-coming-talks.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/scs-crypto-coming-talks.jpg",
+        "research/visual-recheck-2026-10-25/evidence/scs-crypto-expanded.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/scs-directory-all-bottom.jpg",
+        "research/visual-recheck-2026-10-25/evidence/scs-directory-all-top.jpg",
+        "research/visual-recheck-2026-10-25/evidence/scs-directory-all.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/scs-directory-last-rows.jpg",
+        "research/visual-recheck-2026-10-25/evidence/scs-econ-fall-2026.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/scs-econ-fall-2026.jpg",
+        "research/visual-recheck-2026-10-25/evidence/scs-rendered-series.json"
+      ],
+      "privacyNote": "未保存带公开会议访问码的Google Sites完整HTML。AX证据删去会议链接，推荐字段只含活动元信息和内容哈希。"
+    },
+    {
+      "sourceID": "97bebc670839",
+      "name": "CMU Silicon Valley Events",
+      "url": "https://www.sv.cmu.edu/events/index.html",
+      "previousJudgment": "navigation-only monthly calendar",
+      "outcome": "confirmed_unpopulated_inspected_month_views",
+      "correctionRequired": false,
+      "findings": [
+        "实际视觉检查当前入口October2026、显式October归档、November以及September页面。四页活动区均只有月份标题与前后月链接，没有活动卡片或具体日期条目。",
+        "没有观察到活动筛选控件；站点搜索与隐藏导航控件不属于活动日期筛选。没有观察到日历数据组件，页面里的无关嵌入不当成活动日历。",
+        "这只能确认所检视图未列出场次；不能据此声称SV校园没有活动，其他独立SV官方日历继续保留各自范围。"
+      ],
+      "visitedURLs": [
+        "https://www.sv.cmu.edu/events/index.html",
+        "https://www.sv.cmu.edu/events/2026/10/index.html",
+        "https://www.sv.cmu.edu/events/2026/11/index.html",
+        "https://www.sv.cmu.edu/events/2026/09/index.html"
+      ],
+      "recommendation": "维持该页面视图的变更监测，保留导航页/未公布场次的具体原因；不改成组织层面empty，也不发明动态API失效原因。",
+      "evidence": [
+        "research/visual-recheck-2026-10-25/evidence/sv-november.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/sv-november.jpg",
+        "research/visual-recheck-2026-10-25/evidence/sv-october-explicit.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/sv-october-explicit.jpg",
+        "research/visual-recheck-2026-10-25/evidence/sv-october.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/sv-october.jpg",
+        "research/visual-recheck-2026-10-25/evidence/sv-september.ax.txt",
+        "research/visual-recheck-2026-10-25/evidence/sv-september.jpg"
+      ]
+    }
+  ],
+  "summary": {
+    "sourcesReviewed": 4,
+    "primaryPagesVisuallyChecked": 4,
+    "corrections": 2,
+    "confirmedPriorJudgments": 2,
+    "cryptoFutureEvents": 3,
+    "econWindowEvents": 1,
+    "ewoExplicitHistoricalEvents": 1,
+    "scopeBounds": "目录26行已全部查看，只有Crypto/Econ-CS两个子系列进行了本轮细查；EWO仅检查三个最近PDF的首屏，不宣称所有旧录影均无日期。"
+  },
+  "evidenceManifest": [
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ctp-ai-booking.ax.txt",
+      "bytes": 383,
+      "sha256": "a165197b22aa561644d3f5ee37c7f6db5b4d95867a5398a24e3963b03d8d986b"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ctp-ai-booking.jpg",
+      "bytes": 189796,
+      "sha256": "c504d0a423f45ae00d504b550a374ce17518ac20d192a3e4e0a69a845bdabaaa"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ctp-catalog.ax.txt",
+      "bytes": 363,
+      "sha256": "257c38048a3dfa91c93ac94d9d10c4cbad7fffc6436cef7951eae73804e53e3b"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ctp-catalog.jpg",
+      "bytes": 204063,
+      "sha256": "0af5678fe605c31c7ca97b759f332c017f85c08d7fefae079db4ca4d973d46d5"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ctp-feedback-booking.ax.txt",
+      "bytes": 459,
+      "sha256": "07a386015eca95a6acc0d64712fe66f7eceea890c218a72bf1c6ea752e27e052"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ctp-feedback-booking.jpg",
+      "bytes": 173538,
+      "sha256": "c461b15ffc4601931ed23280dce1c7c611d4f4292f36174d78b126fc1a876916"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ctp-interest-form-redacted.ax.txt",
+      "bytes": 357,
+      "sha256": "2222fec05fc3b01293c524c1f468af688d379bc3357e77aa0393f681caaa58ce"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ctp-joyful-booking.ax.txt",
+      "bytes": 431,
+      "sha256": "c2b3f911f9d602093f62a212388a5c3b9e1dde9ffb00489e5393eaa5cb712b6d"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ctp-joyful-booking.jpg",
+      "bytes": 162238,
+      "sha256": "e69fe3627a4568d8d7937ea7ffc0f828bccda1c98d3dba96a1fe7b89f097f115"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ewo-archive-top.jpg",
+      "bytes": 75131,
+      "sha256": "10329e60858a7d14ee1f5a4cfb0f15ef9c576ee406e1e3a1ff06adbcb3f00383"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ewo-archive.ax.txt",
+      "bytes": 315,
+      "sha256": "7cb9bad9384be7221ecae62c684c8ef994d0ab9d8585ac91c3289d3082aa1aa9"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ewo-cristiana-lara-title.jpg",
+      "bytes": 51640,
+      "sha256": "76eb73fca533f76c69b45978e31979cd9f6fdcc76d16bda327def747b78d5e6b"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ewo-fred-gardi-title.jpg",
+      "bytes": 61067,
+      "sha256": "d64a1d65c17938f484ba6764630ae8ba6341c6bbd26dca1ed5f34a6197b5fd49"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ewo-john-hooker-title.jpg",
+      "bytes": 59209,
+      "sha256": "0d3462b2eadefa871a9854a16e36354ca425b5bb26c48892d2128d2bd57098da"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ewo-parent.ax.txt",
+      "bytes": 526,
+      "sha256": "c6f2667b80f5a67f5f927cb5b8d03deb192e936b1b5e7ec4e3409c535d5df98e"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/ewo-parent.jpg",
+      "bytes": 106473,
+      "sha256": "3f8b4d1c24d4ff2999b279a7b0a9b9de139c10f8a9ff9ec140fc69ada76e28fc"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-crypto-all-coming-expanded.jpg",
+      "bytes": 100000,
+      "sha256": "efe4d90a53fd88b9dbadc0f016baf8a5ec1573c1cc745db6dc4a107324ba1d25"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-crypto-coming-talks.ax.txt",
+      "bytes": 429,
+      "sha256": "1be7c60b0eb89b9b21c8a6924d19b65fc2f4291004f3759588e56c36ee6eabf5"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-crypto-coming-talks.jpg",
+      "bytes": 80314,
+      "sha256": "2138c853ae7e4ab6988e6b9dd73093fe29132f98d0456950642bfd2167937e5d"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-crypto-expanded.ax.txt",
+      "bytes": 387,
+      "sha256": "add8103411a2a36779207916766b96bf0319670ef5febc51be6ec0454cad4b31"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-directory-all-bottom.jpg",
+      "bytes": 87177,
+      "sha256": "9f96f5d98208e37156030049719f125e28ad9fb361120a1b85bcde56492f2709"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-directory-all-top.jpg",
+      "bytes": 73443,
+      "sha256": "4a0168bc00463fed543b84ab55a06c4b4f2f951656b8e88d78353663ec040a4f"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-directory-all.ax.txt",
+      "bytes": 249,
+      "sha256": "0b141f0c48818d1398ee9980a319514586924e638a7e24a1aca254fde442eebd"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-directory-last-rows.jpg",
+      "bytes": 76066,
+      "sha256": "7ca03016b0fa53d927cb80ddaccb71db9c631b400d50f479ebc75a59d0537ac5"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-econ-fall-2026.ax.txt",
+      "bytes": 241,
+      "sha256": "36f9bc7890784ba82ae30b842118e99555ecc34257b5bfa84da4ee1343aad7a5"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-econ-fall-2026.jpg",
+      "bytes": 133882,
+      "sha256": "50a63633e7ba13a2b80e636ab3eee051f377991707364cf721ec193eff462526"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/scs-rendered-series.json",
+      "bytes": 5329,
+      "sha256": "34314fee2b0b696ff08da0d9ccc339cd11756af7deaea8f898de1e368200e0f5"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/sv-november.ax.txt",
+      "bytes": 554,
+      "sha256": "a44cdcefecf14eaaf4f242f66422f4344e719e61e136f5ac556539d274044edf"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/sv-november.jpg",
+      "bytes": 52036,
+      "sha256": "6c16b52c12af11f88d48b38649c752f4ab88b3cd3ce08f3b344d5ec3dd089e1f"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/sv-october-explicit.ax.txt",
+      "bytes": 552,
+      "sha256": "c9025c6fb1b61e73efbcaf49d08b4577122505462f3cb3bb462f403d3a94dd15"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/sv-october-explicit.jpg",
+      "bytes": 51705,
+      "sha256": "c251f47b552afc962406f63507f86d6a1b87fe05edce957e14482798262aac26"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/sv-october.ax.txt",
+      "bytes": 534,
+      "sha256": "b42b776b4b8c742b53bae23379fa806db524f687b437c940bf591242c0a76db8"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/sv-october.jpg",
+      "bytes": 44880,
+      "sha256": "89384333e282db8f866f42276f2edf5a076f512b35f19850d6d54e771e614d0b"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/sv-september.ax.txt",
+      "bytes": 556,
+      "sha256": "dfbea5bb79b696a0979366d5c2a29b895f3039ddf1efe3150068fc4597e041c1"
+    },
+    {
+      "path": "research/visual-recheck-2026-10-25/evidence/sv-september.jpg",
+      "bytes": 52423,
+      "sha256": "b836a098bc4552fcb0fe951e77d217010b2c42ebeaf5edd4d5ee16e6cfcc33f6"
+    }
+  ]
+}

@@ -34,8 +34,8 @@ export function parseReviewedFragments(html, plan, context) {
 }
 
 /**
- * Publish visually reviewed poster fields only while the advertised bytes match.
- * A changed or missing poster needs another review; old source events are retained
+ * Publish visually reviewed image/PDF fields while advertised bytes match.
+ * A changed or missing asset needs another review; old source events are retained
  * by the refresher's partial-snapshot path instead of silently erased.
  * @param {string} html Public source page advertising the image.
  * @param {Object} plan Reviewed selectors and SHA-256-bound annotations.
@@ -49,28 +49,30 @@ export async function fetchReviewedImages(html, plan, context) {
   let recognized = 0;
   let partial = false;
   for (const annotation of plan.options.reviewedImages) {
+    const attribute = annotation.attribute || 'src';
+    const label = attribute === 'href' ? 'Document' : 'Poster';
     const matches = $(annotation.selector);
-    if (matches.length !== 1) {
+    if (!['src', 'href'].includes(attribute) || matches.length !== 1) {
       partial = true;
-      warnings.push(`Poster needs visual review: expected one image for ${annotation.selector}, found ${matches.length}`);
+      warnings.push(`${label} needs visual review: expected one ${attribute === 'href' ? 'link' : 'image'} for ${annotation.selector}, found ${matches.length}`);
       continue;
     }
-    const url = absoluteUrl(matches.attr('src'), plan.fetchUrl || plan.url);
+    const url = absoluteUrl(matches.attr(attribute), plan.fetchUrl || plan.url);
     try {
-      if (!url || !/^[a-f0-9]{64}$/.test(annotation.sha256)) throw new Error('Missing public image URL or reviewed SHA-256');
+      if (!url || !/^[a-f0-9]{64}$/.test(annotation.sha256)) throw new Error('Missing public media URL or reviewed SHA-256');
       const bytes = await context.fetchBytes(url);
       if (createHash('sha256').update(bytes).digest('hex') !== annotation.sha256) {
         partial = true;
-        warnings.push(`Poster changed; visual review required before publishing updated fields (${url})`);
+        warnings.push(`${label} changed; visual review required before publishing updated fields (${url})`);
         continue;
       }
       recognized++;
       for (const input of annotation.events || []) {
         const event = normalizeEvent({ ...input, url: input.url || plan.url }, plan);
-        if (!event) { partial = true; warnings.push(`Invalid reviewed poster event (${url})`); }
+        if (!event) { partial = true; warnings.push(`Invalid reviewed ${attribute === 'href' ? 'document' : 'poster'} event (${url})`); }
         else if (inWindow(event, context)) events.push(event);
       }
-    } catch (error) { partial = true; warnings.push(`Poster could not be verified (${url}): ${error.message}`); }
+    } catch (error) { partial = true; warnings.push(`${label} could not be verified (${url}): ${error.message}`); }
   }
   return { events, warnings, recognized, partial };
 }

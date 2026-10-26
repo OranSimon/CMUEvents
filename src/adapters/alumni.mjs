@@ -65,8 +65,28 @@ function reviewedCardValid(row) {
     const parsed = new URL(absoluteUrl(row.url, LISTING));
     return parsed.protocol === 'https:' && !parsed.username && !parsed.password
       && ['www.givecampus.com', 'givecampus.com'].includes(parsed.hostname)
-      && parsed.pathname.startsWith('/schools/CarnegieMellonUniversity/events/');
+      && parsed.pathname.startsWith('/schools/CarnegieMellonUniversity/events/')
+      && (!row.detailReview || Boolean(reviewedDetail(row)));
   } catch { return false; }
+}
+
+/**
+ * Normalize independently reviewed public registration-page fields.
+ * The live publisher clock must still agree before these fields are reused.
+ * @param {Object} row Public card with an optional dated detail review.
+ * @return {Object|null} Verified instants and source zone, or invalid review.
+ */
+function reviewedDetail(row) {
+  const review = row.detailReview;
+  if (!review || review.url !== row.url || !Number.isFinite(Date.parse(review.checkedAt))
+    || typeof review.timeZone !== 'string' || !review.timeZone || !review.evidence) return null;
+  try {
+    new Intl.DateTimeFormat('en-US', { timeZone: review.timeZone }).format(0);
+    const start = parseDate(review.start, review.timeZone);
+    const end = review.end ? parseDate(review.end, review.timeZone) : null;
+    if (!start?.includes('T') || (review.end && (!end?.includes('T') || end <= start))) return null;
+    return { ...review, start, end };
+  } catch { return null; }
 }
 
 /**
@@ -117,24 +137,34 @@ export function parseAlumniEvents(rows, clocks, plan = {}, context = {}) {
       }
     } catch { /* Invalid public clock remains unknown. */ }
     const trustedClock = instant && clockDay === row.date && row.clockPolicy !== 'date_only';
-    const start = trustedClock ? instant : row.date;
+    const detail = row.detailReview ? reviewedDetail(row) : null;
+    const matchedDetail = detail && instant === detail.start;
+    const start = detail ? matchedDetail ? detail.start : row.date : trustedClock ? instant : row.date;
     let note = '';
-    if (!trustedClock) {
-      const reason = row.clockPolicy === 'date_only' ? 'the reviewed public clock has an unresolved timezone ambiguity'
+    let end;
+    let location = row.location;
+    if (matchedDetail) {
+      timeZone = detail.timeZone;
+      end = detail.end || undefined;
+      location = detail.location || location;
+      note = detail.description || '';
+    } else if (detail || !trustedClock) {
+      const reason = detail ? 'the live publisher clock no longer agrees with the reviewed original event page'
+        : row.clockPolicy === 'date_only' ? 'the reviewed public clock has an unresolved timezone ambiguity'
         : clockDay && clockDay !== row.date ? 'the live clock now falls on a different calendar date'
           : 'a reliable public clock is unavailable';
       note = `Only the publicly reviewed date is shown because ${reason}. Confirm current details on the original event page.`;
       warnings.push(`Alumni card ${id}: ${reason}; retained reviewed date ${row.date} without a clock`);
       timeZone = plan.options?.timezone || 'America/New_York';
     }
-    const event = normalizeEvent({ uid: `alumni:${id}`, title: row.title, start, timeZone,
-      description: note, url, location: row.location,
+    const event = normalizeEvent({ uid: `alumni:${id}`, title: row.title, start, end, timeZone,
+      description: note, url, location,
       organizer: 'Carnegie Mellon University Alumni Association',
       ...(alumniOnlineVenue(row) ? { mode: 'online' } : {}),
     }, plan);
     if (event && inWindow(event, context)) events.set(event.uid, event);
   }
-  return { events: [...events.values()], warnings, partial: true };
+  return { events: [...events.values()], warnings, partial: true, singleEventUids: [...events.keys()] };
 }
 
 /**

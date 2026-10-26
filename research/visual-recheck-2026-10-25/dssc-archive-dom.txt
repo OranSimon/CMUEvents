@@ -1,0 +1,155 @@
+- banner:
+  - link "Carnegie Mellon University":
+    - /url: http://www.cmu.edu/
+  - link "Navigation":
+    - /url: "#nav"
+  - link:
+    - /url: javascript:void(0) // Nav - Toggle Menu
+    - text: ✕
+  - textbox:
+    - /placeholder: Search
+  - button "Search"
+  - heading "Data Storage Systems Center" [level=1]:
+    - link "Data Storage Systems Center":
+      - /url: ../index.html
+  - heading "College of Engineering" [level=2]
+  - navigation:
+    - list:
+      - link:
+        - /url: ../about/index.html
+        - text: About
+      - link:
+        - /url: ../research/index.html
+        - text: Research
+      - link:
+        - /url: ../people/index.html
+        - text: People
+      - link:
+        - /url: index.html
+        - text: News and Events
+      - link:
+        - /url: ../sponsors/index.html
+        - text: Sponsors
+      - link:
+        - /url: ../TMRC2021/index.html
+        - text: TMRC 2021
+- text: College of Engineering ›
+- link "Data Storage Systems Center":
+  - /url: ../index.html
+- text: ›
+- link "News and Events":
+  - /url: index.html
+- text: › Events
+- heading "Event Archive" [level=1]
+- list:
+  - link "2026 DSSC Japan Technical Review":
+    - /url: events1/2026 DSSC Japan Technical Review.html
+  - link "2026 DSSC Spring Technical Review":
+    - /url: events1/2026 DSSC Spring Technical Review.html
+  - link "2025 DSSC Japan Technical Review":
+    - /url: events1/2025 DSSC Japan Technical Review.html
+  - link "2025 DSSC Spring Technical Review":
+    - /url: events1/2025 DSSC Spring Technical Review.html
+  - link "2023 DSSC Spring Technical Review":
+    - /url: events1/2023 DSSC Spring Technical Review.html
+  - link "2022 DSSC Winter Technical Review":
+    - /url: events1/2022 Winter Review.html
+  - link:
+    - /url: events1/fall-review-2021.html
+  - link "2022 DSSC West Coast Review":
+    - /url: events1/west-coast-2022.html
+  - link:
+    - /url: events1/fall-review-2021.html
+  - link "2021 DSSC Fall Technical Review":
+    - /url: events1/fall-review-2021.html
+  - link "2021 DSSC West Coast Review":
+    - /url: events1/spring-review-2021.html
+  - link "2020 DSSC West Coast Review":
+    - /url: events1/spring-review-2020.html
+  - link "2019 DSSC Fall Technical Review":
+    - /url: events1/fall-review-2019.html
+  - link "2019 DSSC West Coast Review":
+    - /url: events1/west-coast-2019.html
+  - list:
+    - link "2018 DSSC Fall Technical Review":
+      - /url: events1/fall-review-2018.html
+    - link "2018 DSSC West Coast Review":
+      - /url: events1/west-coast-2018.html
+    - list:
+      - link "2017 DSSC Fall Technical Review":
+        - /url: events1/fall-review-2017.html
+      - link "2017 DSSC West Coast Review":
+        - /url: events1/west-coast-2017.html
+      - list:
+        - link "2016 DSSC Fall Technical Review":
+          - /url: events1/fall-review-2016.html
+        - link "2016 DSSC West Coast Review":
+          - /url: events1/west-coast-2016.html
+        - list:
+          - link "2015 DSSC Fall Technical Review":
+            - /url: events1/fall-review-2015.html
+          - link "2015 DSSC West Coast Review":
+            - /url: events1/west-coast-2015.html
+          - list:
+            - link "2014 DSSC Fall Technical Review":
+              - /url: events1/fall-review-2014.html
+            - link "2014 DSSC West Coast Review":
+              - /url: events1/west-coast-2014.html
+- contentinfo:
+  - paragraph:
+    - text: Data Storage Systems Center
+    - text: College of Engineering
+    - text: Carnegie Mellon University
+    - text: 5000 Forbes Avenue
+    - text: Pittsburgh, PA 15213
+  - list:
+    - link "Legal Info":
+      - /url: http://www.cmu.edu/legal/
+    - text: "|"
+    - link "www.cmu.edu":
+      - /url: http://www.cmu.edu/
+  - list:
+    - listitem: © 2016 Carnegie Mellon University
+- navigation:
+  - heading "Data Storage Systems Center" [level=1]:
+    - link "Data Storage Systems Center":
+      - /url: ../index.html
+  - link:
+    - /url: javascript:void(0)
+    - text: ▾
+  - link:
+    - /url: javascript:void(0)
+    - text: ▾
+  - list:
+    - link "About":
+      - /url: ../about/index.html
+    - link:
+      - /url: "javascript:void(0); // Nav - Toggle Parent:              About\n        \n"
+      - text: ›
+    - link "Research":
+      - /url: ../research/index.html
+    - link:
+      - /url: "javascript:void(0); // Nav - Toggle Parent:              Research\n        \n"
+      - text: ›
+    - link "People":
+      - /url: ../people/index.html
+    - link:
+      - /url: "javascript:void(0); // Nav - Toggle Parent:              People\n        \n"
+      - text: ›
+    - link "News and Events":
+      - /url: index.html
+    - link:
+      - /url: "javascript:void(0); // Nav - Toggle Parent:              News and Events\n        \n"
+      - text: ›
+    - list:
+      - link "News":
+        - /url: news.html
+      - link "Events":
+        - /url: Events.html
+    - link "Sponsors":
+      - /url: ../sponsors/index.html
+    - link "TMRC 2021":
+      - /url: ../TMRC2021/index.html
+    - link:
+      - /url: "javascript:void(0); // Nav - Toggle Parent:              TMRC 2021\n        \n"
+      - text: ›

@@ -46,7 +46,7 @@ Optional environment variables are documented in [`.env.example`](.env.example).
 
 The current [source-only policy and access review](research/club-source-removal-2026-10-25/README.md) removes independent student-club publishers while retaining official and other non-club sources. Activities republished by those sources remain even when a student club hosts them. Earlier audits below describe the larger historical catalog.
 
-The [19-source follow-up](research/remaining-19-2026-10-25/README.md) implements reusable extraction or monitoring paths for the four partial and fifteen unsupported sources from that snapshot. The original four partial extractors are repaired. Remaining partial coverage is explicit: two upstream calendar/date problems and the two Alumni sources, which import only individually reviewed public cards while automatic discovery remains unfinished.
+The [19-source follow-up](research/remaining-19-2026-10-25/README.md) implements reusable extraction or monitoring paths for the four partial and fifteen unsupported sources from that snapshot, repairing the original four partial extractors. The subsequent [computer-use recheck](research/visual-recheck-2026-10-25/README.md) recovers linked Cryptography/Econ-CS seminars, recognizes a dated historical EWO PDF, and resolves Sydney's public event details. Unfinished source discovery, publisher date conflicts and anonymous-access limits remain explicit in diagnostics.
 
 [`config/source-plans.json`](config/source-plans.json) maps **every catalog entry** to its adapter, endpoint, options, refresh interval, canonical alias, evidence and reason. [`research/runtime-adapters.md`](research/runtime-adapters.md) records the endpoint investigation.
 
