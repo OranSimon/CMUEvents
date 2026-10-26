@@ -3,44 +3,44 @@
     "version": 1,
     "eventSchema": 2,
     "mode": "static",
-    "generatedAt": "2026-10-26T23:01:02.796Z",
-    "lastUpdated": "2026-10-26T23:01:02.735Z",
+    "generatedAt": "2026-10-26T23:06:28.462Z",
+    "lastUpdated": "2026-10-26T23:06:28.412Z",
     "updateIntervalHours": 24,
     "staleAfterHours": 48,
-    "eventCount": 3488,
+    "eventCount": 3483,
     "sourceCount": 318,
     "sourceRepository": "https://github.com/OranSimon/CMUEvents",
     "workflowUrl": "https://github.com/OranSimon/CMUEvents/actions/workflows/daily-pages.yml"
   },
   "quality": {
-    "eventCount": 3488,
+    "eventCount": 3483,
     "sourceCount": 318,
     "checkedSources": 277,
-    "completeSources": 269,
-    "successRatio": 0.9711191335740073,
-    "previousEventCount": 3665,
-    "retainedRatio": 0.9517053206002728,
+    "completeSources": 268,
+    "successRatio": 0.9675090252707581,
+    "previousEventCount": 3488,
+    "retainedRatio": 0.9985665137614679,
     "allowEventDrop": false
   },
   "refresh": {
-    "startedAt": "2026-10-26T22:58:48.027Z",
-    "completedAt": "2026-10-26T23:01:02.735Z",
+    "startedAt": "2026-10-26T23:04:26.105Z",
+    "completedAt": "2026-10-26T23:06:28.413Z",
     "total": 277,
     "completed": 277,
     "ok": 187,
-    "empty": 78,
+    "empty": 77,
     "undated": 4,
-    "error": 8,
-    "totalEvents": 3488,
+    "error": 9,
+    "totalEvents": 3483,
     "transfers": {
       "requests": 654,
       "cacheHits": 0,
-      "bytes": 64701748
+      "bytes": 64615329
     }
   },
   "coverage": {
     "version": 1,
-    "checkedAt": "2026-10-26T23:01:02.789Z",
+    "checkedAt": "2026-10-26T23:06:28.460Z",
     "passed": true,
     "sourceCount": 10,
     "passedSources": 10,
@@ -526,7 +526,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-26T23:00:30.269Z"
+          "checkedAt": "2026-10-26T23:05:57.500Z"
         }
       },
       {
@@ -2073,7 +2073,7 @@
               }
             }
           ],
-          "checkedAt": "2026-10-26T23:00:42.106Z"
+          "checkedAt": "2026-10-26T23:06:10.833Z"
         }
       },
       {
@@ -2984,7 +2984,7 @@
               "notes": []
             }
           ],
-          "checkedAt": "2026-10-26T23:00:23.822Z"
+          "checkedAt": "2026-10-26T23:05:53.393Z"
         }
       },
       {
@@ -3168,7 +3168,7 @@
               "evidence": "v2fall-2022-socialist-seminar-graphic.png"
             }
           ],
-          "checkedAt": "2026-10-26T23:00:25.254Z"
+          "checkedAt": "2026-10-26T23:05:54.521Z"
         }
       },
       {
@@ -3228,7 +3228,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-26T23:00:30.921Z"
+          "checkedAt": "2026-10-26T23:05:58.476Z"
         }
       },
       {
@@ -3260,7 +3260,7 @@
               "recognized": 13
             }
           ],
-          "checkedAt": "2026-10-26T23:00:30.936Z"
+          "checkedAt": "2026-10-26T23:05:59.093Z"
         }
       },
       {
@@ -3283,7 +3283,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T23:00:56.116Z"
+          "checkedAt": "2026-10-26T23:06:25.934Z"
         }
       },
       {
@@ -3323,34 +3323,34 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -3366,7 +3366,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T23:00:39.755Z"
+          "checkedAt": "2026-10-26T23:06:09.239Z"
         }
       },
       {
@@ -3434,7 +3434,7 @@
             },
             {
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-coffee-with-llm-api-users",
-              "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
+              "outcome": "parsed"
             },
             {
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece",
@@ -3502,23 +3502,23 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -3546,23 +3546,23 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -3633,17 +3633,6 @@
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-coffee-with-llm-api-users",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-coffee-with-llm-api-users\",\"title\":\"Attention Required! | Cloudflare\",\"firstVisibleH1\":\"Sorry, you have been blocked\"}",
-              "diagnostic": {
-                "httpStatus": 403,
-                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-coffee-with-llm-api-users",
-                "title": "Attention Required! | Cloudflare",
-                "firstVisibleH1": "Sorry, you have been blocked"
-              }
-            },
-            {
-              "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece",
               "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
@@ -3656,12 +3645,12 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -3744,12 +3733,12 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -3788,12 +3777,12 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -3809,7 +3798,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T23:00:42.675Z"
+          "checkedAt": "2026-10-26T23:06:16.515Z"
         }
       },
       {
@@ -4127,13 +4116,13 @@
               "evidence": "cause---gamble_heinz-speaker-series4.jpg"
             }
           ],
-          "checkedAt": "2026-10-26T23:00:55.105Z"
+          "checkedAt": "2026-10-26T23:06:23.199Z"
         }
       }
     ]
   },
   "eventExclusions": {
-    "checkedAt": "2026-10-26T23:01:02.670Z",
+    "checkedAt": "2026-10-26T23:06:28.264Z",
     "count": 72,
     "records": [
       {
@@ -4969,10 +4958,10 @@
   },
   "eventMerges": {
     "version": 1,
-    "inputOccurrences": 5722,
-    "outputOccurrences": 3560,
-    "mergedGroups": 1192,
-    "absorbedOccurrences": 2162,
+    "inputOccurrences": 5719,
+    "outputOccurrences": 3555,
+    "mergedGroups": 1193,
+    "absorbedOccurrences": 2164,
     "groups": [
       {
         "id": "b2bf53b5e8bdd248e1b75982",
@@ -5635,25 +5624,6 @@
         ]
       },
       {
-        "id": "9dba81824cad81cc5bcbd440",
-        "title": "CEE Bake Sale",
-        "start": "2026-10-26T14:00:00.000Z",
-        "end": "2026-10-26T17:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "0635a62a5541",
-          "b95b8f2adbb2",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/cee/event/35631-cee-bake-sale"
-        ]
-      },
-      {
         "id": "a7abf1fa49e3f74126b7beff",
         "title": "CERCA Resilience & Adaptation Day",
         "start": "2026-11-06T14:00:00.000Z",
@@ -5938,27 +5908,6 @@
         "originalUrls": [
           "https://events.cmu.edu/live/events/33069-spring-break-no-classes",
           "https://events.cmu.edu/mcs/event/33069-spring-break-no-classes"
-        ]
-      },
-      {
-        "id": "70af182cf720296bbece12f0",
-        "title": "Pitt/CMU Colloquium: Christina Marchetti (UCSB)",
-        "start": "2026-10-26T19:30:00.000Z",
-        "end": "2026-10-26T19:30:00.000Z",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "064e900f29b4",
-          "aa8390d8ece6",
-          "afe4cdd6eb3a",
-          "c7cbdbabd4e7",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/physics/event/33797-pittcmu-colloquium-christina-marchetti-ucsb"
         ]
       },
       {
@@ -7100,7 +7049,7 @@
         "title": "AI Fluency Week: Preparing to (Vibe) Code",
         "start": "2026-10-26T21:00:00.000Z",
         "end": "2026-10-26T22:00:00.000Z",
-        "sourceOccurrences": 7,
+        "sourceOccurrences": 8,
         "reasons": [
           "copied-description",
           "shared-event-link",
@@ -7111,6 +7060,7 @@
           "07130c683752",
           "491df87feb08",
           "5d10172e6358",
+          "6bab7f11462d",
           "7f03d1a54c59",
           "9390a36d167b",
           "982c26d90129",
@@ -7202,18 +7152,20 @@
         ]
       },
       {
-        "id": "a641a7c8adf0d160d195b8be",
-        "title": "AI Fluency Week: Vibe Code Sprint",
+        "id": "865a4fcb44480f54d84de54f",
+        "title": "AI Fluency Week: Vibe Code Sprint Halloween Party",
         "start": "2026-10-30T21:00:00.000Z",
         "end": "2026-10-31T00:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
+          "491df87feb08",
           "6bab7f11462d",
+          "b37d02b73df8",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -9690,10 +9642,10 @@
         ]
       },
       {
-        "id": "8102a2c37e24b1a9198ae170",
+        "id": "e574ae0cb4a5249704f6d908",
         "title": "Carnegie Mellon Opera: Hansel und Gretel",
-        "start": "2027-01-29T01:00:00.000Z",
-        "end": "2027-01-29T01:00:00.000Z",
+        "start": "2027-01-29T00:30:00.000Z",
+        "end": "2027-01-29T00:30:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -9701,17 +9653,18 @@
         "sourceConflicts": [],
         "sourceIds": [
           "0ae111c719fe",
-          "35a21105454b"
+          "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/music/event/34332-carnegie-mellon-opera-hansel-und-gretel"
+          "https://events.cmu.edu/music/event/34332-carnegie-mellon-opera-hansel-und-gretel",
+          "https://events.cmu.edu/live/events/34332-carnegie-mellon-opera-hansel-und-gretel"
         ]
       },
       {
-        "id": "837523dc1b092045036f3fe9",
+        "id": "48abc7816d07d2b33ce4cbd2",
         "title": "Carnegie Mellon Opera: Hansel und Gretel",
-        "start": "2027-01-30T01:00:00.000Z",
-        "end": "2027-01-30T01:00:00.000Z",
+        "start": "2027-01-30T00:30:00.000Z",
+        "end": "2027-01-30T00:30:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -9719,7 +9672,7 @@
         "sourceConflicts": [],
         "sourceIds": [
           "0ae111c719fe",
-          "35a21105454b"
+          "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/music/event/34333-carnegie-mellon-opera-hansel-und-gretel"
@@ -9745,10 +9698,10 @@
         ]
       },
       {
-        "id": "b5a1f35257b35e6f2be5af75",
+        "id": "b848aa4fb4fb52ec5d3c8ae7",
         "title": "Carnegie Mellon Opera: Hansel und Gretel",
-        "start": "2027-01-31T01:00:00.000Z",
-        "end": "2027-01-31T01:00:00.000Z",
+        "start": "2027-01-31T00:30:00.000Z",
+        "end": "2027-01-31T00:30:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -9756,7 +9709,7 @@
         "sourceConflicts": [],
         "sourceIds": [
           "0ae111c719fe",
-          "35a21105454b"
+          "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/music/event/34336-carnegie-mellon-opera-hansel-und-gretel"
@@ -10568,24 +10521,6 @@
         ]
       },
       {
-        "id": "add935777ccdc09c7785ecbe",
-        "title": "Masterclass: Daedalus Quartet",
-        "start": "2026-10-26T14:00:00.000Z",
-        "end": "2026-10-26T14:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "0ae111c719fe",
-          "35a21105454b"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/music/event/35176-masterclass-daedalus-quartet"
-        ]
-      },
-      {
         "id": "872544173c1c324456355403",
         "title": "Student Recital: Annette Lee",
         "start": "2027-04-11T21:00:00.000Z",
@@ -11094,25 +11029,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/music/event/35884-student-recital-anastasia-arango"
-        ]
-      },
-      {
-        "id": "6db7e90b54bd988dae28ac7b",
-        "title": "Masterclass: Valerie Coleman & Monica Ellis",
-        "start": "2026-10-27T14:00:00.000Z",
-        "end": "2026-10-27T14:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "0ae111c719fe",
-          "35a21105454b",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/music/event/35886-masterclass-valerie-coleman-monica-ellis"
         ]
       },
       {
@@ -11812,7 +11728,7 @@
         "title": "CyLab Seminar - Rolfe Schmidt",
         "start": "2026-10-26T16:00:00.000Z",
         "end": "2026-10-26T17:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 6,
         "reasons": [
           "copied-description",
           "shared-event-link",
@@ -11824,6 +11740,7 @@
         "sourceIds": [
           "1185bc345a9a",
           "26680f057d80",
+          "2a77547af411",
           "426866c33d9d",
           "4c5426677e95",
           "9903c32bf0ab",
@@ -13223,26 +13140,6 @@
         ]
       },
       {
-        "id": "9e03c2d28c09383f7148e480",
-        "title": "Fall Seminar - Alex Luedtke",
-        "start": "2026-10-26T20:00:00.000Z",
-        "end": "2026-10-26T20:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "13a1bf0efd64",
-          "982c26d90129",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/statistics-datascience/event/34350-fall-seminar-alex-luedtke",
-          "https://events.cmu.edu/live/events/34350-fall-seminar-alex-luedtke"
-        ]
-      },
-      {
         "id": "8b617f33dbb0de7cb61e14e3",
         "title": "Fall Seminar - Yuting Wei",
         "start": "2026-11-09T21:00:00.000Z",
@@ -13259,6 +13156,25 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/statistics-datascience/event/34352-fall-seminar-yuting-wei"
+        ]
+      },
+      {
+        "id": "d959dd905c364acaad00b18f",
+        "title": "Fall Seminar - Ricardo Masini",
+        "start": "2026-11-16T21:00:00.000Z",
+        "end": "2026-11-16T21:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "13a1bf0efd64",
+          "c9b5ed0cf149",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/statistics-datascience/event/34353-fall-seminar-ricardo-masini"
         ]
       },
       {
@@ -13875,7 +13791,7 @@
         "title": "Humanities Schedule Skelebration!",
         "start": "2026-10-28T21:00:00.000Z",
         "end": "2026-10-28T22:30:00.000Z",
-        "sourceOccurrences": 9,
+        "sourceOccurrences": 8,
         "reasons": [
           "shared-event-link"
         ],
@@ -13888,8 +13804,7 @@
           "c84cc1c34efc",
           "d93abdb4309a",
           "da2117ec52f4",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
+          "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/live/events/35470-humanities-schedule-skelebration",
@@ -14999,6 +14914,24 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/music/event/34780-student-recital-zekai-huang"
+        ]
+      },
+      {
+        "id": "6db7e90b54bd988dae28ac7b",
+        "title": "Masterclass: Valerie Coleman & Monica Ellis",
+        "start": "2026-10-27T14:00:00.000Z",
+        "end": "2026-10-27T14:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "35a21105454b",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/music/event/35886-masterclass-valerie-coleman-monica-ellis"
         ]
       },
       {
@@ -16960,6 +16893,28 @@
         ],
         "originalUrls": [
           "https://gradadmissions.engineering.cmu.edu/register/?id=f8093d88-2b08-4e5a-b584-b7dd34cc8783"
+        ]
+      },
+      {
+        "id": "8736e37f2fc269da548793d9",
+        "title": "Seminar: Designing & Printing Dispersion Strengthened Ti-6Al-4V via Laser Powder Bed Fusion Additive Manufacturing",
+        "start": "2026-10-26T17:00:00.000Z",
+        "end": "2026-10-26T18:00:00.000Z",
+        "sourceOccurrences": 5,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "4f43025a2cf8",
+          "a7c788b3ea2a",
+          "b7fd3056adb2",
+          "cdd4d5698566",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/35589-designing-printing-dispersion-strengthened",
+          "https://events.cmu.edu/next/event/35589-seminar-designing-printing-dispersion-strengthened-ti-"
         ]
       },
       {
@@ -19613,15 +19568,14 @@
         "title": "Open Source in Energy Access Symposium (OSEAS)",
         "start": "2026-10-26T06:00:00.000Z",
         "end": "2026-10-27T15:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "5b91dc2b95fc",
-          "e8b71eac1119",
-          "eb4e83783836"
+          "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/africa/event/33447-open-source-in-energy-access-symposium-oseas"
@@ -22002,7 +21956,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/28048-football-ursinus-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/rqkm2h"
+          "https://athletics.cmu.edu/sports/fball/2026-27/boxscores/20261114_hwxa.xml"
         ]
       },
       {
@@ -22023,7 +21977,26 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/28050-football-dickinson-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/dfd7sd"
+          "https://athletics.cmu.edu/sports/fball/2026-27/boxscores/20261031_otxv.xml"
+        ]
+      },
+      {
+        "id": "f095d9fb90e6143bcc27cd4a",
+        "title": "(Women’s Soccer) Brandeis vs. Carnegie Mellon",
+        "start": "2026-10-25T17:30:00.000Z",
+        "end": "2026-10-25T20:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "copied-description"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "62f686669e31",
+          "6fbbbe7d1daa"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/athletics-home/event/31697-womens-soccer-brandeis-vs-carnegie-mellon",
+          "https://carnegiemellon.prestosports.com/sports/wsoc/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22065,7 +22038,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31903-mens-basketball-case-western-reserve-vs-carnegie",
-          "https://athletics.cmu.edu/links/u6gnau"
+          "https://carnegiemellon.prestosports.com/sports/mbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22086,7 +22059,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31904-womens-basketball-case-western-reserve-vs-carnegie",
-          "https://athletics.cmu.edu/links/y0ecbi"
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22107,7 +22080,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31915-womens-basketball-brandeis-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/hvya3v"
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22128,7 +22101,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31916-mens-basketball-brandeis-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/yvv7y0"
+          "https://carnegiemellon.prestosports.com/sports/mbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22149,7 +22122,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31919-mens-basketball-new-york-u-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/b1o4zl"
+          "https://carnegiemellon.prestosports.com/sports/mbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22170,7 +22143,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31920-womens-basketball-new-york-u-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/3ita9v"
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22191,7 +22164,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31931-womens-basketball-washington-mo-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/nr8ox4"
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22212,7 +22185,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31932-mens-basketball-washington-mo-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/zc3r37"
+          "https://carnegiemellon.prestosports.com/sports/mbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22233,7 +22206,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31933-mens-basketball-chicago-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/amjv9t"
+          "https://carnegiemellon.prestosports.com/sports/mbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22254,7 +22227,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31935-womens-basketball-rochester-ny-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/h2xlj9"
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22275,7 +22248,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31936-mens-basketball-rochester-ny-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/97e2s1"
+          "https://carnegiemellon.prestosports.com/sports/mbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22296,7 +22269,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31939-mens-basketball-emory-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/fmoods"
+          "https://carnegiemellon.prestosports.com/sports/mbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22317,7 +22290,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31940-womens-basketball-emory-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/hllogt"
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22338,7 +22311,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31951-mens-basketball-dickinson-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/37bt7r"
+          "https://carnegiemellon.prestosports.com/sports/mbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22359,7 +22332,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31952-womens-basketball-ithaca-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/gx8wgq"
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22380,7 +22353,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31953-mens-basketball-st-vincent-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/q6dlfx"
+          "https://carnegiemellon.prestosports.com/sports/mbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22401,7 +22374,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31956-womens-basketball-mount-union-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/ku1xnm"
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22422,7 +22395,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31959-womens-basketball-mt-aloysius-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/j34yqv"
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22443,7 +22416,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31963-womens-basketball-wittenberg-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/hx75fk"
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22464,7 +22437,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31975-mens-basketball-wash-jeff-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/sh53u9"
+          "https://carnegiemellon.prestosports.com/sports/mbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22485,7 +22458,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31976-womens-basketball-wash-jeff-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/ewsjqo"
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22493,17 +22466,20 @@
         "title": "(Women’s Basketball) Gust. Adolphus vs. Carnegie Mellon",
         "start": "2026-11-13",
         "end": "2026-11-14",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
+          "copied-description",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "62f686669e31",
+          "6fbbbe7d1daa",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/athletics-home/event/31982-womens-basketball-gust-adolphus-vs-carnegie-mellon"
+          "https://events.cmu.edu/athletics-home/event/31982-womens-basketball-gust-adolphus-vs-carnegie-mellon",
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22524,7 +22500,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31984-mens-basketball-la-roche-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/sjh0ay"
+          "https://carnegiemellon.prestosports.com/sports/mbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22545,7 +22521,7 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31986-womens-basketball-la-roche-vs-carnegie-mellon",
-          "https://athletics.cmu.edu/links/62ce88"
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22868,17 +22844,20 @@
         "title": "(Softball) Penn St.-Behrend vs. Carnegie Mellon",
         "start": "2027-03-20T17:00:00.000Z",
         "end": "2027-03-20T20:00:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
+          "copied-description",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "62f686669e31",
+          "6fbbbe7d1daa",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/athletics-home/event/32484-softball-penn-st-behrend-vs-carnegie-mellon"
+          "https://events.cmu.edu/athletics-home/event/32484-softball-penn-st-behrend-vs-carnegie-mellon",
+          "https://carnegiemellon.prestosports.com/sports/sball/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22886,17 +22865,20 @@
         "title": "(Women’s Basketball) Chicago vs. Carnegie Mellon",
         "start": "2027-01-29T23:30:00.000Z",
         "end": "2027-01-30T02:30:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
+          "copied-description",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "62f686669e31",
+          "6fbbbe7d1daa",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/athletics-home/event/32690-womens-basketball-chicago-vs-carnegie-mellon"
+          "https://events.cmu.edu/athletics-home/event/32690-womens-basketball-chicago-vs-carnegie-mellon",
+          "https://carnegiemellon.prestosports.com/sports/wbkb/2026-27/schedule?tmpl=sfs-template"
         ]
       },
       {
@@ -22988,15 +22970,13 @@
         "title": "Probability/Math Finance Seminar: Manuel Arnese (Columbia University)",
         "start": "2026-10-26T20:00:00.000Z",
         "end": "2026-10-26T21:30:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "68c9b0b21fb8",
-          "715ac9581276",
-          "7493d352b89a",
           "aa8390d8ece6",
           "e8b71eac1119"
         ],
@@ -23749,6 +23729,26 @@
         ]
       },
       {
+        "id": "9e03c2d28c09383f7148e480",
+        "title": "Fall Seminar - Alex Luedtke",
+        "start": "2026-10-26T20:00:00.000Z",
+        "end": "2026-10-26T20:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "982c26d90129",
+          "c9b5ed0cf149",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/34350-fall-seminar-alex-luedtke",
+          "https://events.cmu.edu/statistics-datascience/event/34350-fall-seminar-alex-luedtke"
+        ]
+      },
+      {
         "id": "85b1da891e1e52de9371bb7a",
         "title": "Author Talk: The City-Women with Mallorie Sievert",
         "start": "2026-11-13T00:00:00.000Z",
@@ -23955,27 +23955,6 @@
         "originalUrls": [
           "https://events.cmu.edu/live/events/32774-graduate-student-seminar",
           "https://events.cmu.edu/mse/event/32774-graduate-student-seminar"
-        ]
-      },
-      {
-        "id": "8736e37f2fc269da548793d9",
-        "title": "Seminar: Designing & Printing Dispersion Strengthened Ti-6Al-4V via Laser Powder Bed Fusion Additive Manufacturing",
-        "start": "2026-10-26T17:00:00.000Z",
-        "end": "2026-10-26T18:00:00.000Z",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "a7c788b3ea2a",
-          "b7fd3056adb2",
-          "cdd4d5698566",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/35589-designing-printing-dispersion-strengthened",
-          "https://events.cmu.edu/next/event/35589-seminar-designing-printing-dispersion-strengthened-ti-"
         ]
       },
       {
@@ -24310,6 +24289,25 @@
         ]
       },
       {
+        "id": "70af182cf720296bbece12f0",
+        "title": "Pitt/CMU Colloquium: Christina Marchetti (UCSB)",
+        "start": "2026-10-26T19:30:00.000Z",
+        "end": "2026-10-26T19:30:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "aa8390d8ece6",
+          "c7cbdbabd4e7",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/physics/event/33797-pittcmu-colloquium-christina-marchetti-ucsb"
+        ]
+      },
+      {
         "id": "9d7ebe2d89599e3bcc30e66e",
         "title": "Dr. Michael Berenbaum Discussion on Kristallnacht",
         "start": "2026-11-08T21:00:00.000Z",
@@ -24478,10 +24476,10 @@
         ]
       },
       {
-        "id": "717bc5a0842b4648a158e5a7",
-        "title": "Women Leaders in Science & Engineering (WSLE) Networking",
-        "start": "2026-10-30T19:30:00.000Z",
-        "end": "2026-10-30T19:30:00.000Z",
+        "id": "147137c5d54098913a1c7265",
+        "title": "Women Leaders in Science & Engineering (WSLE) Lunch",
+        "start": "2026-10-30T15:00:00.000Z",
+        "end": "2026-10-30T15:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -24489,10 +24487,28 @@
         "sourceConflicts": [],
         "sourceIds": [
           "b7c01c6836cd",
-          "e8b71eac1119"
+          "cdd4d5698566"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/mse/event/35616-women-leaders-in-science-engineering-wsle-networking"
+          "https://events.cmu.edu/mse/event/35616-women-leaders-in-science-engineering-wsle"
+        ]
+      },
+      {
+        "id": "ab5984e62479842bf0337f76",
+        "title": "Women Leaders in Science & Engineering (WSLE) Lunch",
+        "start": "2026-11-06T16:00:00.000Z",
+        "end": "2026-11-06T16:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "b7c01c6836cd",
+          "cdd4d5698566"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/mse/event/35617-women-leaders-in-science-engineering-wsle"
         ]
       },
       {
@@ -24512,6 +24528,24 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/mse/event/35628-soft-materials-initiative-seminar"
+        ]
+      },
+      {
+        "id": "9dba81824cad81cc5bcbd440",
+        "title": "CEE Bake Sale",
+        "start": "2026-10-26T14:00:00.000Z",
+        "end": "2026-10-26T17:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "b95b8f2adbb2",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/cee/event/35631-cee-bake-sale"
         ]
       },
       {
@@ -26146,25 +26180,6 @@
         ]
       },
       {
-        "id": "0b354024e8cdb412f6bc411f",
-        "title": "Academic Cultures in Conversation: Teaching, Learning and Higher Education Across Different Educational Contexts",
-        "start": "2026-10-26T14:30:00.000Z",
-        "end": "2026-10-26T16:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "c84cc1c34efc",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/lcal/event/35702-academic-cultures-in-conversation",
-          "https://events.cmu.edu/live/events/35702-academic-cultures-in-conversation"
-        ]
-      },
-      {
         "id": "e364392576fa89f9de4dd530",
         "title": "Bertony Louis’ Book Launch: “Chroniques d’un pays sans aube”",
         "start": "2026-11-12T22:30:00.000Z",
@@ -26351,24 +26366,6 @@
         "originalUrls": [
           "https://events.cmu.edu/live/events/34941-humanities-hang",
           "https://events.cmu.edu/dietrich/event/34941-humanities-hang"
-        ]
-      },
-      {
-        "id": "d959dd905c364acaad00b18f",
-        "title": "Fall Seminar - Ricardo Masini",
-        "start": "2026-11-16T21:00:00.000Z",
-        "end": "2026-11-16T21:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "c9b5ed0cf149",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/statistics-datascience/event/34353-fall-seminar-ricardo-masini"
         ]
       },
       {
@@ -28056,8 +28053,27 @@
           "https://events.cmu.edu/live/events/31796-thanksgiving-break-university-closed",
           "https://events.cmu.edu/academic-calendar/event/31796-thanksgiving-break-no-classes"
         ]
+      },
+      {
+        "id": "0b354024e8cdb412f6bc411f",
+        "title": "Academic Cultures in Conversation: Teaching, Learning and Higher Education Across Different Educational Contexts",
+        "start": "2026-10-26T14:30:00.000Z",
+        "end": "2026-10-26T16:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "e8b71eac1119",
+          "fac3ce8cfb40"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/35702-academic-cultures-in-conversation",
+          "https://events.cmu.edu/lcal/event/35702-academic-cultures-in-conversation"
+        ]
       }
     ],
-    "checkedAt": "2026-10-26T23:01:02.666Z"
+    "checkedAt": "2026-10-26T23:06:28.261Z"
   }
 }
