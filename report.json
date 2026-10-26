@@ -3,8 +3,8 @@
     "version": 1,
     "eventSchema": 2,
     "mode": "static",
-    "generatedAt": "2026-10-26T16:33:17.601Z",
-    "lastUpdated": "2026-10-26T16:33:17.435Z",
+    "generatedAt": "2026-10-26T16:44:18.315Z",
+    "lastUpdated": "2026-10-26T16:44:18.260Z",
     "updateIntervalHours": 24,
     "staleAfterHours": 48,
     "eventCount": 3664,
@@ -16,31 +16,31 @@
     "eventCount": 3664,
     "sourceCount": 318,
     "checkedSources": 277,
-    "completeSources": 270,
-    "successRatio": 0.9747292418772563,
-    "previousEventCount": 3659,
-    "retainedRatio": 1.0013664935774802,
+    "completeSources": 268,
+    "successRatio": 0.9675090252707581,
+    "previousEventCount": 3664,
+    "retainedRatio": 1,
     "allowEventDrop": false
   },
   "refresh": {
-    "startedAt": "2026-10-26T16:30:17.383Z",
-    "completedAt": "2026-10-26T16:33:17.436Z",
+    "startedAt": "2026-10-26T16:37:29.196Z",
+    "completedAt": "2026-10-26T16:44:18.261Z",
     "total": 277,
     "completed": 277,
-    "ok": 188,
+    "ok": 186,
     "empty": 78,
     "undated": 4,
-    "error": 7,
+    "error": 9,
     "totalEvents": 3664,
     "transfers": {
-      "requests": 779,
+      "requests": 774,
       "cacheHits": 0,
-      "bytes": 691131588
+      "bytes": 690852603
     }
   },
   "coverage": {
     "version": 1,
-    "checkedAt": "2026-10-26T16:33:17.597Z",
+    "checkedAt": "2026-10-26T16:44:18.311Z",
     "passed": true,
     "sourceCount": 10,
     "passedSources": 10,
@@ -49,7 +49,7 @@
         "id": "1185bc345a9a",
         "org": "SCS Seminars directory",
         "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
-        "state": "ok",
+        "state": "error",
         "eventCount": 107,
         "passed": true,
         "internalIssues": [],
@@ -58,7 +58,13 @@
           "kind": "dynamic-seminar-directory",
           "inspectionComplete": true,
           "internalIssues": [],
-          "externalIssues": [],
+          "externalIssues": [
+            {
+              "series": "Human-Computer Interaction Seminar",
+              "url": "https://hcii.cmu.edu/news/seminars/upcoming",
+              "reason": "getaddrinfo ENOTFOUND hcii.cmu.edu"
+            }
+          ],
           "nonBlockingIssues": [
             {
               "code": "NO_PUBLISHED_DATED_ENDPOINT",
@@ -91,9 +97,9 @@
           "counters": {
             "advertised": 26,
             "processed": 26,
-            "catalogReused": 19,
+            "catalogReused": 18,
             "undated": 5,
-            "currentEvents": 107
+            "currentEvents": 103
           },
           "series": [
             {
@@ -276,16 +282,10 @@
               "url": "https://www.hcii.cmu.edu/seminar-series",
               "processed": true,
               "undated": false,
-              "reusedSourceIds": [
-                "83459e4d2608"
-              ],
-              "reusedCanonicalSourceIds": [
-                "83459e4d2608"
-              ],
-              "methods": [
-                "catalog_source_reuse"
-              ],
-              "currentEvents": 4
+              "reusedSourceIds": [],
+              "reusedCanonicalSourceIds": [],
+              "methods": [],
+              "currentEvents": 0
             },
             {
               "name": "Joint CMU-Pitt Ph.D. in Computational Biology Seminar",
@@ -525,7 +525,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-26T16:31:55.230Z"
+          "checkedAt": "2026-10-26T16:39:22.235Z"
         }
       },
       {
@@ -2072,7 +2072,7 @@
               }
             }
           ],
-          "checkedAt": "2026-10-26T16:32:08.092Z"
+          "checkedAt": "2026-10-26T16:39:40.948Z"
         }
       },
       {
@@ -2983,7 +2983,7 @@
               "notes": []
             }
           ],
-          "checkedAt": "2026-10-26T16:31:48.683Z"
+          "checkedAt": "2026-10-26T16:39:12.400Z"
         }
       },
       {
@@ -3167,7 +3167,7 @@
               "evidence": "v2fall-2022-socialist-seminar-graphic.png"
             }
           ],
-          "checkedAt": "2026-10-26T16:31:50.385Z"
+          "checkedAt": "2026-10-26T16:39:12.189Z"
         }
       },
       {
@@ -3227,7 +3227,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-26T16:31:56.172Z"
+          "checkedAt": "2026-10-26T16:39:19.196Z"
         }
       },
       {
@@ -3259,7 +3259,7 @@
               "recognized": 13
             }
           ],
-          "checkedAt": "2026-10-26T16:31:56.213Z"
+          "checkedAt": "2026-10-26T16:39:20.555Z"
         }
       },
       {
@@ -4576,7 +4576,7 @@
               "totalPages": 51
             }
           ],
-          "checkedAt": "2026-10-26T16:33:14.832Z"
+          "checkedAt": "2026-10-26T16:44:15.513Z"
         }
       },
       {
@@ -4659,7 +4659,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T16:32:07.438Z"
+          "checkedAt": "2026-10-26T16:39:44.617Z"
         }
       },
       {
@@ -4828,12 +4828,12 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
@@ -4905,34 +4905,34 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -5015,12 +5015,12 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cranberry-township-neighborhood-luncheon-november-2026",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cranberry-township-neighborhood-luncheon-november-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cranberry-township-neighborhood-luncheon-november-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cranberry-township-neighborhood-luncheon-november-2026",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -5091,7 +5091,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T16:32:15.957Z"
+          "checkedAt": "2026-10-26T16:39:54.872Z"
         }
       },
       {
@@ -5409,13 +5409,13 @@
               "evidence": "cause---gamble_heinz-speaker-series4.jpg"
             }
           ],
-          "checkedAt": "2026-10-26T16:32:23.563Z"
+          "checkedAt": "2026-10-26T16:40:02.785Z"
         }
       }
     ]
   },
   "eventExclusions": {
-    "checkedAt": "2026-10-26T16:33:17.335Z",
+    "checkedAt": "2026-10-26T16:44:18.192Z",
     "count": 80,
     "records": [
       {
