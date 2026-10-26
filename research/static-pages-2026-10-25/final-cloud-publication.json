@@ -1,0 +1,78 @@
+{
+  "quality": {
+    "eventCount": 4415,
+    "sourceCount": 318,
+    "checkedSources": 276,
+    "completeSources": 266,
+    "successRatio": 0.9637681159420289,
+    "previousEventCount": 4414,
+    "retainedRatio": 1.0002265518803806,
+    "allowEventDrop": false
+  },
+  "refresh": {
+    "startedAt": "2026-10-26T03:36:19.238Z",
+    "completedAt": "2026-10-26T03:38:03.517Z",
+    "total": 276,
+    "completed": 276,
+    "ok": 187,
+    "empty": 75,
+    "undated": 4,
+    "error": 10,
+    "totalEvents": 4415,
+    "transfers": {
+      "requests": 602,
+      "cacheHits": 2,
+      "bytes": 118758901
+    }
+  },
+  "metadata": {
+    "lastUpdated": "2026-10-26T03:38:03.517Z",
+    "lastRefresh": {
+      "startedAt": "2026-10-26T03:36:19.238Z",
+      "completedAt": "2026-10-26T03:38:03.517Z",
+      "total": 276,
+      "completed": 276,
+      "ok": 187,
+      "empty": 75,
+      "undated": 4,
+      "error": 10,
+      "totalEvents": 4415
+    },
+    "publishedEventCount": 4415
+  },
+  "sourceCountChanges": [
+    {
+      "id": "6bab7f11462d",
+      "previous": 89,
+      "current": 88
+    },
+    {
+      "id": "c6bf444aa58e",
+      "previous": 76,
+      "current": 77
+    }
+  ],
+  "alumni": [
+    {
+      "id": "79e7cdffd54d",
+      "eventCount": 4,
+      "diagnostics": [
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}"
+      ]
+    },
+    {
+      "id": "8f00fc7f2c7c",
+      "eventCount": 23,
+      "diagnostics": [
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc): Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+        "Stopped optional Alumni detail enrichment after 4 consecutive failures (limit 4); skipped 19 remaining detail page(s). All current public listing cards remain included with their advertised dates."
+      ]
+    }
+  ]
+}

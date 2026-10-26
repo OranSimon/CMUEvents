@@ -1,0 +1,41 @@
+[
+  {
+    "id": "34fa7359276d",
+    "state": "error",
+    "eventCount": 2,
+    "warnings": [
+      "Media discovery is bounded to 12 of 18 advertised assets; remaining archive coverage is incomplete"
+    ]
+  },
+  {
+    "id": "528193392a78",
+    "state": "error",
+    "eventCount": 9,
+    "warnings": [
+      "Speaker text is uncertain for 2026-11-20; publisher series title retained (https://www.lti.cs.cmu.edu/misc-pages/colloquium-series-fall-2026.png)"
+    ]
+  },
+  {
+    "id": "79e7cdffd54d",
+    "state": "error",
+    "eventCount": 4,
+    "warnings": [
+      "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+      "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+      "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+      "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}"
+    ]
+  },
+  {
+    "id": "8f00fc7f2c7c",
+    "state": "error",
+    "eventCount": 23,
+    "warnings": [
+      "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+      "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+      "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+      "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+      "Stopped optional Alumni detail enrichment after 4 consecutive failures (limit 4); skipped 19 remaining detail page(s). All current public listing cards remain included with their advertised dates."
+    ]
+  }
+]

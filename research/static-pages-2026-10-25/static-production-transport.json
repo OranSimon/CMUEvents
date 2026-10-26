@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-10-26T03:08:18.223Z",
+  "method": "Execute the identical shipped static data client against the real preview, with fetch request logging; CUA separately confirmed the actual browser Reload success.",
+  "baseUrl": "http://127.0.0.1:4175/CMUEvents/",
+  "calls": [
+    {
+      "url": "http://127.0.0.1:4175/CMUEvents/data/manifest.json?check=1792984098039",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4175/CMUEvents/data/sources.json?generation=2026-10-26T02%3A56%3A54.958Z",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4175/CMUEvents/data/status.json?generation=2026-10-26T02%3A56%3A54.958Z",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4175/CMUEvents/data/events.json?generation=2026-10-26T02%3A56%3A54.958Z",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4175/CMUEvents/data/manifest.json?check=1792984098184",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4175/CMUEvents/data/status.json?generation=2026-10-26T02%3A56%3A54.958Z",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4175/CMUEvents/data/sources.json?generation=2026-10-26T02%3A56%3A54.958Z",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4175/CMUEvents/data/events.json?generation=2026-10-26T02%3A56%3A54.958Z",
+      "method": "GET",
+      "status": 200
+    }
+  ],
+  "allGet": true,
+  "apiRequests": 0,
+  "sources": 318,
+  "generatedAt": "2026-10-26T02:56:54.958Z",
+  "lastSuccessfulUpdate": "2026-10-26T02:56:54.920Z",
+  "moduleHashes": [
+    {
+      "path": "web/data-client.js",
+      "sha256": "1f12c29bb38dfb14349b88897505957495619714ab226337e37e4dfb3defd5b4"
+    },
+    {
+      "path": "dist/data-client.js",
+      "sha256": "1f12c29bb38dfb14349b88897505957495619714ab226337e37e4dfb3defd5b4"
+    }
+  ],
+  "modulesIdentical": true,
+  "alumni": [
+    {
+      "id": "79e7cdffd54d",
+      "state": "error",
+      "eventCount": 0,
+      "error": "Alumni public DOM discovery requires CMUEVENTS_RENDER_PUBLIC=1; fixed reviewed-card snapshots are not a live fallback"
+    },
+    {
+      "id": "8f00fc7f2c7c",
+      "state": "error",
+      "eventCount": 0,
+      "error": "Alumni public DOM discovery requires CMUEVENTS_RENDER_PUBLIC=1; fixed reviewed-card snapshots are not a live fallback"
+    }
+  ]
+}

@@ -1,0 +1,485 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-26T02:45:09.574Z",
+  "scope": "Static-mode frontend under repository subpath, with API-mode transport retained.",
+  "implementationFiles": [
+    "web/data-client.js",
+    "web/app.js",
+    "web/index.html",
+    "web/styles.css",
+    "tests/static-client.test.mjs"
+  ],
+  "unitValidation": {
+    "command": "node --test tests/static-client.test.mjs",
+    "passed": 14,
+    "failed": 0,
+    "syntaxCheck": "node --check web/app.js and web/data-client.js",
+    "diffCheck": true
+  },
+  "runs": [
+    {
+      "kind": "temporary_fixture",
+      "url": "http://127.0.0.1:56138/CMUEvents/",
+      "dataset": "52 explicitly labelled synthetic event fixtures; 318 authoritative catalog links and 6 curated subscription descriptors copied read-only from repository configuration.",
+      "productionEventCoverageClaim": false,
+      "cases": [
+        {
+          "id": "subpath-assets",
+          "pass": true,
+          "observed": "CUA opened /CMUEvents/. app.js, data-client.js, styles.css, favicon.svg and all four data JSON requests stayed under that base."
+        },
+        {
+          "id": "default-events",
+          "pass": true,
+          "observed": "52 explicitly labelled temporary fixture events; page one displayed 24."
+        },
+        {
+          "id": "pagination",
+          "pass": true,
+          "observed": "Next displayed 25–48 of 52; browser pathname remained /CMUEvents/."
+        },
+        {
+          "id": "search-department-mode",
+          "pass": true,
+          "observed": "robotics + School of Computer Science + Online produced 17 fixture events without errors."
+        },
+        {
+          "id": "custom-date",
+          "pass": true,
+          "observed": "2026-11-01 through 2026-11-03 reduced the same filters to 4 fixture events; no date error."
+        },
+        {
+          "id": "full-details",
+          "pass": true,
+          "observed": "The selected fixture retained its complete description and original event URL in the native detail drawer."
+        },
+        {
+          "id": "directory",
+          "pass": true,
+          "observed": "Show all displayed 318 cards and 318 original source links."
+        },
+        {
+          "id": "email-directory",
+          "pass": true,
+          "observed": "All 6 curated email channels displayed; boundary says subscriber emails are not imported, public calendar events may appear."
+        },
+        {
+          "id": "manual-reload",
+          "pass": true,
+          "observed": "Reload published events retained active filters and 17 matching events; toast confirmed published data reload."
+        },
+        {
+          "id": "read-only-static-transport",
+          "pass": true,
+          "observed": "Temporary HTTP server request log contained GET manifest/events/sources/status for initial load and manual reload, with no POST or API request."
+        },
+        {
+          "id": "freshness",
+          "pass": true,
+          "observed": "A new publication generation paired with successful collection time 2026-10-20 displayed Published data may be out of date and more than 48 hours old."
+        },
+        {
+          "id": "source-code-link",
+          "pass": true,
+          "observed": "Footer DOM exposes https://github.com/OranSimon/CMUEvents with accessible Source code on GitHub label."
+        }
+      ]
+    },
+    {
+      "kind": "localFreshProductionArtifact",
+      "checkedAt": "2026-10-26T03:10:57.233Z",
+      "url": "http://127.0.0.1:4175/CMUEvents/",
+      "responsiveUrl": "http://127.0.0.1:4175/__responsive",
+      "generatedAt": "2026-10-26T02:56:54.958Z",
+      "lastSuccessfulUpdate": "2026-10-26T02:56:54.920Z",
+      "fullExportEvents": 4389,
+      "defaultUpcomingEvents": 3642,
+      "sourceLinks": 318,
+      "emailChannels": 6,
+      "sourceChecks": {
+        "total": 276,
+        "completed": 276,
+        "ok": 187,
+        "empty": 75,
+        "undated": 4,
+        "error": 10,
+        "complete": 266
+      },
+      "limitations": {
+        "publicRendererEnabled": false,
+        "alumni": [
+          {
+            "id": "79e7cdffd54d",
+            "state": "error",
+            "eventCount": 0,
+            "error": "Alumni public DOM discovery requires CMUEVENTS_RENDER_PUBLIC=1; fixed reviewed-card snapshots are not a live fallback"
+          },
+          {
+            "id": "8f00fc7f2c7c",
+            "state": "error",
+            "eventCount": 0,
+            "error": "Alumni public DOM discovery requires CMUEVENTS_RENDER_PUBLIC=1; fixed reviewed-card snapshots are not a live fallback"
+          }
+        ],
+        "meaning": "This isolated local build intentionally disabled public browser rendering. The two Alumni sources remain explicit errors with zero imported events and no fixed reviewed-card fallback. GitHub Actions renderer coverage is not established by this local run."
+      },
+      "queryParity": {
+        "report": "research/static-pages-2026-10-25/static-query-parity.json",
+        "queries": 16,
+        "totalAndAllFacetsEqual": true,
+        "nonSearchPageOrderEqual": true,
+        "searchMatchingSetsEqual": true,
+        "searchRankingDifference": "Static ranking uses deterministic title/publisher weights; SQLite uses BM25. Membership and counts are compared independently of ranking."
+      },
+      "transport": {
+        "report": "research/static-pages-2026-10-25/static-production-transport.json",
+        "shippedAndTestedModuleIdentical": true,
+        "realArtifactRequests": 8,
+        "allGet": true,
+        "apiRequests": 0,
+        "qualification": "Execute the identical shipped static data client against the real preview, with fetch request logging; CUA separately confirmed the actual browser Reload success."
+      },
+      "cases": [
+        {
+          "id": "real-upcoming-count",
+          "pass": true,
+          "observed": "CUA default Upcoming displayed 3,642, distinct from the 4,389 events in the full export."
+        },
+        {
+          "id": "real-pagination",
+          "pass": true,
+          "observed": "Next displayed 25–48 of 3,642 events under /CMUEvents/."
+        },
+        {
+          "id": "real-search-department-date",
+          "pass": true,
+          "observed": "robot search returned 121; School of Computer Science reduced this to 10; November 1–30 reduced it to 5 without date errors."
+        },
+        {
+          "id": "real-full-detail",
+          "pass": true,
+          "observed": "Oren Etzioni lecture retained November 18, 2026, 5:15–6:15 PM EST, Rashid Auditorium, two organizer/source labels and original links. Expanding full description showed 328 words."
+        },
+        {
+          "id": "real-reload",
+          "pass": true,
+          "observed": "Reload published events completed successfully and retained robot, School of Computer Science, November 1–30 and 5 matching events. No local-API message or error appeared."
+        },
+        {
+          "id": "real-source-directory",
+          "pass": true,
+          "observed": "Show all rendered 318 cards, 318 unique source IDs and 318 original links outside collapsed diagnostics."
+        },
+        {
+          "id": "real-alumni-limitations",
+          "pass": true,
+          "observed": "Alumni + Needs review showed exactly the two renderer-disabled source rows. Expanded diagnostics state CMUEVENTS_RENDER_PUBLIC=1 is required and fixed snapshots are not a live fallback."
+        },
+        {
+          "id": "real-email-boundaries",
+          "pass": true,
+          "observed": "Email directory displayed 6 channels: 4 email-only and 2 public-calendar plus email. Public-email filter showed Nexus and PDL. Boundary explicitly excludes subscriber-only email while allowing public-calendar coverage."
+        },
+        {
+          "id": "real-independent-state-and-focus",
+          "pass": true,
+          "observed": "Closing email restored focus to subscriptions-button and preserved the main robot/date/department filters and 5-event result."
+        },
+        {
+          "id": "real-390-layout",
+          "pass": true,
+          "observed": "CUA visually inspected the actual export in a measured 390×844 iframe. All three navigation entries and Reload were visible; the daily/last-success notice fit; the Email panel opened from the small-screen nav with a full-width search and three labelled filters. No visible horizontal clipping was found."
+        },
+        {
+          "id": "real-public-source-code",
+          "pass": true,
+          "observed": "The real exported page exposes Source code on GitHub linking to https://github.com/OranSimon/CMUEvents."
+        }
+      ]
+    }
+  ],
+  "realExportValidation": {
+    "status": "passed_with_recorded_local_source_limitations",
+    "frontendBugsFound": 0,
+    "validatedAt": "2026-10-26T03:10:57.233Z",
+    "report": "research/static-pages-2026-10-25/static-query-parity.json",
+    "note": "No frozen frontend files were changed during real-export acceptance."
+  },
+  "evidence": [
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-fixture-static-stale.ax.txt",
+      "bytes": 6990,
+      "sha256": "64b2912259800f115aa22d262d79f18c50a63b3226a75c6c875ed01029fdb560"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-fixture-static-stale.png",
+      "bytes": 80214,
+      "sha256": "5c49bfb87298e706f8f3d1f6862b3af862816ab6a725971c01e109cccc8ac760"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-alumni-limitations.ax.txt",
+      "bytes": 9824,
+      "sha256": "c399f689f1f2e2f6743bc3c3a57e29593f67d62c9a36d9583f87b098591f873c"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-alumni-limitations.png",
+      "bytes": 139728,
+      "sha256": "d7f12e75ef9d009966b73ff9acf4d53000ac947604deac480369edeff888eeb5"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-detail-expanded.ax.txt",
+      "bytes": 4487,
+      "sha256": "a69137d9601ed41599706489595dde5d92c9c86cd989e9e4a1d52dbfec96d739"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-detail.ax.txt",
+      "bytes": 2211,
+      "sha256": "bad506c142edebcbe14a52c9d8960b0fca3315661b15b3ea3ca379b410e1648c"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-detail.png",
+      "bytes": 78905,
+      "sha256": "fc38b1d8256f7df07bc3e2611bc409d7c70265572fa94c717ecf8dba22471704"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-email.ax.txt",
+      "bytes": 11979,
+      "sha256": "7d9122bebd5fc1582a9a9cffe33cdda85f8115ca9fdd56bd2387a89284ed58b5"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-email.png",
+      "bytes": 88273,
+      "sha256": "b45734bcbcc54cbf119cb183f055e64f926128e388539f5027ff12df01e96791"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-filtered.ax.txt",
+      "bytes": 10027,
+      "sha256": "db3737ca18bb221d3b3c550b3ab97332e9eca3169ad043aea46dc0c00f9c08b8"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-filtered.png",
+      "bytes": 93061,
+      "sha256": "abc435edcf9af7e7163013e49b3b3826ef77d4803f6df1eabd6de5e808567351"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-home.ax.txt",
+      "bytes": 29320,
+      "sha256": "e7da4737bb50f413fbb71ae1233ef9853811b5ccea406bcb23bbfe42bd5737e4"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-home.png",
+      "bytes": 85994,
+      "sha256": "b2e6d506953ebf4292d5a77fb35ae1f3051a812221ea2ac5a07b27f7f1550562"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-mobile-email-frame.png",
+      "bytes": 50429,
+      "sha256": "4e9091a253b566c90d1246177eb81b911a0bdf26a7ca9cd43390944fe110c3d1"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-mobile-email.ax.txt",
+      "bytes": 12529,
+      "sha256": "a4ea1763b7c4bdec04d61931ea751ac841f813965c3e7f6704fa67ffbda04e16"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-mobile-email.png",
+      "bytes": 161309,
+      "sha256": "fb9418a122e6d7a70e29215d798b4cdaafd3daeee6e584c10af3ea5643756666"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-mobile-frame.png",
+      "bytes": 49883,
+      "sha256": "58a0b9c3ebdb521f3893b4459547a68fbd8bc5b16a990e8f3d3f78ef2c1a4b7f"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-mobile-home.ax.txt",
+      "bytes": 16280,
+      "sha256": "b3fd4a670d5189dee9f377143b79a98bc229f71276235e0283258a3de1bf4f70"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-mobile-home.png",
+      "bytes": 169828,
+      "sha256": "0021742d0a1d4807d45d06b42a5131d12fe67e94153b441ce2c2804d61cfb8cf"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-sources.ax.txt",
+      "bytes": 23190,
+      "sha256": "2b0078355fcc1ee20b9eab053512122c2bbe91acdd470ac188293df91171a588"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-production-sources.png",
+      "bytes": 81628,
+      "sha256": "bd6162e044fbec4626b28c986a34788400cfdd21fb7377ce051f5991fa77a921"
+    }
+  ],
+  "implementationReady": true,
+  "updatedAt": "2026-10-26T03:10:57.233Z",
+  "apiModeValidation": {
+    "transportUnitTest": true,
+    "liveBrowser": "Not repeated during this static task because parent-owned API server was stopped; previous UI task verified live API behavior."
+  },
+  "implementationHashes": [
+    {
+      "path": "web/data-client.js",
+      "sha256": "1f12c29bb38dfb14349b88897505957495619714ab226337e37e4dfb3defd5b4"
+    },
+    {
+      "path": "web/app.js",
+      "sha256": "6a317f4da3b684ddf5ad8e7e6f5d08b0b94f15efe0beee7c46af52ee4d0044be"
+    },
+    {
+      "path": "web/index.html",
+      "sha256": "8e87e5aea9a808d4ca86f39db7d8f76780e89521795ff9a9cfae6ec0d3820755"
+    },
+    {
+      "path": "web/styles.css",
+      "sha256": "3923e49ddcdf49d4b0efaff8901750f13a4183bcba223e6163865438f801f69a"
+    },
+    {
+      "path": "tests/static-client.test.mjs",
+      "sha256": "4ea1b3b9fe6ff7942fad9b400915364262bb2208964f1199c4552dd0eb1a35bb"
+    }
+  ],
+  "cleanup": {
+    "fixtureBrowserTabClosed": true,
+    "temporaryFixtureServerStopped": true,
+    "productionPreviewTabsClosed": true,
+    "parentPreviewServerLeftRunning": true
+  },
+  "production": {
+    "deployment": "Actual GitHub Pages URL is outside this local-preview verification; this run validates the real dist artifact.",
+    "localFresh": {
+      "checkedAt": "2026-10-26T03:10:57.233Z",
+      "url": "http://127.0.0.1:4175/CMUEvents/",
+      "responsiveUrl": "http://127.0.0.1:4175/__responsive",
+      "generatedAt": "2026-10-26T02:56:54.958Z",
+      "lastSuccessfulUpdate": "2026-10-26T02:56:54.920Z",
+      "fullExportEvents": 4389,
+      "defaultUpcomingEvents": 3642,
+      "sourceLinks": 318,
+      "emailChannels": 6,
+      "sourceChecks": {
+        "total": 276,
+        "completed": 276,
+        "ok": 187,
+        "empty": 75,
+        "undated": 4,
+        "error": 10,
+        "complete": 266
+      },
+      "limitations": {
+        "publicRendererEnabled": false,
+        "alumni": [
+          {
+            "id": "79e7cdffd54d",
+            "state": "error",
+            "eventCount": 0,
+            "error": "Alumni public DOM discovery requires CMUEVENTS_RENDER_PUBLIC=1; fixed reviewed-card snapshots are not a live fallback"
+          },
+          {
+            "id": "8f00fc7f2c7c",
+            "state": "error",
+            "eventCount": 0,
+            "error": "Alumni public DOM discovery requires CMUEVENTS_RENDER_PUBLIC=1; fixed reviewed-card snapshots are not a live fallback"
+          }
+        ],
+        "meaning": "This isolated local build intentionally disabled public browser rendering. The two Alumni sources remain explicit errors with zero imported events and no fixed reviewed-card fallback. GitHub Actions renderer coverage is not established by this local run."
+      },
+      "queryParity": {
+        "report": "research/static-pages-2026-10-25/static-query-parity.json",
+        "queries": 16,
+        "totalAndAllFacetsEqual": true,
+        "nonSearchPageOrderEqual": true,
+        "searchMatchingSetsEqual": true,
+        "searchRankingDifference": "Static ranking uses deterministic title/publisher weights; SQLite uses BM25. Membership and counts are compared independently of ranking."
+      },
+      "transport": {
+        "report": "research/static-pages-2026-10-25/static-production-transport.json",
+        "shippedAndTestedModuleIdentical": true,
+        "realArtifactRequests": 8,
+        "allGet": true,
+        "apiRequests": 0,
+        "qualification": "Execute the identical shipped static data client against the real preview, with fetch request logging; CUA separately confirmed the actual browser Reload success."
+      },
+      "cases": [
+        {
+          "id": "real-upcoming-count",
+          "pass": true,
+          "observed": "CUA default Upcoming displayed 3,642, distinct from the 4,389 events in the full export."
+        },
+        {
+          "id": "real-pagination",
+          "pass": true,
+          "observed": "Next displayed 25–48 of 3,642 events under /CMUEvents/."
+        },
+        {
+          "id": "real-search-department-date",
+          "pass": true,
+          "observed": "robot search returned 121; School of Computer Science reduced this to 10; November 1–30 reduced it to 5 without date errors."
+        },
+        {
+          "id": "real-full-detail",
+          "pass": true,
+          "observed": "Oren Etzioni lecture retained November 18, 2026, 5:15–6:15 PM EST, Rashid Auditorium, two organizer/source labels and original links. Expanding full description showed 328 words."
+        },
+        {
+          "id": "real-reload",
+          "pass": true,
+          "observed": "Reload published events completed successfully and retained robot, School of Computer Science, November 1–30 and 5 matching events. No local-API message or error appeared."
+        },
+        {
+          "id": "real-source-directory",
+          "pass": true,
+          "observed": "Show all rendered 318 cards, 318 unique source IDs and 318 original links outside collapsed diagnostics."
+        },
+        {
+          "id": "real-alumni-limitations",
+          "pass": true,
+          "observed": "Alumni + Needs review showed exactly the two renderer-disabled source rows. Expanded diagnostics state CMUEVENTS_RENDER_PUBLIC=1 is required and fixed snapshots are not a live fallback."
+        },
+        {
+          "id": "real-email-boundaries",
+          "pass": true,
+          "observed": "Email directory displayed 6 channels: 4 email-only and 2 public-calendar plus email. Public-email filter showed Nexus and PDL. Boundary explicitly excludes subscriber-only email while allowing public-calendar coverage."
+        },
+        {
+          "id": "real-independent-state-and-focus",
+          "pass": true,
+          "observed": "Closing email restored focus to subscriptions-button and preserved the main robot/date/department filters and 5-event result."
+        },
+        {
+          "id": "real-390-layout",
+          "pass": true,
+          "observed": "CUA visually inspected the actual export in a measured 390×844 iframe. All three navigation entries and Reload were visible; the daily/last-success notice fit; the Email panel opened from the small-screen nav with a full-width search and three labelled filters. No visible horizontal clipping was found."
+        },
+        {
+          "id": "real-public-source-code",
+          "pass": true,
+          "observed": "The real exported page exposes Source code on GitHub linking to https://github.com/OranSimon/CMUEvents."
+        }
+      ]
+    },
+    "artifactHashes": [
+      {
+        "path": "dist/data/manifest.json",
+        "sha256": "462dfb4077c9f9359122b1270cd4d92178e6252a82701d4b708c113f251be152"
+      },
+      {
+        "path": "dist/data/events.json",
+        "sha256": "ad6e58d7578c550bbe61e88c2d43ddf6035e07c9e620e29b048b6885401ba1ad"
+      },
+      {
+        "path": "dist/data/sources.json",
+        "sha256": "c0a3186c24a7da847686a37db81f2cc811d80fdc4c05aaf836da3be81f691415"
+      },
+      {
+        "path": "dist/data/status.json",
+        "sha256": "8a1fb87880b5829621d3a969f3239e0f9f8a833a58a666f46ab3cda6a4fd1191"
+      }
+    ]
+  },
+  "privacyAudit": {
+    "screenshots": "All saved images show only this local public-events application, published event descriptions and public source/subscription metadata. No account avatars, credentials, mailbox contents or private calendars were captured.",
+    "mobileCrops": "390×844 crops use the iframe bounds observed through CUA: x=540,y=0,width=390,height=844."
+  }
+}

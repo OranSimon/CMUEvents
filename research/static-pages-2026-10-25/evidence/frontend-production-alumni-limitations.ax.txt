@@ -1,0 +1,164 @@
+Browser tab: 283303543, Title: "robot · CMU Events", URL: "http://127.0.0.1:4175/CMUEvents/?query=robot&department=School+of+Computer+Science&preset=custom&from=2026-11-01&to=2026-11-30".
+0 AXWebArea robot · CMU Events, URL: 127.0.0.1:4175/CMUEvents/?query=robot&department=School+of+Computer+Science&preset=custom&from=2026-11-01&to=2026-11-30
+	1 container Our sources, ID: sources-dialog
+		2 container
+			3 text BEHIND THE CALENDAR
+			4 button Description: Close source directory, ID: sources-close
+		5 container sources-content
+			6 container
+				7 text MANY SOURCES. ONE PLACE.
+				8 heading Our sources, Value: 2, ID: sources-title
+					9 text Our sources
+				10 text Browse every retained source, from department pages to shared university calendars. Open any original link or explore its coverage notes.
+				382 text 318 source links · 62 departments
+			12 container Filter sources
+				13 container
+					14 text Search sources
+					15 search text field (settable) Search sources, Value: Alumni, ID: sources-search
+				16 container
+					17 text Department
+					18 pop up button (collapsed, settable) Department, Value: All departments, ID: sources-department, Secondary Actions: Expand
+						19 menu
+							20 (selected) All departments
+							21 Alumni and Community
+							22 Campus and Community
+							23 College of Engineering
+							24 College of Engineering / Biomedical Engineering
+							25 College of Engineering / Chemical Engineering
+							26 College of Engineering / Civil and Environmental Engineering
+							27 College of Engineering / CyLab
+							28 College of Engineering / Electrical and Computer Engineering
+							29 College of Engineering / Engineering and Public Policy
+							30 College of Engineering / Information Networking Institute
+							31 College of Engineering / Materials Science and Engineering
+							32 College of Engineering / Mechanical Engineering
+							33 College of Fine Arts
+							34 College of Fine Arts / Dietrich College
+							35 College of Fine Arts / School of Architecture
+							36 College of Fine Arts / School of Art
+							37 College of Fine Arts / School of Design
+							38 College of Fine Arts / School of Drama
+							39 College of Fine Arts / School of Music
+							40 Department-sponsored Organizations
+							41 Dietrich College
+							42 Dietrich College / English
+							43 Dietrich College / History
+							44 Dietrich College / Languages, Cultures and Applied Linguistics
+							45 Dietrich College / Philosophy
+							46 Dietrich College / Psychology
+							47 Dietrich College / Social and Decision Sciences
+							48 Dietrich College / Statistics and Data Science
+							49 Enrollment Management
+							50 Global Locations / Africa
+							51 Global Locations / Qatar
+							52 Global Locations / Qatar / Class Cohort
+							53 Global Locations / Qatar / Department
+							54 Global Locations / Qatar / Student Government
+							55 Global Locations / Silicon Valley
+							56 Heinz College
+							57 Human Resources
+							58 Interdisciplinary
+							59 Mellon College of Science
+							60 Mellon College of Science / Biological Sciences
+							61 Mellon College of Science / Chemistry
+							62 Mellon College of Science / Mathematical Sciences
+							63 Mellon College of Science / Physics
+							64 Office of the CIO
+							65 Office of the Provost
+							66 School of Computer Science
+							67 School of Computer Science / College of Engineering
+							68 School of Computer Science / Computational Biology Department
+							69 School of Computer Science / Computer Science Department
+							70 School of Computer Science / Human-Computer Interaction Institute
+							71 School of Computer Science / Language Technologies Institute
+							72 School of Computer Science / Machine Learning Department
+							73 School of Computer Science / Robotics Institute
+							74 School of Computer Science / Software and Societal Systems Department
+							75 Student Affairs
+							76 Student Governance
+							77 Tepper School of Business
+							78 Tepper School of Business / Tepper Offices
+							79 University Communications and Marketing
+							80 University Libraries
+							81 University Offices
+							82 University-wide
+				83 container
+					84 text Category
+					85 pop up button (collapsed, settable) Category, Value: All categories, ID: sources-category, Secondary Actions: Expand
+						86 menu
+							87 (selected) All categories
+							88 Calendar feeds
+							89 Directories
+							90 Event pages
+							91 Mailing lists
+							92 News feeds
+							93 Newsletter archives
+							94 University calendars
+				95 container
+					96 text Coverage
+					97 pop up button (collapsed, settable) Coverage, Value: Needs review, ID: sources-coverage, Secondary Actions: Expand
+						98 menu
+							99 All coverage
+							100 With imported events
+							101 Shared feed coverage
+							102 Zero imported in window
+							103 Undated · monitored
+							104 (selected) Needs review
+							105 Email only
+			383 text Showing 2 of 2 matching sources · 318 total.
+			107 container sources-results
+				384 container
+					385 text EVENT PAGES Needs review
+					386 heading CMU Alumni and Community Events, Value: 3
+						387 text CMU Alumni and Community Events
+					388 text Alumni and Community
+					389 link Description: https://www.cmu.edu/engage/events (opens in a new tab), Value: cmu.edu/engage/events
+					390 text The latest collection could not be completed. See the original source for current information. Checked Oct 25, 10:56 PM EDT
+					391 button (expanded) Coverage notes & diagnostics, Secondary Actions: Collapse
+						392 text Coverage notes & diagnostics
+					419 text Alumni public DOM discovery requires CMUEVENTS_RENDER_PUBLIC=1; fixed reviewed-card snapshots are not a live fallback
+					420 text The latest collection could not be completed. See the original source for current information.
+					421 text Last attempted check: Oct 25, 10:56 PM EDT.
+					422 container
+						423 text Recorded access check  · Oct 25, 9:29 PM EDT
+					424 text Three public calendar pages still match all 23 reviewed card titles/dates. The original Sydney detail is publicly browser-readable and establishes October 28, 2026, 08:00–09:30 AEDT and Planar Restaurant; automatic new-card discovery remains incomplete.
+					425 container
+						426 text Next step:  Continue anonymous clock checks for reviewed IDs; resolve a publisher-advertised public discovery mechanism before declaring full coverage.
+					427 container
+						428 text Recorded visual review  · Oct 25, 9:18 PM EDT
+					429 text Three public calendar pages still match all 23 reviewed card titles/dates. The original Sydney detail is publicly browser-readable and establishes October 28, 2026, 08:00–09:30 AEDT and Planar Restaurant; automatic new-card discovery remains incomplete.
+					430 link Description: Reviewed page (opens in a new tab), Value: givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up
+					431 container
+						432 text Review finding:  Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters.
+					433 container
+						434 text Next step:  Runtime diagnostics identify any incomplete discovery, unsupported dates or source access changes.
+				393 container
+					394 text EVENT PAGES Needs review
+					395 heading CMU Alumni Online Events, Value: 3
+						396 text CMU Alumni Online Events
+					397 text Alumni and Community
+					398 link Description: https://www.cmu.edu/engage/events/online-events (opens in a new tab), Value: cmu.edu/engage/events/online-events
+					399 text The latest collection could not be completed. See the original source for current information. Checked Oct 25, 10:56 PM EDT
+					400 button (expanded) Coverage notes & diagnostics, Secondary Actions: Collapse
+						401 text Coverage notes & diagnostics
+					403 text Alumni public DOM discovery requires CMUEVENTS_RENDER_PUBLIC=1; fixed reviewed-card snapshots are not a live fallback
+					404 text The latest collection could not be completed. See the original source for current information.
+					405 text Last attempted check: Oct 25, 10:56 PM EDT.
+					406 container
+						407 text Recorded access check  · Oct 25, 9:29 PM EDT
+					408 text All three public calendar pages were checked after dates loaded. Exactly four cards explicitly label an online venue; discovery of new cards still requires public review.
+					409 container
+						410 text Next step:  Continue anonymous clock checks for reviewed IDs; resolve a publisher-advertised public discovery mechanism before declaring full coverage.
+					411 container
+						412 text Recorded visual review  · Oct 25, 9:29 PM EDT
+					413 text All three public calendar pages were checked after dates loaded. Exactly four cards explicitly label an online venue; discovery of new cards still requires public review.
+					414 link Description: Reviewed page (opens in a new tab), Value: community.cmu.edu/s/events
+					415 container
+						416 text Review finding:  Render the current anonymous public Alumni listing, follow visible Next pagination, and read only visible public cards plus their original Event Details. Never reuse fixed-card snapshots, hidden framework data or unscoped getters.
+					417 container
+						418 text Next step:  Runtime diagnostics identify any incomplete discovery, unsupported dates or source access changes.
+			380 button (collapsed) How the calendar works, Secondary Actions: Expand
+				381 text How the calendar works
+			402 text Last published refresh: Oct 25, 10:56 PM EDT.
+
+The focused UI element is 391 button (expanded) Coverage notes & diagnostics, Secondary Actions: Collapse

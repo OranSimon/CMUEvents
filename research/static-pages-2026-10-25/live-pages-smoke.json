@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-26T03:32:01.723Z",
+  "url": "https://oransimon.github.io/CMUEvents/",
+  "result": "passed",
+  "substantiveFrontendIssues": [],
+  "frontendFilesChanged": false,
+  "publication": {
+    "observedGeneration": "2026-10-26T03:15:47.701Z",
+    "lastSuccessfulUpdate": "2026-10-26T03:15:47.666Z",
+    "fullExportEvents": 4402,
+    "upcomingDisplayed": "3,660",
+    "note": "Counts describe this observed generation. Later Actions runs may legitimately publish different totals."
+  },
+  "shippedResources": [
+    {
+      "resource": "app.js",
+      "status": 200,
+      "liveSha256": "6a317f4da3b684ddf5ad8e7e6f5d08b0b94f15efe0beee7c46af52ee4d0044be",
+      "localSha256": "6a317f4da3b684ddf5ad8e7e6f5d08b0b94f15efe0beee7c46af52ee4d0044be",
+      "identical": true,
+      "bytes": 73135
+    },
+    {
+      "resource": "styles.css",
+      "status": 200,
+      "liveSha256": "3923e49ddcdf49d4b0efaff8901750f13a4183bcba223e6163865438f801f69a",
+      "localSha256": "3923e49ddcdf49d4b0efaff8901750f13a4183bcba223e6163865438f801f69a",
+      "identical": true,
+      "bytes": 43035
+    },
+    {
+      "resource": "data-client.js",
+      "status": 200,
+      "liveSha256": "1f12c29bb38dfb14349b88897505957495619714ab226337e37e4dfb3defd5b4",
+      "localSha256": "1f12c29bb38dfb14349b88897505957495619714ab226337e37e4dfb3defd5b4",
+      "identical": true,
+      "bytes": 16367
+    }
+  ],
+  "allShippedFilesMatchFrozen": true,
+  "cases": [
+    {
+      "id": "homepage",
+      "passed": true,
+      "observed": "Public page loaded successfully; Updated daily, 318 sources and last successful update were visible. No event loading error remained."
+    },
+    {
+      "id": "paging",
+      "passed": true,
+      "observed": "25–48 of 3,660 events"
+    },
+    {
+      "id": "search-and-date",
+      "passed": true,
+      "observed": {
+        "query": "robot",
+        "searchCount": "121",
+        "department": "School of Computer Science",
+        "from": "2026-11-01",
+        "to": "2026-11-30",
+        "filteredCount": "5",
+        "dateError": false
+      }
+    },
+    {
+      "id": "details-original-link",
+      "passed": true,
+      "observed": {
+        "facts": "Wednesday, November 18, 2026\n5:15 PM – 6:15 PM EST\nRashid Auditorium, Gates Hillman 4401\nPittsburgh · In person",
+        "originalUrl": "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211682283",
+        "sourceLabels": "Hosted by SCS Distinguished Lecture Series · SCS Events Calendar\nSchool of Computer Science",
+        "title": "2026 Raj Reddy Artificial Intelligence Lecture - Oren Etzioni"
+      },
+      "originalLinkFollowed": false
+    },
+    {
+      "id": "reload",
+      "passed": true,
+      "observed": {
+        "count": "5",
+        "error": false,
+        "from": "2026-11-01",
+        "lastUpdate": "Updates are published daily. Last successful update: Oct 25, 11:15 PM EDT. Reload checks for newer published data.",
+        "query": "robot",
+        "to": "2026-11-30",
+        "toast": "Published data reloaded. New collections are published daily."
+      }
+    },
+    {
+      "id": "source-directory",
+      "passed": true,
+      "observed": {
+        "cards": 318,
+        "count": "Showing 318 of 318 matching sources.",
+        "originalLinks": 318,
+        "uniqueIds": 318
+      }
+    },
+    {
+      "id": "email-directory",
+      "passed": true,
+      "observed": {
+        "boundary": "Email announcements are not in the event calendar.\n\nCMU Events does not receive or import subscriber-only emails. Some publishers also have public calendars; those public events may appear in Discover.",
+        "cards": 6,
+        "count": "Showing 6 of 6 matching channels.",
+        "sections": [
+          "Email-only announcements 4",
+          "Public calendars with additional email updates 2"
+        ]
+      }
+    },
+    {
+      "id": "focus-and-independent-filters",
+      "passed": true,
+      "observed": "Escape closed the email panel, returned focus to subscriptions-button and retained robot/date/department filters with five results."
+    }
+  ],
+  "backendDiagnosticsObserved": {
+    "alumni": [
+      {
+        "id": "79e7cdffd54d",
+        "state": "error",
+        "eventCount": 4,
+        "error": "Incomplete extraction; previous records retained. Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain); only its current visible listing date is included Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n Public origi"
+      },
+      {
+        "id": "8f00fc7f2c7c",
+        "state": "error",
+        "eventCount": 23,
+        "error": "Incomplete extraction; previous records retained. Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/Carneg"
+      }
+    ],
+    "note": "These are public exported diagnostics. The frontend smoke does not certify source completeness; partial detail failures remain explicit."
+  },
+  "requestMode": {
+    "observed": "Reload completed successfully on the public static site with the identical frozen static data-client module.",
+    "supportingTests": "Static-mode unit and real-artifact transport checks previously verified GET-only data reloads without API POST."
+  },
+  "evidence": [
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-live-home.png",
+      "bytes": 86012,
+      "sha256": "df44e6446bb28dc3a2b330f378df956ba13326d8b18b958dc943031653b5370e"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-live-email.png",
+      "bytes": 88273,
+      "sha256": "b45734bcbcc54cbf119cb183f055e64f926128e388539f5027ff12df01e96791"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-live-home.ax.txt",
+      "bytes": 29344,
+      "sha256": "e856274af27d15b8d1e9f0b2f7991a16cd75e95fb4cda81fd8ca1d0dc957ed0d"
+    },
+    {
+      "file": "research/static-pages-2026-10-25/evidence/frontend-live-email.ax.txt",
+      "bytes": 11990,
+      "sha256": "487855ad5105d88c5791558e363829ad64c28f195da4121572a7511cef51f73c"
+    }
+  ],
+  "privacy": "Only public application content was inspected and captured; no login, mailbox, subscription form, private calendar or account UI was opened.",
+  "cleanup": {
+    "dedicatedResearchTabClosed": true,
+    "unrelatedUserTabsUntouched": true
+  }
+}

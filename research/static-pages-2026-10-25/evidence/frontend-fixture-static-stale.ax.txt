@@ -1,0 +1,140 @@
+Browser tab: 283303515, Title: "robotics · CMU Events", URL: "http://127.0.0.1:56138/CMUEvents/?query=robotics&department=School+of+Computer+Science&mode=online&preset=custom&from=2026-11-01&to=2026-11-03".
+1 AXWebArea robotics · CMU Events, URL: 127.0.0.1:56138/CMUEvents/?query=robotics&department=School+of+Computer+Science&mode=online&preset=custom&from=2026-11-01&to=2026-11-03
+	2 link Description: Skip to events, Value: 127.0.0.1:56138/CMUEvents/?query=robotics&department=School+of+Computer+Science&mode=online&preset=custom&from=2026-11-01&to=2026-11-03#results
+	3 container
+		4 link Description: CMU Events home, Value: 127.0.0.1:56138/CMUEvents/
+		5 container Main navigation
+			6 link Description: Discover, Value: 127.0.0.1:56138/CMUEvents/?query=robotics&department=School+of+Computer+Science&mode=online&preset=custom&from=2026-11-01&to=2026-11-03#results
+			7 button Our sources, ID: about-button
+			8 button Email subscriptions, ID: subscriptions-button
+		9 text Update overdue · 318 sources
+		10 button Description: Reload published events, ID: refresh-button
+	11 container
+		12 container Discover CMU events.
+			13 text CARNEGIE MELLON UNIVERSITY
+			14 heading Discover CMU events., Value: 1, ID: page-title
+				15 text Discover 
+				16 text CMU events.
+			17 text Events from CMU calendars, academic departments, research centers, and university offices.
+		18 container search-form
+			19 text Search event titles, descriptions, and organizers
+			20 search text field (settable) Search event titles, descriptions, and organizers, Value: robotics, ID: search-input
+			21 button Description: Clear search, ID: search-clear
+		22 container Description: Filter events, ID: filters
+			23 heading Make it yours, Value: 2
+				24 text Make it yours
+			25 button Reset, ID: reset-filters
+			26 container WHEN
+				27 text WHEN
+				28 container Description: Date range, ID: date-presets
+					29 checkbox Upcoming, Value: 0
+					30 checkbox Today, Value: 0
+					31 checkbox Next 7 days, Value: 0
+					32 checkbox Next 30 days, Value: 0
+					33 checkbox Choose dates, Value: 1
+				34 container custom-dates
+					35 container
+						36 text From
+						37 date field (settable) From, Value: 2026-11-01, ID: date-from
+							38 container
+								39 stepper
+								40 stepper
+								41 stepper
+							42 pop up button Show date picker Show date picker
+					43 container
+						44 text Through
+						45 date field (settable) Through, Value: 2026-11-03, ID: date-to
+							46 container
+								47 stepper
+								48 stepper
+								49 stepper
+							50 pop up button Show date picker Show date picker
+			51 container WHO’S HOSTING
+				52 text WHO’S HOSTING
+				53 text Department
+				54 pop up button (collapsed, settable) Department, Value: School of Computer Science (6), ID: department-filter, Secondary Actions: Expand
+					55 menu
+						56 All departments
+						57 (selected) School of Computer Science (6)
+				58 text Organization
+				59 pop up button (collapsed, settable) Organization, Value: All organizations, ID: org-filter, Secondary Actions: Expand
+					60 menu
+						61 (selected) All organizations
+						62 Static QA publisher (6)
+			63 container WHERE
+				64 text WHERE
+				65 text Campus
+				66 pop up button (collapsed, settable) Campus, Value: All campuses, ID: campus-filter, Secondary Actions: Expand
+					67 menu
+						68 (selected) All campuses
+						69 Pittsburgh (6)
+				70 container Description: Event format, ID: mode-options
+					71 checkbox All, Value: 0
+					72 checkbox In person, Value: 0
+					73 checkbox Online, Value: 1
+					74 checkbox Hybrid, Value: 0
+					75 checkbox Not listed, Value: 0
+			76 container FOLLOW YOUR CURIOSITY
+				77 text FOLLOW YOUR CURIOSITY
+				78 checkbox Description: Research & Talks (6 events), Value: 0
+			79 text From across the university
+			80 text Public calendars, department pages, and organization feeds.
+			81 button How it works, ID: source-info-button
+		82 container Search results 4, ID: results
+			83 text BEST MATCHES · GROUPED BY DATE
+			84 heading Search results 4, Value: 2, ID: results-title
+				85 text Search results 
+				86 text 4
+			87 container Event view
+				88 checkbox Description: List view, Value: 1, ID: list-view
+				89 checkbox Description: Grid view, Value: 0, ID: grid-view
+			90 container active-filters
+				91 button Remove “robotics” filter
+				92 button Remove Nov 1 – Nov 3 filter
+				93 button Remove School of Computer Science filter
+				94 button Remove Online filter
+			95 container snapshot-notice
+				96 text Published data may be out of date
+				97 text Last successful update: Oct 20, 8:00 AM EDT. The data is more than 48 hours old; check original listings for changes.
+			98 text 4 events found. Showing 1 through 4.
+			99 container event-results
+				100 container Sunday, November 1
+					101 heading Sunday, November 1, Value: 3
+						102 text Sunday, November 1
+					103 container
+						104 text RESEARCH & TALKS Static QA publisher
+						105 heading Preview fixture — Robotics seminar 20, Value: 3
+							106 button Preview fixture — Robotics seminar 20
+								107 text Preview fixture — Robotics seminar 20
+						108 text Temporary static-mode test record. 12:00 PM – 1:00 PM EST Online
+					109 container
+						110 text RESEARCH & TALKS Static QA publisher
+						111 heading Preview fixture — Robotics seminar 40, Value: 3
+							112 button Preview fixture — Robotics seminar 40
+								113 text Preview fixture — Robotics seminar 40
+						114 text Temporary static-mode test record. 12:00 PM – 1:00 PM EST Online
+				115 container Tuesday, November 3
+					116 heading Tuesday, November 3, Value: 3
+						117 text Tuesday, November 3
+					118 container
+						119 text RESEARCH & TALKS Static QA publisher
+						120 heading Preview fixture — Robotics seminar 2, Value: 3
+							121 button Preview fixture — Robotics seminar 2
+								122 text Preview fixture — Robotics seminar 2
+						123 text Temporary static-mode test record. 12:00 PM – 1:00 PM EST Online
+					124 container
+						125 text RESEARCH & TALKS Static QA publisher
+						126 heading Preview fixture — Robotics seminar 22, Value: 3
+							127 button Preview fixture — Robotics seminar 22
+								128 text Preview fixture — Robotics seminar 22
+						129 text Temporary static-mode test record. 12:00 PM – 1:00 PM EST Online
+			130 container
+				131 text Dates and times use 
+				132 text America/New_York
+				133 text . Check the original listing for registration and access requirements.
+	134 container
+		135 text CMU events An independent guide to public Carnegie Mellon events.
+		136 link Description: Source code on GitHub (opens in a new tab), Value: github.com/OranSimon/CMUEvents
+		137 text Last successful update Oct 20, 8:00 AM EDT · may be out of date
+
+The focused UI element is 1 AXWebArea robotics · CMU Events, URL: 127.0.0.1:56138/CMUEvents/?query=robotics&department=School+of+Computer+Science&mode=online&preset=custom&from=2026-11-01&to=2026-11-03

@@ -1,0 +1,241 @@
+{
+  "checkedAt": "2026-10-26T03:01:38.703Z",
+  "originalDatabase": ".cache/pages-local-build/events.sqlite",
+  "originalOpenedReadOnly": true,
+  "comparisonDatabase": "SQLite backup in a temporary directory; original database was not mutated.",
+  "exportedEvents": 4389,
+  "queries": [
+    {
+      "name": "upcoming",
+      "filters": {
+        "from": "2026-10-25",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 3642,
+      "staticTotal": 3642,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "pageEventOrderEqual": true
+    },
+    {
+      "name": "upcoming-page-2",
+      "filters": {
+        "from": "2026-10-25",
+        "page": 2,
+        "limit": 24
+      },
+      "apiTotal": 3642,
+      "staticTotal": 3642,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "pageEventOrderEqual": true
+    },
+    {
+      "name": "next-7-days",
+      "filters": {
+        "from": "2026-10-25",
+        "to": "2026-10-31",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 461,
+      "staticTotal": 461,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "pageEventOrderEqual": true
+    },
+    {
+      "name": "november",
+      "filters": {
+        "from": "2026-11-01",
+        "to": "2026-11-30",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 1201,
+      "staticTotal": 1201,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "pageEventOrderEqual": true
+    },
+    {
+      "name": "scs",
+      "filters": {
+        "from": "2026-10-25",
+        "department": "School of Computer Science",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 69,
+      "staticTotal": 69,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "pageEventOrderEqual": true
+    },
+    {
+      "name": "cmu-calendar",
+      "filters": {
+        "from": "2026-10-25",
+        "org": "CMU Events Calendar",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 1147,
+      "staticTotal": 1147,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "pageEventOrderEqual": true
+    },
+    {
+      "name": "research-topic",
+      "filters": {
+        "from": "2026-10-25",
+        "tag": "Research & Talks",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 516,
+      "staticTotal": 516,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "pageEventOrderEqual": true
+    },
+    {
+      "name": "qatar",
+      "filters": {
+        "from": "2026-10-25",
+        "campus": "Qatar",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 17,
+      "staticTotal": 17,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "pageEventOrderEqual": true
+    },
+    {
+      "name": "online",
+      "filters": {
+        "from": "2026-10-25",
+        "mode": "Online",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 176,
+      "staticTotal": 176,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "pageEventOrderEqual": true
+    },
+    {
+      "name": "combined",
+      "filters": {
+        "from": "2026-10-25",
+        "department": "School of Computer Science",
+        "tag": "Research & Talks",
+        "campus": "Pittsburgh",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 22,
+      "staticTotal": 22,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "pageEventOrderEqual": true
+    },
+    {
+      "name": "robot-search",
+      "filters": {
+        "from": "2026-10-25",
+        "query": "robot",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 121,
+      "staticTotal": 121,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "matchingEventSetsEqual": true,
+      "firstPageRankEqual": false
+    },
+    {
+      "name": "ai-search",
+      "filters": {
+        "from": "2026-10-25",
+        "query": "AI",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 914,
+      "staticTotal": 914,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "matchingEventSetsEqual": true,
+      "firstPageRankEqual": false
+    },
+    {
+      "name": "policy-ai-search",
+      "filters": {
+        "from": "2026-10-25",
+        "query": "AI policy",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 58,
+      "staticTotal": 58,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "matchingEventSetsEqual": true,
+      "firstPageRankEqual": false
+    },
+    {
+      "name": "accent-search",
+      "filters": {
+        "from": "2026-10-25",
+        "query": "Bogotá",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 1,
+      "staticTotal": 1,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "matchingEventSetsEqual": true,
+      "firstPageRankEqual": true
+    },
+    {
+      "name": "robot-scs-search",
+      "filters": {
+        "from": "2026-10-25",
+        "query": "robot",
+        "department": "School of Computer Science",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 10,
+      "staticTotal": 10,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "matchingEventSetsEqual": true,
+      "firstPageRankEqual": false
+    },
+    {
+      "name": "history-window",
+      "filters": {
+        "from": "2026-09-25",
+        "to": "2026-10-24",
+        "limit": 24,
+        "page": 1
+      },
+      "apiTotal": 752,
+      "staticTotal": 752,
+      "countsEqual": true,
+      "facetsEqual": true,
+      "pageEventOrderEqual": true
+    }
+  ],
+  "passed": true,
+  "searchRanking": "Static ranking uses deterministic title/publisher weights; SQLite uses BM25. Membership and counts are compared independently of ranking."
+}

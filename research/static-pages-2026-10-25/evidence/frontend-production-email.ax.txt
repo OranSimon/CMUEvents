@@ -1,0 +1,198 @@
+Browser tab: 283303543, Title: "robot · CMU Events", URL: "http://127.0.0.1:4175/CMUEvents/?query=robot&department=School+of+Computer+Science&preset=custom&from=2026-11-01&to=2026-11-30".
+0 AXWebArea robot · CMU Events, URL: 127.0.0.1:4175/CMUEvents/?query=robot&department=School+of+Computer+Science&preset=custom&from=2026-11-01&to=2026-11-30
+	1 container Email subscriptions, ID: subscriptions-dialog
+		2 container
+			3 text DIRECT FROM THE PUBLISHER
+			4 button Description: Close email subscriptions, ID: subscriptions-close
+		5 container subscriptions-content
+			6 container
+				7 text ANNOUNCEMENTS, DIRECT TO YOU
+				8 heading Email subscriptions, Value: 2, ID: subscriptions-title
+					9 text Email subscriptions
+				10 text Find university email channels and the publisher’s instructions for joining.
+				11 text 6 reviewed email channels · 6 departments
+			12 container
+				13 heading Email announcements are not in the event calendar., Value: 3
+					14 text Email announcements are not in the event calendar.
+				15 text CMU Events does not receive or import subscriber-only emails. Some publishers also have public calendars; those public events may appear in Discover.
+			16 container Filter subscription channels
+				17 container
+					18 text Search channels
+					19 search text field (settable) Search channels, ID: subscriptions-search
+				20 container
+					21 text Department
+					22 pop up button (collapsed, settable) Department, Value: All departments, ID: subscriptions-department, Secondary Actions: Expand
+						23 menu
+							24 (selected) All departments
+							25 Dietrich College / History
+							26 School of Computer Science / College of Engineering
+							27 School of Computer Science / Computer Science Department
+							28 School of Computer Science / Machine Learning Department
+							29 School of Computer Science / Software and Societal Systems Department
+							30 University Offices
+				31 container
+					32 text Category
+					33 pop up button (collapsed, settable) Category, Value: All categories, ID: subscriptions-category, Secondary Actions: Expand
+						34 menu
+							35 (selected) All categories
+							36 Calendar feeds
+							37 Event pages
+							38 Mailing lists
+				39 container
+					40 text Channel
+					41 pop up button (collapsed, settable) Channel, Value: All channels, ID: subscriptions-coverage, Secondary Actions: Expand
+						42 menu
+							43 (selected) All channels
+							44 Email only
+							45 Public calendar + email
+			46 text Showing 6 of 6 matching channels.
+			47 container subscriptions-results
+				48 container Email-only announcements 4
+					49 heading Email-only announcements 4, Value: 3, ID: subscription-section-subscriber_only
+						50 text Email-only announcements  4
+					51 text These subscriber email announcements are not imported into Discover.
+					52 container
+						53 text MAILING LISTS Email only
+						54 heading ML/AI Seminar Series, Value: 3
+							55 text ML/AI Seminar Series
+						56 text School of Computer Science / Machine Learning Department
+						57 link Description: https://mailman.srv.cs.cmu.edu/mailman/listinfo/ml-ai-seminar (opens in a new tab), Value: mailman.srv.cs.cmu.edu/mailman/listinfo/ml-ai-seminar
+						58 text Email-only announcements and private archive messages are not included on this website. Separately published public events may still appear from other sources.
+						59 content list
+							60 container
+								61 AXListMarker • 
+								62 text Confirm your email address.
+							63 container
+								64 AXListMarker • 
+								65 text Complete the publisher CAPTCHA.
+							66 container
+								67 AXListMarker • 
+								68 text Private archives require subscriber credentials.
+						69 text How to access:
+						70 text  Open the publisher’s list information page to review eligibility and subscribe yourself. Email announcements are not imported.
+						71 link Description: View subscription instructions (opens in a new tab), Value: mailman.srv.cs.cmu.edu/mailman/listinfo/ml-ai-seminar
+						72 button (collapsed) Coverage notes & diagnostics, Secondary Actions: Expand
+							73 text Coverage notes & diagnostics
+					74 container
+						75 text MAILING LISTS Email only
+						76 heading Pitt-CMU Environmental Humanities Research Seminar, Value: 3
+							77 text Pitt-CMU Environmental Humanities Research Seminar
+						78 text Dietrich College / History
+						79 link Value: list.pitt.edu/mailman/listinfo/environmental_humanities_research_seminar, Description: https://list.pitt.edu/mailman/listinfo/environmental_humanities_research_seminar (opens in a new tab)
+						80 text Email-only announcements and private archive messages are not included on this website. Separately published public events may still appear from other sources.
+						81 content list
+							82 container
+								83 AXListMarker • 
+								84 text Confirm your email address.
+							85 container
+								86 AXListMarker • 
+								87 text List moderator approval is required.
+							88 container
+								89 AXListMarker • 
+								90 text Private archives require subscriber credentials.
+						91 text How to access:
+						92 text  Open the publisher’s list information page to review eligibility and subscribe yourself. Email announcements are not imported.
+						93 link Description: View subscription instructions (opens in a new tab), Value: list.pitt.edu/mailman/listinfo/environmental_humanities_research_seminar
+						94 button (collapsed) Coverage notes & diagnostics, Secondary Actions: Expand
+							95 text Coverage notes & diagnostics
+					96 container
+						97 text MAILING LISTS Email only
+						98 heading S3D Departmental Seminars and Calendar, Value: 3
+							99 text S3D Departmental Seminars and Calendar
+						100 text School of Computer Science / Software and Societal Systems Department
+						101 link Description: https://mailman.srv.cs.cmu.edu/mailman/listinfo/s3d-seminar (opens in a new tab), Value: mailman.srv.cs.cmu.edu/mailman/listinfo/s3d-seminar
+						102 text Email-only announcements and private archive messages from this list are not included. The separate S3D public calendar is included.
+						103 content list
+							104 container
+								105 AXListMarker • 
+								106 text Confirm your email address.
+							107 container
+								108 AXListMarker • 
+								109 text Complete the publisher CAPTCHA.
+							110 container
+								111 AXListMarker • 
+								112 text Private archives require subscriber credentials.
+						113 text How to access:
+						114 text  Open the publisher’s list information page to review eligibility and subscribe yourself. Email announcements are not imported.
+						115 link Description: View subscription instructions (opens in a new tab), Value: mailman.srv.cs.cmu.edu/mailman/listinfo/s3d-seminar
+						116 button (collapsed) Coverage notes & diagnostics, Secondary Actions: Expand
+							117 text Coverage notes & diagnostics
+					118 container
+						119 text MAILING LISTS Email only
+						120 heading Theory Lunch and Theory Seminar, Value: 3
+							121 text Theory Lunch and Theory Seminar
+						122 text School of Computer Science / Computer Science Department
+						123 link Description: https://mailman.srv.cs.cmu.edu/mailman/listinfo/theory-announce (opens in a new tab), Value: mailman.srv.cs.cmu.edu/mailman/listinfo/theory-announce
+						124 text Email-only announcements and private archive messages are not included on this website. Separately published public events may still appear from other sources.
+						125 content list
+							126 container
+								127 AXListMarker • 
+								128 text Advertised as an internal CMU list; the moderator determines eligibility.
+							129 container
+								130 AXListMarker • 
+								131 text Confirm your email address.
+							132 container
+								133 AXListMarker • 
+								134 text List moderator approval is required.
+							135 container
+								136 AXListMarker • 
+								137 text Complete the publisher CAPTCHA.
+							138 container
+								139 AXListMarker • 
+								140 text Private archives require subscriber credentials.
+						141 text How to access:
+						142 text  Open the publisher’s list information page to review eligibility and subscribe yourself. Email announcements are not imported.
+						143 link Description: View subscription instructions (opens in a new tab), Value: mailman.srv.cs.cmu.edu/mailman/listinfo/theory-announce
+						144 button (collapsed) Coverage notes & diagnostics, Secondary Actions: Expand
+							145 text Coverage notes & diagnostics
+				146 container Public calendars with additional email updates 2
+					147 heading Public calendars with additional email updates 2, Value: 3, ID: subscription-section-public_plus_email
+						148 text Public calendars with additional email updates  2
+					149 text Public calendar events may appear in Discover. Private or subscriber email content is not imported.
+					150 container
+						151 text CALENDAR FEEDS Public calendar + email
+						152 heading Nexus of Community Engagement, Value: 3
+							153 text Nexus of Community Engagement
+						154 text University Offices
+						155 link Description: https://tartanconnect.cmu.edu/ical/tepper/ical_club_68569.ics (opens in a new tab), Value: tartanconnect.cmu.edu/ical/tepper/ical_club_68569.ics
+						156 text The anonymous Nexus calendar is tracked. Opportunities and event details published only in its member newsletter are not included.
+						157 content list
+							158 container
+								159 AXListMarker • 
+								160 text Sign in to TartanConnect and join the Nexus group to receive its weekly newsletter.
+							161 container
+								162 AXListMarker • 
+								163 text Membership eligibility is determined by the publisher; access with a general public email address is not verified.
+						164 text How to access:
+						165 text  Open the official group signup page and check whether you are eligible to join. Email announcements are not imported.
+						166 link Description: View subscription instructions (opens in a new tab), Value: tartanconnect.cmu.edu/Nexus/club_signup
+						167 button (collapsed) Coverage notes & diagnostics, Secondary Actions: Expand
+							168 text Coverage notes & diagnostics
+					169 container
+						170 text EVENT PAGES Public calendar + email
+						171 heading Parallel Data Lab — Systems Design and Implementation Seminar, Value: 3
+							172 text Parallel Data Lab — Systems Design and Implementation Seminar
+						173 text School of Computer Science / College of Engineering
+						174 link Description: https://pdl.cmu.edu/SDI/index.html (opens in a new tab), Value: pdl.cmu.edu/SDI/index.html
+						175 text The public SDI schedule is tracked. Email-only short-notice announcements, Zoom links and private archive messages are not included.
+						176 content list
+							177 container
+								178 AXListMarker • 
+								179 text Use an ANDREW.CMU.EDU email address; the series is for active, on-campus CMU individuals.
+							180 container
+								181 AXListMarker • 
+								182 text This closed list requires moderator approval.
+							183 container
+								184 AXListMarker • 
+								185 text Complete the publisher CAPTCHA.
+							186 container
+								187 AXListMarker • 
+								188 text Private archives require list membership. The publisher asks members not to forward seminar information.
+						189 text How to access:
+						190 text  Open the publisher’s list information page to review eligibility and subscribe yourself. Email announcements are not imported.
+						191 link Description: View subscription instructions (opens in a new tab), Value: lists.andrew.cmu.edu/mailman/listinfo/sdi-list
+						192 button (collapsed) Coverage notes & diagnostics, Secondary Actions: Expand
+							193 text Coverage notes & diagnostics
+			194 text Last published refresh: Oct 25, 10:56 PM EDT.
+
+The focused UI element is 19 search text field (settable) Search channels, ID: subscriptions-search

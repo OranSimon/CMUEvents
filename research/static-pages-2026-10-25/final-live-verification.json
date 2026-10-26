@@ -1,0 +1,55 @@
+{
+  "url": "https://oransimon.github.io/CMUEvents/",
+  "checkedAt": "2026-10-26T03:43:28.184Z",
+  "httpStatus": 200,
+  "manifest": {
+    "version": 1,
+    "mode": "static",
+    "generatedAt": "2026-10-26T03:38:03.617Z",
+    "lastUpdated": "2026-10-26T03:38:03.517Z",
+    "updateIntervalHours": 24,
+    "staleAfterHours": 48,
+    "eventCount": 4415,
+    "sourceCount": 318,
+    "sourceRepository": "https://github.com/OranSimon/CMUEvents",
+    "workflowUrl": "https://github.com/OranSimon/CMUEvents/actions/workflows/daily-pages.yml"
+  },
+  "coherentGeneration": true,
+  "eventCount": 4415,
+  "sourceCount": 318,
+  "sourceUrlsMatchCatalog": true,
+  "allEventProvenanceWithinRetainedCatalog": true,
+  "parserOptionsOmittedFromPublicData": true,
+  "emailChannels": 6,
+  "sourceHealth": {
+    "total": 318,
+    "ok": 187,
+    "empty": 75,
+    "undated": 4,
+    "error": 10,
+    "covered": 38,
+    "unsupported": 0,
+    "subscription_only": 4,
+    "blocked": 0,
+    "pending": 0
+  },
+  "alumni": [
+    {
+      "id": "79e7cdffd54d",
+      "eventCount": 4,
+      "state": "error"
+    },
+    {
+      "id": "8f00fc7f2c7c",
+      "eventCount": 23,
+      "state": "error"
+    }
+  ],
+  "lti": [
+    {
+      "id": "528193392a78",
+      "eventCount": 9,
+      "state": "error"
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "url": "https://oransimon.github.io/CMUEvents/",
+  "checkedAt": "2026-10-26T03:17:13.402Z",
+  "manifest": {
+    "version": 1,
+    "mode": "static",
+    "generatedAt": "2026-10-26T03:15:47.701Z",
+    "lastUpdated": "2026-10-26T03:15:47.666Z",
+    "updateIntervalHours": 24,
+    "staleAfterHours": 48,
+    "eventCount": 4402,
+    "sourceCount": 318,
+    "sourceRepository": "https://github.com/OranSimon/CMUEvents",
+    "workflowUrl": "https://github.com/OranSimon/CMUEvents/actions/workflows/daily-pages.yml"
+  },
+  "status": {
+    "lastUpdated": "2026-10-26T03:15:47.666Z",
+    "totalEvents": 4402,
+    "sources": {
+      "total": 318,
+      "ok": 187,
+      "empty": 75,
+      "undated": 4,
+      "error": 10,
+      "covered": 38,
+      "unsupported": 0,
+      "subscription_only": 4,
+      "blocked": 0,
+      "pending": 0
+    },
+    "lastRefresh": {
+      "startedAt": "2026-10-26T03:06:39.313Z",
+      "completedAt": "2026-10-26T03:15:47.667Z",
+      "total": 276,
+      "completed": 276,
+      "ok": 187,
+      "empty": 75,
+      "undated": 4,
+      "error": 10,
+      "totalEvents": 4402
+    },
+    "generatedAt": "2026-10-26T03:15:47.701Z",
+    "refreshing": false,
+    "lastSuccessfulUpdate": "2026-10-26T03:15:47.666Z",
+    "updateIntervalHours": 24,
+    "staleAfterHours": 48
+  },
+  "alumni": [
+    {
+      "id": "79e7cdffd54d",
+      "org": "CMU Alumni Online Events",
+      "state": "error",
+      "eventCount": 4,
+      "error": "Incomplete extraction; previous records retained. Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain); only its current visible listing date is included Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n Public origi",
+      "warnings": [
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain); only its current visible listing date is included",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n    - waiting for \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\" navigation to finish...\n    - navigated to \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\"\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n    - waiting for \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease\" navigation to finish...\n    - navigated to \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease\"\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n"
+      ]
+    },
+    {
+      "id": "8f00fc7f2c7c",
+      "org": "CMU Alumni and Community Events",
+      "state": "error",
+      "eventCount": 23,
+      "error": "Incomplete extraction; previous records retained. Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026); only its current visible listing date is included Original public event details unavailable (https://www.givecampus.com/schools/Carneg",
+      "warnings": [
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-plaid-potions-and-pubs-halloween-bar-crawl); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/la-volunteer-opportunity-project-angel-food-service-day-2026); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-heated-rivalry-penguins-vs-sharks); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-dulces-connections-hlaa-holiday-cookie-making-event); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-festival-of-lights-tartan-diwali-celebration); only its current visible listing date is included",
+        "Original public event details unavailable (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain); only its current visible listing date is included",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n    - waiting for \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians\" navigation to finish...\n    - navigated to \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians\"\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n    - waiting for \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts\" navigation to finish...\n    - navigated to \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts\"\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n    - waiting for \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\" navigation to finish...\n    - navigated to \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking\"\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n    - waiting for \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\" navigation to finish...\n    - navigated to \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\"\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n    - waiting for \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage\" navigation to finish...\n    - navigated to \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage\"\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-plaid-potions-and-pubs-halloween-bar-crawl): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n    - waiting for \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters\" navigation to finish...\n    - navigated to \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters\"\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/la-volunteer-opportunity-project-angel-food-service-day-2026): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n    - waiting for \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/la-volunteer-opportunity-project-angel-food-service-day-2026\" navigation to finish...\n    - navigated to \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/la-volunteer-opportunity-project-angel-food-service-day-2026\"\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-heated-rivalry-penguins-vs-sharks): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n    - waiting for \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford\" navigation to finish...\n    - navigated to \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford\"\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-dulces-connections-hlaa-holiday-cookie-making-event): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-festival-of-lights-tartan-diwali-celebration): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n",
+        "Public original event detail failed (https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain): locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n  - waiting for getByRole('heading', { name: 'Event Details', exact: true }) to be visible\n    - waiting for \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain\" navigation to finish...\n    - navigated to \"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain\"\n"
+      ]
+    }
+  ],
+  "alumniEvents": [
+    {
+      "title": "PIT – CMU School of Music Chamber Series Opening: Inon Barnathan with PSO Musicians",
+      "start": "2026-10-26",
+      "end": "2026-10-27",
+      "timeZone": "America/New_York",
+      "location": "PITTSBURGH, PA",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "Sydney - Alumni Coffee and Catch-Up",
+      "start": "2026-10-27",
+      "end": "2026-10-28",
+      "timeZone": "America/New_York",
+      "location": "",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "NYC - Public Speaking for Tartan Introverts",
+      "start": "2026-10-27",
+      "end": "2026-10-28",
+      "timeZone": "America/New_York",
+      "location": "NEW YORK, NY",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-public-speaking-for-tartan-introverts",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "An Evening with Carnegie Mellon University - Washington, DC",
+      "start": "2026-10-27",
+      "end": "2026-10-28",
+      "timeZone": "America/New_York",
+      "location": "WASHINGTON, DC",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/an-evening-with-carnegie-mellon-university-washington-dc",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "Sports Betting and the Brain - October 2026",
+      "start": "2026-10-28",
+      "end": "2026-10-29",
+      "timeZone": "America/New_York",
+      "location": "VIRTUAL WEBINAR, ONLINE",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
+      "sourceIds": [
+        "8f00fc7f2c7c",
+        "79e7cdffd54d"
+      ]
+    },
+    {
+      "title": "Communicating with Confidence 2026: Interactive Practice for Real-World Speaking",
+      "start": "2026-10-29",
+      "end": "2026-10-30",
+      "timeZone": "America/New_York",
+      "location": "VIRTUAL WEBINAR, ONLINE",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
+      "sourceIds": [
+        "8f00fc7f2c7c",
+        "79e7cdffd54d"
+      ]
+    },
+    {
+      "title": "Tepper San Francisco: Leading in an Agentic World: How AI Will Reshape Strategy, Innovation, and Competitive Advantage",
+      "start": "2026-10-29",
+      "end": "2026-10-30",
+      "timeZone": "America/New_York",
+      "location": "PALO ALTO, CA",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/tepper-san-francisco-leading-in-an-agentic-world-how-ai-will-reshape-strategy-innovation-and-competitive-advantage",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "Cracking the Code: Deciphering Bacterial Language and Dialects",
+      "start": "2026-10-29",
+      "end": "2026-10-30",
+      "timeZone": "America/New_York",
+      "location": "NEW YORK, NY",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/cracking-the-code-deciphering-bacterial-language-and-dialects",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "HI - A Globally Plaid Halloween at HoMA",
+      "start": "2026-10-30",
+      "end": "2026-10-31",
+      "timeZone": "America/New_York",
+      "location": "HONOLULU, HI",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hi-a-globally-plaid-halloween-at-homa",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "SF - Plaid, Potions and Pubs: Halloween Bar Crawl",
+      "start": "2026-10-31",
+      "end": "2026-11-01",
+      "timeZone": "America/New_York",
+      "location": "SAN FRANCISCO, CA",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-plaid-potions-and-pubs-halloween-bar-crawl",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "DC - CMU Sunday Night Football: Commanders vs. Eagles",
+      "start": "2026-11-01",
+      "end": "2026-11-02",
+      "timeZone": "America/New_York",
+      "location": "LANDOVER, MD",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/dc-cmu-sunday-night-football-commanders-vs-eagles",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "Slaying Organizational Monsters",
+      "start": "2026-11-02",
+      "end": "2026-11-03",
+      "timeZone": "America/New_York",
+      "location": "",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/slaying-organizational-monsters",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "NYC x PIT - The 59th Carnegie International & Beyond",
+      "start": "2026-11-06",
+      "end": "2026-11-07",
+      "timeZone": "America/New_York",
+      "location": "",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "DEN - Macbeth Opera Opening Night: Verdi’s Dramatic Masterpiece",
+      "start": "2026-11-07",
+      "end": "2026-11-08",
+      "timeZone": "America/New_York",
+      "location": "DENVER, CO",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "NYC – Coffee with LLM API Users",
+      "start": "2026-11-07T15:30:00.000Z",
+      "end": "2026-11-07T17:00:00.000Z",
+      "timeZone": "Etc/GMT+5",
+      "location": "Think Coffee · 246 5th Ave · New York, New York 10001",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-coffee-with-llm-api-users",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "Rethinking Chronic Pain and Disease",
+      "start": "2026-11-10",
+      "end": "2026-11-11",
+      "timeZone": "America/New_York",
+      "location": "VIRTUAL WEBINAR, ONLINE",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease",
+      "sourceIds": [
+        "8f00fc7f2c7c",
+        "79e7cdffd54d"
+      ]
+    },
+    {
+      "title": "LA - Volunteer Opportunity: Project Angel Food Service Day 2026",
+      "start": "2026-11-11",
+      "end": "2026-11-12",
+      "timeZone": "America/New_York",
+      "location": "LOS ANGELES, CA",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/la-volunteer-opportunity-project-angel-food-service-day-2026",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "SF - Heated Rivalry: Penguins vs. Sharks",
+      "start": "2026-11-11",
+      "end": "2026-11-12",
+      "timeZone": "America/New_York",
+      "location": "SAN JOSE, CA",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sf-heated-rivalry-penguins-vs-sharks",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "PIT – Tartans on Tap: Wexford",
+      "start": "2026-11-12",
+      "end": "2026-11-13",
+      "timeZone": "America/New_York",
+      "location": "WEXFORD, PA",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "BOS - Tartan High Tea and Salem Stroll",
+      "start": "2026-11-14",
+      "end": "2026-11-15",
+      "timeZone": "America/New_York",
+      "location": "SALEM, MA",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "DEN - Festival of Lights: Tartan Diwali Celebration",
+      "start": "2026-11-14",
+      "end": "2026-11-15",
+      "timeZone": "America/New_York",
+      "location": "CENTENNIAL, CO",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-festival-of-lights-tartan-diwali-celebration",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "HLAA - Dulces & Connections: HLAA Holiday Cookie Making Event",
+      "start": "2026-11-14",
+      "end": "2026-11-15",
+      "timeZone": "America/New_York",
+      "location": "PITTSBURGH, PA",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-dulces-connections-hlaa-holiday-cookie-making-event",
+      "sourceIds": [
+        "8f00fc7f2c7c"
+      ]
+    },
+    {
+      "title": "The Menopause Transition and the Brain",
+      "start": "2026-11-17",
+      "end": "2026-11-18",
+      "timeZone": "America/New_York",
+      "location": "VIRTUAL WEBINAR, ONLINE",
+      "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/the-menopause-transition-and-the-brain",
+      "sourceIds": [
+        "8f00fc7f2c7c",
+        "79e7cdffd54d"
+      ]
+    }
+  ]
+}

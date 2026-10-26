@@ -1,0 +1,155 @@
+{
+  "runId": 40264806726,
+  "url": "https://github.com/OranSimon/CMUEvents/actions/runs/40264806726",
+  "commit": "a81df884e24e161a6113dfccabfdccad90de60ce",
+  "jobs": [
+    {
+      "id": 121384756591,
+      "name": "build",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Check out source",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Use Node.js 24",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Cache raw OCR by source bytes and extractor version",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Install public-page and media extraction runtimes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Test and validate contracts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Restore durable source snapshots",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Fetch, validate and build public website",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Upload source-health and publication reports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Save validated state for the next daily run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Upload Pages artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Post Cache raw OCR by source bytes and extractor version",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22
+        },
+        {
+          "name": "Post Use Node.js 24",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23
+        },
+        {
+          "name": "Post Check out source",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25
+        }
+      ]
+    },
+    {
+      "id": 121385491596,
+      "name": "deploy",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Configure GitHub Pages",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Deploy the validated snapshot",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        }
+      ]
+    }
+  ],
+  "verificationLines": [
+    "2026-10-26T03:36:11.1910864Z ℹ tests 240",
+    "2026-10-26T03:36:11.1911739Z ℹ pass 240",
+    "2026-10-26T03:36:11.1912061Z ℹ fail 0",
+    "2026-10-26T03:36:11.1912772Z ℹ skipped 0",
+    "2026-10-26T03:36:19.2379265Z [state] {\"restoredSources\":276,\"restoredEvents\":6663,\"invalidated\":[]}",
+    "2026-10-26T03:37:38.7347030Z [source] 528193392a78 partial; 9 parsed; 1113 ms; 228/276",
+    "2026-10-26T03:37:41.9591413Z [source] 34fa7359276d partial; 2 parsed; 11331 ms; 236/276",
+    "2026-10-26T03:37:48.0339683Z [source] 79e7cdffd54d partial; 4 parsed; 7464 ms; 248/276",
+    "2026-10-26T03:37:49.5109763Z [source] 8f00fc7f2c7c partial; 23 parsed; 6590 ms; 252/276",
+    "2026-10-26T03:38:03.6133553Z [refresh] 276/276 sources checked; 187 populated, 75 empty, 4 undated resources, 10 need review; 4415 distinct occurrences."
+  ]
+}
