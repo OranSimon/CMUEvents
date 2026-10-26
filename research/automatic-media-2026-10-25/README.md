@@ -38,3 +38,11 @@ PDF 当前只读第一页来寻找演讲封面日期。文档后页才列议程�
 原 `reviewedImages` 的旧内联 fixture 测试保留用于描述历史防护行为；活跃计划迁移后不会走这条人工字段路径。此轮没有编辑生产 SQLite。
 
 官方接口依据：[Tesseract CLI](https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html) 与安装的 `pdf-parse` 文档（`getText({partial:[1]})`、`getScreenshot({partial:[1]})`）。
+
+## 首次云端部署后的 CLI 资源与诊断修复
+
+首次 Linux 抓取的部分错误只保留了 `Command failed` 与正常的 `Estimating resolution` 提示，缺少退出信号及超时证据，因此尚不能断言是 45 秒超时或 OpenMP 争用。依据 [官方 FAQ](https://tesseract-ocr.github.io/tessdoc/FAQ.html) 与 [官方 Benchmarks](https://tesseract-ocr.github.io/tessdoc/Benchmarks.html)，每个 Tesseract 子进程现在明确设置 `OMP_THREAD_LIMIT=1`，整个 Node 进程最多同时运行 2 个 OCR 子进程。每次图像处理上限改为 90 秒；只有父进程明确执行超时终止时才记录 `timedOut=true`，使用 SIGKILL 保证失控进程不会无限等待。
+
+失败诊断区分 `elapsedMs`、`queueMs`、`timeoutMs`、`timedOut`、`killed`、`signal`、`exitCode`、`code`，只追加有长度限制的 stderr，不复制整条命令、环境或临时输入路径。日期和字段解析规则保持不变。
+
+`node --test tests/media-ocr-process.test.mjs tests/automatic-media.test.mjs`：17/17 通过，包含普通退出、明确超时、缺失二进制、并发上限与失败释放槽位，以及真实 Tesseract 缓存回归。四个实际图片调用同时提交均成功（每个 420–1090ms，后两项确实排队）；无缓存完整路径仍读出 LTI 的 13 行和 Anna 海报的 1 场。完整本机证据在 `cli-resource-review.json`。这些证据验证了 macOS 的进程控制和保守解析；Linux 第二轮部署的恢复结果需由该轮 GitHub Actions 验证。

@@ -146,6 +146,9 @@ export function createPublicRenderer(options = {}) {
       if (context.routeWebSocket) await context.routeWebSocket('**/*', socket => socket.close());
       page.setDefaultTimeout(30000);
       response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
+      if (response && response.status() >= 400) {
+        throw Object.assign(new Error(`Public page returned HTTP ${response.status()}`), { code: 'PUBLIC_RENDER_HTTP_ERROR' });
+      }
       if (request.kind === 'alumni') return { url, ...await collectAlumniCards(page, request) };
       const heading = page.getByRole('heading', { name: 'Event Details', exact: true });
       await heading.waitFor({ state: 'visible', timeout: 30000 });
@@ -172,6 +175,7 @@ export function createPublicRenderer(options = {}) {
         if (await heading.count()) diagnostic.firstVisibleH1 = (await heading.innerText({ timeout: 1500 })).slice(0, 240);
       } catch { /* Read neither body text nor hidden fallback state. */ }
       const failure = new Error(`${error.message}; public page diagnostic: ${JSON.stringify(diagnostic)}`, { cause: error });
+      failure.code = error.code || 'PUBLIC_RENDER_ERROR';
       failure.publicRenderDiagnostic = diagnostic;
       throw failure;
     } finally { await context.close(); }

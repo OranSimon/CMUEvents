@@ -193,11 +193,12 @@ test('renderer uses a fresh context, blocks downloads/workers and validates subr
 
 test('render failures report response status, final path, document title and visible h1 without body or Guest List reads', async () => {
   let closed = 0;
+  let headingWaits = 0;
   const inspected = [];
   const page = { setDefaultTimeout() {}, mainFrame: () => ({}),
     goto: async () => ({ status: () => 403 }), url: () => `${fixture.detail.url}?ephemeral=do-not-persist`,
     title: async () => 'Public access unavailable',
-    getByRole: () => ({ waitFor: async () => { throw new Error('Event Details heading timed out'); } }),
+    getByRole: () => ({ waitFor: async () => { headingWaits++; throw new Error('Event Details heading timed out'); } }),
     locator: selector => { inspected.push(selector); assert.equal(selector, 'h1:visible');
       return { first: () => ({ count: async () => 1, innerText: async () => 'Request could not be completed' }) }; },
   };
@@ -207,11 +208,13 @@ test('render failures report response status, final path, document title and vis
   await assert.rejects(renderer.renderPublic({ url: fixture.detail.url, kind: 'event-detail' }), error => {
     assert.deepEqual(error.publicRenderDiagnostic, { httpStatus: 403, finalUrl: fixture.detail.url,
       title: 'Public access unavailable', firstVisibleH1: 'Request could not be completed' });
-    assert.match(error.message, /Event Details heading timed out.*httpStatus.*403/);
+    assert.equal(error.code, 'PUBLIC_RENDER_HTTP_ERROR');
+    assert.match(error.message, /Public page returned HTTP 403.*httpStatus.*403/);
     assert.ok(!error.message.includes('ephemeral'));
     return true;
   });
   assert.equal(closed, 1);
+  assert.equal(headingWaits, 0, 'an explicit HTTP failure never waits for a missing Event Details heading');
   assert.deepEqual(inspected, ['h1:visible']);
   await renderer.close();
 });
