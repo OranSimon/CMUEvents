@@ -1,5 +1,6 @@
 const DISPLAY_TIMEZONE = "America/New_York";
 const PAGE_SIZE = 24;
+const SOURCE_PAGE_SIZE = 30;
 const INITIAL_TITLE = "CMU Events · Discover your campus";
 
 /**
@@ -226,10 +227,14 @@ let toastTimer = null;
 let previousFocus = null;
 let filterPreviousFocus = null;
 let refreshRequested = false;
-let diagnosticsData = null;
-let diagnosticsLimit = 30;
-let diagnosticsView = "attention";
-let diagnosticsQuery = "";
+let sourceData = null;
+let sourceRequest = null;
+let sourceLoadError = "";
+const sourcePanelState = {
+  sources: { query: "", department: "", category: "", coverage: "all", limit: SOURCE_PAGE_SIZE },
+  subscriptions: { query: "", department: "", category: "", coverage: "all", limit: SOURCE_PAGE_SIZE },
+};
+const sourcePanelFocus = new Map();
 
 /**
  * Compute inclusive calendar boundaries for the selected date preset.
@@ -572,7 +577,8 @@ async function loadStatus() {
     const firstBatchAvailable = currentData?.total === 0 && !currentData?.lastUpdated && data.totalEvents > 0;
     updateStatus(data);
     if (changed && (!data.refreshing || firstBatchAvailable)) {
-      diagnosticsData = null;
+      sourceData = null;
+      if (sourcePanelsOpen()) loadSourceDirectory();
       if (!element("detail-dialog").open) loadEvents();
     }
   } catch {
@@ -677,99 +683,320 @@ function openEvent(event) {
 }
 
 /**
- * Present the crawler coverage and known public-source limitations.
- * @return {void}
+ * Return whether a source directory panel is open.
+ * @return {boolean} Whether the sources or subscriptions dialog is open.
  */
-function openSourceInfo() {
-  const sources = statusData?.sources || {};
-  const metrics = [[sources.total, "Catalogued sources"], [sources.ok, "Sources with imported events"], [sources.empty, "No imported events in window"], [sources.undated, "No dated schedule published · monitored"], [sources.covered, "Covered by shared feeds"], [sources.error, "Need another check"], [sources.blocked, "Fetch blocked"], [sources.subscription_only, "Subscription only"], [sources.pending, "Awaiting a check"], [sources.unsupported, "Need a custom integration"]].filter(([value]) => Number.isFinite(value));
-  element("dialog-eyebrow").textContent = "BEHIND THE CALENDAR";
-  element("detail-content").innerHTML = `<div class="detail-body"><p class="eyebrow">MANY SOURCES. ONE PLACE.</p><h2 class="detail-title" id="detail-title">A wider view of campus.</h2><p class="source-explanation">CMU Events follows university calendars, academic departments, research centers, offices, and other non-club publishers. Independent student-club websites and their own calendar feeds are excluded. All activities published by retained sources are kept, including events hosted by student clubs.</p>
-    ${metrics.length ? `<div class="source-metrics">${metrics.map(([value, label]) => `<div class="source-metric"><strong>${value.toLocaleString()}</strong><span>${label}</span></div>`).join("")}</div>` : ""}
-    <details class="source-diagnostics" id="source-diagnostics"><summary>View source diagnostics</summary><div id="source-diagnostics-content"></div></details>
-    <div class="source-explanation"><h3>Refreshed automatically</h3><p>The server checks public sources on its refresh schedule. You can also request an update with the refresh button. Existing events remain available while the next snapshot is collected.</p><h3>What the collection window covers</h3><p>Each refresh imports occurrences from the previous 30 days through the next 365 days. A source with zero imported events may still list older events or publish activities through another calendar. This count describes one collected source; it does not mean the whole organization has no events. A successful automated check also does not establish that the rendered page was visually reviewed.</p><h3>Useful context stays attached</h3><ul><li>Department and organization come from the source catalogue.</li><li>Topics are assigned from published event text. They are discovery aids and can be imperfect.</li><li>Events appearing in multiple calendars are combined when matching source evidence is available.</li><li>Summaries are deterministic excerpts of source text. Every event keeps its original public link.</li></ul><h3>A public listing is an invitation to check the details</h3><p>Some events require registration, tickets, university affiliation, or a specific audience. Check the organizer’s page before attending.</p><h3>Coverage is visible, and still evolving</h3><p>Shared calendar feeds can cover several source pages without fetching each page separately. Login-only pages, unavailable sites, and announcements without a verifiable event date may not appear in results. Source diagnostics include zero-record snapshots, current access checks, and separately recorded visual evidence. Member-only details can remain restricted while a public feed works.</p></div><p class="source-time">${statusData?.lastUpdated ? `Last published refresh: ${escapeHtml(updatedLabel(statusData.lastUpdated))}.` : "The first refresh has not been published yet."}</p></div>`;
-  element("source-diagnostics").addEventListener("toggle", event => { if (event.target.open) loadSourceDiagnostics(); });
-  openDialog();
+function sourcePanelsOpen() {
+  return ["sources", "subscriptions"].some(panel => element(`${panel}-dialog`).open);
 }
 
 /**
- * Load source health records only when a reader opens the diagnostics section.
- * @return {Promise<void>} Completion of the diagnostics request.
+ * Keep background scrolling locked while any modal is open.
+ * @return {void} No return value.
  */
-async function loadSourceDiagnostics() {
-  const container = element("source-diagnostics-content");
-  if (!container) return;
-  container.innerHTML = '<p class="diagnostics-status" role="status">Checking source details…</p>';
-  try {
-    if (!diagnosticsData) {
-      const response = await fetch("/api/sources", { headers: { Accept: "application/json" } });
-      if (!response.ok) throw new Error(`Source details returned ${response.status}.`);
-      const payload = await response.json();
-      if (!Array.isArray(payload.sources)) throw new Error("Source details are temporarily unavailable.");
-      diagnosticsData = payload.sources;
+function syncDialogLock() {
+  document.body.classList.toggle("dialog-open", Boolean(document.querySelector("dialog[open]")));
+}
+
+/**
+ * Resolve a readable category from the published source metadata.
+ * @param {Object} source Catalogued source with an optional category and kind.
+ * @return {string} Category label for the source directory.
+ */
+function sourceCategory(source) {
+  const category = typeof source.category === "string" ? plainText(source.category) : "";
+  if (category) return category;
+  return ({ event_listing: "Event pages", university_calendar: "University calendars", ical_feed: "Calendar feeds", organization_listing: "Directories", mailing_list: "Mailing lists", newsletter_archive: "Newsletter archives", rss_feed: "News feeds" })[source.kind] || "Other sources";
+}
+
+/**
+ * Read the curated email channel metadata for a source.
+ * @param {Object} source Catalogued source with optional subscription metadata.
+ * @return {Object|null} Recognized subscription metadata, or null when absent.
+ */
+function sourceSubscription(source) {
+  const subscription = source.subscription;
+  return subscription && ["subscriber_only", "public_plus_email"].includes(subscription.kind) ? subscription : null;
+}
+
+/**
+ * Check recorded collection health and review flags.
+ * @param {Object} source Source record with runtime state and review evidence.
+ * @return {boolean} Whether this source needs another check.
+ */
+function sourceNeedsAttention(source) {
+  return ["error", "blocked", "unsupported", "pending"].includes(source.state)
+    || source.evidence?.visualReview?.requiresReview === true
+    || source.evidence?.accessReview?.attention === true;
+}
+
+/**
+ * Filter the complete source response before applying display limits.
+ * @param {string} panel Directory key: sources or subscriptions.
+ * @return {Array<Object>} Matching sources sorted by their displayed names.
+ */
+function matchingSources(panel) {
+  const filters = sourcePanelState[panel];
+  const terms = filters.query.normalize("NFKC").toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
+  return (sourceData || []).filter(source => {
+    const subscription = sourceSubscription(source);
+    if (panel === "subscriptions" && !subscription) return false;
+    if (filters.department && source.department !== filters.department) return false;
+    if (filters.category && sourceCategory(source) !== filters.category) return false;
+    if (filters.coverage !== "all") {
+      const matchesCoverage = ({
+        imported: Number(source.eventCount) > 0,
+        covered: source.state === "covered",
+        zero: source.state === "empty",
+        undated: source.state === "undated",
+        attention: sourceNeedsAttention(source),
+        email: subscription?.kind === "subscriber_only",
+        public_email: subscription?.kind === "public_plus_email",
+      })[filters.coverage];
+      if (!matchesCoverage) return false;
     }
-    if (container.isConnected) renderSourceDiagnostics();
-  } catch (error) {
-    if (container.isConnected) container.innerHTML = `<p class="diagnostics-status">${escapeHtml(error.message)}</p><button type="button" class="text-button" data-diagnostics-retry>Try again</button>`;
-  }
+    const searchable = [source.org, source.department, source.url, source.fetchUrl, sourceCategory(source), subscription?.title, subscription?.url].filter(Boolean).join(" ").normalize("NFKC").toLocaleLowerCase();
+    return terms.every(term => searchable.includes(term));
+  }).sort((left, right) => {
+    const leftName = (panel === "subscriptions" && sourceSubscription(left)?.title) || left.org || "";
+    const rightName = (panel === "subscriptions" && sourceSubscription(right)?.title) || right.org || "";
+    return leftName.localeCompare(rightName) || String(left.id || left.url).localeCompare(String(right.id || right.url));
+  });
 }
 
 /**
- * Render recorded access checks separately from computer-use visual evidence.
- * @param {Object} source Source record with optional visual-review evidence.
+ * Resolve a readable label for the recorded source state.
+ * @param {Object} source Source record containing its runtime state.
+ * @return {string} Coverage or collection status label.
+ */
+function sourceStateLabel(source) {
+  return ({ error: "Needs review", blocked: "Access restricted", unsupported: "Integration needed", pending: "Not checked yet", subscription_only: "Email only", empty: "Zero imported in window", undated: "Undated · monitored", ok: "Events imported", covered: "Shared feed coverage" })[source.state] || "Status unavailable";
+}
+
+/**
+ * Describe public coverage without inferring organization-wide emptiness.
+ * @param {Object} source Source record with state, event count and optional subscription.
+ * @return {string} Reader-facing summary of the current coverage boundary.
+ */
+function sourceSummary(source) {
+  const subscription = sourceSubscription(source);
+  if (subscription?.kind === "subscriber_only") return "Subscriber-only email announcements are not imported into the event calendar.";
+  if (subscription?.kind === "public_plus_email") return "Public calendar events may be included. Subscriber email content is not imported.";
+  const count = Number(source.eventCount || 0).toLocaleString();
+  if (source.state === "error" && Number(source.eventCount) > 0) return `${count} imported occurrences remain available while the latest check needs review.`;
+  return ({
+    ok: `${count} occurrences imported within the collection window.`,
+    covered: "Included through a shared public feed, with this source kept in the event attribution.",
+    empty: "No occurrences imported in this source’s collection window. The publisher may list events elsewhere.",
+    undated: "A public resource without a verified dated schedule. Changes are monitored for review.",
+    blocked: "This source has an access restriction. Open the original page and the coverage notes for details.",
+    unsupported: "The original source is catalogued; its event format still needs an integration.",
+    pending: "This source has not completed its first check.",
+    error: "The latest collection could not be completed. See the original source for current information.",
+  })[source.state] || "Open the original source for its current announcements and event details.";
+}
+
+/**
+ * Render access checks separately from recorded visual evidence.
+ * @param {Object} source Source record with optional access and visual review evidence.
  * @return {string} Escaped review markup, or an empty string without evidence.
  */
 function sourceVisualReview(source) {
   const access = source.evidence?.accessReview;
-  const accessMarkup = access ? `<div class="diagnostic-visual-review"><p><strong>Access check</strong>${access.checkedAt ? ` · ${escapeHtml(updatedLabel(access.checkedAt))}` : ""}</p><p>${escapeHtml(plainText(access.reason))}</p><p><strong>Next step:</strong> ${escapeHtml(plainText(access.nextStep))}</p></div>` : "";
   const review = source.evidence?.visualReview;
-  if (!review || typeof review !== "object") return accessMarkup;
-  const checked = review.checkedAt && Number.isFinite(Date.parse(review.checkedAt)) ? updatedLabel(review.checkedAt) : "";
-  const outcome = plainText(review.outcome).replace(/_/g, " ");
-  const note = plainText(review.note);
-  const url = safeUrl(review.url);
   const resolution = source.evidence?.followupResolution;
-  const reason = plainText(resolution?.reason);
-  const nextStep = plainText(resolution?.nextStep);
-  const restrictions = Array.isArray(resolution?.accessRestrictions) ? resolution.accessRestrictions : [];
-  const actions = restrictions.map(item => `<p><strong>${item.requiredForPublicCoverage === false ? "Additional channel" : "Access needed"}:</strong> ${escapeHtml(plainText(item.reason))}${item.nextStep ? ` ${escapeHtml(plainText(item.nextStep))}` : ""}</p>`).join("");
-  if (!checked && !outcome && !note && !url) return accessMarkup;
-  return `${accessMarkup}<div class="diagnostic-visual-review"><p><strong>Recorded visual review</strong>${checked ? ` · ${escapeHtml(checked)}` : ""}</p>${outcome ? `<p>${escapeHtml(outcome)}</p>` : ""}${note ? `<p>${escapeHtml(note)}</p>` : ""}${reason ? `<p><strong>Reason:</strong> ${escapeHtml(reason)}</p>` : ""}${nextStep ? `<p><strong>Next step:</strong> ${escapeHtml(nextStep)}</p>` : ""}${actions}${url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Reviewed page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : ""}</div>`;
+  const paragraphs = [];
+  if (access) paragraphs.push(`<div class="diagnostic-visual-review"><p><strong>Recorded access check</strong>${access.checkedAt ? ` · ${escapeHtml(updatedLabel(access.checkedAt))}` : ""}</p>${access.reason ? `<p>${escapeHtml(plainText(access.reason))}</p>` : ""}${access.nextStep ? `<p><strong>Next step:</strong> ${escapeHtml(plainText(access.nextStep))}</p>` : ""}</div>`);
+  if (review && typeof review === "object") {
+    const url = safeUrl(review.url);
+    paragraphs.push(`<div class="diagnostic-visual-review"><p><strong>Recorded visual review</strong>${review.checkedAt ? ` · ${escapeHtml(updatedLabel(review.checkedAt))}` : ""}</p>${review.note ? `<p>${escapeHtml(plainText(review.note))}</p>` : ""}${url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Reviewed page <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : ""}</div>`);
+  }
+  if (resolution) {
+    if (resolution.reason) paragraphs.push(`<p><strong>Review finding:</strong> ${escapeHtml(plainText(resolution.reason))}</p>`);
+    if (resolution.nextStep) paragraphs.push(`<p><strong>Next step:</strong> ${escapeHtml(plainText(resolution.nextStep))}</p>`);
+    if (Array.isArray(resolution.accessRestrictions)) paragraphs.push(...resolution.accessRestrictions.map(item => `<p><strong>${item.requiredForPublicCoverage === false ? "Additional channel" : "Access needed"}:</strong> ${escapeHtml(plainText(item.reason))}${item.nextStep ? ` ${escapeHtml(plainText(item.nextStep))}` : ""}</p>`));
+  }
+  return paragraphs.join("");
 }
 
 /**
- * Show filtered source snapshots without claiming organization-wide emptiness.
- * @return {void}
+ * Render collapsible coverage notes for one source.
+ * @param {Object} source Source record with collection results and review evidence.
+ * @return {string} Escaped diagnostics details markup.
  */
-function renderSourceDiagnostics() {
-  const container = element("source-diagnostics-content");
-  if (!container || !diagnosticsData) return;
-  const attentionStates = ["error", "blocked", "unsupported", "pending", "subscription_only"];
-  const states = { error: "Needs a check", blocked: "Fetch blocked", unsupported: "Integration needed", pending: "Awaiting a check", subscription_only: "Subscription only", empty: "Zero imported in window", undated: "No dated schedule · monitored", ok: "Has imported events", covered: "Covered by shared feed" };
-  if (!element("source-diagnostics-results")) {
-    container.innerHTML = `<div class="diagnostics-controls"><label for="diagnostics-view">Show sources<select id="diagnostics-view" data-diagnostics-view><option value="attention">Needs attention</option><option value="zero">Zero-record calendars</option><option value="undated">Undated resources · monitored</option><option value="all">All</option></select></label><label for="diagnostics-search">Search sources<input id="diagnostics-search" data-diagnostics-search type="search" placeholder="Organization, department, or URL" autocomplete="off" value="${escapeHtml(diagnosticsQuery)}"></label></div><div id="source-diagnostics-results"></div>`;
-    element("diagnostics-view").value = diagnosticsView;
+function sourceDiagnostics(source) {
+  const reason = plainText(source.error || source.reason);
+  const warnings = (Array.isArray(source.warnings) ? source.warnings : []).map(plainText).filter(Boolean);
+  return `<details class="source-card-review"><summary>Coverage notes &amp; diagnostics</summary>${reason ? `<p>${escapeHtml(reason)}</p>` : ""}${warnings.length ? `<ul>${warnings.map(warning => `<li>${escapeHtml(warning)}</li>`).join("")}</ul>` : ""}<p>${escapeHtml(sourceSummary(source))}</p>${source.lastAttempt ? `<p>Last attempted check: ${escapeHtml(updatedLabel(source.lastAttempt))}.</p>` : ""}${sourceVisualReview(source)}</details>`;
+}
+
+/**
+ * Prefer curated subscription requirements over derived access labels.
+ * @param {Object} subscription Curated requirements and optional access flags.
+ * @return {Array<string>} Distinct readable requirements, using flags only as a fallback.
+ */
+function subscriptionRequirements(subscription) {
+  const requirements = (Array.isArray(subscription.requirements) ? subscription.requirements : []).map(plainText).filter(Boolean);
+  if (requirements.length) return [...new Set(requirements)];
+  const labels = { emailConfirmation: "Email confirmation required", moderatorApproval: "Moderator approval required", andrewOnly: "Andrew email required", loginRequired: "Login required", captcha: "CAPTCHA required" };
+  Object.entries(labels).forEach(([key, label]) => {
+    if (subscription.access?.[key] === true && !requirements.some(value => value.toLocaleLowerCase().includes(label.toLocaleLowerCase()))) requirements.push(label);
+  });
+  return [...new Set(requirements)];
+}
+
+/**
+ * Render a source card with its original link outside collapsed diagnostics.
+ * @param {Object} source Catalogued source with coverage and optional email metadata.
+ * @param {string} panel Directory key: sources or subscriptions.
+ * @return {string} Escaped source or subscription card markup.
+ */
+function sourceCard(source, panel) {
+  const subscription = panel === "subscriptions" ? sourceSubscription(source) : null;
+  const title = plainText(subscription?.title || source.org || source.department || "CMU source");
+  const url = safeUrl(source.url);
+  const signupUrl = safeUrl(subscription?.url);
+  const requirements = subscription ? subscriptionRequirements(subscription) : [];
+  const label = subscription ? subscription.kind === "subscriber_only" ? "Email only" : "Public calendar + email" : sourceStateLabel(source);
+  const summary = subscription ? plainText(subscription.reason) || sourceSummary(source) : sourceSummary(source);
+  return `<article class="source-card${subscription ? " subscription-card" : ""}" data-source-id="${escapeHtml(source.id)}"><div class="source-card-topline"><span>${escapeHtml(sourceCategory(source))}</span><span class="source-card-state" data-state="${escapeHtml(subscription?.kind === "subscriber_only" ? "subscription_only" : source.state || "pending")}">${escapeHtml(label)}</span></div><h3 class="source-card-title" tabindex="-1">${escapeHtml(title)}</h3><p class="source-card-department">${escapeHtml(source.department || "Carnegie Mellon University")}${subscription && title !== plainText(source.org) ? ` · ${escapeHtml(source.org)}` : ""}</p>${url ? `<a class="source-card-url" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(url)} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : '<p class="source-card-url">Original URL unavailable</p>'}<p class="source-card-summary">${escapeHtml(summary)}</p>${subscription ? `${requirements.length ? `<ul class="subscription-requirements">${requirements.map(requirement => `<li>${escapeHtml(requirement)}</li>`).join("")}</ul>` : ""}${subscription.nextStep ? `<p class="subscription-step"><strong>How to access:</strong> ${escapeHtml(plainText(subscription.nextStep))}</p>` : ""}<p class="source-card-meta subscription-status">Email announcements are not imported.</p>${signupUrl ? `<div class="subscription-actions"><a class="button-secondary" href="${escapeHtml(signupUrl)}" target="_blank" rel="noopener noreferrer">View subscription instructions <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>` : ""}` : `<p class="source-card-meta">${source.lastAttempt ? `Checked ${escapeHtml(updatedLabel(source.lastAttempt))}` : "Not refreshed yet"}</p>`}${sourceDiagnostics(source)}</article>`;
+}
+
+/**
+ * Build the expandable explanation of calendar coverage.
+ * @param {boolean} open Whether the explanation starts expanded.
+ * @return {string} Calendar explanation markup.
+ */
+function howItWorksMarkup(open = false) {
+  return `<details class="source-how-it-works source-card-review" id="sources-how-it-works"${open ? " open" : ""}><summary>How the calendar works</summary><div class="source-explanation"><h3>From across the university</h3><p>CMU Events follows university calendars, academic departments, research centers, offices, and other non-club publishers. Independent student-club websites and their own feeds are excluded. Activities published by retained sources are kept, including events hosted by student clubs.</p><h3>Refreshed automatically</h3><p>The server checks public sources on its refresh schedule. The refresh button requests an update; existing events remain available while the next snapshot is collected.</p><h3>What the collection window covers</h3><p>Each refresh imports occurrences from the previous 30 days through the next 365 days. Zero imported events describes that source and window. It does not mean the original page or organization has no activities. An automated check and a recorded visual review are identified separately in each source’s coverage notes.</p><h3>Useful context stays attached</h3><p>Department and organization come from the source catalogue. Topics are discovery aids based on published event text. Matching events from several calendars can be combined; summaries remain excerpts, and every event keeps its original public link.</p><h3>Check the original listing</h3><p>Registration, tickets, eligibility, audience requirements, and the latest updates belong to the organizer. Public calendar coverage can work while a separate member or email channel remains restricted.</p><h3>Email announcements</h3><p>Subscriber-only emails are not received or imported by CMU Events. The email directory lists reviewed subscription channels and their access instructions.</p><button class="text-button" type="button" data-open-subscriptions>Browse email subscriptions <span aria-hidden="true">↗</span></button></div></details>`;
+}
+
+/**
+ * Build stable directory controls once per panel opening.
+ * @param {string} panel Directory key: sources or subscriptions.
+ * @param {boolean} showHowItWorks Whether to expand the calendar explanation.
+ * @return {void} No return value.
+ */
+function renderSourcePanelShell(panel, showHowItWorks = false) {
+  const email = panel === "subscriptions";
+  const filters = sourcePanelState[panel];
+  element(`${panel}-content`).innerHTML = `<div class="source-directory"><header class="source-directory-intro${email ? " subscription-intro" : ""}"><p class="eyebrow">${email ? "ANNOUNCEMENTS, DIRECT TO YOU" : "MANY SOURCES. ONE PLACE."}</p><h2 class="source-directory-title" id="${panel}-title">${email ? "Email subscriptions" : "Our sources"}</h2><p class="source-directory-lede">${email ? "Find university email channels and the publisher’s instructions for joining." : "Browse every retained source, from department pages to shared university calendars. Open any original link or explore its coverage notes."}</p><div class="source-directory-stats" id="${panel}-stats"></div></header>${email ? '<aside class="subscription-boundary" role="note"><h3>Email announcements are not in the event calendar.</h3><p>CMU Events does not receive or import subscriber-only emails. Some publishers also have public calendars; those public events may appear in Discover.</p></aside>' : ""}<div class="source-directory-controls" aria-label="${email ? "Filter subscription channels" : "Filter sources"}"><label class="source-search-field" for="${panel}-search">Search ${email ? "channels" : "sources"}<input id="${panel}-search" data-source-query="${panel}" type="search" placeholder="Organization, department, or URL" autocomplete="off" maxlength="200" value="${escapeHtml(filters.query)}"></label><label class="source-filter-field" for="${panel}-department">Department<select id="${panel}-department" data-source-filter="department" data-source-panel="${panel}"><option value="">All departments</option></select></label><label class="source-filter-field" for="${panel}-category">Category<select id="${panel}-category" data-source-filter="category" data-source-panel="${panel}"><option value="">All categories</option></select></label><label class="source-filter-field" for="${panel}-coverage">${email ? "Channel" : "Coverage"}<select id="${panel}-coverage" data-source-filter="coverage" data-source-panel="${panel}">${(email ? [["all", "All channels"], ["email", "Email only"], ["public_email", "Public calendar + email"]] : [["all", "All coverage"], ["imported", "With imported events"], ["covered", "Shared feed coverage"], ["zero", "Zero imported in window"], ["undated", "Undated · monitored"], ["attention", "Needs review"], ["email", "Email only"]]).map(([value, label]) => `<option value="${value}"${filters.coverage === value ? " selected" : ""}>${label}</option>`).join("")}</select></label></div><p class="source-directory-count" id="${panel}-count" role="status" aria-live="polite"></p><div id="${panel}-results" aria-busy="true"></div>${email ? "" : howItWorksMarkup(showHowItWorks)}<p class="source-time" id="${panel}-updated"></p></div>`;
+}
+
+/**
+ * Populate source facets while retaining the current panel selections.
+ * @param {string} panel Directory key: sources or subscriptions.
+ * @return {void} No return value.
+ */
+function updateSourcePanelOptions(panel) {
+  const pool = (sourceData || []).filter(source => panel !== "subscriptions" || sourceSubscription(source));
+  const filters = sourcePanelState[panel];
+  [["department", [...new Set(pool.map(source => source.department).filter(Boolean))], "All departments"], ["category", [...new Set(pool.map(sourceCategory))], "All categories"]].forEach(([key, values, placeholder]) => {
+    if (filters[key] && !values.includes(filters[key])) values.push(filters[key]);
+    const select = element(`${panel}-${key}`);
+    const html = `<option value="">${placeholder}</option>${values.sort((a, b) => a.localeCompare(b)).map(value => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`).join("")}`;
+    if (select.innerHTML !== html) select.innerHTML = html;
+    select.value = filters[key];
+  });
+}
+
+/**
+ * Render the selected panel with loading, error and pagination states.
+ * @param {string} panel Directory key: sources or subscriptions.
+ * @return {void} No return value.
+ */
+function renderSourcePanel(panel) {
+  const container = element(`${panel}-results`);
+  if (!container) return;
+  const count = element(`${panel}-count`);
+  container.setAttribute("aria-busy", String(Boolean(sourceRequest)));
+  if (!sourceData) {
+    element(`${panel}-stats`).textContent = "";
+    count.textContent = sourceLoadError ? "Source directory unavailable" : "Loading source links…";
+    container.innerHTML = sourceLoadError ? `<div class="source-empty-state"><h3>We couldn’t load the source directory.</h3><p>${escapeHtml(sourceLoadError)}</p><button type="button" class="button-secondary" data-source-retry>Try again</button></div>` : '<div class="source-empty-state" role="status"><span class="small-spinner" aria-hidden="true"></span><p>Loading the complete source directory…</p></div>';
+    return;
   }
-  const query = diagnosticsQuery.trim().toLocaleLowerCase();
-  const matching = diagnosticsData.filter(source => {
-    const matchesView = diagnosticsView === "all" || (diagnosticsView === "undated" ? source.state === "undated" : diagnosticsView === "zero" ? source.state === "empty"
-      : attentionStates.includes(source.state) || source.evidence?.visualReview?.requiresReview === true || source.evidence?.accessReview?.attention === true);
-    return matchesView && (!query || `${source.org || ""} ${source.department || ""} ${source.url || ""} ${source.fetchUrl || ""}`.toLocaleLowerCase().includes(query));
-  }).sort((left, right) => (left.org || "").localeCompare(right.org || ""));
-  const visible = matching.slice(0, diagnosticsLimit);
-  const results = element("source-diagnostics-results");
-  results.innerHTML = `<p class="diagnostics-status" role="status" aria-live="polite">${matching.length ? `Showing ${visible.length} of ${matching.length.toLocaleString()} matching sources.` : "No sources match this view and search."}</p>${diagnosticsView === "zero" ? '<p class="diagnostics-status">Zero imported occurrences in the last successful snapshot’s collection window: 30 days back and 365 days ahead. The original page or another calendar may contain events.</p>' : ""}
-    <div class="diagnostics-list">${visible.map(source => {
-      const url = safeUrl(source.url);
-      const fallback = source.state === "empty" ? "No occurrences were imported from this source in its collection window. This does not establish that the original page or organization has no events."
-        : source.state === "undated" ? "The reviewed public resource has no individually dated schedule. It is checked regularly; a content change triggers another review."
-        : source.state === "ok" ? `${Number(source.eventCount || 0).toLocaleString()} occurrences imported from this source in its collection window.`
-        : source.state === "covered" ? "This source is represented by a shared public feed."
-        : "This source has not completed a successful check. See its original page for current information.";
-      const reason = plainText(source.error || source.reason) || fallback;
-      const retained = source.state === "error" && Number(source.eventCount) > 0 ? `<p>${Number(source.eventCount).toLocaleString()} imported occurrences remain available while this source needs review.</p>` : "";
-      return `<details class="diagnostic-source"><summary><span>${escapeHtml(source.org || source.department || "CMU source")}</span><small>${escapeHtml(states[source.state] || "Status unavailable")}</small></summary>${retained}<p>${escapeHtml(reason)}</p><p class="diagnostic-department">${escapeHtml(source.department || "Carnegie Mellon University")}${source.lastAttempt ? ` · Checked ${escapeHtml(updatedLabel(source.lastAttempt))}` : ""}</p>${url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Visit original source <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>` : ""}${sourceVisualReview(source)}</details>`;
-    }).join("")}</div>${visible.length < matching.length ? '<button type="button" class="button-secondary diagnostics-more" data-diagnostics-more>Show more sources</button>' : ""}`;
+  updateSourcePanelOptions(panel);
+  const filters = sourcePanelState[panel];
+  const pool = sourceData.filter(source => panel !== "subscriptions" || sourceSubscription(source));
+  const matching = matchingSources(panel);
+  const visible = matching.slice(0, filters.limit);
+  element(`${panel}-stats`).textContent = `${pool.length.toLocaleString()} ${panel === "subscriptions" ? "reviewed email channels" : "source links"} · ${new Set(pool.map(source => source.department).filter(Boolean)).size.toLocaleString()} departments`;
+  count.textContent = `Showing ${visible.length.toLocaleString()} of ${matching.length.toLocaleString()} matching ${panel === "subscriptions" ? "channels" : "sources"}${matching.length !== pool.length ? ` · ${pool.length.toLocaleString()} total` : ""}.`;
+  const reset = '<button class="text-button" type="button" data-source-reset>Clear directory filters</button>';
+  if (!matching.length) container.innerHTML = `<div class="source-empty-state"><h3>${pool.length ? "No sources match these filters." : panel === "subscriptions" ? "No reviewed email channels are listed yet." : "No sources are listed yet."}</h3><p>${pool.length ? "Try another department, category, or search." : "Check back after the next source update."}</p>${pool.length ? reset : ""}</div>`;
+  else {
+    let cards;
+    if (panel === "subscriptions") {
+      cards = [["subscriber_only", "Email-only announcements", "These subscriber email announcements are not imported into Discover."], ["public_plus_email", "Public calendars with additional email updates", "Public calendar events may appear in Discover. Private or subscriber email content is not imported."]].map(([kind, heading, description]) => {
+        const rows = visible.filter(source => sourceSubscription(source).kind === kind);
+        const total = matching.filter(source => sourceSubscription(source).kind === kind).length;
+        return total ? `<section class="subscription-section" aria-labelledby="subscription-section-${kind}"><div class="subscription-section-heading"><h3 id="subscription-section-${kind}">${heading} <span>${total.toLocaleString()}</span></h3><p>${description}</p></div><div class="source-card-grid">${rows.map(source => sourceCard(source, panel)).join("")}</div>${!rows.length ? '<p class="source-card-meta">More matching channels appear below when you load the next page.</p>' : ""}</section>` : "";
+      }).join("");
+    } else cards = `<div class="source-card-grid">${visible.map(source => sourceCard(source, panel)).join("")}</div>`;
+    container.innerHTML = `${cards}${visible.length < matching.length ? `<div class="source-load-more"><button class="button-secondary" type="button" data-source-more>Show ${Math.min(SOURCE_PAGE_SIZE, matching.length - visible.length)} more ${panel === "subscriptions" ? "channels" : "sources"}</button><button class="text-button" type="button" data-source-all>Show all ${matching.length.toLocaleString()}</button></div>` : ""}`;
+  }
+  element(`${panel}-updated`).textContent = statusData?.lastUpdated ? `Last published refresh: ${updatedLabel(statusData.lastUpdated)}.` : "The first source refresh has not been published yet.";
+}
+
+/**
+ * Share one complete source request between both directory panels.
+ * @param {boolean} force Whether to discard cached source data before loading.
+ * @return {Promise<void>} Resolves after the source request and panel updates finish.
+ */
+async function loadSourceDirectory(force = false) {
+  if (force) { sourceData = null; sourceLoadError = ""; }
+  if (!sourceData && !sourceRequest) {
+    sourceLoadError = "";
+    sourceRequest = (async () => {
+      const response = await fetch("/api/sources", { headers: { Accept: "application/json" } });
+      if (!response.ok) throw new Error(`The source request returned ${response.status}.`);
+      const payload = await response.json();
+      if (!Array.isArray(payload.sources)) throw new Error("The server did not return a source directory.");
+      sourceData = payload.sources.filter(source => source && typeof source === "object");
+    })();
+  }
+  ["sources", "subscriptions"].forEach(renderSourcePanel);
+  try { await sourceRequest; }
+  catch (error) { sourceLoadError = error.message || "Please try again in a moment."; }
+  finally {
+    sourceRequest = null;
+    ["sources", "subscriptions"].forEach(renderSourcePanel);
+  }
+}
+
+/**
+ * Open a source panel while preserving independent filters and focus.
+ * @param {string} panel Directory key: sources or subscriptions.
+ * @param {boolean} showHowItWorks Whether to expand and focus the calendar explanation.
+ * @return {void} No return value.
+ */
+function openSourcePanel(panel, showHowItWorks = false) {
+  closeFilters();
+  const anotherPanelOpen = Boolean(document.querySelector("dialog[open]"));
+  const origin = anotherPanelOpen ? element(panel === "sources" ? "about-button" : "subscriptions-button") : document.activeElement;
+  document.querySelectorAll("dialog[open]").forEach(dialog => dialog.close());
+  sourcePanelFocus.set(panel, origin);
+  renderSourcePanelShell(panel, showHowItWorks);
+  element(`${panel}-dialog`).showModal();
+  syncDialogLock();
+  element(`${panel}-dialog`).scrollTop = 0;
+  element(`${panel}-search`).focus({ preventScroll: true });
+  const loaded = loadSourceDirectory();
+  if (showHowItWorks) {
+    const summary = element("sources-how-it-works").querySelector("summary");
+    summary.focus();
+    loaded.then(() => { if (element("sources-dialog").open && document.activeElement === summary) element("sources-how-it-works").scrollIntoView({ block: "start" }); });
+  }
+}
+
+/**
+ * Open the complete source directory and optional calendar explanation.
+ * @param {boolean} showHowItWorks Whether to expand and focus the explanation.
+ * @return {void} No return value.
+ */
+function openSourceInfo(showHowItWorks = false) {
+  openSourcePanel("sources", showHowItWorks);
 }
 
 /**
@@ -825,25 +1052,56 @@ function bindEvents() {
   element("previous-page").addEventListener("click", () => { state.page = Math.max(1, state.page - 1); loadEvents(true); });
   element("next-page").addEventListener("click", () => { state.page += 1; loadEvents(true); });
   element("refresh-button").addEventListener("click", refreshSources);
-  ["about-button", "source-info-button"].forEach(id => element(id).addEventListener("click", openSourceInfo));
+  element("about-button").addEventListener("click", () => openSourceInfo());
+  element("source-info-button").addEventListener("click", () => openSourceInfo(true));
+  element("subscriptions-button").addEventListener("click", () => openSourcePanel("subscriptions"));
   element("dialog-close").addEventListener("click", () => element("detail-dialog").close());
-  element("detail-dialog").addEventListener("close", () => { document.body.classList.remove("dialog-open"); previousFocus?.focus({ preventScroll: true }); });
+  element("detail-dialog").addEventListener("close", () => { syncDialogLock(); if (!document.querySelector("dialog[open]")) previousFocus?.focus({ preventScroll: true }); });
   element("detail-dialog").addEventListener("click", event => { if (event.target === element("detail-dialog") && event.clientX < element("detail-dialog").getBoundingClientRect().left) element("detail-dialog").close(); });
-  element("detail-content").addEventListener("click", event => {
-    if (event.target.closest("[data-diagnostics-retry]")) loadSourceDiagnostics();
-    if (event.target.closest("[data-diagnostics-more]")) { diagnosticsLimit += 30; renderSourceDiagnostics(); }
-  });
-  element("detail-content").addEventListener("change", event => {
-    if (event.target.matches("[data-diagnostics-view]")) { diagnosticsView = event.target.value; diagnosticsLimit = 30; renderSourceDiagnostics(); }
-  });
-  element("detail-content").addEventListener("input", event => {
-    if (event.target.matches("[data-diagnostics-search]")) { diagnosticsQuery = event.target.value; diagnosticsLimit = 30; renderSourceDiagnostics(); }
+  ["sources", "subscriptions"].forEach(panel => {
+    const dialog = element(`${panel}-dialog`);
+    element(`${panel}-close`).addEventListener("click", () => dialog.close());
+    dialog.addEventListener("close", () => { syncDialogLock(); if (!document.querySelector("dialog[open]")) sourcePanelFocus.get(panel)?.focus({ preventScroll: true }); });
+    dialog.addEventListener("click", event => {
+      const bounds = dialog.getBoundingClientRect();
+      if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
+    });
+    element(`${panel}-content`).addEventListener("input", event => {
+      if (!event.target.matches("[data-source-query]")) return;
+      sourcePanelState[panel].query = event.target.value;
+      sourcePanelState[panel].limit = SOURCE_PAGE_SIZE;
+      renderSourcePanel(panel);
+    });
+    element(`${panel}-content`).addEventListener("change", event => {
+      const key = event.target.dataset.sourceFilter;
+      if (!["department", "category", "coverage"].includes(key)) return;
+      sourcePanelState[panel][key] = event.target.value;
+      sourcePanelState[panel].limit = SOURCE_PAGE_SIZE;
+      renderSourcePanel(panel);
+    });
+    element(`${panel}-content`).addEventListener("click", event => {
+      if (event.target.closest("[data-open-subscriptions]")) return openSourcePanel("subscriptions");
+      if (event.target.closest("[data-source-retry]")) return loadSourceDirectory(true);
+      if (event.target.closest("[data-source-reset]")) {
+        Object.assign(sourcePanelState[panel], { query: "", department: "", category: "", coverage: "all", limit: SOURCE_PAGE_SIZE });
+        element(`${panel}-search`).value = "";
+        element(`${panel}-coverage`).value = "all";
+        renderSourcePanel(panel);
+        element(`${panel}-search`).focus();
+      }
+      if (event.target.closest("[data-source-more], [data-source-all]")) {
+        const existing = new Set([...element(`${panel}-results`).querySelectorAll("[data-source-id]")].map(card => card.dataset.sourceId));
+        sourcePanelState[panel].limit = event.target.closest("[data-source-all]") ? matchingSources(panel).length : sourcePanelState[panel].limit + SOURCE_PAGE_SIZE;
+        renderSourcePanel(panel);
+        [...element(`${panel}-results`).querySelectorAll("[data-source-id]")].find(card => !existing.has(card.dataset.sourceId))?.querySelector(".source-card-title")?.focus();
+      }
+    });
   });
   element("mobile-filter-button").addEventListener("click", openFilters);
   ["close-filters", "filter-backdrop", "show-events"].forEach(id => element(id).addEventListener("click", closeFilters));
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") closeFilters();
-    if (event.key === "/" && !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName) && !element("detail-dialog").open && !document.body.classList.contains("filters-open")) { event.preventDefault(); element("search-input").focus(); }
+    if (event.key === "/" && !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName) && !document.querySelector("dialog[open]") && !document.body.classList.contains("filters-open")) { event.preventDefault(); element("search-input").focus(); }
     if (event.key === "Tab" && document.body.classList.contains("filters-open")) {
       const controls = [...element("filters").querySelectorAll('button:not(:disabled),input,select,a[href]')].filter(control => control.getClientRects().length);
       const first = controls[0];

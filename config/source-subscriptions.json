@@ -1,0 +1,201 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-26T01:57:10.254Z",
+  "scope": "Only curated retained sources with subscriber-only email content. Public newsletter archives, optional email reminders and member-login pages without a verified email channel are excluded.",
+  "accessSemantics": "Access flags describe the advertised subscription steps; null means unverified, and false means the inspected form did not advertise that step. Private-archive authentication is described separately in requirements.",
+  "subscriptions": [
+    {
+      "sourceId": "bcbc343b441e",
+      "kind": "subscriber_only",
+      "url": "https://list.pitt.edu/mailman/listinfo/environmental_humanities_research_seminar",
+      "reason": "Email-only announcements and private archive messages are not included on this website. Separately published public events may still appear from other sources.",
+      "requirements": [
+        "Confirm your email address.",
+        "List moderator approval is required.",
+        "Private archives require subscriber credentials."
+      ],
+      "access": {
+        "emailConfirmation": true,
+        "moderatorApproval": true,
+        "andrewOnly": null,
+        "loginRequired": false,
+        "captcha": false
+      },
+      "title": "Pitt-CMU Environmental Humanities Research Seminar",
+      "emailEventsIngested": false,
+      "publicCalendarIncluded": false,
+      "nextStep": "Open the publisher’s list information page to review eligibility and subscribe yourself.",
+      "evidence": [
+        {
+          "url": "https://list.pitt.edu/mailman/listinfo/environmental_humanities_research_seminar",
+          "checkedAt": "2026-10-26T01:54:42.315Z",
+          "sha256": "1605ca4f4c69a49c565258d9269246250d1889243b4452eabb4748fb8728068e",
+          "note": "Public list form states subscriber-only archives and the subscription steps recorded here."
+        }
+      ]
+    },
+    {
+      "sourceId": "5b1716ca5ebe",
+      "kind": "subscriber_only",
+      "url": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/theory-announce",
+      "reason": "Email-only announcements and private archive messages are not included on this website. Separately published public events may still appear from other sources.",
+      "requirements": [
+        "Advertised as an internal CMU list; the moderator determines eligibility.",
+        "Confirm your email address.",
+        "List moderator approval is required.",
+        "Complete the publisher CAPTCHA.",
+        "Private archives require subscriber credentials."
+      ],
+      "access": {
+        "emailConfirmation": true,
+        "moderatorApproval": true,
+        "andrewOnly": null,
+        "loginRequired": false,
+        "captcha": true
+      },
+      "title": "Theory Lunch and Theory Seminar",
+      "emailEventsIngested": false,
+      "publicCalendarIncluded": false,
+      "nextStep": "Open the publisher’s list information page to review eligibility and subscribe yourself.",
+      "evidence": [
+        {
+          "url": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/theory-announce",
+          "checkedAt": "2026-10-26T01:54:42.235Z",
+          "sha256": "67ad5914e764320ec4775bb52b8ba663f5274db68c665fdc5ed3808721d9ebc1",
+          "note": "Public list form states subscriber-only archives and the subscription steps recorded here."
+        }
+      ]
+    },
+    {
+      "sourceId": "d7499c657649",
+      "kind": "subscriber_only",
+      "url": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/ml-ai-seminar",
+      "reason": "Email-only announcements and private archive messages are not included on this website. Separately published public events may still appear from other sources.",
+      "requirements": [
+        "Confirm your email address.",
+        "Complete the publisher CAPTCHA.",
+        "Private archives require subscriber credentials."
+      ],
+      "access": {
+        "emailConfirmation": true,
+        "moderatorApproval": false,
+        "andrewOnly": null,
+        "loginRequired": false,
+        "captcha": true
+      },
+      "title": "ML/AI Seminar Series",
+      "emailEventsIngested": false,
+      "publicCalendarIncluded": false,
+      "nextStep": "Open the publisher’s list information page to review eligibility and subscribe yourself.",
+      "evidence": [
+        {
+          "url": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/ml-ai-seminar",
+          "checkedAt": "2026-10-26T01:54:42.199Z",
+          "sha256": "c84a0f37e763cf60f6cea5530cfce0342302f54ac71a971376f41cfa086edcce",
+          "note": "Public list form states subscriber-only archives and the subscription steps recorded here."
+        }
+      ]
+    },
+    {
+      "sourceId": "9ec4a6e5835b",
+      "kind": "subscriber_only",
+      "url": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/s3d-seminar",
+      "reason": "Email-only announcements and private archive messages from this list are not included. The separate S3D public calendar is included.",
+      "requirements": [
+        "Confirm your email address.",
+        "Complete the publisher CAPTCHA.",
+        "Private archives require subscriber credentials."
+      ],
+      "access": {
+        "emailConfirmation": true,
+        "moderatorApproval": false,
+        "andrewOnly": null,
+        "loginRequired": false,
+        "captcha": true
+      },
+      "title": "S3D Departmental Seminars and Calendar",
+      "emailEventsIngested": false,
+      "publicCalendarIncluded": false,
+      "nextStep": "Open the publisher’s list information page to review eligibility and subscribe yourself.",
+      "evidence": [
+        {
+          "url": "https://mailman.srv.cs.cmu.edu/mailman/listinfo/s3d-seminar",
+          "checkedAt": "2026-10-26T01:54:42.128Z",
+          "sha256": "eeedc3364245097bbaace18e1b2c5323fdd447f6b1420d4231a117b05a27861a",
+          "note": "Public list form states subscriber-only archives and the subscription steps recorded here."
+        }
+      ]
+    },
+    {
+      "sourceId": "45f983439757",
+      "kind": "public_plus_email",
+      "url": "https://lists.andrew.cmu.edu/mailman/listinfo/sdi-list",
+      "reason": "The public SDI schedule is tracked. Email-only short-notice announcements, Zoom links and private archive messages are not included.",
+      "requirements": [
+        "Use an ANDREW.CMU.EDU email address; the series is for active, on-campus CMU individuals.",
+        "This closed list requires moderator approval.",
+        "Complete the publisher CAPTCHA.",
+        "Private archives require list membership. The publisher asks members not to forward seminar information."
+      ],
+      "access": {
+        "emailConfirmation": null,
+        "moderatorApproval": true,
+        "andrewOnly": true,
+        "loginRequired": false,
+        "captcha": true
+      },
+      "title": "Parallel Data Lab — Systems Design and Implementation Seminar",
+      "emailEventsIngested": false,
+      "publicCalendarIncluded": true,
+      "nextStep": "Open the publisher’s list information page to review eligibility and subscribe yourself.",
+      "evidence": [
+        {
+          "url": "https://pdl.cmu.edu/SDI/index.shtml",
+          "checkedAt": "2026-10-26T01:54:42.071Z",
+          "sha256": "1e2c98620852a38bef16ce3dfdfef4c633f804d0c71da9f1714ccab03ac14048",
+          "note": "Public schedule explicitly requires an Andrew address and active on-campus eligibility, and says Zoom links are sent to the mailing list."
+        },
+        {
+          "url": "https://lists.andrew.cmu.edu/mailman/listinfo/sdi-list",
+          "checkedAt": "2026-10-25T20:00:19.180Z",
+          "screenshot": "research/club-source-removal-2026-10-25/evidence/access-pdl-closed-list.jpg",
+          "note": "Previously captured public browser page re-inspected: closed list, moderator approval, member-only archives and CAPTCHA; no email-confirmation step was assumed. Anonymous Node transport has an intermediate-certificate error; certificate validation was not disabled."
+        }
+      ]
+    },
+    {
+      "sourceId": "caabdfa76cb4",
+      "kind": "public_plus_email",
+      "url": "https://tartanconnect.cmu.edu/Nexus/club_signup",
+      "reason": "The anonymous Nexus calendar is tracked. Opportunities and event details published only in its member newsletter are not included.",
+      "requirements": [
+        "Sign in to TartanConnect and join the Nexus group to receive its weekly newsletter.",
+        "Membership eligibility is determined by the publisher; access with a general public email address is not verified."
+      ],
+      "access": {
+        "emailConfirmation": null,
+        "moderatorApproval": null,
+        "andrewOnly": null,
+        "loginRequired": true,
+        "captcha": null
+      },
+      "title": "Nexus of Community Engagement",
+      "emailEventsIngested": false,
+      "publicCalendarIncluded": true,
+      "nextStep": "Open the official group signup page and check whether you are eligible to join.",
+      "evidence": [
+        {
+          "url": "https://www.cmu.edu/student-affairs/celd/nexus/index.html",
+          "checkedAt": "2026-10-26T01:54:42.106Z",
+          "sha256": "ae8eefc32082e689663544051fc38a220031df17daac2ef55941a9672af8ed69",
+          "note": "Official office page directs readers to join its exact TartanConnect group to receive the weekly opportunities newsletter."
+        },
+        {
+          "url": "https://tartanconnect.cmu.edu/Nexus/",
+          "checkedAt": "2026-10-26T01:54:42.239Z",
+          "note": "Anonymous GET redirects to the publisher login page; public calendar access is separate from member newsletter access."
+        }
+      ]
+    }
+  ]
+}

@@ -21,6 +21,7 @@
         <nav class="header-nav" aria-label="Main navigation">
           <a class="nav-link active" href="#results" aria-current="page">Discover</a>
           <button class="nav-link" id="about-button" type="button">Our sources <span aria-hidden="true">↗</span></button>
+          <button class="nav-link" id="subscriptions-button" type="button">Email subscriptions <span aria-hidden="true">↗</span></button>
         </nav>
         <div class="header-actions">
           <span class="live-label"><span class="status-dot" id="header-status-dot"></span><span id="header-status">Public campus events</span></span>
@@ -128,6 +129,8 @@
     <footer class="site-footer"><div><span class="footer-brand">CMU<span>events</span></span><p>An independent guide to public Carnegie Mellon events.</p></div><div class="footer-status"><span class="status-dot" id="footer-status-dot"></span><span id="last-updated">Connecting to event sources…</span></div></footer>
 
     <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title"><div class="dialog-toolbar"><span class="eyebrow" id="dialog-eyebrow">A CLOSER LOOK</span><button class="icon-button dialog-close" id="dialog-close" type="button" aria-label="Close event details">×</button></div><div id="detail-content"></div></dialog>
+    <dialog class="detail-dialog source-dialog" id="sources-dialog" aria-labelledby="sources-title"><div class="dialog-toolbar"><span class="eyebrow">BEHIND THE CALENDAR</span><button class="icon-button dialog-close" id="sources-close" type="button" aria-label="Close source directory">×</button></div><div id="sources-content"></div></dialog>
+    <dialog class="detail-dialog source-dialog" id="subscriptions-dialog" aria-labelledby="subscriptions-title"><div class="dialog-toolbar"><span class="eyebrow">DIRECT FROM THE PUBLISHER</span><button class="icon-button dialog-close" id="subscriptions-close" type="button" aria-label="Close email subscriptions">×</button></div><div id="subscriptions-content"></div></dialog>
     <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
     <noscript><div class="noscript-notice">Enable JavaScript to search and filter CMU events.</div></noscript>
   </body>

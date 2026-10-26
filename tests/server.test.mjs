@@ -4,6 +4,7 @@ import { createApplication } from '../src/server.mjs';
 import { openStore } from '../src/lib/store.mjs';
 import { publicAddress } from '../src/lib/fetcher.mjs';
 import { createSourceScope } from '../src/lib/source-scope.mjs';
+import { createSourceSubscriptions } from '../src/lib/source-subscriptions.mjs';
 
 test('HTTP API validates dates, combines filters, serves UI, and protects refresh mutation', async t => {
   const store = openStore(':memory:');
@@ -43,6 +44,37 @@ test('discovered links cannot target common private and local network addresses'
   }
   assert.equal(publicAddress('128.2.42.1'), true);
   assert.equal(publicAddress('2606:4700:4700::1111'), true);
+});
+
+test('source API exposes reviewed email access without hiding public calendar events or directory entries', async t => {
+  const store = openStore(':memory:');
+  const plans = [
+    { id: 'public', department: 'Research', org: 'Public seminar calendar', kind: 'event_listing', status: 'active', adapter: 'html', url: 'https://example.edu/events' },
+    { id: 'email', department: 'Research', org: 'Private announcement list', kind: 'mailing_list', status: 'subscription_only', adapter: 'manual', url: 'https://example.edu/list' },
+    { id: 'shared', department: 'Research', org: 'Same public feed', kind: 'event_listing', status: 'covered', adapter: 'html', canonicalSourceId: 'public', url: 'https://example.edu/other-events' },
+  ];
+  const channel = (sourceId, kind) => ({ sourceId, kind, title: 'Publisher mailing list', url: 'https://example.edu/subscribe',
+    reason: 'Email-only content is not included.', nextStep: 'Review the official subscription options.', requirements: [],
+    access: { emailConfirmation: null, moderatorApproval: null, andrewOnly: null, loginRequired: null, captcha: null },
+    emailEventsIngested: false, publicCalendarIncluded: kind === 'public_plus_email' });
+  const sourceSubscriptions = createSourceSubscriptions({ subscriptions: [channel('email', 'subscriber_only'), channel('public', 'public_plus_email')] });
+  const refresher = { isRunning: () => false, status: () => store.status(), refresh: async () => ({}) };
+  const app = createApplication({ store, plans, sourceSubscriptions, refresher });
+  await new Promise(resolve => app.server.listen(0, '127.0.0.1', resolve));
+  t.after(async () => { await new Promise(resolve => app.server.close(resolve)); store.close(); });
+  store.replaceSource('public', [{ uid: 'published', title: 'Public research talk', start: '2026-12-01', end: '2026-12-02',
+    timeZone: 'America/New_York', url: 'https://example.edu/talk', description: '', summary: '', tags: [] }]);
+  store.rebuildEvents(plans);
+  const base = `http://127.0.0.1:${app.server.address().port}`;
+  const sources = (await (await fetch(`${base}/api/sources`)).json()).sources;
+  assert.equal(sources.length, 3, 'covered and subscription-only entries remain browsable');
+  assert.equal(sources.find(source => source.id === 'email').subscription.emailEventsIngested, false);
+  assert.equal(sources.find(source => source.id === 'public').subscription.publicCalendarIncluded, true);
+  assert.equal(sources.find(source => source.id === 'shared').subscription, undefined);
+  assert.equal(sources.find(source => source.id === 'email').kind, 'mailing_list');
+  const events = (await (await fetch(`${base}/api/events?from=2026-11-01`)).json()).events;
+  assert.equal(events.length, 1);
+  assert.ok(events[0].sources.some(source => source.id === 'shared'));
 });
 
 test('application startup removes club sources while preserving their official-calendar reposts', async t => {

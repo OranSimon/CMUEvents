@@ -1,10 +1,12 @@
 import http from 'node:http';
 import path from 'node:path';
 import { readFile } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { readConfig, loadPlans, localDay, ROOT } from './config.mjs';
 import { openStore } from './lib/store.mjs';
 import { createRefresher } from './refresh.mjs';
+import { createSourceSubscriptions } from './lib/source-subscriptions.mjs';
 
 const MIME = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.ico': 'image/x-icon' };
@@ -45,6 +47,8 @@ export function createApplication(options = {}) {
   store.registerPlans(plans);
   store.rebuildEvents(plans);
   const refresher = options.refresher || createRefresher(store, plans, config);
+  const sourceSubscriptions = options.sourceSubscriptions || createSourceSubscriptions(
+    JSON.parse(readFileSync(path.join(ROOT, 'config/source-subscriptions.json'), 'utf8')));
   const webRoot = path.join(ROOT, 'web');
 
   /**
@@ -71,7 +75,9 @@ export function createApplication(options = {}) {
             query: (url.searchParams.get('query') || url.searchParams.get('q') || '').slice(0, 500) }), refreshing: refresher.isRunning() });
         }
         if (request.method === 'GET' && url.pathname === '/api/status') return json(response, 200, refresher.status());
-        if (request.method === 'GET' && url.pathname === '/api/sources') return json(response, 200, { sources: store.listSources() });
+        if (request.method === 'GET' && url.pathname === '/api/sources') return json(response, 200, {
+          sources: store.listSources().map(source => sourceSubscriptions.attach(source)),
+        });
         if (request.method === 'GET' && url.pathname.startsWith('/api/events/')) {
           const event = store.getEvent(decodeURIComponent(url.pathname.slice('/api/events/'.length)));
           return json(response, event ? 200 : 404, event || { error: 'Event not found.' });

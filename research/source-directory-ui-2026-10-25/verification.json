@@ -1,0 +1,113 @@
+{
+  "checkedAt": "2026-10-26T02:16:11.142Z",
+  "api": {
+    "sourceCount": 318,
+    "originalUrlsMatchPlans": true,
+    "sourceKindsPreserved": true,
+    "subscriptionChannels": [
+      {
+        "id": "45f983439757",
+        "title": "Parallel Data Lab — Systems Design and Implementation Seminar",
+        "kind": "public_plus_email",
+        "publicCalendarIncluded": true,
+        "eventCount": 0
+      },
+      {
+        "id": "5b1716ca5ebe",
+        "title": "Theory Lunch and Theory Seminar",
+        "kind": "subscriber_only",
+        "publicCalendarIncluded": false,
+        "eventCount": 0
+      },
+      {
+        "id": "9ec4a6e5835b",
+        "title": "S3D Departmental Seminars and Calendar",
+        "kind": "subscriber_only",
+        "publicCalendarIncluded": false,
+        "eventCount": 0
+      },
+      {
+        "id": "bcbc343b441e",
+        "title": "Pitt-CMU Environmental Humanities Research Seminar",
+        "kind": "subscriber_only",
+        "publicCalendarIncluded": false,
+        "eventCount": 0
+      },
+      {
+        "id": "caabdfa76cb4",
+        "title": "Nexus of Community Engagement",
+        "kind": "public_plus_email",
+        "publicCalendarIncluded": true,
+        "eventCount": 0
+      },
+      {
+        "id": "d7499c657649",
+        "title": "ML/AI Seminar Series",
+        "kind": "subscriber_only",
+        "publicCalendarIncluded": false,
+        "eventCount": 0
+      }
+    ],
+    "totalEvents": 4416,
+    "sourceStates": {
+      "total": 318,
+      "ok": 189,
+      "empty": 78,
+      "undated": 4,
+      "error": 5,
+      "covered": 38,
+      "unsupported": 0,
+      "subscription_only": 4,
+      "blocked": 0,
+      "pending": 0
+    },
+    "refreshing": false
+  },
+  "browser": {
+    "desktopViewport": [
+      1470,
+      900
+    ],
+    "responsivePreview": [
+      390,
+      844
+    ],
+    "allSources": {
+      "cards": 318,
+      "uniqueIds": 318,
+      "originalLinks": 318,
+      "linksOutsideDiagnostics": true
+    },
+    "combinedFilters": {
+      "query": "seminars",
+      "department": "Tepper School of Business",
+      "category": "Event pages",
+      "matchingSources": 2
+    },
+    "keyboard": [
+      "Escape restores initiating nav button",
+      "How it works focuses its summary",
+      "switching panels keeps one modal open",
+      "event drawer remains 620px",
+      "event filters survive source-panel use"
+    ],
+    "subscriptions": {
+      "all": 6,
+      "emailOnly": 4,
+      "publicPlusEmail": 2,
+      "subscriberEmailExclusionNotice": true
+    },
+    "narrow": [
+      "all three navigation entries visible",
+      "one-column cards",
+      "sticky source controls",
+      "wrapped long original URLs",
+      "subscription access instructions usable"
+    ]
+  },
+  "validation": {
+    "tests": 184,
+    "failures": 0,
+    "projectCheck": "passed"
+  }
+}
