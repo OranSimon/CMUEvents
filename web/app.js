@@ -1,7 +1,9 @@
 import { createDataClient, publicationFreshness } from "./data-client.js";
 
 const DISPLAY_TIMEZONE = "America/New_York";
-const PAGE_SIZE = 24;
+const PAGE_SIZE = 48;
+const TODAY_REQUEST_SIZE = 100;
+const EVENT_VIEWS = ["today", "upcoming", "recurring", "ongoing"];
 const SOURCE_PAGE_SIZE = 30;
 const INITIAL_TITLE = "CMU Events · Discover your campus";
 const STATIC_MODE = document.documentElement.dataset.mode === "static";
@@ -209,7 +211,9 @@ let today = dateKey(new Date());
 const urlState = new URLSearchParams(window.location.search);
 const state = {
   query: (urlState.get("query") || urlState.get("q") || "").slice(0, 200),
-  preset: ["upcoming", "today", "week", "month", "custom"].includes(urlState.get("preset")) ? urlState.get("preset") : (urlState.has("from") || urlState.has("to") ? "custom" : "upcoming"),
+  eventView: EVENT_VIEWS.includes(urlState.get("eventView")) ? urlState.get("eventView")
+    : (urlState.has("from") || urlState.has("to") || ["upcoming", "week", "month", "custom"].includes(urlState.get("preset")) ? "upcoming" : "today"),
+  preset: ["upcoming", "week", "month", "custom"].includes(urlState.get("preset")) ? urlState.get("preset") : (urlState.has("from") || urlState.has("to") ? "custom" : "week"),
   from: validDate(urlState.get("from")),
   to: validDate(urlState.get("to")),
   department: urlState.get("department") || "",
@@ -217,7 +221,7 @@ const state = {
   tag: urlState.get("tag") || "",
   campus: urlState.get("campus") || "",
   mode: modeSlug(urlState.get("mode") || ""),
-  page: Math.max(1, Number.parseInt(urlState.get("page"), 10) || 1),
+  page: 1,
   view: urlState.get("view") === "grid" ? "grid" : "list",
 };
 let currentData = null;
@@ -256,11 +260,12 @@ function syncToday() {
  * @return {{from:string,to:string}} Requested boundaries.
  */
 function dateRange() {
-  if (state.preset === "today") return { from: today, to: today };
-  if (state.preset === "week") return { from: today, to: shiftDate(today, 6) };
-  if (state.preset === "month") return { from: today, to: shiftDate(today, 29) };
+  if (state.eventView === "today" || state.eventView === "ongoing") return { from: today, to: today };
+  const first = state.eventView === "upcoming" ? shiftDate(today, 1) : today;
+  if (state.preset === "week") return { from: first, to: shiftDate(first, 6) };
+  if (state.preset === "month") return { from: first, to: shiftDate(first, 29) };
   if (state.preset === "custom") return { from: state.from, to: state.to };
-  return { from: today, to: "" };
+  return { from: first, to: "" };
 }
 
 /**
@@ -270,12 +275,12 @@ function dateRange() {
 function updateUrl() {
   const params = new URLSearchParams();
   ["query", "department", "org", "tag", "campus", "mode"].forEach(key => { if (state[key]) params.set(key, state[key]); });
-  if (state.preset !== "upcoming") params.set("preset", state.preset);
-  if (state.preset === "custom") {
+  if (state.eventView !== "today") params.set("eventView", state.eventView);
+  if (["upcoming", "recurring"].includes(state.eventView) && state.preset !== "week") params.set("preset", state.preset);
+  if (["upcoming", "recurring"].includes(state.eventView) && state.preset === "custom") {
     if (state.from) params.set("from", state.from);
     if (state.to) params.set("to", state.to);
   }
-  if (state.page > 1) params.set("page", String(state.page));
   if (state.view === "grid") params.set("view", state.view);
   const query = params.toString();
   history.replaceState(null, "", `${window.location.pathname}${query ? `?${query}` : ""}`);
@@ -291,7 +296,15 @@ function syncControls() {
   element("search-clear").hidden = !state.query;
   element("date-from").value = state.from;
   element("date-to").value = state.to;
+  element("date-window-filter").hidden = !["upcoming", "recurring"].includes(state.eventView);
   element("custom-dates").hidden = state.preset !== "custom";
+  document.querySelectorAll("[data-event-view]").forEach(button => {
+    const selected = button.dataset.eventView === state.eventView;
+    button.classList.toggle("selected", selected);
+    button.setAttribute("aria-selected", String(selected));
+    button.tabIndex = selected ? 0 : -1;
+  });
+  element("events-panel").setAttribute("aria-labelledby", `event-view-${state.eventView}`);
   document.querySelectorAll("[data-preset]").forEach(button => {
     const selected = button.dataset.preset === state.preset;
     button.classList.toggle("selected", selected);
@@ -320,7 +333,7 @@ function syncControls() {
 function renderActiveFilters() {
   const chips = [];
   if (state.query) chips.push(["query", `“${state.query}”`]);
-  if (state.preset !== "upcoming") {
+  if (["upcoming", "recurring"].includes(state.eventView) && state.preset !== "week") {
     const presetLabels = { today: "Today", week: "Next 7 days", month: "Next 30 days" };
     const range = [state.from && calendarLabel(state.from, { month: "short", day: "numeric" }), state.to && calendarLabel(state.to, { month: "short", day: "numeric" })].filter(Boolean).join(" – ");
     chips.push(["preset", presetLabels[state.preset] || range || "Custom dates"]);
@@ -332,9 +345,17 @@ function renderActiveFilters() {
   const count = element("mobile-filter-count");
   count.hidden = chips.length === 0;
   count.textContent = String(chips.length);
-  const headings = { upcoming: "Upcoming events", today: "Today’s events", week: "The next 7 days", month: "The next 30 days", custom: "Your date range" };
-  element("results-title").firstChild.textContent = `${state.query ? "Search results" : headings[state.preset]} `;
-  element("results-period").textContent = state.query ? "BEST MATCHES · GROUPED BY DATE" : "YOUR CAMPUS, COMING UP";
+  const headings = { today: "Today’s events", upcoming: "Upcoming events", recurring: "Recurring activities", ongoing: "Ongoing periods" };
+  const periods = { today: calendarLabel(today, { weekday: "long", month: "long", day: "numeric" }).toUpperCase(), upcoming: "AFTER TODAY · BY DATE", recurring: "PUBLISHED REPEATING SCHEDULES", ongoing: "EXHIBITION & PROGRAM PERIODS" };
+  const descriptions = {
+    today: "Activities starting today, shown as one complete matching list. Repeating activities and periods that started earlier have separate views.",
+    upcoming: "Activities starting after today, grouped by their published start date. Show more extends this same date sequence; repeating schedules have their own view.",
+    recurring: "Activities with a repeating schedule published by the source. Each dated occurrence is shown here, separate from one-time events.",
+    ongoing: "Exhibition and program periods spanning today. Check original opening and session times; a date range does not mean the venue is open now.",
+  };
+  element("results-title").firstChild.textContent = `${state.query ? `${headings[state.eventView]} · search` : headings[state.eventView]} `;
+  element("results-period").textContent = periods[state.eventView];
+  element("event-view-description").textContent = descriptions[state.eventView];
 }
 
 /**
@@ -386,6 +407,21 @@ function renderFacets(facets = {}) {
 }
 
 /**
+ * Explain a recurrence supplied by the publisher without inferring it from a title.
+ * @param {Object} event Normalized occurrence with explicit recurrence metadata.
+ * @return {string} Short recurrence label.
+ */
+function recurrenceLabel(event) {
+  const frequency = String(event.recurrence?.frequency || "").toLowerCase();
+  const interval = Math.max(1, Number(event.recurrence?.interval) || 1);
+  if (frequency === "weekly") return interval === 1 ? "Repeats weekly" : `Repeats every ${interval} weeks`;
+  if (frequency === "daily") return interval === 1 ? "Repeats daily" : `Repeats every ${interval} days`;
+  if (frequency === "monthly") return interval === 1 ? "Repeats monthly" : `Repeats every ${interval} months`;
+  if (frequency === "yearly") return interval === 1 ? "Repeats yearly" : `Repeats every ${interval} years`;
+  return "Repeating activity";
+}
+
+/**
  * Build one fully escaped event card.
  * @param {Object} event Normalized event record.
  * @param {number} index Current page index.
@@ -394,20 +430,22 @@ function renderFacets(facets = {}) {
 function eventCard(event, index) {
   const id = String(event.id || index);
   const day = eventDay(event);
+  const endDay = event.end ? eventDay({ ...event, start: event.end }) : "";
+  const cardDay = state.eventView === "ongoing" && endDay ? (event.allDay && event.endExclusive ? shiftDate(endDay, -1) : endDay) : day;
   const title = plainText(event.title) || "Untitled event";
   const tags = Array.isArray(event.tags) ? event.tags : [];
   const category = tags[0] || "Campus event";
   const org = event.org || event.organizer || event.department || "Carnegie Mellon University";
   const cancelled = /cancel/i.test(event.status || "");
-  const status = cancelled ? "Cancelled" : /postpon/i.test(event.status || "") ? "Postponed" : day && day < today ? "Started earlier" : "";
+  const status = cancelled ? "Cancelled" : /postpon/i.test(event.status || "") ? "Postponed" : event.eventType === "recurring" ? recurrenceLabel(event) : state.eventView === "ongoing" ? "Ongoing date range" : "";
   const mode = modeSlug(event.mode);
   const location = plainText(event.location?.name || event.location || "") || (mode === "online" ? "Online" : event.campus || "Location on original listing");
   return `<article class="event-card${cancelled ? " cancelled" : ""}">
-    <div class="event-date" aria-hidden="true"><span>${day ? calendarLabel(day, { month: "short" }) : "TBA"}</span><strong>${day ? calendarLabel(day, { day: "numeric" }) : "—"}</strong><span class="event-weekday">${day ? calendarLabel(day, { weekday: "short" }) : ""}</span></div>
+    <div class="event-date" aria-hidden="true"><span>${state.eventView === "ongoing" ? "UNTIL " : ""}${cardDay ? calendarLabel(cardDay, { month: "short" }) : "TBA"}</span><strong>${cardDay ? calendarLabel(cardDay, { day: "numeric" }) : "—"}</strong><span class="event-weekday">${cardDay ? calendarLabel(cardDay, { weekday: "short" }) : ""}</span></div>
     <div class="event-card-body"><div class="event-card-topline"><span class="category-label" data-color="${tagColor(category)}">${escapeHtml(category)}</span>${status ? `<span class="event-status">${status}</span>` : ""}<span class="event-organizer" title="${escapeHtml(org)}">${escapeHtml(org)}</span></div>
     <h3 class="event-title"><button class="event-title-button" type="button" data-event="${escapeHtml(id)}">${escapeHtml(title)}</button></h3>
     <p class="event-summary">${escapeHtml(eventSummary(event))}</p>
-    <div class="event-meta"><span class="event-meta-item">${icon("clock")}<span>${escapeHtml(eventTime(event))}</span></span><span class="event-meta-item">${icon(mode === "online" ? "screen" : "pin")}<span class="event-location" title="${escapeHtml(location)}">${escapeHtml(location)}</span></span>${mode === "hybrid" ? '<span class="event-meta-item">Hybrid</span>' : ""}</div></div><span class="event-arrow" aria-hidden="true">↗</span>
+    <div class="event-meta"><span class="event-meta-item">${icon("clock")}<span>${escapeHtml((state.eventView === "ongoing" || event.scheduleKind === "continuous") ? eventDateLabel(event) : eventTime(event))}</span></span><span class="event-meta-item">${icon(mode === "online" ? "screen" : "pin")}<span class="event-location" title="${escapeHtml(location)}">${escapeHtml(location)}</span></span>${mode === "hybrid" ? '<span class="event-meta-item">Hybrid</span>' : ""}</div></div><span class="event-arrow" aria-hidden="true">↗</span>
   </article>`;
 }
 
@@ -422,35 +460,34 @@ function renderEvents(data) {
   eventMap = new Map(events.map((event, index) => [String(event.id || index), event]));
   const groups = new Map();
   events.forEach((event, index) => {
-    const day = eventDay(event);
-    const groupKey = day && day < today && state.preset !== "custom" ? "ongoing" : day;
-    if (!groups.has(groupKey)) groups.set(groupKey, []);
-    groups.get(groupKey).push(eventCard(event, index));
+    const day = state.eventView === "ongoing" ? "ongoing" : eventDay(event);
+    if (!groups.has(day)) groups.set(day, []);
+    groups.get(day).push(eventCard(event, index));
   });
-  const orderedGroups = Array.from(groups.entries()).sort(([left], [right]) => {
-    if (left === "ongoing") return 1;
-    if (right === "ongoing") return -1;
-    if (!left) return 1;
-    if (!right) return -1;
-    return left.localeCompare(right);
-  });
+  const orderedGroups = Array.from(groups.entries()).sort(([left], [right]) => left.localeCompare(right));
   element("event-results").innerHTML = orderedGroups.map(([day, cards]) => {
     const relative = day === today ? "Today" : day === shiftDate(today, 1) ? "Tomorrow" : "";
-    const date = day === "ongoing" ? "Ongoing events" : day ? calendarLabel(day, { weekday: "long", month: "long", day: "numeric", ...(day.slice(0, 4) !== today.slice(0, 4) ? { year: "numeric" } : {}) }) : "Date to be announced";
+    const date = day === "ongoing" ? "Exhibition and program periods" : day ? calendarLabel(day, { weekday: "long", month: "long", day: "numeric", ...(day.slice(0, 4) !== today.slice(0, 4) ? { year: "numeric" } : {}) }) : "Published schedule";
     return `<section class="date-group" aria-label="${escapeHtml(date)}"><h3 class="date-group-heading">${escapeHtml(date)}${relative ? `<span class="relative-day">${relative}</span>` : ""}</h3><div class="date-group-events">${cards.join("")}</div></section>`;
   }).join("");
   element("empty-state").hidden = events.length > 0;
+  element("empty-title").textContent = "No events match this view.";
+  element("empty-message").textContent = ({
+    today: "Try another topic or choose Upcoming or Recurring to explore a different schedule.",
+    upcoming: "Try a wider date window, another topic, or a shorter search.",
+    recurring: "Try a wider date window, or choose Today or Upcoming for one-time events.",
+    ongoing: "Try another topic, or choose Today or Upcoming for events with a scheduled start.",
+  })[state.eventView];
   element("event-count").textContent = total.toLocaleString();
   element("show-events").textContent = `Show ${total.toLocaleString()} ${total === 1 ? "event" : "events"}`;
-  const pageSize = data.pageSize || data.limit || PAGE_SIZE;
-  const page = data.page || state.page;
-  const start = total ? (page - 1) * pageSize + 1 : 0;
-  const end = Math.min((page - 1) * pageSize + events.length, total);
-  element("pagination").hidden = total <= pageSize;
-  element("pagination-label").textContent = `${start.toLocaleString()}–${end.toLocaleString()} of ${total.toLocaleString()} events`;
-  element("previous-page").disabled = page <= 1;
-  element("next-page").disabled = end >= total;
-  element("results-announcement").textContent = `${total.toLocaleString()} ${total === 1 ? "event" : "events"} found. ${events.length ? `Showing ${start} through ${end}.` : "Try changing your filters."}`;
+  const more = state.eventView !== "today" && events.length < total;
+  element("load-more").hidden = !more;
+  element("load-more-label").textContent = `Showing ${events.length.toLocaleString()} of ${total.toLocaleString()} in this view.`;
+  const next = Math.min(PAGE_SIZE, Math.max(0, total - events.length));
+  element("show-more-events").textContent = `Show ${next.toLocaleString()} more ${state.eventView === "recurring" ? "occurrences" : "activities"}`;
+  element("show-more-events").disabled = false;
+  const scope = state.eventView === "today" ? "today’s complete matching list" : "this view";
+  element("results-announcement").textContent = `${total.toLocaleString()} ${total === 1 ? "event" : "events"} in ${scope}. ${events.length ? `Showing ${events.length.toLocaleString()}${events.length < total ? ` of ${total.toLocaleString()}` : ""}.` : "Try changing your filters or choose another view."}`;
 }
 
 /**
@@ -460,7 +497,7 @@ function renderEvents(data) {
 function renderLoading() {
   element("event-results").setAttribute("aria-busy", "true");
   element("empty-state").hidden = true;
-  element("pagination").hidden = true;
+  element("load-more").hidden = true;
   element("error-notice").hidden = true;
   element("event-results").innerHTML = Array.from({ length: 4 }, () => '<div class="skeleton-card" aria-hidden="true"><div class="skeleton-line"></div><div class="skeleton-line"></div><div class="skeleton-line"></div><div class="skeleton-line"></div></div>').join("");
 }
@@ -470,11 +507,12 @@ function renderLoading() {
  * @param {boolean} scroll Whether to return keyboard and scroll focus to results.
  * @return {Promise<void>} Completion of the current request.
  */
-async function loadEvents(scroll = false) {
+async function loadEvents(scroll = false, append = false) {
   syncToday();
   const requestId = ++requestNumber;
   requestController?.abort();
-  requestController = new AbortController();
+  const controller = new AbortController();
+  requestController = controller;
   const range = dateRange();
   if (range.from && range.to && range.from > range.to) {
     element("date-error").hidden = false;
@@ -483,39 +521,71 @@ async function loadEvents(scroll = false) {
   }
   element("date-error").hidden = true;
   element("date-to").removeAttribute("aria-invalid");
-  const params = new URLSearchParams({ page: String(state.page), limit: String(PAGE_SIZE) });
+  const todayView = state.eventView === "today";
+  const params = new URLSearchParams({ eventView: state.eventView, page: String(append ? state.page : 1), limit: String(todayView ? TODAY_REQUEST_SIZE : PAGE_SIZE) });
   ["query", "department", "org", "tag", "campus"].forEach(key => { if (state[key]) params.set(key, state[key]); });
   if (state.mode) params.set("mode", modeLabel(state.mode));
   if (range.from) params.set("from", range.from);
   if (range.to) params.set("to", range.to);
   updateUrl();
   syncControls();
-  renderLoading();
+  if (append) {
+    element("error-notice").hidden = true;
+    element("show-more-events").disabled = true;
+    element("show-more-events").textContent = "Loading more…";
+    element("event-results").setAttribute("aria-busy", "true");
+  } else {
+    state.page = 1;
+    renderLoading();
+  }
   if (scroll) element("results").scrollIntoView({ block: "start", behavior: "smooth" });
   try {
-    const data = await dataClient.getEvents(params, { signal: requestController.signal });
+    let data = await dataClient.getEvents(params, { signal: controller.signal });
     if (!Array.isArray(data.events)) throw new Error("The event service returned an unexpected response.");
     if (requestId !== requestNumber) return;
-    if (!data.events.length && data.total > 0 && state.page > 1) {
-      state.page = 1;
-      await loadEvents();
-      return;
+    const previousIds = new Set((append ? currentData?.events || [] : []).map(event => String(event.id)));
+    const collected = new Map((append ? currentData?.events || [] : []).map(event => [event.id, event]));
+    for (const event of data.events) collected.set(event.id, event);
+    if (todayView) {
+      let page = 1;
+      while (page * (data.pageSize || TODAY_REQUEST_SIZE) < data.total) {
+        params.set("page", String(++page));
+        const next = await dataClient.getEvents(params, { signal: controller.signal });
+        if (requestId !== requestNumber) return;
+        if (!Array.isArray(next.events) || !next.events.length) throw new Error("Today’s event list changed while loading. Reload to get the complete list.");
+        for (const event of next.events) collected.set(event.id, event);
+        data = { ...next, facets: data.facets };
+      }
     }
-    currentData = data;
+    if (requestId !== requestNumber) return;
+    currentData = { ...data, events: [...collected.values()] };
     renderFacets(data.facets);
-    renderEvents(data);
+    renderEvents(currentData);
+    if (append) {
+      const firstNew = [...element("event-results").querySelectorAll("[data-event]")].find(button => !previousIds.has(button.dataset.event));
+      firstNew?.focus({ preventScroll: true });
+      firstNew?.closest(".event-card")?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }
     syncControls();
     updateStatus({ ...statusData, lastUpdated: data.lastUpdated || statusData?.lastUpdated, refreshing: data.refreshing ?? statusData?.refreshing });
   } catch (error) {
     if (error.name === "AbortError" || requestId !== requestNumber) return;
-    element("event-results").innerHTML = "";
+    if (!append) element("event-results").innerHTML = "";
+    else state.page = Math.max(1, state.page - 1);
     element("error-notice").hidden = false;
-    element("error-title").textContent = "We couldn’t load events.";
+    element("error-title").textContent = append ? "We couldn’t load more events." : "We couldn’t load events.";
     element("error-message").textContent = `${error.message} ${STATIC_MODE ? "Reload the published data or try again shortly." : "Check that the local server is running, then try again."}`;
-    element("event-count").textContent = "—";
+    if (!append) element("event-count").textContent = "—";
     element("results-announcement").textContent = "Events could not be loaded. Use Try again to retry.";
   } finally {
-    if (requestId === requestNumber) element("event-results").setAttribute("aria-busy", "false");
+    if (requestId === requestNumber) {
+      element("event-results").setAttribute("aria-busy", "false");
+      element("show-more-events").disabled = false;
+      if (append && currentData) {
+        const more = Math.min(PAGE_SIZE, Math.max(0, currentData.total - currentData.events.length));
+        element("show-more-events").textContent = `Show ${more.toLocaleString()} more ${state.eventView === "recurring" ? "occurrences" : "activities"}`;
+      }
+    }
   }
 }
 
@@ -529,9 +599,10 @@ function changeFilter(key, value) {
   state[key] = value;
   state.page = 1;
   if (key === "department") state.org = "";
+  if (key === "eventView" && value === "upcoming" && state.preset === "custom" && !state.from) state.from = shiftDate(today, 1);
   if (key === "preset" && value === "custom") {
-    state.from ||= today;
-    state.to ||= shiftDate(today, 6);
+    state.from ||= state.eventView === "upcoming" ? shiftDate(today, 1) : today;
+    state.to ||= shiftDate(state.from, 6);
   }
   loadEvents();
 }
@@ -541,7 +612,7 @@ function changeFilter(key, value) {
  * @return {void}
  */
 function resetFilters() {
-  Object.assign(state, { query: "", preset: "upcoming", from: "", to: "", department: "", org: "", tag: "", campus: "", mode: "", page: 1 });
+  Object.assign(state, { query: "", eventView: "today", preset: "week", from: "", to: "", department: "", org: "", tag: "", campus: "", mode: "", page: 1 });
   clearTimeout(searchTimer);
   loadEvents();
 }
@@ -676,7 +747,7 @@ function showToast(message) {
 function originalLinks(event) {
   const links = [];
   const primary = safeUrl(event.url || event.originalUrl || event.link);
-  if (primary) links.push({ url: primary, label: "View original event" });
+  if (primary) links.push({ url: primary, label: event.linkKind === "calendar-viewer" ? "Open published calendar" : event.linkKind === "source-page" ? "Open source listing" : "View original event" });
   (Array.isArray(event.sources) ? event.sources : []).forEach(source => {
     const url = safeUrl(typeof source === "string" ? source : source.eventUrl || source.url || source.link);
     if (url && !links.some(link => link.url === url)) links.push({ url, label: typeof source === "string" ? new URL(url).hostname : source.org || source.name || source.title || source.department || new URL(url).hostname });
@@ -712,10 +783,11 @@ function openEvent(event) {
   const departments = Array.isArray(event.departments) && event.departments.length ? event.departments : [event.department].filter(Boolean);
   const location = plainText(event.location?.name || event.location || "") || "See the original listing for location details";
   const timezone = event.timeZone || event.timezone;
+  const continuous = event.scheduleKind === "continuous";
   const status = /cancel|postpon/i.test(event.status || "") ? `<p class="notice"><strong>This event is ${escapeHtml(event.status.toLowerCase())}. Check the original listing for updates.</strong></p>` : "";
   element("dialog-eyebrow").textContent = "A CLOSER LOOK";
   element("detail-content").innerHTML = `<div class="detail-body"><div class="detail-tags">${tags.map(tag => `<span class="category-label" data-color="${tagColor(tag)}">${escapeHtml(tag)}</span>`).join("")}</div>
-    <h2 class="detail-title" id="detail-title">${escapeHtml(title)}</h2><p class="detail-org">Hosted by ${escapeHtml(orgs.join(" · "))}${departments.length ? `<br>${escapeHtml(departments.join(" · "))}` : ""}</p>${status}
+    <h2 class="detail-title" id="detail-title">${escapeHtml(title)}</h2><p class="detail-org">Hosted by ${escapeHtml(orgs.join(" · "))}${departments.length ? `<br>${escapeHtml(departments.join(" · "))}` : ""}</p>${status}${continuous ? '<p class="period-note">This is an exhibition or program date range. Check the original listing for opening days, session times, and closures.</p>' : ""}${event.eventType === "recurring" ? `<p class="recurrence-note">${escapeHtml(recurrenceLabel(event))}. This card represents the published occurrence on ${escapeHtml(eventDateLabel(event))}.</p>` : ""}
     <div class="detail-facts"><div class="detail-fact">${icon("calendar")}<div><strong>${escapeHtml(eventDateLabel(event))}</strong><small>${escapeHtml(eventTime(event))}${timezone && timezone !== DISPLAY_TIMEZONE && !event.allDay ? ` · Source time zone: ${escapeHtml(timezone)}` : ""}</small></div></div>
     <div class="detail-fact">${icon(modeSlug(event.mode) === "online" ? "screen" : "pin")}<div><strong>${escapeHtml(location)}</strong><small>${escapeHtml([event.campus, event.mode && modeLabel(event.mode)].filter(Boolean).join(" · "))}</small></div></div></div>
     <h3 class="detail-section-heading">At a glance</h3><p class="detail-summary">${escapeHtml(summary)}</p><p class="summary-note">${plainText(event.summary) || description ? 'A concise excerpt from the published event information.' : 'The source did not include an event description.'}</p>
@@ -827,6 +899,7 @@ function matchingSources(panel) {
  * @return {string} Coverage or collection status label.
  */
 function sourceStateLabel(source) {
+  if (source.state === "ok" && Number(source.eventCount) === 0 && source.excludedCount > 0) return "Non-activity listings";
   if (source.state === "error" && source.coverage?.inspectionComplete && !source.coverage.internalIssues.length) return "Source limitation";
   return ({ error: "Needs review", blocked: "Access restricted", unsupported: "Integration needed", pending: "Not checked yet", subscription_only: "Email only", empty: "Zero imported in window", undated: "Undated · monitored", ok: "Events imported", covered: "Shared feed coverage" })[source.state] || "Status unavailable";
 }
@@ -841,6 +914,7 @@ function sourceSummary(source) {
   if (subscription?.kind === "subscriber_only") return "Subscriber-only email announcements are not imported into the event calendar.";
   if (subscription?.kind === "public_plus_email") return "Public calendar events may be included. Subscriber email content is not imported.";
   const count = Number(source.eventCount || 0).toLocaleString();
+  if (source.state === "ok" && Number(source.eventCount) === 0 && source.excludedCount > 0) return "This window contains notices or date ranges without activity sessions; those records are excluded from the activity calendar.";
   if (source.state === "error" && source.coverage?.inspectionComplete && !source.coverage.internalIssues.length) {
     return Number(source.eventCount) > 0 ? `${count} imported occurrences are available; some publisher details remain unresolved.`
       : "No verified occurrences were imported in this collection window. Publisher date or access limitations remain in the coverage notes.";
@@ -891,10 +965,11 @@ function sourceDiagnostics(source) {
   const warnings = (Array.isArray(source.warnings) ? source.warnings : []).map(plainText).filter(Boolean);
   const audit = source.coverage;
   const currentAudit = audit ? `<p><strong>Latest automated inspection${audit.checkedAt ? ` · ${escapeHtml(updatedLabel(audit.checkedAt))}` : ""}</strong><br>${audit.inspectionComplete ? "All discovered candidates were checked." : "Some discovered candidates still need collection work."} ${audit.internalIssues.length} collection gap(s); ${audit.externalIssues.length} publisher issue(s). Any field uncertainty appears in the notes below.</p>` : "";
+  const exclusionNote = source.excludedCount > 0 ? `<p>${Number(source.excludedCount).toLocaleString()} notice, registration/sales window, or non-activity record(s) were excluded from the activity calendar.</p>` : "";
   const review = sourceVisualReview(source);
   const reviewMarkup = review && audit && Date.parse(audit.checkedAt) > latestSourceReviewAt(source)
     ? `<details class="source-card-review"><summary>Earlier review notes · historical</summary><p>These records predate the latest automated inspection and may describe limitations that have since been resolved.</p>${review}</details>` : review;
-  return `<details class="source-card-review"><summary>Coverage notes &amp; diagnostics</summary>${currentAudit}${reason ? `<p>${escapeHtml(reason)}</p>` : ""}${warnings.length ? `<ul>${warnings.map(warning => `<li>${escapeHtml(warning)}</li>`).join("")}</ul>` : ""}<p>${escapeHtml(sourceSummary(source))}</p>${source.lastAttempt ? `<p>Last attempted check: ${escapeHtml(updatedLabel(source.lastAttempt))}.</p>` : ""}${reviewMarkup}</details>`;
+  return `<details class="source-card-review"><summary>Coverage notes &amp; diagnostics</summary>${currentAudit}${exclusionNote}${reason ? `<p>${escapeHtml(reason)}</p>` : ""}${warnings.length ? `<ul>${warnings.map(warning => `<li>${escapeHtml(warning)}</li>`).join("")}</ul>` : ""}<p>${escapeHtml(sourceSummary(source))}</p>${source.lastAttempt ? `<p>Last attempted check: ${escapeHtml(updatedLabel(source.lastAttempt))}.</p>` : ""}${reviewMarkup}</details>`;
 }
 
 /**
@@ -1109,13 +1184,25 @@ function bindEvents() {
   ["department", "org", "campus"].forEach(key => element(`${key}-filter`).addEventListener("change", event => changeFilter(key, event.target.value)));
   element("mode-options").addEventListener("click", event => { const button = event.target.closest("[data-mode]"); if (button) changeFilter("mode", button.dataset.mode); });
   element("topic-options").addEventListener("click", event => { const button = event.target.closest("[data-tag]"); if (button) changeFilter("tag", state.tag === button.dataset.tag ? "" : button.dataset.tag); });
-  element("active-filters").addEventListener("click", event => { const button = event.target.closest("[data-remove]"); if (button) changeFilter(button.dataset.remove, button.dataset.remove === "preset" ? "upcoming" : ""); });
+  element("active-filters").addEventListener("click", event => { const button = event.target.closest("[data-remove]"); if (button) changeFilter(button.dataset.remove, button.dataset.remove === "preset" ? "week" : ""); });
   ["reset-filters", "empty-reset"].forEach(id => element(id).addEventListener("click", resetFilters));
   element("retry-button").addEventListener("click", () => loadEvents());
   document.querySelectorAll("[data-view]").forEach(button => button.addEventListener("click", () => { state.view = button.dataset.view; syncControls(); updateUrl(); }));
   element("event-results").addEventListener("click", event => { const button = event.target.closest("[data-event]"); if (button && eventMap.has(button.dataset.event)) openEvent(eventMap.get(button.dataset.event)); });
-  element("previous-page").addEventListener("click", () => { state.page = Math.max(1, state.page - 1); loadEvents(true); });
-  element("next-page").addEventListener("click", () => { state.page += 1; loadEvents(true); });
+  element("show-more-events").addEventListener("click", () => { state.page += 1; loadEvents(false, true); });
+  element("event-browser").addEventListener("click", event => {
+    const button = event.target.closest("[data-event-view]");
+    if (button) changeFilter("eventView", button.dataset.eventView);
+  });
+  element("event-browser").addEventListener("keydown", event => {
+    const buttons = [...element("event-browser").querySelectorAll("[data-event-view]")];
+    const index = buttons.indexOf(document.activeElement);
+    if (index < 0 || !["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    const next = event.key === "Home" ? 0 : event.key === "End" ? buttons.length - 1 : (index + (event.key === "ArrowRight" ? 1 : -1) + buttons.length) % buttons.length;
+    buttons[next].focus();
+    changeFilter("eventView", buttons[next].dataset.eventView);
+  });
   element("refresh-button").addEventListener("click", refreshSources);
   element("about-button").addEventListener("click", () => openSourceInfo());
   element("source-info-button").addEventListener("click", () => openSourceInfo(true));

@@ -122,7 +122,7 @@ When a current feed and a date-only record have the exact same canonical URL, ti
 
 Search uses Unicode word tokens and quoted prefix terms joined with AND. All SQL values are parameterized; user text is never accepted as raw FTS syntax. FTS BM25 weights titles above publishers/tags/location and descriptions. Results are ranked by relevance for searches and ordered by start time otherwise; the browser groups each returned page chronologically. No external search service or model API is needed.
 
-Dates use inclusive range overlap: include a multi-day event if any visible day intersects the requested range. A date-only exclusive end does not leak into the following day. The default is today onward. Facet counts use the current text/date candidates before categorical filtering, allowing users to change category without losing available choices. Multiple associations are counted once per event per facet label. Pagination defaults to 30 and caps at 100 events per request; the UI requests 24.
+Dates use inclusive range overlap: include a multi-day event if any visible day intersects the requested range. A date-only exclusive end does not leak into the following day. The default is today onward. Facet counts use the current text/date candidates before categorical filtering, allowing users to change category without losing available choices. Multiple associations are counted once per event per facet label. Transport paging caps each request at100. The default Today view retrieves all matching response pages before presenting one complete list. Upcoming, Recurring and Ongoing are distinct views; Show more appends within the same view and date range rather than replacing it with an unexplained next page.
 
 ## Discovery labels
 
@@ -159,3 +159,14 @@ Local static files come only from `web/`. The server binds to loopback by defaul
 Run `npm test` for meaningful offline edge cases and API contracts. Run `npm run check` for syntax, key documents and complete source-plan mapping. To verify a source change, fetch its exact advertised endpoint, inspect an original event against normalized title/date/zone/link, and check `/api/sources` for warnings. HTTP 200 alone is not proof that the event extractor works.
 
 Before presenting a UI change, inspect desktop and narrow layouts, keyboard focus/escape behavior, date/filter/search combinations, detail content, source links, loading/empty/failure states and refresh progress with actual public data. Keep transient runtime artifacts out of Git; deliberately selected public evidence may be retained under research. Live event counts and source health are snapshots, not permanent guarantees.
+
+
+## Activity semantics and browsing views
+
+Event records distinguish `eventType: scheduled|recurring` and `scheduleKind: occurrence|continuous|registration-window|date-window`. Recurrence requires a real RRULE/RDATE, explicit provider flag, a published session list or a direct scheduling statement in the description. A weekly-looking title or observed cadence is insufficient. Occurrence instants remain separately published; no new dates are generated from prose. Series identity and evidence survive storage, deduplication and daily-state restoration.
+
+LiveWhale display rows with no actual repeat rule but identical original range bounds are one source range, not daily appointments. Verified exhibitions remain continuous periods; enrollment, sales, administrative holds and program windows without session dates are excluded before topic classification. Missing descriptions or clock times alone do not exclude a valid dated event. Dynamic HTML shells are never evidence of an empty original page. Google public-feed fallback links use the official calendar viewer and are labeled accordingly.
+
+Today contains nonrepeating activities whose published start day is today. Upcoming contains later starts in an explicit date window. Recurring contains independently dated repeating occurrences. Ongoing contains genuine published cross-day ranges still intersecting today; it does not assert that a venue is open at the current moment. The shared browser/server `event-semantics.js` applies these boundaries consistently, including exclusive ends and New York time.
+
+Source exclusions are recorded separately from active events. Version two of the extraction signature invalidates older snapshots that lost recurrence/range semantics, so obsolete calendar clones cannot reappear after restore. Source eligibility still applies only to publishers; official reposts of student-club activities remain included.

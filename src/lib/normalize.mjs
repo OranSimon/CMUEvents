@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import * as cheerio from 'cheerio';
+import { normalizeRecurrence, publishedSchedule } from './recurrence.mjs';
 
 /**
  * Convert source HTML into safe, readable plain text.
@@ -157,9 +158,15 @@ export function normalizeEvent(input, plan = {}) {
   if (!end) end = allDay ? addDays(start) : start;
   if (end < start || (allDay && end === start)) end = allDay ? addDays(start) : start;
   const description = plainText([input.description, plan.options?.eventContext].filter(Boolean).join('\n'));
+  const recurrence = normalizeRecurrence(input.recurrence) || publishedSchedule({ ...input, title, description }, plan);
+  const scheduleKind = ['occurrence', 'continuous', 'date-window', 'registration-window'].includes(input.scheduleKind) ? input.scheduleKind : 'occurrence';
+  const dateEvidence = input.dateEvidence?.kind === 'range-window' && typeof input.dateEvidence.source === 'string'
+    && parseDate(input.dateEvidence.start, timeZone) && parseDate(input.dateEvidence.end, timeZone)
+    ? { kind: 'range-window', source: input.dateEvidence.source, start: input.dateEvidence.start, end: input.dateEvidence.end } : null;
   const uid = String(input.uid || createHash('sha256').update(`${url}|${start}|${title}`).digest('hex').slice(0, 24));
   return {
-    uid, title, description, summary: summarize(input.summary || description),
+    uid, title, description, linkKind: ['event-detail', 'calendar-viewer', 'source-page'].includes(input.linkKind) ? input.linkKind : input.url ? 'event-detail' : 'source-page', eventType: recurrence ? 'recurring' : 'scheduled', scheduleKind,
+    ...(recurrence ? { recurrence } : {}), ...(dateEvidence ? { dateEvidence } : {}), summary: summarize(input.summary || description),
     start, end, allDay, timePrecision, timeZone, location: plainText(input.location), url,
     organizer: plainText(input.organizer),
     status: /cancel/i.test(input.status || '') ? 'cancelled' : /postpon/i.test(input.status || '') ? 'postponed' : 'scheduled',

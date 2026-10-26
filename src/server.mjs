@@ -68,7 +68,8 @@ export function createApplication(options = {}) {
           const from = validDay(url.searchParams.get('from')) || localDay();
           const to = validDay(url.searchParams.get('to'));
           if (to && to < from) return json(response, 400, { error: 'The end date must be on or after the start date.' });
-          const filters = Object.fromEntries(['department', 'org', 'tag', 'campus', 'mode', 'page', 'limit'].map(key => [key, (url.searchParams.get(key) || '').slice(0, 300)]));
+          const filters = Object.fromEntries(['department', 'org', 'tag', 'campus', 'mode', 'page', 'limit', 'eventView', 'recurrenceFrequency'].map(key => [key, (url.searchParams.get(key) || '').slice(0, 300)]));
+          if (filters.eventView && !['today', 'upcoming', 'recurring', 'ongoing'].includes(filters.eventView)) return json(response, 400, { error: 'Unknown event browsing view.' });
           const modeAliases = { online: 'Online', virtual: 'Online', 'in-person': 'In person', 'in person': 'In person', hybrid: 'Hybrid', unspecified: 'Unspecified' };
           filters.mode = modeAliases[filters.mode.toLowerCase()] || filters.mode;
           return json(response, 200, { ...store.listEvents({ ...filters, from, to,

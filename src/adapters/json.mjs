@@ -1,5 +1,6 @@
 import { absoluteUrl, addDays, normalizeEvent, inWindow, plainText, parseDate } from '../lib/normalize.mjs';
 import { parseIcs } from './ics.mjs';
+import { providerRecurrence, normalizeRecurrence, publishedSeriesId } from '../lib/recurrence.mjs';
 import * as cheerio from 'cheerio';
 import { explicitTextDate, explicitTextEnd, clockTime } from './html.mjs';
 
@@ -17,6 +18,63 @@ function localDate(timestamp, timeZone) {
 }
 
 /**
+ * Interpret explicitly UTC LiveWhale range-bound fields without borrowing dates.
+ * @param {unknown} value Provider range timestamp.
+ * @return {string|null} Validated UTC instant, or null when not explicit.
+ */
+function liveWhaleRangeInstant(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}(?::\d{2})?(?:Z|[+-]\d{2}:?\d{2})?$/.test(value)) return null;
+  const iso = value.replace(' ', 'T');
+  return parseDate(/(?:Z|[+-]\d{2}:?\d{2})$/.test(iso) ? iso : `${iso}Z`);
+}
+
+/**
+ * Keep a publisher summary and body when neither contains the other in full.
+ * @param {Object} row Public JSON event fields.
+ * @return {string} Plain published event description, without unrelated API data.
+ */
+function publicDescription(row) {
+  const summary = plainText(row.summary);
+  const body = plainText(row.description);
+  return body.includes(summary) ? body : [summary, body].filter(Boolean).join('\n\n');
+}
+
+/**
+ * Resolve calendar display clones into their original publisher range.
+ * Empty repeat rules plus original range bounds identify display copies, not
+ * daily appointments. Only explicit exhibition evidence establishes continuous
+ * access; enrollment/program windows stay separate from ordinary event dates.
+ * @param {Object} row Public LiveWhale occurrence/display row.
+ * @param {string} timeZone Publisher timezone.
+ * @return {Object|null} Original range, schedule kind and date evidence.
+ */
+function liveWhaleRange(row, timeZone) {
+  if (row.repeats && !['none', '0', 'false'].includes(String(row.repeats).toLowerCase())) return null;
+  const first = liveWhaleRangeInstant(row.repeats_start);
+  const last = liveWhaleRangeInstant(row.repeats_end);
+  if (!first || !last || last <= first || localDate(first, timeZone) === localDate(last, timeZone)) return null;
+  const localClock = value => new Intl.DateTimeFormat('en-GB', { timeZone, hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' }).format(new Date(value));
+  let allDay;
+  try { allDay = localClock(first) === '00:00:00' && localClock(last) === '00:00:00'; } catch { return null; }
+  const start = allDay ? localDate(first, timeZone) : first;
+  const end = allDay ? addDays(localDate(last, timeZone)) : last;
+  const text = publicDescription(row);
+  const types = [].concat(row.event_types || []).map(type => plainText(typeof type === 'object' ? type?.title || type?.name : type)).join(' ');
+  const registration = /\b(?:open enrollment|enrollment (?:period|window)|registration (?:period|window|is open|opens)|application (?:period|window)|applications? (?:open|close))\b/i.test(text);
+  const shortCohort = /\b(?:one|two|three|four|five|six|seven|eight|nine|ten|\d{1,2})[- ]days?\s+(?:cohort|course|training|program|workshop)\b/i.test(text)
+    && Date.parse(last) - Date.parse(first) > 14 * 86400000 && /schedule|session dates|registration/i.test(text);
+  const continuous = /\b(?:this|the|our|an?) exhibition\b|\b(?:on display|on view|exhibit hours|gallery hours|exhibition (?:runs|is open))\b/i.test(text)
+    || /\bexhibitions?\b/i.test(types);
+  const location = plainText(typeof row.location === 'object' ? row.location?.title || row.location?.name : row.location).trim();
+  const place = (location.length >= 3 && !/^(?:tbd|tba|to be announced|sign in|not specified|unknown)\b/i.test(location))
+    || [true, 1, '1'].includes(row.is_online);
+  const shortProgram = Date.parse(last) - Date.parse(first) <= 14 * 86400000 && text.length >= 80 && place
+    && /\b(?:conferences?|camps?|symposi(?:um|a)|workshops?|conventions?|festivals?|homecoming|retreats?|summits?|orientations?|tournaments?)\b/i.test(`${types} ${plainText(row.title)}`);
+  const scheduleKind = registration || shortCohort ? 'registration-window' : continuous ? 'continuous' : shortProgram ? 'occurrence' : 'date-window';
+  return { start, end, allDay, scheduleKind, dateEvidence: { kind: 'range-window', source: 'livewhale', start, end } };
+}
+
+/**
  * Read a LiveWhale API page or documented widget preload event array.
  * @param {Object|Object[]} json API response.
  * @param {Object} plan Source options and provenance.
@@ -28,6 +86,7 @@ export function parseLiveWhale(json, plan = {}, context = {}) {
   if (!Array.isArray(rows)) throw new Error('Unexpected LiveWhale response: expected data/events array');
   const events = [];
   const warnings = [];
+  const seen = new Set();
   for (const row of rows) {
     const timeZone = row.timezone || row.tz || plan.options?.timezone || 'America/New_York';
     const allDay = row.is_all_day === 1 || row.is_all_day === '1' || row.is_all_day === true;
@@ -37,16 +96,22 @@ export function parseLiveWhale(json, plan = {}, context = {}) {
     const endDate = rawEnd ? localDate(row.date2_ts || row.ts_end || rawEnd, timeZone) : null;
     const end = allDay ? endDate ? addDays(endDate) : start ? addDays(start) : null
       : rawEnd || (row.date2_utc ? `${row.date2_utc.replace(' ', 'T')}Z` : null);
+    const range = liveWhaleRange(row, timeZone);
+    const description = publicDescription(row);
+    const identity = row.id === undefined ? undefined : `livewhale:${row.id}:${range ? `range:${range.start}` : start}`;
+    const recurrence = range ? null : providerRecurrence({ uid: identity, title: plainText(row.title), description, organizer: row.group_title,
+      url: row.url || row.href || row.external_url, frequency: row.repeats, seriesId: row.id === undefined ? undefined : `livewhale:${(() => { try { return new URL(row.url || plan.url).host; } catch { return plan.id || 'publisher'; } })()}:${row.id}`,
+      seriesStart: liveWhaleRangeInstant(row.repeats_start), until: liveWhaleRangeInstant(row.repeats_end) }, plan);
     const event = normalizeEvent({
-      uid: row.id === undefined ? undefined : `livewhale:${row.id}:${start}`, title: row.title, description: row.description || row.summary,
-      summary: row.summary, start, end, allDay, timeZone,
+      uid: identity, title: row.title, description, recurrence,
+      summary: row.summary, start, end, allDay, timeZone, ...(range || {}),
       url: row.url || row.href || row.external_url,
       location: typeof row.location === 'object' ? row.location?.title || row.location?.name : row.location,
       organizer: row.group_title, status: [true, 1, '1'].includes(row.is_canceled) ? 'cancelled' : row.status,
       mode: [true, 1, '1'].includes(row.is_online) ? row.online_type === 'hybrid' ? 'hybrid' : 'online' : undefined,
       tags: [].concat(row.tags || row.categories || row.event_types || []).map(tag => typeof tag === 'object' ? tag.title || tag.name : tag),
     }, plan);
-    if (event && inWindow(event, context)) events.push(event);
+    if (event && inWindow(event, context) && !seen.has(event.uid)) { events.push(event); seen.add(event.uid); }
     else if (!event) warnings.push(`Skipped LiveWhale event ${row.id || '(no id)'}: invalid title, URL or explicit start date`);
   }
   return { events, warnings, next: json.links?.next || null, ...(warnings.length ? { partial: true } : {}) };
@@ -91,7 +156,9 @@ function explicitWordPressSessions(input, plan) {
       timeZone: plan.options?.timezone || 'America/New_York' });
   }
   if (!inputs.length && !warnings.length) warnings.push(`${label}: the selected date list contains no independently dated sessions`);
-  return { inputs, warnings };
+  const recurrence = input.recurrence || normalizeRecurrence({ seriesId: input.uid || publishedSeriesId(input, plan), frequency: 'other', interval: 1, source: 'provider',
+    evidence: 'Publisher lists multiple dated sessions for this series' });
+  return { inputs: inputs.map(session => ({ ...session, recurrence })), warnings };
 }
 
 /**
@@ -123,8 +190,13 @@ export function parseWordPress(json, plan = {}, context = {}) {
       organizer: [].concat(row.organizer || []).map(item => item.organizer || item.name || '').filter(Boolean).join(', '),
       status: row.event_status || row.status, tags: [].concat(row.categories || [], row.tags || []).map(tag => tag.name || tag.slug || tag),
     };
+    input.recurrence = providerRecurrence({ ...input, description: plainText(input.description), frequency: typeof row.recurrence === 'string' ? row.recurrence : row.recurrence?.frequency,
+      isRecurring: row.is_recurring === true || row.is_recurring === 1, seriesId: row.series_id ? `wordpress:${new URL(plan.url).host}:${row.series_id}` : undefined }, plan);
     const sessions = explicitWordPressSessions(input, plan);
     if (sessions) warnings.push(...sessions.warnings);
+    if (!sessions && !input.recurrence && Date.parse(input.end) - Date.parse(input.start) > 86400000
+      && (/\b(?:this|the|our|an?) exhibition\b|\b(?:on display|on view|exhibit hours|gallery hours|exhibition (?:runs|is open))\b/i.test(plainText(input.description))
+        || (input.tags.some(tag => /\bexhibitions?\b/i.test(tag)) && /\bexhibition|display|gallery\b/i.test(plainText(input.description))))) input.scheduleKind = 'continuous';
     for (const candidate of sessions ? sessions.inputs : [input]) {
       const event = normalizeEvent(candidate, plan);
       if (event && inWindow(event, context)) events.push(event);
@@ -160,7 +232,9 @@ export function parseTrumba(json, plan = {}, context = {}) {
       end: allDay ? addDays(row.endDateTime?.slice(0, 10) || row.startDateTime?.slice(0, 10)) : qualify(row.endDateTime, row.endTimeZoneOffset),
       allDay, url: row.permaLinkUrl || new URL(`/calendar/${encodeURIComponent(row.eventID)}`, plan.fetchUrl || plan.url).href,
       location: row.location || [fields.Building, fields['Room Number']].filter(Boolean).join(', '),
-      organizer: fields['Organization(s)'], tags: [].concat(fields['Event Type'] || []).filter(Boolean),
+      organizer: fields['Organization(s)'], recurrence: providerRecurrence({ uid: `trumba:${row.eventID}`, title: plainText(row.title),
+        description: plainText(row.description), organizer: fields['Organization(s)'], url: row.permaLinkUrl || plan.url,
+        frequency: row.repeatFrequency || row.recurrence?.frequency, isRecurring: row.isRecurring === true }, plan), tags: [].concat(fields['Event Type'] || []).filter(Boolean),
       status: row.canceled ? 'cancelled' : 'scheduled' }, plan);
     if (event && inWindow(event, context)) events.push(event);
     else if (!event) warnings.push(`Skipped Trumba event ${row.eventID || '(no id)'}: invalid title, URL or explicit start date`);

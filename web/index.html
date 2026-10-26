@@ -60,12 +60,11 @@
         <aside class="filters" id="filters" aria-label="Filter events">
           <div class="filter-heading"><h2>Make it yours</h2><button id="reset-filters" class="text-button" type="button">Reset</button><button class="icon-button mobile-close" id="close-filters" type="button" aria-label="Close filters">×</button></div>
 
-          <fieldset class="filter-section date-section">
-            <legend>When</legend>
+          <fieldset class="filter-section date-section" id="date-window-filter" hidden>
+            <legend>Date window</legend>
             <div class="date-presets" id="date-presets" role="group" aria-label="Date range">
-              <button type="button" class="date-preset selected" data-preset="upcoming" aria-pressed="true">Upcoming <span aria-hidden="true">↗</span></button>
-              <button type="button" class="date-preset" data-preset="today" aria-pressed="false">Today</button>
-              <button type="button" class="date-preset" data-preset="week" aria-pressed="false">Next 7 days</button>
+              <button type="button" class="date-preset" data-preset="upcoming" aria-pressed="false">All upcoming dates <span aria-hidden="true">↗</span></button>
+              <button type="button" class="date-preset selected" data-preset="week" aria-pressed="true">Next 7 days</button>
               <button type="button" class="date-preset" data-preset="month" aria-pressed="false">Next 30 days</button>
               <button type="button" class="date-preset custom-preset" data-preset="custom" aria-pressed="false">Choose dates <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="15" rx="2" /><path d="M8 3v6M16 3v6M4 12h16" /></svg></button>
             </div>
@@ -107,22 +106,31 @@
         </aside>
 
         <section class="results" id="results" aria-labelledby="results-title" tabindex="-1">
+          <div class="event-browser" id="event-browser" role="tablist" aria-label="Browse event schedules">
+            <button id="event-view-today" class="event-browser-tab selected" type="button" role="tab" data-event-view="today" aria-selected="true" aria-controls="events-panel">Today</button>
+            <button id="event-view-upcoming" class="event-browser-tab" type="button" role="tab" data-event-view="upcoming" aria-selected="false" aria-controls="events-panel" tabindex="-1">Upcoming</button>
+            <button id="event-view-recurring" class="event-browser-tab" type="button" role="tab" data-event-view="recurring" aria-selected="false" aria-controls="events-panel" tabindex="-1">Recurring</button>
+            <button id="event-view-ongoing" class="event-browser-tab" type="button" role="tab" data-event-view="ongoing" aria-selected="false" aria-controls="events-panel" tabindex="-1">Ongoing</button>
+          </div>
+          <div id="events-panel" role="tabpanel" aria-labelledby="event-view-today">
           <div class="results-heading">
-            <div><p class="results-eyebrow" id="results-period">YOUR CAMPUS, COMING UP</p><h2 id="results-title">Upcoming events <span class="event-count" id="event-count">—</span></h2></div>
+            <div><p class="results-eyebrow" id="results-period">YOUR CAMPUS, TODAY</p><h2 id="results-title">Today’s events <span class="event-count" id="event-count">—</span></h2></div>
             <div class="view-switch" role="group" aria-label="Event view">
               <button class="view-button selected" id="list-view" data-view="list" type="button" aria-label="List view" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.1M4 12h.1M4 18h.1" /></svg></button>
               <button class="view-button" id="grid-view" data-view="grid" type="button" aria-label="Grid view" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1" /><rect x="14" y="4" width="6" height="6" rx="1" /><rect x="4" y="14" width="6" height="6" rx="1" /><rect x="14" y="14" width="6" height="6" rx="1" /></svg></button>
             </div>
           </div>
+          <p class="event-view-description" id="event-view-description">One-time events starting today. Recurring and multi-day activities have their own views.</p>
           <div class="active-filters" id="active-filters" hidden></div>
           <div class="notice snapshot-notice" id="snapshot-notice" role="status" hidden><span aria-hidden="true">↻</span><div><strong id="snapshot-title">Updated daily</strong><p id="snapshot-message"></p></div></div>
           <div class="notice error-notice" id="error-notice" role="alert" hidden><span aria-hidden="true">!</span><div><strong id="error-title">We couldn’t load events.</strong><p id="error-message">Please try again in a moment.</p></div><button class="text-button" id="retry-button" type="button">Try again</button></div>
           <div class="notice refresh-notice" id="refresh-notice" role="status" hidden><span class="small-spinner" aria-hidden="true"></span><div><strong>Checking for new events</strong><p>You can keep browsing while sources refresh.</p></div></div>
           <p class="sr-only" id="results-announcement" role="status" aria-live="polite"></p>
           <div class="event-results" id="event-results" aria-busy="true"></div>
-          <div class="empty-state" id="empty-state" hidden><span class="empty-icon" aria-hidden="true">⌕</span><p class="eyebrow">A LITTLE ROOM TO EXPLORE</p><h3>No events match just yet.</h3><p>Try a wider date range, another topic, or a shorter search.</p><button class="button-primary" id="empty-reset" type="button">Clear filters</button></div>
-          <div class="pagination" id="pagination" hidden><p id="pagination-label"></p><div><button class="button-secondary" id="previous-page" type="button"><span aria-hidden="true">←</span> Previous</button><button class="button-secondary" id="next-page" type="button">Next <span aria-hidden="true">→</span></button></div></div>
+          <div class="empty-state" id="empty-state" hidden><span class="empty-icon" aria-hidden="true">⌕</span><p class="eyebrow">A LITTLE ROOM TO EXPLORE</p><h3 id="empty-title">No events match this view.</h3><p id="empty-message">Try another topic, a shorter search, or a different schedule view.</p><button class="button-primary" id="empty-reset" type="button">Clear filters</button></div>
+          <div class="load-more" id="load-more" hidden><p id="load-more-label"></p><button class="button-secondary" id="show-more-events" type="button">Show more events</button></div>
           <p class="results-footnote">Dates and times use <span id="display-timezone">America/New_York</span>. Check the original listing for registration and access requirements.</p>
+          </div>
         </section>
       </div>
     </main>

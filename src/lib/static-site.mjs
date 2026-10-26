@@ -3,7 +3,7 @@ import path from 'node:path';
 import { inWindow } from './normalize.mjs';
 
 const SOURCE_FIELDS = ['id', 'department', 'org', 'url', 'kind', 'state', 'status', 'eventCount',
-  'lastAttempt', 'lastSuccess', 'error', 'warnings', 'reason', 'strategy', 'canonicalSourceId', 'coverage'];
+  'lastAttempt', 'lastSuccess', 'error', 'warnings', 'reason', 'strategy', 'canonicalSourceId', 'coverage', 'excludedCount', 'exclusionReasons'];
 
 /**
  * Reject incomplete or implausibly destructive refreshes before publication.
@@ -63,7 +63,7 @@ export async function buildStaticSite({ store, plans, subscriptions, webRoot, ou
   const quality = validatePublication({ events, sources, expectedSources: plans.length, refresh: status.lastRefresh,
     expectedRefreshSources: plans.filter(plan => ['active', 'empty'].includes(plan.status) && plan.adapter !== 'manual').length,
     previousEventCount, allowEventDrop });
-  const manifest = { version: 1, mode: 'static', generatedAt, lastUpdated: status.lastUpdated,
+  const manifest = { version: 1, eventSchema: 2, mode: 'static', generatedAt, lastUpdated: status.lastUpdated,
     updateIntervalHours: 24, staleAfterHours: 48, eventCount: events.length, sourceCount: sources.length,
     sourceRepository: 'https://github.com/OranSimon/CMUEvents',
     workflowUrl: 'https://github.com/OranSimon/CMUEvents/actions/workflows/daily-pages.yml' };

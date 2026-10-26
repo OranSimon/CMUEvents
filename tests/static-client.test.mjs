@@ -35,7 +35,7 @@ function event(overrides = {}) {
  */
 function publication(generation = generatedAt, events = [event()]) {
   return {
-    'manifest.json': { version: 1, mode: 'static', generatedAt: generation, updateIntervalHours: 24, staleAfterHours: 48 },
+    'manifest.json': { version: 1, eventSchema: 2, mode: 'static', generatedAt: generation, updateIntervalHours: 24, staleAfterHours: 48 },
     'events.json': { generatedAt: generation, events },
     'sources.json': { generatedAt: generation, sources: [{ id: 'source', url: 'https://example.edu/calendar', subscription: { kind: 'public_plus_email', emailEventsIngested: false } }] },
     'status.json': { generatedAt: generation, lastUpdated: '2026-10-24T18:00:00Z', totalEvents: events.length, sources: { total: 1, ok: 1 } },
@@ -205,4 +205,12 @@ test('API mode preserves local endpoints and uses POST only for explicit refresh
   assert.deepEqual(calls.map(call => call.url.pathname), ['/api/events', '/api/sources', '/api/status', '/api/refresh']);
   assert.equal(calls[0].url.searchParams.get('query'), 'robot');
   assert.deepEqual(calls.map(call => call.options.method), ['GET', 'GET', 'GET', 'POST']);
+});
+
+
+test('legacy published data without recurrence/range semantics cannot enter the new activity views', async () => {
+  const state = { files: publication() };
+  delete state.files['manifest.json'].eventSchema;
+  const client = createDataClient({ mode: 'static', baseUrl: 'https://example.github.io/CMUEvents/', fetchImpl: fixtureFetch(state, []) });
+  await assert.rejects(client.getEvents({ eventView: 'today' }), /unsupported version/);
 });

@@ -1,4 +1,5 @@
 import ICAL from 'ical.js';
+import { normalizeRecurrence, publishedSchedule } from '../lib/recurrence.mjs';
 import { absoluteUrl, isPlaceholderTitle, normalizeEvent, inWindow, plainText, zonedToIso } from '../lib/normalize.mjs';
 
 /**
@@ -119,6 +120,84 @@ function organizerValue(component) {
 }
 
 /**
+ * Describe explicit RFC recurrence or a direct published scheduling statement.
+ * @param {ICAL.Event} master Source recurring master or detached exception.
+ * @param {Object} plan Public source identity and timezone defaults.
+ * @return {Object|null} Portable series metadata with original source evidence.
+ */
+function calendarRecurrence(master, plan) {
+  const component = master.component;
+  const rules = component.getAllProperties('rrule').map(property => property.getFirstValue());
+  const fallback = plan.options?.timezone || 'America/New_York';
+  const zone = component.getFirstProperty('dtstart')?.getParameter('tzid') || fallback;
+  const originalUrl = component.getFirstPropertyValue('url');
+  const fields = { seriesStart: timeValue(master.startDate, zone, fallback),
+    hasOriginalUrl: Boolean(originalUrl && absoluteUrl(originalUrl, plan.fetchUrl || plan.url)),
+    updatedAt: timeValue(component.getFirstPropertyValue('last-modified'), fallback, fallback) };
+  if (rules.length || component.hasProperty('rdate') || component.hasProperty('recurrence-id')) {
+    const frequency = rules.length === 1 ? String(rules[0].freq || '').toLowerCase() : 'other';
+    const rule = rules[0];
+    return normalizeRecurrence({ seriesId: String(master.uid), source: rules.length ? 'rrule' : component.hasProperty('rdate') ? 'rdate' : 'recurrence-id',
+      frequency: ['daily', 'weekly', 'monthly', 'yearly'].includes(frequency) ? frequency : 'other',
+      interval: rules.length === 1 ? Number(rule.interval || 1) : 1,
+      ...(rules.length === 1 && rule.parts?.BYDAY ? { byDay: rule.parts.BYDAY } : {}),
+      ...(rule?.count ? { count: rule.count } : {}), ...(rule?.until ? { until: timeValue(rule.until, zone, fallback) } : {}),
+      evidence: rules.length ? rules.map(item => item.toString()).join('; ') : component.hasProperty('rdate') ? 'Publisher provides explicit RDATE occurrences' : 'Publisher provides an explicit RECURRENCE-ID',
+      ...fields });
+  }
+  const declared = publishedSchedule({ title: master.summary, description: plainText(master.description), organizer: organizerValue(component),
+    url: originalUrl && absoluteUrl(originalUrl, plan.fetchUrl || plan.url) || plan.url, uid: master.uid }, plan);
+  return declared ? normalizeRecurrence({ ...declared, ...fields }) : null;
+}
+
+/**
+ * Isolate an obsolete daily template that provides no usable event information.
+ * Explicit bounded recurrences, RDATEs, current exceptions and ordinary weekly meetings
+ * remain eligible. The age comparison uses the requested ingestion window.
+ * @param {ICAL.Event} master Source calendar master.
+ * @param {Object[]} exceptions Explicit exception components for this master.
+ * @param {Object} plan Public source identity.
+ * @param {Object} bounds Requested ingestion window.
+ * @return {boolean} Whether the low-information daily template is excluded.
+ */
+function staleDailyTemplate(master, exceptions, plan, bounds) {
+  const component = master.component;
+  const rules = component.getAllProperties('rrule').map(property => property.getFirstValue());
+  if (rules.length !== 1 || rules[0].freq !== 'DAILY' || rules[0].count != null || rules[0].until
+    || component.hasProperty('rdate') || exceptions.some(exception => !outsideWindow(exception, plan, bounds))) return false;
+  const recurrence = calendarRecurrence(master, plan);
+  return Boolean(recurrence?.seriesStart && Date.parse(recurrence.seriesStart) < Date.parse(bounds.windowStart) - 365 * 86400000
+    && !plainText(master.description).trim() && !plainText(master.location).trim() && !recurrence.hasOriginalUrl);
+}
+
+/**
+ * Convert an advertised public Google ICS identity to a readable official viewer.
+ * No private feed or synthetic event ID is used to create a destination.
+ * @param {Object} plan Public source and fetch URLs.
+ * @param {string} start Current occurrence's normalized start.
+ * @param {string} timeZone Current source timezone.
+ * @return {string|null} Read-only public calendar viewer, or null for other feeds.
+ */
+export function readableCalendarUrl(plan, start, timeZone = 'America/New_York') {
+  for (const value of [plan.url, plan.fetchUrl]) {
+    try {
+      const source = new URL(value);
+      const id = source.pathname.match(/^\/calendar\/ical\/([^/]+)\/public\/basic\.ics$/)?.[1];
+      if (!['calendar.google.com', 'www.google.com'].includes(source.hostname) || source.protocol !== 'https:' || !id) continue;
+      const date = start.length === 10 ? start : new Intl.DateTimeFormat('en-CA', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(start));
+      const next = new Date(`${date}T00:00:00Z`); next.setUTCDate(next.getUTCDate() + 1);
+      const viewer = new URL('https://calendar.google.com/calendar/embed');
+      viewer.searchParams.set('src', decodeURIComponent(id));
+      viewer.searchParams.set('mode', 'AGENDA');
+      viewer.searchParams.set('ctz', timeZone);
+      viewer.searchParams.set('dates', `${date.replaceAll('-', '')}/${next.toISOString().slice(0, 10).replaceAll('-', '')}`);
+      return viewer.href;
+    } catch { /* Invalid/private/non-Google feeds keep their reviewed source URL. */ }
+  }
+  return null;
+}
+
+/**
  * Extract one occurrence while retaining its stable recurrence identity.
  * @param {ICAL.Event} item Master or exception event.
  * @param {ICAL.Time} start Occurrence start.
@@ -136,13 +215,17 @@ function occurrence(item, start, end, recurrenceKey, plan, master = item) {
   const fallback = plan.options?.timezone || 'America/New_York';
   const categories = component.getAllProperties('categories').flatMap(property => property.getValues());
   const rawUrl = component.getFirstPropertyValue('url') || master.component.getFirstPropertyValue('url');
+  const startValue = timeValue(start, zone, fallback);
+  const originalUrl = rawUrl ? absoluteUrl(rawUrl, plan.fetchUrl || plan.url) : null;
+  const viewer = !originalUrl && startValue ? readableCalendarUrl(plan, startValue, zone || fallback) : null;
   return normalizeEvent({
     uid: recurrenceKey ? `${master.uid}::${recurrenceKey}` : master.uid,
     title: item.summary || master.summary,
     description: item.description || master.description,
-    start: timeValue(start, zone, fallback), end: timeValue(end, endZone, fallback),
+    start: startValue, end: timeValue(end, endZone, fallback),
     allDay: start?.isDate, timeZone: zone || fallback,
-    location: item.location || master.location, url: rawUrl ? absoluteUrl(rawUrl, plan.fetchUrl || plan.url) || plan.url : plan.url,
+    location: item.location || master.location, url: originalUrl || viewer || plan.url,
+    linkKind: originalUrl ? 'event-detail' : viewer ? 'calendar-viewer' : 'source-page', recurrence: calendarRecurrence(master, plan),
     organizer: organizerValue(component) || organizerValue(master.component),
     status: component.getFirstPropertyValue('status') || master.component.getFirstPropertyValue('status'),
     tags: categories,
@@ -163,6 +246,7 @@ export function parseIcs(text, plan = {}, context = {}) {
   const calendar = new ICAL.Component(ICAL.parse(text));
   const warnings = [];
   let partial = false;
+  let staleDailyTemplates = 0;
   const components = calendar.getAllSubcomponents('vevent');
   const now = new Date(context.now || Date.now());
   const upper = Date.parse(context.windowEnd || new Date(now.getTime() + 370 * 864e5).toISOString());
@@ -206,6 +290,11 @@ export function parseIcs(text, plan = {}, context = {}) {
     try {
       const master = new ICAL.Event(masterComponent, { strictExceptions: true, exceptions: [] });
       if (!master.startDate) { partial = true; warnings.push(`Skipped ${uid}: missing DTSTART`); continue; }
+      if (staleDailyTemplate(master, group.exceptions, plan, bounds)) {
+        staleDailyTemplates++;
+        warnings.push(`Excluded stale low-information unbounded daily template ${uid}: original DTSTART=${master.startDate.toString()} predates the window by more than a year; no published description, location or original web detail URL`);
+        continue;
+      }
       if (isPlaceholderTitle(master.summary)) {
         warnings.push(`Ignored schedule placeholder ${uid}: SUMMARY="${plainText(master.summary)}"; ${dateEvidence(masterComponent)}`);
         continue;
@@ -233,6 +322,20 @@ export function parseIcs(text, plan = {}, context = {}) {
       if (!master.isRecurring()) {
         add(occurrence(master, master.startDate, master.endDate, '', plan));
         continue;
+      }
+      if (masterComponent.hasProperty('rdate') && !masterComponent.hasProperty('rrule')) {
+        // ICAL's RDATE-only iterator omits DTSTART, which remains a member of
+        // the RFC recurrence set unless the publisher explicitly excludes it.
+        const zone = masterComponent.getFirstProperty('dtstart')?.getParameter('tzid') || plan.options?.timezone || 'America/New_York';
+        const first = timeValue(master.startDate, zone, zone);
+        const excluded = masterComponent.getAllProperties('exdate').some(property => property.getValues()
+          .some(value => timeValue(value, property.getParameter('tzid') || zone, zone) === first));
+        if (!excluded) {
+          const details = master.getOccurrenceDetails(master.startDate);
+          const key = master.startDate.toString();
+          const exception = exceptions.get(key);
+          add(occurrence(exception || details.item, details.startDate, details.endDate, key, plan, master));
+        }
       }
       const iterator = master.iterator();
       let next;
@@ -264,7 +367,7 @@ export function parseIcs(text, plan = {}, context = {}) {
     && !component.getFirstPropertyValue('dtstart').isDate && component.getFirstPropertyValue('dtstart').zone.tzid === 'floating')) {
     warnings.push(`Floating event times interpreted in ${plan.options?.timezone || 'America/New_York'}`);
   }
-  return { events: [...events.values()], warnings: [...new Set(warnings)], ...(partial ? { partial: true } : {}) };
+  return { events: [...events.values()], warnings: [...new Set(warnings)], ...(staleDailyTemplates ? { exclusionCounts: { staleDailyTemplates } } : {}), ...(partial ? { partial: true } : {}) };
 }
 
 /**

@@ -8,7 +8,7 @@ import { normalizeCoverage } from './source-coverage.mjs';
  * @return {string} Stable SHA-256 for snapshot compatibility.
  */
 export function extractionSignature(plan) {
-  return createHash('sha256').update(JSON.stringify({ adapter: plan.adapter, fetchUrl: plan.fetchUrl,
+  return createHash('sha256').update(JSON.stringify({ eventSchema: 2, adapter: plan.adapter, fetchUrl: plan.fetchUrl,
     status: plan.status, canonicalSourceId: plan.canonicalSourceId, options: plan.options || {} })).digest('hex');
 }
 

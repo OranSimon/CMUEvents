@@ -5015,17 +5015,22 @@
     },
     "https://cups.cs.cmu.edu/calendar.php": {
       "adapter": "html",
-      "fetchUrl": "https://cups.cs.cmu.edu/calendar.php",
+      "fetchUrl": "https://cups.cs.cmu.edu/cups-calendar.html",
+      "status": "active",
+      "canonicalSourceId": null,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "embeddedGoogleCalendarSelector": "iframe[src*=\"calendar.google.com\"]"
       },
-      "strategy": "Parse structured event data and explicitly dated event blocks, then follow event detail links for missing fields.",
+      "strategy": "Follow the official CUPS Calendar page and its currently advertised public Google calendar. Other Events of Interest calendars are separate publishers and do not establish source equivalence.",
+      "reason": "The previously aliased calendar is the separately advertised CyLab Student Seminar, not the CUPS calendar.",
       "evidence": {
-        "checkedAt": "2026-10-20T21:46:31.334798+00:00",
-        "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records."
+        "calendarIdentityReview": {
+          "checkedAt": "2026-10-26",
+          "report": "research/event-experience-2026-10-26/audit.json"
+        }
       }
     },
     "https://privacy.s3d.cmu.edu/masters/seminar/index.html": {

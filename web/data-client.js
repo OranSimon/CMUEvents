@@ -1,3 +1,5 @@
+import { matchesEventView } from "./event-semantics.js";
+
 const TIME_ZONE = "America/New_York";
 const eventIndexes = new WeakMap();
 const dayFormatters = new Map();
@@ -142,7 +144,10 @@ export function queryEventsSnapshot(snapshot, filters = {}, context = {}) {
   if (!from || (options.to && !to)) throw new Error("Dates must use a valid YYYY-MM-DD value.");
   if (to && to < from) throw new Error("The end date must be on or after the start date.");
   const terms = tokens(options.query || options.q).slice(0, 16);
-  const candidates = indexEvents(snapshot.events, timeZone).filter(entry => entry.endDay >= from && (!to || entry.startDay <= to) && terms.every(term => entry.words.some(word => word.startsWith(term))));
+  const today = context.today || zonedDay(context.now ?? Date.now(), timeZone);
+  const candidates = indexEvents(snapshot.events, timeZone).filter(entry => entry.endDay >= from && (!to || entry.startDay <= to)
+    && matchesEventView(entry, { ...options, from, to }, { today, now: context.now })
+    && terms.every(term => entry.words.some(word => word.startsWith(term))));
   const fields = { department: "departments", org: "orgs", tag: "tags", campus: "campus", mode: "mode" };
   const matching = candidates.filter(entry => Object.entries(fields).every(([filter, field]) => !options[filter] || entry.facets[field].includes(filter === "mode" ? attendanceMode(options[filter]) : options[filter])));
   const scores = terms.length ? new Map(matching.map(entry => [entry, relevance(entry, terms)])) : null;
@@ -211,7 +216,7 @@ export function createDataClient(options = {}) {
     if (snapshot && !force && (!check || clock() - lastManifestCheck < 60000)) return snapshot;
     inFlight = (async () => {
       const manifest = await readJson("data/manifest.json", { params: new URLSearchParams({ check: String(clock()) }) });
-      if (manifest.version !== 1 || manifest.mode !== "static" || !Number.isFinite(Date.parse(manifest.generatedAt))) throw new Error("The published manifest is invalid or uses an unsupported version.");
+      if (manifest.version !== 1 || manifest.eventSchema !== 2 || manifest.mode !== "static" || !Number.isFinite(Date.parse(manifest.generatedAt))) throw new Error("The published manifest is invalid or uses an unsupported version.");
       lastManifestCheck = clock();
       if (snapshot && !force && snapshot.manifest.generatedAt === manifest.generatedAt) return snapshot;
       const params = new URLSearchParams({ generation: manifest.generatedAt });

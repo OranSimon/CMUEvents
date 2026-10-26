@@ -2,6 +2,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { createHash } from 'node:crypto';
 import { classifyEvent } from '../classify.mjs';
 import { localDay } from '../config.mjs';
+import { matchesEventView, calendarEligibility } from '../../web/event-semantics.js';
 
 /**
  * Build a short stable identifier for an event occurrence.
@@ -113,6 +114,8 @@ function mergeEvent(target, incoming) {
     target.sources.push(source);
     sourceIds.add(source.id);
   }
+  if (incoming.eventType === 'recurring' && incoming.recurrence && target.eventType !== 'recurring') { target.eventType = 'recurring'; target.recurrence = incoming.recurrence; }
+  if (incoming.scheduleKind === 'continuous') { target.scheduleKind = 'continuous'; if (incoming.dateEvidence) target.dateEvidence = incoming.dateEvidence; }
   target.tags = [...new Set([...(target.tags || []), ...(incoming.tags || [])])];
   return target;
 }
@@ -386,7 +389,12 @@ export function openStore(filename) {
       db.exec('DELETE FROM events; DELETE FROM event_search;');
       const insert = db.prepare('INSERT INTO events VALUES (?,?,?,?,?,?)');
       const search = db.prepare('INSERT INTO event_search VALUES (?,?,?,?)');
+      let publishedCount = 0;
+      const exclusions = [];
       for (const raw of merged.values()) {
+        const eligibility = calendarEligibility(raw);
+        if (!eligibility.eligible) { exclusions.push({ uid: raw.uid, title: raw.title, url: raw.url, sourceIds: raw.sources.map(source => source.id), code: eligibility.code, reason: eligibility.reason }); continue; }
+        publishedCount++;
         const sources = raw.sources.sort((a, b) => a.department.localeCompare(b.department) || a.org.localeCompare(b.org));
         const departments = [...new Set(sources.map(source => source.department))];
         const orgs = [...new Set(sources.map(source => source.org))];
@@ -398,9 +406,10 @@ export function openStore(filename) {
         insert.run(event.id, event.start, event.end, startDay, endDay, JSON.stringify(event));
         search.run(event.id, event.title, [...departments, ...orgs, ...event.tags, event.location].join(' '), event.description);
       }
+      setMeta('eventExclusions', { checkedAt: new Date().toISOString(), count: exclusions.length, records: exclusions });
       db.exec('COMMIT');
+      return publishedCount;
     } catch (error) { db.exec('ROLLBACK'); throw error; }
-    return merged.size;
   }
 
   /**
@@ -418,7 +427,13 @@ export function openStore(filename) {
     if (query) { sql += ' JOIN event_search f ON f.id=e.id'; conditions.push('event_search MATCH ?'); args.push(query); }
     if (conditions.length) sql += ` WHERE ${conditions.join(' AND ')}`;
     sql += query ? ' ORDER BY bm25(event_search,0,8,3,1),e.start,e.id' : ' ORDER BY e.start,e.id';
-    const candidates = db.prepare(sql).all(...args).map(row => JSON.parse(row.data));
+    const candidates = db.prepare(sql).all(...args).map(row => JSON.parse(row.data))
+      .filter(event => {
+        const startDay = event.allDay ? event.start.slice(0, 10) : localDay(event.start);
+        const last = Date.parse(event.end) > Date.parse(event.start) ? Date.parse(event.end) - 1 : Date.parse(event.start);
+        const endDay = event.allDay ? new Date(last).toISOString().slice(0, 10) : localDay(last);
+        return matchesEventView({ event, startDay, endDay }, options, { today: options.today || localDay(options.now || Date.now()), now: options.now });
+      });
     const fields = { department: 'departments', org: 'orgs', tag: 'tags', campus: 'campus', mode: 'mode' };
     const matching = candidates.filter(event => Object.entries(fields).every(([filter, field]) => !options[filter]
       || (Array.isArray(event[field]) ? event[field].includes(options[filter]) : event[field] === options[filter])));
@@ -436,9 +451,17 @@ export function openStore(filename) {
    * @return {Array<Object>} Source plans enriched with persisted refresh health.
    */
   function listSources() {
+    const excluded = new Map();
+    for (const record of getMeta('eventExclusions', { records: [] }).records || []) for (const id of record.sourceIds || []) {
+      const counts = excluded.get(id) || {};
+      counts[record.code] = (counts[record.code] || 0) + 1;
+      excluded.set(id, counts);
+    }
     return db.prepare('SELECT * FROM sources ORDER BY id').all().map(row => ({ ...JSON.parse(row.plan),
       state: row.state, lastAttempt: row.last_attempt, lastSuccess: row.last_success, error: row.error,
-      warnings: JSON.parse(row.warnings || '[]'), eventCount: row.event_count, coverage: getMeta(`sourceCoverage:${row.id}`) }));
+      warnings: JSON.parse(row.warnings || '[]'),
+      eventCount: Math.max(0, row.event_count - Object.values(excluded.get(row.id) || {}).reduce((sum, count) => sum + count, 0)),
+      excludedCount: Object.values(excluded.get(row.id) || {}).reduce((sum, count) => sum + count, 0), exclusionReasons: excluded.get(row.id) || {}, coverage: getMeta(`sourceCoverage:${row.id}`) }));
   }
 
   /**

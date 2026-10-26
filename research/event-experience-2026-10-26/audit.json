@@ -1,0 +1,259 @@
+{
+  "checkedAt": "2026-10-26T14:56:52.813Z",
+  "baselineGeneration": "2026-10-26T05:33:39.443Z",
+  "baselineCounts": {
+    "events": 4425,
+    "precision": {
+      "time": 3534,
+      "all-day": 772,
+      "date": 119
+    },
+    "emptyDescriptions": 696
+  },
+  "paginationEvidence": {
+    "query": {
+      "from": "2026-10-26",
+      "limit": 24
+    },
+    "pages": [
+      {
+        "page": 1,
+        "total": 3646,
+        "count": 24,
+        "minimumStart": "2026-09-04T13:00:00.000Z",
+        "maximumStart": "2026-10-26T14:00:00.000Z",
+        "days": [
+          "2026-09-04",
+          "2026-10-20",
+          "2026-10-25",
+          "2026-10-26"
+        ]
+      },
+      {
+        "page": 2,
+        "total": 3646,
+        "count": 24,
+        "minimumStart": "2026-10-26T14:30:00.000Z",
+        "maximumStart": "2026-10-26T20:00:00.000Z",
+        "days": [
+          "2026-10-26"
+        ]
+      },
+      {
+        "page": 3,
+        "total": 3646,
+        "count": 24,
+        "minimumStart": "2026-10-26T20:00:00.000Z",
+        "maximumStart": "2026-10-26T21:00:00.000Z",
+        "days": [
+          "2026-10-26"
+        ]
+      }
+    ],
+    "conclusion": "Pages are slices of one globally sorted list, not complete day sections. Pages2 and3 still hold October26 events. Grouping a 24-item slice cannot imply that all Today/Ongoing results fit on the first page."
+  },
+  "ongoingEvidence": [
+    {
+      "id": "5956fd2b1c6ee6df83df9d95",
+      "title": "[ABA] 2026-2027 MERCH",
+      "start": "2026-09-04T13:00:00.000Z",
+      "end": "2027-03-31T04:00:00.000Z",
+      "url": "https://tartanconnect.cmu.edu/rsvp?id=1935731",
+      "sourceIds": [
+        "5d10172e6358"
+      ],
+      "semanticReview": "Officially dated merchandise sales window, not a continuously running social event"
+    },
+    {
+      "id": "3fafdc262ede222d0a48c329",
+      "title": "[BBA] 2026-2027 Merch",
+      "start": "2026-10-20T17:00:00.000Z",
+      "end": "2026-11-07T04:55:00.000Z",
+      "url": "https://tartanconnect.cmu.edu/rsvp?id=1938213",
+      "sourceIds": [
+        "5d10172e6358"
+      ],
+      "semanticReview": "Officially dated merchandise sales window, not a continuously running social event"
+    },
+    {
+      "id": "13b97c81519b130ce74de78e",
+      "title": "Launch and Lead",
+      "start": "2026-10-25",
+      "end": "2026-10-30",
+      "url": "https://www.qatar.cmu.edu/event/launch-and-lead/",
+      "sourceIds": [
+        "7c6d43b95f14",
+        "312c754f99d0",
+        "0b99cc282cfd",
+        "94f15c9238e1"
+      ],
+      "semanticReview": "Publisher-dated multiday camp; can remain a continuous program rather than a dated session"
+    }
+  ],
+  "cupsIdentity": {
+    "landingUrl": "https://cups.cs.cmu.edu/calendar.php",
+    "advertisedCupsCalendarUrl": "https://cups.cs.cmu.edu/cups-calendar.html",
+    "actualCupsCalendarId": "bgbfl3d3f7spelekch48n52i98@group.calendar.google.com",
+    "actualCupsFeedName": "CUPS calendar",
+    "actualRawVevents": 149,
+    "actualEarliestStart": "2012-01-18T12:00:00",
+    "actualLatestStart": "2015-05-20T12:00:00",
+    "currentWindowEvents": 0,
+    "configuredSourceId": "f9d3a4ba25aa",
+    "configuredCalendarId": "v6blktp0f5a8p7ktqkmftic64s@group.calendar.google.com",
+    "configuredFeedName": "CyLab Student Seminar",
+    "landingLinkContext": "The v6bl calendar is advertised under Other Events of Interest → CyLab Student Seminar, not under CUPS Lab Meetings.",
+    "lowInformationRecurringMaster": {
+      "uid": "696deef3oh7456gaubms4o29ok@google.com",
+      "title": "INTRA_CREATE",
+      "start": "2019-12-04T14:25:00",
+      "tzid": "Asia/Hong_Kong",
+      "rrule": "FREQ=DAILY",
+      "lastModified": "2022-04-01T06:15:06Z",
+      "hasDescription": false,
+      "hasLocation": false,
+      "hasOriginalUrl": false,
+      "publishedExpandedOccurrences": 395
+    },
+    "suggestedAction": "Discover actual CUPS calendar from its currently advertised page; correct the CyLab seminar feed identity rather than pretending both calendar IDs are the same. Quarantine stale unbounded low-information recurrence templates; do not hardcode this event title, UID or date and do not drop well-evidenced recurring activities."
+  },
+  "sourcePageReview": [
+    {
+      "key": "coe-page",
+      "url": "https://events.cmu.edu/computing/event/32218-change-management-center-of-excellence-coe",
+      "method": "CUA rendered visible event content",
+      "conclusion": "Dynamic event page resolves to a broad Sep1–Dec18 program range, a two-day cohort note and an advertised training schedule link. Initial HTTP shell is not proof of a blank publisher page."
+    },
+    {
+      "key": "posner-page",
+      "url": "https://events.cmu.edu/library/event/26118-rare-books-ancestral-machines-the-inaugural",
+      "method": "CUA rendered visible event content",
+      "conclusion": "CUA resolves a Dec2 2025–Dec31 2026 exhibition period. Published hours close on Mondays; Tue–Fri10–15 and Thu15–19 do not imply daily standalone events or opening right now."
+    },
+    {
+      "key": "scs-calendar-page",
+      "url": "https://www.cs.cmu.edu/calendar/206882491",
+      "method": "CUA rendered visible event content",
+      "conclusion": "CUA initially exposes a shell, then resolves the lecture title, October26 2026 17:00–18:30 EDT and room. Retain this real dated event."
+    },
+    {
+      "key": "theory-tbd",
+      "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261028.html",
+      "method": "anonymous HTML",
+      "conclusion": "Static HTML has a named speaker, October28 2026 and room, while topic/abstract are pending and no clock is supplied. Keep date-only precision; do not call this completely blank."
+    }
+  ],
+  "placeholderEvidence": {
+    "sampleUrl": "https://tartanconnect.cmu.edu/rsvp?id=1935999",
+    "sampleTitle": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+    "publishedRows": 29,
+    "publisherSignal": "DO NOT SCHEDULE CLUB EVENTS DURING THIS TIME",
+    "conclusion": "These are real calendar time reservations, but not confirmed public event invitations. Exclude generic scheduling holds/placeholders from public event recommendations without filtering by student-club organizer identity."
+  },
+  "recurrenceEvidence": {
+    "rawIcsRecurrence": "DTSTART plus RRULE/RDATE and per-occurrence recurrence-id establish source recurrence. Keep metadata through normalization/store/state export so the client can distinguish a series from an independent dated event.",
+    "livewhaleSamples": "fixtures/livewhale-range-clones.json",
+    "rule": "A repeated id with repeats:null, explicit repeats_start/end and day-only clones is a continuous display range, not proof of daily recurrence. Explicit repeats:weekly is a different case."
+  },
+  "recommendations": [
+    {
+      "area": "event views",
+      "change": "Today should query all today records as a semantic scope. A separate date picker or named Upcoming scope can browse future days. Replace ambiguous global Next/Prev with date navigation or explicit load-more within a named scope."
+    },
+    {
+      "area": "recurring programs",
+      "change": "Keep genuine source-evidenced recurrence in a separate recurring view, grouped by series identity and showing next verified occurrence; do not manufacture weekly sessions from descriptive text alone."
+    },
+    {
+      "area": "continuous programs",
+      "change": "Show true exhibitions/camps with published full date ranges separately from scheduled sessions. Do not treat sales/enrollment windows as events currently happening."
+    },
+    {
+      "area": "source evidence",
+      "change": "Preserve date-only events when day is grounded but clock is absent. Do not equate empty description, initial JavaScript shell or ICS download with a blank original event. Conversely, do not classify source-internal holds or old metadata-free unbounded templates as public invitations."
+    }
+  ],
+  "httpEvidence": [
+    {
+      "key": "5d10172e6358",
+      "url": "https://tartanconnect.cmu.edu/ical/tepper/ical_tepper.ics",
+      "ok": true,
+      "bytes": 1576062,
+      "sha256": "19abe548f4b824a3f8e87584dc1242bcc421ee5c08f6cd047d96633454b6a4f0",
+      "title": ""
+    },
+    {
+      "key": "f9d3a4ba25aa",
+      "url": "https://calendar.google.com/calendar/ical/v6blktp0f5a8p7ktqkmftic64s%40group.calendar.google.com/public/basic.ics",
+      "ok": true,
+      "bytes": 6422,
+      "sha256": "3fb34613d35e046c246d1cfb571165299a14adbe16c91059423b8b24260ea6ea",
+      "title": ""
+    },
+    {
+      "key": "f4445e0c001d",
+      "url": "https://calendar.google.com/calendar/ical/lejhl4p74uu6amjhc0ui9vkvk4%40group.calendar.google.com/public/basic.ics",
+      "ok": true,
+      "bytes": 3455054,
+      "sha256": "03812d322a65cf11dcd311e3134de1380cb7fc35eb4d848b382f83203f1e0b4f",
+      "title": ""
+    },
+    {
+      "key": "580e4a2ea37b",
+      "url": "https://events.cmu.edu/live/json/events/group/Computing%20Services/response_fields/location,tags,summary,description,group_title,status,event_types,registration",
+      "ok": true,
+      "bytes": 124508,
+      "sha256": "8e5c289d33725e5ed2f12df03b1c923c5510a99b6acf0b6e46f6e460d0efd628",
+      "title": ""
+    },
+    {
+      "key": "merch-aba",
+      "url": "https://tartanconnect.cmu.edu/rsvp?id=1935731",
+      "ok": true,
+      "bytes": 92960,
+      "sha256": "8b5e1476de587b8038b52acc3e19f0412acc0de1999eb138f807ec4fb11384f2",
+      "title": "[ABA] 2026-2027 MERCH - Asian Business Association"
+    },
+    {
+      "key": "merch-bba",
+      "url": "https://tartanconnect.cmu.edu/rsvp?id=1938213",
+      "ok": true,
+      "bytes": 84376,
+      "sha256": "f62d93dccc143583b39f845f9cece5d0320f11788a756e052da4a4fa430345aa",
+      "title": "[BBA] 2026-2027 Merch - Black Business Association Club"
+    },
+    {
+      "key": "coe-page",
+      "url": "https://events.cmu.edu/computing/event/32218-change-management-center-of-excellence-coe",
+      "ok": true,
+      "bytes": 62979,
+      "sha256": "89719c55f32ffb32f2cd7ca6e5fc0ce0f3aaa84c4bede42f1b00da9d868743b8",
+      "title": "Change Management Center of Excellence (CoE) / Computing Services – CMU Events Calendar"
+    },
+    {
+      "key": "posner-page",
+      "url": "https://events.cmu.edu/library/event/26118-rare-books-ancestral-machines-the-inaugural",
+      "ok": true,
+      "bytes": 63380,
+      "sha256": "dc741ec163024411bbe31d35037a6c5021e82ae6d084aba9146eb56d4be3b778",
+      "title": "Rare Books & Ancestral Machines: The Inaugural Exhibition of the Posner Center for Special Collections / Libraries – CMU Events Calendar"
+    },
+    {
+      "key": "hold-page",
+      "url": "https://tartanconnect.cmu.edu/rsvp?id=1935999",
+      "ok": true,
+      "bytes": 63516,
+      "sha256": "ba981fd898fd29994a404839522ac2977eb1daa04bffd97c3ac73bce8adfd65d",
+      "title": "HOLD for MCC Corporate Presentation – Full-time and Internship   - Masters Career Center"
+    },
+    {
+      "key": "theory-tbd",
+      "url": "https://www.cs.cmu.edu/~theorylunch/abstractsHTML/20261028.html",
+      "ok": true,
+      "bytes": 1175,
+      "sha256": "808cf86d15cf08ff4b5a6c37e13deea50863820ccfb266851cb0d07b5452358d",
+      "title": "Title TBD"
+    }
+  ],
+  "rawEvidenceStoredOnlyInIgnoredCache": ".cache/event-experience/; full API contact, RSVP and owner fields were not copied into this report."
+}

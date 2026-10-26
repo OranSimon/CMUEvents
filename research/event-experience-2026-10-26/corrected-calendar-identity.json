@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-26T15:14:22.867Z",
+  "results": [
+    {
+      "id": "277b78a887e9",
+      "org": "CUPS Calendar",
+      "url": "https://cups.cs.cmu.edu/calendar.php",
+      "fetchUrl": "https://cups.cs.cmu.edu/cups-calendar.html",
+      "state": "empty",
+      "count": 0,
+      "warnings": []
+    },
+    {
+      "id": "f9d3a4ba25aa",
+      "org": "CyLab Student Seminar",
+      "url": "https://calendar.google.com/calendar/ical/v6blktp0f5a8p7ktqkmftic64s%40group.calendar.google.com/public/basic.ics",
+      "fetchUrl": "https://calendar.google.com/calendar/ical/v6blktp0f5a8p7ktqkmftic64s%40group.calendar.google.com/public/basic.ics",
+      "state": "empty",
+      "count": 0,
+      "warnings": [
+        "Excluded stale low-information unbounded daily template 696deef3oh7456gaubms4o29ok@google.com: original DTSTART=2019-12-04T14:25:00 predates the window by more than a year; no published description, location or original web detail URL",
+        "Ignored non-web URL scheme \"message:\" for 345CB888-0F2C-40AB-B104-620F80B7FCB3; public source URL used instead; DTSTART=2018-01-21T07:00:00Z; DTEND=2018-01-21T08:00:00Z; no RRULE/RDATE"
+      ]
+    }
+  ]
+}

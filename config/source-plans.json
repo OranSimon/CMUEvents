@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T04:36:59.871Z",
+  "generatedAt": "2026-10-26T14:57:18.077Z",
   "catalogCount": 318,
   "statusDefinitions": {
     "active": "An implemented adapter is scheduled for automatic extraction.",
@@ -23,8 +23,8 @@
       "wordpress": 6
     },
     "statuses": {
-      "active": 262,
-      "covered": 38,
+      "active": 263,
+      "covered": 37,
       "empty": 14,
       "subscription_only": 4
     }
@@ -8176,28 +8176,30 @@
       "url": "https://cups.cs.cmu.edu/calendar.php",
       "kind": "event_listing",
       "adapter": "html",
-      "fetchUrl": "https://cups.cs.cmu.edu/calendar.php",
-      "status": "covered",
-      "canonicalSourceId": "f9d3a4ba25aa",
+      "fetchUrl": "https://cups.cs.cmu.edu/cups-calendar.html",
+      "status": "active",
+      "canonicalSourceId": null,
       "refreshHours": 6,
       "options": {
         "timezone": "America/New_York",
-        "detailLinks": true,
-        "maxDetails": 8
+        "preferFeed": false,
+        "detailLinks": false,
+        "embeddedGoogleCalendarSelector": "iframe[src*=\"calendar.google.com\"]"
       },
-      "strategy": "Reuse the verified https://calendar.google.com/calendar/ical/v6blktp0f5a8p7ktqkmftic64s%40group.calendar.google.com/public/basic.ics feed and merge this source into event provenance.",
-      "reason": "An equivalent public iCalendar source is fetched once; this source retains its department and organization attribution.",
+      "strategy": "Follow the official CUPS Calendar page and its currently advertised public Google calendar. Other Events of Interest calendars are separate publishers and do not establish source equivalence.",
+      "reason": "The previously aliased calendar is the separately advertised CyLab Student Seminar, not the CUPS calendar.",
       "evidence": {
         "anonymousAccessVerified": true,
-        "checkedAt": "2026-10-20T21:46:31.334798+00:00",
-        "httpStatus": 200,
-        "structure": "Public HTML inspected; accept only independently dated event records."
+        "calendarIdentityReview": {
+          "checkedAt": "2026-10-26",
+          "report": "research/event-experience-2026-10-26/audit.json"
+        }
       }
     },
     {
       "id": "f9d3a4ba25aa",
       "department": "School of Computer Science / Software and Societal Systems Department",
-      "org": "CUPS Calendar",
+      "org": "CyLab Student Seminar",
       "url": "https://calendar.google.com/calendar/ical/v6blktp0f5a8p7ktqkmftic64s%40group.calendar.google.com/public/basic.ics",
       "kind": "ical_feed",
       "adapter": "ics",
