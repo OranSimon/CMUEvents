@@ -747,11 +747,26 @@ function showToast(message) {
  */
 function originalLinks(event) {
   const links = [];
-  const primary = safeUrl(event.url || event.originalUrl || event.link);
-  if (primary) links.push({ url: primary, label: event.linkKind === "calendar-viewer" ? "Open published calendar" : event.linkKind === "source-page" ? "Open source listing" : "View original event" });
-  (Array.isArray(event.sources) ? event.sources : []).forEach(source => {
-    const url = safeUrl(typeof source === "string" ? source : source.eventUrl || source.url || source.link);
-    if (url && !links.some(link => link.url === url)) links.push({ url, label: typeof source === "string" ? new URL(url).hostname : source.org || source.name || source.title || source.department || new URL(url).hostname });
+  const sources = Array.isArray(event.sources) ? event.sources : [];
+  const download = url => {
+    const parsed = new URL(url);
+    return /\.ics$/i.test(parsed.pathname) || /\/calendar\/ical\//i.test(parsed.pathname)
+      || ["format", "output"].some(key => /^(?:ics|ical|icalendar)$/i.test(parsed.searchParams.get(key) || ""));
+  };
+  let primary = safeUrl(event.url || event.originalUrl || event.link);
+  let label = event.linkKind === "calendar-viewer" ? "Open published calendar" : event.linkKind === "source-page" ? "Open source listing" : "View original event";
+  if (primary && download(primary)) {
+    const detail = sources.map(source => safeUrl(source?.eventUrl)).find(url => url && !download(url));
+    const listing = sources.map(source => safeUrl(typeof source === "string" ? source : source.url || source.link)).find(url => url && !download(url));
+    primary = detail || listing || primary;
+    label = download(primary) ? "Download calendar feed" : detail && detail !== listing ? "View original event" : "Open source listing";
+  }
+  if (primary) links.push({ url: primary, label });
+  sources.forEach(source => {
+    const eventUrl = safeUrl(typeof source === "string" ? source : source.eventUrl);
+    const listing = safeUrl(typeof source === "string" ? source : source.url || source.link);
+    const url = eventUrl && !download(eventUrl) ? eventUrl : listing && !download(listing) ? listing : eventUrl || listing;
+    if (url && !links.some(link => link.url === url)) links.push({ url, label: download(url) ? "Download calendar feed" : typeof source === "string" ? new URL(url).hostname : source.org || source.name || source.title || source.department || new URL(url).hostname });
   });
   return links;
 }

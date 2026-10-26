@@ -108,6 +108,23 @@ test('the markup offers explicit schedule tabs and no global Previous or Next co
   assert.equal($('#sources-dialog,#subscriptions-dialog').length, 2);
 });
 
+test('calendar downloads use an existing readable source alias and remain explicitly labeled when no web page exists', () => {
+  const app = application(async () => ({}));
+  const event = { url: 'https://example.edu/ical/calendar.ics', linkKind: 'source-page', sources: [
+    { org: 'Official calendar', url: 'https://example.edu/ical/calendar.ics', eventUrl: 'https://example.edu/ical/calendar.ics' },
+    { org: 'Official calendar', url: 'https://example.edu/calendar', eventUrl: 'https://example.edu/ical/calendar.ics' }
+  ] };
+  const links = JSON.parse(app.run(`JSON.stringify(originalLinks(${JSON.stringify(event)}))`));
+  assert.deepEqual(links[0], { url: 'https://example.edu/calendar', label: 'Open source listing' });
+  assert.ok(links.some(link => link.label === 'Download calendar feed'));
+  const feedOnly = JSON.parse(app.run(`JSON.stringify(originalLinks(${JSON.stringify({ ...event, sources: [] })}))`));
+  assert.equal(feedOnly[0].label, 'Download calendar feed');
+  const viewer = JSON.parse(app.run('JSON.stringify(originalLinks({url:"https://calendar.google.com/calendar/embed?src=public",linkKind:"calendar-viewer"}))'));
+  assert.equal(viewer[0].label, 'Open published calendar');
+  const detail = JSON.parse(app.run(`JSON.stringify(originalLinks(${JSON.stringify({ ...event, url: 'https://example.edu/event/42', linkKind: 'event-detail' })}))`));
+  assert.deepEqual(detail[0], { url: 'https://example.edu/event/42', label: 'View original event' });
+});
+
 test('switching views cancels a pending complete-Today fetch before it requests hidden later pages', async () => {
   const rows = occurrences(205);
   const calls = [];
