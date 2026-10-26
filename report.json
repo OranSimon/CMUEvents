@@ -1,0 +1,40 @@
+{
+  "manifest": {
+    "version": 1,
+    "mode": "static",
+    "generatedAt": "2026-10-26T03:15:47.701Z",
+    "lastUpdated": "2026-10-26T03:15:47.666Z",
+    "updateIntervalHours": 24,
+    "staleAfterHours": 48,
+    "eventCount": 4402,
+    "sourceCount": 318,
+    "sourceRepository": "https://github.com/OranSimon/CMUEvents",
+    "workflowUrl": "https://github.com/OranSimon/CMUEvents/actions/workflows/daily-pages.yml"
+  },
+  "quality": {
+    "eventCount": 4402,
+    "sourceCount": 318,
+    "checkedSources": 276,
+    "completeSources": 266,
+    "successRatio": 0.9637681159420289,
+    "previousEventCount": 0,
+    "retainedRatio": null,
+    "allowEventDrop": false
+  },
+  "refresh": {
+    "startedAt": "2026-10-26T03:06:39.313Z",
+    "completedAt": "2026-10-26T03:15:47.667Z",
+    "total": 276,
+    "completed": 276,
+    "ok": 187,
+    "empty": 75,
+    "undated": 4,
+    "error": 10,
+    "totalEvents": 4402,
+    "transfers": {
+      "requests": 602,
+      "cacheHits": 2,
+      "bytes": 118761451
+    }
+  }
+}
