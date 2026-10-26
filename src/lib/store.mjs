@@ -49,6 +49,34 @@ function detailDayKey(event) {
 }
 
 /**
+ * Match one imprecise single-day occurrence to a unique current published clock.
+ * Exact URL, title and local day are required. Multiple clocks, different unknown
+ * identities, explicit all-day records and multiday ranges remain separate.
+ * @param {Object[]} events Current normalized source snapshots.
+ * @return {Map<string,Object>} Safe title/link/day clock upgrades.
+ */
+function timedDayUpgrades(events) {
+  const groups = new Map();
+  for (const event of events) {
+    const key = detailDayKey(event);
+    if (!key) continue;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(event);
+  }
+  const upgrades = new Map();
+  for (const [key, group] of groups) {
+    if (group.some(event => event.timePrecision === 'all-day'
+      || (event.timePrecision === 'date' && Date.parse(event.end) - Date.parse(event.start) !== 86400000))) continue;
+    const dates = group.filter(event => event.timePrecision === 'date');
+    const clocks = group.filter(event => event.timePrecision === 'time');
+    if (!dates.length || !clocks.length || new Set(dates.map(event => event.uid || `${event.url}|${event.start}`)).size !== 1
+      || new Set(clocks.map(event => event.start)).size !== 1) continue;
+    upgrades.set(key, clocks[0]);
+  }
+  return upgrades;
+}
+
+/**
  * Generate evidence-based duplicate keys for one occurrence.
  * @param {Object} event Normalized event.
  * @return {Array<string>} UID and source-link keys including the occurrence start.
@@ -204,17 +232,18 @@ export function openStore(filename) {
    * @param {Array<string>} warnings Extraction limitations.
    * @param {string} now ISO refresh timestamp.
    * @param {string} zeroState Distinguish a reviewed undated resource from an empty calendar.
+   * @param {string|null} partialError Detail-only limitation after an exhaustive inventory.
    * @return {void}
    */
-  function replaceSource(sourceId, events, warnings = [], now = new Date().toISOString(), zeroState = 'empty') {
+  function replaceSource(sourceId, events, warnings = [], now = new Date().toISOString(), zeroState = 'empty', partialError = null) {
     if (!['empty', 'undated'].includes(zeroState)) throw new Error('Invalid zero-record source state');
     db.exec('BEGIN');
     try {
       db.prepare('DELETE FROM occurrences WHERE source_id=?').run(sourceId);
       const insert = db.prepare('INSERT OR REPLACE INTO occurrences VALUES (?,?,?)');
       for (const event of events) insert.run(sourceId, identifier(occurrenceKeys(event)[0]), JSON.stringify(event));
-      db.prepare('UPDATE sources SET state=?,last_attempt=?,last_success=?,error=NULL,warnings=?,event_count=? WHERE id=?')
-        .run(events.length ? 'ok' : zeroState, now, now, JSON.stringify(warnings), events.length, sourceId);
+      db.prepare('UPDATE sources SET state=?,last_attempt=?,last_success=?,error=?,warnings=?,event_count=? WHERE id=?')
+        .run(partialError ? 'error' : events.length ? 'ok' : zeroState, now, now, partialError, JSON.stringify(warnings), events.length, sourceId);
       db.exec('COMMIT');
     } catch (error) { db.exec('ROLLBACK'); throw error; }
   }
@@ -327,10 +356,16 @@ export function openStore(filename) {
     }
     const merged = new Map();
     const keyMap = new Map();
-    for (const row of db.prepare('SELECT source_id,data FROM occurrences ORDER BY source_id,occurrence_key').all()) {
+    const rows = db.prepare('SELECT source_id,data FROM occurrences ORDER BY source_id,occurrence_key').all()
+      .filter(row => byId.has(row.source_id) && byId.get(row.source_id).status !== 'covered')
+      .map(row => ({ ...row, event: JSON.parse(row.data) }));
+    const upgrades = timedDayUpgrades(rows.map(row => row.event));
+    for (const row of rows) {
       const plan = byId.get(row.source_id);
       if (!plan || plan.status === 'covered') continue;
-      const event = JSON.parse(row.data);
+      let event = row.event;
+      const clock = event.timePrecision === 'date' ? upgrades.get(detailDayKey(event)) : null;
+      if (clock) event = { ...event, start: clock.start, end: clock.end, timeZone: clock.timeZone, timePrecision: 'time', allDay: false };
       event.sources = [plan, ...(aliases.get(plan.id) || [])].map(source => ({
         id: source.id, department: source.department, org: source.org, url: source.url, eventUrl: event.url,
       }));

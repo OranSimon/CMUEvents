@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { parseSeminarDirectory, parseSemanticSeminar, advertisedSeminarFeeds, fetchSeminarDirectory } from '../src/adapters/seminar-discovery.mjs';
 import { fetchEvents, combineSourceCoverage } from '../src/adapters/index.mjs';
+import { normalizeEvent } from '../src/lib/normalize.mjs';
+import { openStore } from '../src/lib/store.mjs';
 
 const directory = JSON.parse(readFileSync(new URL('./fixtures/seminar-discovery/directory.json', import.meta.url)));
 const patch = JSON.parse(readFileSync(new URL('../research/remaining-10-2026-10-26/directory-real-patch.json', import.meta.url)));
@@ -10,6 +12,76 @@ const window = { windowStart: '2026-09-26', windowEnd: '2027-10-26' };
 const ics = 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nUID:official-club-repost\r\nDTSTART:20261101T170000Z\r\nSUMMARY:Student Club hosted academic seminar\r\nURL:https://club.example/event\r\nEND:VEVENT\r\nEND:VCALENDAR';
 const dirPlan = (id = 'directory', rows = [['Series', 'S', 'https://series.example/']]) => ({ id, org: 'Seminar directory', url: `https://directory.example/${id}`, fetchUrl: `https://directory.example/${id}`, adapter: 'html', status: 'active', options: { format: 'scs-directory', directoryUrl: `https://directory.example/${id}.json` } });
 const dataFor = rows => JSON.stringify({ success: 'true', more: '0', cols: [{ n: 'seminar-name' }, { n: 'aka' }, { n: 'web-url' }], data: rows });
+
+/**
+ * Exercise profile reconciliation through the actual directory contract.
+ * @param {Object[]} previous Existing normalized narrow catalog records.
+ * @param {Object[]} fresh Current normalized structural profile records.
+ * @return {Promise<Object>} Combined source result.
+ */
+function reconcileProfile(previous, fresh) {
+  const plan = dirPlan();
+  plan.options.bindings = [{ name: 'Series', sourceId: 'official-catalog', profile: { format: 'semantic-seminar', layout: 'dated-table' } }];
+  return fetchSeminarDirectory(plan, { sourcePlans: [], fetchText: async () => dataFor([['Series', '', 'https://series.example/']]),
+    resolveSource: async () => ({ events: previous }), fetchSourcePlan: async () => ({ events: fresh }) });
+}
+
+test('a uniquely matched current speaker clock upgrades unknown time while preserving the original identity, title and existing venue', async () => {
+  const previous = normalizeEvent({ uid: 'catalog-original', title: 'Seminar — Ada Researcher', start: '2026-11-03',
+    url: 'https://series.example/original', location: 'Original Room' });
+  const fresh = normalizeEvent({ uid: 'structural-profile', title: 'Newly supplied abstract title', start: '2026-11-03T23:30:00', end: '2026-11-04T00:00:00',
+    description: 'Speaker: Ada Researcher.\nLive source text.', url: 'https://series.example/index.html', location: 'Changed Room' });
+  const result = await reconcileProfile([previous], [fresh]);
+  assert.equal(result.events.length, 1);
+  assert.equal(result.events[0].uid, previous.uid);
+  assert.equal(result.events[0].title, previous.title);
+  assert.equal(result.events[0].url, previous.url);
+  assert.equal(result.events[0].location, previous.location);
+  assert.equal(result.events[0].start, '2026-11-04T04:30:00.000Z', 'match uses publisher local day, not the next UTC date');
+  assert.equal(result.events[0].end, fresh.end);
+  assert.equal(result.events[0].timeZone, fresh.timeZone);
+  assert.equal(result.events[0].timePrecision, 'time');
+  assert.equal(result.events[0].allDay, false);
+  const noVenue = await reconcileProfile([{ ...previous, location: '' }], [fresh]);
+  assert.equal(noVenue.events[0].location, fresh.location);
+  assert.equal(result.coverage.counters.currentEvents, 1);
+});
+
+test('profile clocks cannot collapse explicit all-day, multi-day, ambiguous old or ambiguous fresh occurrences', async () => {
+  const previous = normalizeEvent({ uid: 'old', title: 'Named seminar', start: '2026-11-03', url: 'https://series.example/original' });
+  const fresh = normalizeEvent({ uid: 'fresh', title: previous.title, start: '2026-11-03T11:30:00', url: 'https://series.example/original' });
+  for (const old of [{ ...previous, timePrecision: 'all-day' }, { ...previous, end: '2026-11-05' }]) {
+    const result = await reconcileProfile([old], [fresh]);
+    assert.equal(result.events.length, 2);
+    assert.deepEqual(result.events.find(event => event.uid === old.uid).start, old.start);
+  }
+  const ambiguousOld = await reconcileProfile([previous, { ...previous, uid: 'other-old' }], [fresh]);
+  assert.equal(ambiguousOld.events.length, 3);
+  const ambiguousFresh = await reconcileProfile([previous], [fresh, { ...fresh, uid: 'second-session', start: '2026-11-03T20:00:00.000Z' }]);
+  assert.equal(ambiguousFresh.events.length, 3);
+  assert.equal(ambiguousFresh.events.find(event => event.uid === previous.uid).timePrecision, 'date');
+});
+
+test('upgraded directory clocks and the original catalog date collapse to one store event with both official sources', async t => {
+  const previous = normalizeEvent({ uid: 'catalog-event', title: 'Exact original seminar title', start: '2026-11-03',
+    url: 'https://series.example/original', description: 'Public official source.' });
+  const fresh = normalizeEvent({ uid: 'profile-event', title: previous.title, start: '2026-11-03T11:30:00',
+    url: 'https://series.example/index.html', description: 'Speaker: Ada Researcher.\nLive dated schedule.' });
+  const result = await reconcileProfile([previous], [fresh]);
+  const plans = [{ id: 'official-catalog', adapter: 'html', status: 'active', org: 'Official seminar', department: 'SCS', url: 'https://series.example/' },
+    { id: 'directory', adapter: 'html', status: 'active', org: 'Official directory', department: 'SCS', url: 'https://directory.example/' }];
+  const store = openStore(':memory:');
+  t.after(() => store.close());
+  store.registerPlans(plans);
+  store.replaceSource('official-catalog', [previous]);
+  store.replaceSource('directory', result.events);
+  assert.equal(store.rebuildEvents(plans), 1, 'same original title/link/local day with one dated listing and one clock must not duplicate');
+  const merged = store.listEvents().events[0];
+  assert.equal(merged.start, fresh.start);
+  assert.equal(merged.timePrecision, 'time');
+  assert.equal(merged.uid, previous.uid);
+  assert.deepEqual(new Set(merged.sources.map(source => source.id)), new Set(plans.map(plan => plan.id)));
+});
 
 test('published column schema parses all26 rows and automatically accepts a new27th series', () => {
   const rows = parseSeminarDirectory(directory);

@@ -763,13 +763,24 @@ function sourceSubscription(source) {
 }
 
 /**
+ * Find the newest recorded review without treating it as a current crawl result.
+ * @param {Object} source Runtime source with optional historical evidence.
+ * @return {number} Latest valid review timestamp, or zero.
+ */
+function latestSourceReviewAt(source) {
+  return Math.max(0, ...["accessReview", "visualReview", "followupResolution"]
+    .map(key => Date.parse(source.evidence?.[key]?.checkedAt)).filter(Number.isFinite));
+}
+
+/**
  * Check recorded collection health and review flags.
  * @param {Object} source Source record with runtime state and review evidence.
  * @return {boolean} Whether this source needs another check.
  */
 function sourceNeedsAttention(source) {
   if (["error", "blocked", "unsupported", "pending"].includes(source.state)) return true;
-  if (source.coverage?.version === 1 && source.coverage.inspectionComplete === true) {
+  if (source.coverage?.version === 1 && source.coverage.inspectionComplete === true
+    && Date.parse(source.coverage.checkedAt) >= latestSourceReviewAt(source)) {
     return source.coverage.internalIssues.length > 0 || source.coverage.externalIssues.length > 0;
   }
   return source.evidence?.visualReview?.requiresReview === true
@@ -816,6 +827,7 @@ function matchingSources(panel) {
  * @return {string} Coverage or collection status label.
  */
 function sourceStateLabel(source) {
+  if (source.state === "error" && source.coverage?.inspectionComplete && !source.coverage.internalIssues.length) return "Source limitation";
   return ({ error: "Needs review", blocked: "Access restricted", unsupported: "Integration needed", pending: "Not checked yet", subscription_only: "Email only", empty: "Zero imported in window", undated: "Undated · monitored", ok: "Events imported", covered: "Shared feed coverage" })[source.state] || "Status unavailable";
 }
 
@@ -829,6 +841,10 @@ function sourceSummary(source) {
   if (subscription?.kind === "subscriber_only") return "Subscriber-only email announcements are not imported into the event calendar.";
   if (subscription?.kind === "public_plus_email") return "Public calendar events may be included. Subscriber email content is not imported.";
   const count = Number(source.eventCount || 0).toLocaleString();
+  if (source.state === "error" && source.coverage?.inspectionComplete && !source.coverage.internalIssues.length) {
+    return Number(source.eventCount) > 0 ? `${count} imported occurrences are available; some publisher details remain unresolved.`
+      : "No verified occurrences were imported in this collection window. Publisher date or access limitations remain in the coverage notes.";
+  }
   if (source.state === "error" && Number(source.eventCount) > 0) return `${count} imported occurrences remain available while the latest check needs review.`;
   return ({
     ok: `${count} occurrences imported within the collection window.`,
@@ -874,8 +890,11 @@ function sourceDiagnostics(source) {
   const reason = plainText(source.error || source.reason);
   const warnings = (Array.isArray(source.warnings) ? source.warnings : []).map(plainText).filter(Boolean);
   const audit = source.coverage;
-  const currentAudit = audit ? `<p><strong>Latest automated inspection${audit.checkedAt ? ` · ${escapeHtml(updatedLabel(audit.checkedAt))}` : ""}</strong><br>${audit.inspectionComplete ? "All discovered candidates were checked." : "Some discovered candidates still need collection work."} ${audit.internalIssues.length} collection gap(s); ${audit.externalIssues.length} publisher issue(s). Field uncertainty remains in the notes below.</p>` : "";
-  return `<details class="source-card-review"><summary>Coverage notes &amp; diagnostics</summary>${currentAudit}${reason ? `<p>${escapeHtml(reason)}</p>` : ""}${warnings.length ? `<ul>${warnings.map(warning => `<li>${escapeHtml(warning)}</li>`).join("")}</ul>` : ""}<p>${escapeHtml(sourceSummary(source))}</p>${source.lastAttempt ? `<p>Last attempted check: ${escapeHtml(updatedLabel(source.lastAttempt))}.</p>` : ""}${sourceVisualReview(source)}</details>`;
+  const currentAudit = audit ? `<p><strong>Latest automated inspection${audit.checkedAt ? ` · ${escapeHtml(updatedLabel(audit.checkedAt))}` : ""}</strong><br>${audit.inspectionComplete ? "All discovered candidates were checked." : "Some discovered candidates still need collection work."} ${audit.internalIssues.length} collection gap(s); ${audit.externalIssues.length} publisher issue(s). Any field uncertainty appears in the notes below.</p>` : "";
+  const review = sourceVisualReview(source);
+  const reviewMarkup = review && audit && Date.parse(audit.checkedAt) > latestSourceReviewAt(source)
+    ? `<details class="source-card-review"><summary>Earlier review notes · historical</summary><p>These records predate the latest automated inspection and may describe limitations that have since been resolved.</p>${review}</details>` : review;
+  return `<details class="source-card-review"><summary>Coverage notes &amp; diagnostics</summary>${currentAudit}${reason ? `<p>${escapeHtml(reason)}</p>` : ""}${warnings.length ? `<ul>${warnings.map(warning => `<li>${escapeHtml(warning)}</li>`).join("")}</ul>` : ""}<p>${escapeHtml(sourceSummary(source))}</p>${source.lastAttempt ? `<p>Last attempted check: ${escapeHtml(updatedLabel(source.lastAttempt))}.</p>` : ""}${reviewMarkup}</details>`;
 }
 
 /**

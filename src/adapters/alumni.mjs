@@ -145,7 +145,7 @@ async function fetchAlumniPublic(plan, context) {
   }
   audit.inspectionComplete &&= audit.internalIssues.length === 0 && audit.inspectedDetails.length === eligible.length;
   const result = parseAlumniPublicCards(listing, details, plan, context);
-  return { ...result, coverage: audit, warnings: [...result.warnings, ...warnings] };
+  return { ...result, coverage: audit, completeSnapshot: audit.inspectionComplete, warnings: [...result.warnings, ...warnings] };
 }
 
 const publicRenderRuns = new WeakMap();

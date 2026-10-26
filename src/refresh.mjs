@@ -20,9 +20,10 @@ function priority(plan) {
  * @param {Object} store Persistent event/source storage.
  * @param {Array<Object>} plans All configured source strategies.
  * @param {Object} config Runtime concurrency and ingestion window settings.
+ * @param {Object} dependencies Optional anonymous renderer factory for isolated runtimes.
  * @return {Object} Refresh, status and scheduling operations.
  */
-export function createRefresher(store, plans, config) {
+export function createRefresher(store, plans, config, dependencies = {}) {
   let running = null;
   let stopped = false;
   let progress = null;
@@ -48,7 +49,7 @@ export function createRefresher(store, plans, config) {
     progress = { startedAt: now.toISOString(), completedAt: null, total: due.length, completed: 0, ok: 0, empty: 0, undated: 0, error: 0, totalEvents: store.status().totalEvents };
     store.setMeta('lastRefresh', progress);
     const renderer = config.publicRendering
-      ? (await import('./lib/public-render.mjs')).createPublicRenderer({ enabled: true }) : null;
+      ? (dependencies.createPublicRenderer || (await import('./lib/public-render.mjs')).createPublicRenderer)({ enabled: true }) : null;
     const context = { fetchText: fetcher.fetchText, fetchBytes: fetcher.fetchBytes, fetchPublicQuery: fetcher.fetchPublicQuery, now,
       sourcePlans: plans, sourceScope: config.sourceScope,
       ...(renderer ? { renderPublic: renderer.renderPublic } : {}),
@@ -89,7 +90,8 @@ export function createRefresher(store, plans, config) {
           if (!result || !Array.isArray(result.events)) throw new Error('Adapter returned no event snapshot.');
           store.setMeta(`sourceCoverage:${plan.id}`, normalizeCoverage(result.coverage, new Date().toISOString()));
           if (result.unsupported) throw new Error(`Extraction needs review: ${(result.warnings || []).join(' ') || 'No recognizable event structure.'}`);
-          if (result.partial) store.mergePartial(plan.id, result.events, result.warnings || [], { singleEventUids: result.singleEventUids || [] });
+          if (result.partial && result.completeSnapshot) store.replaceSource(plan.id, result.events, result.warnings || [], undefined, result.undated ? 'undated' : 'empty', `Complete public inventory; unresolved publisher details. ${(result.warnings || []).join(' ')}`.slice(0, 1200));
+          else if (result.partial) store.mergePartial(plan.id, result.events, result.warnings || [], { singleEventUids: result.singleEventUids || [] });
           else store.replaceSource(plan.id, result.events, result.warnings || [], undefined, result.undated ? 'undated' : 'empty');
           successfulSincePublish++;
           outcome = result.partial ? 'partial' : result.events.length ? 'ok' : result.undated ? 'undated' : 'empty';

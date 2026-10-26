@@ -136,6 +136,7 @@ async function fetchSourcePlan(plan, context) {
   const coverage = combineSourceCoverage(coverages);
   return { events: [...events.values()], warnings: [...new Set(warnings)], ...(!supported ? { unsupported: true } : {}), ...(partial ? { partial: true } : {}),
     ...(coverage ? { coverage } : {}),
+    ...(primary.completeSnapshot && !endpoints.length ? { completeSnapshot: true } : {}),
     ...(undated && !events.size ? { undated: true } : {}),
     ...(singleEventUids.size ? { singleEventUids: [...singleEventUids].filter(uid => events.has(uid)) } : {}) };
 }

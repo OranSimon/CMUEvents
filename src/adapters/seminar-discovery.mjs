@@ -360,6 +360,54 @@ function scopedEvents(events, binding) {
 }
 
 /**
+ * Compare the publisher's local day without shifting late-evening occurrences.
+ * @param {Object} event Normalized date-only or timed source occurrence.
+ * @return {string|null} Published local calendar day, or null if invalid.
+ */
+function seminarDay(event) {
+  try {
+    return event.start.length === 10 ? event.start : new Intl.DateTimeFormat('en-CA', {
+      timeZone: event.timeZone || 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit',
+    }).format(new Date(event.start));
+  } catch { return null; }
+}
+
+/**
+ * Reconcile a live structural profile with this explicitly scoped series feed.
+ * A unique fresh clock enriches one single-day unknown-time record while its
+ * original public identity and published title remain stable. Ambiguous matches,
+ * explicit all-day records and multi-day ranges never lose an occurrence.
+ * @param {Map<string,Object>} existing Current narrow series records by UID.
+ * @param {Object[]} incoming Fresh structural profile records from that series.
+ * @return {void}
+ */
+function mergeSeminarProfileEvents(existing, incoming) {
+  const previous = [...existing.values()];
+  const candidates = incoming.map(event => {
+    const speaker = event.description?.match(/^Speaker: (.+?)\.\n/)?.[1];
+    const day = seminarDay(event);
+    return previous.filter(old => day && seminarDay(old) === day
+      && (label(old.title) === label(event.title) || (speaker && ` ${label(old.title)} `.includes(` ${label(speaker)} `))));
+  });
+  const uses = new Map();
+  for (const matches of candidates) if (matches.length === 1) uses.set(matches[0].uid, (uses.get(matches[0].uid) || 0) + 1);
+  for (let index = 0; index < incoming.length; index++) {
+    const fresh = incoming[index];
+    const matches = candidates[index];
+    const old = matches.length === 1 && uses.get(matches[0].uid) === 1 ? matches[0] : null;
+    if (!old) { existing.set(fresh.uid, fresh); continue; }
+    if (fresh.timePrecision === 'time' && old.start.length === 10) {
+      if (old.timePrecision !== 'date' || Date.parse(old.end) - Date.parse(old.start) !== 86400000) {
+        existing.set(fresh.uid, fresh);
+        continue;
+      }
+      existing.set(old.uid, { ...old, start: fresh.start, end: fresh.end, timeZone: fresh.timeZone,
+        allDay: fresh.allDay, timePrecision: fresh.timePrecision, location: old.location || fresh.location });
+    }
+  }
+}
+
+/**
  * Discover every current directory row, reusing catalog sources and live profiles.
  * New rows use advertised structured HTML/feed discovery rather than a fixed list.
  * @param {Object} plan Directory JSON URL, structural bindings and fallback calendar.
@@ -411,13 +459,7 @@ export async function fetchSeminarDirectory(plan, context) {
         const source = discoveredPlan(row.url || binding.url, { ...plan, org: row.name }, binding.adapter || 'html', binding.profile);
         const result = await context.fetchSourcePlan(source);
         item.methods.push('live_structural_profile');
-        for (const event of result.events) {
-          const speaker = event.description?.match(/^Speaker: (.+?)\.\n/)?.[1];
-          const day = event.start.slice(0, 10);
-          const matches = [...collected.values()].filter(old => old.start.slice(0, 10) === day
-            && (label(old.title) === label(event.title) || (speaker && ` ${label(old.title)} `.includes(` ${label(speaker)} `))));
-          if (matches.length !== 1) collected.set(event.uid, event);
-        }
+        mergeSeminarProfileEvents(collected, result.events);
         item.processed = recordResult(audit, result, { series: row.name, url: source.url }) && item.processed;
       } else if (!ids.length && row.url) {
         const source = discoveredPlan(row.url, { ...plan, org: row.name }, 'html', { detailLinks: true, maxDetails: 50,
