@@ -3,44 +3,44 @@
     "version": 1,
     "eventSchema": 2,
     "mode": "static",
-    "generatedAt": "2026-10-26T23:06:28.462Z",
-    "lastUpdated": "2026-10-26T23:06:28.412Z",
+    "generatedAt": "2026-10-27T15:56:59.051Z",
+    "lastUpdated": "2026-10-27T15:56:59.010Z",
     "updateIntervalHours": 24,
     "staleAfterHours": 48,
-    "eventCount": 3483,
+    "eventCount": 3489,
     "sourceCount": 318,
     "sourceRepository": "https://github.com/OranSimon/CMUEvents",
     "workflowUrl": "https://github.com/OranSimon/CMUEvents/actions/workflows/daily-pages.yml"
   },
   "quality": {
-    "eventCount": 3483,
+    "eventCount": 3489,
     "sourceCount": 318,
     "checkedSources": 277,
-    "completeSources": 268,
-    "successRatio": 0.9675090252707581,
-    "previousEventCount": 3488,
-    "retainedRatio": 0.9985665137614679,
+    "completeSources": 263,
+    "successRatio": 0.9494584837545126,
+    "previousEventCount": 3483,
+    "retainedRatio": 1.0017226528854435,
     "allowEventDrop": false
   },
   "refresh": {
-    "startedAt": "2026-10-26T23:04:26.105Z",
-    "completedAt": "2026-10-26T23:06:28.413Z",
+    "startedAt": "2026-10-27T15:54:14.483Z",
+    "completedAt": "2026-10-27T15:56:59.010Z",
     "total": 277,
     "completed": 277,
-    "ok": 187,
-    "empty": 77,
+    "ok": 180,
+    "empty": 79,
     "undated": 4,
-    "error": 9,
-    "totalEvents": 3483,
+    "error": 14,
+    "totalEvents": 3489,
     "transfers": {
-      "requests": 654,
+      "requests": 639,
       "cacheHits": 0,
-      "bytes": 64615329
+      "bytes": 63569570
     }
   },
   "coverage": {
     "version": 1,
-    "checkedAt": "2026-10-26T23:06:28.460Z",
+    "checkedAt": "2026-10-27T15:56:59.049Z",
     "passed": true,
     "sourceCount": 10,
     "passedSources": 10,
@@ -49,8 +49,8 @@
         "id": "1185bc345a9a",
         "org": "SCS Seminars directory",
         "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
-        "state": "ok",
-        "eventCount": 108,
+        "state": "error",
+        "eventCount": 118,
         "passed": true,
         "internalIssues": [],
         "coverage": {
@@ -58,7 +58,13 @@
           "kind": "dynamic-seminar-directory",
           "inspectionComplete": true,
           "internalIssues": [],
-          "externalIssues": [],
+          "externalIssues": [
+            {
+              "series": "Current Topics in Privacy Seminar",
+              "url": "https://privacy.s3d.cmu.edu/masters/seminar/index.html",
+              "reason": "getaddrinfo EAI_AGAIN privacy.s3d.cmu.edu"
+            }
+          ],
           "nonBlockingIssues": [
             {
               "code": "NO_PUBLISHED_DATED_ENDPOINT",
@@ -91,9 +97,9 @@
           "counters": {
             "advertised": 26,
             "processed": 26,
-            "catalogReused": 19,
+            "catalogReused": 18,
             "undated": 5,
-            "currentEvents": 108
+            "currentEvents": 101
           },
           "series": [
             {
@@ -215,8 +221,7 @@
                 "9903c32bf0ab"
               ],
               "methods": [
-                "catalog_source_reuse",
-                "explicit_public_calendar_announcements"
+                "catalog_source_reuse"
               ],
               "currentEvents": 5
             },
@@ -226,16 +231,10 @@
               "url": "https://privacy.cs.cmu.edu/masters/seminar/index.html",
               "processed": true,
               "undated": false,
-              "reusedSourceIds": [
-                "fbdc39977a83"
-              ],
-              "reusedCanonicalSourceIds": [
-                "fbdc39977a83"
-              ],
-              "methods": [
-                "catalog_source_reuse"
-              ],
-              "currentEvents": 7,
+              "reusedSourceIds": [],
+              "reusedCanonicalSourceIds": [],
+              "methods": [],
+              "currentEvents": 0,
               "scopeNote": "The directory legacy privacy.cs URL serves the same official Privacy Engineering series linked by the current privacy.s3d catalog source."
             },
             {
@@ -251,10 +250,9 @@
                 "804b8b6951fe"
               ],
               "methods": [
-                "catalog_source_reuse",
-                "explicit_public_calendar_announcements"
+                "catalog_source_reuse"
               ],
-              "currentEvents": 10,
+              "currentEvents": 9,
               "scopeNote": "Use the official current /seminars/ index reached from the legacy /seminar2025/ page, rather than pinning April 2025."
             },
             {
@@ -319,9 +317,10 @@
                 "528193392a78"
               ],
               "methods": [
-                "catalog_source_reuse"
+                "catalog_source_reuse",
+                "explicit_public_calendar_announcements"
               ],
-              "currentEvents": 9
+              "currentEvents": 10
             },
             {
               "name": "Machine Learning - Artificial Intelligence Seminar",
@@ -336,9 +335,10 @@
                 "276c414f1ee0"
               ],
               "methods": [
-                "catalog_source_reuse"
+                "catalog_source_reuse",
+                "explicit_public_calendar_announcements"
               ],
-              "currentEvents": 6
+              "currentEvents": 7
             },
             {
               "name": "Parallel Data Laboratory Talk Series",
@@ -510,7 +510,7 @@
               "methods": [
                 "catalog_source_reuse"
               ],
-              "currentEvents": 5
+              "currentEvents": 4
             },
             {
               "name": "SCS Professional Seminar",
@@ -526,7 +526,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-26T23:05:57.500Z"
+          "checkedAt": "2026-10-27T15:56:49.429Z"
         }
       },
       {
@@ -2073,7 +2073,7 @@
               }
             }
           ],
-          "checkedAt": "2026-10-26T23:06:10.833Z"
+          "checkedAt": "2026-10-27T15:56:40.608Z"
         }
       },
       {
@@ -2984,7 +2984,7 @@
               "notes": []
             }
           ],
-          "checkedAt": "2026-10-26T23:05:53.393Z"
+          "checkedAt": "2026-10-27T15:55:51.206Z"
         }
       },
       {
@@ -3168,7 +3168,7 @@
               "evidence": "v2fall-2022-socialist-seminar-graphic.png"
             }
           ],
-          "checkedAt": "2026-10-26T23:05:54.521Z"
+          "checkedAt": "2026-10-27T15:55:51.676Z"
         }
       },
       {
@@ -3228,7 +3228,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-26T23:05:58.476Z"
+          "checkedAt": "2026-10-27T15:56:13.275Z"
         }
       },
       {
@@ -3260,7 +3260,7 @@
               "recognized": 13
             }
           ],
-          "checkedAt": "2026-10-26T23:05:59.093Z"
+          "checkedAt": "2026-10-27T15:56:37.224Z"
         }
       },
       {
@@ -3279,11 +3279,11 @@
           "externalIssues": [
             {
               "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
-              "reason": "fetch failed (Connect Timeout Error (attempted address: egon.cheme.cmu.edu:443, timeout: 10000ms))"
+              "reason": "getaddrinfo EAI_AGAIN egon.cheme.cmu.edu"
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T23:06:25.934Z"
+          "checkedAt": "2026-10-27T15:56:33.960Z"
         }
       },
       {
@@ -3298,8 +3298,8 @@
           "version": 1,
           "kind": "public-dom-pagination-and-details",
           "inspectionComplete": true,
-          "pages": 4,
-          "listingCards": 28,
+          "pages": 3,
+          "listingCards": 27,
           "inspectedDetails": [
             {
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
@@ -3366,7 +3366,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T23:06:09.239Z"
+          "checkedAt": "2026-10-27T15:56:42.570Z"
         }
       },
       {
@@ -3374,20 +3374,16 @@
         "org": "CMU Alumni and Community Events",
         "url": "https://www.cmu.edu/engage/events",
         "state": "error",
-        "eventCount": 28,
+        "eventCount": 27,
         "passed": true,
         "internalIssues": [],
         "coverage": {
           "version": 1,
           "kind": "public-dom-pagination-and-details",
           "inspectionComplete": true,
-          "pages": 4,
-          "listingCards": 28,
+          "pages": 3,
+          "listingCards": 27,
           "inspectedDetails": [
-            {
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians",
-              "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
-            },
             {
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
               "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
@@ -3499,17 +3495,6 @@
           ],
           "internalIssues": [],
           "externalIssues": [
-            {
-              "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
-              "diagnostic": {
-                "httpStatus": 403,
-                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-cmu-school-of-music-chamber-series-opening-inon-barnathan-with-pso-musicians",
-                "title": "Just a moment...",
-                "firstVisibleH1": null
-              }
-            },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sydney-alumni-coffee-and-catch-up",
@@ -3798,7 +3783,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-26T23:06:16.515Z"
+          "checkedAt": "2026-10-27T15:56:49.256Z"
         }
       },
       {
@@ -4116,14 +4101,14 @@
               "evidence": "cause---gamble_heinz-speaker-series4.jpg"
             }
           ],
-          "checkedAt": "2026-10-26T23:06:23.199Z"
+          "checkedAt": "2026-10-27T15:56:55.005Z"
         }
       }
     ]
   },
   "eventExclusions": {
-    "checkedAt": "2026-10-26T23:06:28.264Z",
-    "count": 72,
+    "checkedAt": "2026-10-27T15:56:58.811Z",
+    "count": 71,
     "records": [
       {
         "uid": "livewhale:33083:range:2026-11-25",
@@ -4481,8 +4466,7 @@
         "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
         "url": "https://tartanconnect.cmu.edu/rsvp?id=1935981",
         "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
+          "5d10172e6358"
         ],
         "code": "administrative-hold",
         "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
@@ -4492,8 +4476,7 @@
         "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
         "url": "https://tartanconnect.cmu.edu/rsvp?id=1935982",
         "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
+          "5d10172e6358"
         ],
         "code": "administrative-hold",
         "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
@@ -4503,8 +4486,7 @@
         "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
         "url": "https://tartanconnect.cmu.edu/rsvp?id=1935983",
         "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
+          "5d10172e6358"
         ],
         "code": "administrative-hold",
         "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
@@ -4557,17 +4539,6 @@
         "uid": "702a831933f1f0461525deab1dbff89f582026_4:03:14_PM@campusgroups.com",
         "title": "HOLD for MCC Event – Full-time and Internship",
         "url": "https://tartanconnect.cmu.edu/rsvp?id=1935988",
-        "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
-        ],
-        "code": "administrative-hold",
-        "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
-      },
-      {
-        "uid": "2f7e3d5266db034b351165504fa19147582026_4:03:16_PM@campusgroups.com",
-        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
-        "url": "https://tartanconnect.cmu.edu/rsvp?id=1935989",
         "sourceIds": [
           "5d10172e6358",
           "da985925fb40"
@@ -4646,8 +4617,7 @@
         "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
         "url": "https://tartanconnect.cmu.edu/rsvp?id=1935999",
         "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
+          "5d10172e6358"
         ],
         "code": "administrative-hold",
         "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
@@ -4657,8 +4627,7 @@
         "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
         "url": "https://tartanconnect.cmu.edu/rsvp?id=1936000",
         "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
+          "5d10172e6358"
         ],
         "code": "administrative-hold",
         "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
@@ -4668,8 +4637,7 @@
         "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
         "url": "https://tartanconnect.cmu.edu/rsvp?id=1936001",
         "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
+          "5d10172e6358"
         ],
         "code": "administrative-hold",
         "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
@@ -4679,8 +4647,7 @@
         "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
         "url": "https://tartanconnect.cmu.edu/rsvp?id=1936002",
         "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
+          "5d10172e6358"
         ],
         "code": "administrative-hold",
         "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
@@ -4778,8 +4745,7 @@
         "title": "HOLD for Corporate Presentation",
         "url": "https://tartanconnect.cmu.edu/rsvp?id=1936290",
         "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
+          "5d10172e6358"
         ],
         "code": "administrative-hold",
         "reason": "The publisher identifies an administrative calendar reservation, not a public activity."
@@ -4958,10 +4924,10 @@
   },
   "eventMerges": {
     "version": 1,
-    "inputOccurrences": 5719,
-    "outputOccurrences": 3555,
-    "mergedGroups": 1193,
-    "absorbedOccurrences": 2164,
+    "inputOccurrences": 5717,
+    "outputOccurrences": 3560,
+    "mergedGroups": 1189,
+    "absorbedOccurrences": 2157,
     "groups": [
       {
         "id": "b2bf53b5e8bdd248e1b75982",
@@ -5427,15 +5393,14 @@
         "title": "CEE Department Seminar: Burcin Becerik-Gerber",
         "start": "2026-10-30T15:00:00.000Z",
         "end": "2026-10-30T16:20:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "0635a62a5541",
-          "b95b8f2adbb2",
-          "e8b71eac1119"
+          "b95b8f2adbb2"
         ],
         "originalUrls": [
           "https://events.cmu.edu/cee/event/32314-cee-department-seminar-burcin-becerik-gerber"
@@ -5512,25 +5477,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/cee/event/34344-cee-ug-study-abroad-info-session"
-        ]
-      },
-      {
-        "id": "f116a03ecb92057582d4f9ff",
-        "title": "CEE Graduate Student Virtual Information Session",
-        "start": "2026-10-27T13:30:00.000Z",
-        "end": "2026-10-27T14:30:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "0635a62a5541",
-          "b95b8f2adbb2",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/cee/event/35089-cee-graduate-student-virtual-information-session"
         ]
       },
       {
@@ -5639,6 +5585,78 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/cee/event/35859-cerca-resilience-adaptation-day"
+        ]
+      },
+      {
+        "id": "b41f9d7fae7ff3c5f6a07385",
+        "title": "Graduate Programs Info Session",
+        "start": "2026-11-12T16:00:00.000Z",
+        "end": "2026-11-12T17:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "0635a62a5541",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/cee/event/35989-graduate-programs-info-session"
+        ]
+      },
+      {
+        "id": "44bd2f5f08a302d9de661647",
+        "title": "Environmental Systems and Resilience - Info Session",
+        "start": "2026-11-16T14:00:00.000Z",
+        "end": "2026-11-16T15:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "0635a62a5541",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/cee/event/35990-environmental-systems-and-resilience-info"
+        ]
+      },
+      {
+        "id": "660902f4f7693c2ce5ea853b",
+        "title": "Is an engineering graduate degree worth it?",
+        "start": "2026-11-24T14:30:00.000Z",
+        "end": "2026-11-24T15:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "0635a62a5541",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/cee/event/35991-is-an-engineering-graduate-degree-worth-it"
+        ]
+      },
+      {
+        "id": "5fa035b892931591c8cd777a",
+        "title": "How do you make a competitive application to grad school?",
+        "start": "2026-12-08T16:00:00.000Z",
+        "end": "2026-12-08T17:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "0635a62a5541",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/cee/event/35992-how-do-you-make-a-competitive-application-to-grad"
         ]
       },
       {
@@ -6036,6 +6054,27 @@
         ]
       },
       {
+        "id": "f63f1d1d5a5e14d50f076be6",
+        "title": "CMU/Pitt Colloquium",
+        "start": "2027-04-26T19:30:00.000Z",
+        "end": "2027-04-26T19:30:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "064e900f29b4",
+          "aa8390d8ece6",
+          "afe4cdd6eb3a",
+          "c7cbdbabd4e7",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/physics/event/33804-cmupitt-colloquium"
+        ]
+      },
+      {
         "id": "ee2d01ae9e93424fa955bc17",
         "title": "Pitt/CMU Colloquium: Andrey Kravtsov (University of Chicago)",
         "start": "2026-11-30T20:30:00.000Z",
@@ -6208,7 +6247,7 @@
         "title": "Pitt/CMU AstroLunch: Sumit Sarbadhicary (Johns Hopkins)",
         "start": "2026-10-30T15:00:00.000Z",
         "end": "2026-10-30T15:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -6217,8 +6256,7 @@
           "064e900f29b4",
           "2b1bd766c2cd",
           "aa8390d8ece6",
-          "afe4cdd6eb3a",
-          "e8b71eac1119"
+          "afe4cdd6eb3a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/physics/event/33985-pittcmu-astrolunch-sumit-sarbadhicary-johns-hopkins"
@@ -7023,7 +7061,7 @@
         "title": "AI Fluency Week: Introduction to Prompt Engineering",
         "start": "2026-10-30T15:00:00.000Z",
         "end": "2026-10-30T16:00:00.000Z",
-        "sourceOccurrences": 7,
+        "sourceOccurrences": 6,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -7036,8 +7074,7 @@
           "6bab7f11462d",
           "7f03d1a54c59",
           "9390a36d167b",
-          "b37d02b73df8",
-          "e8b71eac1119"
+          "b37d02b73df8"
         ],
         "originalUrls": [
           "https://cmu.libcal.com/event/17298009",
@@ -7177,7 +7214,7 @@
         "title": "Hands On: Halloween Harvest",
         "start": "2026-10-28T16:00:00.000Z",
         "end": "2026-10-28T18:00:00.000Z",
-        "sourceOccurrences": 7,
+        "sourceOccurrences": 6,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -7190,7 +7227,6 @@
           "8515f6312210",
           "9390a36d167b",
           "b37d02b73df8",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -7334,7 +7370,7 @@
         "title": "Paws to Relax: Pet Therapy Program",
         "start": "2026-10-28T22:30:00.000Z",
         "end": "2026-10-28T23:30:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -7342,8 +7378,7 @@
         "sourceIds": [
           "07130c683752",
           "c7a2fb7ee246",
-          "d93abdb4309a",
-          "e8b71eac1119"
+          "d93abdb4309a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/33295-paws-to-relax-pet-therapy-program",
@@ -7785,40 +7820,24 @@
         ]
       },
       {
-        "id": "669b1cb5c4bcd0476f36499b",
-        "title": "Fuel That Fits: Mindful Nutrition for Busy Minds",
-        "start": "2026-12-02T21:00:00.000Z",
-        "end": "2026-12-02T22:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "07130c683752",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/33617-fuel-that-fits-mindful-nutrition-for-busy-minds"
-        ]
-      },
-      {
         "id": "64e14f79fd6fde695193ac55",
         "title": "Breathe, Reset, and Connect with Your Heart",
         "start": "2026-10-26T16:00:00.000Z",
         "end": "2026-10-26T16:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
+          "d93abdb4309a",
           "def8646a2199",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/33623-breathe-reset-and-connect-with-your-heart"
+          "https://events.cmu.edu/student-affairs/event/33623-breathe-reset-and-connect-with-your-heart",
+          "https://events.cmu.edu/live/events/33623-breathe-reset-and-connect-with-your-heart"
         ]
       },
       {
@@ -7976,20 +7995,18 @@
         "title": "Tai Chi and QiGong Series",
         "start": "2026-11-03T22:00:00.000Z",
         "end": "2026-11-03T23:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "def8646a2199",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/34735-tai-chi-and-qigong-series",
-          "https://events.cmu.edu/live/events/34735-tai-chi-and-qigong-series"
+          "https://events.cmu.edu/student-affairs/event/34735-tai-chi-and-qigong-series"
         ]
       },
       {
@@ -8155,19 +8172,17 @@
         "title": "Tai Chi and QiGong Series",
         "start": "2026-11-10T22:00:00.000Z",
         "end": "2026-11-10T23:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/34766-tai-chi-and-qigong-series",
-          "https://events.cmu.edu/live/events/34766-tai-chi-and-qigong-series"
+          "https://events.cmu.edu/student-affairs/event/34766-tai-chi-and-qigong-series"
         ]
       },
       {
@@ -8175,19 +8190,17 @@
         "title": "Tai Chi and QiGong Series",
         "start": "2026-11-17T22:00:00.000Z",
         "end": "2026-11-17T23:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/34767-tai-chi-and-qigong-series",
-          "https://events.cmu.edu/live/events/34767-tai-chi-and-qigong-series"
+          "https://events.cmu.edu/student-affairs/event/34767-tai-chi-and-qigong-series"
         ]
       },
       {
@@ -8240,17 +8253,19 @@
         "title": "Black Girl Bliss",
         "start": "2026-10-26T21:00:00.000Z",
         "end": "2026-10-26T22:15:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35510-black-girl-bliss"
+          "https://events.cmu.edu/student-affairs/event/35510-black-girl-bliss",
+          "https://events.cmu.edu/live/events/35510-black-girl-bliss"
         ]
       },
       {
@@ -8565,17 +8580,19 @@
         "title": "CaPS: LGBTQIA+ Support and Social Group",
         "start": "2026-10-26T21:30:00.000Z",
         "end": "2026-10-26T22:30:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35533-caps-lgbtqia-support-and-social-group"
+          "https://events.cmu.edu/student-affairs/event/35533-caps-lgbtqia-support-and-social-group",
+          "https://events.cmu.edu/live/events/35533-caps-lgbtqia-support-and-social-group"
         ]
       },
       {
@@ -8882,17 +8899,19 @@
         "title": "Grieving Together",
         "start": "2026-10-26T20:00:00.000Z",
         "end": "2026-10-26T21:00:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35555-grieving-together"
+          "https://events.cmu.edu/student-affairs/event/35555-grieving-together",
+          "https://events.cmu.edu/live/events/35555-grieving-together"
         ]
       },
       {
@@ -9380,7 +9399,7 @@
         "title": "Election Results Watch Party",
         "start": "2026-11-04T00:00:00.000Z",
         "end": "2026-11-04T03:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 4,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -9389,14 +9408,12 @@
         "sourceIds": [
           "07130c683752",
           "5d10172e6358",
-          "d93abdb4309a",
           "e8b71eac1119",
           "ecdebc9ba1fb"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/35922-election-results-watch-party",
-          "https://tartanconnect.cmu.edu/rsvp?id=1938248",
-          "https://events.cmu.edu/live/events/35922-election-results-watch-party"
+          "https://tartanconnect.cmu.edu/rsvp?id=1938248"
         ]
       },
       {
@@ -9642,10 +9659,10 @@
         ]
       },
       {
-        "id": "e574ae0cb4a5249704f6d908",
+        "id": "8102a2c37e24b1a9198ae170",
         "title": "Carnegie Mellon Opera: Hansel und Gretel",
-        "start": "2027-01-29T00:30:00.000Z",
-        "end": "2027-01-29T00:30:00.000Z",
+        "start": "2027-01-29T01:00:00.000Z",
+        "end": "2027-01-29T01:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -9653,18 +9670,17 @@
         "sourceConflicts": [],
         "sourceIds": [
           "0ae111c719fe",
-          "e8b71eac1119"
+          "35a21105454b"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/music/event/34332-carnegie-mellon-opera-hansel-und-gretel",
-          "https://events.cmu.edu/live/events/34332-carnegie-mellon-opera-hansel-und-gretel"
+          "https://events.cmu.edu/music/event/34332-carnegie-mellon-opera-hansel-und-gretel"
         ]
       },
       {
-        "id": "48abc7816d07d2b33ce4cbd2",
+        "id": "837523dc1b092045036f3fe9",
         "title": "Carnegie Mellon Opera: Hansel und Gretel",
-        "start": "2027-01-30T00:30:00.000Z",
-        "end": "2027-01-30T00:30:00.000Z",
+        "start": "2027-01-30T01:00:00.000Z",
+        "end": "2027-01-30T01:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -9672,7 +9688,7 @@
         "sourceConflicts": [],
         "sourceIds": [
           "0ae111c719fe",
-          "e8b71eac1119"
+          "35a21105454b"
         ],
         "originalUrls": [
           "https://events.cmu.edu/music/event/34333-carnegie-mellon-opera-hansel-und-gretel"
@@ -9698,10 +9714,10 @@
         ]
       },
       {
-        "id": "b848aa4fb4fb52ec5d3c8ae7",
+        "id": "b5a1f35257b35e6f2be5af75",
         "title": "Carnegie Mellon Opera: Hansel und Gretel",
-        "start": "2027-01-31T00:30:00.000Z",
-        "end": "2027-01-31T00:30:00.000Z",
+        "start": "2027-01-31T01:00:00.000Z",
+        "end": "2027-01-31T01:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -9709,7 +9725,7 @@
         "sourceConflicts": [],
         "sourceIds": [
           "0ae111c719fe",
-          "e8b71eac1119"
+          "35a21105454b"
         ],
         "originalUrls": [
           "https://events.cmu.edu/music/event/34336-carnegie-mellon-opera-hansel-und-gretel"
@@ -9739,15 +9755,14 @@
         "title": "Student Recital: Ziyu Cai",
         "start": "2026-10-28T23:30:00.000Z",
         "end": "2026-10-28T23:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "0ae111c719fe",
-          "35a21105454b",
-          "e8b71eac1119"
+          "35a21105454b"
         ],
         "originalUrls": [
           "https://events.cmu.edu/music/event/34737-student-recital-ziyu-cai"
@@ -10521,6 +10536,25 @@
         ]
       },
       {
+        "id": "add935777ccdc09c7785ecbe",
+        "title": "Masterclass: Daedalus Quartet",
+        "start": "2026-10-26T14:00:00.000Z",
+        "end": "2026-10-26T14:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "0ae111c719fe",
+          "35a21105454b",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/music/event/35176-masterclass-daedalus-quartet"
+        ]
+      },
+      {
         "id": "872544173c1c324456355403",
         "title": "Student Recital: Annette Lee",
         "start": "2027-04-11T21:00:00.000Z",
@@ -11029,6 +11063,25 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/music/event/35884-student-recital-anastasia-arango"
+        ]
+      },
+      {
+        "id": "6db7e90b54bd988dae28ac7b",
+        "title": "Masterclass: Valerie Coleman & Monica Ellis",
+        "start": "2026-10-27T14:00:00.000Z",
+        "end": "2026-10-27T14:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "0ae111c719fe",
+          "35a21105454b",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/music/event/35886-masterclass-valerie-coleman-monica-ellis"
         ]
       },
       {
@@ -11724,13 +11777,12 @@
         ]
       },
       {
-        "id": "3468114831e6ca9ca55da33a",
-        "title": "CyLab Seminar - Rolfe Schmidt",
+        "id": "443154e1d38128236421ad1e",
+        "title": "CyLab Seminar: Rolfe Schmidt",
         "start": "2026-10-26T16:00:00.000Z",
         "end": "2026-10-26T17:00:00.000Z",
-        "sourceOccurrences": 6,
+        "sourceOccurrences": 5,
         "reasons": [
-          "copied-description",
           "shared-event-link",
           "specific-title-and-venue"
         ],
@@ -11739,18 +11791,14 @@
         ],
         "sourceIds": [
           "1185bc345a9a",
-          "26680f057d80",
           "2a77547af411",
-          "426866c33d9d",
           "4c5426677e95",
           "9903c32bf0ab",
           "b965a95677c6",
-          "d5814b89c528",
           "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/cylab/event/35372-cylab-seminar-rolfe-schmidt",
-          "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211812748",
           "https://csd.cmu.edu/ical/ical.ics"
         ]
       },
@@ -11984,8 +12032,9 @@
         "title": "HCII Seminar Series - Sai Shruthi Chivukula",
         "start": "2026-10-30T18:00:00.000Z",
         "end": "2026-10-30T19:15:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
+          "copied-description",
           "shared-event-link"
         ],
         "sourceConflicts": [],
@@ -11994,7 +12043,8 @@
           "83459e4d2608"
         ],
         "originalUrls": [
-          "https://hcii.cmu.edu/index%2Ephp/news/event/2026/10/hcii-seminar-series-sai-shruthi-chivukula"
+          "https://hcii.cmu.edu/index%2Ephp/news/event/2026/10/hcii-seminar-series-sai-shruthi-chivukula",
+          "https://hcii.cmu.edu/news/event/2026/10/hcii-seminar-series-sai-shruthi-chivukula"
         ]
       },
       {
@@ -12002,8 +12052,9 @@
         "title": "HCII Seminar Series - Brian Smith",
         "start": "2026-11-13T19:00:00.000Z",
         "end": "2026-11-13T20:15:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
+          "copied-description",
           "shared-event-link"
         ],
         "sourceConflicts": [],
@@ -12012,7 +12063,8 @@
           "83459e4d2608"
         ],
         "originalUrls": [
-          "https://hcii.cmu.edu/index%2Ephp/news/event/2026/11/hcii-seminar-series-brian-smith"
+          "https://hcii.cmu.edu/index%2Ephp/news/event/2026/11/hcii-seminar-series-brian-smith",
+          "https://hcii.cmu.edu/news/event/2026/11/hcii-seminar-series-brian-smith"
         ]
       },
       {
@@ -12020,8 +12072,9 @@
         "title": "HCII Seminar Series - Hee Rin Lee",
         "start": "2026-11-20T19:00:00.000Z",
         "end": "2026-11-20T20:15:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
+          "copied-description",
           "shared-event-link"
         ],
         "sourceConflicts": [],
@@ -12030,7 +12083,8 @@
           "83459e4d2608"
         ],
         "originalUrls": [
-          "https://hcii.cmu.edu/index%2Ephp/news/event/2026/11/hcii-seminar-series-hee-rin-lee"
+          "https://hcii.cmu.edu/index%2Ephp/news/event/2026/11/hcii-seminar-series-hee-rin-lee",
+          "https://hcii.cmu.edu/news/event/2026/11/hcii-seminar-series-hee-rin-lee"
         ]
       },
       {
@@ -12038,8 +12092,9 @@
         "title": "HCII Seminar Series - Xiang Anthony Chen",
         "start": "2026-11-06T19:00:00.000Z",
         "end": "2026-11-06T20:00:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
+          "copied-description",
           "shared-event-link"
         ],
         "sourceConflicts": [],
@@ -12048,7 +12103,8 @@
           "83459e4d2608"
         ],
         "originalUrls": [
-          "https://hcii.cmu.edu/index%2Ephp/news/event/2026/11/hcii-seminar-series-xiang-anthony-chen"
+          "https://hcii.cmu.edu/index%2Ephp/news/event/2026/11/hcii-seminar-series-xiang-anthony-chen",
+          "https://hcii.cmu.edu/news/event/2026/11/hcii-seminar-series-xiang-anthony-chen"
         ]
       },
       {
@@ -12196,8 +12252,8 @@
         ]
       },
       {
-        "id": "4a7b17205089882691fbb5ea",
-        "title": "Emanuel Tewolde",
+        "id": "ce69eb1bde6cb65211526a61",
+        "title": "Benchmarking Cooperation-Sustaining Mechanisms and LLM Agents in Social Dilemmas",
         "start": "2026-10-30T14:00:00.000Z",
         "end": "2026-10-30T14:00:00.000Z",
         "sourceOccurrences": 2,
@@ -12394,8 +12450,8 @@
         ]
       },
       {
-        "id": "43f9346b8ec5b072cbfdab80",
-        "title": "Title TBD",
+        "id": "3c4092514d99c4ccbe1efa30",
+        "title": "Directed Mincut in Almost-Linear Time",
         "start": "2026-10-28",
         "end": "2026-10-29",
         "sourceOccurrences": 2,
@@ -12412,8 +12468,8 @@
         ]
       },
       {
-        "id": "30b6180acefad38db8930880",
-        "title": "Title TBD",
+        "id": "d354c1d69bb7bb98c6c8d630",
+        "title": "Theory of Modern AI: Learnability of Complex Objects",
         "start": "2026-10-30T17:00:00.000Z",
         "end": "2026-10-30T17:00:00.000Z",
         "sourceOccurrences": 2,
@@ -12582,19 +12638,15 @@
         "title": "Database Seminar - Ippokratis Pandis",
         "start": "2026-10-26T20:30:00.000Z",
         "end": "2026-10-26T21:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
-          "copied-description",
-          "shared-event-link"
+          "copied-description"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "1185bc345a9a",
-          "26680f057d80",
-          "426866c33d9d",
           "4c5426677e95",
-          "b965a95677c6",
-          "d5814b89c528"
+          "b965a95677c6"
         ],
         "originalUrls": [
           "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211872614",
@@ -12622,14 +12674,12 @@
         ]
       },
       {
-        "id": "ed527ea6b8630f962fa6a95b",
-        "title": "SCS Distinguished Industry Lecture - Mark Russinovich",
-        "start": "2026-10-26T21:00:00.000Z",
-        "end": "2026-10-26T22:30:00.000Z",
-        "sourceOccurrences": 4,
+        "id": "778b2a213dd2927f33c56f51",
+        "title": "Machine Learning / Artificial Intelligence Seminar - Emanuel Twolde",
+        "start": "2026-10-30T14:00:00.000Z",
+        "end": "2026-10-30T15:00:00.000Z",
+        "sourceOccurrences": 2,
         "reasons": [
-          "copied-description",
-          "scoped-uid",
           "shared-event-link"
         ],
         "sourceConflicts": [],
@@ -12637,14 +12687,49 @@
           "1185bc345a9a",
           "26680f057d80",
           "426866c33d9d",
-          "4c5426677e95",
-          "b965a95677c6",
-          "d31338711e1f",
           "d5814b89c528"
         ],
         "originalUrls": [
+          "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D212249569"
+        ]
+      },
+      {
+        "id": "34f3c307cc5ab9fbe8af946d",
+        "title": "Language Technologies Institute Colloquium - Chris Potts",
+        "start": "2026-10-30T19:30:00.000Z",
+        "end": "2026-10-30T21:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "1185bc345a9a",
+          "26680f057d80",
+          "426866c33d9d",
+          "d5814b89c528"
+        ],
+        "originalUrls": [
+          "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D212249645"
+        ]
+      },
+      {
+        "id": "b4d0ba9b16deb84b0e10f7d8",
+        "title": "SCS Distinguished Industry Lecture - Mark Russinovich",
+        "start": "2026-10-26T21:00:00.000Z",
+        "end": "2026-10-26T22:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "copied-description"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "1185bc345a9a",
+          "4c5426677e95",
+          "b965a95677c6"
+        ],
+        "originalUrls": [
           "https://www.cs.cmu.edu/calendar/206882491",
-          "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D206882491",
           "https://csd.cmu.edu/ical/ical.ics"
         ]
       },
@@ -12924,6 +13009,25 @@
         ]
       },
       {
+        "id": "a4cefe91a308f6c24a1885dc",
+        "title": "Expanding What Robots Can Learn in the Real World",
+        "start": "2026-10-30T18:30:00.000Z",
+        "end": "2026-10-30T19:30:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "1185bc345a9a",
+          "b24d9c9bb1f5",
+          "cfd02b9dd433"
+        ],
+        "originalUrls": [
+          "https://www.ri.cmu.edu/event/expanding-what-robots-can-learn-in-the-real-world/"
+        ]
+      },
+      {
         "id": "10b05fef4969a4b53c557f98",
         "title": "From Capturing People to Teaching Robots",
         "start": "2026-09-28T19:30:00.000Z",
@@ -13045,7 +13149,7 @@
         "title": "RI Seminar with Roberto Martín-Martín",
         "start": "2026-10-30T18:30:00.000Z",
         "end": "2026-10-30T19:30:00.000Z",
-        "sourceOccurrences": 6,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -13054,9 +13158,7 @@
           "1185bc345a9a",
           "18631e968a04",
           "367d82c9c973",
-          "622ec95218e2",
-          "b24d9c9bb1f5",
-          "cfd02b9dd433"
+          "622ec95218e2"
         ],
         "originalUrls": [
           "https://www.ri.cmu.edu/event/ri-seminar-with-roberto-martin-martin/"
@@ -13220,15 +13322,14 @@
         "title": "Staff Supervisory Awareness Program: Session 402, Performance Management: Addressing Challenging Employee Issues",
         "start": "2026-10-28T13:00:00.000Z",
         "end": "2026-10-28T16:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "15e1f25e2dd5",
-          "e8b71eac1119",
-          "f924f93134be"
+          "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/hr/event/32327-staff-supervisory-awareness-program-session-402-perfor"
@@ -13277,14 +13378,13 @@
         "title": "Benefits & Fitness Fair",
         "start": "2026-11-04T15:00:00.000Z",
         "end": "2026-11-04T19:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "15e1f25e2dd5",
-          "d93abdb4309a",
           "e8b71eac1119",
           "f924f93134be"
         ],
@@ -13580,7 +13680,7 @@
         "title": "Be An Engineer",
         "start": "2026-11-14T15:00:00.000Z",
         "end": "2026-11-14T19:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 6,
         "reasons": [
           "shared-event-link"
         ],
@@ -13590,6 +13690,7 @@
           "2562f6465463",
           "39b33e741d31",
           "a8f74f3c224a",
+          "cdd4d5698566",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -13791,7 +13892,7 @@
         "title": "Humanities Schedule Skelebration!",
         "start": "2026-10-28T21:00:00.000Z",
         "end": "2026-10-28T22:30:00.000Z",
-        "sourceOccurrences": 8,
+        "sourceOccurrences": 9,
         "reasons": [
           "shared-event-link"
         ],
@@ -13804,7 +13905,8 @@
           "c84cc1c34efc",
           "d93abdb4309a",
           "da2117ec52f4",
-          "e8b71eac1119"
+          "e8b71eac1119",
+          "fac3ce8cfb40"
         ],
         "originalUrls": [
           "https://events.cmu.edu/live/events/35470-humanities-schedule-skelebration",
@@ -13816,7 +13918,7 @@
         "title": "Ghostly Preferences: When Coherence Requires a Strict Preference Among Equivalent Random Variables",
         "start": "2026-10-26T21:00:00.000Z",
         "end": "2026-10-26T22:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -13824,6 +13926,7 @@
         "sourceIds": [
           "2396716fbb7e",
           "b56c2bb6b1d1",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -14917,24 +15020,6 @@
         ]
       },
       {
-        "id": "6db7e90b54bd988dae28ac7b",
-        "title": "Masterclass: Valerie Coleman & Monica Ellis",
-        "start": "2026-10-27T14:00:00.000Z",
-        "end": "2026-10-27T14:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "35a21105454b",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/music/event/35886-masterclass-valerie-coleman-monica-ellis"
-        ]
-      },
-      {
         "id": "7dd045fdfb6b40605ac6f1da",
         "title": "RI PhD Thesis Proposal – Chen Wu",
         "start": "2026-10-28T15:00:00.000Z",
@@ -15055,7 +15140,7 @@
         "title": "The 1% Rule: Small Habits that Compound Into Significant Academic Gains",
         "start": "2026-11-05T23:00:00.000Z",
         "end": "2026-11-06T00:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -15063,7 +15148,6 @@
         "sourceIds": [
           "3e5a8e176b7b",
           "b20a9fbd0aed",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -16878,38 +16962,18 @@
         ]
       },
       {
-        "id": "230531a8f278cfd671c9c447",
-        "title": "INI Virtual Guide to Applying - Supplemental Materials",
-        "start": "2026-10-27T14:00:00.000Z",
-        "end": "2026-10-27T15:30:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "4c39574aa8e4",
-          "bffb0752ce26"
-        ],
-        "originalUrls": [
-          "https://gradadmissions.engineering.cmu.edu/register/?id=f8093d88-2b08-4e5a-b584-b7dd34cc8783"
-        ]
-      },
-      {
         "id": "8736e37f2fc269da548793d9",
         "title": "Seminar: Designing & Printing Dispersion Strengthened Ti-6Al-4V via Laser Powder Bed Fusion Additive Manufacturing",
         "start": "2026-10-26T17:00:00.000Z",
         "end": "2026-10-26T18:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "4f43025a2cf8",
-          "a7c788b3ea2a",
           "b7fd3056adb2",
-          "cdd4d5698566",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -17032,23 +17096,27 @@
         ]
       },
       {
-        "id": "8736962391d2131f5f7ed809",
-        "title": "Get the Scoop on History Courses",
-        "start": "2026-10-26T21:00:00.000Z",
-        "end": "2026-10-26T21:00:00.000Z",
-        "sourceOccurrences": 3,
+        "id": "9d7ebe2d89599e3bcc30e66e",
+        "title": "Dr. Michael Berenbaum Discussion on Kristallnacht",
+        "start": "2026-11-08T21:00:00.000Z",
+        "end": "2026-11-08T22:30:00.000Z",
+        "sourceOccurrences": 5,
         "reasons": [
-          "shared-event-link"
+          "shared-event-link",
+          "specific-title-and-venue"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "4f75e74a4136",
+          "b1ee74eb5acb",
+          "d93abdb4309a",
           "da2117ec52f4",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/history/event/35876-get-the-scoop-on-history-courses",
-          "https://events.cmu.edu/live/events/35876-get-the-scoop-on-history-courses"
+          "https://events.cmu.edu/history/event/35868-dr-michael-berenbaum-discussion-on-kristallnacht",
+          "https://calendar.google.com/calendar/embed?src=cmu.history%40gmail.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261108%2F20261109",
+          "https://events.cmu.edu/live/events/35868-dr-michael-berenbaum-discussion-on-kristallnacht"
         ]
       },
       {
@@ -17835,6 +17903,25 @@
         ]
       },
       {
+        "id": "6d5a391141a848763932eb3b",
+        "title": "Third Rotation Talks",
+        "start": "2027-04-26T19:30:00.000Z",
+        "end": "2027-04-26T21:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "58220d8df81e",
+          "aa8390d8ece6",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/bio/event/32821-third-rotation-talks"
+        ]
+      },
+      {
         "id": "a742a5e9f2fb9ba35294351e",
         "title": "Pittsburgh Rust Belt Microbiome Conference",
         "start": "2026-11-05",
@@ -17851,6 +17938,24 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/bio/event/34517-pittsburgh-rust-belt-microbiome-conference"
+        ]
+      },
+      {
+        "id": "b16f523d2f053397e8f82fa4",
+        "title": "Departmental Seminar: Dr. Rachel Niederer",
+        "start": "2026-10-29T15:30:00.000Z",
+        "end": "2026-10-29T16:15:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "58220d8df81e",
+          "aa8390d8ece6"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/bio/event/35983-departmental-seminar-dr-rachel-niederer"
         ]
       },
       {
@@ -17923,42 +18028,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/admission/event/32749-campus-visit-info-session-campus-tour"
-        ]
-      },
-      {
-        "id": "765213684a8aaf1bba9821eb",
-        "title": "Campus Visit (Info Session + Campus Tour)",
-        "start": "2026-10-30T14:00:00.000Z",
-        "end": "2026-10-30T16:30:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "59a00f8db799",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/admission/event/32752-campus-visit-info-session-campus-tour"
-        ]
-      },
-      {
-        "id": "b4305e92cd4b090908dae849",
-        "title": "Campus Visit (Info Session + Campus Tour)",
-        "start": "2026-10-30T16:00:00.000Z",
-        "end": "2026-10-30T18:30:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "59a00f8db799",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/admission/event/32753-campus-visit-info-session-campus-tour"
         ]
       },
       {
@@ -20170,60 +20239,6 @@
         ]
       },
       {
-        "id": "1edb987d1b47563961b3df73",
-        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
-        "start": "2026-11-11T17:00:00.000Z",
-        "end": "2026-11-11T17:50:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1935981"
-        ]
-      },
-      {
-        "id": "d81276b7c04d9ff251741270",
-        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
-        "start": "2026-11-12T17:00:00.000Z",
-        "end": "2026-11-12T17:50:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1935982"
-        ]
-      },
-      {
-        "id": "384b23397b3900d34e2c2ab6",
-        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
-        "start": "2026-11-13T17:00:00.000Z",
-        "end": "2026-11-13T17:50:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1935983"
-        ]
-      },
-      {
         "id": "0ea1e926546140e27271260c",
         "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
         "start": "2026-11-16T17:00:00.000Z",
@@ -20314,8 +20329,8 @@
         ]
       },
       {
-        "id": "370d34a3f995ed73997d6282",
-        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
+        "id": "03a773c7f005017612d99c4c",
+        "title": "CONFIRMED MCC Corporate Presentation – Full-time and Internship, All Tepper grad programs",
         "start": "2026-11-30T17:00:00.000Z",
         "end": "2026-11-30T17:50:00.000Z",
         "sourceOccurrences": 2,
@@ -20455,78 +20470,6 @@
         ],
         "originalUrls": [
           "https://tartanconnect.cmu.edu/rsvp?id=1935998"
-        ]
-      },
-      {
-        "id": "21a00ad1f91d89a9ebcdb20c",
-        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
-        "start": "2026-11-09T23:00:00.000Z",
-        "end": "2026-11-09T23:50:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1935999"
-        ]
-      },
-      {
-        "id": "94b4c202fb815c5b4d6518b7",
-        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
-        "start": "2026-11-10T23:00:00.000Z",
-        "end": "2026-11-10T23:50:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1936000"
-        ]
-      },
-      {
-        "id": "ba55c210cfb27c1b5e3ac333",
-        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
-        "start": "2026-11-11T23:00:00.000Z",
-        "end": "2026-11-11T23:50:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1936001"
-        ]
-      },
-      {
-        "id": "abd660d57729ecb52c3ad221",
-        "title": "HOLD for MCC Corporate Presentation – Full-time and Internship",
-        "start": "2026-11-12T23:00:00.000Z",
-        "end": "2026-11-12T23:50:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1936002"
         ]
       },
       {
@@ -21054,24 +20997,6 @@
         ]
       },
       {
-        "id": "37ece5e5cb3c5e1eb7bc8649",
-        "title": "HOLD for Corporate Presentation",
-        "start": "2026-11-10T17:00:00.000Z",
-        "end": "2026-11-10T17:50:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1936290"
-        ]
-      },
-      {
         "id": "b280fffbe9d986d568aa4e74",
         "title": "Research Abroad Information Session",
         "start": "2026-09-30T21:00:00.000Z",
@@ -21493,25 +21418,6 @@
         ]
       },
       {
-        "id": "92a2a4fe786068a3698b8c37",
-        "title": "AB x First Year Orientation Foam Party",
-        "start": "2026-09-26T22:00:00.000Z",
-        "end": "2026-09-27T00:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "25feaf36d0b1",
-          "5d10172e6358",
-          "e453e0ba8f19"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1937807"
-        ]
-      },
-      {
         "id": "648d3849c5d0965070e4e09f",
         "title": "On-Campus MCC Workshop - MBA Get Ready for Intern Recruiting (Specifically for US Citizens/Permanent Residents)",
         "start": "2026-10-20T17:10:00.000Z",
@@ -21887,14 +21793,13 @@
         "title": "Study Abroad Drop-in Advising",
         "start": "2026-11-05T18:00:00.000Z",
         "end": "2026-11-05T19:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "5e852d711da8",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -21985,14 +21890,16 @@
         "title": "(Women’s Soccer) Brandeis vs. Carnegie Mellon",
         "start": "2026-10-25T17:30:00.000Z",
         "end": "2026-10-25T20:30:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
-          "copied-description"
+          "copied-description",
+          "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "62f686669e31",
-          "6fbbbe7d1daa"
+          "6fbbbe7d1daa",
+          "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31697-womens-soccer-brandeis-vs-carnegie-mellon",
@@ -22886,15 +22793,13 @@
         "title": "CMU Football Community Trick or Treat",
         "start": "2026-10-30T21:30:00.000Z",
         "end": "2026-10-30T22:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
-          "copied-description",
-          "shared-event-link"
+          "copied-description"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "62f686669e31",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -22945,6 +22850,27 @@
         ]
       },
       {
+        "id": "f8198836d3924a050e6493c0",
+        "title": "CNA seminar: Borjan Geshkovski (Inria Paris & Sorbonne Université)",
+        "start": "2026-11-03T18:00:00.000Z",
+        "end": "2026-11-03T19:00:00.000Z",
+        "sourceOccurrences": 5,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "68c9b0b21fb8",
+          "7493d352b89a",
+          "84c0944b67c6",
+          "aa8390d8ece6",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/math/event/32217-cna-seminar-borjan-geshkovski-inria-paris-sorbonne-uni"
+        ]
+      },
+      {
         "id": "c7bde72d5b46c8eb6d31400b",
         "title": "Probability/Math Finance Seminar: Fabian Harang (BI Norwegian Business School)",
         "start": "2026-11-09T21:00:00.000Z",
@@ -22963,25 +22889,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/math/event/32689-probabilitymath-finance-seminar-fabian-harang-bi-norwe"
-        ]
-      },
-      {
-        "id": "40fcd54811c8091d846b1151",
-        "title": "Probability/Math Finance Seminar: Manuel Arnese (Columbia University)",
-        "start": "2026-10-26T20:00:00.000Z",
-        "end": "2026-10-26T21:30:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "68c9b0b21fb8",
-          "aa8390d8ece6",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/math/event/33171-probabilitymath-finance-seminar-manuel-arnese-columbia"
         ]
       },
       {
@@ -23456,24 +23363,6 @@
         ]
       },
       {
-        "id": "6f40a4746946eec6fe8ef11a",
-        "title": "Genomics and Other Omics: Transitioning From Research to Clinical Implementation",
-        "start": "2026-09-27T13:00:00.000Z",
-        "end": "2026-09-27T14:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "6cda0234594e",
-          "ffa9cc40affe"
-        ],
-        "originalUrls": [
-          "https://scottyconnect.qatar.cmu.edu/rsvp?id=375336"
-        ]
-      },
-      {
         "id": "6919fe8806d213666eeaf47b",
         "title": "Precision Nutrition: From Research to Clinical Implementation",
         "start": "2026-10-06T13:00:00.000Z",
@@ -23528,23 +23417,22 @@
         ]
       },
       {
-        "id": "f8198836d3924a050e6493c0",
-        "title": "CNA seminar: Borjan Geshkovski (Inria Paris & Sorbonne Université)",
-        "start": "2026-11-03T18:00:00.000Z",
-        "end": "2026-11-03T19:00:00.000Z",
-        "sourceOccurrences": 4,
+        "id": "40fcd54811c8091d846b1151",
+        "title": "Probability/Math Finance Seminar: Manuel Arnese (Columbia University)",
+        "start": "2026-10-26T20:00:00.000Z",
+        "end": "2026-10-26T21:30:00.000Z",
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "7493d352b89a",
-          "84c0944b67c6",
           "aa8390d8ece6",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/math/event/32217-cna-seminar-borjan-geshkovski-inria-paris-sorbonne-uni"
+          "https://events.cmu.edu/math/event/33171-probabilitymath-finance-seminar-manuel-arnese-columbia"
         ]
       },
       {
@@ -23733,14 +23621,13 @@
         "title": "Fall Seminar - Alex Luedtke",
         "start": "2026-10-26T20:00:00.000Z",
         "end": "2026-10-26T20:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "982c26d90129",
-          "c9b5ed0cf149",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -23831,7 +23718,7 @@
         "title": "Graduate Student Seminar",
         "start": "2026-10-30T16:30:00.000Z",
         "end": "2026-10-30T16:30:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -23840,8 +23727,7 @@
           "a7c788b3ea2a",
           "b7c01c6836cd",
           "b7fd3056adb2",
-          "cdd4d5698566",
-          "e8b71eac1119"
+          "cdd4d5698566"
         ],
         "originalUrls": [
           "https://events.cmu.edu/live/events/32769-graduate-student-seminar",
@@ -23897,7 +23783,7 @@
         "title": "Graduate Student Seminar",
         "start": "2026-11-20T17:30:00.000Z",
         "end": "2026-11-20T17:30:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 5,
         "reasons": [
           "shared-event-link"
         ],
@@ -23906,6 +23792,7 @@
           "a7c788b3ea2a",
           "b7c01c6836cd",
           "b7fd3056adb2",
+          "cdd4d5698566",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -24275,17 +24162,19 @@
         "title": "Colloquium with Dr. David Badre",
         "start": "2026-10-26T16:30:00.000Z",
         "end": "2026-10-26T16:30:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "aa8390d8ece6",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/ni/event/35756-colloquium-with-dr-david-badre"
+          "https://events.cmu.edu/ni/event/35756-colloquium-with-dr-david-badre",
+          "https://events.cmu.edu/live/events/35756-colloquium-with-dr-david-badre"
         ]
       },
       {
@@ -24305,29 +24194,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/physics/event/33797-pittcmu-colloquium-christina-marchetti-ucsb"
-        ]
-      },
-      {
-        "id": "9d7ebe2d89599e3bcc30e66e",
-        "title": "Dr. Michael Berenbaum Discussion on Kristallnacht",
-        "start": "2026-11-08T21:00:00.000Z",
-        "end": "2026-11-08T22:30:00.000Z",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "shared-event-link",
-          "specific-title-and-venue"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "b1ee74eb5acb",
-          "d93abdb4309a",
-          "da2117ec52f4",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://calendar.google.com/calendar/embed?src=cmu.history%40gmail.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261108%2F20261109",
-          "https://events.cmu.edu/live/events/35868-dr-michael-berenbaum-discussion-on-kristallnacht",
-          "https://events.cmu.edu/history/event/35868-dr-michael-berenbaum-discussion-on-kristallnacht"
         ]
       },
       {
@@ -24476,42 +24342,6 @@
         ]
       },
       {
-        "id": "147137c5d54098913a1c7265",
-        "title": "Women Leaders in Science & Engineering (WSLE) Lunch",
-        "start": "2026-10-30T15:00:00.000Z",
-        "end": "2026-10-30T15:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "b7c01c6836cd",
-          "cdd4d5698566"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/mse/event/35616-women-leaders-in-science-engineering-wsle"
-        ]
-      },
-      {
-        "id": "ab5984e62479842bf0337f76",
-        "title": "Women Leaders in Science & Engineering (WSLE) Lunch",
-        "start": "2026-11-06T16:00:00.000Z",
-        "end": "2026-11-06T16:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "b7c01c6836cd",
-          "cdd4d5698566"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/mse/event/35617-women-leaders-in-science-engineering-wsle"
-        ]
-      },
-      {
         "id": "722d21a3c6e6e71ae89987d1",
         "title": "Soft Materials Initiative Seminar",
         "start": "2026-11-06T20:00:00.000Z",
@@ -24528,6 +24358,24 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/mse/event/35628-soft-materials-initiative-seminar"
+        ]
+      },
+      {
+        "id": "f116a03ecb92057582d4f9ff",
+        "title": "CEE Graduate Student Virtual Information Session",
+        "start": "2026-10-27T13:30:00.000Z",
+        "end": "2026-10-27T14:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "b95b8f2adbb2",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/cee/event/35089-cee-graduate-student-virtual-information-session"
         ]
       },
       {
@@ -26121,7 +25969,7 @@
         "title": "World of Music: Christopher Mark Jones’ “Montréal Encore”",
         "start": "2026-10-28T23:00:00.000Z",
         "end": "2026-10-29T00:30:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -26129,7 +25977,6 @@
         "sourceIds": [
           "c84cc1c34efc",
           "d93abdb4309a",
-          "e8b71eac1119",
           "fac3ce8cfb40"
         ],
         "originalUrls": [
@@ -26198,6 +26045,45 @@
         "originalUrls": [
           "https://events.cmu.edu/lcal/event/35927-bertony-louis-book-launch-chroniques-dun-pays-sans",
           "https://events.cmu.edu/live/events/35927-bertony-louis-book-launch-chroniques-dun-pays-sans"
+        ]
+      },
+      {
+        "id": "fbb208a51e07d0be94547244",
+        "title": "LCAL Halloween Movie Night",
+        "start": "2026-10-28T22:00:00.000Z",
+        "end": "2026-10-29T01:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "c84cc1c34efc",
+          "fac3ce8cfb40"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/lcal/event/35984-lcal-halloween-movie-night"
+        ]
+      },
+      {
+        "id": "a0bf1189189fccf63c03892d",
+        "title": "Spark Conversations, Spark Change!",
+        "start": "2026-11-06T15:30:00.000Z",
+        "end": "2026-11-06T19:30:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "c84cc1c34efc",
+          "d93abdb4309a",
+          "e8b71eac1119",
+          "fac3ce8cfb40"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/32007-spark-conversations-spark-change",
+          "https://events.cmu.edu/dietrich/event/32007-spark-conversations-spark-change"
         ]
       },
       {
@@ -26463,6 +26349,24 @@
         ]
       },
       {
+        "id": "717bc5a0842b4648a158e5a7",
+        "title": "Women Leaders in Science & Engineering (WSLE) Networking",
+        "start": "2026-10-30T19:30:00.000Z",
+        "end": "2026-10-30T19:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "cdd4d5698566",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/mse/event/35616-women-leaders-in-science-engineering-wsle-networking"
+        ]
+      },
+      {
         "id": "3b7abf2d9793cd045f56ffa4",
         "title": "Five Lessons on Caregiving from Wilderness Survival",
         "start": "2026-10-28T21:00:00.000Z",
@@ -26517,24 +26421,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/dietrich/event/32006-restorative-reflections-student-dinner"
-        ]
-      },
-      {
-        "id": "a0bf1189189fccf63c03892d",
-        "title": "Spark Conversations, Spark Change!",
-        "start": "2026-11-06T15:30:00.000Z",
-        "end": "2026-11-06T19:30:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/dietrich/event/32007-spark-conversations-spark-change"
         ]
       },
       {
@@ -27510,6 +27396,24 @@
         ]
       },
       {
+        "id": "8e6273b7edff930a7526e8cc",
+        "title": "Psychology Majors Workshop",
+        "start": "2026-10-26T20:30:00.000Z",
+        "end": "2026-10-26T22:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/dietrich/event/35278-psychology-majors-workshop"
+        ]
+      },
+      {
         "id": "5f5a57f508aba1073902f354",
         "title": "Career Exploration for Grad Students: Mapping Your Goals to Industry Roles",
         "start": "2026-10-27T16:30:00.000Z",
@@ -27543,24 +27447,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/dietrich/event/35347-from-cv-to-resume-framing-your-experience-for"
-        ]
-      },
-      {
-        "id": "2c41c1c68e5b7e2916f92c89",
-        "title": "Dietrich College Town Hall & Autumn Celebration",
-        "start": "2026-10-30T16:00:00.000Z",
-        "end": "2026-10-30T17:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/dietrich/event/35399-dietrich-college-town-hall-autumn-celebration"
         ]
       },
       {
@@ -27621,13 +27507,13 @@
         ]
       },
       {
-        "id": "8ab593beecfea0850e2bc2c9",
-        "title": "U.S. Midterm Elections Event: Exploring the Role of Foreign Interference, Social Media, and Technology",
-        "start": "2026-10-30T21:30:00.000Z",
-        "end": "2026-10-30T23:00:00.000Z",
+        "id": "0b354024e8cdb412f6bc411f",
+        "title": "Academic Cultures in Conversation: Teaching, Learning and Higher Education Across Different Educational Contexts",
+        "start": "2026-10-26T14:30:00.000Z",
+        "end": "2026-10-26T16:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
-          "copied-description"
+          "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
@@ -27635,8 +27521,27 @@
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/live/events/35934-us-midterm-elections-event-exploring-the-role-of-forei",
-          "https://events.cmu.edu/event/35934-us-midterm-elections-event-exploring-the-role-of-forei"
+          "https://events.cmu.edu/live/events/35702-academic-cultures-in-conversation"
+        ]
+      },
+      {
+        "id": "8736962391d2131f5f7ed809",
+        "title": "Get the Scoop on History Courses",
+        "start": "2026-10-26T21:00:00.000Z",
+        "end": "2026-10-26T21:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "d93abdb4309a",
+          "da2117ec52f4",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/35876-get-the-scoop-on-history-courses",
+          "https://events.cmu.edu/history/event/35876-get-the-scoop-on-history-courses"
         ]
       },
       {
@@ -28053,27 +27958,8 @@
           "https://events.cmu.edu/live/events/31796-thanksgiving-break-university-closed",
           "https://events.cmu.edu/academic-calendar/event/31796-thanksgiving-break-no-classes"
         ]
-      },
-      {
-        "id": "0b354024e8cdb412f6bc411f",
-        "title": "Academic Cultures in Conversation: Teaching, Learning and Higher Education Across Different Educational Contexts",
-        "start": "2026-10-26T14:30:00.000Z",
-        "end": "2026-10-26T16:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "e8b71eac1119",
-          "fac3ce8cfb40"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/35702-academic-cultures-in-conversation",
-          "https://events.cmu.edu/lcal/event/35702-academic-cultures-in-conversation"
-        ]
       }
     ],
-    "checkedAt": "2026-10-26T23:06:28.261Z"
+    "checkedAt": "2026-10-27T15:56:58.808Z"
   }
 }
