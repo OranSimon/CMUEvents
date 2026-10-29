@@ -3,44 +3,44 @@
     "version": 1,
     "eventSchema": 2,
     "mode": "static",
-    "generatedAt": "2026-10-28T16:45:29.886Z",
-    "lastUpdated": "2026-10-28T16:45:29.838Z",
+    "generatedAt": "2026-10-29T16:59:35.198Z",
+    "lastUpdated": "2026-10-29T16:59:35.138Z",
     "updateIntervalHours": 24,
     "staleAfterHours": 48,
-    "eventCount": 3498,
+    "eventCount": 3500,
     "sourceCount": 318,
     "sourceRepository": "https://github.com/OranSimon/CMUEvents",
     "workflowUrl": "https://github.com/OranSimon/CMUEvents/actions/workflows/daily-pages.yml"
   },
   "quality": {
-    "eventCount": 3498,
+    "eventCount": 3500,
     "sourceCount": 318,
     "checkedSources": 277,
-    "completeSources": 269,
-    "successRatio": 0.9711191335740073,
-    "previousEventCount": 3489,
-    "retainedRatio": 1.002579535683577,
+    "completeSources": 265,
+    "successRatio": 0.9566787003610109,
+    "previousEventCount": 3498,
+    "retainedRatio": 1.0005717552887363,
     "allowEventDrop": false
   },
   "refresh": {
-    "startedAt": "2026-10-28T16:39:46.771Z",
-    "completedAt": "2026-10-28T16:45:29.838Z",
+    "startedAt": "2026-10-29T16:56:42.050Z",
+    "completedAt": "2026-10-29T16:59:35.139Z",
     "total": 277,
     "completed": 277,
-    "ok": 186,
-    "empty": 79,
+    "ok": 185,
+    "empty": 76,
     "undated": 4,
-    "error": 8,
-    "totalEvents": 3498,
+    "error": 12,
+    "totalEvents": 3500,
     "transfers": {
-      "requests": 785,
+      "requests": 632,
       "cacheHits": 0,
-      "bytes": 691848629
+      "bytes": 64361363
     }
   },
   "coverage": {
     "version": 1,
-    "checkedAt": "2026-10-28T16:45:29.883Z",
+    "checkedAt": "2026-10-29T16:59:35.196Z",
     "passed": true,
     "sourceCount": 10,
     "passedSources": 10,
@@ -49,8 +49,8 @@
         "id": "1185bc345a9a",
         "org": "SCS Seminars directory",
         "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
-        "state": "ok",
-        "eventCount": 110,
+        "state": "error",
+        "eventCount": 109,
         "passed": true,
         "internalIssues": [],
         "coverage": {
@@ -58,7 +58,18 @@
           "kind": "dynamic-seminar-directory",
           "inspectionComplete": true,
           "internalIssues": [],
-          "externalIssues": [],
+          "externalIssues": [
+            {
+              "series": "Current Topics in Privacy Seminar",
+              "url": "https://privacy.s3d.cmu.edu/masters/seminar/index.html",
+              "reason": "getaddrinfo EAI_AGAIN privacy.s3d.cmu.edu"
+            },
+            {
+              "series": "Human-Computer Interaction Seminar",
+              "url": "https://hcii.cmu.edu/news/seminars/upcoming",
+              "reason": "getaddrinfo ENOTFOUND hcii.cmu.edu"
+            }
+          ],
           "nonBlockingIssues": [
             {
               "code": "NO_PUBLISHED_DATED_ENDPOINT",
@@ -86,9 +97,9 @@
           "counters": {
             "advertised": 26,
             "processed": 26,
-            "catalogReused": 19,
+            "catalogReused": 17,
             "undated": 4,
-            "currentEvents": 110
+            "currentEvents": 97
           },
           "series": [
             {
@@ -222,16 +233,10 @@
               "url": "https://privacy.cs.cmu.edu/masters/seminar/index.html",
               "processed": true,
               "undated": false,
-              "reusedSourceIds": [
-                "fbdc39977a83"
-              ],
-              "reusedCanonicalSourceIds": [
-                "fbdc39977a83"
-              ],
-              "methods": [
-                "catalog_source_reuse"
-              ],
-              "currentEvents": 7,
+              "reusedSourceIds": [],
+              "reusedCanonicalSourceIds": [],
+              "methods": [],
+              "currentEvents": 0,
               "scopeNote": "The directory legacy privacy.cs URL serves the same official Privacy Engineering series linked by the current privacy.s3d catalog source."
             },
             {
@@ -249,7 +254,7 @@
               "methods": [
                 "catalog_source_reuse"
               ],
-              "currentEvents": 9,
+              "currentEvents": 8,
               "scopeNote": "Use the official current /seminars/ index reached from the legacy /seminar2025/ page, rather than pinning April 2025."
             },
             {
@@ -271,16 +276,10 @@
               "url": "https://www.hcii.cmu.edu/seminar-series",
               "processed": true,
               "undated": false,
-              "reusedSourceIds": [
-                "83459e4d2608"
-              ],
-              "reusedCanonicalSourceIds": [
-                "83459e4d2608"
-              ],
-              "methods": [
-                "catalog_source_reuse"
-              ],
-              "currentEvents": 4
+              "reusedSourceIds": [],
+              "reusedCanonicalSourceIds": [],
+              "methods": [],
+              "currentEvents": 0
             },
             {
               "name": "Joint CMU-Pitt Ph.D. in Computational Biology Seminar",
@@ -451,10 +450,9 @@
                 "a75d27bb1128"
               ],
               "methods": [
-                "catalog_source_reuse",
-                "explicit_public_calendar_announcements"
+                "catalog_source_reuse"
               ],
-              "currentEvents": 15
+              "currentEvents": 14
             },
             {
               "name": "Theory Seminar",
@@ -524,7 +522,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-28T16:41:43.489Z"
+          "checkedAt": "2026-10-29T16:58:51.891Z"
         }
       },
       {
@@ -2071,7 +2069,7 @@
               }
             }
           ],
-          "checkedAt": "2026-10-28T16:41:53.383Z"
+          "checkedAt": "2026-10-29T16:59:06.699Z"
         }
       },
       {
@@ -2083,906 +2081,18 @@
         "passed": true,
         "internalIssues": [],
         "coverage": {
-          "kind": "semantic-linked-details",
           "version": 1,
+          "kind": "source-endpoint-failure",
           "inspectionComplete": true,
           "internalIssues": [],
           "externalIssues": [
             {
-              "code": "publisher-date-conflict",
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Japan%20Technical%20Review.html",
-              "evidence": [
-                "Title year(s) 2026 conflict with the main event date"
-              ]
-            },
-            {
-              "code": "publisher-date-conflict",
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Spring%20Technical%20Review.html",
-              "evidence": [
-                "Title year(s) 2026 conflict with the main event date",
-                "Agenda/session date 2026-06-09 conflicts with the main event date"
-              ]
+              "url": "https://www.dssc.ece.cmu.edu/news/Events.html",
+              "reason": "getaddrinfo EAI_AGAIN www.dssc.ece.cmu.edu"
             }
           ],
-          "nonBlockingIssues": [
-            {
-              "code": "series-envelope-not-expanded",
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/spring-review-2020.html",
-              "evidence": "Only separately advertised dated sessions are occurrences; a recurrence envelope does not invent additional sessions."
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Japan%20Technical%20Review.html",
-              "code": "publisher-weekday-date-mismatch",
-              "role": "agenda",
-              "date": "2025-06-30",
-              "publishedWeekday": "Tuesday",
-              "calendarWeekday": "Monday",
-              "evidence": "Tuesday, June 30\nAll sessions will be held at Resonac Innovation Center located at Pacific Century Place Marunouchi 29th floor, Marunouchi 1-11-1"
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/fall-review-2018.html",
-              "code": "publisher-weekday-date-mismatch",
-              "role": "agenda",
-              "date": "2018-10-04",
-              "publishedWeekday": "Friday",
-              "calendarWeekday": "Thursday",
-              "evidence": "Friday, Oct 4\nAll sessions will be held at Carnegie Mellon University, Singleton Room, Roberts Hall, Pittsburgh Campus"
-            }
-          ],
-          "discovered": 22,
-          "processed": 22,
-          "recognized": 24,
-          "windowRecords": 0,
-          "details": [
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Japan%20Technical%20Review.html",
-              "status": "conflict",
-              "recognized": 0,
-              "windowRecords": 0,
-              "decision": "conflict",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2025-06-30",
-                  "end": "2025-06-30",
-                  "text": "June 30, 2025"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2025-06-30",
-                  "end": "2025-06-30",
-                  "text": "June 30"
-                }
-              ],
-              "occurrences": [],
-              "conflicts": [
-                "Title year(s) 2026 conflict with the main event date"
-              ],
-              "notes": [
-                {
-                  "code": "publisher-weekday-date-mismatch",
-                  "role": "agenda",
-                  "date": "2025-06-30",
-                  "publishedWeekday": "Tuesday",
-                  "calendarWeekday": "Monday",
-                  "evidence": "Tuesday, June 30\nAll sessions will be held at Resonac Innovation Center located at Pacific Century Place Marunouchi 29th floor, Marunouchi 1-11-1"
-                }
-              ]
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Spring%20Technical%20Review.html",
-              "status": "conflict",
-              "recognized": 0,
-              "windowRecords": 0,
-              "decision": "conflict",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2025-06-09",
-                  "end": "2025-06-09",
-                  "text": "June 9, 2025"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2026-06-09",
-                  "end": "2026-06-09",
-                  "text": "June 9, 2026"
-                }
-              ],
-              "occurrences": [],
-              "conflicts": [
-                "Title year(s) 2026 conflict with the main event date",
-                "Agenda/session date 2026-06-09 conflicts with the main event date"
-              ],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Japan%20Technical%20Review.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "single-occurrence",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2025-05-22",
-                  "end": "2025-05-22",
-                  "text": "May 22, 2025"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2025-05-22",
-                  "end": "2025-05-22",
-                  "text": "May 22"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2025-05-22T00:30:00.000Z",
-                  "end": "2025-05-22T09:00:00.000Z",
-                  "precision": "time"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/2025%20DSSC%20Spring%20Technical%20Review.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "single-occurrence",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2025-03-04",
-                  "end": "2025-03-04",
-                  "text": "March 4, 2025"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2025-03-04",
-                  "end": "2025-03-04",
-                  "text": "March 4, 2025"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2025-03-04",
-                  "end": "2025-03-05",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/2023%20DSSC%20Spring%20Technical%20Review.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "single-occurrence",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2023-05-10",
-                  "end": "2023-05-10",
-                  "text": "May 10, 2023"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2023-05-10",
-                  "end": "2023-05-10",
-                  "text": "May 10, 2023"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2023-05-10",
-                  "end": "2023-05-11",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/2022%20Winter%20Review.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "single-occurrence",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2022-12-14",
-                  "end": "2022-12-14",
-                  "text": "December 14, 2022"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2022-12-14",
-                  "end": "2022-12-14",
-                  "text": "December 14, 2022"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2022-12-14",
-                  "end": "2022-12-15",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/fall-review-2021.html",
-              "status": "parsed",
-              "recognized": 2,
-              "windowRecords": 0,
-              "decision": "repeated-occurrences",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2021-11-17",
-                  "end": "2021-11-17",
-                  "text": "November 17, 2021"
-                },
-                {
-                  "role": "main",
-                  "start": "2021-12-02",
-                  "end": "2021-12-02",
-                  "text": "December 2, 2021"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2021-11-17",
-                  "end": "2021-11-17",
-                  "text": "November 17"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2021-12-02",
-                  "end": "2021-12-02",
-                  "text": "December 2"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2021-11-17T18:00:00.000Z",
-                  "end": "2021-11-17T20:00:00.000Z",
-                  "precision": "time"
-                },
-                {
-                  "start": "2021-12-03T01:00:00.000Z",
-                  "end": "2021-12-03T03:00:00.000Z",
-                  "precision": "time"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/west-coast-2022.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "multiday-range",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2022-05-18",
-                  "end": "2022-05-19",
-                  "text": "May18-19, 2022"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2022-05-18",
-                  "end": "2022-05-18",
-                  "text": "May 18, 2022"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2022-05-19",
-                  "end": "2022-05-19",
-                  "text": "May 19, 2022"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2022-05-18",
-                  "end": "2022-05-20",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/spring-review-2021.html",
-              "status": "parsed",
-              "recognized": 2,
-              "windowRecords": 0,
-              "decision": "repeated-occurrences",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2021-05-20",
-                  "end": "2021-05-20",
-                  "text": "May 20, 2021"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2021-05-20",
-                  "end": "2021-05-20",
-                  "text": "May 20"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2021-05-20T16:00:00.000Z",
-                  "end": "2021-05-20T18:00:00.000Z",
-                  "precision": "time"
-                },
-                {
-                  "start": "2021-05-21T00:00:00.000Z",
-                  "end": "2021-05-21T02:00:00.000Z",
-                  "precision": "time"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/spring-review-2020.html",
-              "status": "parsed",
-              "recognized": 3,
-              "windowRecords": 0,
-              "decision": "explicit-series-sessions",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2020-05-19",
-                  "end": "2020-06-30",
-                  "text": "May 19 - June 30, 2020"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2020-05-19",
-                  "end": "2020-05-19",
-                  "text": "May 19"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2020-06-02",
-                  "end": "2020-06-02",
-                  "text": "June 2"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2020-06-16",
-                  "end": "2020-06-16",
-                  "text": "June 16"
-                },
-                {
-                  "role": "session",
-                  "start": "2020-05-19",
-                  "end": "2020-05-19",
-                  "text": "May 19, 2020"
-                },
-                {
-                  "role": "session",
-                  "start": "2020-06-02",
-                  "end": "2020-06-02",
-                  "text": "June 2, 2020"
-                },
-                {
-                  "role": "session",
-                  "start": "2020-06-16",
-                  "end": "2020-06-16",
-                  "text": "June 16, 2020"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2020-05-19T16:00:00.000Z",
-                  "end": "2020-05-19T18:00:00.000Z",
-                  "precision": "time"
-                },
-                {
-                  "start": "2020-06-02T16:00:00.000Z",
-                  "end": "2020-06-02T18:00:00.000Z",
-                  "precision": "time"
-                },
-                {
-                  "start": "2020-06-16T16:00:00.000Z",
-                  "end": "2020-06-16T18:00:00.000Z",
-                  "precision": "time"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/fall-review-2019.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "multiday-range",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2019-09-24",
-                  "end": "2019-09-25",
-                  "text": "September 24-25, 2019"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2019-09-24",
-                  "end": "2019-09-24",
-                  "text": "September 24"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2019-09-25",
-                  "end": "2019-09-25",
-                  "text": "September 25"
-                },
-                {
-                  "role": "auxiliary",
-                  "start": "2019-09-24",
-                  "end": "2019-09-24",
-                  "text": "September 24"
-                },
-                {
-                  "role": "auxiliary",
-                  "start": "2019-09-09",
-                  "end": "2019-09-09",
-                  "text": "September 9, 2019"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2019-09-24",
-                  "end": "2019-09-26",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/west-coast-2019.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "multiday-range",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2019-03-12",
-                  "end": "2019-03-13",
-                  "text": "March 12-13, 2019"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2019-03-12",
-                  "end": "2019-03-12",
-                  "text": "March 12"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2019-03-13",
-                  "end": "2019-03-13",
-                  "text": "March 13"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2019-03-12",
-                  "end": "2019-03-14",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/fall-review-2018.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "multiday-range",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2018-10-04",
-                  "end": "2018-10-05",
-                  "text": "October 4-5, 2018"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2018-10-04",
-                  "end": "2018-10-04",
-                  "text": "October 4"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2018-10-04",
-                  "end": "2018-10-04",
-                  "text": "Oct 4"
-                },
-                {
-                  "role": "auxiliary",
-                  "start": "2018-09-24",
-                  "end": "2018-09-24",
-                  "text": "September 24"
-                },
-                {
-                  "role": "auxiliary",
-                  "start": "2018-09-12",
-                  "end": "2018-09-12",
-                  "text": "September 12, 2018"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2018-10-04",
-                  "end": "2018-10-06",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": [
-                {
-                  "code": "publisher-weekday-date-mismatch",
-                  "role": "agenda",
-                  "date": "2018-10-04",
-                  "publishedWeekday": "Friday",
-                  "calendarWeekday": "Thursday",
-                  "evidence": "Friday, Oct 4\nAll sessions will be held at Carnegie Mellon University, Singleton Room, Roberts Hall, Pittsburgh Campus"
-                }
-              ]
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/west-coast-2018.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "multiday-range",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2018-03-13",
-                  "end": "2018-03-14",
-                  "text": "March 13-14, 2018"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2018-03-13",
-                  "end": "2018-03-13",
-                  "text": "March 13"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2018-03-14",
-                  "end": "2018-03-14",
-                  "text": "March 14"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2018-03-13",
-                  "end": "2018-03-15",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/fall-review-2017.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "single-occurrence",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2017-11-06",
-                  "end": "2017-11-06",
-                  "text": "November 6, 2017"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2017-11-06",
-                  "end": "2017-11-06",
-                  "text": "November 6"
-                },
-                {
-                  "role": "auxiliary",
-                  "start": "2017-11-06",
-                  "end": "2017-11-06",
-                  "text": "November 6"
-                },
-                {
-                  "role": "auxiliary",
-                  "start": "2017-10-15",
-                  "end": "2017-10-15",
-                  "text": "October 15, 2017"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2017-11-06",
-                  "end": "2017-11-07",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/west-coast-2017.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "single-occurrence",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2017-03-14",
-                  "end": "2017-03-14",
-                  "text": "March 14, 2017"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2017-03-14",
-                  "end": "2017-03-14",
-                  "text": "March 14"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2017-03-14",
-                  "end": "2017-03-15",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/fall-review-2016.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "multiday-range",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2016-09-27",
-                  "end": "2016-09-28",
-                  "text": "September 27-28, 2016"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2016-09-27",
-                  "end": "2016-09-27",
-                  "text": "September 27"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2016-09-28",
-                  "end": "2016-09-28",
-                  "text": "September 28"
-                },
-                {
-                  "role": "auxiliary",
-                  "start": "2016-09-24",
-                  "end": "2016-09-24",
-                  "text": "September 24"
-                },
-                {
-                  "role": "auxiliary",
-                  "start": "2016-09-11",
-                  "end": "2016-09-11",
-                  "text": "September 11, 2016"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2016-09-27",
-                  "end": "2016-09-29",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/west-coast-2016.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "single-occurrence",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2016-03-10",
-                  "end": "2016-03-10",
-                  "text": "March 10, 2016"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2016-03-10",
-                  "end": "2016-03-10",
-                  "text": "March 10"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2016-03-10",
-                  "end": "2016-03-11",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/fall-review-2015.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "multiday-range",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2015-10-06",
-                  "end": "2015-10-07",
-                  "text": "October 6-7, 2015"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2015-10-06",
-                  "end": "2015-10-06",
-                  "text": "October 6"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2015-10-07",
-                  "end": "2015-10-07",
-                  "text": "October 7"
-                },
-                {
-                  "role": "auxiliary",
-                  "start": "2015-10-06",
-                  "end": "2015-10-06",
-                  "text": "Oct 6"
-                },
-                {
-                  "role": "auxiliary",
-                  "start": "2015-09-17",
-                  "end": "2015-09-17",
-                  "text": "September 17, 2015"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2015-10-06",
-                  "end": "2015-10-08",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/west-coast-2015.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "single-occurrence",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2015-03-10",
-                  "end": "2015-03-10",
-                  "text": "March 10, 2015"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2015-03-10",
-                  "end": "2015-03-10",
-                  "text": "March 10"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2015-03-10",
-                  "end": "2015-03-11",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/fall-review-2014.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "multiday-range",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2014-09-30",
-                  "end": "2014-10-01",
-                  "text": "September 30-October 1, 2014"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2014-09-30",
-                  "end": "2014-09-30",
-                  "text": "September 30"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2014-10-01",
-                  "end": "2014-10-01",
-                  "text": "October 1"
-                },
-                {
-                  "role": "auxiliary",
-                  "start": "2014-09-30",
-                  "end": "2014-09-30",
-                  "text": "September 30"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2014-09-30",
-                  "end": "2014-10-02",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            },
-            {
-              "url": "https://www.dssc.ece.cmu.edu/news/events1/west-coast-2014.html",
-              "status": "parsed",
-              "recognized": 1,
-              "windowRecords": 0,
-              "decision": "single-occurrence",
-              "dateRoles": [
-                {
-                  "role": "main",
-                  "start": "2014-03-11",
-                  "end": "2014-03-11",
-                  "text": "March 11, 2014"
-                },
-                {
-                  "role": "agenda",
-                  "start": "2014-03-11",
-                  "end": "2014-03-11",
-                  "text": "March 11"
-                }
-              ],
-              "occurrences": [
-                {
-                  "start": "2014-03-11",
-                  "end": "2014-03-12",
-                  "precision": "date"
-                }
-              ],
-              "conflicts": [],
-              "notes": []
-            }
-          ],
-          "checkedAt": "2026-10-28T16:41:24.915Z"
+          "nonBlockingIssues": [],
+          "checkedAt": "2026-10-29T16:58:30.599Z"
         }
       },
       {
@@ -3166,7 +2276,7 @@
               "evidence": "v2fall-2022-socialist-seminar-graphic.png"
             }
           ],
-          "checkedAt": "2026-10-28T16:41:24.981Z"
+          "checkedAt": "2026-10-29T16:58:33.970Z"
         }
       },
       {
@@ -3226,7 +2336,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-10-28T16:41:38.899Z"
+          "checkedAt": "2026-10-29T16:58:50.484Z"
         }
       },
       {
@@ -3258,7 +2368,7 @@
               "recognized": 13
             }
           ],
-          "checkedAt": "2026-10-28T16:41:39.189Z"
+          "checkedAt": "2026-10-29T16:58:51.901Z"
         }
       },
       {
@@ -3271,1311 +2381,17 @@
         "internalIssues": [],
         "coverage": {
           "version": 1,
-          "kind": "automatic-media",
+          "kind": "source-endpoint-failure",
           "inspectionComplete": true,
-          "discovered": 123,
-          "processed": 47,
-          "excludedHistorical": 75,
-          "excludedNonEvent": 0,
-          "unresolved": 1,
           "internalIssues": [],
           "externalIssues": [
-            "Media extraction failed (https://egon.cheme.cmu.edu/ewo/docs/pdf/David_Miller_ESI_Seminar_2021-04-30.pdf): HTTP 404 from egon.cheme.cmu.edu"
-          ],
-          "nonBlockingIssues": [
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_January_22_2026_Lara.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/CP-SAT%20and%20OR-Tools.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/2023_4_6_Yankai_Cao.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_Dimitrakopoulos.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Kyle_Harshbarger_Emerging_Topics_in_Dow_Supply_Chain.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Supply_chain_resilience.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/CAPD-NS.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Wil_van_der_Aalst_Process_mining_10_27_2021.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/RuthMisener_2020_03_30.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Secchi_Talk_LADES_Digital_Tech.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO-inventorySnyder.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWOSeminar2020-DiegoCafaro-Egon.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Venkat_CMU_EWOTalk_Mar_2020.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Sustainable_supply_chains_in_a_circular_economy_Adisa_Azapagic.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_03_2019.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Tatsushi_Nishi_EWO.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_04_10_2018.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_08_2018.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_04_2016.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_2015_NVS.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Presentation_Laird_2014.key.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_02_2014.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_19_2013.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_17_2013.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_17_2013.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_19_2013.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Nishi_CAPD2013_print_final.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/DavisEdgarEWOWebinar12213v4.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Ian_Cameron_seminar.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_06_2012.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_15_2012.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_29_2011.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/Vielma_ewo_robust_opt.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/CAPD_Chmielewski_March2011.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/VRP_Presentation%20INTEC.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/rlima_cplex_ewo_dec2010.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/VargasForecasting.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/SnyderEWO-FacilLoc-100421.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/SahinidisEWO_DFO2010.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/BieglerNLP_ewo.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/CornuejolsEWO.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWOLagrangeanGrossmann.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/ErikEWO_Feb_2008.pdf)",
-            "Presentation archive document has no complete occurrence date on its cover/agenda (https://egon.cheme.cmu.edu/ewo/docs/EWOMINLPGrossmann.pdf)"
-          ],
-          "assets": [
             {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO%20Seminar%20Carnegie%20Mellon%20-%20Fred%20Gardi%20-%20Hexaly.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2026-05-07",
-                "end": "2026-05-08",
-                "line": "May 7, 2026",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 34
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/DDsChemE2026.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2026-04-01",
-                "end": "2026-05-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 139
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_January_22_2026_Lara.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 50,
-              "pendingPages": [],
-              "ocrPagesCompleted": 8
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/HSVEM-Data%20Analytics%20and%20Optimization%20for%20Manufacture-Circulation%20Industrial%20System-2025-10-30-CMU.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2025-10-29",
-                "end": "2025-10-30",
-                "line": "October 29 2025",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 94
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/MetinTurkay_CMU_2025-09-17.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2025-09-17",
-                "end": "2025-09-18",
-                "line": "CAPD, Carnegie Mellon University – September 17, 2025",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 49
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_01_2025_Digital_Supply_Chain_and_the_Human_Element.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2025-01-23",
-                "end": "2025-01-24",
-                "line": "January 23, 2025",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 39
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_11_25_2024_Alan_Scheller-Wolf_Technology%20Paths.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2024-11-25",
-                "end": "2024-11-26",
-                "line": "November 25, 2024",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 25
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Data_Analytics_and_Optimization_for_Smart_Industry-2024-10-23.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2024-10-23",
-                "end": "2024-10-24",
-                "line": "October 23 2024",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 76
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_April_03_2024_Gomes.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2024-04-03",
-                "end": "2024-04-04",
-                "line": "April 3rd, 2024",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 66
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/CMU-EWO-Nagurney-2023.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2023-11-01",
-                "end": "2023-11-02",
-                "line": "November 1, 2023",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 92
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/CP-SAT%20and%20OR-Tools.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 38,
-              "pendingPages": [],
-              "ocrPagesCompleted": 6
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/2023_4_6_Yankai_Cao.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 49,
-              "pendingPages": [],
-              "ocrPagesCompleted": 1
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/CMU_EWO_Swartz_2023.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2023-03-01",
-                "end": "2023-04-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 38
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_Kokossis.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2022-11-10",
-                "end": "2022-11-11",
-                "line": "November 10, 2022, Pittsburgh, USA",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 180
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_Dimitrakopoulos.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 43,
-              "pendingPages": [],
-              "ocrPagesCompleted": 1
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/RLIMA_CMU_PSE_October_2022.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2022-10-19",
-                "end": "2022-10-20",
-                "line": "CMU, EWO Seminar, October 19, 2022",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 50
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Kyle_Harshbarger_Emerging_Topics_in_Dow_Supply_Chain.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 16,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Supply_chain_resilience.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 29,
-              "pendingPages": [],
-              "ocrPagesCompleted": 2
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/CAPD-NS.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 37,
-              "pendingPages": [],
-              "ocrPagesCompleted": 4
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Wil_van_der_Aalst_Process_mining_10_27_2021.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 45,
-              "pendingPages": [],
-              "ocrPagesCompleted": 1
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/ElectroplatingScheduling@CMU20210907.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2021-09-07",
-                "end": "2021-09-08",
-                "line": "Sep 7th, 2021",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 22
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/pdf/David_Miller_ESI_Seminar_2021-04-30.pdf",
-              "classification": "unresolved",
-              "error": "HTTP 404 from egon.cheme.cmu.edu"
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/AC_Network-Constrained_Unit_Commitment_Conejo.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2021-04-20",
-                "end": "2021-04-21",
-                "line": "April 20, 2021",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 49
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/RuthMisener_2020_03_30.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 125,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Secchi_Talk_LADES_Digital_Tech.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 50,
-              "pendingPages": [],
-              "ocrPagesCompleted": 5
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO-inventorySnyder.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 82,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOseminarVenturelli.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2020-09-17",
-                "end": "2020-09-18",
-                "line": "September 17, 2020 – EWO Virtual Seminar @ CMU",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 27
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOSeminar2020-DiegoCafaro-Egon.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 29,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Venkat_CMU_EWOTalk_Mar_2020.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 45,
-              "pendingPages": [],
-              "ocrPagesCompleted": 3
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/MDPintro_4_Yixin_Ye.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2020-02-13",
-                "end": "2020-02-14",
-                "line": "Feb 13, 2020",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 42
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Caciki_EWO_Seminar_23_01_2020_v1.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2020-01-23",
-                "end": "2020-01-24",
-                "line": "January 23, 2020",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 34
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Data_Analytics_and_Optimization_in_Steel_Industry.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2019-11-21",
-                "end": "2019-11-22",
-                "line": "November 21 2019",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 61
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Sustainable_supply_chains_in_a_circular_economy_Adisa_Azapagic.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 39,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_03_2019.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 28,
-              "pendingPages": [],
-              "ocrPagesCompleted": 1
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_04_25_2019.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2019-04-01",
-                "end": "2019-05-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 36
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Webinar_ForecastingSoftware_v2.2.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2018-04-12",
-                "end": "2018-04-13",
-                "line": "04/12/2018",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 24
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Tatsushi_Nishi_EWO.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 57,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Feb19-SridharTayur-EWOQCFinal-2019.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2019-02-19",
-                "end": "2019-02-20",
-                "line": "February 19, 2019",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 42
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_13_2018.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2018-09-01",
-                "end": "2018-10-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 43
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_04_2018.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2018-10-04",
-                "end": "2018-10-05",
-                "line": "October 4, 2018 CMU EWO Webinar",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 66
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_11_2018.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2018-09-11",
-                "end": "2018-09-12",
-                "line": "September 11, 2018",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 107
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_04_10_2018.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 74,
-              "pendingPages": [],
-              "ocrPagesCompleted": 26
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_29_2018.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2018-03-29",
-                "end": "2018-03-30",
-                "line": "March 29, 2018",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 16
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_08_2018.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 39,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_09_2017.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2017-11-01",
-                "end": "2017-12-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 20
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_19_2017.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2017-10-01",
-                "end": "2017-11-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 20
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_07_2017.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2017-07-01",
-                "end": "2018-01-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 56
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_04_21_2017.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2017-04-21",
-                "end": "2017-04-22",
-                "line": "April 21, 2017",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 62
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_Grossmann_Castro_Zhang.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2017-01-10",
-                "end": "2017-01-11",
-                "line": "January 10, 2017",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 49
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_10_2017.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2017-03-10",
-                "end": "2017-03-11",
-                "line": "March 10, 2017",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 58
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_01_2016.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2016-11-01",
-                "end": "2016-11-02",
-                "line": "Pittsburgh\t ̶\t \tNovember 1st, 2016",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 67
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_13_2016.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2016-10-13",
-                "end": "2016-10-14",
-                "line": "October 13, 2016",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 45
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_27_2016.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2016-09-27",
-                "end": "2016-09-28",
-                "line": "EWO Seminar - Carnegie Mellon University - September 27, 2016",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 67
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_05_11_2016.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2016-05-11",
-                "end": "2016-05-12",
-                "line": "May 11, 2016",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 32
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_04_2016.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 128,
-              "pendingPages": [],
-              "ocrPagesCompleted": 63
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_03_2016.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2016-02-03",
-                "end": "2016-02-04",
-                "line": "Carnegie Mellon University, February 3, 2016",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 58
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_2015_NVS.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 39,
-              "pendingPages": [],
-              "ocrPagesCompleted": 1
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_06_2015.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2015-10-01",
-                "end": "2015-11-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 57
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Uncertainty_Grossmann.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2015-09-15",
-                "end": "2015-09-16",
-                "line": "EWO Seminar, September 15, 2015",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 54
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_20_2015.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2015-03-20",
-                "end": "2015-03-21",
-                "line": "March 20, 2015",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 20
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_13_2015.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2015-02-13",
-                "end": "2015-02-14",
-                "line": "February 13, 2015",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 56
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_01_22_2015.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2015-01-22",
-                "end": "2015-01-23",
-                "line": "January 22, 2015",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 60
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Presentation_Laird_2014.key.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 37,
-              "pendingPages": [],
-              "ocrPagesCompleted": 1
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_02_2014.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 48,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Iiro_Harjunkoski_Paper_review_2014-03-11_CAPD.pdf",
-              "classification": "processed",
-              "recognized": 1,
-              "totalPages": 29,
-              "pendingPages": [],
-              "ocrPagesCompleted": 1
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_27_2014.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2014-02-27",
-                "end": "2014-02-28",
-                "line": "February 27, 2014",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 59
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_23_01_2014.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2014-01-23",
-                "end": "2014-01-24",
-                "line": "Jan 23, 2014",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 48
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_19_2013.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 56,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_17_2013.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 69,
-              "pendingPages": [],
-              "ocrPagesCompleted": 10
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_17_2013.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 29,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_04_18_2013.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2013-04-18",
-                "end": "2013-04-19",
-                "line": "4/18/2013",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 40
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_19_2013.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 35,
-              "pendingPages": [],
-              "ocrPagesCompleted": 1
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Nishi_CAPD2013_print_final.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 30,
-              "pendingPages": [],
-              "ocrPagesCompleted": 1
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/DavisEdgarEWOWebinar12213v4.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 37,
-              "pendingPages": [],
-              "ocrPagesCompleted": 2
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_27_2012.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2012-11-27",
-                "end": "2012-11-28",
-                "line": "CAPD EWO Seminar – November 27, 2012",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 44
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_10_25_2012.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2012-10-01",
-                "end": "2012-11-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 35
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_08_30_2012.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2012-08-01",
-                "end": "2012-09-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 92
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/GrossmannEWOAdvancesMathProg.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2012-04-24",
-                "end": "2012-04-25",
-                "line": "April 24, 2012",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 58
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Ian_Cameron_seminar.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 30,
-              "pendingPages": [],
-              "ocrPagesCompleted": 6
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Petrobras_CAPD_meeting_Mar2012.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2012-03-01",
-                "end": "2012-04-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 36
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_03_06_2012.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 63,
-              "pendingPages": [],
-              "ocrPagesCompleted": 9
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_02_15_2012.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 48,
-              "pendingPages": [],
-              "ocrPagesCompleted": 6
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_11_03_2011.pdf",
-              "classification": "processed",
-              "recognized": 3,
-              "totalPages": 34,
-              "pendingPages": [],
-              "ocrPagesCompleted": 4
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_29_2011.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 32,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_08_2011.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2011-09-07",
-                "end": "2011-09-08",
-                "line": "September 7, 2011",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 57
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Vielma_ewo_robust_opt.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 32,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/CAPD_Chmielewski_March2011.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 115,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/NishiGame_Theoretic_Approach_for_Supply_Chain_Optimization_under_Demand_Uncertainty.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2011-03-09",
-                "end": "2011-03-10",
-                "line": "March 9, 2011",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 31
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/VazacopolousCAPD_MARCH_2011.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2011-03-01",
-                "end": "2011-04-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 60
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/VRP_Presentation%20INTEC.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 91,
-              "pendingPages": [],
-              "ocrPagesCompleted": 22
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/rlima_cplex_ewo_dec2010.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 72,
-              "pendingPages": [],
-              "ocrPagesCompleted": 1
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/VargasForecasting.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 70,
-              "pendingPages": [],
-              "ocrPagesCompleted": 13
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/SnyderEWO-FacilLoc-100421.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 36,
-              "pendingPages": [],
-              "ocrPagesCompleted": 4
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/MargotSlidessym_hand.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2010-02-25",
-                "end": "2010-02-26",
-                "line": "February 25, 2010",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 29
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/SahinidisEWO_DFO2010.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 49,
-              "pendingPages": [],
-              "ocrPagesCompleted": 9
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/SrinivasanSupply_Chain_Agents.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2009-12-01",
-                "end": "2010-01-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 52
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_seminar_van_Hoeve.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2009-11-17",
-                "end": "2009-11-18",
-                "line": "EWO Seminar - November 17, 2009",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 54
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_You.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2009-10-20",
-                "end": "2009-10-21",
-                "line": "October 20, 2009",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 56
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/Secomandi.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2009-09-03",
-                "end": "2009-09-04",
-                "line": "September 3, 2009",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 34
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/BieglerNLP_ewo.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 43,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/LinderothStochastic.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2009-03-10",
-                "end": "2009-03-11",
-                "line": "March 10th, 2009",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 82
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/CornuejolsEWO.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 30,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/ah0b3n40.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2009-01-22",
-                "end": "2009-01-23",
-                "line": "January 22, 2009",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 51
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/SnyderEWO_081113.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2008-11-13",
-                "end": "2008-11-14",
-                "line": "EWO SEMINAR SERIES – NOVEMBER 13, 2008",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 60
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/SPSeminarSchaefer_October16.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2008-10-16",
-                "end": "2008-10-17",
-                "line": "October 16, 2008\tOctober 16, 2008",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 50
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/CMU_EWO_Sep_08.pdf",
-              "classification": "processed",
-              "recognized": 1,
-              "totalPages": 35,
-              "pendingPages": [],
-              "ocrPagesCompleted": 2
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOLagrangeanGrossmann.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 56,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/SecomandiEWOseminar.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2008-04-09",
-                "end": "2008-04-10",
-                "line": "April 9, 2008",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 30
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/ErikEWO_Feb_2008.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 32,
-              "pendingPages": [],
-              "ocrPagesCompleted": 2
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/HookermodelingEWO.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2008-02-01",
-                "end": "2008-03-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 76
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/GonzaloEWO-GG-11Dec.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2007-12-01",
-                "end": "2008-01-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 41
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_NVS.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2007-10-01",
-                "end": "2007-11-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 45
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOSnyder_nomovie.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2007-09-20",
-                "end": "2007-09-21",
-                "line": "September 20, 2007",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 76
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOBieglerControl.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2007-04-12",
-                "end": "2007-04-13",
-                "line": "April 12, 2007",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 43
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOMINLPGrossmann.pdf",
-              "classification": "undated-resource",
-              "recognized": 0,
-              "totalPages": 60,
-              "pendingPages": [],
-              "ocrPagesCompleted": 0
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/LinderothJan07.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2007-01-17",
-                "end": "2007-01-18",
-                "line": "January 17, 2007",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 87
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/SchaeferMDP.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2006-10-26",
-                "end": "2006-10-27",
-                "line": "October 26, 2006",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 47
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/HookerSeminarpitaplanningsched.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2006-09-01",
-                "end": "2006-10-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 76
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/LinderothSEminaroptimization_grid.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2006-05-09",
-                "end": "2006-05-10",
-                "line": "May 9, 2006",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 67
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/HookerCP.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2002-09-01",
-                "end": "2002-10-01"
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 111
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/ewo_talkBiegler.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2006-02-15",
-                "end": "2006-02-16",
-                "line": "February 15, 2006",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 47
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/EWOSchedulingGrossmann.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2006-01-18",
-                "end": "2006-01-19",
-                "line": "January 18, 2006",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 53
-            },
-            {
-              "url": "https://egon.cheme.cmu.edu/ewo/docs/SPSeminarSchaefer.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2005-10-20",
-                "end": "2005-10-21",
-                "line": "October 20, 2005",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 51
+              "url": "https://egon.cheme.cmu.edu/ewo/seminars.html",
+              "reason": "getaddrinfo EAI_AGAIN egon.cheme.cmu.edu"
             }
           ],
-          "checkedAt": "2026-10-28T16:45:27.158Z"
+          "nonBlockingIssues": [],
+          "checkedAt": "2026-10-29T16:59:01.952Z"
         }
       },
       {
@@ -4583,7 +2399,7 @@
         "org": "CMU Alumni Online Events",
         "url": "https://www.cmu.edu/engage/events/online-events",
         "state": "error",
-        "eventCount": 4,
+        "eventCount": 3,
         "passed": true,
         "internalIssues": [],
         "coverage": {
@@ -4591,12 +2407,8 @@
           "kind": "public-dom-pagination-and-details",
           "inspectionComplete": true,
           "pages": 3,
-          "listingCards": 24,
+          "listingCards": 23,
           "inspectedDetails": [
-            {
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-              "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
-            },
             {
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
               "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
@@ -4612,17 +2424,6 @@
           ],
           "internalIssues": [],
           "externalIssues": [
-            {
-              "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
-              "diagnostic": {
-                "httpStatus": 403,
-                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-                "title": "Just a moment...",
-                "firstVisibleH1": null
-              }
-            },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
@@ -4658,7 +2459,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-28T16:41:56.411Z"
+          "checkedAt": "2026-10-29T16:59:08.296Z"
         }
       },
       {
@@ -4666,7 +2467,7 @@
         "org": "CMU Alumni and Community Events",
         "url": "https://www.cmu.edu/engage/events",
         "state": "error",
-        "eventCount": 24,
+        "eventCount": 23,
         "passed": true,
         "internalIssues": [],
         "coverage": {
@@ -4674,12 +2475,8 @@
           "kind": "public-dom-pagination-and-details",
           "inspectionComplete": true,
           "pages": 3,
-          "listingCards": 24,
+          "listingCards": 23,
           "inspectedDetails": [
-            {
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-              "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
-            },
             {
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
               "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
@@ -4729,11 +2526,11 @@
               "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
             },
             {
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
               "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
             },
             {
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer",
               "outcome": "PUBLIC_DETAIL_ACCESS_FAILURE"
             },
             {
@@ -4775,17 +2572,6 @@
           ],
           "internalIssues": [],
           "externalIssues": [
-            {
-              "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
-              "diagnostic": {
-                "httpStatus": 403,
-                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026",
-                "title": "Just a moment...",
-                "firstVisibleH1": null
-              }
-            },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/communicating-with-confidence-2026-interactive-practice-for-real-world-speaking",
@@ -4909,22 +2695,22 @@
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
-                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer",
+                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
                 "title": "Just a moment...",
                 "firstVisibleH1": null
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
-              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
-                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
+                "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer",
                 "title": "Just a moment...",
                 "firstVisibleH1": null
               }
@@ -5030,7 +2816,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-10-28T16:42:02.858Z"
+          "checkedAt": "2026-10-29T16:59:13.770Z"
         }
       },
       {
@@ -5348,14 +3134,14 @@
               "evidence": "cause---gamble_heinz-speaker-series4.jpg"
             }
           ],
-          "checkedAt": "2026-10-28T16:42:09.862Z"
+          "checkedAt": "2026-10-29T16:59:26.586Z"
         }
       }
     ]
   },
   "eventExclusions": {
-    "checkedAt": "2026-10-28T16:45:29.510Z",
-    "count": 64,
+    "checkedAt": "2026-10-29T16:59:34.912Z",
+    "count": 67,
     "records": [
       {
         "uid": "livewhale:33083:range:2026-11-25",
@@ -5437,7 +3223,6 @@
         "url": "https://library.cmu.edu/about/exhibits/crucible-of-change",
         "sourceIds": [
           "07130c683752",
-          "6bab7f11462d",
           "e8b71eac1119"
         ],
         "code": "date-window",
@@ -5668,6 +3453,17 @@
         "uid": "livewhale:34889:2027-04-21",
         "title": "Coulter Welcome Center Closed",
         "url": "https://events.cmu.edu/admission/event/34889-coulter-welcome-center-closed",
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "code": "availability-notice",
+        "reason": "The publisher describes venue/office availability rather than an activity session."
+      },
+      {
+        "uid": "livewhale:34890:2027-04-28",
+        "title": "Coulter Welcome Center Closed",
+        "url": "https://events.cmu.edu/admission/event/34890-coulter-welcome-center-closed",
         "sourceIds": [
           "59a00f8db799",
           "e8b71eac1119"
@@ -6089,11 +3885,30 @@
         "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
       },
       {
-        "uid": "livewhale:32687:range:2026-11-25",
+        "uid": "livewhale:36649:range:2026-11-09",
+        "title": "4th Annual Electronics Recycling Event",
+        "url": "https://events.cmu.edu/event/36649-4th-annual-electronics-recycling-event",
+        "sourceIds": [
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:32687:range:2026-11-26",
         "title": "Thanksgiving Break; No Classes",
         "url": "https://events.cmu.edu/live/events/31796-thanksgiving-break-university-closed",
         "sourceIds": [
-          "e8b71eac1119",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:31796:range:2026-11-25",
+        "title": "Thanksgiving Break; No Classes",
+        "url": "https://events.cmu.edu/academic-calendar/event/31796-thanksgiving-break-no-classes",
+        "sourceIds": [
           "fe717318a657"
         ],
         "code": "date-window",
@@ -6103,10 +3918,10 @@
   },
   "eventMerges": {
     "version": 1,
-    "inputOccurrences": 5689,
-    "outputOccurrences": 3562,
-    "mergedGroups": 1180,
-    "absorbedOccurrences": 2127,
+    "inputOccurrences": 5628,
+    "outputOccurrences": 3567,
+    "mergedGroups": 1160,
+    "absorbedOccurrences": 2061,
     "groups": [
       {
         "id": "b2bf53b5e8bdd248e1b75982",
@@ -6151,15 +3966,13 @@
         "title": "X in the Loop Webinar Series",
         "start": "2026-11-21T02:00:00.000Z",
         "end": "2026-11-21T03:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "01978dd6e627",
-          "c84cc1c34efc",
-          "d93abdb4309a",
           "e8b71eac1119",
           "fac3ce8cfb40"
         ],
@@ -6299,14 +4112,13 @@
         "title": "People, Places and Things",
         "start": "2026-11-21T01:00:00.000Z",
         "end": "2026-11-21T01:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "01978dd6e627",
-          "d93abdb4309a",
           "e8b71eac1119",
           "ec62bc29f612"
         ],
@@ -6320,14 +4132,13 @@
         "title": "People, Places and Things",
         "start": "2026-11-22T01:00:00.000Z",
         "end": "2026-11-22T01:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "01978dd6e627",
-          "d93abdb4309a",
           "e8b71eac1119",
           "ec62bc29f612"
         ],
@@ -6732,42 +4543,6 @@
         ]
       },
       {
-        "id": "1cddb73ba52c122ae60522fc",
-        "title": "Guest Lecture: Driving Measurable Value Through Owner Focused Innovation",
-        "start": "2026-11-02T15:00:00.000Z",
-        "end": "2026-11-02T16:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "0635a62a5541",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/cee/event/35471-guest-lecture-driving-measurable-value-through"
-        ]
-      },
-      {
-        "id": "9630a969cfa523ead3857dcc",
-        "title": "CEE Bake Sale",
-        "start": "2026-11-02T15:00:00.000Z",
-        "end": "2026-11-02T18:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "0635a62a5541",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/cee/event/35630-cee-bake-sale"
-        ]
-      },
-      {
         "id": "9dba81824cad81cc5bcbd440",
         "title": "CEE Bake Sale",
         "start": "2026-10-26T14:00:00.000Z",
@@ -6809,7 +4584,7 @@
         "title": "Democracy Day; No Classes (evening classes after 5 p.m. will still meet)",
         "start": "2026-11-03",
         "end": "2026-11-04",
-        "sourceOccurrences": 13,
+        "sourceOccurrences": 9,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -6820,12 +4595,10 @@
           "58220d8df81e",
           "68c9b0b21fb8",
           "7493d352b89a",
-          "aa8390d8ece6",
           "afe4cdd6eb3a",
           "be4c1ac74f16",
           "ccabd5dde2a8",
           "d93abdb4309a",
-          "e8b71eac1119",
           "fc7db2cca6a2",
           "fe717318a657"
         ],
@@ -7099,17 +4872,15 @@
         "title": "CMU/Pitt Colloquium: Dan Baxter (Fermilab)",
         "start": "2026-11-02T20:30:00.000Z",
         "end": "2026-11-02T20:30:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "064e900f29b4",
-          "aa8390d8ece6",
           "afe4cdd6eb3a",
-          "c7cbdbabd4e7",
-          "e8b71eac1119"
+          "c7cbdbabd4e7"
         ],
         "originalUrls": [
           "https://events.cmu.edu/physics/event/33798-cmupitt-colloquium-dan-baxter-fermilab"
@@ -7474,14 +5245,13 @@
         "title": "Condensed Matter Physics (CMP) Seminar: Yiming Xu (PRX)",
         "start": "2026-10-27T16:00:00.000Z",
         "end": "2026-10-27T16:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "064e900f29b4",
-          "840fd3084bf4",
           "aa8390d8ece6",
           "afe4cdd6eb3a",
           "e8b71eac1119"
@@ -7949,9 +5719,9 @@
           "07130c683752",
           "333036f75a50",
           "491df87feb08",
+          "6bab7f11462d",
           "982c26d90129",
           "b37d02b73df8",
-          "c7a2fb7ee246",
           "d93abdb4309a",
           "e8b71eac1119"
         ],
@@ -8094,7 +5864,7 @@
         "title": "Working with the Command Line Interface (Automating workflows)",
         "start": "2026-10-28T14:00:00.000Z",
         "end": "2026-10-28T15:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 5,
         "reasons": [
           "shared-event-link"
         ],
@@ -8102,6 +5872,7 @@
         "sourceIds": [
           "07130c683752",
           "491df87feb08",
+          "6bab7f11462d",
           "7f03d1a54c59",
           "b37d02b73df8",
           "e8b71eac1119"
@@ -8239,11 +6010,11 @@
           "07130c683752",
           "491df87feb08",
           "5d10172e6358",
+          "6bab7f11462d",
           "7f03d1a54c59",
           "9390a36d167b",
           "982c26d90129",
           "b37d02b73df8",
-          "c7a2fb7ee246",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -8293,11 +6064,11 @@
           "07130c683752",
           "491df87feb08",
           "5d10172e6358",
+          "6bab7f11462d",
           "7f03d1a54c59",
           "9390a36d167b",
           "982c26d90129",
           "b37d02b73df8",
-          "c7a2fb7ee246",
           "d93abdb4309a",
           "e8b71eac1119"
         ],
@@ -8311,7 +6082,7 @@
         "title": "AI Fluency Week: The Impact of AI in the Research Process: A Panel Discussion",
         "start": "2026-10-28T21:00:00.000Z",
         "end": "2026-10-28T22:00:00.000Z",
-        "sourceOccurrences": 7,
+        "sourceOccurrences": 6,
         "reasons": [
           "shared-event-link"
         ],
@@ -8321,7 +6092,6 @@
           "333036f75a50",
           "6bab7f11462d",
           "982c26d90129",
-          "c7a2fb7ee246",
           "d93abdb4309a",
           "e8b71eac1119"
         ],
@@ -8354,7 +6124,7 @@
         "title": "Hands On: Halloween Harvest",
         "start": "2026-10-28T16:00:00.000Z",
         "end": "2026-10-28T18:00:00.000Z",
-        "sourceOccurrences": 6,
+        "sourceOccurrences": 5,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -8364,7 +6134,6 @@
           "07130c683752",
           "491df87feb08",
           "5d10172e6358",
-          "6bab7f11462d",
           "9390a36d167b",
           "b37d02b73df8",
           "e8b71eac1119"
@@ -8439,9 +6208,8 @@
         "title": "CMU Community Blood Drive",
         "start": "2026-11-02T13:30:00.000Z",
         "end": "2026-11-02T18:30:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 4,
         "reasons": [
-          "copied-description",
           "shared-event-link"
         ],
         "sourceConflicts": [],
@@ -8449,12 +6217,10 @@
           "07130c683752",
           "15e1f25e2dd5",
           "d93abdb4309a",
-          "e8b71eac1119",
           "f924f93134be"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/live/events/34614-cmu-community-blood-drive",
-          "https://events.cmu.edu/event/34614-cmu-community-blood-drive"
+          "https://events.cmu.edu/live/events/34614-cmu-community-blood-drive"
         ]
       },
       {
@@ -8517,8 +6283,8 @@
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "c7a2fb7ee246",
-          "d93abdb4309a"
+          "d93abdb4309a",
+          "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/33295-paws-to-relax-pet-therapy-program",
@@ -8805,7 +6571,7 @@
         "title": "Heartfulness Sunday Meditation: Guided Meditation Masterclass",
         "start": "2026-11-01T14:00:00.000Z",
         "end": "2026-11-01T16:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -8813,8 +6579,7 @@
         "sourceIds": [
           "07130c683752",
           "c7a2fb7ee246",
-          "d93abdb4309a",
-          "e8b71eac1119"
+          "d93abdb4309a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/33602-heartfulness-sunday-meditation-guided-meditation",
@@ -8868,7 +6633,7 @@
         "title": "Heartfulness Sunday Meditation: Guided Meditation Masterclass",
         "start": "2026-11-22T14:00:00.000Z",
         "end": "2026-11-22T16:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -8876,7 +6641,6 @@
         "sourceIds": [
           "07130c683752",
           "c7a2fb7ee246",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -9495,15 +7259,14 @@
         "title": "Black Girl Bliss",
         "start": "2026-11-02T22:00:00.000Z",
         "end": "2026-11-02T23:15:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
-          "e8b71eac1119"
+          "d93abdb4309a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/35511-black-girl-bliss",
@@ -9555,19 +7318,17 @@
         "title": "Black Girl Bliss",
         "start": "2026-11-23T22:00:00.000Z",
         "end": "2026-11-23T23:15:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35514-black-girl-bliss",
-          "https://events.cmu.edu/live/events/35514-black-girl-bliss"
+          "https://events.cmu.edu/student-affairs/event/35514-black-girl-bliss"
         ]
       },
       {
@@ -9655,14 +7416,13 @@
         "title": "CaPS Global Connections: International Student Support Group",
         "start": "2026-10-27T21:30:00.000Z",
         "end": "2026-10-27T22:30:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "c7a2fb7ee246",
           "d93abdb4309a",
           "e8b71eac1119"
         ],
@@ -9739,7 +7499,7 @@
         "title": "CaPS Global Connections: International Student Support Group",
         "start": "2026-11-24T22:30:00.000Z",
         "end": "2026-11-24T23:30:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -9747,7 +7507,6 @@
         "sourceIds": [
           "07130c683752",
           "c7a2fb7ee246",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -9843,15 +7602,14 @@
         "title": "CaPS: LGBTQIA+ Support and Social Group",
         "start": "2026-11-02T22:30:00.000Z",
         "end": "2026-11-02T23:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
-          "e8b71eac1119"
+          "d93abdb4309a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/35534-caps-lgbtqia-support-and-social-group",
@@ -9903,19 +7661,17 @@
         "title": "CaPS: LGBTQIA+ Support and Social Group",
         "start": "2026-11-23T22:30:00.000Z",
         "end": "2026-11-23T23:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35537-caps-lgbtqia-support-and-social-group",
-          "https://events.cmu.edu/live/events/35537-caps-lgbtqia-support-and-social-group"
+          "https://events.cmu.edu/student-affairs/event/35537-caps-lgbtqia-support-and-social-group"
         ]
       },
       {
@@ -10160,15 +7916,14 @@
         "title": "Grieving Together",
         "start": "2026-11-02T21:00:00.000Z",
         "end": "2026-11-02T22:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
-          "e8b71eac1119"
+          "d93abdb4309a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/35556-grieving-together",
@@ -10220,19 +7975,17 @@
         "title": "Grieving Together",
         "start": "2026-11-23T21:00:00.000Z",
         "end": "2026-11-23T22:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35559-grieving-together",
-          "https://events.cmu.edu/live/events/35559-grieving-together"
+          "https://events.cmu.edu/student-affairs/event/35559-grieving-together"
         ]
       },
       {
@@ -10537,19 +8290,17 @@
         "title": "Understanding Self and Others",
         "start": "2026-11-24T20:30:00.000Z",
         "end": "2026-11-24T22:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35581-understanding-self-and-others",
-          "https://events.cmu.edu/live/events/35581-understanding-self-and-others"
+          "https://events.cmu.edu/student-affairs/event/35581-understanding-self-and-others"
         ]
       },
       {
@@ -10702,14 +8453,13 @@
         "title": "A Crucible of Change: Carnegie Tech and World War I",
         "start": "2026-08-31",
         "end": "2027-07-10",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "6bab7f11462d",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -10880,19 +8630,17 @@
         "title": "Baroque Ensemble",
         "start": "2026-11-02T00:00:00.000Z",
         "end": "2026-11-02T00:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "0ae111c719fe",
-          "35a21105454b",
-          "e8b71eac1119"
+          "35a21105454b"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/music/event/34313-baroque-ensemble",
-          "https://events.cmu.edu/live/events/34313-baroque-ensemble"
+          "https://events.cmu.edu/music/event/34313-baroque-ensemble"
         ]
       },
       {
@@ -11032,14 +8780,15 @@
         "title": "Student Recital: Ziyu Cai",
         "start": "2026-10-28T23:30:00.000Z",
         "end": "2026-10-28T23:30:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "0ae111c719fe",
-          "35a21105454b"
+          "35a21105454b",
+          "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/music/event/34737-student-recital-ziyu-cai"
@@ -11817,15 +9566,14 @@
         "title": "Masterclass: Daedalus Quartet",
         "start": "2026-10-26T14:00:00.000Z",
         "end": "2026-10-26T14:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "0ae111c719fe",
-          "35a21105454b",
-          "e8b71eac1119"
+          "35a21105454b"
         ],
         "originalUrls": [
           "https://events.cmu.edu/music/event/35176-masterclass-daedalus-quartet"
@@ -12420,26 +10168,6 @@
         ]
       },
       {
-        "id": "c2c2feb392db14bb3c3995d6",
-        "title": "CONNECTS: Building and Leveraging Your Expert Network*",
-        "start": "2026-10-28T16:30:00.000Z",
-        "end": "2026-10-28T17:30:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "specific-title-and-venue"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "0f172b16da54",
-          "898f16baa6cc",
-          "e6ffe5bbc583"
-        ],
-        "originalUrls": [
-          "https://calendar.google.com/calendar/embed?src=0spk3ntpcf48v0l2p4sj8tok98%40group.calendar.google.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261028%2F20261029",
-          "https://luma.com/8scr1fao"
-        ]
-      },
-      {
         "id": "c092f601a1418b3c32008379",
         "title": "GSA + Eberly Center Teaching Questions Pop-up",
         "start": "2026-09-29T20:00:00.000Z",
@@ -12794,24 +10522,6 @@
         ]
       },
       {
-        "id": "6c3cd923ee89a7a0d7a88d1f",
-        "title": "Everything Has Bugs. Here’s How Antithesis Catches Them.",
-        "start": "2026-09-28",
-        "end": "2026-09-29",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "1185bc345a9a",
-          "804b8b6951fe"
-        ],
-        "originalUrls": [
-          "https://db.cs.cmu.edu/events/andy-at-sea-antithesis/"
-        ]
-      },
-      {
         "id": "5d0282529c6702e9beb1163f",
         "title": "Unifying Postgres and ClickHouse Natively",
         "start": "2026-11-02",
@@ -13037,7 +10747,7 @@
         "title": "CyLab Seminar: Rolfe Schmidt",
         "start": "2026-10-26T16:00:00.000Z",
         "end": "2026-10-26T17:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link",
           "specific-title-and-venue"
@@ -13047,7 +10757,6 @@
         ],
         "sourceIds": [
           "1185bc345a9a",
-          "2a77547af411",
           "4c5426677e95",
           "9903c32bf0ab",
           "b965a95677c6",
@@ -13063,7 +10772,7 @@
         "title": "CyLab Seminar: Praneeth Vepakomma",
         "start": "2026-11-02T17:00:00.000Z",
         "end": "2026-11-02T17:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -13071,8 +10780,7 @@
         "sourceIds": [
           "1185bc345a9a",
           "2a77547af411",
-          "9903c32bf0ab",
-          "e8b71eac1119"
+          "9903c32bf0ab"
         ],
         "originalUrls": [
           "https://events.cmu.edu/cylab/event/35373-cylab-seminar-praneeth-vepakomma"
@@ -13885,19 +11593,15 @@
         "title": "Theory Lunch Seminar - Henry Fleischmann",
         "start": "2026-10-28T16:00:00.000Z",
         "end": "2026-10-28T17:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
-          "copied-description",
-          "shared-event-link"
+          "copied-description"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "1185bc345a9a",
-          "26680f057d80",
-          "426866c33d9d",
           "4c5426677e95",
-          "b965a95677c6",
-          "d5814b89c528"
+          "b965a95677c6"
         ],
         "originalUrls": [
           "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D212179506",
@@ -14475,6 +12179,27 @@
         ]
       },
       {
+        "id": "979592fcf949fd6fb006fa64",
+        "title": "Finding Support for Your Research: Foundations 101",
+        "start": "2026-11-13T15:00:00.000Z",
+        "end": "2026-11-13T16:00:00.000Z",
+        "sourceOccurrences": 5,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "13a1bf0efd64",
+          "1d5bc0c83871",
+          "24468d6e45aa",
+          "aa8390d8ece6",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/36651-finding-support-for-your-research-foundations-101"
+        ]
+      },
+      {
         "id": "8b617f33dbb0de7cb61e14e3",
         "title": "Fall Seminar - Yuting Wei",
         "start": "2026-11-09T21:00:00.000Z",
@@ -14510,25 +12235,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/statistics-datascience/event/34353-fall-seminar-ricardo-masini"
-        ]
-      },
-      {
-        "id": "1609f40ffbbb8587f4e9415a",
-        "title": "StatDS and LCAL Summer 2027 Study Abroad Info Session",
-        "start": "2026-10-28T19:30:00.000Z",
-        "end": "2026-10-28T20:30:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "13a1bf0efd64",
-          "c9b5ed0cf149",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/statistics-datascience/event/35626-statds-and-lcal-summer-2027-study-abroad-info-session"
         ]
       },
       {
@@ -15027,6 +12733,29 @@
         ]
       },
       {
+        "id": "908af53fca489537c1a80532",
+        "title": "RETI Consortium seminar with PJM Interconnection’s Darlene J. Phillips",
+        "start": "2026-12-17T17:00:00.000Z",
+        "end": "2026-12-17T17:00:00.000Z",
+        "sourceOccurrences": 6,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "1b0f0b6e62fa",
+          "9e775d8561f3",
+          "a387644dcf0a",
+          "c7a2fb7ee246",
+          "e2ff798380de",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/35455-reti-consortium-seminar-with-pjm-interconnections",
+          "https://events.cmu.edu/energy/event/35455-reti-consortium-seminar-with-pjm-interconnections"
+        ]
+      },
+      {
         "id": "523d715a36ee4fe1dd6dadcc",
         "title": "Webinar: Unpacking Duolingo’s Approach to Innovation",
         "start": "2026-10-28T00:00:00.000Z",
@@ -15055,7 +12784,7 @@
         "title": "Humanities Schedule Skelebration!",
         "start": "2026-10-28T21:00:00.000Z",
         "end": "2026-10-28T22:30:00.000Z",
-        "sourceOccurrences": 9,
+        "sourceOccurrences": 8,
         "reasons": [
           "shared-event-link"
         ],
@@ -15068,8 +12797,7 @@
           "c84cc1c34efc",
           "d93abdb4309a",
           "da2117ec52f4",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
+          "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/live/events/35470-humanities-schedule-skelebration",
@@ -15212,11 +12940,11 @@
         ]
       },
       {
-        "id": "1d295e1d316930565f7db863",
-        "title": "Colloquium with Dr. David Badre",
-        "start": "2026-10-26T16:30:00.000Z",
-        "end": "2026-10-26T16:30:00.000Z",
-        "sourceOccurrences": 4,
+        "id": "05d634eaeaa1a822bc117724",
+        "title": "Artificial Intelligence in Medicine: Opportunities and Challenges",
+        "start": "2026-11-05T13:30:00.000Z",
+        "end": "2026-11-05T13:30:00.000Z",
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -15224,12 +12952,10 @@
         "sourceIds": [
           "24468d6e45aa",
           "aa8390d8ece6",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/ni/event/35756-colloquium-with-dr-david-badre",
-          "https://events.cmu.edu/live/events/35756-colloquium-with-dr-david-badre"
+          "https://events.cmu.edu/ni/event/35980-artificial-intelligence-in-medicine-opportunities"
         ]
       },
       {
@@ -15248,28 +12974,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/live/events/33068-first-day-of-classes"
-        ]
-      },
-      {
-        "id": "57feeefefd1d0214e50a6310",
-        "title": "Am I cooked? A Faculty Panel on AI and the Future of Work, Academia, and Everything",
-        "start": "2026-10-28T21:00:00.000Z",
-        "end": "2026-10-28T22:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "copied-description"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "26680f057d80",
-          "426866c33d9d",
-          "4c5426677e95",
-          "b965a95677c6",
-          "d5814b89c528"
-        ],
-        "originalUrls": [
-          "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D211873136",
-          "https://csd.cmu.edu/ical/ical.ics"
         ]
       },
       {
@@ -15316,25 +13020,22 @@
         ]
       },
       {
-        "id": "0705e51265e02b99820876a9",
-        "title": "Languages & Cultures Night",
-        "start": "2026-11-04T22:30:00.000Z",
-        "end": "2026-11-05T00:00:00.000Z",
-        "sourceOccurrences": 5,
+        "id": "be8bcafc8441c318bf11169d",
+        "title": "KAAI Workshop - AI Methods for Turbulence and Early-Universe Signals",
+        "start": "2026-11-02",
+        "end": "2026-11-07",
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
-          "2ada616956fa",
-          "c84cc1c34efc",
-          "d93abdb4309a",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
+          "2b1bd766c2cd",
+          "aa8390d8ece6",
+          "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/live/events/34551-languages-cultures-night",
-          "https://events.cmu.edu/lcal/event/34551-languages-cultures-night"
+          "https://events.cmu.edu/physics/event/36652-kaai-workshop-ai-methods-for-turbulence-and"
         ]
       },
       {
@@ -16250,25 +13951,6 @@
         ]
       },
       {
-        "id": "7dd045fdfb6b40605ac6f1da",
-        "title": "RI PhD Thesis Proposal – Chen Wu",
-        "start": "2026-10-28T15:00:00.000Z",
-        "end": "2026-10-28T16:30:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "367d82c9c973",
-          "622ec95218e2",
-          "cfd02b9dd433"
-        ],
-        "originalUrls": [
-          "https://www.ri.cmu.edu/event/ri-phd-thesis-proposal-chen-wu/"
-        ]
-      },
-      {
         "id": "b26adca6d12a954b09c9d640",
         "title": "The Scholar’s Journey Session 3: Fueling Your Journey & Managing Your Resources",
         "start": "2026-10-28T21:00:00.000Z",
@@ -16311,15 +13993,14 @@
         "title": "Dismantling Internalized Ableism & The Art of Strategic Disclosure",
         "start": "2026-11-02T22:00:00.000Z",
         "end": "2026-11-02T23:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "3e5a8e176b7b",
-          "b20a9fbd0aed",
-          "e8b71eac1119"
+          "b20a9fbd0aed"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-success/event/34420-dismantling-internalized-ableism-the-art-of-strategic-"
@@ -16559,24 +14240,6 @@
         ],
         "originalUrls": [
           "https://tartanconnect.cmu.edu/rsvp?id=1936414"
-        ]
-      },
-      {
-        "id": "71a34a80dfa1c0c668c2fbf0",
-        "title": "CommuniTEA",
-        "start": "2026-09-28T22:00:00.000Z",
-        "end": "2026-09-28T23:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "40f7fd9f957c",
-          "5d10172e6358"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1936415"
         ]
       },
       {
@@ -16922,24 +14585,6 @@
         ]
       },
       {
-        "id": "0e2518f53dd52bdc9762deaa",
-        "title": "Lectio Divina",
-        "start": "2026-09-29T16:15:00.000Z",
-        "end": "2026-09-29T16:45:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "40f7fd9f957c",
-          "5d10172e6358"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1937453"
-        ]
-      },
-      {
         "id": "a5ea5955f41a05d9ed72a7cc",
         "title": "Lectio Divina",
         "start": "2026-10-06T16:15:00.000Z",
@@ -17153,6 +14798,25 @@
         ],
         "originalUrls": [
           "https://tartanconnect.cmu.edu/rsvp?id=1938214"
+        ]
+      },
+      {
+        "id": "09c40980c1a3df28d422c195",
+        "title": "Senior Presentation Game Show",
+        "start": "2026-11-17T10:00:00.000Z",
+        "end": "2026-11-17T11:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "42c864cad300",
+          "6cda0234594e"
+        ],
+        "originalUrls": [
+          "https://scottyconnect.qatar.cmu.edu/rsvp_boot?id=375491&rel=title",
+          "https://scottyconnect.qatar.cmu.edu/rsvp?id=375491"
         ]
       },
       {
@@ -17459,25 +15123,6 @@
         ]
       },
       {
-        "id": "5f416532df4d18657b926214",
-        "title": "\"Choose your own adventure!\": Introduction to nonlinear storytelling games with Twine",
-        "start": "2026-09-28T16:00:00.000Z",
-        "end": "2026-09-28T17:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "491df87feb08",
-          "7f03d1a54c59",
-          "b37d02b73df8"
-        ],
-        "originalUrls": [
-          "https://cmu.libcal.com/calendar/workshops/twine"
-        ]
-      },
-      {
         "id": "8e99b1464d225fc2c38b002d",
         "title": "Working with the Command Line Interface (Code & Data Management Pt 2)",
         "start": "2026-09-30T14:00:00.000Z",
@@ -17494,25 +15139,6 @@
         ],
         "originalUrls": [
           "https://cmu.libcal.com/calendar/workshops/WorkingWithCLI_3"
-        ]
-      },
-      {
-        "id": "68d5839e1abe79534f033ac7",
-        "title": "Research Software Engineering: Documentation for Sustainability",
-        "start": "2026-09-29T14:00:00.000Z",
-        "end": "2026-09-29T15:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "491df87feb08",
-          "7f03d1a54c59",
-          "b37d02b73df8"
-        ],
-        "originalUrls": [
-          "https://cmu.libcal.com/event/17248312"
         ]
       },
       {
@@ -17630,25 +15256,6 @@
         ]
       },
       {
-        "id": "bc07c6c1b9c06949d48b8ce5",
-        "title": "Series: Introduction to Machine Learning with Python, Part 3 of 3",
-        "start": "2026-09-28T19:00:00.000Z",
-        "end": "2026-09-28T20:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "491df87feb08",
-          "7f03d1a54c59",
-          "b37d02b73df8"
-        ],
-        "originalUrls": [
-          "https://cmu.libcal.com/event/17316448"
-        ]
-      },
-      {
         "id": "dfe518228dee386634f044d6",
         "title": "Canceled:Communicating Data: Tableau",
         "start": "2026-09-30T16:00:00.000Z",
@@ -17691,7 +15298,7 @@
         "title": "Communicating Data: Data Storytelling",
         "start": "2026-10-28T16:00:00.000Z",
         "end": "2026-10-28T17:00:00.000Z",
-        "sourceOccurrences": 7,
+        "sourceOccurrences": 6,
         "reasons": [
           "shared-event-link"
         ],
@@ -17702,7 +15309,6 @@
           "7f03d1a54c59",
           "982c26d90129",
           "b37d02b73df8",
-          "c7a2fb7ee246",
           "d93abdb4309a",
           "e8b71eac1119"
         ],
@@ -17727,25 +15333,6 @@
         ],
         "originalUrls": [
           "https://cmu.libcal.com/event/17319770"
-        ]
-      },
-      {
-        "id": "6a328d92ce2aea1e5ee50bf2",
-        "title": "Conducting Scoping Reviews to Understand the Research Landscape",
-        "start": "2026-09-29T15:00:00.000Z",
-        "end": "2026-09-29T16:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "491df87feb08",
-          "7f03d1a54c59",
-          "b37d02b73df8"
-        ],
-        "originalUrls": [
-          "https://cmu.libcal.com/event/17325244"
         ]
       },
       {
@@ -18041,14 +15628,13 @@
         "title": "Bat Movies and Blueprints: The Dark Knight Rises",
         "start": "2026-11-19T21:00:00.000Z",
         "end": "2026-11-20T00:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "491df87feb08",
-          "6bab7f11462d",
           "b37d02b73df8",
           "e8b71eac1119"
         ],
@@ -18090,6 +15676,24 @@
         ],
         "originalUrls": [
           "https://gradadmissions.engineering.cmu.edu/register/?id=3fb15f63-c49d-46a8-a6f3-a071bbf8ecde"
+        ]
+      },
+      {
+        "id": "b9529667372a576b23d6e725",
+        "title": "INI Student Ambassador Panel",
+        "start": "2026-11-06T17:00:00.000Z",
+        "end": "2026-11-06T18:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "4c39574aa8e4",
+          "bffb0752ce26"
+        ],
+        "originalUrls": [
+          "https://gradadmissions.engineering.cmu.edu/register/?id=adcbdc86-8d78-4e9e-a468-2ca7feaacfcf"
         ]
       },
       {
@@ -18197,30 +15801,6 @@
         ]
       },
       {
-        "id": "620b304faa8d70429af499fc",
-        "title": "Talk & Reading with Ayelet Tsabari",
-        "start": "2026-11-11T22:15:00.000Z",
-        "end": "2026-11-12T00:30:00.000Z",
-        "sourceOccurrences": 5,
-        "reasons": [
-          "shared-event-link",
-          "specific-title-and-venue"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "4f75e74a4136",
-          "b1ee74eb5acb",
-          "d93abdb4309a",
-          "da2117ec52f4",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/history/event/35863-talk-reading-with-ayelet-tsabari",
-          "https://calendar.google.com/calendar/embed?src=cmu.history%40gmail.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261111%2F20261112",
-          "https://events.cmu.edu/live/events/35863-talk-reading-with-ayelet-tsabari"
-        ]
-      },
-      {
         "id": "b4f9f80502e29a446e5e1685",
         "title": "Ostatni Etap: The Last Stage",
         "start": "2026-10-28T22:00:00.000Z",
@@ -18242,25 +15822,6 @@
           "https://events.cmu.edu/history/event/35865-ostatni-etap-the-last-stage",
           "https://calendar.google.com/calendar/embed?src=cmu.history%40gmail.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261028%2F20261029",
           "https://events.cmu.edu/live/events/35865-ostatni-etap-the-last-stage"
-        ]
-      },
-      {
-        "id": "2612f3f5f13cdecfd0124e33",
-        "title": "Professor Joe Trotter Jr. Retirement Party",
-        "start": "2026-11-19T21:00:00.000Z",
-        "end": "2026-11-19T21:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "4f75e74a4136",
-          "da2117ec52f4",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/history/event/35866-professor-joe-trotter-jr-retirement-party"
         ]
       },
       {
@@ -18289,7 +15850,7 @@
         "title": "Computational Humanities Co-working Session",
         "start": "2026-11-05T16:00:00.000Z",
         "end": "2026-11-05T17:00:00.000Z",
-        "sourceOccurrences": 9,
+        "sourceOccurrences": 8,
         "reasons": [
           "shared-event-link"
         ],
@@ -18302,8 +15863,7 @@
           "c84cc1c34efc",
           "d93abdb4309a",
           "da2117ec52f4",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
+          "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/live/events/35896-computational-humanities-co-working-session",
@@ -18387,7 +15947,7 @@
         "title": "Google Product Education Program (PEP) Webinar",
         "start": "2026-10-28T16:00:00.000Z",
         "end": "2026-10-28T16:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -18395,7 +15955,6 @@
         "sourceIds": [
           "580e4a2ea37b",
           "982c26d90129",
-          "c7a2fb7ee246",
           "d93abdb4309a",
           "e8b71eac1119"
         ],
@@ -18481,7 +16040,7 @@
         "title": "Inside the Cyber Threat Landscape with FBI Pittsburgh",
         "start": "2026-10-28T16:00:00.000Z",
         "end": "2026-10-28T17:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -18489,7 +16048,6 @@
         "sourceIds": [
           "580e4a2ea37b",
           "982c26d90129",
-          "c7a2fb7ee246",
           "d93abdb4309a",
           "e8b71eac1119"
         ],
@@ -18593,10 +16151,10 @@
         ]
       },
       {
-        "id": "1faffcaa85a1ea3edcd4146a",
+        "id": "233822ef44bff61cf70a2249",
         "title": "Graduate Research Seminar",
-        "start": "2026-11-02T20:30:00.000Z",
-        "end": "2026-11-02T22:00:00.000Z",
+        "start": "2026-10-26T19:30:00.000Z",
+        "end": "2026-10-26T21:00:00.000Z",
         "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
@@ -18608,7 +16166,7 @@
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/bio/event/32796-research-club"
+          "https://events.cmu.edu/bio/event/32795-research-club"
         ]
       },
       {
@@ -19068,25 +16626,6 @@
         ]
       },
       {
-        "id": "6d5a391141a848763932eb3b",
-        "title": "Third Rotation Talks",
-        "start": "2027-04-26T19:30:00.000Z",
-        "end": "2027-04-26T21:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "58220d8df81e",
-          "aa8390d8ece6",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/bio/event/32821-third-rotation-talks"
-        ]
-      },
-      {
         "id": "a742a5e9f2fb9ba35294351e",
         "title": "Pittsburgh Rust Belt Microbiome Conference",
         "start": "2026-11-05",
@@ -19196,24 +16735,6 @@
         ]
       },
       {
-        "id": "6b038c6cd42de4ae4a0e0acc",
-        "title": "Virtual Residence Hall Tour",
-        "start": "2026-11-01T16:00:00.000Z",
-        "end": "2026-11-01T16:45:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "59a00f8db799",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/admission/event/33229-virtual-residence-hall-tour"
-        ]
-      },
-      {
         "id": "312ffab07f005061b32454f6",
         "title": "Virtual Student-Led Campus Tour",
         "start": "2026-11-05T20:30:00.000Z",
@@ -19301,78 +16822,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/admission/event/33234-virtual-student-led-campus-tour"
-        ]
-      },
-      {
-        "id": "de12e2a04f199353c4e4c943",
-        "title": "Campus Visit (Info Session + Campus Tour)",
-        "start": "2026-11-01T17:00:00.000Z",
-        "end": "2026-11-01T19:30:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "59a00f8db799",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/admission/event/34010-campus-visit-info-session-campus-tour"
-        ]
-      },
-      {
-        "id": "b51c31bcb1f4b442df024445",
-        "title": "Campus Visit (Info Session + Campus Tour)",
-        "start": "2026-11-01T18:30:00.000Z",
-        "end": "2026-11-01T21:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "59a00f8db799",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/admission/event/34011-campus-visit-info-session-campus-tour"
-        ]
-      },
-      {
-        "id": "1c09e69f325ec9df276662cd",
-        "title": "Campus Visit (Info Session + Campus Tour)",
-        "start": "2026-11-02T15:00:00.000Z",
-        "end": "2026-11-02T17:30:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "59a00f8db799",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/admission/event/34014-campus-visit-info-session-campus-tour"
-        ]
-      },
-      {
-        "id": "b722d9ce5d9b972cecaa8eef",
-        "title": "Campus Visit (Info Session + Campus Tour)",
-        "start": "2026-11-02T17:00:00.000Z",
-        "end": "2026-11-02T19:30:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "59a00f8db799",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/admission/event/34016-campus-visit-info-session-campus-tour"
         ]
       },
       {
@@ -20618,6 +18067,24 @@
         ]
       },
       {
+        "id": "84142f65d240f03f28a5be70",
+        "title": "Coulter Welcome Center Closed",
+        "start": "2027-04-28",
+        "end": "2027-04-29",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "59a00f8db799",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/admission/event/34890-coulter-welcome-center-closed"
+        ]
+      },
+      {
         "id": "90d8edfa32e01640ab76aa18",
         "title": "Virtual Information Session",
         "start": "2026-11-10T14:30:00.000Z",
@@ -20784,25 +18251,6 @@
         ]
       },
       {
-        "id": "8e84cb86cd78071c3c17a0e6",
-        "title": "Social/Health Brownbag",
-        "start": "2026-11-02T17:30:00.000Z",
-        "end": "2026-11-02T18:50:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "5caabc7dc502",
-          "7b3f4bb86d73",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/psychology/event/33573-socialhealth-brownbag"
-        ]
-      },
-      {
         "id": "8e6369f067d2cca235726ec0",
         "title": "Social/Health Brownbag",
         "start": "2026-11-16T17:30:00.000Z",
@@ -20933,24 +18381,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/psychology/event/33585-department-colloquium-dr-david-badre"
-        ]
-      },
-      {
-        "id": "e3176dfbae60d6308bcd13ac",
-        "title": "Confirmed for MCC Banking Immersion Corporate Presentation – Internship",
-        "start": "2026-09-28T16:00:00.000Z",
-        "end": "2026-09-28T17:50:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "5d10172e6358",
-          "da985925fb40"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1935925"
         ]
       },
       {
@@ -22884,6 +20314,44 @@
         ]
       },
       {
+        "id": "500e1ca0f717dce432846051",
+        "title": "Budgeting & Financial Literacy Workshop with Tiffany Beningi, CFP + Free Bubble Tea",
+        "start": "2026-11-11T22:00:00.000Z",
+        "end": "2026-11-11T23:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "5d10172e6358",
+          "8b1011752a20",
+          "d5a270fc4ae8"
+        ],
+        "originalUrls": [
+          "https://tartanconnect.cmu.edu/rsvp?id=1938284",
+          "https://tartanconnect.cmu.edu/rsvp_boot?id=1938284&rel=title"
+        ]
+      },
+      {
+        "id": "59be742f25e9b6e6edfed5f2",
+        "title": "4th Annual Electronics Recycling Event",
+        "start": "2026-11-09T13:00:00.000Z",
+        "end": "2026-11-14T17:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "5d10172e6358",
+          "c53b97c626a0"
+        ],
+        "originalUrls": [
+          "https://tartanconnect.cmu.edu/rsvp?id=1938286"
+        ]
+      },
+      {
         "id": "26943b76606fa2588e425350",
         "title": "Study Abroad Drop-in Advising",
         "start": "2026-11-05T18:00:00.000Z",
@@ -22983,16 +20451,14 @@
         "title": "(Women’s Soccer) Brandeis vs. Carnegie Mellon",
         "start": "2026-10-25T17:30:00.000Z",
         "end": "2026-10-25T20:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
-          "copied-description",
-          "shared-event-link"
+          "copied-description"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "62f686669e31",
-          "6fbbbe7d1daa",
-          "e8b71eac1119"
+          "6fbbbe7d1daa"
         ],
         "originalUrls": [
           "https://events.cmu.edu/athletics-home/event/31697-womens-soccer-brandeis-vs-carnegie-mellon",
@@ -23907,7 +21373,7 @@
         "title": "CNA seminar: Borjan Geshkovski (Inria Paris & Sorbonne Université)",
         "start": "2026-11-03T18:00:00.000Z",
         "end": "2026-11-03T19:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -23916,7 +21382,6 @@
           "68c9b0b21fb8",
           "7493d352b89a",
           "84c0944b67c6",
-          "aa8390d8ece6",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -24177,7 +21642,7 @@
         "title": "Probability/Math Finance Seminar: Lane Yeung (Carnegie Mellon University)",
         "start": "2026-11-02T21:00:00.000Z",
         "end": "2026-11-02T22:30:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -24185,9 +21650,7 @@
         "sourceIds": [
           "68c9b0b21fb8",
           "715ac9581276",
-          "7493d352b89a",
-          "aa8390d8ece6",
-          "e8b71eac1119"
+          "7493d352b89a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/math/event/35243-probabilitymath-finance-seminar-lane-yeung-carnegie-me"
@@ -24212,24 +21675,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/math/event/35703-cna-seminar-anastasija-pei-carnegie-mellon-university"
-        ]
-      },
-      {
-        "id": "59460b562a5fe9832dee9f76",
-        "title": "PCG Reading Group: Konstantin Tikhomirov",
-        "start": "2026-10-29T14:00:00.000Z",
-        "end": "2026-10-29T15:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "68c9b0b21fb8",
-          "7493d352b89a"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/math/event/35888-pcg-reading-group-konstantin-tikhomirov"
         ]
       },
       {
@@ -24336,25 +21781,6 @@
         ]
       },
       {
-        "id": "33def65bbcfe1352feb7ad84",
-        "title": "2026 SEMS Symposium",
-        "start": "2026-10-28T21:05:00.000Z",
-        "end": "2026-10-28T22:45:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "68c9b0b21fb8",
-          "7493d352b89a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/math/event/35964-2026-sems-symposium"
-        ]
-      },
-      {
         "id": "8005beb1208c06cbb451591b",
         "title": "Probability/Math Finance Seminar: Subhro Ghosh (National University of Singapore)",
         "start": "2026-11-30T22:00:00.000Z",
@@ -24373,6 +21799,27 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/math/event/35965-probabilitymath-finance-seminar-subhro-ghosh-national-"
+        ]
+      },
+      {
+        "id": "f0934810aeda37ee40860757",
+        "title": "Math Colloquium: Ken Ono (Axiom Math)",
+        "start": "2027-03-18T15:00:00.000Z",
+        "end": "2027-03-18T16:00:00.000Z",
+        "sourceOccurrences": 5,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "68c9b0b21fb8",
+          "7493d352b89a",
+          "aa8390d8ece6",
+          "dbff20b57ed6",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/math/event/36666-math-colloquium-ken-ono-axiom-math"
         ]
       },
       {
@@ -24448,62 +21895,40 @@
         ]
       },
       {
+        "id": "0edda3dcaf8de8d2bbf5e3e7",
+        "title": "Academic Open House",
+        "start": "2026-11-03T10:00:00.000Z",
+        "end": "2026-11-03T11:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "6cda0234594e",
+          "ffa9cc40affe"
+        ],
+        "originalUrls": [
+          "https://scottyconnect.qatar.cmu.edu/rsvp?id=375497"
+        ]
+      },
+      {
         "id": "40fcd54811c8091d846b1151",
         "title": "Probability/Math Finance Seminar: Manuel Arnese (Columbia University)",
         "start": "2026-10-26T20:00:00.000Z",
         "end": "2026-10-26T21:30:00.000Z",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "715ac9581276",
-          "7493d352b89a",
-          "aa8390d8ece6",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/math/event/33171-probabilitymath-finance-seminar-manuel-arnese-columbia"
-        ]
-      },
-      {
-        "id": "b57e57687bf0a0e5b4971ad2",
-        "title": "CNA seminar: Amit Acharya (Carnegie Mellon University)",
-        "start": "2026-10-27T17:00:00.000Z",
-        "end": "2026-10-27T18:00:00.000Z",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "7493d352b89a",
-          "84c0944b67c6",
-          "aa8390d8ece6",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/math/event/32000-cna-seminar-amit-acharya-carnegie-mellon-university"
-        ]
-      },
-      {
-        "id": "f32e5cc553789333d3028cf2",
-        "title": "CNA Working Group",
-        "start": "2026-10-27T18:00:00.000Z",
-        "end": "2026-10-27T19:00:00.000Z",
         "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
-          "7493d352b89a",
+          "715ac9581276",
           "aa8390d8ece6",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/math/event/34207-cna-working-group"
+          "https://events.cmu.edu/math/event/33171-probabilitymath-finance-seminar-manuel-arnese-columbia"
         ]
       },
       {
@@ -24540,24 +21965,6 @@
         ],
         "originalUrls": [
           "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease"
-        ]
-      },
-      {
-        "id": "cdeb6fc9c536b2cc34fb7779",
-        "title": "Sports Betting and the Brain - October 2026",
-        "start": "2026-10-28",
-        "end": "2026-10-29",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "79e7cdffd54d",
-          "8f00fc7f2c7c"
-        ],
-        "originalUrls": [
-          "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/sports-betting-and-the-brain-october-2026"
         ]
       },
       {
@@ -24616,22 +22023,41 @@
         ]
       },
       {
-        "id": "f49955bd728fef1dbc568070",
-        "title": "English Master’s Programs Information Session",
-        "start": "2026-11-11T22:00:00.000Z",
-        "end": "2026-11-11T23:00:00.000Z",
-        "sourceOccurrences": 2,
+        "id": "17e0cea8f01b382d9a351369",
+        "title": "In-Theory Seminar: Claudia de Rham (Imperial College)",
+        "start": "2026-12-03T21:00:00.000Z",
+        "end": "2026-12-03T21:00:00.000Z",
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
-          "7dd208226033",
+          "840fd3084bf4",
+          "aa8390d8ece6",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/english/event/35930-english-masters-programs-information-session",
-          "https://events.cmu.edu/live/events/35930-english-masters-programs-information-session"
+          "https://events.cmu.edu/physics/event/36667-in-theory-seminar-claudia-de-rham-imperial-college"
+        ]
+      },
+      {
+        "id": "b57e57687bf0a0e5b4971ad2",
+        "title": "CNA seminar: Amit Acharya (Carnegie Mellon University)",
+        "start": "2026-10-27T17:00:00.000Z",
+        "end": "2026-10-27T18:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "84c0944b67c6",
+          "aa8390d8ece6",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/math/event/32000-cna-seminar-amit-acharya-carnegie-mellon-university"
         ]
       },
       {
@@ -24650,24 +22076,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/etc/event/35856-brick-brew-a-lego-building-night-with-cmus"
-        ]
-      },
-      {
-        "id": "17789c81b48d9b772e51a354",
-        "title": "ETC Alumni Meetup: NYC",
-        "start": "2026-10-28T22:30:00.000Z",
-        "end": "2026-10-28T22:30:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "8515f6312210",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/etc/event/35857-etc-alumni-meetup-nyc"
         ]
       },
       {
@@ -24693,14 +22101,13 @@
         "title": "Fall Seminar - Alex Luedtke",
         "start": "2026-10-26T20:00:00.000Z",
         "end": "2026-10-26T20:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "982c26d90129",
-          "c7a2fb7ee246",
           "c9b5ed0cf149",
           "e8b71eac1119"
         ],
@@ -24761,28 +22168,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/universitypress/event/35909-matthew-pitt-at-the-buckeye-book-fair"
-        ]
-      },
-      {
-        "id": "908af53fca489537c1a80532",
-        "title": "RETI Consortium seminar with PJM Interconnection’s Darlene J. Phillips",
-        "start": "2026-12-17T17:00:00.000Z",
-        "end": "2026-12-17T17:00:00.000Z",
-        "sourceOccurrences": 5,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "9e775d8561f3",
-          "a387644dcf0a",
-          "c7a2fb7ee246",
-          "e2ff798380de",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/energy/event/35455-reti-consortium-seminar-with-pjm-interconnections",
-          "https://events.cmu.edu/live/events/35455-reti-consortium-seminar-with-pjm-interconnections"
         ]
       },
       {
@@ -24901,7 +22286,7 @@
         "title": "CANCELED: Graduate Student Seminar",
         "start": "2026-11-27T17:30:00.000Z",
         "end": "2026-11-27T17:30:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -24909,9 +22294,7 @@
         "sourceIds": [
           "a7c788b3ea2a",
           "b7c01c6836cd",
-          "b7fd3056adb2",
-          "cdd4d5698566",
-          "e8b71eac1119"
+          "b7fd3056adb2"
         ],
         "originalUrls": [
           "https://events.cmu.edu/live/events/32773-graduate-student-seminar",
@@ -25064,10 +22447,10 @@
         ]
       },
       {
-        "id": "233822ef44bff61cf70a2249",
-        "title": "Graduate Research Seminar",
-        "start": "2026-10-26T19:30:00.000Z",
-        "end": "2026-10-26T21:00:00.000Z",
+        "id": "6d5a391141a848763932eb3b",
+        "title": "Third Rotation Talks",
+        "start": "2027-04-26T19:30:00.000Z",
+        "end": "2027-04-26T21:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -25078,7 +22461,7 @@
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/bio/event/32795-research-club"
+          "https://events.cmu.edu/bio/event/32821-third-rotation-talks"
         ]
       },
       {
@@ -25158,10 +22541,10 @@
         ]
       },
       {
-        "id": "3e8df966c46e21ed434ed134",
-        "title": "MS-DAS Information Session",
-        "start": "2026-10-28T13:00:00.000Z",
-        "end": "2026-10-28T14:00:00.000Z",
+        "id": "f32e5cc553789333d3028cf2",
+        "title": "CNA Working Group",
+        "start": "2026-10-27T18:00:00.000Z",
+        "end": "2026-10-27T19:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -25169,6 +22552,25 @@
         "sourceConflicts": [],
         "sourceIds": [
           "aa8390d8ece6",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/math/event/34207-cna-working-group"
+        ]
+      },
+      {
+        "id": "3e8df966c46e21ed434ed134",
+        "title": "MS-DAS Information Session",
+        "start": "2026-10-28T13:00:00.000Z",
+        "end": "2026-10-28T14:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "aa8390d8ece6",
+          "be4c1ac74f16",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -25214,21 +22616,23 @@
         ]
       },
       {
-        "id": "05d634eaeaa1a822bc117724",
-        "title": "Artificial Intelligence in Medicine: Opportunities and Challenges",
-        "start": "2026-11-05T13:30:00.000Z",
-        "end": "2026-11-05T13:30:00.000Z",
-        "sourceOccurrences": 2,
+        "id": "1d295e1d316930565f7db863",
+        "title": "Colloquium with Dr. David Badre",
+        "start": "2026-10-26T16:30:00.000Z",
+        "end": "2026-10-26T16:30:00.000Z",
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "aa8390d8ece6",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/ni/event/35980-artificial-intelligence-in-medicine-opportunities"
+          "https://events.cmu.edu/ni/event/35756-colloquium-with-dr-david-badre",
+          "https://events.cmu.edu/live/events/35756-colloquium-with-dr-david-badre"
         ]
       },
       {
@@ -25271,6 +22675,29 @@
           "https://calendar.google.com/calendar/embed?src=cmu.history%40gmail.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261108%2F20261109",
           "https://events.cmu.edu/live/events/35868-dr-michael-berenbaum-discussion-on-kristallnacht",
           "https://events.cmu.edu/history/event/35868-dr-michael-berenbaum-discussion-on-kristallnacht"
+        ]
+      },
+      {
+        "id": "620b304faa8d70429af499fc",
+        "title": "Talk & Reading with Ayelet Tsabari",
+        "start": "2026-11-11T22:15:00.000Z",
+        "end": "2026-11-12T00:30:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link",
+          "specific-title-and-venue"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "b1ee74eb5acb",
+          "d93abdb4309a",
+          "da2117ec52f4",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://calendar.google.com/calendar/embed?src=cmu.history%40gmail.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261111%2F20261112",
+          "https://events.cmu.edu/live/events/35863-talk-reading-with-ayelet-tsabari",
+          "https://events.cmu.edu/history/event/35863-talk-reading-with-ayelet-tsabari"
         ]
       },
       {
@@ -25419,24 +22846,6 @@
         ]
       },
       {
-        "id": "717bc5a0842b4648a158e5a7",
-        "title": "Women Leaders in Science & Engineering (WSLE) Networking",
-        "start": "2026-10-30T19:30:00.000Z",
-        "end": "2026-10-30T19:30:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "b7c01c6836cd",
-          "cdd4d5698566"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/mse/event/35616-women-leaders-in-science-engineering-wsle-networking"
-        ]
-      },
-      {
         "id": "722d21a3c6e6e71ae89987d1",
         "title": "Soft Materials Initiative Seminar",
         "start": "2026-11-06T20:00:00.000Z",
@@ -25548,60 +22957,6 @@
         "originalUrls": [
           "https://events.cmu.edu/interfaith-calendar/event/25660-black-history-month-begins",
           "https://events.cmu.edu/live/events/25660-black-history-month-begins"
-        ]
-      },
-      {
-        "id": "4c7a1af85621347ed5b1ba0e",
-        "title": "Samhain Ends",
-        "start": "2026-11-01",
-        "end": "2026-11-02",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "c6bf444aa58e",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/interfaith-calendar/event/29757-samhain-ends"
-        ]
-      },
-      {
-        "id": "a416ae1b21c387d7919aa643",
-        "title": "Día de Los Muertos Ends",
-        "start": "2026-11-02",
-        "end": "2026-11-03",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "c6bf444aa58e",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/interfaith-calendar/event/29760-dia-de-los-muertos-ends"
-        ]
-      },
-      {
-        "id": "25b5c43d05bb3d4db1206515",
-        "title": "Anniversary of the Crowning of Haile Salassie",
-        "start": "2026-11-02",
-        "end": "2026-11-03",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "c6bf444aa58e",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/interfaith-calendar/event/29761-anniversary-of-the-crowning-of-haile-salassie"
         ]
       },
       {
@@ -26779,27 +24134,6 @@
         ]
       },
       {
-        "id": "1713a60a7988b936ff982043",
-        "title": "Soft Tech Quilting Bee",
-        "start": "2026-10-28T21:00:00.000Z",
-        "end": "2026-10-28T23:00:00.000Z",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "c7a2fb7ee246",
-          "ccabd5dde2a8",
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/34033-soft-tech-quilting-bee",
-          "https://events.cmu.edu/ideate/event/34033-soft-tech-quilting-bee"
-        ]
-      },
-      {
         "id": "1714673a28fbb14133b3d0d5",
         "title": "Soft Tech Quilting Bee",
         "start": "2026-11-04T22:00:00.000Z",
@@ -26969,65 +24303,22 @@
         ]
       },
       {
-        "id": "695025d1e7256aea33f817e8",
-        "title": "X in the Loop Webinar Series",
-        "start": "2026-11-14T02:00:00.000Z",
-        "end": "2026-11-14T03:00:00.000Z",
+        "id": "a77d0c127e7dcc08aeff06d0",
+        "title": "Policy Talk with Rachael Nealer",
+        "start": "2026-11-05T17:15:00.000Z",
+        "end": "2026-11-05T18:30:00.000Z",
         "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
-          "c84cc1c34efc",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
+          "c7a2fb7ee246",
+          "e2ff798380de",
+          "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/lcal/event/111326-x-in-the-loop-series",
-          "https://events.cmu.edu/live/events/111326-x-in-the-loop-series"
-        ]
-      },
-      {
-        "id": "a2a09dac5cdc9332675e647b",
-        "title": "X in the Loop Webinar Series",
-        "start": "2026-12-05T02:00:00.000Z",
-        "end": "2026-12-05T03:00:00.000Z",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "c84cc1c34efc",
-          "d93abdb4309a",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/lcal/event/120426-x-in-the-loop-webinar-series",
-          "https://events.cmu.edu/live/events/120426-x-in-the-loop-webinar-series"
-        ]
-      },
-      {
-        "id": "628d53ed33861d52a5831bde",
-        "title": "X in the Loop Webinar Series",
-        "start": "2026-12-12T02:00:00.000Z",
-        "end": "2026-12-12T03:00:00.000Z",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "c84cc1c34efc",
-          "d93abdb4309a",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/lcal/event/121126-x-in-the-loop-webinar-series",
-          "https://events.cmu.edu/live/events/121126-x-in-the-loop-webinar-series"
+          "https://events.cmu.edu/live/events/36668-policy-talk-with-rachael-nealer"
         ]
       },
       {
@@ -27043,11 +24334,31 @@
         "sourceIds": [
           "c84cc1c34efc",
           "d93abdb4309a",
-          "fac3ce8cfb40"
+          "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/lcal/event/33995-world-of-music-christopher-mark-jones-montreal",
           "https://events.cmu.edu/live/events/33995-world-of-music-christopher-mark-jones-montreal"
+        ]
+      },
+      {
+        "id": "0705e51265e02b99820876a9",
+        "title": "Languages & Cultures Night",
+        "start": "2026-11-04T22:30:00.000Z",
+        "end": "2026-11-05T00:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "c84cc1c34efc",
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/lcal/event/34551-languages-cultures-night",
+          "https://events.cmu.edu/live/events/34551-languages-cultures-night"
         ]
       },
       {
@@ -27072,6 +24383,27 @@
         ]
       },
       {
+        "id": "0b354024e8cdb412f6bc411f",
+        "title": "Academic Cultures in Conversation: Teaching, Learning and Higher Education Across Different Educational Contexts",
+        "start": "2026-10-26T14:30:00.000Z",
+        "end": "2026-10-26T16:00:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "c84cc1c34efc",
+          "d93abdb4309a",
+          "e8b71eac1119",
+          "fac3ce8cfb40"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/lcal/event/35702-academic-cultures-in-conversation",
+          "https://events.cmu.edu/live/events/35702-academic-cultures-in-conversation"
+        ]
+      },
+      {
         "id": "e364392576fa89f9de4dd530",
         "title": "Bertony Louis’ Book Launch: “Chroniques d’un pays sans aube”",
         "start": "2026-11-12T22:30:00.000Z",
@@ -27093,76 +24425,18 @@
         ]
       },
       {
-        "id": "fbb208a51e07d0be94547244",
-        "title": "LCAL Halloween Movie Night",
-        "start": "2026-10-28T22:00:00.000Z",
-        "end": "2026-10-29T01:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "c84cc1c34efc",
-          "fac3ce8cfb40"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/lcal/event/35984-lcal-halloween-movie-night"
-        ]
-      },
-      {
-        "id": "2f7cdff804397aae2dc1c314",
-        "title": "Belarusian Between Polish and Russian: Language, History and Identity",
-        "start": "2026-11-17",
-        "end": "2026-11-18",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "c84cc1c34efc",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/lcal/event/36312-belarusian-between-polish-and-russian-language"
-        ]
-      },
-      {
-        "id": "a0bf1189189fccf63c03892d",
-        "title": "Spark Conversations, Spark Change!",
-        "start": "2026-11-06T15:30:00.000Z",
-        "end": "2026-11-06T19:30:00.000Z",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "c84cc1c34efc",
-          "d93abdb4309a",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/32007-spark-conversations-spark-change",
-          "https://events.cmu.edu/dietrich/event/32007-spark-conversations-spark-change"
-        ]
-      },
-      {
         "id": "b84e7422b37e0a31fcb373f6",
         "title": "Humanities Hang",
         "start": "2026-10-30T18:00:00.000Z",
         "end": "2026-10-30T18:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "c84cc1c34efc",
-          "d93abdb4309a",
-          "fac3ce8cfb40"
+          "d93abdb4309a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/live/events/34934-humanities-hang",
@@ -27316,6 +24590,44 @@
         ]
       },
       {
+        "id": "1609f40ffbbb8587f4e9415a",
+        "title": "StatDS and LCAL Summer 2027 Study Abroad Info Session",
+        "start": "2026-10-28T19:30:00.000Z",
+        "end": "2026-10-28T20:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "c9b5ed0cf149",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/statistics-datascience/event/35626-statds-and-lcal-summer-2027-study-abroad-info-session"
+        ]
+      },
+      {
+        "id": "1713a60a7988b936ff982043",
+        "title": "Soft Tech Quilting Bee",
+        "start": "2026-10-28T21:00:00.000Z",
+        "end": "2026-10-28T23:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "ccabd5dde2a8",
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/ideate/event/34033-soft-tech-quilting-bee",
+          "https://events.cmu.edu/live/events/34033-soft-tech-quilting-bee"
+        ]
+      },
+      {
         "id": "cb0caf61b1a131f019f1564e",
         "title": "Playtest Nights",
         "start": "2026-11-10T22:00:00.000Z",
@@ -27392,21 +24704,75 @@
         ]
       },
       {
-        "id": "b033c9837f2b4e90668d8a16",
-        "title": "Democracy Day",
-        "start": "2026-11-03",
-        "end": "2026-11-04",
+        "id": "6af43397e081d9fc7f34ed51",
+        "title": "M.S. Program Information Session",
+        "start": "2026-11-05T15:00:00.000Z",
+        "end": "2026-11-05T15:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
-          "ccabd5dde2a8",
+          "cdd4d5698566",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://www.cmu.edu/leadership/the-provost/provost-initiatives-democracy-day"
+          "https://events.cmu.edu/mse/event/36661-ms-program-information-session"
+        ]
+      },
+      {
+        "id": "fa4c67baf720b1b74dc818d8",
+        "title": "M.S. Program Information Session",
+        "start": "2026-12-11T18:00:00.000Z",
+        "end": "2026-12-11T18:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "cdd4d5698566",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/mse/event/36662-ms-program-information-session"
+        ]
+      },
+      {
+        "id": "2bfc1ba4f74fddfd3dd03e29",
+        "title": "Ph.D. Program Information Session",
+        "start": "2026-11-16T14:00:00.000Z",
+        "end": "2026-11-16T14:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "cdd4d5698566",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/mse/event/36663-phd-program-information-session"
+        ]
+      },
+      {
+        "id": "44f668dd885dc2d21aed2353",
+        "title": "Ph.D. Program Information Session",
+        "start": "2026-12-07T21:00:00.000Z",
+        "end": "2026-12-07T21:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "cdd4d5698566",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/mse/event/36664-phd-program-information-session"
         ]
       },
       {
@@ -27449,25 +24815,6 @@
         ]
       },
       {
-        "id": "500e1ca0f717dce432846051",
-        "title": "Budgeting & Financial Literacy Workshop with Tiffany Beningi, CFP + Free Bubble Tea",
-        "start": "2026-11-11T22:00:00.000Z",
-        "end": "2026-11-11T23:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "8b1011752a20",
-          "d5a270fc4ae8"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp_boot?id=1938284&rel=title",
-          "https://tartanconnect.cmu.edu/rsvp?id=1938284"
-        ]
-      },
-      {
         "id": "deb60c392b8b5c8bbf2e6ad3",
         "title": "Restorative Reflections Student Dinner",
         "start": "2026-11-03T22:00:00.000Z",
@@ -27483,6 +24830,26 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/dietrich/event/32006-restorative-reflections-student-dinner"
+        ]
+      },
+      {
+        "id": "a0bf1189189fccf63c03892d",
+        "title": "Spark Conversations, Spark Change!",
+        "start": "2026-11-06T15:30:00.000Z",
+        "end": "2026-11-06T19:30:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119",
+          "fac3ce8cfb40"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/dietrich/event/32007-spark-conversations-spark-change",
+          "https://events.cmu.edu/live/events/32007-spark-conversations-spark-change"
         ]
       },
       {
@@ -27669,45 +25036,6 @@
         "originalUrls": [
           "https://events.cmu.edu/dietrich/event/32108-semester-passno-pass-withdrawal-deadline",
           "https://events.cmu.edu/academic-calendar/event/31681-semester-passno-pass-withdrawal-deadline"
-        ]
-      },
-      {
-        "id": "1bf4dbcb61630e15f0ffdd93",
-        "title": "Mini-2 Pass/No Pass & Withdrawal Grade Deadline",
-        "start": "2026-11-23",
-        "end": "2026-11-24",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/dietrich/event/32110-mini-2-passno-pass-withdrawal-grade-deadline"
-        ]
-      },
-      {
-        "id": "8fc7b7e0ef0a92df6a39e834",
-        "title": "Semester & Mini-2 Faculty Course Evaluations Open",
-        "start": "2026-11-23",
-        "end": "2026-11-24",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "copied-description",
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119",
-          "fe717318a657"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/dietrich/event/32111-semester-mini-2-faculty-course-evaluations",
-          "https://events.cmu.edu/academic-calendar/event/31795-semester-mini-2-faculty-course-evaluations-open"
         ]
       },
       {
@@ -28494,6 +25822,46 @@
         ]
       },
       {
+        "id": "a2a09dac5cdc9332675e647b",
+        "title": "X in the Loop Webinar Series",
+        "start": "2026-12-05T02:00:00.000Z",
+        "end": "2026-12-05T03:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119",
+          "fac3ce8cfb40"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/120426-x-in-the-loop-webinar-series",
+          "https://events.cmu.edu/lcal/event/120426-x-in-the-loop-webinar-series"
+        ]
+      },
+      {
+        "id": "628d53ed33861d52a5831bde",
+        "title": "X in the Loop Webinar Series",
+        "start": "2026-12-12T02:00:00.000Z",
+        "end": "2026-12-12T03:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119",
+          "fac3ce8cfb40"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/121126-x-in-the-loop-webinar-series",
+          "https://events.cmu.edu/lcal/event/121126-x-in-the-loop-webinar-series"
+        ]
+      },
+      {
         "id": "7b66437f1ec3b8a68f3814ee",
         "title": "Artificial Intelligence in Medicine: Opportunities and Challenges",
         "start": "2026-11-05T13:30:00.000Z",
@@ -28513,21 +25881,21 @@
         ]
       },
       {
-        "id": "0b354024e8cdb412f6bc411f",
-        "title": "Academic Cultures in Conversation: Teaching, Learning and Higher Education Across Different Educational Contexts",
-        "start": "2026-10-26T14:30:00.000Z",
-        "end": "2026-10-26T16:00:00.000Z",
+        "id": "2612f3f5f13cdecfd0124e33",
+        "title": "Professor Joe Trotter Jr. Retirement Party",
+        "start": "2026-11-19T21:00:00.000Z",
+        "end": "2026-11-19T21:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
-          "d93abdb4309a",
+          "da2117ec52f4",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/live/events/35702-academic-cultures-in-conversation"
+          "https://events.cmu.edu/history/event/35866-professor-joe-trotter-jr-retirement-party"
         ]
       },
       {
@@ -28564,6 +25932,26 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/academic-calendar/event/31794-mini-2-passno-pass-withdrawal-deadline"
+        ]
+      },
+      {
+        "id": "8fc7b7e0ef0a92df6a39e834",
+        "title": "Semester & Mini-2 Faculty Course Evaluations Open",
+        "start": "2026-11-23",
+        "end": "2026-11-24",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "copied-description",
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "e8b71eac1119",
+          "fe717318a657"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/academic-calendar/event/31795-semester-mini-2-faculty-course-evaluations-open",
+          "https://events.cmu.edu/dietrich/event/32111-semester-mini-2-faculty-course-evaluations"
         ]
       },
       {
@@ -28945,10 +26333,10 @@
         ]
       },
       {
-        "id": "6dc4ec76986d4e54b72d0f2f",
-        "title": "Thanksgiving Break; No Classes",
-        "start": "2026-11-25",
-        "end": "2026-11-28",
+        "id": "695025d1e7256aea33f817e8",
+        "title": "X in the Loop Webinar Series",
+        "start": "2026-11-14T02:00:00.000Z",
+        "end": "2026-11-14T03:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -28956,14 +26344,14 @@
         "sourceConflicts": [],
         "sourceIds": [
           "e8b71eac1119",
-          "fe717318a657"
+          "fac3ce8cfb40"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/live/events/31796-thanksgiving-break-university-closed",
-          "https://events.cmu.edu/academic-calendar/event/31796-thanksgiving-break-no-classes"
+          "https://events.cmu.edu/live/events/111326-x-in-the-loop-series",
+          "https://events.cmu.edu/lcal/event/111326-x-in-the-loop-series"
         ]
       }
     ],
-    "checkedAt": "2026-10-28T16:45:29.507Z"
+    "checkedAt": "2026-10-29T16:59:34.909Z"
   }
 }
