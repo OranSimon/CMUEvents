@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" data-mode="static">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#17181a" />
+    <meta name="description" content="Discover Carnegie Mellon events from academic departments, research centers, and university offices." />
+    <title>CMU Events · Discover your campus</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#results">Skip to events</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="./" aria-label="CMU Events home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">CMU <span>Events</span></span>
+        </a>
+        <form class="search-box" id="search-form" role="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.7" cy="10.7" r="6.7" /><path d="m16 16 4.3 4.3" /></svg>
+          <label class="sr-only" for="search-input">Search all upcoming event titles, descriptions, and organizers</label>
+          <input id="search-input" type="search" placeholder="Search upcoming events…" autocomplete="off" maxlength="200" enterkeyhint="search" />
+          <button class="search-clear" id="search-clear" type="button" aria-label="Clear search" hidden><span aria-hidden="true">×</span></button>
+        </form>
+        <button class="mobile-filter-button" id="mobile-filter-button" type="button" aria-controls="filters" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M8 4v6M16 14v6" /></svg><span class="mobile-filter-label">Filters</span> <span class="mobile-filter-count" id="mobile-filter-count" hidden></span>
+        </button>
+        <nav class="header-nav" aria-label="Main navigation">
+          <button class="nav-link" id="about-button" type="button">Our sources</button>
+          <button class="nav-link" id="subscriptions-button" type="button">Mailing lists</button>
+        </nav>
+      </div>
+    </header>
+
+    <div class="date-rail">
+      <div class="date-rail-inner">
+        <div class="event-browser" id="event-browser" role="tablist" aria-label="Browse event schedules">
+          <button id="event-view-all" class="event-browser-tab tab-scope" type="button" role="tab" data-event-view="all" aria-selected="false" aria-controls="events-panel" tabindex="-1"><span class="tab-name">All</span><span class="tab-count"></span></button>
+          <button id="event-view-ongoing" class="event-browser-tab tab-scope" type="button" role="tab" data-event-view="ongoing" aria-selected="false" aria-controls="events-panel" tabindex="-1"><span class="tab-name">Ongoing</span><span class="tab-count"></span></button>
+          <button id="event-view-today" class="event-browser-tab selected" type="button" role="tab" data-event-view="today" aria-selected="true" aria-controls="events-panel"><span class="tab-name">Today</span><span class="tab-date" id="today-number">—</span><span class="tab-count"></span></button>
+          <span class="event-days" id="event-days" role="none"></span>
+        </div>
+        <label class="day-picker" title="Jump to a date">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="15" rx="2" /><path d="M8 3v6M16 3v6M4 12h16" /></svg>
+          <span class="sr-only">Jump to a date</span>
+          <input id="day-picker" type="date" />
+        </label>
+      </div>
+    </div>
+
+    <main class="page-shell">
+      <h1 class="sr-only" id="page-title">Discover CMU events</h1>
+      <div class="discovery-layout">
+        <button class="filter-backdrop" id="filter-backdrop" type="button" aria-label="Close filters" hidden></button>
+        <aside class="filters" id="filters" aria-label="Filter events">
+          <div class="filter-heading"><h2>Filters</h2><button id="reset-filters" class="text-button" type="button" hidden>Reset</button><button class="icon-button mobile-close" id="close-filters" type="button" aria-label="Close filters"><span aria-hidden="true">×</span></button></div>
+
+          <fieldset class="filter-section topic-section">
+            <legend>Topics</legend>
+            <div class="topic-options" id="topic-options"><span class="muted filter-placeholder">Loading topics…</span></div>
+            <div class="recurring-option" id="recurring-option"></div>
+          </fieldset>
+
+          <fieldset class="filter-section">
+            <legend>Format</legend>
+            <div class="format-options" id="mode-options" role="group" aria-label="Event format">
+              <button class="format-option selected" type="button" data-mode="" aria-pressed="true">All</button>
+              <button class="format-option" type="button" data-mode="in-person" aria-pressed="false">In person</button>
+              <button class="format-option" type="button" data-mode="online" aria-pressed="false">Online</button>
+              <button class="format-option" type="button" data-mode="hybrid" aria-pressed="false">Hybrid</button>
+              <button class="format-option" type="button" data-mode="unspecified" aria-pressed="false">Not listed</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="filter-section affiliation-section">
+            <legend>Where and who</legend>
+            <label class="select-label" for="campus-filter">Campus</label>
+            <select id="campus-filter"><option value="">All campuses</option></select>
+            <label class="select-label" for="department-filter">Department</label>
+            <select id="department-filter"><option value="">All departments</option></select>
+            <label class="select-label" for="org-filter">Organization</label>
+            <select id="org-filter"><option value="">All organizations</option></select>
+          </fieldset>
+
+          <div class="filters-footer"><button id="show-events" class="button-primary show-events" type="button">Show events</button></div>
+        </aside>
+
+        <section class="results" id="results" aria-labelledby="results-title" tabindex="-1">
+          <div id="events-panel" role="tabpanel" aria-labelledby="event-view-today">
+            <div class="results-heading">
+              <div class="results-title-group">
+                <h2 id="results-title">Today</h2>
+                <p class="event-view-description" id="event-view-description">Loading events…</p>
+              </div>
+              <div class="view-switch" role="group" aria-label="Event view">
+                <button class="view-button selected" id="list-view" data-view="list" type="button" aria-label="List view" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.1M4 12h.1M4 18h.1" /></svg></button>
+                <button class="view-button" id="grid-view" data-view="grid" type="button" aria-label="Grid view" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1" /><rect x="14" y="4" width="6" height="6" rx="1" /><rect x="4" y="14" width="6" height="6" rx="1" /><rect x="14" y="14" width="6" height="6" rx="1" /></svg></button>
+              </div>
+            </div>
+            <div class="quick-topics" id="quick-topics" role="group" aria-label="Filter by topic"></div>
+            <div class="active-filters" id="active-filters" hidden></div>
+            <div class="notice snapshot-notice" id="snapshot-notice" role="status" hidden><span aria-hidden="true">↻</span><div><strong id="snapshot-title">Updated daily</strong><p id="snapshot-message"></p></div></div>
+            <div class="notice error-notice" id="error-notice" role="alert" hidden><span aria-hidden="true">!</span><div><strong id="error-title">We couldn’t load events.</strong><p id="error-message">Please try again in a moment.</p></div><button class="text-button" id="retry-button" type="button">Try again</button></div>
+            <p class="sr-only" id="results-announcement" role="status" aria-live="polite"></p>
+            <div class="event-results" id="event-results" aria-busy="true"></div>
+            <div class="empty-state" id="empty-state" hidden><h3 id="empty-title">No events match this view.</h3><p id="empty-message">Try another topic, a shorter search, or a different day.</p><div class="empty-actions"><button class="button-primary" id="empty-next" type="button" hidden>See the next match</button><button class="button-secondary" id="empty-reset" type="button">Clear filters</button></div></div>
+            <div class="load-more" id="load-more" hidden><p id="load-more-label"></p><button class="button-secondary" id="show-more-events" type="button">Show more events</button></div>
+            <aside class="more-by-email"><p><strong>Looking for more?</strong> Some groups only share events on their mailing lists.</p><button class="text-button" id="more-by-email" type="button">See mailing lists</button></aside>
+            <p class="results-footnote">Dates and times use <span id="display-timezone">America/New_York</span>. Check the original listing for registration and access requirements.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer"><p class="footer-status" id="last-updated">Loading published data…</p><a class="footer-source" href="https://github.com/OranSimon/CMUEvents" target="_blank" rel="noopener noreferrer">Source code on GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></footer>
+
+    <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title"><div class="dialog-toolbar"><button class="icon-button dialog-close" id="dialog-close" type="button" aria-label="Close event details"><span aria-hidden="true">×</span></button></div><div id="detail-content"></div></dialog>
+    <dialog class="detail-dialog source-dialog" id="sources-dialog" aria-labelledby="sources-title"><div class="dialog-toolbar"><button class="icon-button dialog-close" id="sources-close" type="button" aria-label="Close source directory"><span aria-hidden="true">×</span></button></div><div id="sources-content"></div></dialog>
+    <dialog class="detail-dialog source-dialog" id="subscriptions-dialog" aria-labelledby="subscriptions-title"><div class="dialog-toolbar"><button class="icon-button dialog-close" id="subscriptions-close" type="button" aria-label="Close mailing lists"><span aria-hidden="true">×</span></button></div><div id="subscriptions-content"></div></dialog>
+    <noscript><div class="noscript-notice">Enable JavaScript to search and filter CMU events.</div></noscript>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "description": "Explainable, multi-label discovery tags. Matches use event text and publisher metadata; they are broad suggestions rather than official CMU categories.",
+  "maxTags": 4,
+  "tags": [
+    { "name": "Research & Talks", "terms": ["seminar", "colloquium", "keynote", "symposium", "dissertation", "thesis defense", "research talk", "lecture", "speaker series", "conference"] },
+    { "name": "AI & Computing", "terms": ["artificial intelligence", "machine learning", "deep learning", "computer science", "computing", "robotics", "natural language", "neural network", "cybersecurity", "software", "data science", "programming", "hackathon", "human-computer", "generative ai"] },
+    { "name": "Arts & Performance", "terms": ["concert", "recital", "performance", "exhibition", "gallery", "theatre", "theater", "drama", "music", "orchestra", "dance", "film screening", "visual art", "fine arts"] },
+    { "name": "Careers & Entrepreneurship", "terms": ["career", "recruiting", "recruiter", "internship", "resume", "résumé", "entrepreneur", "startup", "start-up", "venture", "founder", "networking", "job fair", "employer", "pitch competition"] },
+    { "name": "Community & Culture", "terms": ["cultural", "culture", "heritage", "international", "interfaith", "religion", "religious", "diwali", "lunar new year", "pride", "volunteer", "community service", "belonging", "diversity", "inclusion"] },
+    { "name": "Health & Wellbeing", "terms": ["wellness", "wellbeing", "well-being", "mental health", "meditation", "mindfulness", "yoga", "counseling", "nutrition", "health", "stress relief"] },
+    { "name": "Sports & Recreation", "terms": ["athletics", "basketball", "volleyball", "soccer", "football", "tennis", "swimming", "track and field", "cross country", "badminton", "climbing", "hiking", "intramural", "tournament", "chess", "board game", "esports"] },
+    { "name": "Sustainability & Energy", "terms": ["sustainability", "sustainable", "climate", "environmental", "renewable", "energy", "decarbonization", "recycling", "earth day"] },
+    { "name": "Policy & Society", "terms": ["public policy", "politics", "political", "democracy", "election", "social justice", "human rights", "economics", "economic", "ethics", "law", "governance", "humanities", "history"] },
+    { "name": "Workshops & Learning", "terms": ["workshop", "tutorial", "training", "bootcamp", "boot camp", "short course", "study group", "office hours", "teaching", "pedagogy", "learning lab"] },
+    { "name": "Science & Engineering", "terms": ["engineering", "physics", "chemistry", "biology", "biological", "mathematics", "mathematical", "neuroscience", "materials science", "mechanical", "civil engineering", "biomedical", "statistics", "astronomy", "science"] },
+    { "name": "Student Life", "terms": ["general body", "gbm", "club meeting", "social", "mixer", "game night", "trivia", "orientation", "student government", "student life", "residence", "housing", "food", "celebration", "party"] }
+  ],
+  "fallback": "Campus Life",
+  "modes": ["In person", "Online", "Hybrid", "Unspecified"],
+  "campuses": ["Pittsburgh", "Qatar", "Africa", "Silicon Valley", "Miami", "Other / unspecified"]
+}

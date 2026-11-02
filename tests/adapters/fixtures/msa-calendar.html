@@ -1,0 +1,21 @@
+<button id="jummah-ics-btn">Add weekly Jummah to calendar</button><script>
+        document.getElementById('jummah-ics-btn')?.addEventListener('click', () => {
+            const today = new Date(), until = (5 - today.getDay() + 7) % 7;
+            const fri = new Date(today); fri.setDate(today.getDate() + until);
+            const ymd = `${fri.getFullYear()}${String(fri.getMonth() + 1).padStart(2, '0')}${String(fri.getDate()).padStart(2, '0')}`;
+            const ics = [
+                'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//CMU MSA//Jummah//EN', 'BEGIN:VEVENT',
+                `UID:cmu-msa-jummah-${ymd}@cmumsa.org`,
+                `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z`,
+                `DTSTART:${ymd}T131500`, 'DURATION:PT1H', 'RRULE:FREQ=WEEKLY;BYDAY=FR',
+                'SUMMARY:CMU MSA Jummah', 'LOCATION:CMU University Center\\, Danforth Conference Room',
+                'DESCRIPTION:Check the MSA WhatsApp for weekly room changes. https://cmumsa.org',
+                'END:VEVENT', 'END:VCALENDAR'
+            ].join('\r\n');
+            const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
+            const a = Object.assign(document.createElement('a'), { href: url, download: 'cmu-msa-jummah.ics' });
+            document.body.appendChild(a); a.click(); a.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        });
+// --- Dynamic Prayer Times API Logic ---
+</script>

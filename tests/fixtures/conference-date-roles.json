@@ -1,0 +1,65 @@
+[
+  {
+    "name": "DSSC 2022 West Coast two-day meeting",
+    "url": "https://www.dssc.ece.cmu.edu/news/events1/west-coast-2022.html",
+    "html": "<main><h1>2022 DSSC West Coast Review</h1><p>May18-19, 2022<br>Carnegie Mellon University, Silicon Valley</p><h2>Agenda</h2><table><tr><th>Wednesday, May 18, 2022</th></tr><tr><td>9:00-9:20 Welcome</td></tr></table><table><tr><th>Thursday, May 19, 2022</th></tr><tr><td>9:00-12:00 Talks</td></tr></table></main>",
+    "decision": "multiday-range",
+    "dates": [["2022-05-18", "2022-05-20"]]
+  },
+  {
+    "name": "DSSC 2014 cross-month review",
+    "url": "https://www.dssc.ece.cmu.edu/news/events1/fall-review-2014.html",
+    "html": "<main><h1>2014 DSSC Fall Technical Review</h1><p>September 30-October 1, 2014</p><h2>Agenda</h2><table><tr><th>Tuesday, September 30</th></tr></table><table><tr><th>Wednesday, October 1</th></tr></table><h2>Hotel Information</h2><p>Hotel discount deadline: September 14, 2014.</p></main>",
+    "decision": "multiday-range",
+    "dates": [["2014-09-30", "2014-10-02"]]
+  },
+  {
+    "name": "DSSC 2021 repeated reviews on two different days",
+    "url": "https://www.dssc.ece.cmu.edu/news/events1/fall-review-2021.html",
+    "html": "<main><h1>2021 DSSC Fall Technical Review</h1><p>Wednesday, November 17, 2021: 1-3PM EST<br>Thursday, December 2, 2021: 8-10PM EST<br>All sessions will be held via Zoom</p><h2>DSSC Review Structure</h2><p>The same review is held twice for different time zones. Thursday, 12/02/21: 8-10PM EST (Friday 12/03/21 10AM-12PM JST).</p><h2>Agenda</h2><table><tr><th>Session One<br>Wednesday, November 17</th></tr><tr><td>1:00-1:30PM EST</td></tr></table><table><tr><th>Session Two<br>Thursday, December 2</th></tr></table></main>",
+    "decision": "repeated-occurrences",
+    "dates": [["2021-11-17T18:00:00.000Z", "2021-11-17T20:00:00.000Z"], ["2021-12-03T01:00:00.000Z", "2021-12-03T03:00:00.000Z"]]
+  },
+  {
+    "name": "DSSC 2021 repeated same-day reviews",
+    "url": "https://www.dssc.ece.cmu.edu/news/events1/spring-review-2021.html",
+    "html": "<main><h1>2021 DSSC Spring Review</h1><p>Thursday, May 20, 2021: 12-2PM EDT &amp; 8-10PM EDT<br>All sessions will be held via Zoom</p><h2>DSSC Review Structure</h2><p>The same review is scheduled twice on the same day.</p><h2>Agenda</h2><table><tr><th>Session One<br>Thursday, May 20</th></tr></table><table><tr><th>Session Two<br>Thursday, May 20</th></tr></table></main>",
+    "decision": "repeated-occurrences",
+    "dates": [["2021-05-20T16:00:00.000Z", "2021-05-20T18:00:00.000Z"], ["2021-05-21T00:00:00.000Z", "2021-05-21T02:00:00.000Z"]]
+  },
+  {
+    "name": "DSSC 2020 explicit sessions inside a recurring envelope",
+    "url": "https://www.dssc.ece.cmu.edu/news/events1/spring-review-2020.html",
+    "html": "<main><h1>2020 DSSC West Coast Review</h1><p>Tuesdays 9-11AM PDT (12-2PM EDT), May 19 - June 30, 2020<br>All sessions will be held via Zoom</p><h2>DSSC Review Structure</h2><p>A series of Zoom sessions occurs on alternating Tuesdays.</p><h2>May 19, 2020 - Session I: HDD (HAMR)</h2><table><tr><th>Tuesday, May 19</th></tr></table><h2>June 2, 2020 - Session II: HDD</h2><table><tr><th>Tuesday, June 2</th></tr></table><h2>June 16, 2020 - Session III: Resistive Memory and Logic</h2><table><tr><th>Tuesday, June 16</th></tr></table></main>",
+    "decision": "explicit-series-sessions",
+    "dates": [["2020-05-19T16:00:00.000Z", "2020-05-19T18:00:00.000Z"], ["2020-06-02T16:00:00.000Z", "2020-06-02T18:00:00.000Z"], ["2020-06-16T16:00:00.000Z", "2020-06-16T18:00:00.000Z"]]
+  },
+  {
+    "name": "DSSC 2017 hotel cutoff is auxiliary",
+    "url": "https://www.dssc.ece.cmu.edu/news/events1/fall-review-2017.html",
+    "html": "<main><h1>2017 DSSC Fall Technical Review</h1><p>November 6, 2017<br>Carnegie Mellon University</p><h2>Agenda</h2><table><tr><th>Monday, November 6</th></tr></table><h2>Hotel Information</h2><p>DSSC Fall Review Discount cut off date: October 15, 2017.</p></main>",
+    "decision": "single-occurrence",
+    "dates": [["2017-11-06", "2017-11-07"]]
+  },
+  {
+    "name": "DSSC 2016 transportation timetable is auxiliary",
+    "url": "https://www.dssc.ece.cmu.edu/news/events1/fall-review-2016.html",
+    "html": "<main><h1>2016 DSSC Fall Technical Review</h1><p>September 27-28, 2016</p><h2>Agenda</h2><table><tr><th>Tuesday, September 27</th></tr></table><table><tr><th>Wednesday, September 28</th></tr></table><h2>Transportation Service</h2><div><table><tr><th>Tuesday, September 24</th></tr><tr><td>Hotel to campus</td></tr></table></div></main>",
+    "decision": "multiday-range",
+    "dates": [["2016-09-27", "2016-09-29"]]
+  },
+  {
+    "name": "DSSC 2026 Spring title/header/agenda conflict remains visible",
+    "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Spring%20Technical%20Review.html",
+    "html": "<main><h1>2026 DSSC Spring Technical Review</h1><p>June 9, 2025</p><h2>Agenda</h2><table><tr><th>Tuesday, June 9, 2026</th></tr></table></main>",
+    "decision": "conflict",
+    "dates": []
+  },
+  {
+    "name": "DSSC 2026 Japan title/header conflict remains visible",
+    "url": "https://www.dssc.ece.cmu.edu/news/events1/2026%20DSSC%20Japan%20Technical%20Review.html",
+    "html": "<main><h1>2026 DSSC Japan Review</h1><div><strong>June 30, 2025</strong></div><div><strong>11:00a-6:00p JST</strong></div><h2>Agenda</h2><table><tr><th>Tuesday, June 30</th></tr></table></main>",
+    "decision": "conflict",
+    "dates": []
+  }
+]

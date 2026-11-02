@@ -1,0 +1,438 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { collectAlumniCards, createPublicRenderer, publicRenderUrl, createPublicNetworkGuard } from '../src/lib/public-render.mjs';
+import { fetchAlumni, parseAlumniPublicCards, parseAlumniPublicDetail } from '../src/adapters/alumni.mjs';
+import { parseTextSchedule, parseConsistentEventPage, fetchTextSchedule } from '../src/adapters/text-schedules.mjs';
+import { loadPlans } from '../src/config.mjs';
+
+const fixture = JSON.parse(readFileSync(new URL('./fixtures/alumni-public-dom.json', import.meta.url), 'utf8'));
+const listingUrl = 'https://community.cmu.edu/s/events';
+const plan = { url: 'https://www.cmu.edu/engage/events', options: { format: 'alumni', discovery: 'public-dom', timezone: 'America/New_York' } };
+
+/** Create an isolated public-pagination transport double without a browser. */
+function publicPage(pages) {
+  let index = 0;
+  return { waitForFunction: async () => {}, evaluate: async () => pages[index], locator: () => ({ count: async () => pages[index].length }),
+    getByRole: () => ({ count: async () => 1, isVisible: async () => true,
+      isEnabled: async () => index < pages.length - 1, click: async () => { index++; } }) };
+}
+
+test('public DOM discovery follows all23 visible cards and automatically accepts newly published later pages', async () => {
+  const current = await collectAlumniCards(publicPage(fixture.pages));
+  assert.equal(current.rows.length, 23);
+  assert.equal(current.partial, false);
+  assert.equal(current.pages, 3);
+  const added = { title: 'Newly published future event', dateText: 'January 12, 2027', text: 'January 12, 2027\nNewly published future event',
+    url: 'https://www.givecampus.com/schools/CarnegieMellonUniversity/events/new-future-event' };
+  const future = await collectAlumniCards(publicPage([...fixture.pages, [added]]));
+  assert.equal(future.rows.length, 24);
+  assert.ok(future.rows.some(row => row.url === added.url));
+  assert.equal(future.partial, false);
+});
+
+test('public DOM page/card caps and repeated pagination remain explicitly partial', async () => {
+  const bounded = await collectAlumniCards(publicPage(fixture.pages), { maxPages: 2 });
+  assert.equal(bounded.rows.length, 18);
+  assert.equal(bounded.partial, true);
+  assert.match(bounded.warnings.join(' '), /Next remains enabled/);
+  const cardCap = await collectAlumniCards(publicPage(fixture.pages), { maxCards: 10 });
+  assert.equal(cardCap.rows.length, 10);
+  assert.equal(cardCap.partial, true);
+  const repeated = await collectAlumniCards(publicPage([fixture.pages[0], fixture.pages[0]]));
+  assert.equal(repeated.partial, true);
+  assert.match(repeated.warnings.join(' '), /repeated/);
+  const missingControl = publicPage([fixture.pages[0]]);
+  missingControl.getByRole = () => ({ count: async () => 0 });
+  assert.equal((await collectAlumniCards(missingControl)).partial, true);
+});
+
+test('live original Sydney details establish its actual instant, end and zone without reviewedDetail or a clock getter', () => {
+  const detail = parseAlumniPublicDetail(fixture.detail);
+  assert.equal(detail.start, '2026-10-27T21:00:00.000Z');
+  assert.equal(detail.end, '2026-10-27T22:30:00.000Z');
+  assert.equal(detail.timeZone, 'Australia/Sydney');
+  assert.equal(detail.uncertain, false);
+  const card = fixture.pages.flat().find(row => row.url === fixture.detail.url);
+  const result = parseAlumniPublicCards({ rows: [card], partial: false }, new Map([[card.url, fixture.detail]]), plan);
+  assert.equal(result.partial, undefined, 'the different Sydney day is explained by the same Eastern listing instant');
+  assert.equal(result.events[0].start, detail.start);
+});
+
+test('missing detail or an ambiguous source zone retains current public dates and never borrows hidden clocks or deadlines', () => {
+  const card = fixture.pages.flat().find(row => row.url === fixture.detail.url);
+  const missing = parseAlumniPublicCards({ rows: [card] }, new Map(), plan);
+  assert.equal(missing.partial, true);
+  assert.equal(missing.events[0].start, '2026-10-27');
+  const uncertain = parseAlumniPublicDetail({ ...fixture.detail, detailText: fixture.detail.detailText.replace('AEDT', 'CST') });
+  assert.equal(uncertain.start, '2026-10-28');
+  assert.equal(uncertain.end, undefined);
+  assert.equal(uncertain.uncertain, true);
+  const conflict = parseAlumniPublicCards({ rows: [card] }, new Map([[card.url, { ...fixture.detail,
+    detailText: fixture.detail.detailText.replace('AEDT', 'CST') }]]), plan);
+  assert.equal(conflict.events[0].start, '2026-10-27');
+  assert.match(conflict.warnings.join(' '), /conflicts with original detail date/);
+  const noDate = parseAlumniPublicDetail({ ...fixture.detail, detailText: 'Event Details\nDate to be announced\nPlanar Restaurant' });
+  assert.equal(noDate, null);
+});
+
+test('dynamic Alumni refresh requires visible discovered URLs and cannot fall back to a fixed card list or broad getter', async () => {
+  const card = fixture.pages.flat().find(row => row.url === fixture.detail.url);
+  const calls = [];
+  const result = await fetchAlumni({ ...plan, options: { ...plan.options, reviewedPublicEvents: { records: [{ id: 'hidden' }] } } }, {
+    renderPublic: async request => { calls.push(request); return request.kind === 'alumni' ? { rows: [card], partial: false } : fixture.detail; },
+    fetchText: async () => { throw Error('Not used'); }, fetchPublicQuery: async () => { throw Error('Broad/clock APIs are not used'); },
+  });
+  assert.equal(result.events.length, 1);
+  assert.deepEqual(calls.map(call => call.url), [listingUrl, card.url]);
+  await assert.rejects(fetchAlumni(plan, {}), /CMUEVENTS_RENDER_PUBLIC/);
+});
+
+test('all23 Alumni details are attempted after structured upstream403 failures and their visible dates remain included', async () => {
+  const listing = { rows: fixture.pages.flat(), partial: false };
+  const requested = [];
+  const result = await fetchAlumni(plan, { renderPublic: async request => {
+    if (request.kind === 'alumni') return listing;
+    requested.push(request.url);
+    throw Object.assign(new Error('Event Details inaccessible; current public response was403'), {
+      publicRenderDiagnostic: { httpStatus: 403, title: 'Access unavailable' },
+    });
+  } });
+  assert.deepEqual(requested, listing.rows.map(row => row.url), 'early denied pages cannot skip later advertised originals');
+  assert.equal(result.events.length, 23);
+  assert.equal(result.partial, true);
+  assert.ok(result.events.every(event => event.timePrecision === 'date'));
+  assert.doesNotMatch(result.warnings.join(' '), /skipped \d+ remaining detail page/);
+  assert.equal(result.coverage.inspectedDetails.length, 23);
+  assert.equal(result.coverage.inspectionComplete, true);
+  assert.deepEqual(result.coverage.internalIssues, []);
+  assert.equal(result.coverage.externalIssues.length, 23);
+  assert.ok(result.coverage.externalIssues.every(issue => issue.code === 'PUBLIC_DETAIL_ACCESS_FAILURE' && issue.diagnostic.httpStatus === 403));
+});
+
+test('leading Alumni detail errors cannot starve the final two successful originals or become external from message text alone', async () => {
+  const listing = { rows: fixture.pages.flat(), partial: false };
+  const requested = [];
+  const result = await fetchAlumni({ ...plan, options: { ...plan.options, maxConsecutiveDetailFailures: 2 } }, {
+    renderPublic: async request => {
+      if (request.kind === 'alumni') return listing;
+      const index = requested.push(request.url) - 1;
+      if (index < listing.rows.length - 2) throw new Error('Detail extraction failed; text mentions httpStatus403 without a captured response diagnostic');
+      const row = listing.rows.find(row => row.url === request.url);
+      return { title: row.title, detailText: `Event Details\n${row.dateText} 8:00AM - 9:00AM EDT\nPublished venue`, description: 'Current public details' };
+    },
+  });
+  assert.deepEqual(requested, listing.rows.map(row => row.url));
+  assert.equal(result.events.length, 23);
+  assert.deepEqual(result.events.filter(event => event.timePrecision === 'time').map(event => event.url), listing.rows.slice(-2).map(row => row.url));
+  assert.equal(result.coverage.inspectedDetails.length, 23);
+  assert.equal(result.coverage.inspectionComplete, false);
+  assert.equal(result.coverage.internalIssues.length, 21);
+  assert.ok(result.coverage.internalIssues.every(issue => issue.code === 'UNPARSED_EVENT_DETAILS'));
+  assert.deepEqual(result.coverage.externalIssues, []);
+  assert.doesNotMatch(result.warnings.join(' '), /skipped \d+ remaining detail page/);
+});
+
+test('all-events and online Alumni scopes share successful and rejected renders only within the current context and retry next run', async () => {
+  const listing = { rows: fixture.pages.flat(), partial: false, pages: fixture.pages.length };
+  const failedUrl = listing.rows.find(row => /\|\s*VIRTUAL WEBINAR,\s*ONLINE\b/i.test(row.text)).url;
+  const calls = new Map();
+  let generation = 1;
+  const renderPublic = async request => {
+    const key = `${request.kind}:${request.url}`;
+    calls.set(key, (calls.get(key) || 0) + 1);
+    if (request.kind === 'alumni') return listing;
+    if (generation === 1 && request.url === failedUrl) throw Object.assign(new Error('Current public original denied access'), {
+      publicRenderDiagnostic: { httpStatus: 403, title: 'Access unavailable' },
+    });
+    const row = listing.rows.find(row => row.url === request.url);
+    return { title: row.title, detailText: `Event Details\n${row.dateText} 8:00AM - 9:00AM EDT\nPublished venue`, description: 'Current public details' };
+  };
+  const currentContext = { renderPublic };
+  const [all, online] = await Promise.all([fetchAlumni(plan, currentContext), fetchAlumni({ ...plan,
+    options: { ...plan.options, onlineOnly: true } }, currentContext)]);
+  assert.equal(all.events.length, 23);
+  assert.equal(online.events.length, 4);
+  assert.equal(all.coverage.externalIssues.length, 1);
+  assert.equal(online.coverage.externalIssues.length, 1, 'the shared rejected original is external in both scopes');
+  assert.equal(all.coverage.inspectedDetails.length, 23);
+  assert.equal(online.coverage.inspectedDetails.length, 4);
+  assert.equal(calls.size, 24, 'one listing and23 advertised original URLs are rendered');
+  assert.ok([...calls.values()].every(count => count === 1), 'overlapping scopes reuse each render promise');
+  generation = 2;
+  const next = await fetchAlumni(plan, { renderPublic });
+  assert.equal(next.events.filter(event => event.timePrecision === 'time').length, 23);
+  assert.equal(next.coverage.inspectionComplete, true);
+  assert.deepEqual(next.coverage.internalIssues, []);
+  assert.deepEqual(next.coverage.externalIssues, []);
+  assert.ok([...calls.values()].every(count => count === 2), 'new refresh context retries successful and formerly rejected URLs');
+});
+
+test('visible Alumni originals without a full event date are internal extraction gaps rather than reported access denials', async () => {
+  const row = fixture.pages[0][0];
+  const result = await fetchAlumni(plan, { renderPublic: async request => request.kind === 'alumni'
+    ? { rows: [row], partial: false } : { title: row.title, detailText: 'Event Details\nDate to be announced\nPublished venue' } });
+  assert.equal(result.events.length, 1);
+  assert.equal(result.events[0].timePrecision, 'date');
+  assert.equal(result.coverage.inspectionComplete, false);
+  assert.equal(result.coverage.inspectedDetails.length, 1);
+  assert.equal(result.coverage.internalIssues[0].code, 'UNPARSED_EVENT_DETAILS');
+  assert.deepEqual(result.coverage.externalIssues, []);
+});
+
+test('online-only scope uses current visible location and does not classify incidental event-title words', async () => {
+  const listing = { rows: fixture.pages.flat() };
+  const result = parseAlumniPublicCards(listing, new Map(), { ...plan, options: { ...plan.options, onlineOnly: true } });
+  assert.equal(result.events.length, 4);
+  const fake = { ...listing.rows[0], title: 'Online reality research in Pittsburgh', text: 'October 26, 2026 | Pittsburgh, PA\nOnline reality research in Pittsburgh' };
+  assert.equal(parseAlumniPublicCards({ rows: [fake] }, new Map(), { options: { onlineOnly: true } }).events.length, 0);
+});
+
+test('official cards with new external registration providers retain dates and original query links without browser expansion', async () => {
+  const rows = ['https://registration.example.org/campaign?id=42&utm_source=alumni',
+    'https://another-provider.example/drive?campaign=current'].map((url, index) => ({
+    title: `New community session ${index}`, url, dateText: 'January 12, 2028',
+    text: 'JANUARY 12, 2028 | PITTSBURGH, PA\nNew community session',
+  }));
+  const calls = [];
+  const result = await fetchAlumni(plan, { renderPublic: async request => {
+    calls.push(request);
+    assert.equal(request.kind, 'alumni', 'external registration links are preserved without expanding renderer permissions');
+    return { rows, partial: false, pages: 1 };
+  } });
+  assert.equal(calls.length, 1);
+  assert.deepEqual(result.events.map(event => event.url), rows.map(row => row.url));
+  assert.ok(result.events.every(event => event.start === '2028-01-12' && event.timePrecision === 'date' && event.end === '2028-01-13'));
+  assert.equal(result.partial, undefined);
+  assert.equal(result.completeSnapshot, true);
+  assert.deepEqual(result.coverage.internalIssues, []);
+  assert.deepEqual(result.coverage.externalIssues, []);
+  assert.equal(result.coverage.nonBlockingIssues.length, 2);
+  assert.ok(result.coverage.inspectedDetails.every(item => item.outcome === 'PUBLIC_LISTING_DATE_ONLY' && item.detailInspected === false));
+  assert.throws(() => publicRenderUrl({ url: rows[0].url, kind: 'event-detail' }), /restricted/);
+});
+
+test('shared registration URLs keep separately published dates through listing discovery and normalization', async () => {
+  const rows = ['January 12, 2028', 'January 19, 2028'].map(dateText => ({ title: 'Weekly community session',
+    url: 'https://registration.example.org/series', dateText, text: `${dateText} | PITTSBURGH, PA\nWeekly community session` }));
+  const listing = await collectAlumniCards(publicPage([[rows[0]], [rows[1]]]));
+  assert.equal(listing.rows.length, 2);
+  const result = await fetchAlumni(plan, { renderPublic: async request => {
+    assert.equal(request.kind, 'alumni'); return listing;
+  } });
+  assert.deepEqual(result.events.map(event => event.start), ['2028-01-12', '2028-01-19']);
+  assert.equal(new Set(result.events.map(event => event.uid)).size, 2);
+  assert.equal(result.coverage.inspectionComplete, true);
+});
+
+test('external online cards are included but malformed offline cards cannot fail the online-only scope', async () => {
+  const rows = [
+    { title: 'Public webinar', url: 'https://registration.example.org/join?id=12', dateText: 'January 12, 2028',
+      text: 'JANUARY 12, 2028 | VIRTUAL WEBINAR, ONLINE\nPublic webinar' },
+    { title: 'In-person session', url: 'not a URL', dateText: 'Date not yet published', text: 'DATE TBA | PITTSBURGH, PA\nIn-person session' },
+  ];
+  const renderPublic = async request => { assert.equal(request.kind, 'alumni'); return { rows, partial: false }; };
+  const online = await fetchAlumni({ ...plan, options: { ...plan.options, onlineOnly: true } }, { renderPublic });
+  assert.equal(online.events.length, 1);
+  assert.equal(online.events[0].mode, 'online');
+  assert.equal(online.coverage.inspectionComplete, true);
+  assert.deepEqual(online.coverage.internalIssues, []);
+  const all = await fetchAlumni(plan, { renderPublic });
+  assert.equal(all.coverage.inspectionComplete, false);
+  assert.equal(all.coverage.internalIssues[0].code, 'UNPARSED_VISIBLE_CARD');
+});
+
+test('unsafe registration links and invalid in-scope dates stay visible internal gaps', async () => {
+  for (const url of ['javascript:alert(1)', 'http://registration.example.org/event',
+    'https://user:secret@registration.example.org/event', 'https://localhost/event', 'https://127.0.0.1/event',
+    'https://[::1]/event', 'https://10.0.0.1/event', 'https://office.local/event', 'https://registration.example.org:8443/event']) {
+    const row = { title: 'Public session', url, dateText: 'January 12, 2028', text: 'JANUARY 12, 2028 | ONLINE\nPublic session' };
+    const result = await fetchAlumni(plan, { renderPublic: async request => {
+      assert.equal(request.kind, 'alumni'); return { rows: [row], partial: false };
+    } });
+    assert.equal(result.events.length, 0);
+    assert.equal(result.completeSnapshot, false);
+    assert.equal(result.coverage.internalIssues[0].code, 'UNPARSED_VISIBLE_CARD');
+  }
+  const result = await fetchAlumni(plan, { renderPublic: async () => ({ partial: false, rows: [{ title: 'Unknown date',
+    url: 'https://registration.example.org/event', dateText: 'January 12', text: 'JANUARY 12 | ONLINE\nUnknown date' }] }) });
+  assert.equal(result.events.length, 0);
+  assert.equal(result.coverage.inspectionComplete, false);
+});
+
+test('renderer rejects other schools, credentials and unrelated pages before browser launch', async () => {
+  let launched = 0;
+  const renderer = createPublicRenderer({ enabled: true, launch: async () => { launched++; } });
+  for (const url of ['http://community.cmu.edu/s/events', 'https://user:secret@community.cmu.edu/s/events',
+    'https://www.givecampus.com/schools/OtherSchool/events/example', 'https://www.givecampus.com/schools/CarnegieMellonUniversity']) {
+    await assert.rejects(renderer.renderPublic({ url, kind: 'event-detail' }));
+  }
+  assert.equal(launched, 0);
+  assert.equal(publicRenderUrl({ url: fixture.detail.url, kind: 'event-detail' }), fixture.detail.url);
+  await assert.rejects(createPublicRenderer().renderPublic({ url: listingUrl, kind: 'alumni' }), /disabled/);
+});
+
+test('all browser network destinations reject private DNS, mixed answers, credentials and local redirects', async () => {
+  let lookups = 0;
+  const guard = createPublicNetworkGuard({ lookup: async host => {
+    lookups++;
+    return host === 'mixed.example' ? [{ address: '93.184.216.34' }, { address: '10.0.0.1' }] : [{ address: '93.184.216.34' }];
+  } });
+  await guard('https://public.example/script.js');
+  await guard('https://public.example/style.css');
+  assert.equal(lookups, 1, 'per-render DNS validation is memoized');
+  for (const url of ['https://127.0.0.1/', 'https://10.0.0.1/', 'https://169.254.169.254/latest/meta-data',
+    'https://[::1]/', 'https://[fe80::1]/', 'https://localhost/', 'https://a.local/',
+    'https://mixed.example/script.js', 'https://user:secret@public.example/', 'http://public.example/', 'https://public.example:8443/']) {
+    await assert.rejects(guard(url), /Non-public/);
+  }
+});
+
+test('renderer uses a fresh context, blocks downloads/workers and validates subresources and main-frame redirects', async () => {
+  const contexts = [];
+  let closed = 0;
+  let browserClosed = 0;
+  const frame = {};
+  const renderer = createPublicRenderer({ enabled: true, lookup: async () => [{ address: '93.184.216.34' }], launch: async () => ({
+    newContext: async options => {
+      const state = { options };
+      contexts.push(state);
+      const page = { setDefaultTimeout() {}, mainFrame: () => frame, goto: async () => {},
+        getByRole: (_, options) => options.level ? { first: () => ({ innerText: async () => fixture.detail.title }) }
+          : { waitFor: async () => {}, evaluate: async () => fixture.detail.detailText },
+        locator: selector => { assert.equal(selector, '#event-tabpanel'); return { isVisible: async () => true, innerText: async () => fixture.detail.description }; } };
+      return { newPage: async () => page, close: async () => { closed++; },
+        route: async (_, handler) => { state.route = handler; }, routeWebSocket: async (_, handler) => { state.webSocket = handler; } };
+    }, close: async () => { browserClosed++; },
+  }) });
+  await renderer.renderPublic({ url: fixture.detail.url, kind: 'event-detail' });
+  assert.equal(closed, 1);
+  assert.equal(contexts[0].options.acceptDownloads, false);
+  assert.equal(contexts[0].options.serviceWorkers, 'block');
+  for (const [url, mainFrame, expected] of [['https://127.0.0.1/secret', false, 'blocked'],
+    ['https://public.example/redirect', true, 'blocked'], ['https://public.example/script.js', false, 'allowed']]) {
+    let result;
+    await contexts[0].route({ request: () => ({ url: () => url, isNavigationRequest: () => mainFrame, frame: () => frame }),
+      continue: async () => { result = 'allowed'; }, abort: async () => { result = 'blocked'; } });
+    assert.equal(result, expected);
+  }
+  await renderer.renderPublic({ url: fixture.detail.url, kind: 'event-detail' });
+  assert.equal(contexts.length, 2, 'no browser context or cookies are reused');
+  await renderer.close();
+  assert.equal(browserClosed, 1);
+});
+
+test('render failures report response status, final path, document title and visible h1 without body or Guest List reads', async () => {
+  let closed = 0;
+  let headingWaits = 0;
+  const inspected = [];
+  const page = { setDefaultTimeout() {}, mainFrame: () => ({}),
+    goto: async () => ({ status: () => 403 }), url: () => `${fixture.detail.url}?ephemeral=do-not-persist`,
+    title: async () => 'Public access unavailable',
+    getByRole: () => ({ waitFor: async () => { headingWaits++; throw new Error('Event Details heading timed out'); } }),
+    locator: selector => { inspected.push(selector); assert.equal(selector, 'h1:visible');
+      return { first: () => ({ count: async () => 1, innerText: async () => 'Request could not be completed' }) }; },
+  };
+  const renderer = createPublicRenderer({ enabled: true, launch: async () => ({
+    newContext: async () => ({ newPage: async () => page, route: async () => {}, close: async () => { closed++; } }), close: async () => {},
+  }) });
+  await assert.rejects(renderer.renderPublic({ url: fixture.detail.url, kind: 'event-detail' }), error => {
+    assert.deepEqual(error.publicRenderDiagnostic, { httpStatus: 403, finalUrl: fixture.detail.url,
+      title: 'Public access unavailable', firstVisibleH1: 'Request could not be completed' });
+    assert.equal(error.code, 'PUBLIC_RENDER_HTTP_ERROR');
+    assert.match(error.message, /Public page returned HTTP 403.*httpStatus.*403/);
+    assert.ok(!error.message.includes('ephemeral'));
+    return true;
+  });
+  assert.equal(closed, 1);
+  assert.equal(headingWaits, 0, 'an explicit HTTP failure never waits for a missing Event Details heading');
+  assert.deepEqual(inspected, ['h1:visible']);
+  await renderer.close();
+});
+
+const tablePlan = { url: 'https://example.edu/seminars', options: { format: 'text-schedule', rowSelector: 'tbody tr', seriesSelector: 'h1',
+  fields: { date: { selector: 'td', index: 0 }, location: { selector: 'td', index: 1 }, speaker: { selector: 'td', index: 2 },
+    affiliation: { selector: 'td', index: 3 }, title: { selector: 'td', index: 4 } } } };
+
+test('live table schedules discover new rows and preserve named talks whose topic is pending', () => {
+  const html = '<h1>Current Econ-CS Series</h1><table><tbody><tr><td>January 12, 2027<br>2:00 PM</td><td>GHC 8102<br>Zoom</td><td>New Speaker</td><td>CMU</td><td>TBD</td></tr></tbody></table>';
+  const result = parseTextSchedule(html, tablePlan);
+  assert.equal(result.events.length, 1);
+  assert.equal(result.events[0].title, 'Current Econ-CS Series — New Speaker');
+  assert.equal(result.events[0].start, '2027-01-12T19:00:00.000Z');
+  assert.equal(result.events[0].mode, 'hybrid');
+  assert.equal(result.partial, undefined);
+  assert.equal(parseTextSchedule(html.replace('January 12, 2027', 'January 12'), tablePlan).partial, true);
+});
+
+const sectionPlan = { url: 'https://example.edu/crypto', options: { rowSelector: 'section', startHeading: 'Coming Talks', endHeading: 'Previous Talks',
+  seriesSelector: 'h1', contextSelector: 'section:first', requirePublishedClock: true,
+  defaultTimePattern: 'meets every (Thursday) at (.+?) ET', defaultLocationPattern: 'meet in person at (.+?) for the (F\\d{2}) semester',
+  fields: { title: { selector: 'p', index: 0 }, speaker: { selector: 'p', index: 1 }, date: { selector: 'p', index: 2 } } } };
+
+test('live seminar sections read their advertised clock and per-date exceptions without generating recurrence', () => {
+  const html = '<h1>Crypto Seminar</h1><section>The seminar meets every Thursday at 4:30 pm ET. We will meet in person at GHC 7501 for the F26 semester, and stream the talks live via Zoom.</section><section>Coming Talks</section><section><p>TBD</p><p>Qi Pang</p><p>Oct. 28, 2026 (Wed, 1:30 pm)</p></section><section><p>New Topic</p><p>New Speaker</p><p>Nov. 5, 2026</p></section><section>Previous Talks</section><section><p>Old talk</p><p>Past Speaker</p><p>Nov. 1, 2025</p></section>';
+  const result = parseTextSchedule(html, sectionPlan);
+  assert.equal(result.events.length, 2);
+  assert.equal(result.events[0].start, '2026-10-28T17:30:00.000Z');
+  assert.equal(result.events[1].start, '2026-11-05T21:30:00.000Z');
+  assert.equal(result.events[1].location, 'GHC 7501 · Zoom');
+  assert.equal(result.partial, undefined);
+  const changed = parseTextSchedule(html.replace('Nov. 5, 2026', 'Nov. 6, 2026'), sectionPlan);
+  assert.equal(changed.events[1].timePrecision, 'date', 'Thursday default is not borrowed for a Friday');
+  assert.equal(changed.partial, true);
+  const laterTerm = parseTextSchedule(html.replace('Nov. 5, 2026', 'Nov. 4, 2027'), sectionPlan);
+  assert.equal(laterTerm.events[1].location, '', 'old semester room/stream promises do not carry into a newly posted year');
+});
+
+test('heading announcements read a new published year/date rather than preserving a reviewed fixed date', () => {
+  const source = { url: 'https://example.edu/wellness', options: { rowSelector: 'main h3', followingSections: true } };
+  const result = parseTextSchedule('<main><h3>Friendsgiving</h3><p>Save the Date! November 22, 2027, in the evening.</p><h3>Spirituality Month</h3><p>Every February.</p></main>', source);
+  assert.equal(result.events.length, 1);
+  assert.equal(result.events[0].start, '2027-11-22');
+  assert.equal(result.events[0].timePrecision, 'date');
+});
+
+test('printed weekday/clock annotations between day and year retain named sessions with pending topics', () => {
+  const html = date => `<h1>Seminar Series</h1><section>Coming Talks</section><section><p>TBD</p><p>Named Researcher</p><p>${date}</p></section><section>Previous Talks</section>`;
+  for (const date of ['Nov. 24 (Tuesday, 4:30pm), 2026', '24 November (4:30–5:30pm), 2026']) {
+    const result = parseTextSchedule(html(date), sectionPlan);
+    assert.equal(result.partial, undefined);
+    assert.equal(result.events.length, 1);
+    assert.equal(result.events[0].title, 'Seminar Series — Named Researcher');
+    assert.equal(result.events[0].start, '2026-11-24T21:30:00.000Z');
+    assert.equal(result.events[0].location, '', 'unpublished room information is not invented');
+  }
+  for (const date of ['Nov. 24 (Tuesday, 4:30pm)', 'Nov. 24 (room 2026), 2027']) {
+    const result = parseTextSchedule(html(date), sectionPlan);
+    assert.equal(result.events.length, 0);
+    assert.equal(result.partial, true);
+  }
+});
+
+test('conference discovery follows newly advertised links while date conflicts never select a year silently', async () => {
+  const source = { url: 'https://example.edu/reviews', options: { layout: 'linked-consistent-details', linkSelector: 'main a',
+    detailTitleSelector: 'h1', detailContentSelector: 'main' } };
+  const good = '<main><h1>Review 2027</h1><p>June 9, 2027</p><table><tr><td>June 9, 2027</td><td>9:00-10:00 Welcome</td></tr></table></main>';
+  const conflict = good.replace('<p>June 9, 2027</p>', '<p>June 9, 2026</p>');
+  assert.equal(parseConsistentEventPage(conflict, source).partial, true);
+  const result = await fetchTextSchedule(source, { fetchText: async url => url === source.url
+    ? '<main><a href="/new-review">Review 2027</a><a href="/conflict">Conflicting review</a></main>' : url.endsWith('new-review') ? good : conflict });
+  assert.equal(result.events.length, 1);
+  assert.equal(result.events[0].start, '2027-06-09');
+  assert.equal(result.events[0].timePrecision, 'date', 'agenda times do not become the whole event clock');
+  assert.equal(result.partial, true);
+  assert.match(result.warnings.join(' '), /conflict/);
+});
+
+test('Alumni dynamic configurations keep all-events and online discovery distinct during source-plan deduplication', () => {
+  const alumni = loadPlans().filter(source => ['8f00fc7f2c7c', '79e7cdffd54d'].includes(source.id));
+  assert.equal(alumni.length, 2);
+  assert.equal(new Set(alumni.map(source => source.options.upstreamScope)).size, 2);
+  for (const source of alumni) {
+    assert.match(source.options.upstreamScope, /^public-dom-(?:all|online)$/);
+    assert.equal(source.options.preferFeed, false);
+    assert.equal(source.options.discovery, 'public-dom');
+    assert.equal(source.options.reviewedPublicEvents, undefined);
+  }
+});

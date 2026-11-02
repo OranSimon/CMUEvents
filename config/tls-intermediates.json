@@ -1,0 +1,8 @@
+{
+  "seminars.eberly.cmu.edu": {
+    "file": "certificates/incommon-rsa-server-ca-2.pem",
+    "source": "http://crt.sectigo.com/InCommonRSAServerCA2.crt",
+    "sha256": "87E01CC4DD0C9D92A3DBD49092FF13F9CD387445CDC57E5B984E1B7721B5B029",
+    "reason": "The public server omits its intermediate certificate. This issuer was verified against Node's existing trusted USERTrust RSA root; hostname and certificate validation remain enabled."
+  }
+}
