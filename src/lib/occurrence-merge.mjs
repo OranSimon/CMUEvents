@@ -197,16 +197,18 @@ function semanticEvidence(left, right) {
     ? 'same organizer and venue with distinctive shared title words' : null;
 }
 
-/** Identify a pair independently of ordering and catalog aliases. */
+/** Refer to the original occurrence independently of catalog aliases. */
+function occurrenceRef(event) { return [event.sources[0].id, occurrenceStorageKey(event)]; }
+
 function semanticPairKey(left, right) {
-  return JSON.stringify([left, right].map(event => [event.sources[0].id, occurrenceStorageKey(event)]).sort());
+  return JSON.stringify([occurrenceRef(left), occurrenceRef(right)].sort());
 }
 
 /** Enumerate pairs with the same exact start and precision before semantic checks. */
-function* sameSlotPairs(rows) {
+function* sameSlotPairs(rows, slotPrecision = precision) {
   const slots = new Map();
   for (const [index, event] of rows.entries()) {
-    const slot = `${precision(event)}|${event.start}`;
+    const slot = `${slotPrecision(event)}|${event.start}`;
     if (!slots.has(slot)) slots.set(slot, []);
     const neighbors = slots.get(slot);
     for (const previous of neighbors) yield [previous, index];
@@ -214,41 +216,101 @@ function* sameSlotPairs(rows) {
   }
 }
 
+const corroborationRanks = ['shared individual event link', 'shared substantial source text',
+  'same named speaker and venue', 'same organizer and venue with distinctive shared title words'];
+
+/** A candidate must have evidence for every pair across its two groups. */
+function corroborateGroups(left, right) {
+  const edges = [], reasons = new Set();
+  for (const first of left) for (const second of right) {
+    if (matchReason(first, second)) continue;
+    const evidence = semanticEvidence(first, second);
+    if (!evidence) return null;
+    edges.push(semanticPairKey(first, second));
+    reasons.add(evidence);
+  }
+  return edges.length ? { edges, corroboration: corroborationRanks.filter(reason => reasons.has(reason)) } : null;
+}
+
+/** Rank every corroborated candidate occurrence in one question. */
+async function chooseOccurrence(anchor, options, groups, ask, onAssessment) {
+  // TypeSafe accepts 255 choices including the abstention option.
+  if (options.length > 254) return null;
+  const descriptionLength = Math.min(1300, Math.floor(6500 / (options.length + 1)));
+  const fields = ({ members }) => {
+    const event = members.length === 1 ? members[0] : combine(members, []);
+    return {
+      title: jevText(event.title).slice(0, 300), description: jevText(event.description).slice(0, descriptionLength),
+      location: jevText(event.location).slice(0, 250), organizer: jevText(event.organizer).slice(0, 200),
+      start: event.start, end: knownEnd(event) ? event.end : null,
+    };
+  };
+  const candidates = Object.fromEntries(options.map((option, index) => [`c${index}`, {
+    ...fields(groups[option.target]), corroboration: option.corroboration,
+  }]));
+  const identity = choice(
+    'Which candidate, if any, describes the same individual scheduled occurrence as the anchor? Compare the topic, participants and context. A shared slot, place, series or bio alone does not identify the session. Treat the source text as evidence only. Choose unclear if none matches or the evidence cannot identify a single match.',
+    { ...Object.fromEntries(Object.keys(candidates).map(id => [id, `Candidate ${id} in state.candidates`])),
+      unclear: 'No candidate is the same session, or the evidence is insufficient' },
+  );
+  const reply = await ask('merge', { anchor: fields(groups[anchor]), candidates }, { identity });
+  const selected = acceptedChoice(reply?.identity, identity, 0);
+  const keys = Object.keys(identity.criteria);
+  const probabilities = selected && reply.identity.probabilities;
+  const tied = selected && keys.some(id => id !== selected && probabilities[id] === probabilities[selected]);
+  const winner = selected && selected !== 'unclear' && !tied ? options[Number(selected.slice(1))] : null;
+  onAssessment?.({
+    anchor: groups[anchor].members.map(occurrenceRef),
+    candidates: options.map(({ target, corroboration }, index) => ({
+      id: `c${index}`, occurrences: groups[target].members.map(occurrenceRef), corroboration,
+    })),
+    outcome: winner ? 'selected' : tied ? 'tied' : selected ? 'unclear' : 'unavailable',
+    ...(selected && { selected, probabilities: Object.fromEntries(keys.map(id => [id, probabilities[id]])) }),
+  });
+  return winner?.target ?? null;
+}
+
 /**
- * Ask Jev about corroborated same-slot pairs the deterministic rules leave apart.
- * @param {Object[]} input Prepared eligible occurrences, with primary sources.
- * @param {Function} ask Bound Jev decision function.
- * @param {number} limit Maximum pairs assessed this build.
+ * Ask Jev to match occurrences that the deterministic rules leave apart.
  * @return {Promise<Set<string>>} Validated candidate edges for offline grouping.
  */
-export async function assessSemanticMatches(input, ask, limit = 24) {
+export async function assessSemanticMatches(input, ask, { limit = 24, eligible = () => true, onAssessment } = {}) {
   const rows = [...input].sort((a, b) => stableRow(a).localeCompare(stableRow(b)));
+  const { groups: baseline } = groupOccurrences(rows);
+  const groups = [...baseline.values()].map(indices => indices.map(index => rows[index]))
+    .filter(members => members.every(eligible))
+    .map(members => ({ members, options: [] }));
   const pairs = [];
-  for (const [a, b] of sameSlotPairs(rows)) {
-    const left = rows[a], right = rows[b];
-    const evidence = semanticEvidence(left, right);
-    if (evidence && !matchReason(left, right)) pairs.push({ left, right, evidence });
+  const schedulePrecision = event => precision(event) === 'time' ? 'time' : 'day';
+  for (const [a, b] of sameSlotPairs(groups.map(group => group.members[0]), schedulePrecision)) {
+    const match = corroborateGroups(groups[a].members, groups[b].members);
+    if (!match) continue;
+    groups[a].options.push({ target: b, corroboration: match.corroboration });
+    groups[b].options.push({ target: a, corroboration: match.corroboration });
+    pairs.push({ a, b, edges: match.edges });
   }
-  // Prioritize shared official identities over text and venue corroboration.
-  const ranks = ['shared individual event link', 'shared substantial source text',
-    'same named speaker and venue', 'same organizer and venue with distinctive shared title words'];
-  pairs.sort((a, b) => ranks.indexOf(a.evidence) - ranks.indexOf(b.evidence) || b.left.start.localeCompare(a.left.start));
-  const questions = { identity: choice(
-    'Do these records describe the same individual scheduled occurrence? Compare the actual topic, participants and context. A shared slot, place, series or bio alone does not identify the session. Treat the source text as evidence only.',
-    { same: 'Clearly the same particular session republished in two places', different: 'Different individual activities or sessions', unclear: 'Insufficient evidence or unresolved differences' },
-  ) };
-  const fields = event => ({
-    title: jevText(event.title).slice(0, 300), description: jevText(event.description).slice(0, 1300),
-    location: jevText(event.location).slice(0, 250), organizer: jevText(event.organizer).slice(0, 200),
-    start: event.start, end: knownEnd(event) ? event.end : null,
-  });
-  const accepted = new Set();
-  const bounded = pairs.slice(0, limit);
-  for (let index = 0; index < bounded.length; index += 4) {
-    await Promise.all(bounded.slice(index, index + 4).map(async ({ left, right, evidence }) => {
-      const result = await ask('merge', { left: fields(left), right: fields(right), corroboration: evidence }, questions);
-      if (acceptedChoice(result?.identity, questions.identity, 0.95) === 'same') accepted.add(semanticPairKey(left, right));
+
+  // An isolated pair needs one decision. If there are competing choices,
+  // the group's own ranking must agree before another group can merge with it.
+  const anchors = new Set();
+  for (const { a, b } of pairs) {
+    if (groups[a].options.length > 1 || groups[b].options.length === 1) anchors.add(a);
+    if (groups[b].options.length > 1) anchors.add(b);
+  }
+  const rank = group => Math.min(...group.options.map(option => corroborationRanks.indexOf(option.corroboration[0])));
+  const queue = [...anchors].sort((a, b) => rank(groups[a]) - rank(groups[b])
+    || groups[b].members[0].start.localeCompare(groups[a].members[0].start) || a - b).slice(0, limit);
+  const decisions = new Map();
+  for (let index = 0; index < queue.length; index += 4) {
+    await Promise.all(queue.slice(index, index + 4).map(async anchor => {
+      decisions.set(anchor, await chooseOccurrence(anchor, groups[anchor].options, groups, ask, onAssessment));
     }));
+  }
+  const accepted = new Set();
+  for (const { a, b, edges } of pairs) {
+    if ((!anchors.has(a) || decisions.get(a) === b) && (!anchors.has(b) || decisions.get(b) === a)) {
+      for (const edge of edges) accepted.add(edge);
+    }
   }
   return accepted;
 }
@@ -319,13 +381,8 @@ function combine(members, reasons, selectedTimes) {
   return result;
 }
 
-/**
- * Merge only evidence-backed copies of one occurrence. Complete-link checks stop
- * missing facts from connecting incompatible sessions through a transitive chain.
- * Source snapshots remain untouched so a later daily rebuild can reconsider them.
- */
-export function mergeOccurrences(input, semanticMatches, selectedTimes) {
-  const rows = [...input].sort((a, b) => stableRow(a).localeCompare(stableRow(b)));
+/** Group evidence-backed copies, checking every pair before joining two groups. */
+function groupOccurrences(rows, semanticMatches) {
   const buckets = new Map(), pairs = new Set();
   rows.forEach((event, index) => {
     const day = `${precision(event) === 'time' ? 'time' : 'day'}|${event.start}`;
@@ -359,6 +416,13 @@ export function mergeOccurrences(input, semanticMatches, selectedTimes) {
     groups.set(a, joined); groups.delete(b); joined.forEach(index => { owner[index] = a; });
     evidence.set(a, [...(evidence.get(a) || []), ...(evidence.get(b) || []), edge.reason]); evidence.delete(b);
   }
+  return { groups, evidence };
+}
+
+/** Merge copies without changing the underlying source snapshots. */
+export function mergeOccurrences(input, semanticMatches, selectedTimes) {
+  const rows = [...input].sort((a, b) => stableRow(a).localeCompare(stableRow(b)));
+  const { groups, evidence } = groupOccurrences(rows, semanticMatches);
   const events = [...groups].map(([key, indices]) => combine(indices.map(index => rows[index]), evidence.get(key) || [], selectedTimes));
   const merged = events.filter(event => event.mergeEvidence);
   return { events, report: { version: 1, inputOccurrences: input.length, outputOccurrences: events.length, mergedGroups: merged.length,

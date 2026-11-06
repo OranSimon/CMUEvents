@@ -29,11 +29,11 @@ function selectTime({ schedule }, start, end, probability = 1) {
   return { schedule: answer(schedule, option, probability) };
 }
 
-/** Create two reposts and two deliberately separate activities for one calendar. */
-function sampleStore(t) {
+/** Create reposts and deliberately separate activities for one calendar. */
+function sampleStore(t, { alternatives = false, mirror = false } = {}) {
   const store = openStore(':memory:');
   t.after(() => store.close());
-  const plans = ['department', 'university', 'library'].map(id => ({
+  const plans = ['department', 'university', 'library', ...(mirror ? ['mirror'] : [])].map(id => ({
     id, org: id, department: id, status: 'active', url: `https://${id}.example.edu/calendar`,
   }));
   store.registerPlans(plans);
@@ -50,6 +50,13 @@ function sampleStore(t) {
     ],
     [{ title: 'Particle Physics Roundtable', url: 'https://library.example.edu/events/particle-physics', location: 'Gates Hillman Center 4402' }],
   ];
+  if (alternatives) {
+    // The real repost retains the abstract. The competing activity shares a speaker and room.
+    rows[1][0].description = base.description.split('\n')[1];
+    rows[2].push({ title: 'Community Astronomy Discussion', url: 'https://library.example.edu/events/astronomy',
+      description: 'Speaker: Mae Rivera\nA roundtable on backyard telescopes and how to observe the moons of Jupiter.' });
+  }
+  if (mirror) rows.push([{ ...rows[1][0], url: 'https://mirror.example.edu/events/silicon-photonics' }]);
   plans.forEach((plan, index) => store.replaceSource(plan.id, rows[index].map(row => normalizeEvent({ ...base, ...row }, plan))));
   return { store, plans };
 }
@@ -167,9 +174,9 @@ test('only an independently corroborated compatible occurrence merges, retaining
   const { store, plans } = sampleStore(t);
   assert.equal(store.rebuildEvents(plans), 4);
   const matches = await assessSemanticMatches(store.prepareOccurrences(plans), (_, state, questions) => {
-    assert.equal(state.left.start, state.right.start);
-    assert.equal(state.left.location, state.right.location);
-    return { identity: answer(questions.identity, 'same') };
+    assert.equal(state.anchor.start, state.candidates.c0.start);
+    assert.equal(state.anchor.location, state.candidates.c0.location);
+    return { identity: answer(questions.identity, 'c0') };
   });
   assert.equal(matches.size, 1);
   assert.equal(store.rebuildEvents(plans, matches), 3);
@@ -181,6 +188,58 @@ test('only an independently corroborated compatible occurrence merges, retaining
   ]);
   assert.equal(merged.sourceVariants.length, 2);
   assert.equal(store.rebuildEvents(plans), 4, 'source snapshots can be rebuilt without Jev');
+});
+
+test('one Jev Choice ranks every screened occurrence and keeps all copies of the winning candidate', async t => {
+  const { store, plans } = sampleStore(t, { alternatives: true, mirror: true });
+  const rows = store.prepareOccurrences(plans);
+  const choose = (scores, selected) => async (_, state, { identity }) => {
+    assert.equal(state.anchor.title, 'Optical Interconnects Guest Seminar');
+    assert.deepEqual(Object.keys(identity.criteria), ['c0', 'c1', 'unclear']);
+    assert.deepEqual(Object.values(state.candidates).map(candidate => candidate.title).sort(),
+      ['Community Astronomy Discussion', 'Mae Rivera on Silicon Photonics']);
+    const real = Object.keys(state.candidates).find(id => state.candidates[id].title.includes('Photonics'));
+    const other = real === 'c0' ? 'c1' : 'c0';
+    return { identity: { type: 'choice', choice: { real, other, unclear: 'unclear' }[selected],
+      probabilities: { [real]: scores[0], [other]: scores[1], unclear: scores[2] } } };
+  };
+  const assessments = [];
+  const matches = await assessSemanticMatches(rows, choose([0.4, 0.35, 0.25], 'real'),
+    { onAssessment: assessment => assessments.push(assessment) });
+  assert.equal(assessments.length, 1);
+  assert.equal(assessments[0].probabilities[assessments[0].selected], 0.4);
+  assert.equal(matches.size, 2);
+  assert.equal(store.rebuildEvents(plans, matches), 4);
+  const { events } = store.listEvents({ from: '2027-05-15', to: '2027-05-22', limit: 10 });
+  const merged = events.find(event => event.mergeEvidence?.reasons.includes('jev-same-occurrence'));
+  assert.deepEqual(merged.sources.map(source => source.id).sort(), ['department', 'mirror', 'university']);
+  assert.equal(merged.sources.length, new Set(merged.sources.map(source => source.eventUrl)).size);
+  assert.ok(events.some(event => event.title === 'Community Astronomy Discussion'));
+  assert.ok(events.some(event => event.start === '2027-05-22T22:00:00.000Z' && event.sources.length === 1));
+  assert.equal((await assessSemanticMatches(rows, choose([0.3, 0.25, 0.45], 'unclear'))).size, 0);
+  assert.equal((await assessSemanticMatches(rows, choose([0.45, 0.45, 0.1], 'real'))).size, 0);
+  assert.equal((await assessSemanticMatches(rows, choose([0.4, 0.5, 0.1], 'real'))).size, 0);
+});
+
+test('competing rankings cannot attach a losing candidate through a different anchor', async t => {
+  const { store, plans } = sampleStore(t, { alternatives: true });
+  const rows = store.prepareOccurrences(plans);
+  const repost = rows.find(event => event.title === 'Mae Rivera on Silicon Photonics');
+  repost.description = `Speaker: Mae Rivera\n${repost.description}`;
+  const titles = ['Optical Interconnects Guest Seminar', 'Mae Rivera on Silicon Photonics', 'Community Astronomy Discussion'];
+  const rank = (picks) => (_, { anchor, candidates }, { identity }) => {
+    assert.equal(Object.keys(candidates).length, 2);
+    const choice = Object.keys(candidates).find(id => candidates[id].title === picks[titles.indexOf(anchor.title)]);
+    return { identity: answer(identity, choice) };
+  };
+  const compatible = await assessSemanticMatches(rows, rank([titles[1], titles[0], titles[0]]));
+  assert.equal(compatible.size, 1);
+  assert.equal(store.rebuildEvents(plans, compatible), 4);
+  const { events } = store.listEvents({ from: '2027-05-15', to: '2027-05-15', limit: 10 });
+  assert.deepEqual(events.find(event => event.sources.length === 2).sources.map(source => source.id).sort(),
+    ['department', 'university']);
+  const conflict = await assessSemanticMatches(rows, rank([titles[1], titles[2], titles[0]]));
+  assert.equal(conflict.size, 0);
 });
 
 test('missing or rejected API responses fall back and the client bounds actual HTTP calls', async () => {
@@ -203,30 +262,32 @@ test('configured Jev service returns typed responses for both decision paths', {
 }, async t => {
   assert.ok(process.env.TYPESAFE_API_KEY, 'Configure the TYPESAFE_API_KEY environment secret');
   const jev = createJevClient({ apiKey: process.env.TYPESAFE_API_KEY, maxPerKind: 1 });
-  const { store, plans } = sampleStore(t);
-  let timeAssessment, identity;
+  const { store, plans } = sampleStore(t, { alternatives: true });
+  let timeAssessment, identity, candidateIds;
   const [range, matches] = await Promise.all([
     chooseSchedule(timeInput, jev.ask, assessment => { timeAssessment = assessment; }),
     assessSemanticMatches(store.prepareOccurrences(plans), async (kind, state, questions) => {
       const reply = await jev.ask(kind, state, questions);
       identity = reply?.identity;
+      candidateIds = Object.keys(state.candidates);
       return reply;
     }),
   ]);
-  console.log(`[jev smoke] ${JSON.stringify({ ...jev.stats, timeAssessment, identity, mergeAccepted: matches.size })}`);
+  console.log(`[jev smoke] ${JSON.stringify({ ...jev.stats, timeAssessment, identity, candidateIds, mergeAccepted: matches.size })}`);
   assert.equal(jev.stats.time.succeeded, 1);
   assert.equal(jev.stats.merge.succeeded, 1);
   assert.ok(Number.isFinite(timeAssessment?.probabilities?.[timeAssessment.selected]));
   assert.equal(identity?.type, 'choice');
-  assert.ok(['same', 'different', 'unclear'].includes(identity.choice));
-  assert.ok(Number.isFinite(identity.probabilities?.[identity.choice]));
+  assert.equal(candidateIds.length, 2);
+  assert.ok([...candidateIds, 'unclear'].every(id => Number.isFinite(identity.probabilities?.[id])));
   if (range) {
     assert.equal(range.start, '2027-05-15T22:00:00.000Z');
     assert.equal(range.end, '2027-05-15T23:30:00.000Z');
   }
-  assert.equal(store.rebuildEvents(plans, matches), 4 - matches.size);
+  assert.equal(store.rebuildEvents(plans, matches), 5 - matches.size);
   if (matches.size) {
     const merged = store.listEvents({ from: '2027-05-15', to: '2027-05-15', limit: 10 }).events.find(event => event.sources.length === 2);
-    assert.ok(merged?.sourceVariants.length === 2);
+    assert.deepEqual(merged?.sources.map(source => source.id).sort(), ['department', 'university']);
+    assert.equal(merged.sourceVariants.length, 2);
   }
 });

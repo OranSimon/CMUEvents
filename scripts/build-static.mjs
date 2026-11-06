@@ -35,7 +35,7 @@ async function main(args = process.argv.slice(2)) {
     throw new Error('Jev modes must be off, shadow, or apply.');
   }
   const jev = createJevClient({ apiKey: process.env.TYPESAFE_API_KEY });
-  const jevReport = { modes: { time: timeMode, merge: mergeMode }, timeAssessments: [], timeProposals: [], mergeProposals: [] };
+  const jevReport = { modes: { time: timeMode, merge: mergeMode }, timeAssessments: [], timeProposals: [], mergeAssessments: [], mergeProposals: [] };
   await mkdir(config.dataDir, { recursive: true });
   const store = openStore(config.databasePath);
   const now = Date.now();
@@ -87,8 +87,10 @@ async function main(args = process.argv.slice(2)) {
     }
     let pairs;
     if (jev.stats.configured && mergeMode !== 'off') {
-      const prepared = store.prepareOccurrences(plans).filter(event => inWindow(event, context) && calendarEligibility(event).eligible);
-      pairs = await assessSemanticMatches(prepared, jev.ask);
+      pairs = await assessSemanticMatches(store.prepareOccurrences(plans), jev.ask, {
+        eligible: event => inWindow(event, context) && calendarEligibility(event).eligible,
+        onAssessment: assessment => jevReport.mergeAssessments.push(assessment),
+      });
       jevReport.mergeProposals = [...pairs].sort().map(pair => JSON.parse(pair).map(([sourceId, occurrence]) => ({ sourceId, occurrence })));
       if (mergeMode !== 'apply') pairs = undefined;
     }
