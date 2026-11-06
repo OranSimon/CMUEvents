@@ -206,30 +206,19 @@ export function parseMediaPoster(raw, grounding, plan, context = {}) {
   return { events, warnings: [...new Set(warnings)], recognized: 1, partial: false };
 }
 
-/** Offer a single poster or PDF cover's reliably read schedule to Jev. */
-async function assessMediaSchedule(parsed, raw, grounding, plan, context) {
-  if (!context.jevSchedule || parsed.recognized > 1 || (parsed.recognized && !parsed.events.length)
-    || parsed.warnings.some(warning => /conflict|invalid|insufficient|disagree/i.test(warning))) return parsed;
-  const [known] = parsed.events;
-  if (known?.timePrecision === 'time' && known.start !== known.end) return parsed;
-  const title = known?.title || mediaTitle(raw, grounding);
-  if (!title) return parsed;
+/** Record reliable media evidence for an already dated occurrence. */
+function recordMediaSchedule(parsed, cover, grounding, plan, context) {
+  if (!context.recordScheduleEvidence) return;
   // Keep the layout boundaries and require all timing-bearing OCR words to
   // meet the poster reader's date threshold. Do not borrow across treatments.
-  const texts = [grounding.alt, raw.text, ...(raw.variants || []).map(variant => ocrLines(variant.words)
-    .map(line => line.words.filter(word => /\d/.test(word.text)).every(word => word.confidence >= 75)
-      ? line.text : '[unreadable line]').join('\n'))].filter(Boolean);
-  if (!texts.length) return parsed;
-  const range = await context.jevSchedule({ title, texts, year: grounding.allowContextYear ? grounding.year : undefined,
-    timeZone: plan.options?.timezone || 'America/New_York',
-    ...(known?.timePrecision === 'date' ? { known } : known ? { knownStart: known.start } : {}) }, plan);
-  if (!range) return parsed;
-  const description = known?.description || `Automatically extracted from the publisher's current public media.\n${texts[0]}`;
-  const event = normalizeEvent({ ...known, uid: undefined, allDay: false, title, description, start: range.start, end: range.end,
-    location: known?.location || mediaLocation(texts[0]), url: grounding.url || plan.url }, plan);
-  if (!event) return parsed;
-  return { ...parsed, events: inWindow(event, context) ? [event] : [], recognized: 1, partial: false,
-    warnings: [...parsed.warnings, 'Jev selected compatible published schedule endpoints'] };
+  const texts = cover && parsed.recognized === 1
+    && !parsed.warnings.some(warning => /conflict|invalid|insufficient|disagree/i.test(warning))
+    ? [grounding.alt, cover.text, ...(cover.variants || []).map(variant => ocrLines(variant.words)
+      .map(line => line.words.filter(word => /\d/.test(word.text)).every(word => word.confidence >= 75)
+        ? line.text : '[unreadable line]').join('\n'))].filter(Boolean) : [];
+  for (const event of parsed.events) {
+    if (event.timePrecision === 'date') context.recordScheduleEvidence(plan.id, event, texts);
+  }
 }
 
 /**
@@ -589,7 +578,7 @@ export async function fetchAutomaticMedia(html, plan, context) {
         if (grounding.alt && grounding.title && dates.dates.length === 1) {
           raw = { variants: [] };
           parsed = parseMediaPoster(raw, grounding, plan, context);
-          parsed = await assessMediaSchedule(parsed, raw, grounding, plan, context);
+          recordMediaSchedule(parsed, raw, grounding, plan, context);
         }
         else {
           const bytes = await context.fetchBytes(url, { maximumBytes: 128 * 1024 * 1024, timeoutMs: 60_000 });
@@ -622,11 +611,9 @@ export async function fetchAutomaticMedia(html, plan, context) {
           grounding = await indexedGrounding(raw, grounding, index, context);
           parsed = rule.profile === 'table' ? parseMediaTable(raw, grounding, plan, context)
             : pdf ? parseMediaDocument(raw, grounding, plan, context) : parseMediaPoster(raw, grounding, plan, context);
-          if (rule.profile !== 'table' && (!pdf || parsed.datePage === 1 || (raw.complete !== false && !parsed.recognized))) {
-            const cover = pdf ? raw.pages?.[0] || raw : raw;
-            const assessed = await assessMediaSchedule(parsed, cover, grounding, plan, context);
-            parsed = assessed !== parsed && pdf ? { ...assessed, datePage: 1 } : assessed;
-          }
+          const timingCover = rule.profile !== 'table' && (!pdf || parsed.datePage === 1)
+            ? (pdf ? raw.pages?.[0] || raw : raw) : null;
+          recordMediaSchedule(parsed, timingCover, grounding, plan, context);
         }
         coverage.processed++;
         recognized += parsed.recognized;

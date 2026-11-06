@@ -301,10 +301,11 @@ export function openStore(filename) {
    * Rebuild events from source snapshots and optional corroborated semantic edges.
    * @param {Array<Object>} plans Source definitions including covered aliases.
    * @param {Set<string>} semanticMatches Accepted Jev pairs, if enabled.
+   * @param {Map<string,Object>} selectedTimes Temporary clock choices keyed by source and occurrence.
    * @return {number} Number of distinct eligible occurrences.
    */
-  function rebuildEvents(plans, semanticMatches) {
-    const { events: merged, report: mergeReport } = mergeOccurrences(prepareOccurrences(plans), semanticMatches);
+  function rebuildEvents(plans, semanticMatches, selectedTimes) {
+    const { events: merged, report: mergeReport } = mergeOccurrences(prepareOccurrences(plans), semanticMatches, selectedTimes);
     db.exec('BEGIN');
     try {
       db.exec('DELETE FROM events;');

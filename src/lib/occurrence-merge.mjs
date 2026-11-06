@@ -260,7 +260,7 @@ function claim(event) {
 function stableRow(event) { return JSON.stringify([event.sources?.[0]?.id, event.url, event.uid, event.start, event.end, event.title, event.description, event.location]); }
 
 /** Pick a readable primary record and retain every distinct source-specific claim. */
-function combine(members, reasons) {
+function combine(members, reasons, selectedTimes) {
   const score = event => Number(Boolean(individualLink(event))) * 100 + Number(knownEnd(event)) * 10
     + Number(event.contentRole === 'detail') * 5 + Math.min(String(event.description || '').length / 10000, 1);
   const ordered = [...members].sort((a, b) => score(b) - score(a) || stableRow(a).localeCompare(stableRow(b)));
@@ -304,6 +304,17 @@ function combine(members, reasons) {
     ];
     result.mergeEvidence = { version: 1, reasons: [...new Set(reasons)].sort(), sourceOccurrences: members.length };
   }
+  // Apply clocks to an established group so a clock in one source cannot split its reposts.
+  if (selectedTimes?.size && members.every(member => precision(member) === 'date')) {
+    const clocks = members.map(member => selectedTimes.get(`${member.sources[0].id}:${occurrenceStorageKey(member)}`)).filter(Boolean);
+    const starts = new Set(clocks.map(clock => clock.start));
+    const ends = new Set(clocks.map(clock => clock.end).filter(Boolean));
+    if (starts.size === 1 && ends.size <= 1) {
+      const [start] = starts;
+      const [end = start] = ends;
+      Object.assign(result, { start, end, timePrecision: 'time', allDay: false });
+    }
+  }
   delete result._sourceClaim;
   return result;
 }
@@ -313,7 +324,7 @@ function combine(members, reasons) {
  * missing facts from connecting incompatible sessions through a transitive chain.
  * Source snapshots remain untouched so a later daily rebuild can reconsider them.
  */
-export function mergeOccurrences(input, semanticMatches) {
+export function mergeOccurrences(input, semanticMatches, selectedTimes) {
   const rows = [...input].sort((a, b) => stableRow(a).localeCompare(stableRow(b)));
   const buckets = new Map(), pairs = new Set();
   rows.forEach((event, index) => {
@@ -348,7 +359,7 @@ export function mergeOccurrences(input, semanticMatches) {
     groups.set(a, joined); groups.delete(b); joined.forEach(index => { owner[index] = a; });
     evidence.set(a, [...(evidence.get(a) || []), ...(evidence.get(b) || []), edge.reason]); evidence.delete(b);
   }
-  const events = [...groups].map(([key, indices]) => combine(indices.map(index => rows[index]), evidence.get(key) || []));
+  const events = [...groups].map(([key, indices]) => combine(indices.map(index => rows[index]), evidence.get(key) || [], selectedTimes));
   const merged = events.filter(event => event.mergeEvidence);
   return { events, report: { version: 1, inputOccurrences: input.length, outputOccurrences: events.length, mergedGroups: merged.length,
     absorbedOccurrences: input.length - events.length, groups: merged.map(event => ({ id: event.id, title: event.title, start: event.start, end: event.end,

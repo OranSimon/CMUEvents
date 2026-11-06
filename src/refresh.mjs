@@ -51,7 +51,7 @@ export function createRefresher(store, plans, config, dependencies = {}) {
       ? (dependencies.createPublicRenderer || (await import('./lib/public-render.mjs')).createPublicRenderer)({ enabled: true }) : null;
     const context = { fetchText: fetcher.fetchText, fetchBytes: fetcher.fetchBytes, fetchPublicQuery: fetcher.fetchPublicQuery, now,
       sourcePlans: plans, sourceScope: config.sourceScope,
-      ...(dependencies.jevSchedule ? { jevSchedule: dependencies.jevSchedule } : {}),
+      ...(dependencies.recordScheduleEvidence ? { recordScheduleEvidence: dependencies.recordScheduleEvidence } : {}),
       ...(renderer ? { renderPublic: renderer.renderPublic } : {}),
       windowStart: new Date(now.getTime() - config.lookBackDays * 86400000).toISOString(),
       windowEnd: new Date(now.getTime() + config.lookAheadDays * 86400000).toISOString() };

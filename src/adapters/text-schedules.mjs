@@ -160,13 +160,12 @@ export function parseConsistentEventPage(html, plan, context = {}) {
   const dateAnalysis = resolveEventDateRoles(dateFields);
   if (!title) { dateAnalysis.conflicts.push('The public conference title is absent'); dateAnalysis.decision = 'unresolved'; }
   const result = materializeConference(title, text, dateAnalysis, plan, context);
-  const [known] = dateAnalysis.occurrences;
-  if (context.jevSchedule && title && !sessions.length && !agenda.length && dateAnalysis.decision !== 'conflict'
-    && dateAnalysis.occurrences.length <= 1 && (!known || known.precision === 'date' || known.start === known.end)) {
-    const years = [...new Set(title.match(/\b(?:19|20|21)\d{2}\b/g) || [])];
-    return { ...result, jevInput: { title, text, texts: [[...summary, ...new Set(auxiliary)].join('\n')],
-      timeZone: dateFields.timeZone, ...(years.length === 1 ? { year: +years[0] } : {}),
-      ...(known?.precision === 'date' ? { known } : known ? { knownStart: known.start } : {}) } };
+  if (context.recordScheduleEvidence) {
+    const texts = sessions.length || agenda.length || dateAnalysis.occurrences.length !== 1
+      ? [] : [[...summary, ...new Set(auxiliary)].join('\n')];
+    for (const event of result.events) {
+      if (event.timePrecision === 'date') context.recordScheduleEvidence(plan.id, event, texts);
+    }
   }
   return result;
 }
@@ -182,19 +181,6 @@ function materializeConference(title, text, dateAnalysis, plan, context) {
   if (occurrences.some(event => !event)) return { events: [], recognized: 0, partial: true, dateAnalysis: { ...dateAnalysis, decision: 'invalid-fields' },
     warnings: [`Public conference date fields are invalid (${plan.url})`] };
   return { events: occurrences.filter(event => inWindow(event, context)), recognized: occurrences.length, warnings: [], dateAnalysis };
-}
-
-/** Evaluate a bounded date ambiguity, then reuse the conference result contract. */
-async function assessConferenceSchedule(result, plan, context) {
-  const input = result.jevInput;
-  if (!input) return result;
-  const range = await context.jevSchedule(input, plan);
-  if (!range) return result;
-  const dateAnalysis = { ...result.dateAnalysis, conflicts: [], decision: 'jev-verified-schedule',
-    occurrences: [{ start: range.start, end: range.end, precision: range.precision }],
-    notes: [...result.dateAnalysis.notes, { code: 'jev-selected-published-endpoints' }] };
-  const verified = materializeConference(input.title, input.text, dateAnalysis, plan, context);
-  return verified.partial ? result : verified;
 }
 
 /**
@@ -220,9 +206,7 @@ async function fetchConsistentDetails(plan, context) {
   for (let index = 0; index < links.length; index += 3) {
     await Promise.all(links.slice(index, index + 3).map(async url => {
       try {
-        const detailPlan = { ...plan, url };
-        const baseline = parseConsistentEventPage(await context.fetchText(url), detailPlan, context);
-        const result = await assessConferenceSchedule(baseline, detailPlan, context);
+        const result = parseConsistentEventPage(await context.fetchText(url), { ...plan, url }, context);
         recognized += result.recognized || 0;
         partial ||= Boolean(result.partial);
         warnings.push(...result.warnings);

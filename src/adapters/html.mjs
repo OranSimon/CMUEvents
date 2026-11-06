@@ -477,6 +477,11 @@ async function parseDocument(html, plan, context) {
     ? parseNewsletter(html, plan, context) : parseHtml(html, plan, context);
   result.datedRecognized = Boolean(result.recognized || result.events.length);
   if (plan.options?.automaticMedia?.length) {
+    if (context.recordScheduleEvidence) {
+      for (const event of result.events) {
+        if (event.timePrecision === 'date') context.recordScheduleEvidence(plan.id, event, [event.description || event.summary]);
+      }
+    }
     const media = await fetchAutomaticMedia(html, plan, { ...context, pageDateSpans: result.groundedSpans || [] });
     result.events.push(...media.events);
     result.warnings.push(...media.warnings);

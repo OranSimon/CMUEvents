@@ -5,12 +5,13 @@ import { fetchTextSchedule } from '../src/adapters/text-schedules.mjs';
 import { createJevClient, JEV_MODEL } from '../src/lib/jev.mjs';
 import { chooseSchedule, scheduleCandidates } from '../src/lib/jev-time.mjs';
 import { normalizeEvent } from '../src/lib/normalize.mjs';
-import { assessSemanticMatches } from '../src/lib/occurrence-merge.mjs';
+import { assessSemanticMatches, occurrenceStorageKey } from '../src/lib/occurrence-merge.mjs';
 import { openStore } from '../src/lib/store.mjs';
 
 const tz = 'America/New_York';
 const posterText = 'Registration closes May 10, 2027 at 5:00 PM\nLecture: May 15, 2027, 6:00 PM to 7:30 PM';
-const timeInput = { title: 'Photonics Guest Lecture', texts: [posterText], timeZone: tz };
+const knownDay = { start: '2027-05-15', end: '2027-05-16' };
+const timeInput = { title: 'Photonics Guest Lecture', texts: [posterText], timeZone: tz, known: knownDay };
 
 /** Produce a well-formed fixture response for a selected option. */
 function answer(question, option, probability = 1) {
@@ -20,18 +21,12 @@ function answer(question, option, probability = 1) {
   ])) };
 }
 
-/** Select a fixture endpoint by its value, independently of candidate ordering. */
-function endpoint(question, value) {
-  return Object.keys(question.criteria).find(key => question.criteria[key].includes(`Normalized endpoint: ${value}`));
-}
-
-/** Exercise the same selection contract for both start and end. */
-function selectTime(questions, start, end) {
-  return {
-    scope: answer(questions.scope, 'single'),
-    start: answer(questions.start, endpoint(questions.start, start)),
-    end: answer(questions.end, endpoint(questions.end, end)),
-  };
+/** Match an entire source time regardless of candidate ordering. */
+function selectTime({ schedule }, start, end, probability = 1) {
+  const option = Object.keys(schedule.criteria).find(key => schedule.criteria[key].includes(`UTC start ${start}`)
+    && schedule.criteria[key].includes(end ? `UTC end ${end}` : 'No end listed'));
+  assert.ok(option, 'Both values belong to a single offered candidate');
+  return { schedule: answer(schedule, option, probability) };
 }
 
 /** Create two reposts and two deliberately separate activities for one calendar. */
@@ -59,31 +54,51 @@ function sampleStore(t) {
   return { store, plans };
 }
 
-test('start and end are chosen separately from dated evidence; a deadline cannot become the activity', async () => {
+test('one Jev Choice ranks all matching times, including unclear', async () => {
   const ranges = scheduleCandidates(timeInput);
   assert.deepEqual(ranges.map(({ start, end, auxiliary }) => [start, end, auxiliary]), [
     ['2027-05-10T21:00:00.000Z', null, true],
     ['2027-05-15T22:00:00.000Z', '2027-05-15T23:30:00.000Z', false],
   ]);
-  const correct = await chooseSchedule(timeInput, (_, __, questions) => selectTime(questions, '2027-05-15T22', '2027-05-15T23:30'));
-  assert.equal(correct.end, '2027-05-15T23:30:00.000Z');
-  const mixed = await chooseSchedule(timeInput, (_, __, questions) => {
-    assert.equal(endpoint(questions.start, '2027-05-10T21'), undefined);
-    const selected = selectTime(questions, '2027-05-15T22', '2027-05-15T23:30');
-    return { ...selected, start: { ...selected.start, choice: 'c0' } };
+  const alternatives = { ...timeInput, texts: [`${posterText}\nMay 15, 2027, 8:00 PM to 9:30 PM\nMay 22, 2027, 10:00 PM`] };
+  let assessment;
+  const correct = await chooseSchedule(alternatives, (_, __, questions) => {
+    assert.deepEqual(Object.keys(questions), ['schedule']);
+    const options = Object.values(questions.schedule.criteria);
+    assert.equal(options.length, 3);
+    assert.ok(options.every(option => !/UTC start 2027-05-(?:10|22)/.test(option)));
+    return selectTime(questions, '2027-05-16T00', '2027-05-16T01:30', 0.4);
+  }, result => { assessment = result; });
+  assert.equal(correct.end, '2027-05-16T01:30:00.000Z');
+  assert.equal(assessment.probabilities[assessment.selected], 0.4);
+  assert.equal(await chooseSchedule(alternatives, (_, __, { schedule }) => ({
+    schedule: answer(schedule, 'unclear', 0.4),
+  })), null);
+  assert.equal(await chooseSchedule(timeInput, (_, __, { schedule }) => ({
+    schedule: answer(schedule, 'c0', 0.5),
+  })), null, 'a tie with unclear preserves the untimed event');
+  const startOnly = await chooseSchedule({ ...timeInput, texts: ['Lecture starts at 6 PM'] }, (_, __, questions) => {
+    return selectTime(questions, '2027-05-15T22', null);
   });
-  assert.equal(mixed, null);
+  assert.equal(startOnly.end, null);
+  assert.equal(await chooseSchedule({ ...timeInput, texts: ['May 15, 2027'] }, () => assert.fail('no clock candidate to rank')), null);
 });
 
 test('explicit date endpoints can cross days and DST; unrelated times cannot be spliced', async () => {
-  const overnight = { ...timeInput, texts: ['Starts: November 6, 2027 at 11:00 PM\nEnds: November 7, 2027 at 3:00 AM'] };
+  const overnight = { ...timeInput, known: { start: '2027-11-06', end: '2027-11-07' },
+    texts: ['Starts: November 6, 2027 at 11:00 PM\nEnds: November 7, 2027 at 3:00 AM'] };
   const [range] = scheduleCandidates(overnight);
   assert.equal(range.start, '2027-11-07T03:00:00.000Z');
   assert.equal(range.end, '2027-11-07T08:00:00.000Z');
   assert.deepEqual(scheduleCandidates({ ...overnight, texts: [overnight.texts[0].replace('\n', ' and ')] }),
     [range]);
+  assert.deepEqual(await chooseSchedule(overnight, (_, __, questions) => selectTime(questions, range.start, range.end)), range);
   const input = { ...timeInput, texts: ['May 15, 2027, 6:00 PM to 7:30 PM and 8:00 PM to 9:30 PM'] };
-  assert.equal(await chooseSchedule(input, (_, __, questions) => selectTime(questions, '2027-05-15T22', '2027-05-16T01:30')), null);
+  await chooseSchedule(input, (_, __, { schedule }) => {
+    assert.ok(!Object.values(schedule.criteria).some(option => option.includes('UTC start 2027-05-15T22')
+      && option.includes('UTC end 2027-05-16T01:30')));
+    return { schedule: answer(schedule, 'unclear') };
+  });
   for (const text of ['May 15 at 6:00 PM', 'Sunday, May 15, 2027 at 6:00 PM', 'March 14, 2027 at 2:30 AM',
     'February 30, 2027 at 6:00 PM', 'March 14, 2027 1:30 AM to 2:30 AM', 'November 7, 2027 at 1:30 AM']) {
     assert.deepEqual(scheduleCandidates({ ...timeInput, texts: [text] }), [], text);
@@ -92,31 +107,53 @@ test('explicit date endpoints can cross days and DST; unrelated times cannot be 
   assert.equal(scheduleCandidates({ ...timeInput, texts: ['May 15, 2027, 08:30 to 14:00'] })[0].end, '2027-05-15T18:00:00.000Z');
   assert.equal(scheduleCandidates({ ...timeInput, texts: ['November 7, 2027 at 1:30 AM EST'] })[0].start, '2027-11-07T06:30:00.000Z');
   assert.equal(scheduleCandidates({ ...timeInput, texts: ['May 15, 2027, 6 p.m. to 7:30 p.m. UTC'] })[0].end, '2027-05-15T19:30:00.000Z');
-  const repeated = { ...timeInput, texts: ['May 15, 2027, 6:00 PM to 7:30 PM\nMay 22, 2027, 6:00 PM to 7:30 PM'] };
-  assert.equal(await chooseSchedule(repeated, (_, __, questions) => selectTime(questions, '2027-05-15T22', '2027-05-15T23:30')), null);
 });
 
-test('the real media and linked conference fetch entry points apply validated timing', async () => {
+test('media and conference evidence supplies a calendar time without rewriting the source snapshot', async t => {
   const url = 'https://example.edu/lecture';
   const html = '<main><img src="/poster.png" title="Photonics Guest Lecture"></main>';
-  const mediaPlan = { url, options: { automaticMedia: [{ selector: 'img' }] } };
-  const assess = input => chooseSchedule(input, (_, __, questions) => selectTime(questions, '2027-05-15T22', '2027-05-15T23:30'));
-  const mediaContext = { fetchBytes: async () => Buffer.from('poster'), extractMedia: async () => ({ text: posterText }) };
-  const original = await fetchAutomaticMedia(html, mediaPlan, mediaContext);
-  assert.equal(original.events.length, 0);
-  const poster = await fetchAutomaticMedia(html, mediaPlan, { ...mediaContext, jevSchedule: assess });
-  assert.equal(poster.events.length, 1);
-  assert.equal(poster.events[0].timePrecision, 'time');
-  assert.equal(poster.events[0].end, '2027-05-15T23:30:00.000Z');
-
-  const conferencePlan = { url, options: { layout: 'linked-consistent-details', linkSelector: 'a', detailTitleSelector: 'h1', detailContentSelector: 'main' } };
+  const basePlan = { url, status: 'active', org: 'Fixture', department: 'Fixture' };
+  const mediaPlan = { ...basePlan, id: 'media', options: { automaticMedia: [{ selector: 'img' }] } };
+  const evidence = new Map();
+  const recordScheduleEvidence = (id, event, texts) => evidence.set(`${id}:${occurrenceStorageKey(event)}`, texts);
+  const mediaContext = { fetchBytes: async () => Buffer.from('poster'),
+    extractMedia: async () => ({ text: 'May 15, 2027, 6:00 PM to 7:30 PM' }), recordScheduleEvidence };
+  const poster = await fetchAutomaticMedia(html, mediaPlan, mediaContext);
+  const conferencePlan = { ...basePlan, id: 'conference',
+    options: { layout: 'linked-consistent-details', linkSelector: 'a', detailTitleSelector: 'h1', detailContentSelector: 'main' } };
   const conferenceContext = { fetchText: async value => value === url ? '<a href="/detail">Detail</a>'
-    : '<main><h1>Photonics Guest Lecture</h1><p>May 15, 2027, 6:00 PM to 7:30 PM</p></main>' };
-  assert.equal((await fetchTextSchedule(conferencePlan, conferenceContext)).events[0].timePrecision, 'date');
-  const result = await fetchTextSchedule(conferencePlan, { ...conferenceContext, jevSchedule: assess });
-  assert.equal(result.events[0].start, '2027-05-15T22:00:00.000Z');
-  assert.equal(result.events[0].end, '2027-05-15T23:30:00.000Z');
-  assert.equal(result.coverage.details[0].decision, 'jev-verified-schedule');
+    : '<main><h1>Photonics Guest Lecture</h1><p>May 15, 2027, 6:00 PM to 7:30 PM</p></main>', recordScheduleEvidence };
+  const conference = await fetchTextSchedule(conferencePlan, conferenceContext);
+  const store = openStore(':memory:');
+  t.after(() => store.close());
+  const plans = [mediaPlan, conferencePlan];
+  store.registerPlans(plans);
+  store.replaceSource('media', poster.events);
+  store.replaceSource('conference', conference.events);
+  const selectedTimes = new Map();
+  for (const event of store.prepareOccurrences(plans)) {
+    assert.equal(event.timePrecision, 'date');
+    const key = `${event.sources[0].id}:${occurrenceStorageKey(event)}`;
+    const range = await chooseSchedule({ ...timeInput, texts: evidence.get(key) },
+      (_, __, questions) => selectTime(questions, '2027-05-15T22', '2027-05-15T23:30'));
+    assert.ok(range);
+    selectedTimes.set(key, range);
+  }
+  assert.equal(selectedTimes.size, 2);
+  store.rebuildEvents(plans, undefined, selectedTimes);
+  const result = store.listEvents({ from: knownDay.start, to: knownDay.start }).events;
+  assert.ok(result.length > 0 && result.every(event => event.timePrecision === 'time' && event.end === '2027-05-15T23:30:00.000Z'));
+  store.rebuildEvents(plans);
+  assert.ok(store.prepareOccurrences(plans).every(event => event.timePrecision === 'date'));
+
+  // A repost without a clock still belongs to the same calendar card.
+  const [original] = poster.events;
+  store.replaceSource('conference', [original]);
+  assert.equal(store.rebuildEvents(plans, undefined, selectedTimes), 1);
+  const [merged] = store.listEvents({ from: knownDay.start, to: knownDay.start }).events;
+  assert.equal(merged.timePrecision, 'time');
+  assert.deepEqual(new Set(merged.sources.map(source => source.id)), new Set(['conference', 'media']));
+  assert.equal(merged.sourceVariants[0].timePrecision, 'date');
 });
 
 test('only an independently corroborated compatible occurrence merges, retaining both source versions', async t => {
@@ -149,11 +186,9 @@ test('missing or rejected API responses fall back and the client bounds actual H
   assert.equal(await chooseSchedule(timeInput, missing.ask), null);
   const malformed = createJevClient({ apiKey: 'fixture', fetchImpl: async () => Response.json({ model: JEV_MODEL, answers: {} }) });
   assert.equal(await chooseSchedule(timeInput, malformed.ask), null);
-  assert.equal(await chooseSchedule(timeInput, (_, __, questions) => {
-    const result = selectTime(questions, '2027-05-15T22', '2027-05-15T23:30');
-    result.start = answer(questions.start, result.start.choice, 0.7);
-    return result;
-  }), null);
+  assert.equal(await chooseSchedule(timeInput, (_, __, { schedule }) => ({
+    schedule: answer(schedule, 'c0', 0.4),
+  })), null, 'the selected label must match the score ordering');
 });
 
 test('configured Jev service returns typed responses for both decision paths', {
@@ -174,7 +209,7 @@ test('configured Jev service returns typed responses for both decision paths', {
   console.log(`[jev smoke] ${JSON.stringify({ ...jev.stats, timeAssessment, identity, mergeAccepted: matches.size })}`);
   assert.equal(jev.stats.time.succeeded, 1);
   assert.equal(jev.stats.merge.succeeded, 1);
-  assert.ok(['scope', 'start', 'end'].every(key => timeAssessment?.decisions[key]));
+  assert.ok(Number.isFinite(timeAssessment?.probabilities?.[timeAssessment.selected]));
   assert.equal(identity?.type, 'choice');
   assert.ok(['same', 'different', 'unclear'].includes(identity.choice));
   assert.ok(Number.isFinite(identity.probabilities?.[identity.choice]));

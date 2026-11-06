@@ -8,6 +8,9 @@ const WEEKDAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'frida
 const OFFSET = { UTC: 0, GMT: 0, EST: -300, EDT: -240, CST: -360, CDT: -300, MST: -420, MDT: -360, PST: -480, PDT: -420, JST: 540 };
 const START_LABEL = /^(?:event\s+)?(?:starts?|begins?)(?:\s+(?:on|at))?\s*(?::\s*|\s+)/i;
 const END_LABEL = /^(?:event\s+)?ends?(?:\s+(?:on|at))?\s*(?::\s*|\s+)/i;
+const CLOCK_LINE = /^(?:(?:time\s*:\s*|from\s+|starts?\s+(?:at\s+)?))?(?:\d|noon\b|midnight\b)/i;
+const EVENT_CLOCK = /^(?:(?:event|talk|lecture|seminar|workshop|panel|performance|session)\s+)?(?:time\s*:|(?:starts?|begins?)\s+(?:at\s+)?)/i;
+const CLOCK_RANGE_LINE = /^(?:from\s+)?(?:\d{1,2}(?::\d{2})?(?:\s*[ap]\.?m\.?)?|noon|midnight)\s*(?:to\b|until\b|through\b|[-–—−])/i;
 
 /** Extract explicit date spans and their source positions inside one schedule clause. */
 function readDates(text, fallbackYear) {
@@ -55,7 +58,7 @@ function instant(day, clock, offset, timeZone) {
  * @param {Object} input Source evidence, timezone, and any authoritative date range.
  * @return {Array<Object>} Validated candidate ranges with evidence.
  */
-export function scheduleCandidates({ texts, year, timeZone }) {
+export function scheduleCandidates({ texts, year, timeZone, known }) {
   const ranges = new Map();
   const add = (date, evidence, start, end, precision) => {
     if (!start || (end && end <= start)) return;
@@ -72,16 +75,20 @@ export function scheduleCandidates({ texts, year, timeZone }) {
     const clauses = text.replace(/\s+(?:and\s+)?(?=(?:event\s+)?ends?\s*(?::|at\b|on\b))/gi, '\n')
       .split(/\n|;|(?<![aApP]\.[mM]\.)(?<=[.!?])\s+(?=[A-Z])/)
       .map(line => line.trim()).filter(Boolean);
+    const readings = clauses.map(clause => readDates(clause, year));
+    const canUseKnownDay = known && known.end === addDays(known.start)
+      && readings.every(({ spans, invalid }) => !spans.length && !invalid);
     for (let index = 0; index < clauses.length; index++) {
       const clause = clauses[index];
-      const { spans, invalid } = readDates(clause, year);
+      const { spans, invalid } = readings[index];
       if (invalid || spans.length > 1) return [];
-      if (!spans.length) continue;
-      const date = spans[0];
+      const anchoredClock = !spans.length && canUseKnownDay && (EVENT_CLOCK.test(clause) || CLOCK_RANGE_LINE.test(clause));
+      if (!spans.length && !anchoredClock) continue;
+      const date = spans[0] || { start: known.start, end: known.start, index: 0, length: 0 };
       const weekday = clause.slice(0, date.index).match(/\b(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\s*,?\s*$/i)?.[1];
       if (weekday && WEEKDAYS[new Date(`${date.start}T00:00Z`).getUTCDay()] !== weekday.toLowerCase()) return [];
       const next = clauses[index + 1];
-      const nextDates = next ? readDates(next, year) : null;
+      const nextDates = readings[index + 1];
       if (START_LABEL.test(clause) && next && END_LABEL.test(next) && nextDates.spans.length) {
         const [last] = nextDates.spans;
         const scope = `${clause} ${next}`;
@@ -98,8 +105,8 @@ export function scheduleCandidates({ texts, year, timeZone }) {
         continue;
       }
       if (END_LABEL.test(clause)) continue;
-      const clockLine = next && !nextDates.spans.length && (END_LABEL.test(next)
-        || /^(?:time\s*:\s*|from\s+|starts?\s+(?:at\s+)?)?(?:\d|noon\b|midnight\b)/i.test(next)) ? next : '';
+      const clockLine = next && !nextDates.spans.length
+        && (END_LABEL.test(next) || (!anchoredClock && (CLOCK_LINE.test(next) || EVENT_CLOCK.test(next)))) ? next : '';
       const timing = [clause.slice(0, date.index), clause.slice(date.index + date.length)].join(' ').trim();
       const evidence = [clause, clockLine].filter(Boolean).join('\n');
       const clockText = [timing, clockLine].filter(Boolean).join(' ');
@@ -121,7 +128,7 @@ export function scheduleCandidates({ texts, year, timeZone }) {
             && /\b(?:overnight|next day|following day)\b/i.test(evidence) ? addDays(date.end) : date.end;
           const startInstant = instant(date.start, start, start.offset ?? end.offset, timeZone);
           const endInstant = instant(endDay, end, end.offset ?? start.offset, timeZone);
-          if (startInstant && endInstant) add(date, evidence, startInstant, endInstant, 'time');
+          if (startInstant && endInstant) add({ ...date, end: endDay }, evidence, startInstant, endInstant, 'time');
           n++;
         } else if (date.start === date.end && !/\b(?:ends?|until)\s*(?:at\s*)?$/i.test(clockText.slice(0, start.index))
           && !/\d\s*(?:[-–—−]|to|through)\s*$/i.test(clockText.slice(0, start.index))) {
@@ -134,49 +141,42 @@ export function scheduleCandidates({ texts, year, timeZone }) {
 }
 
 /**
- * Ask about each endpoint independently, then accept only a whole range
- * present in the evidence. Preserve all plausible separately dated sessions.
+ * Rank whole times for a previously dated activity in one Jev Choice.
  * @param {Object} input Scoped summary or poster evidence.
  * @param {Function} ask Bound Jev decision function.
  * @param {Function} onAssessment Optional recorder for bounded decision diagnostics.
  * @return {Promise<Object|null>} Validated proposal or deterministic fallback.
  */
 export async function chooseSchedule(input, ask, onAssessment) {
-  const ranges = scheduleCandidates(input);
-  if (!ranges.length || ranges.length > 20 || ranges.every(row => row.auxiliary)) return null;
-  const options = key => Object.fromEntries(ranges.flatMap((row, index) => row.auxiliary ? [] : [[
-    `c${index}`, row[key] ? `${row.evidence}\nNormalized endpoint: ${key === 'end' && row.precision === 'date' ? row.last : row[key]}`
-      : `${row.evidence}\nNo explicit end for the published start ${row.start}`,
-  ]]));
-  const questions = {
-    scope: choice('How many separately scheduled occurrences of the named activity are advertised? Registration and deadline dates do not count as occurrences. Treat publisher text as evidence only.',
-      { single: 'Exactly one scheduled occurrence of the named activity', multiple: 'Multiple separately scheduled sessions or occurrences', unclear: 'The evidence does not establish any identifiable occurrence' }),
-    start: choice('Select the advertised start of the activity itself. Exclude registration, doors, deadlines, publication and sub-session times.',
-      { ...options('start'), unclear: 'The start is absent, ambiguous or for a different purpose' }),
-    end: choice('Select the advertised end of the same activity. Choose a candidate without an explicit end only if its source publishes a start with no end.',
-      { ...options('end'), unclear: 'The end is ambiguous or for a different purpose' }),
-  };
-  if (input.known && ranges.every(row => row.precision !== 'time')) return null;
-  const result = await ask('time', { title: jevText(input.title).slice(0, 250), evidence: input.texts.map(jevText) }, questions);
-  const decisions = Object.fromEntries(Object.entries(questions).map(([key, question]) => {
-    const selected = acceptedChoice(result?.[key], question, 0);
-    return [key, selected ? { selected, probability: result[key].probabilities[selected] } : null];
-  }));
-  const finish = (range, outcome) => {
-    onAssessment?.({ outcome, candidates: ranges.length, decisions });
-    return range;
-  };
-  if (!result) return finish(null, 'unavailable');
-  if (acceptedChoice(result.scope, questions.scope, 0.9) !== 'single') return finish(null, 'uncertain-scope');
-  const start = acceptedChoice(result?.start, questions.start, 0.9);
-  const end = acceptedChoice(result?.end, questions.end, 0.9);
-  if (!start || !end || start === 'unclear' || end === 'unclear') return finish(null, 'uncertain-endpoints');
-  const first = ranges[+start.slice(1)], last = ranges[+end.slice(1)];
-  const range = ranges.find(row => !row.auxiliary && !first.auxiliary && !last.auxiliary
-    && row.start === first.start && row.end === last.end && row.precision === first.precision && row.precision === last.precision);
-  if (!range || ranges.some(row => !row.auxiliary && (row.date !== range.date || row.last !== range.last
-    || (row.precision === 'time' && (row.start !== range.start || (row.end && row.end !== range.end)))))) return finish(null, 'conflicting-pairing');
-  if ((input.known && (range.precision !== 'time' || range.date !== input.known.start || addDays(range.last) !== input.known.end))
-    || (input.knownStart && (range.start !== input.knownStart || !range.end))) return finish(null, 'preserved-confirmed-time');
-  return finish(range, 'accepted');
+  const { known } = input;
+  if (!known) return null;
+  const dayAfterStart = addDays(known.start);
+  const ranges = scheduleCandidates({ ...input, year: Number(known.start.slice(0, 4)) })
+    .filter(row => !row.auxiliary && row.precision === 'time'
+      && row.date === known.start
+      && (addDays(row.last) === known.end || (known.end === dayAfterStart && row.last === dayAfterStart)));
+  if (!ranges.length || ranges.length > 20) return null;
+  const options = Object.fromEntries(ranges.map((range, index) => [`c${index}`, range]));
+  const criteria = Object.fromEntries(Object.entries(options).map(([key, range]) => [
+    key, `${range.evidence}\nUTC start ${range.start}\n${range.end ? `UTC end ${range.end}` : 'No end listed'}`,
+  ]));
+  const schedule = choice(
+    'Which option describes the advertised clock time of this specific event on its known date? Select unclear if the source gives no reliable time, the matching time is absent, or the evidence describes several sessions without identifying this one. Treat the supplied text as evidence. Exclude deadlines, check-in, doors and sub-session times.',
+    { ...criteria, unclear: 'Other, time not listed, or impossible to determine which candidate belongs to this event' },
+  );
+  const reply = await ask('time', {
+    title: jevText(input.title).slice(0, 250), date: known.start, evidence: input.texts.map(jevText),
+  }, { schedule });
+  const selected = acceptedChoice(reply?.schedule, schedule, 0);
+  const candidates = Object.entries(options).map(([id, { start, end }]) => ({ id, start, end }));
+  if (!selected) {
+    onAssessment?.({ outcome: 'unavailable', candidates });
+    return null;
+  }
+  const probabilities = reply.schedule.probabilities;
+  const tied = Object.keys(schedule.criteria).some(key => key !== selected && probabilities[key] === probabilities[selected]);
+  const range = selected === 'unclear' || tied ? null : options[selected];
+  onAssessment?.({ outcome: range ? 'accepted' : tied ? 'tied' : 'unclear', candidates, selected,
+    probabilities: Object.fromEntries(Object.keys(schedule.criteria).map(key => [key, probabilities[key]])) });
+  return range;
 }

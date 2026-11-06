@@ -1,6 +1,6 @@
 import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
 import path from 'node:path';
-import { readBuildConfig, loadPlans, ROOT } from '../src/config.mjs';
+import { readBuildConfig, loadPlans, localDay, ROOT } from '../src/config.mjs';
 import { openStore } from '../src/lib/store.mjs';
 import { createRefresher } from '../src/refresh.mjs';
 import { createSourceSubscriptions } from '../src/lib/source-subscriptions.mjs';
@@ -9,7 +9,7 @@ import { validateSourceCoverage } from '../src/lib/source-coverage.mjs';
 import { buildStaticSite } from '../src/lib/static-site.mjs';
 import { createJevClient } from '../src/lib/jev.mjs';
 import { chooseSchedule } from '../src/lib/jev-time.mjs';
-import { assessSemanticMatches } from '../src/lib/occurrence-merge.mjs';
+import { assessSemanticMatches, occurrenceStorageKey } from '../src/lib/occurrence-merge.mjs';
 import { inWindow } from '../src/lib/normalize.mjs';
 import { calendarEligibility } from '../web/event-semantics.js';
 
@@ -51,21 +51,49 @@ async function main(args = process.argv.slice(2)) {
       const restored = restoreCrawlState(store, plans, snapshot, context);
       console.log(`[state] ${JSON.stringify(restored)}`);
     }
+    const timeEnabled = jev.stats.configured && timeMode !== 'off';
+    const scheduleEvidence = new Map();
     const refresher = createRefresher(store, plans, config, {
-      jevSchedule: jev.stats.configured && timeMode !== 'off' ? async (input, plan) => {
-        const range = await chooseSchedule(input, jev.ask, assessment => {
-          if (assessment.outcome !== 'unavailable') jevReport.timeAssessments.push({ sourceId: plan.id, ...assessment });
-        });
-        if (range) jevReport.timeProposals.push({ sourceId: plan.id, start: range.start, end: range.end, precision: range.precision });
-        return timeMode === 'apply' ? range : null;
+      recordScheduleEvidence: timeEnabled ? (sourceId, event, texts) => {
+        scheduleEvidence.set(`${sourceId}:${occurrenceStorageKey(event)}`, texts);
       } : undefined,
     });
     const refresh = await refresher.refresh({ force: true });
+    const selectedTimes = new Map();
+    if (timeEnabled) {
+      const today = localDay(now);
+      const scopedSources = new Set(plans.filter(plan => plan.options?.automaticMedia?.length
+        || plan.options?.layout === 'linked-consistent-details').map(plan => plan.id));
+      const untimed = store.prepareOccurrences(plans)
+        .filter(event => event.timePrecision === 'date' && event.scheduleKind === 'occurrence'
+          && event.status === 'scheduled' && inWindow(event, context) && calendarEligibility(event).eligible)
+        .sort((left, right) => Number(left.start < today) - Number(right.start < today) || left.start.localeCompare(right.start));
+      for (let i = 0; i < untimed.length; i += 4) {
+        await Promise.all(untimed.slice(i, i + 4).map(async event => {
+          const sourceId = event.sources[0].id;
+          const occurrence = occurrenceStorageKey(event);
+          const key = `${sourceId}:${occurrence}`;
+          const texts = scheduleEvidence.get(key) ?? (scopedSources.has(sourceId) ? [] : [event.description || event.summary]);
+          if (!texts.length) return;
+          const known = { start: event.start, end: event.end };
+          const range = await chooseSchedule({ title: event.title, timeZone: event.timeZone, known, texts }, jev.ask, assessment => {
+            if (assessment.outcome !== 'unavailable') jevReport.timeAssessments.push({ sourceId, occurrence, ...assessment });
+          });
+          if (!range || !inWindow({ start: range.start, end: range.end || range.start }, context)) return;
+          jevReport.timeProposals.push({ sourceId, occurrence, start: range.start, end: range.end, precision: range.precision });
+          if (timeMode === 'apply') selectedTimes.set(key, range);
+        }));
+      }
+    }
+    let pairs;
     if (jev.stats.configured && mergeMode !== 'off') {
       const prepared = store.prepareOccurrences(plans).filter(event => inWindow(event, context) && calendarEligibility(event).eligible);
-      const pairs = await assessSemanticMatches(prepared, jev.ask);
+      pairs = await assessSemanticMatches(prepared, jev.ask);
       jevReport.mergeProposals = [...pairs].sort().map(pair => JSON.parse(pair).map(([sourceId, occurrence]) => ({ sourceId, occurrence })));
-      if (mergeMode === 'apply' && pairs.size) refresh.totalEvents = store.rebuildEvents(plans, pairs);
+      if (mergeMode !== 'apply') pairs = undefined;
+    }
+    if (selectedTimes.size || pairs?.size) {
+      refresh.totalEvents = store.rebuildEvents(plans, pairs, selectedTimes);
     }
     await mkdir(path.dirname(stateOut), { recursive: true });
     if (timeMode !== 'off' || mergeMode !== 'off') {
