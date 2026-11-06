@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-01T21:50:29.350Z",
-  "catalogCount": 318,
+  "generatedAt": "2026-11-06T20:18:51.521Z",
+  "catalogCount": 317,
   "statusDefinitions": {
     "active": "An implemented adapter is scheduled for automatic extraction.",
     "covered": "An equivalent canonical feed supplies events while preserving this source attribution.",
@@ -13,7 +13,7 @@
   "summary": {
     "adapters": {
       "campusgroups": 20,
-      "html": 77,
+      "html": 76,
       "ics": 83,
       "livewhale": 119,
       "manual": 4,
@@ -23,7 +23,7 @@
       "wordpress": 6
     },
     "statuses": {
-      "active": 263,
+      "active": 262,
       "covered": 37,
       "empty": 14,
       "subscription_only": 4
@@ -1971,44 +1971,6 @@
       }
     },
     {
-      "id": "a748b0b4b36d",
-      "department": "College of Fine Arts / School of Design",
-      "org": "Transition Design Institute News and Events",
-      "url": "https://transitiondesigninstitute.net/news-events/",
-      "kind": "event_listing",
-      "adapter": "html",
-      "fetchUrl": "https://transitiondesigninstitute.net/news-events/",
-      "status": "active",
-      "canonicalSourceId": null,
-      "refreshHours": 6,
-      "options": {
-        "timezone": "America/New_York",
-        "preferFeed": false,
-        "detailLinks": false,
-        "eventSelector": ".post-item:has(.eyebrow:contains(\"Event\"))",
-        "titleSelector": "h3",
-        "dateSelector": "h3",
-        "yearWithinCardSelector": "h3,img",
-        "linkSelector": ".read-more a"
-      },
-      "strategy": "Read verified source-local records using explicit dates, scoped schedules or structured provider data.",
-      "reason": "Only cards with explicit event-year evidence are parsed. Some event cards, including the Dialogues recording detail, omit a year and remain excluded.",
-      "evidence": {
-        "anonymousAccessVerified": true,
-        "checkedAt": "2026-10-21T17:56:15.230560+00:00",
-        "httpStatus": 200,
-        "structure": "Event-tagged cards carry title dates; the year comes only from an explicit event title or descriptive poster alt text in that same card. Yearless Dialogues detail is not assigned an upload/publication year.",
-        "visualReview": {
-          "checkedAt": "2026-10-22T03:34:09.245Z",
-          "outcome": "historical_and_undated_series_notice",
-          "note": "The listing includes dated 2025 events and a July 8–11, 2026 conference banner. Its Dialogues detail describes the first May 20 session in past tense and links a recording, but does not print a year or a new dated session. No future date is inferred from the footer or the proposed monthly cadence.",
-          "url": "https://transitiondesigninstitute.net/dialogues-in-transition/",
-          "requiresReview": false,
-          "resolution": "no_importable_omission_confirmed"
-        }
-      }
-    },
-    {
       "id": "ec62bc29f612",
       "department": "College of Fine Arts / School of Drama",
       "org": "School of Drama",
@@ -3174,13 +3136,13 @@
       }
     },
     {
-      "id": "05c3d64520be",
+      "id": "2f6e6f78c093",
       "department": "Dietrich College / History",
       "org": "Pitt-CMU Environmental Humanities Research Seminar",
-      "url": "https://www.cmu.edu/dietrich/history/centers-seminars/ehrs-seminar.html",
+      "url": "https://www.cmu.edu/dietrich/history/department/ehrs-seminar.html",
       "kind": "event_listing",
       "adapter": "html",
-      "fetchUrl": "https://www.cmu.edu/dietrich/history/centers-seminars/ehrs-seminar.html",
+      "fetchUrl": "https://www.cmu.edu/dietrich/history/department/ehrs-seminar.html",
       "status": "active",
       "canonicalSourceId": null,
       "refreshHours": 6,
@@ -3198,9 +3160,9 @@
       "reason": "",
       "evidence": {
         "anonymousAccessVerified": true,
-        "checkedAt": "2026-10-21T17:56:14.905068+00:00",
+        "checkedAt": "2026-11-06",
         "httpStatus": 200,
-        "structure": "A named lecture has October 27, 2025, 12:30 PM printed next to its location and RSVP; the old event lies outside the current window.",
+        "structure": "The relocated page publishes a named historical lecture with an explicit full date and time.",
         "visualReview": {
           "checkedAt": "2026-10-22T03:28:50.300Z",
           "outcome": "historical_schedule_and_archive_outside_window",
@@ -3257,13 +3219,13 @@
       }
     },
     {
-      "id": "34fa7359276d",
+      "id": "60c8ded080d4",
       "department": "Dietrich College / History",
       "org": "Socialist Studies Seminar",
-      "url": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "url": "https://www.cmu.edu/dietrich/history/department/socialist-studies-page.html",
       "kind": "event_listing",
       "adapter": "html",
-      "fetchUrl": "https://www.cmu.edu/dietrich/history/centers-seminars/socialist-studies-page.html",
+      "fetchUrl": "https://www.cmu.edu/dietrich/history/department/socialist-studies-page.html",
       "status": "active",
       "canonicalSourceId": null,
       "refreshHours": 6,
@@ -3284,9 +3246,9 @@
       "reason": "Inspect all currently advertised semantic candidates, account for proven historical/non-event assets, and read all necessary current text/OCR pages. Preserve actual publisher date/access limitations separately from internal collection gaps.",
       "evidence": {
         "anonymousAccessVerified": true,
-        "checkedAt": "2026-10-21T17:56:15.035557+00:00",
+        "checkedAt": "2026-11-06",
         "httpStatus": 200,
-        "structure": "The current Fall 2026 and Spring 2026 schedules are poster images/PDF embeds with no event-row dates in accessible HTML. Runtime poster OCR with verified date-speaker pairing is not implemented.",
+        "structure": "The relocated page groups published posters and PDFs by semester; discover the advertised media and extract explicit occurrence dates.",
         "accessReview": {
           "checkedAt": "2026-10-25T20:48:50.450Z",
           "status": "active",
@@ -9030,7 +8992,7 @@
             "detailLinks": false,
             "preserveFieldBreaks": true
           },
-          "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/women-economics-theory-conference": {
+          "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/women-economic-theory-conference": {
             "eventSelector": ".ContentSidebar",
             "titleSelector": "h1",
             "dateSelector": ".ContentSidebar__content > .paragraph--type--p-wysiwyg > div > p:nth-child(2)",
@@ -9096,9 +9058,9 @@
               {
                 "selector": ".ContentSidebar__content",
                 "expectedCount": 1,
-                "sha256": "9f2eaf2a61fe5256a5a0f6ddff959c27ade46b6294eaae63230ec8e710d4a5a0",
+                "sha256": "c40d0797c1d834e428395e1ee072682ab6f5959fc64c325e722d6c93e676b65b",
                 "kind": "undated recording archive",
-                "reason": "The forum page publishes historical recording headings2025,2024,2021,2020 without month/day occurrence dates. Calendar dates cannot be recovered from recording years alone."
+                "reason": "The reviewed archive lists recordings for 2025, 2024, 2021 and 2020 without full occurrence dates. Recheck if the resource changes."
               }
             ]
           }
@@ -9118,7 +9080,7 @@
             "httpStatus": 200
           },
           {
-            "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/women-economics-theory-conference",
+            "url": "https://www.cmu.edu/tepper/faculty-and-research/seminars-and-conferences/women-economic-theory-conference",
             "httpStatus": 200
           },
           {
@@ -9166,6 +9128,10 @@
           "checkedAt": "2026-10-25T20:49:29.492Z",
           "reason": "The AI and Human Decisions landing page omits its year, but its explicitly linked public agenda prints April10–11,2026. The adapter reads that Date line each refresh. Sustainability recordings have no occurrence dates and are monitored as an unchanged undated archive, not an empty calendar.",
           "nextStep": "Continue scheduled refreshes using the verified parser and publisher-advertised links; changed undated resources require review."
+        },
+        "currentReview": {
+          "checkedAt": "2026-11-06",
+          "reason": "The renamed Women in Economic Theory detail publishes the May 21–22, 2027 conference dates; the Sustainability Forum still lists only past recordings."
         }
       }
     },
