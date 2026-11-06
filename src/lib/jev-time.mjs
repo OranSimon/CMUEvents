@@ -138,9 +138,10 @@ export function scheduleCandidates({ texts, year, timeZone }) {
  * present in the evidence. Preserve all plausible separately dated sessions.
  * @param {Object} input Scoped summary or poster evidence.
  * @param {Function} ask Bound Jev decision function.
+ * @param {Function} onAssessment Optional recorder for bounded decision diagnostics.
  * @return {Promise<Object|null>} Validated proposal or deterministic fallback.
  */
-export async function chooseSchedule(input, ask) {
+export async function chooseSchedule(input, ask, onAssessment) {
   const ranges = scheduleCandidates(input);
   if (!ranges.length || ranges.length > 20 || ranges.every(row => row.auxiliary)) return null;
   const options = key => Object.fromEntries(ranges.flatMap((row, index) => row.auxiliary ? [] : [[
@@ -157,16 +158,25 @@ export async function chooseSchedule(input, ask) {
   };
   if (input.known && ranges.every(row => row.precision !== 'time')) return null;
   const result = await ask('time', { title: jevText(input.title).slice(0, 250), evidence: input.texts.map(jevText) }, questions);
-  if (acceptedChoice(result?.scope, questions.scope, 0.9) !== 'single') return null;
+  const decisions = Object.fromEntries(Object.entries(questions).map(([key, question]) => {
+    const selected = acceptedChoice(result?.[key], question, 0);
+    return [key, selected ? { selected, probability: result[key].probabilities[selected] } : null];
+  }));
+  const finish = (range, outcome) => {
+    onAssessment?.({ outcome, candidates: ranges.length, decisions });
+    return range;
+  };
+  if (!result) return finish(null, 'unavailable');
+  if (acceptedChoice(result.scope, questions.scope, 0.9) !== 'single') return finish(null, 'uncertain-scope');
   const start = acceptedChoice(result?.start, questions.start, 0.9);
   const end = acceptedChoice(result?.end, questions.end, 0.9);
-  if (!start || !end || start === 'unclear' || end === 'unclear') return null;
+  if (!start || !end || start === 'unclear' || end === 'unclear') return finish(null, 'uncertain-endpoints');
   const first = ranges[+start.slice(1)], last = ranges[+end.slice(1)];
   const range = ranges.find(row => !row.auxiliary && !first.auxiliary && !last.auxiliary
     && row.start === first.start && row.end === last.end && row.precision === first.precision && row.precision === last.precision);
   if (!range || ranges.some(row => !row.auxiliary && (row.date !== range.date || row.last !== range.last
-    || (row.precision === 'time' && (row.start !== range.start || (row.end && row.end !== range.end)))))) return null;
-  if (input.known && (range.precision !== 'time' || range.date !== input.known.start || addDays(range.last) !== input.known.end)) return null;
-  if (input.knownStart && (range.start !== input.knownStart || !range.end)) return null;
-  return range;
+    || (row.precision === 'time' && (row.start !== range.start || (row.end && row.end !== range.end)))))) return finish(null, 'conflicting-pairing');
+  if ((input.known && (range.precision !== 'time' || range.date !== input.known.start || addDays(range.last) !== input.known.end))
+    || (input.knownStart && (range.start !== input.knownStart || !range.end))) return finish(null, 'preserved-confirmed-time');
+  return finish(range, 'accepted');
 }

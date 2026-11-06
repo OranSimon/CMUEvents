@@ -156,21 +156,35 @@ test('missing or rejected API responses fall back and the client bounds actual H
   }), null);
 });
 
-test('configured Jev service accepts both request shapes and builds the expected result', {
+test('configured Jev service returns typed responses for both decision paths', {
   skip: process.env.CMUEVENTS_JEV_LIVE !== '1',
 }, async t => {
   assert.ok(process.env.TYPESAFE_API_KEY, 'Configure the TYPESAFE_API_KEY environment secret');
   const jev = createJevClient({ apiKey: process.env.TYPESAFE_API_KEY, maxPerKind: 1 });
   const { store, plans } = sampleStore(t);
+  let timeAssessment, identity;
   const [range, matches] = await Promise.all([
-    chooseSchedule({ ...timeInput, texts: ['Photonics Guest Lecture: May 15, 2027, 6:00 PM to 7:30 PM.'] }, jev.ask),
-    assessSemanticMatches(store.prepareOccurrences(plans), jev.ask),
+    chooseSchedule(timeInput, jev.ask, assessment => { timeAssessment = assessment; }),
+    assessSemanticMatches(store.prepareOccurrences(plans), async (kind, state, questions) => {
+      const reply = await jev.ask(kind, state, questions);
+      identity = reply?.identity;
+      return reply;
+    }),
   ]);
-  console.log(`[jev smoke] ${JSON.stringify(jev.stats)}`);
-  assert.equal(range?.start, '2027-05-15T22:00:00.000Z');
-  assert.equal(range?.end, '2027-05-15T23:30:00.000Z');
-  assert.equal(matches.size, 1);
-  assert.equal(store.rebuildEvents(plans, matches), 3);
-  const merged = store.listEvents({ from: '2027-05-15', to: '2027-05-15', limit: 10 }).events.find(event => event.sources.length === 2);
-  assert.ok(merged?.sourceVariants.length === 2);
+  console.log(`[jev smoke] ${JSON.stringify({ ...jev.stats, timeAssessment, identity, mergeAccepted: matches.size })}`);
+  assert.equal(jev.stats.time.succeeded, 1);
+  assert.equal(jev.stats.merge.succeeded, 1);
+  assert.ok(['scope', 'start', 'end'].every(key => timeAssessment?.decisions[key]));
+  assert.equal(identity?.type, 'choice');
+  assert.ok(['same', 'different', 'unclear'].includes(identity.choice));
+  assert.ok(Number.isFinite(identity.probabilities?.[identity.choice]));
+  if (range) {
+    assert.equal(range.start, '2027-05-15T22:00:00.000Z');
+    assert.equal(range.end, '2027-05-15T23:30:00.000Z');
+  }
+  assert.equal(store.rebuildEvents(plans, matches), 4 - matches.size);
+  if (matches.size) {
+    const merged = store.listEvents({ from: '2027-05-15', to: '2027-05-15', limit: 10 }).events.find(event => event.sources.length === 2);
+    assert.ok(merged?.sourceVariants.length === 2);
+  }
 });

@@ -35,7 +35,7 @@ async function main(args = process.argv.slice(2)) {
     throw new Error('Jev modes must be off, shadow, or apply.');
   }
   const jev = createJevClient({ apiKey: process.env.TYPESAFE_API_KEY });
-  const jevReport = { modes: { time: timeMode, merge: mergeMode }, ...jev.stats, timeProposals: [], mergeProposals: [] };
+  const jevReport = { modes: { time: timeMode, merge: mergeMode }, timeAssessments: [], timeProposals: [], mergeProposals: [] };
   await mkdir(config.dataDir, { recursive: true });
   const store = openStore(config.databasePath);
   const now = Date.now();
@@ -53,7 +53,9 @@ async function main(args = process.argv.slice(2)) {
     }
     const refresher = createRefresher(store, plans, config, {
       jevSchedule: jev.stats.configured && timeMode !== 'off' ? async (input, plan) => {
-        const range = await chooseSchedule(input, jev.ask);
+        const range = await chooseSchedule(input, jev.ask, assessment => {
+          if (assessment.outcome !== 'unavailable') jevReport.timeAssessments.push({ sourceId: plan.id, ...assessment });
+        });
         if (range) jevReport.timeProposals.push({ sourceId: plan.id, start: range.start, end: range.end, precision: range.precision });
         return timeMode === 'apply' ? range : null;
       } : undefined,
