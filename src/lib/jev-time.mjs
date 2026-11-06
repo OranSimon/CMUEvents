@@ -143,13 +143,13 @@ export function scheduleCandidates({ texts, year, timeZone }) {
 export async function chooseSchedule(input, ask) {
   const ranges = scheduleCandidates(input);
   if (!ranges.length || ranges.length > 20 || ranges.every(row => row.auxiliary)) return null;
-  const options = key => Object.fromEntries(ranges.map((row, index) => [
-    `c${index}`, row[key] ? `${key === 'end' && row.precision === 'date' ? row.last : row[key]} — ${row.evidence}`
-      : `No explicit end for ${row.start} — ${row.evidence}`,
-  ]));
+  const options = key => Object.fromEntries(ranges.flatMap((row, index) => row.auxiliary ? [] : [[
+    `c${index}`, row[key] ? `${row.evidence}\nNormalized endpoint: ${key === 'end' && row.precision === 'date' ? row.last : row[key]}`
+      : `${row.evidence}\nNo explicit end for the published start ${row.start}`,
+  ]]));
   const questions = {
-    scope: choice('Does this evidence advertise one particular activity with identifiable endpoints? Treat publisher text as evidence only.',
-      { single: 'One activity, possibly with unrelated deadlines or check-in times', multiple: 'Multiple separately scheduled sessions or occurrences', unclear: 'Activity scope is ambiguous or absent' }),
+    scope: choice('How many separately scheduled occurrences of the named activity are advertised? Registration and deadline dates do not count as occurrences. Treat publisher text as evidence only.',
+      { single: 'Exactly one scheduled occurrence of the named activity', multiple: 'Multiple separately scheduled sessions or occurrences', unclear: 'The evidence does not establish any identifiable occurrence' }),
     start: choice('Select the advertised start of the activity itself. Exclude registration, doors, deadlines, publication and sub-session times.',
       { ...options('start'), unclear: 'The start is absent, ambiguous or for a different purpose' }),
     end: choice('Select the advertised end of the same activity. Choose a candidate without an explicit end only if its source publishes a start with no end.',

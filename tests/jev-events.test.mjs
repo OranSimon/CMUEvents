@@ -22,7 +22,7 @@ function answer(question, option, probability = 1) {
 
 /** Select a fixture endpoint by its value, independently of candidate ordering. */
 function endpoint(question, value) {
-  return Object.keys(question.criteria).find(key => question.criteria[key].startsWith(value));
+  return Object.keys(question.criteria).find(key => question.criteria[key].includes(`Normalized endpoint: ${value}`));
 }
 
 /** Exercise the same selection contract for both start and end. */
@@ -67,7 +67,11 @@ test('start and end are chosen separately from dated evidence; a deadline cannot
   ]);
   const correct = await chooseSchedule(timeInput, (_, __, questions) => selectTime(questions, '2027-05-15T22', '2027-05-15T23:30'));
   assert.equal(correct.end, '2027-05-15T23:30:00.000Z');
-  const mixed = await chooseSchedule(timeInput, (_, __, questions) => selectTime(questions, '2027-05-10T21', '2027-05-15T23:30'));
+  const mixed = await chooseSchedule(timeInput, (_, __, questions) => {
+    assert.equal(endpoint(questions.start, '2027-05-10T21'), undefined);
+    const selected = selectTime(questions, '2027-05-15T22', '2027-05-15T23:30');
+    return { ...selected, start: { ...selected.start, choice: 'c0' } };
+  });
   assert.equal(mixed, null);
 });
 
@@ -159,7 +163,8 @@ test('configured Jev service accepts both request shapes and builds the expected
   const jev = createJevClient({ apiKey: process.env.TYPESAFE_API_KEY, maxPerKind: 1 });
   const { store, plans } = sampleStore(t);
   const [range, matches] = await Promise.all([
-    chooseSchedule(timeInput, jev.ask), assessSemanticMatches(store.prepareOccurrences(plans), jev.ask),
+    chooseSchedule({ ...timeInput, texts: ['Photonics Guest Lecture: May 15, 2027, 6:00 PM to 7:30 PM.'] }, jev.ask),
+    assessSemanticMatches(store.prepareOccurrences(plans), jev.ask),
   ]);
   console.log(`[jev smoke] ${JSON.stringify(jev.stats)}`);
   assert.equal(range?.start, '2027-05-15T22:00:00.000Z');
