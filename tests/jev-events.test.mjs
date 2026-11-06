@@ -82,6 +82,13 @@ test('one Jev Choice ranks all matching times, including unclear', async () => {
   });
   assert.equal(startOnly.end, null);
   assert.equal(await chooseSchedule({ ...timeInput, texts: ['May 15, 2027'] }, () => assert.fail('no clock candidate to rank')), null);
+  for (const heading of ['Time', timeInput.title]) {
+    const scheduleRows = `Date\n\nSaturday, May 15, 2027\n\n${heading}\n\n6:00-7:30 PM`;
+    const texts = [`Long introduction. ${'Workshop description. '.repeat(200)}\n\n${scheduleRows}`];
+    const range = await chooseSchedule({ ...timeInput, texts },
+      (_, __, questions) => selectTime(questions, '2027-05-15T22', '2027-05-15T23:30'));
+    assert.equal(range.end, '2027-05-15T23:30:00.000Z');
+  }
 });
 
 test('explicit date endpoints can cross days and DST; unrelated times cannot be spliced', async () => {

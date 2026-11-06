@@ -8,7 +8,7 @@ const WEEKDAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'frida
 const OFFSET = { UTC: 0, GMT: 0, EST: -300, EDT: -240, CST: -360, CDT: -300, MST: -420, MDT: -360, PST: -480, PDT: -420, JST: 540 };
 const START_LABEL = /^(?:event\s+)?(?:starts?|begins?)(?:\s+(?:on|at))?\s*(?::\s*|\s+)/i;
 const END_LABEL = /^(?:event\s+)?ends?(?:\s+(?:on|at))?\s*(?::\s*|\s+)/i;
-const CLOCK_LINE = /^(?:(?:time\s*:\s*|from\s+|starts?\s+(?:at\s+)?))?(?:\d|noon\b|midnight\b)/i;
+const CLOCK_LINE = /^(?:time\s*:\s*|from\s+|starts?\s+(?:at\s+)?)?(?:\d|noon\b|midnight\b)/i;
 const EVENT_CLOCK = /^(?:(?:event|talk|lecture|seminar|workshop|panel|performance|session)\s+)?(?:time\s*:|(?:starts?|begins?)\s+(?:at\s+)?)/i;
 const CLOCK_RANGE_LINE = /^(?:from\s+)?(?:\d{1,2}(?::\d{2})?(?:\s*[ap]\.?m\.?)?|noon|midnight)\s*(?:to\b|until\b|through\b|[-–—−])/i;
 
@@ -22,6 +22,32 @@ function readDates(text, fallbackYear) {
     spans.push({ start: value, end: value, index: match.index, length: match[0].length });
   }
   return { spans, invalid: Boolean(issues.length) || spans.some(span => !span.start || !span.end) };
+}
+
+/**
+ * Extract date and clock rows separated by a publisher's Time label or by
+ * the activity's own heading. Keep the date with its neighboring clock.
+ * @param {string} raw Publisher text for one activity.
+ * @param {string} title Known activity title.
+ * @param {number} year Known activity year.
+ * @return {string[]} Scoped schedule text, or the original when no rows match.
+ */
+function scheduleText(raw, title, year) {
+  const text = jevText(raw);
+  const lines = text.split(/\n+/).map(line => line.trim()).filter(Boolean);
+  const activity = jevText(title).toLocaleLowerCase();
+  const blocks = [];
+  for (let index = 1; index + 1 < lines.length; index++) {
+    const heading = lines[index];
+    const clock = lines[index + 1];
+    const isTimeLabel = /^(?:event\s+)?time\s*:?$/i.test(heading);
+    const isTitle = activity && heading.toLocaleLowerCase() === activity;
+    if (!(isTimeLabel && CLOCK_LINE.test(clock)) && !(isTitle && CLOCK_RANGE_LINE.test(clock))) continue;
+    const date = lines[index - 1];
+    const { spans, invalid } = readDates(date, year);
+    if (spans.length === 1 && !invalid) blocks.push(`${date}\nTime: ${clock}`);
+  }
+  return blocks.length ? blocks : [text];
 }
 
 /** Read clocks whose period is explicit or established by the schedule format. */
@@ -150,8 +176,10 @@ export function scheduleCandidates({ texts, year, timeZone, known }) {
 export async function chooseSchedule(input, ask, onAssessment) {
   const { known } = input;
   if (!known) return null;
+  const year = Number(known.start.slice(0, 4));
+  const texts = input.texts.flatMap(text => scheduleText(text, input.title, year));
   const dayAfterStart = addDays(known.start);
-  const ranges = scheduleCandidates({ ...input, year: Number(known.start.slice(0, 4)) })
+  const ranges = scheduleCandidates({ ...input, texts, year })
     .filter(row => !row.auxiliary && row.precision === 'time'
       && row.date === known.start
       && (addDays(row.last) === known.end || (known.end === dayAfterStart && row.last === dayAfterStart)));
@@ -165,7 +193,7 @@ export async function chooseSchedule(input, ask, onAssessment) {
     { ...criteria, unclear: 'Other, time not listed, or impossible to determine which candidate belongs to this event' },
   );
   const reply = await ask('time', {
-    title: jevText(input.title).slice(0, 250), date: known.start, evidence: input.texts.map(jevText),
+    title: jevText(input.title).slice(0, 250), date: known.start, evidence: texts,
   }, { schedule });
   const selected = acceptedChoice(reply?.schedule, schedule, 0);
   const candidates = Object.entries(options).map(([id, { start, end }]) => ({ id, start, end }));
