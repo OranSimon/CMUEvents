@@ -1,8 +1,16 @@
 # 用 Jev 改善活动时间识别和跨来源去重
 
-设计提案 · 2026-11-05 · 调查基线 `c1d7f28`
+设计与分支试跑 · 调查基线 `c1d7f28`
 
 先验证 Jev 能否从公开内容中选对活动时间，再验证它能否找回标题或描述被改写的转载。两项分别验收。日期不同的场次独立发布，同一场合并后保留全部来源链接和原始版本。首轮只生成评估报告，线上数据仍由现有管线生成。
+
+## 功能分支的试跑方式
+
+向 `codex/jev-event-quality` 推送功能变更后，Jev 预览工作流先用两次实际 API 请求核对时间和去重，再复用正常静态构建抓取公开来源。工作流使用 `jev-evaluation` 环境，从日更状态分支只读恢复，上传 `jev-calendar-preview` 和 `jev-preview-reports`。现有 Pages 日更继续使用规则基线。 [预览工作流](../.github/workflows/jev-preview.yml)
+
+构建可分别指定 `--jev-time=off|shadow|apply` 和 `--jev-merge=off|shadow|apply`，默认均为 `off`。`shadow` 记录通过规则复核的提议，`apply` 将提议用于本次构建。预览使用独立 SQLite、输出目录和状态文件。Jev 开启时在 `publication-jev.json` 记录请求数、模型、用量、回退与通过复核的提议；正式合并报告中的 `jev-same-occurrence` 表示实际合组。 [构建入口](../scripts/build-static.mjs)
+
+当前时间判断覆盖独立会议正文、可信海报文本和 PDF 封面。开始与结束是同一请求内的独立 Choice，另有单场范围判断。代码从原文穷举可验证的候选，对两端配对、时区、已确认的范围和其他明确场次进行复核。现有议程表、周期场次、结构化日历和 OCR 矛盾继续按已有规则处理。去重以同一开始值、同等精度、已知结束相容及独立身份佐证筛选，再由 Jev 判断是否是同一场。试跑初始门槛为时间 0.90、去重 0.95，每个功能最多 24 次 API 请求，每次最长 6 秒；这些是用于观察的保守起点。 [时间选择](../src/lib/jev-time.mjs) · [去重](../src/lib/occurrence-merge.mjs) · [调用限额](../src/lib/jev.mjs)
 
 ## 现有处理方式
 

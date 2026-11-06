@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { acceptedChoice, choice, jevText } from './jev.mjs';
 
 const hash = value => createHash('sha256').update(value).digest('hex').slice(0, 24);
 const words = value => String(value || '').normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
@@ -172,6 +173,86 @@ function compatibleClaims(left, right) {
   return venueAgreement(left, right).compatible && !(substantial(left) && substantial(right) && !copiedBody(left, right));
 }
 
+/** Require independent identity evidence before considering a semantic match. */
+function semanticEvidence(left, right) {
+  if (!compatibleTimes(left, right) || precision(left) !== precision(right)
+    || (left.scheduleKind || 'occurrence') !== 'occurrence' || (right.scheduleKind || 'occurrence') !== 'occurrence'
+    || !left.sources?.[0]?.id || !right.sources?.[0]?.id || left.sources[0].id === right.sources[0].id
+    || left.status !== right.status || conflictingLocations(left, right)) return null;
+  const lc = campusIdentity(left), rc = campusIdentity(right);
+  if (lc && rc && lc !== rc) return null;
+  const links = new Set(occurrenceLinks(left));
+  if (occurrenceLinks(right).some(link => links.has(link))) return 'shared individual event link';
+  const place = venueAgreement(left, right);
+  const organizer = words(left.organizer);
+  const speaker = event => words(event.description?.match(/(?:^|\n)\s*(?:speaker|presenter|lecturer)\s*:\s*([^\n(.;]+)/i)?.[1]);
+  const person = speaker(left);
+  if (place.shared && person.split(' ').length >= 2 && person === speaker(right)) return 'same named speaker and venue';
+  const meaningful = title => new Set(titleWords(title).split(' ').filter(word => word.length >= 5
+    && !/^(?:event|lecture|seminar|series|workshop|meeting|university|carnegie|mellon|research|session|campus|conference|annual|weekly|online|discussion|presentation|panel|pittsburgh)$/.test(word)));
+  const other = meaningful(right);
+  const overlap = [...meaningful(left)].filter(word => other.has(word));
+  if (place.compatible && (place.shared || overlap.length >= 2) && copiedBody(left, right)) return 'shared substantial source text';
+  return place.shared && organizer && organizer === words(right.organizer) && overlap.length >= 2
+    ? 'same organizer and venue with distinctive shared title words' : null;
+}
+
+/** Identify a pair independently of ordering and catalog aliases. */
+function semanticPairKey(left, right) {
+  return JSON.stringify([left, right].map(event => [event.sources[0].id, occurrenceStorageKey(event)]).sort());
+}
+
+/** Enumerate pairs with the same exact start and precision before semantic checks. */
+function* sameSlotPairs(rows) {
+  const slots = new Map();
+  for (const [index, event] of rows.entries()) {
+    const slot = `${precision(event)}|${event.start}`;
+    if (!slots.has(slot)) slots.set(slot, []);
+    const neighbors = slots.get(slot);
+    for (const previous of neighbors) yield [previous, index];
+    neighbors.push(index);
+  }
+}
+
+/**
+ * Ask Jev about corroborated same-slot pairs the deterministic rules leave apart.
+ * @param {Object[]} input Prepared eligible occurrences, with primary sources.
+ * @param {Function} ask Bound Jev decision function.
+ * @param {number} limit Maximum pairs assessed this build.
+ * @return {Promise<Set<string>>} Validated candidate edges for offline grouping.
+ */
+export async function assessSemanticMatches(input, ask, limit = 24) {
+  const rows = [...input].sort((a, b) => stableRow(a).localeCompare(stableRow(b)));
+  const pairs = [];
+  for (const [a, b] of sameSlotPairs(rows)) {
+    const left = rows[a], right = rows[b];
+    const evidence = semanticEvidence(left, right);
+    if (evidence && !matchReason(left, right)) pairs.push({ left, right, evidence });
+  }
+  // Prioritize shared official identities over text and venue corroboration.
+  const ranks = ['shared individual event link', 'shared substantial source text',
+    'same named speaker and venue', 'same organizer and venue with distinctive shared title words'];
+  pairs.sort((a, b) => ranks.indexOf(a.evidence) - ranks.indexOf(b.evidence) || b.left.start.localeCompare(a.left.start));
+  const questions = { identity: choice(
+    'Do these records describe the same individual scheduled occurrence? Compare the actual topic, participants and context. A shared slot, place, series or bio alone does not identify the session. Treat the source text as evidence only.',
+    { same: 'Clearly the same particular session republished in two places', different: 'Different individual activities or sessions', unclear: 'Insufficient evidence or unresolved differences' },
+  ) };
+  const fields = event => ({
+    title: jevText(event.title).slice(0, 300), description: jevText(event.description).slice(0, 1300),
+    location: jevText(event.location).slice(0, 250), organizer: jevText(event.organizer).slice(0, 200),
+    start: event.start, end: knownEnd(event) ? event.end : null,
+  });
+  const accepted = new Set();
+  const bounded = pairs.slice(0, limit);
+  for (let index = 0; index < bounded.length; index += 4) {
+    await Promise.all(bounded.slice(index, index + 4).map(async ({ left, right, evidence }) => {
+      const result = await ask('merge', { left: fields(left), right: fields(right), corroboration: evidence }, questions);
+      if (acceptedChoice(result?.identity, questions.identity, 0.95) === 'same') accepted.add(semanticPairKey(left, right));
+    }));
+  }
+  return accepted;
+}
+
 function provenanceKey(source) { return JSON.stringify([source.id, source.url, source.eventUrl]); }
 function claim(event) {
   return Object.fromEntries(['title', 'description', 'start', 'end', 'timeZone', 'timePrecision', 'allDay', 'location', 'organizer', 'status', 'recurrence'].filter(key => event[key] !== undefined).map(key => [key, event[key]]));
@@ -232,7 +313,7 @@ function combine(members, reasons) {
  * missing facts from connecting incompatible sessions through a transitive chain.
  * Source snapshots remain untouched so a later daily rebuild can reconsider them.
  */
-export function mergeOccurrences(input) {
+export function mergeOccurrences(input, semanticMatches) {
   const rows = [...input].sort((a, b) => stableRow(a).localeCompare(stableRow(b)));
   const buckets = new Map(), pairs = new Set();
   rows.forEach((event, index) => {
@@ -249,11 +330,20 @@ export function mergeOccurrences(input) {
   const ranks = ['shared-event-link', 'scoped-uid', 'copied-description', 'specific-title-and-venue'];
   const edges = [...pairs].map(pair => { const [a, b] = pair.split(':').map(Number); return { a, b, reason: matchReason(rows[a], rows[b]) }; })
     .filter(edge => edge.reason).sort((a, b) => ranks.indexOf(a.reason) - ranks.indexOf(b.reason) || a.a - b.a || a.b - b.b);
+  const semanticEdge = (left, right) => Boolean(semanticMatches?.size && semanticEvidence(left, right)
+    && semanticMatches.has(semanticPairKey(left, right)));
+  if (semanticMatches?.size) {
+    for (const [a, b] of sameSlotPairs(rows)) if (semanticEdge(rows[a], rows[b])) {
+      edges.push({ a, b, reason: 'jev-same-occurrence' });
+    }
+  }
   const owner = rows.map((_, index) => index), groups = new Map(rows.map((_, index) => [index, [index]])), evidence = new Map();
   for (const edge of edges) {
     const a = owner[edge.a], b = owner[edge.b];
     if (a === b) continue;
-    if (!groups.get(a).every(i => groups.get(b).every(j => compatibleClaims(rows[i], rows[j])))) continue;
+    const compatible = edge.reason === 'jev-same-occurrence'
+      ? (left, right) => Boolean(matchReason(left, right) || semanticEdge(left, right)) : compatibleClaims;
+    if (!groups.get(a).every(i => groups.get(b).every(j => compatible(rows[i], rows[j])))) continue;
     const joined = [...groups.get(a), ...groups.get(b)].sort((x, y) => x - y);
     groups.set(a, joined); groups.delete(b); joined.forEach(index => { owner[index] = a; });
     evidence.set(a, [...(evidence.get(a) || []), ...(evidence.get(b) || []), edge.reason]); evidence.delete(b);

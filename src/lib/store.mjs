@@ -261,11 +261,11 @@ export function openStore(filename) {
   }
 
   /**
-   * Rebuild deduplicated events and search from successful source snapshots.
+   * Prepare source claims with aliases and independently verified clock upgrades.
    * @param {Array<Object>} plans Source definitions including covered aliases.
-   * @return {number} Number of distinct event occurrences.
+   * @return {Object[]} Occurrences before cross-source deduplication.
    */
-  function rebuildEvents(plans) {
+  function prepareOccurrences(plans) {
     const byId = new Map(plans.map(plan => [plan.id, plan]));
     const aliases = new Map();
     for (const plan of plans) if (plan.status === 'covered' && plan.canonicalSourceId) {
@@ -294,7 +294,17 @@ export function openStore(filename) {
       }));
       prepared.push(event);
     }
-    const { events: merged, report: mergeReport } = mergeOccurrences(prepared);
+    return prepared;
+  }
+
+  /**
+   * Rebuild events from source snapshots and optional corroborated semantic edges.
+   * @param {Array<Object>} plans Source definitions including covered aliases.
+   * @param {Set<string>} semanticMatches Accepted Jev pairs, if enabled.
+   * @return {number} Number of distinct eligible occurrences.
+   */
+  function rebuildEvents(plans, semanticMatches) {
+    const { events: merged, report: mergeReport } = mergeOccurrences(prepareOccurrences(plans), semanticMatches);
     db.exec('BEGIN');
     try {
       db.exec('DELETE FROM events;');
@@ -401,6 +411,6 @@ export function openStore(filename) {
    */
   function close() { db.close(); }
 
-  return { db, registerPlans, replaceSource, mergePartial, failSource, rebuildEvents, listEvents, listSources, status, getMeta, setMeta,
+  return { db, registerPlans, replaceSource, mergePartial, failSource, prepareOccurrences, rebuildEvents, listEvents, listSources, status, getMeta, setMeta,
     getCache, putCache, deleteCache, close };
 }

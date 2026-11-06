@@ -7,6 +7,11 @@ import { createSourceSubscriptions } from '../src/lib/source-subscriptions.mjs';
 import { exportCrawlState, restoreCrawlState, savedPublicationEventCount } from '../src/lib/crawl-state.mjs';
 import { validateSourceCoverage } from '../src/lib/source-coverage.mjs';
 import { buildStaticSite } from '../src/lib/static-site.mjs';
+import { createJevClient } from '../src/lib/jev.mjs';
+import { chooseSchedule } from '../src/lib/jev-time.mjs';
+import { assessSemanticMatches } from '../src/lib/occurrence-merge.mjs';
+import { inWindow } from '../src/lib/normalize.mjs';
+import { calendarEligibility } from '../web/event-semantics.js';
 
 /**
  * Refresh on an isolated runner, validate and export Pages plus durable state.
@@ -24,6 +29,13 @@ async function main(args = process.argv.slice(2)) {
   const stateOut = path.resolve(option('state-out', '.cache/crawl-state.json'));
   const config = readBuildConfig();
   const plans = loadPlans();
+  const timeMode = option('jev-time', 'off');
+  const mergeMode = option('jev-merge', 'off');
+  if (![timeMode, mergeMode].every(mode => ['off', 'shadow', 'apply'].includes(mode))) {
+    throw new Error('Jev modes must be off, shadow, or apply.');
+  }
+  const jev = createJevClient({ apiKey: process.env.TYPESAFE_API_KEY });
+  const jevReport = { modes: { time: timeMode, merge: mergeMode }, ...jev.stats, timeProposals: [], mergeProposals: [] };
   await mkdir(config.dataDir, { recursive: true });
   const store = openStore(config.databasePath);
   const now = Date.now();
@@ -39,9 +51,26 @@ async function main(args = process.argv.slice(2)) {
       const restored = restoreCrawlState(store, plans, snapshot, context);
       console.log(`[state] ${JSON.stringify(restored)}`);
     }
-    const refresher = createRefresher(store, plans, config);
+    const refresher = createRefresher(store, plans, config, {
+      jevSchedule: jev.stats.configured && timeMode !== 'off' ? async (input, plan) => {
+        const range = await chooseSchedule(input, jev.ask);
+        if (range) jevReport.timeProposals.push({ sourceId: plan.id, start: range.start, end: range.end, precision: range.precision });
+        return timeMode === 'apply' ? range : null;
+      } : undefined,
+    });
     const refresh = await refresher.refresh({ force: true });
+    if (jev.stats.configured && mergeMode !== 'off') {
+      const prepared = store.prepareOccurrences(plans).filter(event => inWindow(event, context) && calendarEligibility(event).eligible);
+      const pairs = await assessSemanticMatches(prepared, jev.ask);
+      jevReport.mergeProposals = [...pairs].sort().map(pair => JSON.parse(pair).map(([sourceId, occurrence]) => ({ sourceId, occurrence })));
+      if (mergeMode === 'apply' && pairs.size) refresh.totalEvents = store.rebuildEvents(plans, pairs);
+    }
     await mkdir(path.dirname(stateOut), { recursive: true });
+    if (timeMode !== 'off' || mergeMode !== 'off') {
+      const decisionReport = { ...jevReport, ...jev.stats };
+      await writeFile(path.join(path.dirname(stateOut), 'publication-jev.json'), `${JSON.stringify(decisionReport, null, 2)}\n`);
+      console.log(`[jev] time ${decisionReport.time.succeeded}/${decisionReport.time.attempted}, merge ${decisionReport.merge.succeeded}/${decisionReport.merge.attempted}, ${decisionReport.inputTokens} input tokens`);
+    }
     await writeFile(path.join(path.dirname(stateOut), 'publication-attempt.json'), `${JSON.stringify({
       checkedAt: new Date().toISOString(), refresh, previousEventCount, eventExclusions: store.getMeta('eventExclusions'), eventMerges: store.getMeta('eventMerges'),
       sources: store.listSources().map(({ id, org, url, state, eventCount, lastSuccess, error, warnings, coverage }) =>
