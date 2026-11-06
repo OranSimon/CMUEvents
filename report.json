@@ -5,44 +5,44 @@
     "searchSchema": 1,
     "searchEngineVersion": "7.2.0",
     "mode": "static",
-    "generatedAt": "2026-11-06T18:00:41.684Z",
-    "lastUpdated": "2026-11-06T18:00:41.542Z",
+    "generatedAt": "2026-11-06T20:05:58.000Z",
+    "lastUpdated": "2026-11-06T20:05:51.719Z",
     "updateIntervalHours": 24,
     "staleAfterHours": 48,
-    "eventCount": 3298,
+    "eventCount": 3283,
     "sourceCount": 318,
     "sourceRepository": "https://github.com/OranSimon/CMUEvents",
     "workflowUrl": "https://github.com/OranSimon/CMUEvents/actions/workflows/daily-pages.yml"
   },
   "quality": {
-    "eventCount": 3298,
+    "eventCount": 3283,
     "sourceCount": 318,
     "checkedSources": 277,
     "completeSources": 266,
     "successRatio": 0.9602888086642599,
-    "previousEventCount": 3335,
-    "retainedRatio": 0.9889055472263868,
+    "previousEventCount": 3298,
+    "retainedRatio": 0.9954517889630079,
     "allowEventDrop": false
   },
   "refresh": {
-    "startedAt": "2026-11-06T17:58:26.662Z",
-    "completedAt": "2026-11-06T18:00:41.542Z",
+    "startedAt": "2026-11-06T19:49:18.702Z",
+    "completedAt": "2026-11-06T20:05:51.719Z",
     "total": 277,
     "completed": 277,
-    "ok": 183,
-    "empty": 79,
+    "ok": 181,
+    "empty": 81,
     "undated": 4,
     "error": 11,
-    "totalEvents": 3298,
+    "totalEvents": 3283,
     "transfers": {
-      "requests": 774,
+      "requests": 771,
       "cacheHits": 0,
-      "bytes": 683325338
+      "bytes": 683180445
     }
   },
   "coverage": {
     "version": 1,
-    "checkedAt": "2026-11-06T18:00:41.680Z",
+    "checkedAt": "2026-11-06T20:05:57.997Z",
     "passed": true,
     "sourceCount": 14,
     "passedSources": 14,
@@ -52,7 +52,7 @@
         "org": "SCS Seminars directory",
         "url": "https://www.cs.cmu.edu/events/scs-seminar-series",
         "state": "ok",
-        "eventCount": 95,
+        "eventCount": 93,
         "passed": true,
         "internalIssues": [],
         "coverage": {
@@ -95,7 +95,7 @@
             "processed": 26,
             "catalogReused": 19,
             "undated": 5,
-            "currentEvents": 95
+            "currentEvents": 93
           },
           "series": [
             {
@@ -127,7 +127,7 @@
                 "catalog_source_reuse",
                 "explicit_public_calendar_announcements"
               ],
-              "currentEvents": 4
+              "currentEvents": 3
             },
             {
               "name": "Algorithms, Combinatorics and Optimization Seminar",
@@ -221,7 +221,7 @@
                 "catalog_source_reuse",
                 "explicit_public_calendar_announcements"
               ],
-              "currentEvents": 5
+              "currentEvents": 4
             },
             {
               "name": "Current Topics in Privacy Seminar",
@@ -531,7 +531,7 @@
               "currentEvents": 0
             }
           ],
-          "checkedAt": "2026-11-06T18:00:00.613Z"
+          "checkedAt": "2026-11-06T19:51:27.234Z"
         }
       },
       {
@@ -2078,7 +2078,7 @@
               }
             }
           ],
-          "checkedAt": "2026-11-06T18:00:18.924Z"
+          "checkedAt": "2026-11-06T19:51:38.965Z"
         }
       },
       {
@@ -2096,7 +2096,7 @@
           "internalIssues": [],
           "externalIssues": [],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-11-06T17:59:54.092Z"
+          "checkedAt": "2026-11-06T19:50:49.475Z"
         }
       },
       {
@@ -3007,7 +3007,7 @@
               "notes": []
             }
           ],
-          "checkedAt": "2026-11-06T17:59:58.622Z"
+          "checkedAt": "2026-11-06T19:50:58.003Z"
         }
       },
       {
@@ -3030,7 +3030,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-11-06T17:59:56.506Z"
+          "checkedAt": "2026-11-06T19:50:55.985Z"
         }
       },
       {
@@ -3084,7 +3084,7 @@
               "method": "semantic_public_html"
             }
           ],
-          "checkedAt": "2026-11-06T18:00:01.556Z"
+          "checkedAt": "2026-11-06T19:51:04.577Z"
         }
       },
       {
@@ -3102,7 +3102,7 @@
           "internalIssues": [],
           "externalIssues": [],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-11-06T18:00:04.693Z"
+          "checkedAt": "2026-11-06T19:51:17.358Z"
         }
       },
       {
@@ -3134,7 +3134,7 @@
               "recognized": 13
             }
           ],
-          "checkedAt": "2026-11-06T18:00:02.507Z"
+          "checkedAt": "2026-11-06T19:51:19.067Z"
         }
       },
       {
@@ -3150,8 +3150,8 @@
           "kind": "automatic-media",
           "inspectionComplete": true,
           "discovered": 123,
-          "processed": 47,
-          "excludedHistorical": 75,
+          "processed": 49,
+          "excludedHistorical": 73,
           "excludedNonEvent": 0,
           "unresolved": 1,
           "internalIssues": [],
@@ -3428,15 +3428,61 @@
             },
             {
               "url": "https://egon.cheme.cmu.edu/ewo/docs/AC_Network-Constrained_Unit_Commitment_Conejo.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2021-04-20",
-                "end": "2021-04-21",
-                "line": "April 20, 2021",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 49
+              "classification": "processed",
+              "recognized": 1,
+              "totalPages": 49,
+              "pendingPages": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "ocrPagesCompleted": 1,
+              "reason": "The explicitly dated presentation cover resolves this single seminar; every text page was inspected and later slide-image OCR is unnecessary"
             },
             {
               "url": "https://egon.cheme.cmu.edu/ewo/docs/RuthMisener_2020_03_30.pdf",
@@ -3738,15 +3784,75 @@
             },
             {
               "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_09_27_2016.pdf",
-              "classification": "excluded-historical",
-              "period": {
-                "start": "2016-09-27",
-                "end": "2016-09-28",
-                "line": "EWO Seminar - Carnegie Mellon University - September 27, 2016",
-                "weekday": null
-              },
-              "evidence": "Visible current document cover date/publication period",
-              "totalPages": 67
+              "classification": "processed",
+              "recognized": 1,
+              "totalPages": 67,
+              "pendingPages": [
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65,
+                67
+              ],
+              "ocrPagesCompleted": 1,
+              "reason": "The explicitly dated presentation cover resolves this single seminar; every text page was inspected and later slide-image OCR is unnecessary"
             },
             {
               "url": "https://egon.cheme.cmu.edu/ewo/docs/EWO_Seminar_05_11_2016.pdf",
@@ -4451,7 +4557,7 @@
               "totalPages": 51
             }
           ],
-          "checkedAt": "2026-11-06T18:00:38.250Z"
+          "checkedAt": "2026-11-06T20:05:49.051Z"
         }
       },
       {
@@ -4483,12 +4589,12 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
@@ -4504,7 +4610,7 @@
             }
           ],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-11-06T18:00:13.027Z"
+          "checkedAt": "2026-11-06T19:51:35.456Z"
         }
       },
       {
@@ -4522,7 +4628,7 @@
           "internalIssues": [],
           "externalIssues": [],
           "nonBlockingIssues": [],
-          "checkedAt": "2026-11-06T18:00:09.151Z"
+          "checkedAt": "2026-11-06T19:51:28.105Z"
         }
       },
       {
@@ -4619,34 +4725,34 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/nyc-x-pit-the-59th-carnegie-international-beyond",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/den-macbeth-opera-opening-night-verdi-s-dramatic-masterpiece",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/rethinking-chronic-pain-and-disease",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
@@ -4674,23 +4780,23 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/pit-tartans-on-tap-wexford",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-and-nyc-mixer",
                 "title": "Just a moment...",
-                "firstVisibleH1": "www.givecampus.com"
+                "firstVisibleH1": null
               }
             },
             {
@@ -4718,23 +4824,23 @@
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-dulces-connections-hlaa-holiday-cookie-making-event",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-dulces-connections-hlaa-holiday-cookie-making-event\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-dulces-connections-hlaa-holiday-cookie-making-event\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/hlaa-dulces-connections-hlaa-holiday-cookie-making-event",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
               "code": "PUBLIC_DETAIL_ACCESS_FAILURE",
               "url": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll",
-              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll\",\"title\":\"Just a moment...\",\"firstVisibleH1\":null}",
+              "reason": "Public page returned HTTP 403; public page diagnostic: {\"httpStatus\":403,\"finalUrl\":\"https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll\",\"title\":\"Just a moment...\",\"firstVisibleH1\":\"www.givecampus.com\"}",
               "diagnostic": {
                 "httpStatus": 403,
                 "finalUrl": "https://www.givecampus.com/schools/CarnegieMellonUniversity/events/bos-tartan-high-tea-and-salem-stroll",
                 "title": "Just a moment...",
-                "firstVisibleH1": null
+                "firstVisibleH1": "www.givecampus.com"
               }
             },
             {
@@ -4800,7 +4906,7 @@
               "reason": "The official card supplies a title, full date and registration link; optional detail enrichment is unavailable for this link. No clock time was inferred."
             }
           ],
-          "checkedAt": "2026-11-06T18:00:17.418Z"
+          "checkedAt": "2026-11-06T19:51:43.034Z"
         }
       },
       {
@@ -4859,7 +4965,7 @@
           "excludedHistorical": 0,
           "excludedNonEvent": 0,
           "unresolved": 0,
-          "checkedAt": "2026-11-06T18:00:15.121Z"
+          "checkedAt": "2026-11-06T19:51:37.108Z"
         }
       },
       {
@@ -5177,13 +5283,13 @@
               "evidence": "cause---gamble_heinz-speaker-series4.jpg"
             }
           ],
-          "checkedAt": "2026-11-06T18:00:28.912Z"
+          "checkedAt": "2026-11-06T19:52:09.984Z"
         }
       }
     ]
   },
   "eventExclusions": {
-    "checkedAt": "2026-11-06T18:00:41.519Z",
+    "checkedAt": "2026-11-06T20:05:57.711Z",
     "count": 99,
     "records": [
       {
@@ -5198,7 +5304,6 @@
           "aa8390d8ece6",
           "afe4cdd6eb3a",
           "be4c1ac74f16",
-          "d93abdb4309a",
           "e8b71eac1119",
           "e8b71eac1119",
           "fc7db2cca6a2"
@@ -5277,7 +5382,6 @@
         "url": "https://library.cmu.edu/about/exhibits/crucible-of-change",
         "sourceIds": [
           "07130c683752",
-          "6bab7f11462d",
           "e8b71eac1119"
         ],
         "code": "date-window",
@@ -5326,6 +5430,17 @@
           "f924f93134be"
         ],
         "code": "registration-window",
+        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
+      },
+      {
+        "uid": "livewhale:36896:range:2026-10-31T08:00:00.000Z",
+        "title": "From Sample to Insight: A Five-Day Hands-On Workshop",
+        "url": "https://events.cmu.edu/afretec/event/36896-from-sample-to-insight-a-five-day-hands-on",
+        "sourceIds": [
+          "50ee08b31e1a",
+          "e8b71eac1119"
+        ],
+        "code": "date-window",
         "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
       },
       {
@@ -5950,17 +6065,6 @@
         "reason": "The published title and instructions identify a submission, registration or administrative deadline rather than an activity session."
       },
       {
-        "uid": "livewhale:32110:2026-11-23",
-        "title": "Mini-2 Pass/No Pass & Withdrawal Grade Deadline",
-        "url": "https://events.cmu.edu/dietrich/event/32110-mini-2-passno-pass-withdrawal-grade-deadline",
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "code": "administrative-deadline",
-        "reason": "The published title and instructions identify a submission, registration or administrative deadline rather than an activity session."
-      },
-      {
         "uid": "livewhale:32114:2026-12-04",
         "title": "Semester & Mini-2 Voucher Deadline",
         "url": "https://events.cmu.edu/dietrich/event/32114-semester-mini-2-voucher-deadline",
@@ -6158,17 +6262,6 @@
         "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
       },
       {
-        "uid": "livewhale:36843:range:2026-11-09",
-        "title": "4th Annual Electronics Recycling Event",
-        "url": "https://events.cmu.edu/live/events/36649-4th-annual-electronics-recycling-event",
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "code": "date-window",
-        "reason": "The publisher supplies a registration/program window without independently scheduled occurrences."
-      },
-      {
         "uid": "livewhale:31794:2026-11-23",
         "title": "Mini-2 Pass/No Pass & Withdrawal Deadline",
         "url": "https://events.cmu.edu/academic-calendar/event/31794-mini-2-passno-pass-withdrawal-deadline",
@@ -6278,9 +6371,19 @@
         "reason": "The published title and instructions identify a submission, registration or administrative deadline rather than an activity session."
       },
       {
-        "uid": "livewhale:36896:range:2026-10-31T08:00:00.000Z",
-        "title": "From Sample to Insight: A Five-Day Hands-On Workshop",
-        "url": "https://events.cmu.edu/afretec/event/36896-from-sample-to-insight-a-five-day-hands-on",
+        "uid": "livewhale:32110:2026-11-23",
+        "title": "Mini-2 Pass/No Pass & Withdrawal Grade Deadline",
+        "url": "https://events.cmu.edu/dietrich/event/32110-mini-2-passno-pass-withdrawal-grade-deadline",
+        "sourceIds": [
+          "e8b71eac1119"
+        ],
+        "code": "administrative-deadline",
+        "reason": "The published title and instructions identify a submission, registration or administrative deadline rather than an activity session."
+      },
+      {
+        "uid": "livewhale:36649:range:2026-11-09",
+        "title": "4th Annual Electronics Recycling Event",
+        "url": "https://events.cmu.edu/event/36649-4th-annual-electronics-recycling-event",
         "sourceIds": [
           "e8b71eac1119"
         ],
@@ -6322,10 +6425,10 @@
   },
   "eventMerges": {
     "version": 1,
-    "inputOccurrences": 5278,
-    "outputOccurrences": 3397,
-    "mergedGroups": 1099,
-    "absorbedOccurrences": 1881,
+    "inputOccurrences": 5289,
+    "outputOccurrences": 3382,
+    "mergedGroups": 1104,
+    "absorbedOccurrences": 1907,
     "groups": [
       {
         "id": "b2bf53b5e8bdd248e1b75982",
@@ -6370,7 +6473,7 @@
         "title": "Getting Through Finals - Grab ‘n Go Breakfast",
         "start": "2026-12-10T14:00:00.000Z",
         "end": "2026-12-10T15:30:00.000Z",
-        "sourceOccurrences": 11,
+        "sourceOccurrences": 10,
         "reasons": [
           "shared-event-link"
         ],
@@ -6384,7 +6487,6 @@
           "57e6f4d7729d",
           "6bab7f11462d",
           "a8f74f3c224a",
-          "cdd4d5698566",
           "d93abdb4309a",
           "e8b71eac1119"
         ],
@@ -6472,14 +6574,13 @@
         "title": "People, Places and Things",
         "start": "2026-11-20T01:00:00.000Z",
         "end": "2026-11-20T01:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "01978dd6e627",
-          "d93abdb4309a",
           "e8b71eac1119",
           "ec62bc29f612"
         ],
@@ -6493,14 +6594,13 @@
         "title": "People, Places and Things",
         "start": "2026-11-21T01:00:00.000Z",
         "end": "2026-11-21T01:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "01978dd6e627",
-          "d93abdb4309a",
           "e8b71eac1119",
           "ec62bc29f612"
         ],
@@ -6514,14 +6614,13 @@
         "title": "People, Places and Things",
         "start": "2026-11-22T01:00:00.000Z",
         "end": "2026-11-22T01:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "01978dd6e627",
-          "d93abdb4309a",
           "e8b71eac1119",
           "ec62bc29f612"
         ],
@@ -6781,7 +6880,7 @@
         "originalUrls": [
           "https://events.cmu.edu/live/events/httpswwweventbritecome1998989847445affoddtdtcreator",
           "https://events.cmu.edu/music/event/34158-carnegie-mellon-philharmonic-halloween-at-heinz-hall",
-          "https://click.connect.cmu.edu/?qs=ABt7ImQiOjUwNTIsInQiOjE0MDc1LCJzIjoxMH0ACgAAAAAF9KnWWxhxuxLfVGydvBPhC6QiPIn0y02BKoC0j00cd6gxXoVnEvpXwDUizaTzdRLQiZk-ofbOJQA57L6kvaflYA_xG9to8_zpes1L"
+          "https://click.connect.cmu.edu/?qs=ABt7ImQiOjUwNTIsInQiOjE0MDc1LCJzIjoxMH0ACgAAAAAF7SkNQ-o8EGxCv0NczpLv4tDLfij2WzVfbti-al1h2sBWrzWz7oB9Wf9KirSiqqnzslfTySz-_qqNgDpcyg4rYsaq39Z7mFJTe56C"
         ]
       },
       {
@@ -6969,7 +7068,7 @@
         "title": "Democracy Day; No Classes (evening classes after 5 p.m. will still meet)",
         "start": "2026-11-03",
         "end": "2026-11-04",
-        "sourceOccurrences": 6,
+        "sourceOccurrences": 7,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -6977,17 +7076,18 @@
         "sourceConflicts": [],
         "sourceIds": [
           "064e900f29b4",
+          "58220d8df81e",
           "7493d352b89a",
           "afe4cdd6eb3a",
-          "be4c1ac74f16",
           "ccabd5dde2a8",
+          "d93abdb4309a",
           "fc7db2cca6a2",
           "fe717318a657"
         ],
         "originalUrls": [
           "https://events.cmu.edu/live/events/33053-democracy-day-no-classes-evening-classes-after-5",
-          "https://events.cmu.edu/mcs/event/33053-democracy-day-no-classes-evening-classes-after-5",
           "https://events.cmu.edu/live/events/31680-democracy-day-no-classes-evening-classes-after-5-pm-wi",
+          "https://events.cmu.edu/dietrich/event/32107-democracy-day-no-classes-evening-classes-after-5",
           "https://events.cmu.edu/academic-calendar/event/31680-democracy-day-no-classes-evening-classes-after-5-pm-wi"
         ]
       },
@@ -6996,7 +7096,7 @@
         "title": "Thanksgiving Break; University Closed",
         "start": "2026-11-25",
         "end": "2026-11-28",
-        "sourceOccurrences": 10,
+        "sourceOccurrences": 9,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -7010,7 +7110,6 @@
           "aa8390d8ece6",
           "afe4cdd6eb3a",
           "be4c1ac74f16",
-          "d93abdb4309a",
           "e8b71eac1119",
           "fc7db2cca6a2"
         ],
@@ -7599,13 +7698,14 @@
         "title": "Condensed Matter Physics (CMP) Seminar: Yiming Xu (PRX)",
         "start": "2026-10-27T16:00:00.000Z",
         "end": "2026-10-27T16:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "064e900f29b4",
+          "840fd3084bf4",
           "aa8390d8ece6",
           "afe4cdd6eb3a",
           "e8b71eac1119"
@@ -7895,28 +7995,6 @@
         ]
       },
       {
-        "id": "8b4290448093deabd31c650d",
-        "title": "Kearra Amaya Gopee: Visiting Artist Lecture",
-        "start": "2026-11-03T22:30:00.000Z",
-        "end": "2026-11-04T00:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "copied-description",
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "06cb4620efd8",
-          "116abd92f9b3",
-          "36701a5c63a4",
-          "c3ca78b7b805"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/art/event/34416-kearra-amaya-gopee-visiting-artist-lecture",
-          "https://art.cmu.edu/event/kearra-amaya-gopee-visiting-artist-lecture/"
-        ]
-      },
-      {
         "id": "33ac15afe2807f4502a6764e",
         "title": "Jonathan González: Visiting Artist Lecture",
         "start": "2027-01-26T22:30:00.000Z",
@@ -7940,14 +8018,13 @@
         "title": "Three Minute Thesis (3MT) 2027 Championship",
         "start": "2027-03-24T22:00:00.000Z",
         "end": "2027-03-25T00:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "6bab7f11462d",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -7959,7 +8036,7 @@
         "title": "AI Fluency Week: Built-In or Banned? CMU Faculty on AI in the Classroom",
         "start": "2026-10-27T21:00:00.000Z",
         "end": "2026-10-27T22:00:00.000Z",
-        "sourceOccurrences": 6,
+        "sourceOccurrences": 8,
         "reasons": [
           "shared-event-link"
         ],
@@ -7968,9 +8045,11 @@
           "07130c683752",
           "333036f75a50",
           "491df87feb08",
+          "6bab7f11462d",
           "982c26d90129",
           "b37d02b73df8",
           "c7a2fb7ee246",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -7982,49 +8061,6 @@
         "title": "Open Stacks* - Bodies of Horror",
         "start": "2026-10-28T20:30:00.000Z",
         "end": "2026-10-28T22:30:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "07130c683752",
-          "491df87feb08",
-          "b37d02b73df8",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://cmu.libcal.com/calendar/events/Bodies-of-Horror"
-        ]
-      },
-      {
-        "id": "92877b4ca17e2982aac16ab3",
-        "title": "Hands-On: Mini Painting with the RPG Collection",
-        "start": "2026-11-05T21:00:00.000Z",
-        "end": "2026-11-05T23:00:00.000Z",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "copied-description",
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "07130c683752",
-          "491df87feb08",
-          "5d10172e6358",
-          "9390a36d167b",
-          "b37d02b73df8"
-        ],
-        "originalUrls": [
-          "https://cmu.libcal.com/calendar/events/rpg-mini-paint",
-          "https://tartanconnect.cmu.edu/rsvp?id=1938337"
-        ]
-      },
-      {
-        "id": "6dcc3b3edbcf0f8f65f57670",
-        "title": "Open Stacks* - Sacred Pages: Scripture in the Abrahamic Traditions",
-        "start": "2026-11-11T21:30:00.000Z",
-        "end": "2026-11-11T23:30:00.000Z",
         "sourceOccurrences": 5,
         "reasons": [
           "shared-event-link"
@@ -8039,6 +8075,51 @@
           "e8b71eac1119"
         ],
         "originalUrls": [
+          "https://cmu.libcal.com/calendar/events/Bodies-of-Horror"
+        ]
+      },
+      {
+        "id": "92877b4ca17e2982aac16ab3",
+        "title": "Hands-On: Mini Painting with the RPG Collection",
+        "start": "2026-11-05T21:00:00.000Z",
+        "end": "2026-11-05T23:00:00.000Z",
+        "sourceOccurrences": 5,
+        "reasons": [
+          "copied-description",
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "07130c683752",
+          "491df87feb08",
+          "5d10172e6358",
+          "6bab7f11462d",
+          "9390a36d167b",
+          "b37d02b73df8"
+        ],
+        "originalUrls": [
+          "https://cmu.libcal.com/calendar/events/rpg-mini-paint",
+          "https://tartanconnect.cmu.edu/rsvp?id=1938337"
+        ]
+      },
+      {
+        "id": "6dcc3b3edbcf0f8f65f57670",
+        "title": "Open Stacks* - Sacred Pages: Scripture in the Abrahamic Traditions",
+        "start": "2026-11-11T21:30:00.000Z",
+        "end": "2026-11-11T23:30:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "07130c683752",
+          "491df87feb08",
+          "6bab7f11462d",
+          "b37d02b73df8",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
           "https://cmu.libcal.com/calendar/events/Sacred-Pages"
         ]
       },
@@ -8047,7 +8128,7 @@
         "title": "Python for Beginner Data Science - Basics and Starting with Data",
         "start": "2026-11-05T18:00:00.000Z",
         "end": "2026-11-05T19:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -8055,6 +8136,7 @@
         "sourceIds": [
           "07130c683752",
           "491df87feb08",
+          "6bab7f11462d",
           "7f03d1a54c59",
           "b37d02b73df8"
         ],
@@ -8089,7 +8171,7 @@
         "title": "Working with the Command Line Interface (Automating workflows)",
         "start": "2026-10-28T14:00:00.000Z",
         "end": "2026-10-28T15:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 5,
         "reasons": [
           "shared-event-link"
         ],
@@ -8097,6 +8179,7 @@
         "sourceIds": [
           "07130c683752",
           "491df87feb08",
+          "6bab7f11462d",
           "7f03d1a54c59",
           "b37d02b73df8",
           "e8b71eac1119"
@@ -8110,7 +8193,7 @@
         "title": "Working with the Command Line Interface (Using LLMs with the Command Line)",
         "start": "2026-11-04T15:00:00.000Z",
         "end": "2026-11-04T16:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -8118,6 +8201,7 @@
         "sourceIds": [
           "07130c683752",
           "491df87feb08",
+          "6bab7f11462d",
           "7f03d1a54c59",
           "b37d02b73df8"
         ],
@@ -8196,7 +8280,7 @@
         "title": "AI Fluency Week: Introduction to Prompt Engineering",
         "start": "2026-10-30T15:00:00.000Z",
         "end": "2026-10-30T16:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 6,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -8206,6 +8290,7 @@
           "07130c683752",
           "491df87feb08",
           "5d10172e6358",
+          "6bab7f11462d",
           "7f03d1a54c59",
           "9390a36d167b",
           "b37d02b73df8"
@@ -8220,7 +8305,7 @@
         "title": "AI Fluency Week: Preparing to (Vibe) Code",
         "start": "2026-10-26T21:00:00.000Z",
         "end": "2026-10-26T22:00:00.000Z",
-        "sourceOccurrences": 8,
+        "sourceOccurrences": 9,
         "reasons": [
           "copied-description",
           "shared-event-link",
@@ -8231,6 +8316,7 @@
           "07130c683752",
           "491df87feb08",
           "5d10172e6358",
+          "6bab7f11462d",
           "7f03d1a54c59",
           "9390a36d167b",
           "982c26d90129",
@@ -8249,7 +8335,7 @@
         "title": "AI Fluency Week: Using AI-supported tools for literature searching",
         "start": "2026-10-29T21:00:00.000Z",
         "end": "2026-10-29T22:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 7,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -8259,9 +8345,11 @@
           "07130c683752",
           "491df87feb08",
           "5d10172e6358",
+          "6bab7f11462d",
           "7f03d1a54c59",
           "9390a36d167b",
-          "b37d02b73df8"
+          "b37d02b73df8",
+          "d93abdb4309a"
         ],
         "originalUrls": [
           "https://cmu.libcal.com/event/17327220",
@@ -8273,7 +8361,7 @@
         "title": "AI Fluency Week: Text mining the scholarly literature",
         "start": "2026-10-27T15:00:00.000Z",
         "end": "2026-10-27T16:00:00.000Z",
-        "sourceOccurrences": 8,
+        "sourceOccurrences": 10,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -8283,11 +8371,13 @@
           "07130c683752",
           "491df87feb08",
           "5d10172e6358",
+          "6bab7f11462d",
           "7f03d1a54c59",
           "9390a36d167b",
           "982c26d90129",
           "b37d02b73df8",
           "c7a2fb7ee246",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -8300,7 +8390,7 @@
         "title": "AI Fluency Week: The Impact of AI in the Research Process: A Panel Discussion",
         "start": "2026-10-28T21:00:00.000Z",
         "end": "2026-10-28T22:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 7,
         "reasons": [
           "shared-event-link"
         ],
@@ -8308,8 +8398,10 @@
         "sourceIds": [
           "07130c683752",
           "333036f75a50",
+          "6bab7f11462d",
           "982c26d90129",
           "c7a2fb7ee246",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -8321,7 +8413,7 @@
         "title": "AI Fluency Week: Vibe Code Sprint Halloween Party",
         "start": "2026-10-30T21:00:00.000Z",
         "end": "2026-10-31T00:00:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -8329,6 +8421,7 @@
         "sourceIds": [
           "07130c683752",
           "491df87feb08",
+          "6bab7f11462d",
           "b37d02b73df8"
         ],
         "originalUrls": [
@@ -8340,7 +8433,7 @@
         "title": "Hands On: Halloween Harvest",
         "start": "2026-10-28T16:00:00.000Z",
         "end": "2026-10-28T18:00:00.000Z",
-        "sourceOccurrences": 6,
+        "sourceOccurrences": 5,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -8350,7 +8443,6 @@
           "07130c683752",
           "491df87feb08",
           "5d10172e6358",
-          "8515f6312210",
           "9390a36d167b",
           "b37d02b73df8",
           "e8b71eac1119"
@@ -8425,14 +8517,15 @@
         "title": "CMU Community Blood Drive",
         "start": "2026-11-02T13:30:00.000Z",
         "end": "2026-11-02T18:30:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "15e1f25e2dd5"
+          "15e1f25e2dd5",
+          "d93abdb4309a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/live/events/34614-cmu-community-blood-drive"
@@ -8450,14 +8543,13 @@
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "c84cc1c34efc",
+          "5e852d711da8",
           "ccabd5dde2a8",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
+          "d93abdb4309a",
+          "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/live/events/35366-lcal-summer-2027-study-abroad-info-session",
-          "https://events.cmu.edu/lcal/event/35366-lcal-summer-2027-study-abroad-info-session"
+          "https://events.cmu.edu/live/events/35366-lcal-summer-2027-study-abroad-info-session"
         ]
       },
       {
@@ -8489,7 +8581,7 @@
         "title": "Paws to Relax: Pet Therapy Program",
         "start": "2026-10-28T22:30:00.000Z",
         "end": "2026-10-28T23:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -8497,6 +8589,7 @@
         "sourceIds": [
           "07130c683752",
           "c7a2fb7ee246",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -8509,14 +8602,15 @@
         "title": "Paws to Relax: Pet Therapy Program",
         "start": "2026-11-04T23:30:00.000Z",
         "end": "2026-11-05T00:30:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "c7a2fb7ee246"
+          "c7a2fb7ee246",
+          "d93abdb4309a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/33296-paws-to-relax-pet-therapy-program",
@@ -8715,14 +8809,15 @@
         "title": "Heartfulness Sunday Meditation: Guided Meditation Masterclass",
         "start": "2026-11-01T14:00:00.000Z",
         "end": "2026-11-01T16:00:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "c7a2fb7ee246"
+          "c7a2fb7ee246",
+          "d93abdb4309a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/33602-heartfulness-sunday-meditation-guided-meditation",
@@ -8775,7 +8870,7 @@
         "title": "Heartfulness Sunday Meditation: Guided Meditation Masterclass",
         "start": "2026-11-22T14:00:00.000Z",
         "end": "2026-11-22T16:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -8783,7 +8878,6 @@
         "sourceIds": [
           "07130c683752",
           "c7a2fb7ee246",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -8796,7 +8890,7 @@
         "title": "Heartfulness Sunday Meditation: Guided Meditation Masterclass",
         "start": "2026-11-29T14:00:00.000Z",
         "end": "2026-11-29T16:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -8804,7 +8898,6 @@
         "sourceIds": [
           "07130c683752",
           "c7a2fb7ee246",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -8916,18 +9009,20 @@
         "title": "Breathe, Reset, and Connect with Your Heart",
         "start": "2026-10-26T16:00:00.000Z",
         "end": "2026-10-26T16:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
+          "d93abdb4309a",
           "def8646a2199",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/33623-breathe-reset-and-connect-with-your-heart"
+          "https://events.cmu.edu/student-affairs/event/33623-breathe-reset-and-connect-with-your-heart",
+          "https://events.cmu.edu/live/events/33623-breathe-reset-and-connect-with-your-heart"
         ]
       },
       {
@@ -8935,7 +9030,7 @@
         "title": "Mapping Self: Understanding our Values and the Stories that Shape Us",
         "start": "2026-10-29T21:00:00.000Z",
         "end": "2026-10-29T22:15:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 5,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -8945,6 +9040,7 @@
           "07130c683752",
           "5d10172e6358",
           "ccabd5dde2a8",
+          "d93abdb4309a",
           "ecdebc9ba1fb"
         ],
         "originalUrls": [
@@ -9084,6 +9180,26 @@
         "title": "CaPS PhD Support Group",
         "start": "2026-10-27T22:00:00.000Z",
         "end": "2026-10-27T23:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "07130c683752",
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/student-affairs/event/34757-caps-phd-support-group",
+          "https://events.cmu.edu/live/events/34757-caps-phd-support-group"
+        ]
+      },
+      {
+        "id": "bb35f18690739aa208835cc7",
+        "title": "CaPS PhD Support Group",
+        "start": "2026-11-03T23:00:00.000Z",
+        "end": "2026-11-04T00:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -9091,10 +9207,11 @@
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "e8b71eac1119"
+          "d93abdb4309a"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/34757-caps-phd-support-group"
+          "https://events.cmu.edu/student-affairs/event/34758-caps-phd-support-group",
+          "https://events.cmu.edu/live/events/34758-caps-phd-support-group"
         ]
       },
       {
@@ -9142,19 +9259,17 @@
         "title": "CaPS PhD Support Group",
         "start": "2026-11-24T23:00:00.000Z",
         "end": "2026-11-25T00:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/34761-caps-phd-support-group",
-          "https://events.cmu.edu/live/events/34761-caps-phd-support-group"
+          "https://events.cmu.edu/student-affairs/event/34761-caps-phd-support-group"
         ]
       },
       {
@@ -9198,43 +9313,46 @@
         ]
       },
       {
-        "id": "233f3e57c1e053419d90302c",
-        "title": "Tai Chi and QiGong Series",
+        "id": "eff9be78e7761fa2b14be023",
+        "title": "T'ai Chi and Qigong Series",
         "start": "2026-11-10T22:00:00.000Z",
         "end": "2026-11-10T23:00:00.000Z",
         "sourceOccurrences": 3,
         "reasons": [
+          "jev-same-occurrence",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
-          "e8b71eac1119"
+          "40f7fd9f957c",
+          "5d10172e6358"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/34766-tai-chi-and-qigong-series",
-          "https://events.cmu.edu/live/events/34766-tai-chi-and-qigong-series"
+          "https://tartanconnect.cmu.edu/rsvp?id=1938125"
         ]
       },
       {
-        "id": "5d67bb42df270db2f15fc42e",
-        "title": "Tai Chi and QiGong Series",
+        "id": "de5c641848aa2bc361adc140",
+        "title": "T'ai Chi and Qigong Series",
         "start": "2026-11-17T22:00:00.000Z",
         "end": "2026-11-17T23:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
+          "jev-same-occurrence",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
+          "40f7fd9f957c",
+          "5d10172e6358",
           "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/34767-tai-chi-and-qigong-series",
-          "https://events.cmu.edu/live/events/34767-tai-chi-and-qigong-series"
+          "https://tartanconnect.cmu.edu/rsvp?id=1938126"
         ]
       },
       {
@@ -9242,7 +9360,7 @@
         "title": "Voter Engagement Office Hours",
         "start": "2026-10-30T19:00:00.000Z",
         "end": "2026-10-30T21:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -9251,11 +9369,13 @@
         "sourceIds": [
           "07130c683752",
           "5d10172e6358",
+          "d93abdb4309a",
           "ecdebc9ba1fb"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/34958-voter-engagement-office-hours",
-          "https://tartanconnect.cmu.edu/rsvp?id=1937705"
+          "https://tartanconnect.cmu.edu/rsvp?id=1937705",
+          "https://events.cmu.edu/live/events/34958-voter-engagement-office-hours"
         ]
       },
       {
@@ -9263,7 +9383,7 @@
         "title": "Voter Engagement Tabling",
         "start": "2026-10-29T17:00:00.000Z",
         "end": "2026-10-29T19:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -9271,7 +9391,8 @@
         "sourceIds": [
           "07130c683752",
           "c7a2fb7ee246",
-          "ccabd5dde2a8"
+          "ccabd5dde2a8",
+          "d93abdb4309a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/34965-voter-engagement-tabling",
@@ -9283,6 +9404,26 @@
         "title": "Black Girl Bliss",
         "start": "2026-10-26T21:00:00.000Z",
         "end": "2026-10-26T22:15:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "07130c683752",
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/student-affairs/event/35510-black-girl-bliss",
+          "https://events.cmu.edu/live/events/35510-black-girl-bliss"
+        ]
+      },
+      {
+        "id": "a419bb5729a16acd3c3f51fe",
+        "title": "Black Girl Bliss",
+        "start": "2026-11-02T22:00:00.000Z",
+        "end": "2026-11-02T23:15:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -9290,10 +9431,11 @@
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "e8b71eac1119"
+          "d93abdb4309a"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35510-black-girl-bliss"
+          "https://events.cmu.edu/student-affairs/event/35511-black-girl-bliss",
+          "https://events.cmu.edu/live/events/35511-black-girl-bliss"
         ]
       },
       {
@@ -9340,19 +9482,17 @@
         "title": "Black Girl Bliss",
         "start": "2026-11-23T22:00:00.000Z",
         "end": "2026-11-23T23:15:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35514-black-girl-bliss",
-          "https://events.cmu.edu/live/events/35514-black-girl-bliss"
+          "https://events.cmu.edu/student-affairs/event/35514-black-girl-bliss"
         ]
       },
       {
@@ -9360,19 +9500,17 @@
         "title": "Black Girl Bliss",
         "start": "2026-11-30T22:00:00.000Z",
         "end": "2026-11-30T23:15:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35515-black-girl-bliss",
-          "https://events.cmu.edu/live/events/35515-black-girl-bliss"
+          "https://events.cmu.edu/student-affairs/event/35515-black-girl-bliss"
         ]
       },
       {
@@ -9440,7 +9578,7 @@
         "title": "CaPS Global Connections: International Student Support Group",
         "start": "2026-10-27T21:30:00.000Z",
         "end": "2026-10-27T22:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -9448,6 +9586,7 @@
         "sourceIds": [
           "07130c683752",
           "c7a2fb7ee246",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -9460,14 +9599,15 @@
         "title": "CaPS Global Connections: International Student Support Group",
         "start": "2026-11-03T22:30:00.000Z",
         "end": "2026-11-03T23:30:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "c7a2fb7ee246"
+          "c7a2fb7ee246",
+          "d93abdb4309a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/35523-caps-global-connections-international-student",
@@ -9521,7 +9661,7 @@
         "title": "CaPS Global Connections: International Student Support Group",
         "start": "2026-11-24T22:30:00.000Z",
         "end": "2026-11-24T23:30:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -9529,7 +9669,6 @@
         "sourceIds": [
           "07130c683752",
           "c7a2fb7ee246",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -9584,6 +9723,26 @@
         "title": "CaPS: LGBTQIA+ Support and Social Group",
         "start": "2026-10-26T21:30:00.000Z",
         "end": "2026-10-26T22:30:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "07130c683752",
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/student-affairs/event/35533-caps-lgbtqia-support-and-social-group",
+          "https://events.cmu.edu/live/events/35533-caps-lgbtqia-support-and-social-group"
+        ]
+      },
+      {
+        "id": "77986f33b7910d9ac16dca70",
+        "title": "CaPS: LGBTQIA+ Support and Social Group",
+        "start": "2026-11-02T22:30:00.000Z",
+        "end": "2026-11-02T23:30:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -9591,10 +9750,11 @@
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "e8b71eac1119"
+          "d93abdb4309a"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35533-caps-lgbtqia-support-and-social-group"
+          "https://events.cmu.edu/student-affairs/event/35534-caps-lgbtqia-support-and-social-group",
+          "https://events.cmu.edu/live/events/35534-caps-lgbtqia-support-and-social-group"
         ]
       },
       {
@@ -9641,19 +9801,17 @@
         "title": "CaPS: LGBTQIA+ Support and Social Group",
         "start": "2026-11-23T22:30:00.000Z",
         "end": "2026-11-23T23:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35537-caps-lgbtqia-support-and-social-group",
-          "https://events.cmu.edu/live/events/35537-caps-lgbtqia-support-and-social-group"
+          "https://events.cmu.edu/student-affairs/event/35537-caps-lgbtqia-support-and-social-group"
         ]
       },
       {
@@ -9661,19 +9819,17 @@
         "title": "CaPS: LGBTQIA+ Support and Social Group",
         "start": "2026-11-30T22:30:00.000Z",
         "end": "2026-11-30T23:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35538-caps-lgbtqia-support-and-social-group",
-          "https://events.cmu.edu/live/events/35538-caps-lgbtqia-support-and-social-group"
+          "https://events.cmu.edu/student-affairs/event/35538-caps-lgbtqia-support-and-social-group"
         ]
       },
       {
@@ -9717,6 +9873,44 @@
         ]
       },
       {
+        "id": "561388bf75cce963c4027dc0",
+        "title": "Finding Connection: A Support Group for Building Friendships in College",
+        "start": "2026-10-29T18:30:00.000Z",
+        "end": "2026-10-29T19:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "07130c683752",
+          "d93abdb4309a"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/student-affairs/event/35544-finding-connection-a-support-group-for-building",
+          "https://events.cmu.edu/live/events/35544-finding-connection-a-support-group-for-building"
+        ]
+      },
+      {
+        "id": "a6523ee576dbcb8ba5a4a803",
+        "title": "Finding Connection: A Support Group for Building Friendships in College",
+        "start": "2026-11-05T19:30:00.000Z",
+        "end": "2026-11-05T20:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "07130c683752",
+          "d93abdb4309a"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/student-affairs/event/35545-finding-connection-a-support-group-for-building",
+          "https://events.cmu.edu/live/events/35545-finding-connection-a-support-group-for-building"
+        ]
+      },
+      {
         "id": "e8f6c7bc92f87b2d759eb3c8",
         "title": "Finding Connection: A Support Group for Building Friendships in College",
         "start": "2026-11-12T19:30:00.000Z",
@@ -9741,19 +9935,17 @@
         "title": "Finding Connection: A Support Group for Building Friendships in College",
         "start": "2026-11-19T19:30:00.000Z",
         "end": "2026-11-19T20:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35547-finding-connection-a-support-group-for-building",
-          "https://events.cmu.edu/live/events/35547-finding-connection-a-support-group-for-building"
+          "https://events.cmu.edu/student-affairs/event/35547-finding-connection-a-support-group-for-building"
         ]
       },
       {
@@ -9761,19 +9953,17 @@
         "title": "Finding Connection: A Support Group for Building Friendships in College",
         "start": "2026-11-26T19:30:00.000Z",
         "end": "2026-11-26T20:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35548-finding-connection-a-support-group-for-building",
-          "https://events.cmu.edu/live/events/35548-finding-connection-a-support-group-for-building"
+          "https://events.cmu.edu/student-affairs/event/35548-finding-connection-a-support-group-for-building"
         ]
       },
       {
@@ -9821,6 +10011,26 @@
         "title": "Grieving Together",
         "start": "2026-10-26T20:00:00.000Z",
         "end": "2026-10-26T21:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "07130c683752",
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/student-affairs/event/35555-grieving-together",
+          "https://events.cmu.edu/live/events/35555-grieving-together"
+        ]
+      },
+      {
+        "id": "dc11bd0eba4682c5b2f90004",
+        "title": "Grieving Together",
+        "start": "2026-11-02T21:00:00.000Z",
+        "end": "2026-11-02T22:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -9828,10 +10038,11 @@
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "e8b71eac1119"
+          "d93abdb4309a"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35555-grieving-together"
+          "https://events.cmu.edu/student-affairs/event/35556-grieving-together",
+          "https://events.cmu.edu/live/events/35556-grieving-together"
         ]
       },
       {
@@ -9878,19 +10089,17 @@
         "title": "Grieving Together",
         "start": "2026-11-23T21:00:00.000Z",
         "end": "2026-11-23T22:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35559-grieving-together",
-          "https://events.cmu.edu/live/events/35559-grieving-together"
+          "https://events.cmu.edu/student-affairs/event/35559-grieving-together"
         ]
       },
       {
@@ -9898,19 +10107,17 @@
         "title": "Grieving Together",
         "start": "2026-11-30T21:00:00.000Z",
         "end": "2026-11-30T22:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35560-grieving-together",
-          "https://events.cmu.edu/live/events/35560-grieving-together"
+          "https://events.cmu.edu/student-affairs/event/35560-grieving-together"
         ]
       },
       {
@@ -9951,6 +10158,25 @@
         "originalUrls": [
           "https://events.cmu.edu/student-affairs/event/35562-grieving-together",
           "https://events.cmu.edu/live/events/35562-grieving-together"
+        ]
+      },
+      {
+        "id": "5988b7cd36b4fee222726a55",
+        "title": "Sista Circle Support Group",
+        "start": "2026-10-30T20:00:00.000Z",
+        "end": "2026-10-30T21:15:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "07130c683752",
+          "d93abdb4309a"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/student-affairs/event/35566-sista-circle-support-group",
+          "https://events.cmu.edu/live/events/35566-sista-circle-support-group"
         ]
       },
       {
@@ -9997,19 +10223,17 @@
         "title": "Sista Circle Support Group",
         "start": "2026-11-20T21:00:00.000Z",
         "end": "2026-11-20T22:15:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35569-sista-circle-support-group",
-          "https://events.cmu.edu/live/events/35569-sista-circle-support-group"
+          "https://events.cmu.edu/student-affairs/event/35569-sista-circle-support-group"
         ]
       },
       {
@@ -10017,39 +10241,17 @@
         "title": "Sista Circle Support Group",
         "start": "2026-11-27T21:00:00.000Z",
         "end": "2026-11-27T22:15:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35570-sista-circle-support-group",
-          "https://events.cmu.edu/live/events/35570-sista-circle-support-group"
-        ]
-      },
-      {
-        "id": "32e0f13dd05924bd8cee0278",
-        "title": "Sista Circle Support Group",
-        "start": "2026-12-04T21:00:00.000Z",
-        "end": "2026-12-04T22:15:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "07130c683752",
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35571-sista-circle-support-group",
-          "https://events.cmu.edu/live/events/35571-sista-circle-support-group"
+          "https://events.cmu.edu/student-affairs/event/35570-sista-circle-support-group"
         ]
       },
       {
@@ -10097,6 +10299,26 @@
         "title": "Understanding Self and Others",
         "start": "2026-10-27T19:30:00.000Z",
         "end": "2026-10-27T21:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "07130c683752",
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/student-affairs/event/35577-understanding-self-and-others",
+          "https://events.cmu.edu/live/events/35577-understanding-self-and-others"
+        ]
+      },
+      {
+        "id": "86ee56ab46c417550ae23ed1",
+        "title": "Understanding Self and Others",
+        "start": "2026-11-03T20:30:00.000Z",
+        "end": "2026-11-03T22:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -10104,10 +10326,11 @@
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "e8b71eac1119"
+          "d93abdb4309a"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35577-understanding-self-and-others"
+          "https://events.cmu.edu/student-affairs/event/35578-understanding-self-and-others",
+          "https://events.cmu.edu/live/events/35578-understanding-self-and-others"
         ]
       },
       {
@@ -10154,19 +10377,17 @@
         "title": "Understanding Self and Others",
         "start": "2026-11-24T20:30:00.000Z",
         "end": "2026-11-24T22:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "07130c683752",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/student-affairs/event/35581-understanding-self-and-others",
-          "https://events.cmu.edu/live/events/35581-understanding-self-and-others"
+          "https://events.cmu.edu/student-affairs/event/35581-understanding-self-and-others"
         ]
       },
       {
@@ -10296,36 +10517,17 @@
         "title": "A Crucible of Change: Carnegie Tech and World War I",
         "start": "2026-08-31",
         "end": "2027-07-10",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "07130c683752",
-          "6bab7f11462d",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://library.cmu.edu/about/exhibits/crucible-of-change"
-        ]
-      },
-      {
-        "id": "3439a3adfb32c78f2bd204cb",
-        "title": "Health For All: Pittsburgh Menopause Walk",
-        "start": "2026-11-14T15:30:00.000Z",
-        "end": "2026-11-14T15:30:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
-          "077418c6adc0",
+          "07130c683752",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/ece/event/36963-health-for-all-pittsburgh-menopause-walk"
+          "https://library.cmu.edu/about/exhibits/crucible-of-change"
         ]
       },
       {
@@ -12333,6 +12535,126 @@
         ]
       },
       {
+        "id": "e6457f493733621fe9370fb2",
+        "title": "CONNECTS: Understanding the Customer and Creating a USP*",
+        "start": "2026-10-27T16:30:00.000Z",
+        "end": "2026-10-27T17:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "jev-same-occurrence"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "0d3df5571327",
+          "0f172b16da54",
+          "898f16baa6cc"
+        ],
+        "originalUrls": [
+          "https://www.cmu.edu/swartz-center-for-entrepreneurship/events-new/connects/index.html",
+          "https://calendar.google.com/calendar/embed?src=0spk3ntpcf48v0l2p4sj8tok98%40group.calendar.google.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261027%2F20261028"
+        ]
+      },
+      {
+        "id": "0f132a4e69bde215b2320304",
+        "title": "Starting a Business with an F-1 Student Visa",
+        "start": "2026-10-13T21:00:00.000Z",
+        "end": "2026-10-13T22:15:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "jev-same-occurrence"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "0d3df5571327",
+          "0f172b16da54",
+          "898f16baa6cc"
+        ],
+        "originalUrls": [
+          "https://www.cmu.edu/swartz-center-for-entrepreneurship/events-new/connects/index.html",
+          "https://calendar.google.com/calendar/embed?src=0spk3ntpcf48v0l2p4sj8tok98%40group.calendar.google.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261013%2F20261014"
+        ]
+      },
+      {
+        "id": "a4d2ca18d824086ce866f91d",
+        "title": "CONNECTS: Early-Stage User Acquisition and Marketing",
+        "start": "2026-10-08T16:30:00.000Z",
+        "end": "2026-10-08T17:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "jev-same-occurrence"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "0d3df5571327",
+          "0f172b16da54",
+          "898f16baa6cc"
+        ],
+        "originalUrls": [
+          "https://www.cmu.edu/swartz-center-for-entrepreneurship/events-new/connects/index.html",
+          "https://calendar.google.com/calendar/embed?src=0spk3ntpcf48v0l2p4sj8tok98%40group.calendar.google.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261008%2F20261009"
+        ]
+      },
+      {
+        "id": "a57f9e14a57af52e97668011",
+        "title": "How to Handle Your (and others’) Intellectual Property",
+        "start": "2026-10-27T21:00:00.000Z",
+        "end": "2026-10-27T22:15:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "jev-same-occurrence"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "0d3df5571327",
+          "0f172b16da54",
+          "898f16baa6cc"
+        ],
+        "originalUrls": [
+          "https://www.cmu.edu/swartz-center-for-entrepreneurship/events-new/connects/index.html",
+          "https://calendar.google.com/calendar/embed?src=0spk3ntpcf48v0l2p4sj8tok98%40group.calendar.google.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261027%2F20261028"
+        ]
+      },
+      {
+        "id": "ed903d7795793ad97a926fa6",
+        "title": "CONNECTS: Pitch with Production Value*",
+        "start": "2026-10-22T16:30:00.000Z",
+        "end": "2026-10-22T17:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "jev-same-occurrence"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "0d3df5571327",
+          "0f172b16da54",
+          "898f16baa6cc"
+        ],
+        "originalUrls": [
+          "https://www.cmu.edu/swartz-center-for-entrepreneurship/events-new/connects/index.html",
+          "https://calendar.google.com/calendar/embed?src=0spk3ntpcf48v0l2p4sj8tok98%40group.calendar.google.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261022%2F20261023"
+        ]
+      },
+      {
+        "id": "4203cf6c2c0a5eea33981a47",
+        "title": "CONNECTS: Building and Leveraging Your Expert Network*",
+        "start": "2026-10-28T16:30:00.000Z",
+        "end": "2026-10-28T17:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "jev-same-occurrence"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "0d3df5571327",
+          "0f172b16da54",
+          "898f16baa6cc"
+        ],
+        "originalUrls": [
+          "https://www.cmu.edu/swartz-center-for-entrepreneurship/events-new/connects/index.html",
+          "https://calendar.google.com/calendar/embed?src=0spk3ntpcf48v0l2p4sj8tok98%40group.calendar.google.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261028%2F20261029"
+        ]
+      },
+      {
         "id": "5e87d0ceb0e0b5ea1376eb51",
         "title": "Fall Joint Ratification Meeting",
         "start": "2026-10-08T21:00:00.000Z",
@@ -12407,6 +12729,25 @@
         ],
         "originalUrls": [
           "https://art.cmu.edu/event/jonathan-gonzalez-visiting-artist-lecture/"
+        ]
+      },
+      {
+        "id": "8b4290448093deabd31c650d",
+        "title": "Kearra Amaya Gopee: Visiting Artist Lecture",
+        "start": "2026-11-03T22:30:00.000Z",
+        "end": "2026-11-04T00:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "116abd92f9b3",
+          "36701a5c63a4",
+          "c3ca78b7b805"
+        ],
+        "originalUrls": [
+          "https://art.cmu.edu/event/kearra-amaya-gopee-visiting-artist-lecture/"
         ]
       },
       {
@@ -12795,28 +13136,6 @@
         ]
       },
       {
-        "id": "8e9e64139cb322ce02fd4f05",
-        "title": "AI-SDM Seminar Series: Tom Costello",
-        "start": "2026-10-29T16:00:00.000Z",
-        "end": "2026-10-29T17:30:00.000Z",
-        "sourceOccurrences": 5,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "1185bc345a9a",
-          "15f9784bee3a",
-          "5a47a3eb65bf",
-          "87507d15b7a1",
-          "bf6c8d5cccc3"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/ai-sdm/event/33692-ai-sdm-seminar-series-tom-costello",
-          "https://events.cmu.edu/live/events/33692-ai-sdm-seminar-series-tom-costello"
-        ]
-      },
-      {
         "id": "aef81aa5fd9a230a5803448d",
         "title": "AI-SDM Seminar Series: Aadirupa Saha",
         "start": "2026-12-03T14:00:00.000Z",
@@ -12842,54 +13161,26 @@
         ]
       },
       {
-        "id": "5e056bfdbae01acd3988c6d7",
-        "title": "AI-SDM Seminar Series: Jeannette Sutton",
-        "start": "2026-11-19T17:00:00.000Z",
-        "end": "2026-11-19T18:30:00.000Z",
-        "sourceOccurrences": 7,
+        "id": "e785c8fca4c3134adef1df93",
+        "title": "AI-SDM Webinar: Jeannette Sutton",
+        "start": "2026-12-02T17:00:00.000Z",
+        "end": "2026-12-02T18:00:00.000Z",
+        "sourceOccurrences": 6,
         "reasons": [
-          "shared-event-link",
-          "specific-title-and-venue"
+          "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "1185bc345a9a",
           "15f9784bee3a",
+          "1d5bc0c83871",
           "5a47a3eb65bf",
-          "87507d15b7a1",
-          "958db3309744",
           "9903c32bf0ab",
-          "bf6c8d5cccc3"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/ai-sdm/event/33694-ai-sdm-seminar-series-jeannette-sutton",
-          "https://seminartracker.tepper.cmu.edu/SeminarDetail?SeminarId=1929",
-          "https://events.cmu.edu/live/events/33694-ai-sdm-seminar-series-jeannette-sutton"
-        ]
-      },
-      {
-        "id": "443154e1d38128236421ad1e",
-        "title": "CyLab Seminar: Rolfe Schmidt",
-        "start": "2026-10-26T16:00:00.000Z",
-        "end": "2026-10-26T17:00:00.000Z",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "shared-event-link",
-          "specific-title-and-venue"
-        ],
-        "sourceConflicts": [
-          "location"
-        ],
-        "sourceIds": [
-          "1185bc345a9a",
-          "4c5426677e95",
-          "9903c32bf0ab",
-          "b965a95677c6",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/cylab/event/35372-cylab-seminar-rolfe-schmidt",
-          "https://csd.cmu.edu/ical/ical.ics"
+          "https://events.cmu.edu/ai-sdm/event/33694-ai-sdm-webinar-jeannette-sutton",
+          "https://events.cmu.edu/live/events/33694-ai-sdm-seminar-series-jeannette-sutton"
         ]
       },
       {
@@ -12897,13 +13188,14 @@
         "title": "CyLab Seminar: Praneeth Vepakomma",
         "start": "2026-11-02T17:00:00.000Z",
         "end": "2026-11-02T17:00:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "1185bc345a9a",
+          "2a77547af411",
           "9903c32bf0ab"
         ],
         "originalUrls": [
@@ -13775,8 +14067,9 @@
         "title": "Griffin School of Computer Science Distinguished Industry Lecture - John Wilkes",
         "start": "2026-11-12T20:30:00.000Z",
         "end": "2026-11-12T22:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
+          "jev-same-occurrence",
           "scoped-uid",
           "shared-event-link"
         ],
@@ -13785,12 +14078,15 @@
           "1185bc345a9a",
           "26680f057d80",
           "426866c33d9d",
+          "4c5426677e95",
+          "b965a95677c6",
           "d31338711e1f",
           "d5814b89c528"
         ],
         "originalUrls": [
           "https://www.cs.cmu.edu/calendar/210323038",
-          "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D210323038"
+          "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D210323038",
+          "https://csd.cmu.edu/ical/ical.ics"
         ]
       },
       {
@@ -13992,18 +14288,22 @@
         "title": "Controllable, Efficient and Personalized Generative AI: From Long-Horizon Video to Interactive World Models",
         "start": "2026-10-26T19:30:00.000Z",
         "end": "2026-10-26T20:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
+          "jev-same-occurrence",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "1185bc345a9a",
+          "4c5426677e95",
           "b24d9c9bb1f5",
+          "b965a95677c6",
           "cfd02b9dd433"
         ],
         "originalUrls": [
-          "https://www.ri.cmu.edu/event/controllable-efficient-and-personalized-generative-ai-from-long-horizon-video-to-interactive-world-models/"
+          "https://www.ri.cmu.edu/event/controllable-efficient-and-personalized-generative-ai-from-long-horizon-video-to-interactive-world-models/",
+          "https://csd.cmu.edu/ical/ical.ics"
         ]
       },
       {
@@ -14030,18 +14330,22 @@
         "title": "“Lawless Progress on Wicked Problems”: Shifting the Roles of Humans in Human-AI Systems",
         "start": "2026-10-19T19:30:00.000Z",
         "end": "2026-10-19T20:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
+          "jev-same-occurrence",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "1185bc345a9a",
+          "4c5426677e95",
           "b24d9c9bb1f5",
+          "b965a95677c6",
           "cfd02b9dd433"
         ],
         "originalUrls": [
-          "https://www.ri.cmu.edu/event/lawless-progress-on-wicked-problems-shifting-the-roles-of-humans-in-human-ai-systems/"
+          "https://www.ri.cmu.edu/event/lawless-progress-on-wicked-problems-shifting-the-roles-of-humans-in-human-ai-systems/",
+          "https://csd.cmu.edu/ical/ical.ics"
         ]
       },
       {
@@ -14151,39 +14455,22 @@
         "title": "Structured Learning for Fast Physical Prediction",
         "start": "2026-11-05T20:30:00.000Z",
         "end": "2026-11-05T21:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
+          "jev-same-occurrence",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "1185bc345a9a",
+          "4c5426677e95",
           "b24d9c9bb1f5",
+          "b965a95677c6",
           "cfd02b9dd433"
         ],
         "originalUrls": [
-          "https://www.ri.cmu.edu/event/structured-learning-for-fast-physical-prediction/"
-        ]
-      },
-      {
-        "id": "9e03c2d28c09383f7148e480",
-        "title": "Fall Seminar - Alex Luedtke",
-        "start": "2026-10-26T20:00:00.000Z",
-        "end": "2026-10-26T20:00:00.000Z",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "13a1bf0efd64",
-          "982c26d90129",
-          "c7a2fb7ee246",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/statistics-datascience/event/34350-fall-seminar-alex-luedtke",
-          "https://events.cmu.edu/live/events/34350-fall-seminar-alex-luedtke"
+          "https://www.ri.cmu.edu/event/structured-learning-for-fast-physical-prediction/",
+          "https://csd.cmu.edu/ical/ical.ics"
         ]
       },
       {
@@ -14205,10 +14492,10 @@
         ]
       },
       {
-        "id": "1609f40ffbbb8587f4e9415a",
-        "title": "StatDS and LCAL Summer 2027 Study Abroad Info Session",
-        "start": "2026-10-28T19:30:00.000Z",
-        "end": "2026-10-28T20:30:00.000Z",
+        "id": "c2acefe875f4ea112da81456",
+        "title": "CANCELED: Fall Seminar - Ricardo Masini",
+        "start": "2026-11-16T21:00:00.000Z",
+        "end": "2026-11-16T21:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -14219,7 +14506,7 @@
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/statistics-datascience/event/35626-statds-and-lcal-summer-2027-study-abroad-info-session"
+          "https://events.cmu.edu/statistics-datascience/event/34353-fall-seminar-ricardo-masini"
         ]
       },
       {
@@ -14283,7 +14570,7 @@
         "title": "Staff Council General Body Meeting",
         "start": "2026-11-19T17:00:00.000Z",
         "end": "2026-11-19T18:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -14291,7 +14578,6 @@
         "sourceConflicts": [],
         "sourceIds": [
           "15e1f25e2dd5",
-          "d93abdb4309a",
           "e8b71eac1119",
           "f924f93134be"
         ],
@@ -14385,30 +14671,10 @@
         ]
       },
       {
-        "id": "bed8fe96f27bd50abd9ca9ed",
-        "title": "AI-SDM Student Brainstorming Session",
-        "start": "2026-11-05T17:00:00.000Z",
-        "end": "2026-11-05T18:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "15f9784bee3a",
-          "87507d15b7a1",
-          "bf6c8d5cccc3"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/ai-sdm/event/33819-ai-sdm-student-brainstorming-session",
-          "https://events.cmu.edu/live/events/33819-ai-sdm-student-brainstorming-session"
-        ]
-      },
-      {
-        "id": "6aef4e5cc755ca6a66d3a17c",
+        "id": "6c194d275003a74eea9bba6e",
         "title": "AI-SDM Student Session: DLC Lunch & Learn",
-        "start": "2026-12-03T17:00:00.000Z",
-        "end": "2026-12-03T18:00:00.000Z",
+        "start": "2026-12-02T17:00:00.000Z",
+        "end": "2026-12-02T18:00:00.000Z",
         "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
@@ -14416,8 +14682,8 @@
         "sourceConflicts": [],
         "sourceIds": [
           "15f9784bee3a",
-          "87507d15b7a1",
-          "bf6c8d5cccc3"
+          "1d5bc0c83871",
+          "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/ai-sdm/event/33820-ai-sdm-student-session-dlc-lunch-learn",
@@ -14449,7 +14715,7 @@
         "title": "Dean’s office hours",
         "start": "2026-11-03T17:00:00.000Z",
         "end": "2026-11-03T18:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -14457,7 +14723,8 @@
         "sourceIds": [
           "1b0f0b6e62fa",
           "2562f6465463",
-          "a8f74f3c224a"
+          "a8f74f3c224a",
+          "cdd4d5698566"
         ],
         "originalUrls": [
           "https://events.cmu.edu/engineering/event/31602-deans-office-hours"
@@ -14468,7 +14735,7 @@
         "title": "Dean’s office hours",
         "start": "2026-12-02T18:00:00.000Z",
         "end": "2026-12-02T19:00:00.000Z",
-        "sourceOccurrences": 6,
+        "sourceOccurrences": 5,
         "reasons": [
           "shared-event-link"
         ],
@@ -14478,7 +14745,6 @@
           "2562f6465463",
           "39b33e741d31",
           "a8f74f3c224a",
-          "cdd4d5698566",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -14490,7 +14756,7 @@
         "title": "Milestone Moments with Chris McComb",
         "start": "2026-10-27T19:30:00.000Z",
         "end": "2026-10-27T21:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 5,
         "reasons": [
           "shared-event-link"
         ],
@@ -14499,6 +14765,7 @@
           "1b0f0b6e62fa",
           "2562f6465463",
           "a8f74f3c224a",
+          "cdd4d5698566",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -14510,7 +14777,7 @@
         "title": "TechSpark’s Engineering Expo",
         "start": "2026-12-09T19:00:00.000Z",
         "end": "2026-12-09T21:00:00.000Z",
-        "sourceOccurrences": 6,
+        "sourceOccurrences": 5,
         "reasons": [
           "shared-event-link"
         ],
@@ -14520,7 +14787,6 @@
           "2562f6465463",
           "39b33e741d31",
           "a8f74f3c224a",
-          "cdd4d5698566",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -14556,7 +14822,7 @@
         "title": "Be An Engineer",
         "start": "2026-11-14T15:00:00.000Z",
         "end": "2026-11-14T19:00:00.000Z",
-        "sourceOccurrences": 6,
+        "sourceOccurrences": 5,
         "reasons": [
           "shared-event-link"
         ],
@@ -14566,7 +14832,6 @@
           "2562f6465463",
           "39b33e741d31",
           "a8f74f3c224a",
-          "cdd4d5698566",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -14677,7 +14942,7 @@
         "title": "Webinar: Unpacking Duolingo’s Approach to Innovation",
         "start": "2026-10-28T00:00:00.000Z",
         "end": "2026-10-28T01:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 7,
         "reasons": [
           "copied-description",
           "shared-event-link"
@@ -14688,6 +14953,8 @@
           "2562f6465463",
           "57e6f4d7729d",
           "a8f74f3c224a",
+          "cdd4d5698566",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -14696,48 +14963,11 @@
         ]
       },
       {
-        "id": "e785c8fca4c3134adef1df93",
-        "title": "AI-SDM Webinar: Jeannette Sutton",
-        "start": "2026-12-02T17:00:00.000Z",
-        "end": "2026-12-02T18:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "1d5bc0c83871",
-          "2a77547af411",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/33694-ai-sdm-seminar-series-jeannette-sutton"
-        ]
-      },
-      {
-        "id": "6c194d275003a74eea9bba6e",
-        "title": "AI-SDM Student Session: DLC Lunch & Learn",
-        "start": "2026-12-02T17:00:00.000Z",
-        "end": "2026-12-02T18:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "1d5bc0c83871",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/33820-ai-sdm-student-brainstorming-session"
-        ]
-      },
-      {
         "id": "979592fcf949fd6fb006fa64",
         "title": "Finding Support for Your Research: Foundations 101",
         "start": "2026-11-13T15:00:00.000Z",
         "end": "2026-11-13T16:00:00.000Z",
-        "sourceOccurrences": 7,
+        "sourceOccurrences": 8,
         "reasons": [
           "shared-event-link"
         ],
@@ -14745,15 +14975,15 @@
         "sourceIds": [
           "1d5bc0c83871",
           "24468d6e45aa",
-          "4f75e74a4136",
+          "7dd208226033",
           "aa8390d8ece6",
-          "d93abdb4309a",
+          "c84cc1c34efc",
+          "da2117ec52f4",
           "e8b71eac1119",
           "fac3ce8cfb40"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/live/events/36651-finding-support-for-your-research-foundations-101",
-          "https://events.cmu.edu/dietrich/event/36651-finding-support-for-your-research-foundations-101"
+          "https://events.cmu.edu/live/events/36651-finding-support-for-your-research-foundations-101"
         ]
       },
       {
@@ -14761,17 +14991,16 @@
         "title": "Humanities Schedule Skelebration!",
         "start": "2026-10-28T21:00:00.000Z",
         "end": "2026-10-28T22:30:00.000Z",
-        "sourceOccurrences": 6,
+        "sourceOccurrences": 5,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "2396716fbb7e",
-          "7dd208226033",
+          "4f75e74a4136",
           "b56c2bb6b1d1",
-          "c84cc1c34efc",
-          "da2117ec52f4",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -14784,7 +15013,7 @@
         "title": "Ghostly Preferences: When Coherence Requires a Strict Preference Among Equivalent Random Variables",
         "start": "2026-10-26T21:00:00.000Z",
         "end": "2026-10-26T22:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -14792,6 +15021,7 @@
         "sourceIds": [
           "2396716fbb7e",
           "b56c2bb6b1d1",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -14823,7 +15053,7 @@
         "title": "Conference Connections: Making the Most of Every Interaction",
         "start": "2026-11-18T19:00:00.000Z",
         "end": "2026-11-18T20:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 5,
         "reasons": [
           "shared-event-link"
         ],
@@ -14832,6 +15062,7 @@
           "24468d6e45aa",
           "68c9b0b21fb8",
           "aa8390d8ece6",
+          "be4c1ac74f16",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -14875,25 +15106,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/ni/event/34455-distinguished-speaker-series-stefano-fusi"
-        ]
-      },
-      {
-        "id": "8485bdebc9195cb12f4b71b5",
-        "title": "Rethinking Chronic Pain and Disease",
-        "start": "2026-11-10T21:00:00.000Z",
-        "end": "2026-11-10T21:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "24468d6e45aa",
-          "d93abdb4309a"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/ni/event/35624-rethinking-chronic-pain-and-disease",
-          "https://events.cmu.edu/live/events/35624-rethinking-chronic-pain-and-disease"
         ]
       },
       {
@@ -15084,13 +15296,13 @@
         ]
       },
       {
-        "id": "8465c9484b09e3c8d165e2a7",
-        "title": "CyLab Seminar - Franziska Roesner",
-        "start": "2026-11-09T17:00:00.000Z",
-        "end": "2026-11-09T18:00:00.000Z",
+        "id": "552bd087bda5f0ce323d2b69",
+        "title": "Computer Science Ph.D Thesis Proposal - Hongyi Jin",
+        "start": "2026-11-09T17:30:00.000Z",
+        "end": "2026-11-09T19:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
-          "copied-description"
+          "jev-same-occurrence"
         ],
         "sourceConflicts": [],
         "sourceIds": [
@@ -15101,7 +15313,72 @@
           "d5814b89c528"
         ],
         "originalUrls": [
-          "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D212746964",
+          "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D212878951",
+          "https://csd.cmu.edu/ical/ical.ics"
+        ]
+      },
+      {
+        "id": "a758b4ec76d47bacdf9f4b84",
+        "title": "Block Center for Technology and Society Research Talk - Martin Sap",
+        "start": "2026-11-13T17:00:00.000Z",
+        "end": "2026-11-13T18:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "jev-same-occurrence"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "26680f057d80",
+          "426866c33d9d",
+          "d5814b89c528",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D212893891",
+          "https://events.cmu.edu/block-center/event/36870-research-talks-with-block-social-intelligence-in"
+        ]
+      },
+      {
+        "id": "65caa8c19017e289baeee570",
+        "title": "Computer Science Ph.D. Thesis Proposal - Wayne Chi",
+        "start": "2026-11-11T20:00:00.000Z",
+        "end": "2026-11-11T21:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "jev-same-occurrence"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "26680f057d80",
+          "426866c33d9d",
+          "4c5426677e95",
+          "b965a95677c6",
+          "d5814b89c528"
+        ],
+        "originalUrls": [
+          "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D212900897",
+          "https://csd.cmu.edu/ical/ical.ics"
+        ]
+      },
+      {
+        "id": "f22166afa059bf3d6155091d",
+        "title": "Computer Science Ph.D. Speaking Skill Talk - Rafael Gonçalves",
+        "start": "2026-11-11T17:00:00.000Z",
+        "end": "2026-11-11T18:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "jev-same-occurrence"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "26680f057d80",
+          "426866c33d9d",
+          "4c5426677e95",
+          "b965a95677c6",
+          "d5814b89c528"
+        ],
+        "originalUrls": [
+          "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D212900924",
           "https://csd.cmu.edu/ical/ical.ics"
         ]
       },
@@ -15125,6 +15402,75 @@
         "originalUrls": [
           "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D212951896",
           "https://csd.cmu.edu/ical/ical.ics"
+        ]
+      },
+      {
+        "id": "5c93728b00cfd45e894dfcc3",
+        "title": "Computer Science Ph.D. Speaking Skill Talk - Zhuoming Chen",
+        "start": "2026-11-12T20:00:00.000Z",
+        "end": "2026-11-12T21:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "jev-same-occurrence"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "26680f057d80",
+          "426866c33d9d",
+          "4c5426677e95",
+          "b965a95677c6",
+          "d5814b89c528"
+        ],
+        "originalUrls": [
+          "https://www.cs.cmu.edu/calendar/?trumbaEmbed=view%3Devent%26eventid%3D212955901",
+          "https://csd.cmu.edu/ical/ical.ics"
+        ]
+      },
+      {
+        "id": "443154e1d38128236421ad1e",
+        "title": "CyLab Seminar: Rolfe Schmidt",
+        "start": "2026-10-26T16:00:00.000Z",
+        "end": "2026-10-26T17:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link",
+          "specific-title-and-venue"
+        ],
+        "sourceConflicts": [
+          "location"
+        ],
+        "sourceIds": [
+          "2a77547af411",
+          "4c5426677e95",
+          "b965a95677c6",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/cylab/event/35372-cylab-seminar-rolfe-schmidt",
+          "https://csd.cmu.edu/ical/ical.ics"
+        ]
+      },
+      {
+        "id": "5e056bfdbae01acd3988c6d7",
+        "title": "AI-SDM Seminar Series: Jeannette Sutton",
+        "start": "2026-11-19T17:00:00.000Z",
+        "end": "2026-11-19T18:30:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link",
+          "specific-title-and-venue"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "2a77547af411",
+          "87507d15b7a1",
+          "958db3309744",
+          "bf6c8d5cccc3"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/33694-ai-sdm-seminar-series-jeannette-sutton",
+          "https://events.cmu.edu/ai-sdm/event/33694-ai-sdm-seminar-series-jeannette-sutton",
+          "https://seminartracker.tepper.cmu.edu/SeminarDetail?SeminarId=1929"
         ]
       },
       {
@@ -15993,15 +16339,14 @@
         "title": "The Scholar’s Journey Session 4: Preparing for the Summit & Owning the Climb",
         "start": "2026-11-10T22:00:00.000Z",
         "end": "2026-11-10T23:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "3e5a8e176b7b",
-          "b20a9fbd0aed",
-          "e8b71eac1119"
+          "b20a9fbd0aed"
         ],
         "originalUrls": [
           "https://events.cmu.edu/student-success/event/34181-the-scholars-journey-session-4-preparing-for-the"
@@ -16699,42 +17044,6 @@
         ]
       },
       {
-        "id": "eff9be78e7761fa2b14be023",
-        "title": "T'ai Chi and Qigong Series",
-        "start": "2026-11-10T22:00:00.000Z",
-        "end": "2026-11-10T23:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "40f7fd9f957c",
-          "5d10172e6358"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1938125"
-        ]
-      },
-      {
-        "id": "de5c641848aa2bc361adc140",
-        "title": "T'ai Chi and Qigong Series",
-        "start": "2026-11-17T22:00:00.000Z",
-        "end": "2026-11-17T23:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "40f7fd9f957c",
-          "5d10172e6358"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1938126"
-        ]
-      },
-      {
         "id": "cde64606e87e3acd9e8ca2c8",
         "title": "Slow Looking: A Photo Walk and Journaling Session in Schenley Park",
         "start": "2026-10-24T15:00:00.000Z",
@@ -16805,6 +17114,27 @@
         "originalUrls": [
           "https://scottyconnect.qatar.cmu.edu/rsvp_boot?id=375491&rel=title",
           "https://scottyconnect.qatar.cmu.edu/rsvp?id=375491"
+        ]
+      },
+      {
+        "id": "8f438de18e4fce74de64a99c",
+        "title": "Student IronViz Challenge Information Session: AI Usage at CMU",
+        "start": "2026-10-26T21:00:00.000Z",
+        "end": "2026-10-26T22:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "jev-same-occurrence",
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "44f25df140c0",
+          "491df87feb08",
+          "7f03d1a54c59",
+          "b37d02b73df8"
+        ],
+        "originalUrls": [
+          "https://cmu.libcal.com/event/17592240"
         ]
       },
       {
@@ -16983,17 +17313,22 @@
         "title": "Research with Community: Incentives for Students and Faculty",
         "start": "2026-10-08T13:00:00.000Z",
         "end": "2026-10-08T14:00:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 4,
         "reasons": [
+          "jev-same-occurrence",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
+          "200debe3bed3",
           "491df87feb08",
+          "5d10172e6358",
           "7f03d1a54c59",
+          "a1ee1fd039a1",
           "b37d02b73df8"
         ],
         "originalUrls": [
+          "https://tartanconnect.cmu.edu/rsvp?id=1936580",
           "https://cmu.libcal.com/event/17253066"
         ]
       },
@@ -17059,17 +17394,19 @@
         "title": "Communicating Data: Data Storytelling",
         "start": "2026-10-28T16:00:00.000Z",
         "end": "2026-10-28T17:00:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 7,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "491df87feb08",
+          "6bab7f11462d",
           "7f03d1a54c59",
           "982c26d90129",
           "b37d02b73df8",
           "c7a2fb7ee246",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -17232,25 +17569,6 @@
         ]
       },
       {
-        "id": "8f438de18e4fce74de64a99c",
-        "title": "Student IronViz Challenge Information Session: AI Usage at CMU",
-        "start": "2026-10-26T21:00:00.000Z",
-        "end": "2026-10-26T22:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "491df87feb08",
-          "7f03d1a54c59",
-          "b37d02b73df8"
-        ],
-        "originalUrls": [
-          "https://cmu.libcal.com/event/17592240"
-        ]
-      },
-      {
         "id": "99ce88df09628d143bf248c9",
         "title": "Understand Open Principles and Devise Strategies to Implement into Research Practices | Rm 1160 | 1-2 PM Qatar time",
         "start": "2026-10-19T10:00:00.000Z",
@@ -17350,14 +17668,13 @@
         "title": "Bat Movies and Blueprints: The Dark Knight Rises",
         "start": "2026-11-19T21:00:00.000Z",
         "end": "2026-11-20T00:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "491df87feb08",
-          "6bab7f11462d",
           "b37d02b73df8",
           "e8b71eac1119"
         ],
@@ -17420,6 +17737,28 @@
         ]
       },
       {
+        "id": "8736e37f2fc269da548793d9",
+        "title": "Seminar: Designing & Printing Dispersion Strengthened Ti-6Al-4V via Laser Powder Bed Fusion Additive Manufacturing",
+        "start": "2026-10-26T17:00:00.000Z",
+        "end": "2026-10-26T18:00:00.000Z",
+        "sourceOccurrences": 5,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "4f43025a2cf8",
+          "a7c788b3ea2a",
+          "b7fd3056adb2",
+          "cdd4d5698566",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/35589-designing-printing-dispersion-strengthened",
+          "https://events.cmu.edu/next/event/35589-seminar-designing-printing-dispersion-strengthened-ti-"
+        ]
+      },
+      {
         "id": "e2d224fd04e49a42ce5af093",
         "title": "Seminar: In-situ Based Approaches for Quality Assurance and Quality Control in Laser Powder Bed Additive Manufacturing",
         "start": "2026-11-09T19:00:00.000Z",
@@ -17441,53 +17780,31 @@
         ]
       },
       {
-        "id": "620b304faa8d70429af499fc",
-        "title": "Talk & Reading with Ayelet Tsabari",
-        "start": "2026-11-11T22:15:00.000Z",
-        "end": "2026-11-12T00:30:00.000Z",
-        "sourceOccurrences": 5,
+        "id": "74a09917c1621975c12c21e1",
+        "title": "Becoming Madam Europe: Ursula von der Leyen and the European Union in the Age of Trump",
+        "start": "2026-10-28T20:00:00.000Z",
+        "end": "2026-10-28T21:30:00.000Z",
+        "sourceOccurrences": 4,
         "reasons": [
-          "shared-event-link",
-          "specific-title-and-venue"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "4f75e74a4136",
-          "b1ee74eb5acb",
-          "d93abdb4309a",
-          "da2117ec52f4",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/history/event/35863-talk-reading-with-ayelet-tsabari",
-          "https://calendar.google.com/calendar/embed?src=cmu.history%40gmail.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261111%2F20261112",
-          "https://events.cmu.edu/live/events/35863-talk-reading-with-ayelet-tsabari"
-        ]
-      },
-      {
-        "id": "2612f3f5f13cdecfd0124e33",
-        "title": "Professor Joe Trotter Jr. Retirement Party",
-        "start": "2026-11-19T21:00:00.000Z",
-        "end": "2026-11-19T21:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
+          "copied-description",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "4f75e74a4136",
-          "da2117ec52f4",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/history/event/35866-professor-joe-trotter-jr-retirement-party"
+          "https://events.cmu.edu/history/event/35406-becoming-madam-europe-ursula-von-der-leyen-and-the",
+          "https://events.cmu.edu/live/events/34548-becoming-madam-europe-ursula-von-der-leyen-and-the"
         ]
       },
       {
-        "id": "9d7ebe2d89599e3bcc30e66e",
-        "title": "Dr. Michael Berenbaum Discussion on Kristallnacht",
-        "start": "2026-11-08T21:00:00.000Z",
-        "end": "2026-11-08T22:30:00.000Z",
+        "id": "b4f9f80502e29a446e5e1685",
+        "title": "Ostatni Etap: The Last Stage",
+        "start": "2026-10-28T22:00:00.000Z",
+        "end": "2026-10-28T23:30:00.000Z",
         "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link",
@@ -17498,30 +17815,51 @@
           "4f75e74a4136",
           "b1ee74eb5acb",
           "d93abdb4309a",
-          "da2117ec52f4"
+          "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/history/event/35868-dr-michael-berenbaum-discussion-on-kristallnacht",
-          "https://calendar.google.com/calendar/embed?src=cmu.history%40gmail.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261108%2F20261109",
-          "https://events.cmu.edu/live/events/35868-dr-michael-berenbaum-discussion-on-kristallnacht"
+          "https://events.cmu.edu/history/event/35865-ostatni-etap-the-last-stage",
+          "https://calendar.google.com/calendar/embed?src=cmu.history%40gmail.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261028%2F20261029",
+          "https://events.cmu.edu/live/events/35865-ostatni-etap-the-last-stage"
         ]
       },
       {
-        "id": "a6933352d6ec92ba57b006bb",
-        "title": "Annual Afretec Network Conference",
-        "start": "2026-10-25",
-        "end": "2026-10-31",
-        "sourceOccurrences": 2,
+        "id": "8736962391d2131f5f7ed809",
+        "title": "Get the Scoop on History Courses",
+        "start": "2026-10-26T21:00:00.000Z",
+        "end": "2026-10-26T21:00:00.000Z",
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
-          "50ee08b31e1a",
+          "4f75e74a4136",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/afretec/event/33635-annual-afretec-network-conference"
+          "https://events.cmu.edu/history/event/35876-get-the-scoop-on-history-courses",
+          "https://events.cmu.edu/live/events/35876-get-the-scoop-on-history-courses"
+        ]
+      },
+      {
+        "id": "a0b53c36c7a13ede528c44ce",
+        "title": "Computational Humanities Co-working Session",
+        "start": "2026-11-05T16:00:00.000Z",
+        "end": "2026-11-05T17:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "4f75e74a4136",
+          "6bab7f11462d",
+          "d93abdb4309a"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/35896-computational-humanities-co-working-session"
         ]
       },
       {
@@ -17540,6 +17878,96 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/afretec/event/35302-entrepreneurship-development-and-impact-program"
+        ]
+      },
+      {
+        "id": "79d215d26befa4432155f3e1",
+        "title": "From Sample to Insight: A Five-Day Hands-On Workshop",
+        "start": "2026-10-31T08:00:00.000Z",
+        "end": "2026-11-28T15:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "50ee08b31e1a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/afretec/event/36896-from-sample-to-insight-a-five-day-hands-on"
+        ]
+      },
+      {
+        "id": "cb747ca6652b09060424d612",
+        "title": "AI@AUC: Building Trust in STEM Classrooms: Strategies for Meaningful Educational Connections",
+        "start": "2026-11-16T13:30:00.000Z",
+        "end": "2026-11-16T14:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "50ee08b31e1a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/afretec/event/36900-aiauc-building-trust-in-stem-classrooms-strategies"
+        ]
+      },
+      {
+        "id": "110cdaf737b1d8e0df505677",
+        "title": "AI@AUC: Taking a Mosaic Approach to Designing for AI Literacy in the Writing Classroom",
+        "start": "2026-11-18T15:00:00.000Z",
+        "end": "2026-11-18T16:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "50ee08b31e1a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/afretec/event/36901-aiauc-taking-a-mosaic-approach-to-designing-for-ai"
+        ]
+      },
+      {
+        "id": "ebb4fe17e21f32bde0b77685",
+        "title": "Artificial Intelligence as a Systemic Intervention in Education",
+        "start": "2026-11-21T23:00:00.000Z",
+        "end": "2026-11-22T00:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "50ee08b31e1a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/afretec/event/36902-artificial-intelligence-as-a-systemic-intervention"
+        ]
+      },
+      {
+        "id": "71f41ce18a01dc4275bcd926",
+        "title": "Beyond the Prompt: A Systems Thinking Approach to AI in Education Workshop",
+        "start": "2026-11-23T11:00:00.000Z",
+        "end": "2026-11-23T12:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "50ee08b31e1a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/afretec/event/36903-beyond-the-prompt-a-systems-thinking-approach-to"
         ]
       },
       {
@@ -17565,7 +17993,7 @@
         "title": "Google Product Education Program (PEP) Webinar",
         "start": "2026-10-28T16:00:00.000Z",
         "end": "2026-10-28T16:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 5,
         "reasons": [
           "shared-event-link"
         ],
@@ -17574,6 +18002,7 @@
           "580e4a2ea37b",
           "982c26d90129",
           "c7a2fb7ee246",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -17658,7 +18087,7 @@
         "title": "Inside the Cyber Threat Landscape with FBI Pittsburgh",
         "start": "2026-10-28T16:00:00.000Z",
         "end": "2026-10-28T17:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 5,
         "reasons": [
           "shared-event-link"
         ],
@@ -17667,11 +18096,30 @@
           "580e4a2ea37b",
           "982c26d90129",
           "c7a2fb7ee246",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
           "https://events.cmu.edu/computing/event/34745-inside-the-cyber-threat-landscape-with-fbi",
           "https://events.cmu.edu/live/events/34745-inside-the-cyber-threat-landscape-with-fbi"
+        ]
+      },
+      {
+        "id": "0ef925d62c64f91a5e030e4a",
+        "title": "Departmental Seminar: Dr. Ken Bayles",
+        "start": "2026-10-28T16:30:00.000Z",
+        "end": "2026-10-28T17:40:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "58220d8df81e",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/bio/event/32781-departmental-seminar-dr-ken-bayles"
         ]
       },
       {
@@ -17732,10 +18180,10 @@
         ]
       },
       {
-        "id": "c914eb3292b1973103065315",
-        "title": "Graduate Summer Internship Workshop",
-        "start": "2026-11-16T20:30:00.000Z",
-        "end": "2026-11-16T22:00:00.000Z",
+        "id": "233822ef44bff61cf70a2249",
+        "title": "Graduate Research Seminar",
+        "start": "2026-10-26T19:30:00.000Z",
+        "end": "2026-10-26T21:00:00.000Z",
         "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
@@ -17747,7 +18195,7 @@
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/bio/event/32798-graduate-summer-internship-workshop"
+          "https://events.cmu.edu/bio/event/32795-research-club"
         ]
       },
       {
@@ -18166,67 +18614,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/bio/event/32820-graduate-research-seminar"
-        ]
-      },
-      {
-        "id": "6d5a391141a848763932eb3b",
-        "title": "Third Rotation Talks",
-        "start": "2027-04-26T19:30:00.000Z",
-        "end": "2027-04-26T21:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "58220d8df81e",
-          "aa8390d8ece6",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/bio/event/32821-third-rotation-talks"
-        ]
-      },
-      {
-        "id": "f21220db5569cb9720d7416d",
-        "title": "Last Day of Classes",
-        "start": "2027-04-30",
-        "end": "2027-05-01",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "58220d8df81e",
-          "68c9b0b21fb8",
-          "aa8390d8ece6",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/33070-last-day-of-classes",
-          "https://events.cmu.edu/mcs/event/33070-last-day-of-classes"
-        ]
-      },
-      {
-        "id": "f75e86296ddba84b939dc96c",
-        "title": "Reading Day",
-        "start": "2027-05-05",
-        "end": "2027-05-06",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "58220d8df81e",
-          "68c9b0b21fb8",
-          "aa8390d8ece6",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/33072-reading-day",
-          "https://events.cmu.edu/mcs/event/33072-reading-day"
         ]
       },
       {
@@ -20347,39 +20734,47 @@
         ]
       },
       {
-        "id": "b1b69b52bed97a262f2eba54",
+        "id": "b7995d7563865cad0badfff1",
         "title": "Study Abroad Pre-Departure Session",
         "start": "2026-11-03T17:00:00.000Z",
         "end": "2026-11-03T18:30:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 4,
         "reasons": [
+          "copied-description",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "5d10172e6358",
+          "5e852d711da8",
+          "d93abdb4309a",
           "ea5aa441be7a"
         ],
         "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1936155"
+          "https://tartanconnect.cmu.edu/rsvp?id=1936155",
+          "https://events.cmu.edu/studyabroad/event/32560-study-abroad-pre-departure-session",
+          "https://events.cmu.edu/live/events/32560-study-abroad-pre-departure-session"
         ]
       },
       {
-        "id": "52e9b55141bd687c880ad17f",
+        "id": "19c7e1c164243aa12a2579a0",
         "title": "Study Abroad Pre-Departure Session",
         "start": "2026-11-04T21:30:00.000Z",
         "end": "2026-11-04T23:00:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
+          "copied-description",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "5d10172e6358",
+          "5e852d711da8",
           "ea5aa441be7a"
         ],
         "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1936156"
+          "https://tartanconnect.cmu.edu/rsvp?id=1936156",
+          "https://events.cmu.edu/studyabroad/event/32565-study-abroad-pre-departure-session"
         ]
       },
       {
@@ -20405,39 +20800,47 @@
         ]
       },
       {
-        "id": "4bd3becb16842a98c1ec719d",
-        "title": "Study Abroad Drop-in Advising - La Prima, Gates",
+        "id": "92bd97673722c5d96aeae04c",
+        "title": "Study Abroad Drop-in Advising",
         "start": "2026-11-18T16:00:00.000Z",
         "end": "2026-11-18T17:00:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 4,
         "reasons": [
+          "jev-same-occurrence",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "5d10172e6358",
+          "5e852d711da8",
+          "e8b71eac1119",
           "ea5aa441be7a"
         ],
         "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1936158"
+          "https://tartanconnect.cmu.edu/rsvp?id=1936158",
+          "https://events.cmu.edu/studyabroad/event/32568-study-abroad-drop-in-advising"
         ]
       },
       {
-        "id": "24b69e79638bc8dc8a450494",
-        "title": "Study Abroad Drop-in Advising - De Fer, Hunt Library",
+        "id": "bd72ccce85be0fdfa61ee7b3",
+        "title": "Study Abroad Drop-in Advising",
         "start": "2026-12-01T15:00:00.000Z",
         "end": "2026-12-01T16:00:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 4,
         "reasons": [
+          "jev-same-occurrence",
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "5d10172e6358",
+          "5e852d711da8",
+          "e8b71eac1119",
           "ea5aa441be7a"
         ],
         "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1936159"
+          "https://tartanconnect.cmu.edu/rsvp?id=1936159",
+          "https://events.cmu.edu/studyabroad/event/32569-study-abroad-drop-in-advising"
         ]
       },
       {
@@ -20566,25 +20969,6 @@
         ],
         "originalUrls": [
           "https://tartanconnect.cmu.edu/rsvp?id=1936289"
-        ]
-      },
-      {
-        "id": "1dcfab916acdbbc92caef75d",
-        "title": "Research with Community: Incentives for Researchers",
-        "start": "2026-10-08T13:00:00.000Z",
-        "end": "2026-10-08T14:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "200debe3bed3",
-          "5d10172e6358",
-          "a1ee1fd039a1"
-        ],
-        "originalUrls": [
-          "https://tartanconnect.cmu.edu/rsvp?id=1936580"
         ]
       },
       {
@@ -21358,42 +21742,6 @@
         ],
         "originalUrls": [
           "https://tartanconnect.cmu.edu/rsvp?id=1938341"
-        ]
-      },
-      {
-        "id": "92bd97673722c5d96aeae04c",
-        "title": "Study Abroad Drop-in Advising",
-        "start": "2026-11-18T16:00:00.000Z",
-        "end": "2026-11-18T17:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "5e852d711da8",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/studyabroad/event/32568-study-abroad-drop-in-advising"
-        ]
-      },
-      {
-        "id": "bd72ccce85be0fdfa61ee7b3",
-        "title": "Study Abroad Drop-in Advising",
-        "start": "2026-12-01T15:00:00.000Z",
-        "end": "2026-12-01T16:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "5e852d711da8",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/studyabroad/event/32569-study-abroad-drop-in-advising"
         ]
       },
       {
@@ -22334,11 +22682,11 @@
         ]
       },
       {
-        "id": "0ac40ac0868b4e781655c250",
-        "title": "International Job Search Perspectives: Virtual Panel w/ Alumni Working Outside US",
-        "start": "2026-12-15T14:00:00.000Z",
-        "end": "2026-12-15T15:00:00.000Z",
-        "sourceOccurrences": 3,
+        "id": "f21220db5569cb9720d7416d",
+        "title": "Last Day of Classes",
+        "start": "2027-04-30",
+        "end": "2027-05-01",
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -22346,6 +22694,49 @@
         "sourceIds": [
           "68c9b0b21fb8",
           "aa8390d8ece6",
+          "be4c1ac74f16",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/33070-last-day-of-classes",
+          "https://events.cmu.edu/mcs/event/33070-last-day-of-classes"
+        ]
+      },
+      {
+        "id": "f75e86296ddba84b939dc96c",
+        "title": "Reading Day",
+        "start": "2027-05-05",
+        "end": "2027-05-06",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "68c9b0b21fb8",
+          "aa8390d8ece6",
+          "be4c1ac74f16",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/33072-reading-day",
+          "https://events.cmu.edu/mcs/event/33072-reading-day"
+        ]
+      },
+      {
+        "id": "0ac40ac0868b4e781655c250",
+        "title": "International Job Search Perspectives: Virtual Panel w/ Alumni Working Outside US",
+        "start": "2026-12-15T14:00:00.000Z",
+        "end": "2026-12-15T15:00:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "68c9b0b21fb8",
+          "aa8390d8ece6",
+          "be4c1ac74f16",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -22358,7 +22749,7 @@
         "title": "Navigating the US Workplace and Job Search: Virtual Panel for International Students",
         "start": "2026-12-16T17:00:00.000Z",
         "end": "2026-12-16T18:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -22366,6 +22757,7 @@
         "sourceIds": [
           "68c9b0b21fb8",
           "aa8390d8ece6",
+          "be4c1ac74f16",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -23017,41 +23409,22 @@
         ]
       },
       {
-        "id": "a0b53c36c7a13ede528c44ce",
-        "title": "Computational Humanities Co-working Session",
-        "start": "2026-11-05T16:00:00.000Z",
-        "end": "2026-11-05T17:00:00.000Z",
-        "sourceOccurrences": 3,
+        "id": "f49955bd728fef1dbc568070",
+        "title": "English Master’s Programs Information Session",
+        "start": "2026-11-11T22:00:00.000Z",
+        "end": "2026-11-11T23:00:00.000Z",
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "7dd208226033",
-          "c84cc1c34efc",
-          "da2117ec52f4"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/35896-computational-humanities-co-working-session"
-        ]
-      },
-      {
-        "id": "14b35d962050cd982e9a4b08",
-        "title": "In-Theory Seminar: Claudia de Rham (Imperial College)",
-        "start": "2026-12-03T20:00:00.000Z",
-        "end": "2026-12-03T21:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "840fd3084bf4",
-          "aa8390d8ece6",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/physics/event/36667-in-theory-seminar-claudia-de-rham-imperial-college"
+          "https://events.cmu.edu/english/event/35930-english-masters-programs-information-session",
+          "https://events.cmu.edu/live/events/35930-english-masters-programs-information-session"
         ]
       },
       {
@@ -23075,21 +23448,127 @@
         ]
       },
       {
-        "id": "17789c81b48d9b772e51a354",
-        "title": "ETC Alumni Meetup: NYC",
-        "start": "2026-10-28T22:30:00.000Z",
-        "end": "2026-10-28T22:30:00.000Z",
-        "sourceOccurrences": 2,
+        "id": "12a221c516c77bc415edd396",
+        "title": "SONA at the Three Rivers Film Festival",
+        "start": "2026-11-13T22:00:00.000Z",
+        "end": "2026-11-14T02:00:00.000Z",
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "8515f6312210",
+          "c84cc1c34efc",
+          "e8b71eac1119",
+          "fac3ce8cfb40"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/36911-sona-at-the-three-rivers-film-festival",
+          "https://events.cmu.edu/lcal/event/36911-sona-at-the-three-rivers-film-festival"
+        ]
+      },
+      {
+        "id": "d454e53c119d315c1afd1ff6",
+        "title": "SONA at the Three Rivers Film Festival",
+        "start": "2026-11-14T16:00:00.000Z",
+        "end": "2026-11-15T02:00:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "8515f6312210",
+          "c84cc1c34efc",
+          "e8b71eac1119",
+          "fac3ce8cfb40"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/36912-sona-at-the-three-rivers-film-festival",
+          "https://events.cmu.edu/lcal/event/36912-sona-at-the-three-rivers-film-festival"
+        ]
+      },
+      {
+        "id": "8e9e64139cb322ce02fd4f05",
+        "title": "AI-SDM Seminar Series: Tom Costello",
+        "start": "2026-10-29T16:00:00.000Z",
+        "end": "2026-10-29T17:30:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "jev-same-occurrence",
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "4c5426677e95",
+          "87507d15b7a1",
+          "b965a95677c6",
+          "bf6c8d5cccc3"
+        ],
+        "originalUrls": [
+          "https://csd.cmu.edu/ical/ical.ics",
+          "https://events.cmu.edu/ai-sdm/event/33692-ai-sdm-seminar-series-tom-costello",
+          "https://events.cmu.edu/live/events/33692-ai-sdm-seminar-series-tom-costello"
+        ]
+      },
+      {
+        "id": "bed8fe96f27bd50abd9ca9ed",
+        "title": "AI-SDM Student Brainstorming Session",
+        "start": "2026-11-05T17:00:00.000Z",
+        "end": "2026-11-05T18:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "87507d15b7a1",
+          "bf6c8d5cccc3"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/ai-sdm/event/33819-ai-sdm-student-brainstorming-session",
+          "https://events.cmu.edu/live/events/33819-ai-sdm-student-brainstorming-session"
+        ]
+      },
+      {
+        "id": "6aef4e5cc755ca6a66d3a17c",
+        "title": "AI-SDM Student Session: DLC Lunch & Learn",
+        "start": "2026-12-03T17:00:00.000Z",
+        "end": "2026-12-03T18:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "87507d15b7a1",
+          "bf6c8d5cccc3"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/ai-sdm/event/33820-ai-sdm-student-session-dlc-lunch-learn",
+          "https://events.cmu.edu/live/events/33820-ai-sdm-student-brainstorming-session"
+        ]
+      },
+      {
+        "id": "9e03c2d28c09383f7148e480",
+        "title": "Fall Seminar - Alex Luedtke",
+        "start": "2026-10-26T20:00:00.000Z",
+        "end": "2026-10-26T20:00:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "982c26d90129",
+          "c7a2fb7ee246",
+          "c9b5ed0cf149",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/etc/event/35857-etc-alumni-meetup-nyc"
+          "https://events.cmu.edu/live/events/34350-fall-seminar-alex-luedtke",
+          "https://events.cmu.edu/statistics-datascience/event/34350-fall-seminar-alex-luedtke"
         ]
       },
       {
@@ -23176,6 +23655,48 @@
         ]
       },
       {
+        "id": "e85455ecde7499df996459d0",
+        "title": "Graduate Student Seminar",
+        "start": "2026-10-30T16:30:00.000Z",
+        "end": "2026-10-30T16:30:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "a7c788b3ea2a",
+          "b7c01c6836cd",
+          "b7fd3056adb2",
+          "cdd4d5698566"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/32769-graduate-student-seminar",
+          "https://events.cmu.edu/mse/event/32769-graduate-student-seminar"
+        ]
+      },
+      {
+        "id": "b8d1f52e72cb80a8516a42c3",
+        "title": "Graduate Student Seminar",
+        "start": "2026-11-06T17:30:00.000Z",
+        "end": "2026-11-06T17:30:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "a7c788b3ea2a",
+          "b7c01c6836cd",
+          "b7fd3056adb2",
+          "cdd4d5698566"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/32770-graduate-student-seminar",
+          "https://events.cmu.edu/mse/event/32770-graduate-student-seminar"
+        ]
+      },
+      {
         "id": "63252e994e677440c8f0cd9f",
         "title": "Graduate Student Seminar",
         "start": "2026-11-13T17:30:00.000Z",
@@ -23202,7 +23723,7 @@
         "title": "Graduate Student Seminar",
         "start": "2026-11-20T17:30:00.000Z",
         "end": "2026-11-20T17:30:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -23211,7 +23732,6 @@
           "a7c788b3ea2a",
           "b7c01c6836cd",
           "b7fd3056adb2",
-          "cdd4d5698566",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -23220,11 +23740,31 @@
         ]
       },
       {
+        "id": "2462bef4946abccde92796e0",
+        "title": "CANCELED: Graduate Student Seminar",
+        "start": "2026-11-27T17:30:00.000Z",
+        "end": "2026-11-27T17:30:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "a7c788b3ea2a",
+          "b7c01c6836cd",
+          "b7fd3056adb2"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/32773-graduate-student-seminar",
+          "https://events.cmu.edu/mse/event/32773-graduate-student-seminar"
+        ]
+      },
+      {
         "id": "b770dfba1a630568fdfbb18e",
         "title": "Graduate Student Seminar",
         "start": "2026-12-04T17:30:00.000Z",
         "end": "2026-12-04T17:30:00.000Z",
-        "sourceOccurrences": 5,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -23233,7 +23773,6 @@
           "a7c788b3ea2a",
           "b7c01c6836cd",
           "b7fd3056adb2",
-          "cdd4d5698566",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -23265,14 +23804,13 @@
         "title": "CMIST Graduate Program Virtual Open House",
         "start": "2026-11-19T19:00:00.000Z",
         "end": "2026-11-19T20:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "a9c7698372a4",
-          "d93abdb4309a",
           "e8b71eac1119",
           "fef38a4ba893"
         ],
@@ -23349,13 +23887,14 @@
         "title": "CMIST’s Politics & Pie",
         "start": "2026-10-27T21:00:00.000Z",
         "end": "2026-10-27T22:00:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "a9c7698372a4",
+          "d93abdb4309a",
           "e8b71eac1119",
           "fef38a4ba893"
         ],
@@ -23365,10 +23904,10 @@
         ]
       },
       {
-        "id": "233822ef44bff61cf70a2249",
-        "title": "Graduate Research Seminar",
-        "start": "2026-10-26T19:30:00.000Z",
-        "end": "2026-10-26T21:00:00.000Z",
+        "id": "c914eb3292b1973103065315",
+        "title": "Graduate Summer Internship Workshop",
+        "start": "2026-11-16T20:30:00.000Z",
+        "end": "2026-11-16T22:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -23379,7 +23918,25 @@
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/bio/event/32795-research-club"
+          "https://events.cmu.edu/bio/event/32798-graduate-summer-internship-workshop"
+        ]
+      },
+      {
+        "id": "6d5a391141a848763932eb3b",
+        "title": "Third Rotation Talks",
+        "start": "2027-04-26T19:30:00.000Z",
+        "end": "2027-04-26T21:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "aa8390d8ece6",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/bio/event/32821-third-rotation-talks"
         ]
       },
       {
@@ -23481,14 +24038,13 @@
         "title": "MS-DAS Information Session",
         "start": "2026-10-28T13:00:00.000Z",
         "end": "2026-10-28T14:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "aa8390d8ece6",
-          "be4c1ac74f16",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -23538,17 +24094,19 @@
         "title": "Colloquium with Dr. David Badre",
         "start": "2026-10-26T16:30:00.000Z",
         "end": "2026-10-26T16:30:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "aa8390d8ece6",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/ni/event/35756-colloquium-with-dr-david-badre"
+          "https://events.cmu.edu/ni/event/35756-colloquium-with-dr-david-badre",
+          "https://events.cmu.edu/live/events/35756-colloquium-with-dr-david-badre"
         ]
       },
       {
@@ -23590,6 +24148,24 @@
         ]
       },
       {
+        "id": "14b35d962050cd982e9a4b08",
+        "title": "In-Theory Seminar: Claudia de Rham (Imperial College)",
+        "start": "2026-12-03T20:00:00.000Z",
+        "end": "2026-12-03T21:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "aa8390d8ece6",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/physics/event/36667-in-theory-seminar-claudia-de-rham-imperial-college"
+        ]
+      },
+      {
         "id": "9cbae560ccdec35a8702e037",
         "title": "MCS Fall Graduate Student Social - Cozy Comforts",
         "start": "2026-11-12T22:30:00.000Z",
@@ -23608,10 +24184,10 @@
         ]
       },
       {
-        "id": "b4f9f80502e29a446e5e1685",
-        "title": "Ostatni Etap: The Last Stage",
-        "start": "2026-10-28T22:00:00.000Z",
-        "end": "2026-10-28T23:30:00.000Z",
+        "id": "9d7ebe2d89599e3bcc30e66e",
+        "title": "Dr. Michael Berenbaum Discussion on Kristallnacht",
+        "start": "2026-11-08T21:00:00.000Z",
+        "end": "2026-11-08T22:30:00.000Z",
         "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link",
@@ -23620,13 +24196,36 @@
         "sourceConflicts": [],
         "sourceIds": [
           "b1ee74eb5acb",
+          "d93abdb4309a",
+          "da2117ec52f4"
+        ],
+        "originalUrls": [
+          "https://calendar.google.com/calendar/embed?src=cmu.history%40gmail.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261108%2F20261109",
+          "https://events.cmu.edu/live/events/35868-dr-michael-berenbaum-discussion-on-kristallnacht",
+          "https://events.cmu.edu/history/event/35868-dr-michael-berenbaum-discussion-on-kristallnacht"
+        ]
+      },
+      {
+        "id": "620b304faa8d70429af499fc",
+        "title": "Talk & Reading with Ayelet Tsabari",
+        "start": "2026-11-11T22:15:00.000Z",
+        "end": "2026-11-12T00:30:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link",
+          "specific-title-and-venue"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "b1ee74eb5acb",
+          "d93abdb4309a",
           "da2117ec52f4",
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://calendar.google.com/calendar/embed?src=cmu.history%40gmail.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261028%2F20261029",
-          "https://events.cmu.edu/history/event/35865-ostatni-etap-the-last-stage",
-          "https://events.cmu.edu/live/events/35865-ostatni-etap-the-last-stage"
+          "https://calendar.google.com/calendar/embed?src=cmu.history%40gmail.com&mode=AGENDA&ctz=America%2FNew_York&dates=20261111%2F20261112",
+          "https://events.cmu.edu/live/events/35863-talk-reading-with-ayelet-tsabari",
+          "https://events.cmu.edu/history/event/35863-talk-reading-with-ayelet-tsabari"
         ]
       },
       {
@@ -23649,6 +24248,60 @@
         ]
       },
       {
+        "id": "a4c3c6913784d6786c45ca65",
+        "title": "Ph.D. Thesis Defense",
+        "start": "2026-10-30T13:30:00.000Z",
+        "end": "2026-10-30T13:30:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "b7c01c6836cd",
+          "cdd4d5698566"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/mse/event/35370-phd-thesis-defense"
+        ]
+      },
+      {
+        "id": "147137c5d54098913a1c7265",
+        "title": "Women Leaders in Science & Engineering (WSLE) Lunch",
+        "start": "2026-10-30T15:00:00.000Z",
+        "end": "2026-10-30T15:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "b7c01c6836cd",
+          "cdd4d5698566"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/mse/event/35616-women-leaders-in-science-engineering-wsle"
+        ]
+      },
+      {
+        "id": "ab5984e62479842bf0337f76",
+        "title": "Women Leaders in Science & Engineering (WSLE) Lunch",
+        "start": "2026-11-06T16:00:00.000Z",
+        "end": "2026-11-06T16:00:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "b7c01c6836cd",
+          "cdd4d5698566"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/mse/event/35617-women-leaders-in-science-engineering-wsle"
+        ]
+      },
+      {
         "id": "722d21a3c6e6e71ae89987d1",
         "title": "Soft Materials Initiative Seminar",
         "start": "2026-11-06T20:00:00.000Z",
@@ -23664,101 +24317,6 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/mse/event/35628-soft-materials-initiative-seminar"
-        ]
-      },
-      {
-        "id": "fa4c67baf720b1b74dc818d8",
-        "title": "M.S. Program Information Session",
-        "start": "2026-12-11T18:00:00.000Z",
-        "end": "2026-12-11T18:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "b7c01c6836cd",
-          "cdd4d5698566",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/mse/event/36662-ms-program-information-session"
-        ]
-      },
-      {
-        "id": "2bfc1ba4f74fddfd3dd03e29",
-        "title": "Ph.D. Program Information Session",
-        "start": "2026-11-16T14:00:00.000Z",
-        "end": "2026-11-16T14:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "b7c01c6836cd",
-          "cdd4d5698566",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/mse/event/36663-phd-program-information-session"
-        ]
-      },
-      {
-        "id": "44f668dd885dc2d21aed2353",
-        "title": "Ph.D. Program Information Session",
-        "start": "2026-12-07T21:00:00.000Z",
-        "end": "2026-12-07T21:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "b7c01c6836cd",
-          "cdd4d5698566",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/mse/event/36664-phd-program-information-session"
-        ]
-      },
-      {
-        "id": "19376e0ea8b274fc39d2514a",
-        "title": "Ph.D. Thesis Defense",
-        "start": "2026-11-17T18:00:00.000Z",
-        "end": "2026-11-17T18:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "b7c01c6836cd",
-          "cdd4d5698566",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/mse/event/36680-phd-thesis-defense"
-        ]
-      },
-      {
-        "id": "8736e37f2fc269da548793d9",
-        "title": "Seminar: Designing & Printing Dispersion Strengthened Ti-6Al-4V via Laser Powder Bed Fusion Additive Manufacturing",
-        "start": "2026-10-26T17:00:00.000Z",
-        "end": "2026-10-26T18:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "b7fd3056adb2",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/next/event/35589-seminar-designing-printing-dispersion-strengthened-ti-",
-          "https://events.cmu.edu/live/events/35589-designing-printing-dispersion-strengthened"
         ]
       },
       {
@@ -23816,35 +24374,18 @@
         ]
       },
       {
-        "id": "7abbaf6779779034f72cda22",
-        "title": "MS-DAS Information Session",
-        "start": "2026-10-28T18:00:00.000Z",
-        "end": "2026-10-28T19:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "be4c1ac74f16",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/mcs/event/35152-ms-das-information-session"
-        ]
-      },
-      {
         "id": "74943c66f6a34c4d4d27295b",
         "title": "Waffle Registration Brunch with The Department of Social and Decision Sciences",
         "start": "2026-10-27T15:30:00.000Z",
         "end": "2026-10-27T17:30:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "bf6c8d5cccc3",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -25104,14 +25645,13 @@
         "title": "Paws to Relax: Pet Therapy Program",
         "start": "2026-12-02T23:30:00.000Z",
         "end": "2026-12-03T00:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "c7a2fb7ee246",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -25124,7 +25664,7 @@
         "title": "Soft Tech Quilting Bee",
         "start": "2026-10-28T21:00:00.000Z",
         "end": "2026-10-28T23:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -25132,6 +25672,7 @@
         "sourceIds": [
           "c7a2fb7ee246",
           "ccabd5dde2a8",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -25144,14 +25685,15 @@
         "title": "Soft Tech Quilting Bee",
         "start": "2026-11-04T22:00:00.000Z",
         "end": "2026-11-05T00:00:00.000Z",
-        "sourceOccurrences": 2,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "c7a2fb7ee246",
-          "ccabd5dde2a8"
+          "ccabd5dde2a8",
+          "d93abdb4309a"
         ],
         "originalUrls": [
           "https://events.cmu.edu/live/events/34034-soft-tech-quilting-bee",
@@ -25205,7 +25747,7 @@
         "title": "Soft Tech Quilting Bee",
         "start": "2026-11-25T22:00:00.000Z",
         "end": "2026-11-26T00:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -25213,7 +25755,6 @@
         "sourceIds": [
           "c7a2fb7ee246",
           "ccabd5dde2a8",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -25226,7 +25767,7 @@
         "title": "Soft Tech Quilting Bee",
         "start": "2026-12-02T22:00:00.000Z",
         "end": "2026-12-03T00:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
@@ -25234,7 +25775,6 @@
         "sourceIds": [
           "c7a2fb7ee246",
           "ccabd5dde2a8",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -25289,14 +25829,13 @@
         "title": "CaPS Global Connections: International Student Support Group",
         "start": "2026-12-01T22:30:00.000Z",
         "end": "2026-12-01T23:30:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "c7a2fb7ee246",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -25309,7 +25848,7 @@
         "title": "X in the Loop Webinar Series",
         "start": "2026-11-07T02:00:00.000Z",
         "end": "2026-11-07T03:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 4,
         "reasons": [
           "shared-event-link"
         ],
@@ -25317,7 +25856,8 @@
         "sourceIds": [
           "c7a2fb7ee246",
           "c84cc1c34efc",
-          "d93abdb4309a"
+          "d93abdb4309a",
+          "fac3ce8cfb40"
         ],
         "originalUrls": [
           "https://events.cmu.edu/live/events/35908-x-in-the-loop-webinar-series",
@@ -25325,45 +25865,85 @@
         ]
       },
       {
-        "id": "dacad78f562bb0eca97a7170",
-        "title": "World of Music: Christopher Mark Jones’ “Montréal Encore”",
-        "start": "2026-10-28T23:00:00.000Z",
-        "end": "2026-10-29T00:30:00.000Z",
-        "sourceOccurrences": 2,
+        "id": "695025d1e7256aea33f817e8",
+        "title": "X in the Loop Webinar Series",
+        "start": "2026-11-14T02:00:00.000Z",
+        "end": "2026-11-14T03:00:00.000Z",
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "c84cc1c34efc",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/lcal/event/33995-world-of-music-christopher-mark-jones-montreal",
-          "https://events.cmu.edu/live/events/33995-world-of-music-christopher-mark-jones-montreal"
-        ]
-      },
-      {
-        "id": "72b6e23d73976c1e8ae436d7",
-        "title": "Becoming Madam Europe: Ursula von der Leyen and the European Union in the Age of Trump",
-        "start": "2026-10-28T20:00:00.000Z",
-        "end": "2026-10-28T21:30:00.000Z",
-        "sourceOccurrences": 5,
-        "reasons": [
-          "copied-description",
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "c84cc1c34efc",
-          "da2117ec52f4",
           "e8b71eac1119",
           "fac3ce8cfb40"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/lcal/event/34548-becoming-madam-europe-ursula-von-der-leyen-and-the",
-          "https://events.cmu.edu/history/event/35406-becoming-madam-europe-ursula-von-der-leyen-and-the",
-          "https://events.cmu.edu/live/events/34548-becoming-madam-europe-ursula-von-der-leyen-and-the"
+          "https://events.cmu.edu/lcal/event/111326-x-in-the-loop-series",
+          "https://events.cmu.edu/live/events/111326-x-in-the-loop-series"
+        ]
+      },
+      {
+        "id": "aa58aebaa7eea5abc0de41c5",
+        "title": "X in the Loop Webinar Series",
+        "start": "2026-11-21T02:00:00.000Z",
+        "end": "2026-11-21T03:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "c84cc1c34efc",
+          "e8b71eac1119",
+          "fac3ce8cfb40"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/lcal/event/112026-x-in-the-loop-webinar-series",
+          "https://events.cmu.edu/live/events/112026-x-in-the-loop-webinar-series"
+        ]
+      },
+      {
+        "id": "a2a09dac5cdc9332675e647b",
+        "title": "X in the Loop Webinar Series",
+        "start": "2026-12-05T02:00:00.000Z",
+        "end": "2026-12-05T03:00:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "c84cc1c34efc",
+          "d93abdb4309a",
+          "e8b71eac1119",
+          "fac3ce8cfb40"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/lcal/event/120426-x-in-the-loop-webinar-series",
+          "https://events.cmu.edu/live/events/120426-x-in-the-loop-webinar-series"
+        ]
+      },
+      {
+        "id": "628d53ed33861d52a5831bde",
+        "title": "X in the Loop Webinar Series",
+        "start": "2026-12-12T02:00:00.000Z",
+        "end": "2026-12-12T03:00:00.000Z",
+        "sourceOccurrences": 4,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "c84cc1c34efc",
+          "d93abdb4309a",
+          "e8b71eac1119",
+          "fac3ce8cfb40"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/lcal/event/121126-x-in-the-loop-webinar-series",
+          "https://events.cmu.edu/live/events/121126-x-in-the-loop-webinar-series"
         ]
       },
       {
@@ -25388,26 +25968,6 @@
         ]
       },
       {
-        "id": "0b354024e8cdb412f6bc411f",
-        "title": "Academic Cultures in Conversation: Teaching, Learning and Higher Education Across Different Educational Contexts",
-        "start": "2026-10-26T14:30:00.000Z",
-        "end": "2026-10-26T16:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "c84cc1c34efc",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/lcal/event/35702-academic-cultures-in-conversation",
-          "https://events.cmu.edu/live/events/35702-academic-cultures-in-conversation"
-        ]
-      },
-      {
         "id": "e364392576fa89f9de4dd530",
         "title": "Bertony Louis’ Book Launch: “Chroniques d’un pays sans aube”",
         "start": "2026-11-12T22:30:00.000Z",
@@ -25429,10 +25989,10 @@
         ]
       },
       {
-        "id": "e3a0786d57990f9bf7de69a2",
-        "title": "Humanities Hang",
-        "start": "2026-11-06T19:00:00.000Z",
-        "end": "2026-11-06T19:00:00.000Z",
+        "id": "2f7cdff804397aae2dc1c314",
+        "title": "Belarusian Between Polish and Russian: Language, History and Identity",
+        "start": "2026-11-17",
+        "end": "2026-11-18",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -25440,11 +26000,10 @@
         "sourceConflicts": [],
         "sourceIds": [
           "c84cc1c34efc",
-          "d93abdb4309a"
+          "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/live/events/34935-humanities-hang",
-          "https://events.cmu.edu/dietrich/event/34935-humanities-hang"
+          "https://events.cmu.edu/lcal/event/36312-belarusian-between-polish-and-russian-language"
         ]
       },
       {
@@ -25473,14 +26032,13 @@
         "title": "Humanities Hang",
         "start": "2026-11-20T19:00:00.000Z",
         "end": "2026-11-20T19:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "c84cc1c34efc",
-          "d93abdb4309a",
           "e8b71eac1119",
           "fac3ce8cfb40"
         ],
@@ -25494,14 +26052,13 @@
         "title": "Humanities Hang",
         "start": "2026-11-27T19:00:00.000Z",
         "end": "2026-11-27T19:00:00.000Z",
-        "sourceOccurrences": 4,
+        "sourceOccurrences": 3,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "c84cc1c34efc",
-          "d93abdb4309a",
           "e8b71eac1119",
           "fac3ce8cfb40"
         ],
@@ -25574,10 +26131,30 @@
         ]
       },
       {
-        "id": "c2acefe875f4ea112da81456",
-        "title": "CANCELED: Fall Seminar - Ricardo Masini",
-        "start": "2026-11-16T21:00:00.000Z",
-        "end": "2026-11-16T21:00:00.000Z",
+        "id": "55c0e0a8c423155669c6bdd5",
+        "title": "Graduate Student Winter Social",
+        "start": "2026-12-02T22:00:00.000Z",
+        "end": "2026-12-03T00:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "c84cc1c34efc",
+          "e8b71eac1119",
+          "fac3ce8cfb40"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/live/events/36907-graduate-student-winter-social",
+          "https://events.cmu.edu/dietrich/event/36907-graduate-student-winter-social"
+        ]
+      },
+      {
+        "id": "1609f40ffbbb8587f4e9415a",
+        "title": "StatDS and LCAL Summer 2027 Study Abroad Info Session",
+        "start": "2026-10-28T19:30:00.000Z",
+        "end": "2026-10-28T20:30:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -25588,27 +26165,7 @@
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/statistics-datascience/event/34353-fall-seminar-ricardo-masini"
-        ]
-      },
-      {
-        "id": "cb0caf61b1a131f019f1564e",
-        "title": "Playtest Nights",
-        "start": "2026-11-10T22:00:00.000Z",
-        "end": "2026-11-11T00:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "ccabd5dde2a8",
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/ideate/event/35350-playtest-nights",
-          "https://events.cmu.edu/live/events/35350-playtest-nights"
+          "https://events.cmu.edu/statistics-datascience/event/35626-statds-and-lcal-summer-2027-study-abroad-info-session"
         ]
       },
       {
@@ -25616,14 +26173,13 @@
         "title": "Playtest Nights",
         "start": "2026-11-17T22:00:00.000Z",
         "end": "2026-11-18T00:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "ccabd5dde2a8",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -25636,14 +26192,13 @@
         "title": "CANCELED: Playtest Nights",
         "start": "2026-11-24T22:00:00.000Z",
         "end": "2026-11-25T00:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "ccabd5dde2a8",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -25656,14 +26211,13 @@
         "title": "Playtest Nights",
         "start": "2026-12-01T22:00:00.000Z",
         "end": "2026-12-02T00:00:00.000Z",
-        "sourceOccurrences": 3,
+        "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
           "ccabd5dde2a8",
-          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -25672,17 +26226,36 @@
         ]
       },
       {
-        "id": "3b7abf2d9793cd045f56ffa4",
-        "title": "Five Lessons on Caregiving from Wilderness Survival",
-        "start": "2026-10-28T21:00:00.000Z",
-        "end": "2026-10-28T23:00:00.000Z",
+        "id": "fa4c67baf720b1b74dc818d8",
+        "title": "M.S. Program Information Session",
+        "start": "2026-12-11T18:00:00.000Z",
+        "end": "2026-12-11T18:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
         ],
         "sourceConflicts": [],
         "sourceIds": [
+          "cdd4d5698566",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/mse/event/36662-ms-program-information-session"
+        ]
+      },
+      {
+        "id": "3b7abf2d9793cd045f56ffa4",
+        "title": "Five Lessons on Caregiving from Wilderness Survival",
+        "start": "2026-10-28T21:00:00.000Z",
+        "end": "2026-10-28T23:00:00.000Z",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
           "d30312a8b75a",
+          "d93abdb4309a",
           "e8b71eac1119"
         ],
         "originalUrls": [
@@ -25891,63 +26464,6 @@
         "originalUrls": [
           "https://events.cmu.edu/dietrich/event/32108-semester-passno-pass-withdrawal-deadline",
           "https://events.cmu.edu/academic-calendar/event/31681-semester-passno-pass-withdrawal-deadline"
-        ]
-      },
-      {
-        "id": "1bf4dbcb61630e15f0ffdd93",
-        "title": "Mini-2 Pass/No Pass & Withdrawal Grade Deadline",
-        "start": "2026-11-23",
-        "end": "2026-11-24",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/dietrich/event/32110-mini-2-passno-pass-withdrawal-grade-deadline"
-        ]
-      },
-      {
-        "id": "8fc7b7e0ef0a92df6a39e834",
-        "title": "Semester & Mini-2 Faculty Course Evaluations Open",
-        "start": "2026-11-23",
-        "end": "2026-11-24",
-        "sourceOccurrences": 4,
-        "reasons": [
-          "copied-description",
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119",
-          "fe717318a657"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/dietrich/event/32111-semester-mini-2-faculty-course-evaluations",
-          "https://events.cmu.edu/academic-calendar/event/31795-semester-mini-2-faculty-course-evaluations-open"
-        ]
-      },
-      {
-        "id": "6f767d50e4c193025ce2e787",
-        "title": "Last Day of Classes",
-        "start": "2026-12-04",
-        "end": "2026-12-05",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/dietrich/event/32113-last-day-of-classes"
         ]
       },
       {
@@ -26628,24 +27144,6 @@
         ]
       },
       {
-        "id": "01b60b3e7845329a72ec989b",
-        "title": "AI & Teaching: Practical Assessment Strategies from Dietrich Colleagues",
-        "start": "2026-11-19T17:30:00.000Z",
-        "end": "2026-11-19T18:30:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/dietrich/event/33686-ai-teaching-practical-assessment-strategies-from-dietr"
-        ]
-      },
-      {
         "id": "a8d5b15a20ff17cd58a987da",
         "title": "AI & Teaching Session 3",
         "start": "2027-02-04T17:30:00.000Z",
@@ -26718,10 +27216,10 @@
         ]
       },
       {
-        "id": "475b000f13ca303dbc49565b",
-        "title": "Summer Undergraduate Internship Search Workshop",
-        "start": "2026-11-10T22:00:00.000Z",
-        "end": "2026-11-10T23:00:00.000Z",
+        "id": "8e6273b7edff930a7526e8cc",
+        "title": "Psychology Majors Workshop",
+        "start": "2026-10-26T20:30:00.000Z",
+        "end": "2026-10-26T22:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -26732,7 +27230,25 @@
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/dietrich/event/34307-summer-undergraduate-internship-search-workshop"
+          "https://events.cmu.edu/dietrich/event/35278-psychology-majors-workshop"
+        ]
+      },
+      {
+        "id": "5f5a57f508aba1073902f354",
+        "title": "Career Exploration for Grad Students: Mapping Your Goals to Industry Roles",
+        "start": "2026-10-27T16:30:00.000Z",
+        "end": "2026-10-27T17:50:00.000Z",
+        "sourceOccurrences": 2,
+        "reasons": [
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "d93abdb4309a",
+          "e8b71eac1119"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/dietrich/event/35346-career-exploration-for-grad-students-mapping-your"
         ]
       },
       {
@@ -26754,10 +27270,10 @@
         ]
       },
       {
-        "id": "4b4814d55ea1d54bc5e870f6",
-        "title": "The U.S. and China: Technology, Taiwan, and the Future of Strategic Competition",
-        "start": "2026-11-16T23:30:00.000Z",
-        "end": "2026-11-17T01:00:00.000Z",
+        "id": "dacad78f562bb0eca97a7170",
+        "title": "World of Music: Christopher Mark Jones’ “Montréal Encore”",
+        "start": "2026-10-28T23:00:00.000Z",
+        "end": "2026-10-29T00:30:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -26768,114 +27284,14 @@
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/dietrich/event/36906-the-us-and-china-technology-taiwan-and-the-future"
+          "https://events.cmu.edu/live/events/33995-world-of-music-christopher-mark-jones-montreal"
         ]
       },
       {
-        "id": "55c0e0a8c423155669c6bdd5",
-        "title": "Graduate Student Winter Social",
-        "start": "2026-12-02T22:00:00.000Z",
-        "end": "2026-12-03T00:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/dietrich/event/36907-graduate-student-winter-social",
-          "https://events.cmu.edu/live/events/36907-graduate-student-winter-social"
-        ]
-      },
-      {
-        "id": "695025d1e7256aea33f817e8",
-        "title": "X in the Loop Webinar Series",
-        "start": "2026-11-14T02:00:00.000Z",
-        "end": "2026-11-14T03:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/111326-x-in-the-loop-series",
-          "https://events.cmu.edu/lcal/event/111326-x-in-the-loop-series"
-        ]
-      },
-      {
-        "id": "aa58aebaa7eea5abc0de41c5",
-        "title": "X in the Loop Webinar Series",
-        "start": "2026-11-21T02:00:00.000Z",
-        "end": "2026-11-21T03:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/112026-x-in-the-loop-webinar-series",
-          "https://events.cmu.edu/lcal/event/112026-x-in-the-loop-webinar-series"
-        ]
-      },
-      {
-        "id": "a2a09dac5cdc9332675e647b",
-        "title": "X in the Loop Webinar Series",
-        "start": "2026-12-05T02:00:00.000Z",
-        "end": "2026-12-05T03:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/120426-x-in-the-loop-webinar-series",
-          "https://events.cmu.edu/lcal/event/120426-x-in-the-loop-webinar-series"
-        ]
-      },
-      {
-        "id": "628d53ed33861d52a5831bde",
-        "title": "X in the Loop Webinar Series",
-        "start": "2026-12-12T02:00:00.000Z",
-        "end": "2026-12-12T03:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/121126-x-in-the-loop-webinar-series",
-          "https://events.cmu.edu/lcal/event/121126-x-in-the-loop-webinar-series"
-        ]
-      },
-      {
-        "id": "c3ceea5a2690836d00a52e95",
-        "title": "CaPS PhD Support Group",
-        "start": "2026-12-01T23:00:00.000Z",
-        "end": "2026-12-02T00:00:00.000Z",
+        "id": "32e0f13dd05924bd8cee0278",
+        "title": "Sista Circle Support Group",
+        "start": "2026-12-04T21:00:00.000Z",
+        "end": "2026-12-04T22:15:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -26886,34 +27302,15 @@
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/live/events/34762-caps-phd-support-group",
-          "https://events.cmu.edu/student-affairs/event/34762-caps-phd-support-group"
+          "https://events.cmu.edu/live/events/35571-sista-circle-support-group",
+          "https://events.cmu.edu/student-affairs/event/35571-sista-circle-support-group"
         ]
       },
       {
-        "id": "816f154cd6e5500585ebcc8b",
-        "title": "The Everywhere Millionaire: Who Is Really Rich in America?",
-        "start": "2026-11-12T17:15:00.000Z",
-        "end": "2026-11-12T18:30:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "copied-description"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/35505-the-everywhere-millionaire-who-is-really-rich-in",
-          "https://events.cmu.edu/event/35505-the-everywhere-millionaire-who-is-really-rich-in"
-        ]
-      },
-      {
-        "id": "e76bf1d31d41109bc30f69bc",
-        "title": "Finding Connection: A Support Group for Building Friendships in College",
-        "start": "2026-12-03T19:30:00.000Z",
-        "end": "2026-12-03T20:30:00.000Z",
+        "id": "0b354024e8cdb412f6bc411f",
+        "title": "Academic Cultures in Conversation: Teaching, Learning and Higher Education Across Different Educational Contexts",
+        "start": "2026-10-26T14:30:00.000Z",
+        "end": "2026-10-26T16:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -26924,130 +27321,14 @@
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/live/events/35549-finding-connection-a-support-group-for-building",
-          "https://events.cmu.edu/student-affairs/event/35549-finding-connection-a-support-group-for-building"
+          "https://events.cmu.edu/live/events/35702-academic-cultures-in-conversation"
         ]
       },
       {
-        "id": "bd2b8170e1cacfcfff70a3f6",
-        "title": "Understanding Self and Others",
-        "start": "2026-12-01T20:30:00.000Z",
-        "end": "2026-12-01T22:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/35582-understanding-self-and-others",
-          "https://events.cmu.edu/student-affairs/event/35582-understanding-self-and-others"
-        ]
-      },
-      {
-        "id": "f49955bd728fef1dbc568070",
-        "title": "English Master’s Programs Information Session",
-        "start": "2026-11-11T22:00:00.000Z",
-        "end": "2026-11-11T23:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/35930-english-masters-programs-information-session"
-        ]
-      },
-      {
-        "id": "80e451b0459088026cb9c2d4",
-        "title": "4th Annual Electronics Recycling Event",
-        "start": "2026-11-09",
-        "end": "2026-11-15",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "copied-description"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/36649-4th-annual-electronics-recycling-event",
-          "https://events.cmu.edu/event/36649-4th-annual-electronics-recycling-event"
-        ]
-      },
-      {
-        "id": "64ccd4511dc2b673cb9d008a",
-        "title": "Mastering Your Paycheck: A Budgeting Workshop",
-        "start": "2026-11-11T22:00:00.000Z",
-        "end": "2026-11-11T22:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/36741-mastering-your-paycheck-a-budgeting-workshop",
-          "https://events.cmu.edu/student-affairs/event/36741-mastering-your-paycheck-a-budgeting-workshop"
-        ]
-      },
-      {
-        "id": "12a221c516c77bc415edd396",
-        "title": "SONA at the Three Rivers Film Festival",
-        "start": "2026-11-13T22:00:00.000Z",
-        "end": "2026-11-14T02:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/36911-sona-at-the-three-rivers-film-festival",
-          "https://events.cmu.edu/lcal/event/36911-sona-at-the-three-rivers-film-festival"
-        ]
-      },
-      {
-        "id": "d454e53c119d315c1afd1ff6",
-        "title": "SONA at the Three Rivers Film Festival",
-        "start": "2026-11-14T16:00:00.000Z",
-        "end": "2026-11-15T02:00:00.000Z",
-        "sourceOccurrences": 3,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "d93abdb4309a",
-          "e8b71eac1119",
-          "fac3ce8cfb40"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/live/events/36912-sona-at-the-three-rivers-film-festival",
-          "https://events.cmu.edu/lcal/event/36912-sona-at-the-three-rivers-film-festival"
-        ]
-      },
-      {
-        "id": "8736962391d2131f5f7ed809",
-        "title": "Get the Scoop on History Courses",
-        "start": "2026-10-26T21:00:00.000Z",
-        "end": "2026-10-26T21:00:00.000Z",
+        "id": "2612f3f5f13cdecfd0124e33",
+        "title": "Professor Joe Trotter Jr. Retirement Party",
+        "start": "2026-11-19T21:00:00.000Z",
+        "end": "2026-11-19T21:00:00.000Z",
         "sourceOccurrences": 2,
         "reasons": [
           "shared-event-link"
@@ -27058,26 +27339,7 @@
           "e8b71eac1119"
         ],
         "originalUrls": [
-          "https://events.cmu.edu/history/event/35876-get-the-scoop-on-history-courses",
-          "https://events.cmu.edu/live/events/35876-get-the-scoop-on-history-courses"
-        ]
-      },
-      {
-        "id": "384b3a0faeddc1d8bb89d5e6",
-        "title": "Research Talks with Block: Social Intelligence in LLMs – Implications for Privacy and Safety",
-        "start": "2026-11-13T17:00:00.000Z",
-        "end": "2026-11-13T18:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "e1452d40c032",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/block-center/event/36870-research-talks-with-block-social-intelligence-in"
+          "https://events.cmu.edu/history/event/35866-professor-joe-trotter-jr-retirement-party"
         ]
       },
       {
@@ -27099,25 +27361,6 @@
         ]
       },
       {
-        "id": "c85b761d607cecf9ea59d514",
-        "title": "EPP Seminar: Sarah Cen — Bridging the Gap between AI Research and AI Policy",
-        "start": "2026-11-11T17:00:00.000Z",
-        "end": "2026-11-11T18:00:00.000Z",
-        "sourceOccurrences": 2,
-        "reasons": [
-          "shared-event-link"
-        ],
-        "sourceConflicts": [],
-        "sourceIds": [
-          "e2ff798380de",
-          "e8b71eac1119"
-        ],
-        "originalUrls": [
-          "https://events.cmu.edu/epp/event/36676-epp-seminar-sarah-cen-bridging-the-gap-between-ai",
-          "https://events.cmu.edu/live/events/36676-epp-seminar-sarah-cen-bridging-the-gap-between-ai"
-        ]
-      },
-      {
         "id": "215336e4baaf8be9d21d0df8",
         "title": "Mini-2 Pass/No Pass & Withdrawal Deadline",
         "start": "2026-11-23",
@@ -27133,6 +27376,26 @@
         ],
         "originalUrls": [
           "https://events.cmu.edu/academic-calendar/event/31794-mini-2-passno-pass-withdrawal-deadline"
+        ]
+      },
+      {
+        "id": "8fc7b7e0ef0a92df6a39e834",
+        "title": "Semester & Mini-2 Faculty Course Evaluations Open",
+        "start": "2026-11-23",
+        "end": "2026-11-24",
+        "sourceOccurrences": 3,
+        "reasons": [
+          "copied-description",
+          "shared-event-link"
+        ],
+        "sourceConflicts": [],
+        "sourceIds": [
+          "e8b71eac1119",
+          "fe717318a657"
+        ],
+        "originalUrls": [
+          "https://events.cmu.edu/academic-calendar/event/31795-semester-mini-2-faculty-course-evaluations-open",
+          "https://events.cmu.edu/dietrich/event/32111-semester-mini-2-faculty-course-evaluations"
         ]
       },
       {
@@ -27551,6 +27814,6 @@
         ]
       }
     ],
-    "checkedAt": "2026-11-06T18:00:41.516Z"
+    "checkedAt": "2026-11-06T20:05:57.708Z"
   }
 }
