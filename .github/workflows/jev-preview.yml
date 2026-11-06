@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   preview:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     environment: jev-evaluation
     env:
@@ -42,9 +42,10 @@ jobs:
           CMUEVENTS_JEV_LIVE: '1'
         run: node --test --test-name-pattern='configured Jev service' tests/jev-events.test.mjs
       - name: Install public-page and media runtimes
+        timeout-minutes: 6
         run: |
-          sudo apt-get update
-          sudo apt-get install --yes tesseract-ocr poppler-utils
+          sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 update
+          sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 install --yes tesseract-ocr poppler-utils
           npx playwright install --with-deps chromium
       - name: Check offline regression and publication contracts
         run: |
