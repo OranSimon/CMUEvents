@@ -34,6 +34,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    environment:
+      name: jev-evaluation
+      deployment: false
     permissions:
       contents: write
     env:
@@ -90,8 +93,9 @@ jobs:
         shell: bash
         env:
           HAVE_STATE: ${{ steps.restore.outputs.available }}
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
         run: |
-          args=(--output=dist --state-out=.cache/export/state.json)
+          args=(--output=dist --state-out=.cache/export/state.json --jev-time=apply --jev-merge=apply)
           if [ "$HAVE_STATE" = true ]; then args+=(--state-in=.cache/state-in.json); fi
           if [ "$ALLOW_EVENT_DROP" = true ]; then args+=(--allow-event-drop); fi
           npm run build:static -- "${args[@]}"
