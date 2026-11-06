@@ -21,12 +21,13 @@ function readDates(text, fallbackYear) {
   return { spans, invalid: Boolean(issues.length) || spans.some(span => !span.start || !span.end) };
 }
 
-/** Read time tokens with an explicit AM/PM marker or a two-digit 24-hour clock. */
-function clockTokens(text) {
+/** Read clocks whose period is explicit or established by the schedule format. */
+function clockTokens(text, scope = text) {
+  const uses24Hour = /\b24[- ]hour\b|\b(?:00|1[3-9]|2[0-3]):[0-5]\d\b/i.test(scope);
   const pattern = /\b(?:(\d{1,2})(?::([0-5]\d))?\s*([ap])\.?m\.?|([01]\d|2[0-3]):([0-5]\d)|noon|midnight)(?!\w)(?:\s*(UTC|GMT|[ECMP][SD]T|JST)\b)?/gi;
   return [...text.matchAll(pattern)].flatMap(match => {
     const [, hour, minute, period, hour24, minute24, zone] = match;
-    if (hour && (+hour < 1 || +hour > 12)) return [];
+    if ((hour && (+hour < 1 || +hour > 12)) || (hour24 && !uses24Hour)) return [];
     const minutes = hour ? (+hour % 12 + (period.toLowerCase() === 'p' ? 12 : 0)) * 60 + +(minute || 0)
       : hour24 ? +hour24 * 60 + +minute24 : /^noon/i.test(match[0]) ? 720 : 0;
     return [{ minutes, offset: zone ? OFFSET[zone.toUpperCase()] : null,
@@ -34,12 +35,18 @@ function clockTokens(text) {
   });
 }
 
-/** Convert a validated wall-clock endpoint to UTC using the published zone. */
+/** Convert a validated wall clock, retaining ambiguity in repeated DST hours. */
 function instant(day, clock, offset, timeZone) {
   if (offset !== null) return new Date(Date.parse(`${day}T00:00:00Z`) + (clock.minutes - offset) * 60_000).toISOString();
   const hh = String(Math.floor(clock.minutes / 60)).padStart(2, '0');
   const mm = String(clock.minutes % 60).padStart(2, '0');
-  return parseDate(`${day}T${hh}:${mm}`, timeZone);
+  const utc = parseDate(`${day}T${hh}:${mm}`, timeZone);
+  if (!utc) return null;
+  const formatter = new Intl.DateTimeFormat('en-US', { timeZone, year: 'numeric', month: 'numeric', day: 'numeric',
+    hour: 'numeric', minute: 'numeric', hourCycle: 'h23' });
+  const stamp = Date.parse(utc);
+  const wall = formatter.format(stamp);
+  return [-60, -30, 30, 60].some(delta => formatter.format(stamp + delta * 60_000) === wall) ? null : utc;
 }
 
 /**
@@ -62,7 +69,9 @@ export function scheduleCandidates({ texts, year, timeZone }) {
   for (const raw of texts) {
     const text = jevText(raw);
     if (text.length > 2500 || SERIES.test(text)) return [];
-    const clauses = text.split(/\n|;|(?<=[.!?])\s+(?=[A-Z])/).map(line => line.trim()).filter(Boolean);
+    const clauses = text.replace(/\s+(?:and\s+)?(?=(?:event\s+)?ends?\s*(?::|at\b|on\b))/gi, '\n')
+      .split(/\n|;|(?<![aApP]\.[mM]\.)(?<=[.!?])\s+(?=[A-Z])/)
+      .map(line => line.trim()).filter(Boolean);
     for (let index = 0; index < clauses.length; index++) {
       const clause = clauses[index];
       const { spans, invalid } = readDates(clause, year);
@@ -75,8 +84,9 @@ export function scheduleCandidates({ texts, year, timeZone }) {
       const nextDates = next ? readDates(next, year) : null;
       if (START_LABEL.test(clause) && next && END_LABEL.test(next) && nextDates.spans.length) {
         const [last] = nextDates.spans;
-        const [startClock, extraStart] = clockTokens(clause);
-        const [endClock, extraEnd] = clockTokens(next);
+        const scope = `${clause} ${next}`;
+        const [startClock, extraStart] = clockTokens(clause, scope);
+        const [endClock, extraEnd] = clockTokens(next, scope);
         if (nextDates.invalid || nextDates.spans.length !== 1 || date.start !== date.end || last.start !== last.end
           || last.start < date.start || !startClock || !endClock || extraStart || extraEnd) return [];
         const endWeekday = next.slice(0, last.index).match(/\b(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\s*,?\s*$/i)?.[1];
@@ -114,7 +124,7 @@ export function scheduleCandidates({ texts, year, timeZone }) {
           if (startInstant && endInstant) add(date, evidence, startInstant, endInstant, 'time');
           n++;
         } else if (date.start === date.end && !/\b(?:ends?|until)\s*(?:at\s*)?$/i.test(clockText.slice(0, start.index))
-          && !/\d\s*[-–—−]\s*$/.test(clockText.slice(0, start.index))) {
+          && !/\d\s*(?:[-–—−]|to|through)\s*$/i.test(clockText.slice(0, start.index))) {
           add(date, evidence, instant(date.start, start, start.offset, timeZone), null, 'time');
         }
       }

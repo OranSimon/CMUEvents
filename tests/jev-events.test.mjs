@@ -76,12 +76,18 @@ test('explicit date endpoints can cross days and DST; unrelated times cannot be 
   const [range] = scheduleCandidates(overnight);
   assert.equal(range.start, '2027-11-07T03:00:00.000Z');
   assert.equal(range.end, '2027-11-07T08:00:00.000Z');
+  assert.deepEqual(scheduleCandidates({ ...overnight, texts: [overnight.texts[0].replace('\n', ' and ')] }),
+    [range]);
   const input = { ...timeInput, texts: ['May 15, 2027, 6:00 PM to 7:30 PM and 8:00 PM to 9:30 PM'] };
   assert.equal(await chooseSchedule(input, (_, __, questions) => selectTime(questions, '2027-05-15T22', '2027-05-16T01:30')), null);
-  for (const text of ['May 15 at 6:00 PM', 'Sunday, May 15, 2027 at 6:00 PM', 'March 14, 2027 at 02:30',
-    'February 30, 2027 at 6:00 PM', 'March 14, 2027 01:30 to 02:30']) {
+  for (const text of ['May 15 at 6:00 PM', 'Sunday, May 15, 2027 at 6:00 PM', 'March 14, 2027 at 2:30 AM',
+    'February 30, 2027 at 6:00 PM', 'March 14, 2027 1:30 AM to 2:30 AM', 'November 7, 2027 at 1:30 AM']) {
     assert.deepEqual(scheduleCandidates({ ...timeInput, texts: [text] }), [], text);
   }
+  assert.equal(scheduleCandidates({ ...timeInput, texts: ['May 15, 2027 at 08:30'] })[0].precision, 'date');
+  assert.equal(scheduleCandidates({ ...timeInput, texts: ['May 15, 2027, 08:30 to 14:00'] })[0].end, '2027-05-15T18:00:00.000Z');
+  assert.equal(scheduleCandidates({ ...timeInput, texts: ['November 7, 2027 at 1:30 AM EST'] })[0].start, '2027-11-07T06:30:00.000Z');
+  assert.equal(scheduleCandidates({ ...timeInput, texts: ['May 15, 2027, 6 p.m. to 7:30 p.m. UTC'] })[0].end, '2027-05-15T19:30:00.000Z');
   const repeated = { ...timeInput, texts: ['May 15, 2027, 6:00 PM to 7:30 PM\nMay 22, 2027, 6:00 PM to 7:30 PM'] };
   assert.equal(await chooseSchedule(repeated, (_, __, questions) => selectTime(questions, '2027-05-15T22', '2027-05-15T23:30')), null);
 });
