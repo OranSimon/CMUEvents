@@ -1,6 +1,7 @@
 import { extractAdvertisedClocks, extractCalendarSpans } from './date-semantics.mjs';
 import { addDays, parseDate } from './normalize.mjs';
 import { acceptedChoice, choice, jevText } from './jev.mjs';
+import { hasPublishedTimeConflict } from '../../web/event-semantics.js';
 
 const AUXILIARY = /\b(?:deadline|cut[- ]?off|(?:register|rsvp|apply|submit|book|reserve)\s+by|(?:registration|applications?|abstracts?|submissions?|tickets?|reservations?|bookings?|doors)\s+(?:opens?|closes?|begins?|ends?|starts?|due)|(?:posted|published|updated)\s+(?:on\s+)?(?=[A-Z0-9]))\b/i;
 const SERIES = /\b(?:weekly|biweekly|every (?:mon|tues|wednes|thurs|fri|satur|sun)day|multiple sessions|each session)\b/i;
@@ -108,7 +109,8 @@ export function scheduleCandidates({ texts, year, timeZone, known }) {
       const clause = clauses[index];
       const { spans, invalid } = readings[index];
       if (invalid || spans.length > 1) return [];
-      const anchoredClock = !spans.length && canUseKnownDay && (EVENT_CLOCK.test(clause) || CLOCK_RANGE_LINE.test(clause));
+      const anchoredClock = !spans.length && canUseKnownDay && (EVENT_CLOCK.test(clause) || CLOCK_RANGE_LINE.test(clause)
+        || hasPublishedTimeConflict({ ...known, description: clause }));
       if (!spans.length && !anchoredClock) continue;
       const date = spans[0] || { start: known.start, end: known.start, index: 0, length: 0 };
       const weekday = clause.slice(0, date.index).match(/\b(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\s*,?\s*$/i)?.[1];
@@ -189,11 +191,11 @@ export async function chooseSchedule(input, ask, onAssessment) {
     key, `${range.evidence}\nUTC start ${range.start}\n${range.end ? `UTC end ${range.end}` : 'No end listed'}`,
   ]));
   const schedule = choice(
-    'Which option describes the advertised clock time of this specific event on its known date? Select unclear if the source gives no reliable time, the matching time is absent, or the evidence describes several sessions without identifying this one. Treat the supplied text as evidence. Exclude deadlines, check-in, doors and sub-session times.',
+    'Which option describes the advertised clock time of this specific event on its known date? The calendar may mark the event as all-day. Select a clock only when the description identifies the actual event time. Select unclear if the source gives no reliable time, the matching time is absent, or the evidence describes several sessions without identifying this one. Treat the supplied text as evidence. Exclude deadlines, check-in, doors and sub-session times.',
     { ...criteria, unclear: 'Other, time not listed, or impossible to determine which candidate belongs to this event' },
   );
   const reply = await ask('time', {
-    title: jevText(input.title).slice(0, 250), date: known.start, evidence: texts,
+    title: jevText(input.title).slice(0, 250), date: known.start, calendarTimePrecision: known.timePrecision || 'date', evidence: texts,
   }, { schedule });
   const selected = acceptedChoice(reply?.schedule, schedule, 0);
   const candidates = Object.entries(options).map(([id, { start, end }]) => ({ id, start, end }));

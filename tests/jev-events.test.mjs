@@ -2,11 +2,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { fetchAutomaticMedia } from '../src/adapters/automatic-media.mjs';
 import { fetchTextSchedule } from '../src/adapters/text-schedules.mjs';
+import { parseIcs } from '../src/adapters/ics.mjs';
 import { createJevClient, JEV_MODEL } from '../src/lib/jev.mjs';
 import { chooseSchedule, scheduleCandidates } from '../src/lib/jev-time.mjs';
 import { normalizeEvent } from '../src/lib/normalize.mjs';
 import { assessSemanticMatches, occurrenceStorageKey } from '../src/lib/occurrence-merge.mjs';
 import { openStore } from '../src/lib/store.mjs';
+import { hasPublishedTimeConflict } from '../web/event-semantics.js';
 
 const tz = 'America/New_York';
 const posterText = 'Registration closes May 10, 2027 at 5:00 PM\nLecture: May 15, 2027, 6:00 PM to 7:30 PM';
@@ -121,6 +123,77 @@ test('explicit date endpoints can cross days and DST; unrelated times cannot be 
   assert.equal(scheduleCandidates({ ...timeInput, texts: ['May 15, 2027, 08:30 to 14:00'] })[0].end, '2027-05-15T18:00:00.000Z');
   assert.equal(scheduleCandidates({ ...timeInput, texts: ['November 7, 2027 at 1:30 AM EST'] })[0].start, '2027-11-07T06:30:00.000Z');
   assert.equal(scheduleCandidates({ ...timeInput, texts: ['May 15, 2027, 6 p.m. to 7:30 p.m. UTC'] })[0].end, '2027-05-15T19:30:00.000Z');
+});
+
+test('a clock conflicting with an all-day feed can be ranked and applied while preserving the original claim', async t => {
+  const plan = { id: 'calendar', status: 'active', department: 'Public events', org: 'Public calendar',
+    url: 'https://example.edu/calendar', options: { timezone: tz } };
+  const feed = [
+    'BEGIN:VCALENDAR', 'VERSION:2.0', 'BEGIN:VEVENT', 'UID:clock-conflict',
+    'DTSTART;VALUE=DATE:20270515', 'SUMMARY:Community competition',
+    'DESCRIPTION:Community competition\\, 1:00 p.m.', 'URL:https://example.edu/competition',
+    'END:VEVENT', 'END:VCALENDAR',
+  ].join('\r\n');
+  const { events } = parseIcs(feed, plan, { now: '2027-05-01T12:00:00Z' });
+  assert.equal(events.length, 1);
+  const original = events[0];
+  assert.equal(original.timePrecision, 'all-day');
+  assert.ok(hasPublishedTimeConflict(original));
+  const input = { title: original.title, timeZone: original.timeZone, texts: [original.description],
+    known: { start: original.start, end: original.end, timePrecision: original.timePrecision } };
+  const range = await chooseSchedule(input, (_, state, questions) => {
+    assert.equal(state.calendarTimePrecision, 'all-day');
+    return selectTime(questions, '2027-05-15T17', null);
+  });
+  assert.equal(range.start, '2027-05-15T17:00:00.000Z');
+  assert.equal(range.end, null);
+  assert.equal(await chooseSchedule(input, (_, __, { schedule }) => ({ schedule: answer(schedule, 'unclear') })), null);
+  assert.equal(await chooseSchedule(input, () => null), null);
+  assert.equal(await chooseSchedule({ ...input, texts: ['Registration closes at 5 PM'] },
+    () => assert.fail('a deadline cannot supply an event clock')), null);
+  assert.equal(await chooseSchedule({ ...input, texts: ['A full-day exhibition.'] },
+    () => assert.fail('a genuine all-day event has no conflicting clock')), null);
+
+  const store = openStore(':memory:');
+  t.after(() => store.close());
+  store.registerPlans([plan]);
+  store.replaceSource(plan.id, events);
+  const key = `${plan.id}:${occurrenceStorageKey(original)}`;
+  store.rebuildEvents([plan], undefined, new Map([[key, range]]));
+  const [resolved] = store.listEvents({ from: '2027-05-15', to: '2027-05-15' }).events;
+  assert.equal(resolved.timePrecision, 'time');
+  assert.equal(resolved.allDay, false);
+  assert.equal(resolved.start, range.start);
+  assert.equal(resolved.end, resolved.start, 'an absent end remains unknown');
+  assert.equal(resolved.sources[0].eventUrl, original.url);
+  assert.equal(resolved.sourceVariants.length, 1);
+  assert.equal(resolved.sourceVariants[0].timePrecision, 'all-day');
+  assert.equal(resolved.sourceVariants[0].start, original.start);
+  assert.equal(store.prepareOccurrences([plan])[0].timePrecision, 'all-day');
+  store.rebuildEvents([plan]);
+  assert.ok(hasPublishedTimeConflict(store.listEvents({ from: '2027-05-15', to: '2027-05-15' }).events[0]));
+
+  const copy = { ...plan, id: 'copy', org: 'Other calendar', url: 'https://other.example.edu/calendar' };
+  const plans = [plan, copy];
+  store.registerPlans(plans);
+  store.replaceSource(copy.id, events);
+  const choices = new Map([[key, range]]);
+  store.rebuildEvents(plans, undefined, choices);
+  assert.ok(hasPublishedTimeConflict(store.listEvents({ from: '2027-05-15', to: '2027-05-15' }).events[0]),
+    'every conflicting all-day copy needs an accepted assessment');
+  choices.set(`${copy.id}:${occurrenceStorageKey(original)}`, range);
+  assert.equal(store.rebuildEvents(plans, undefined, choices), 1);
+  const [joined] = store.listEvents({ from: '2027-05-15', to: '2027-05-15' }).events;
+  assert.equal(joined.timePrecision, 'time');
+  assert.deepEqual(new Set(joined.sources.map(source => source.id)), new Set([plan.id, copy.id]));
+  choices.set(`${copy.id}:${occurrenceStorageKey(original)}`, { ...range, start: '2027-05-15T18:00:00.000Z' });
+  store.rebuildEvents(plans, undefined, choices);
+  assert.ok(hasPublishedTimeConflict(store.listEvents({ from: '2027-05-15', to: '2027-05-15' }).events[0]));
+
+  const realAllDay = { ...original, description: 'A full-day exhibition.' };
+  store.replaceSource(plan.id, [realAllDay]);
+  store.rebuildEvents([plan], undefined, new Map([[key, range]]));
+  assert.equal(store.listEvents({ from: '2027-05-15', to: '2027-05-15' }).events[0].timePrecision, 'all-day');
 });
 
 test('media and conference evidence supplies a calendar time without rewriting the source snapshot', async t => {

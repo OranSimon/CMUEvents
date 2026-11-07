@@ -161,7 +161,7 @@ function eventPhase(event, now = Date.now()) {
  * @return {string[]} Leading time label and optional ending label.
  */
 function eventClock(event) {
-  if (hasPublishedTimeConflict(event)) return ["Check time", "Sources disagree"];
+  if (hasPublishedTimeConflict(event)) return ["Check time", "All-day/time conflict"];
   if (event.scheduleKind === "continuous") return ["Hours vary", ""];
   const day = eventDay(event), lastDay = eventLastDay(event);
   const through = lastDay > day ? calendarLabel(lastDay, { month: "short", day: "numeric" }) : "";
@@ -233,7 +233,7 @@ function eventWhen(event) {
  */
 function eventTime(event) {
   const start = event.start || event.startDate || event.date;
-  if (hasPublishedTimeConflict(event)) return "Source times disagree · check original";
+  if (hasPublishedTimeConflict(event)) return "All-day calendar flag conflicts with the description’s time";
   if (event.scheduleKind === "continuous") return "Check original opening and session times";
   if (event.timePrecision === "date") return "Time not listed";
   if (event.allDay || /^\d{4}-\d{2}-\d{2}$/.test(start || "")) return "All day";
@@ -1141,8 +1141,8 @@ function openEvent(event) {
     const sourceIds = new Set(Array.isArray(variant.sourceIds) ? variant.sourceIds : []);
     const publishers = [...new Set((Array.isArray(event.sources) ? event.sources : []).filter(source => source && sourceIds.has(source.id))
       .map(source => source.org || source.name || source.title || source.department).filter(Boolean))];
-    const version = { ...variant, endExclusive: variant.endExclusive ?? Boolean(variant.allDay) };
     const versionDescription = typeof variant.description === "string" ? variant.description : variant.descriptionMatchesCanonical === true ? description : "";
+    const version = { ...variant, description: versionDescription, endExclusive: variant.endExclusive ?? Boolean(variant.allDay) };
     const versionStatus = ({ scheduled: "Scheduled", cancelled: "Cancelled", postponed: "Postponed" })[variant.status] || variant.status || "Not listed";
     return `<section class="source-version"><p><strong>${escapeHtml(variant.title || title)}</strong><br>${escapeHtml(publishers.join(" · ") || "Original source")}</p><p>${escapeHtml(eventDateLabel(version))}<br>${escapeHtml(eventTime(version))}${variant.timeZone ? `<br>Source time zone: ${escapeHtml(variant.timeZone)}` : ""}<br>Location: ${escapeHtml(variant.location?.name || variant.location || "Not listed")}<br>Status: ${escapeHtml(versionStatus)}${variant.organizer ? `<br>Organizer: ${escapeHtml(variant.organizer)}` : ""}</p>${versionDescription ? `<p>${escapeHtml(versionDescription)}</p>` : '<p>The source did not include an event description.</p>'}</section>`;
   }).join("")}</div></details>` : "";

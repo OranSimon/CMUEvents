@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { acceptedChoice, choice, jevText } from './jev.mjs';
+import { hasPublishedTimeConflict } from '../../web/event-semantics.js';
 
 const hash = value => createHash('sha256').update(value).digest('hex').slice(0, 24);
 const words = value => String(value || '').normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
@@ -323,6 +324,13 @@ function stableRow(event) { return JSON.stringify([event.sources?.[0]?.id, event
 
 /** Pick a readable primary record and retain every distinct source-specific claim. */
 function combine(members, reasons, selectedTimes) {
+  const clockFor = member => selectedTimes?.get(`${member.sources[0].id}:${occurrenceStorageKey(member)}`);
+  const clocks = members.map(clockFor).filter(Boolean);
+  const canApplyClock = clocks.length && members.every(member => precision(member) === 'date'
+    || (hasPublishedTimeConflict(member) && clockFor(member)));
+  const starts = new Set(clocks.map(clock => clock.start));
+  const ends = new Set(clocks.map(clock => clock.end).filter(Boolean));
+  const applyClock = canApplyClock && starts.size === 1 && ends.size <= 1;
   const score = event => Number(Boolean(individualLink(event))) * 100 + Number(knownEnd(event)) * 10
     + Number(event.contentRole === 'detail') * 5 + Math.min(String(event.description || '').length / 10000, 1);
   const ordered = [...members].sort((a, b) => score(b) - score(a) || stableRow(a).localeCompare(stableRow(b)));
@@ -343,7 +351,7 @@ function combine(members, reasons, selectedTimes) {
   result.sources = [...new Map(members.flatMap(event => event.sources || []).map(source => [provenanceKey(source), source])).values()]
     .sort((a, b) => provenanceKey(a).localeCompare(provenanceKey(b)));
   result.id = hash(JSON.stringify([result.start, result.end, titleWords(result), individualLink(result) || uidIdentity(result) || stableRow(result)]));
-  if (members.length > 1) {
+  if (members.length > 1 || (applyClock && members.some(hasPublishedTimeConflict))) {
     const variants = new Map();
     for (const member of members) {
       const value = claim(member._sourceClaim || member);
@@ -364,18 +372,13 @@ function combine(members, reasons, selectedTimes) {
       ...(members.some((member, index) => members.slice(index + 1).some(other => conflictingLocations(member, other))) ? ['location'] : []),
       ...(new Set(members.map(event => event.status).filter(Boolean)).size > 1 ? ['status'] : []),
     ];
-    result.mergeEvidence = { version: 1, reasons: [...new Set(reasons)].sort(), sourceOccurrences: members.length };
+    if (members.length > 1) result.mergeEvidence = { version: 1, reasons: [...new Set(reasons)].sort(), sourceOccurrences: members.length };
   }
   // Apply clocks to an established group so a clock in one source cannot split its reposts.
-  if (selectedTimes?.size && members.every(member => precision(member) === 'date')) {
-    const clocks = members.map(member => selectedTimes.get(`${member.sources[0].id}:${occurrenceStorageKey(member)}`)).filter(Boolean);
-    const starts = new Set(clocks.map(clock => clock.start));
-    const ends = new Set(clocks.map(clock => clock.end).filter(Boolean));
-    if (starts.size === 1 && ends.size <= 1) {
-      const [start] = starts;
-      const [end = start] = ends;
-      Object.assign(result, { start, end, timePrecision: 'time', allDay: false });
-    }
+  if (applyClock) {
+    const [start] = starts;
+    const [end = start] = ends;
+    Object.assign(result, { start, end, timePrecision: 'time', allDay: false });
   }
   delete result._sourceClaim;
   return result;

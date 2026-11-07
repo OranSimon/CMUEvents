@@ -11,7 +11,7 @@ import { createJevClient } from '../src/lib/jev.mjs';
 import { chooseSchedule } from '../src/lib/jev-time.mjs';
 import { assessSemanticMatches, occurrenceStorageKey } from '../src/lib/occurrence-merge.mjs';
 import { inWindow } from '../src/lib/normalize.mjs';
-import { calendarEligibility } from '../web/event-semantics.js';
+import { calendarEligibility, hasPublishedTimeConflict } from '../web/event-semantics.js';
 
 /**
  * Refresh on an isolated runner, validate and export Pages plus durable state.
@@ -65,7 +65,7 @@ async function main(args = process.argv.slice(2)) {
       const scopedSources = new Set(plans.filter(plan => plan.options?.automaticMedia?.length
         || plan.options?.layout === 'linked-consistent-details').map(plan => plan.id));
       const untimed = store.prepareOccurrences(plans)
-        .filter(event => event.timePrecision === 'date' && event.scheduleKind === 'occurrence'
+        .filter(event => (event.timePrecision === 'date' || hasPublishedTimeConflict(event)) && event.scheduleKind === 'occurrence'
           && event.status === 'scheduled' && inWindow(event, context) && calendarEligibility(event).eligible)
         .sort((left, right) => Number(left.start < today) - Number(right.start < today) || left.start.localeCompare(right.start));
       for (let i = 0; i < untimed.length; i += 4) {
@@ -75,7 +75,7 @@ async function main(args = process.argv.slice(2)) {
           const key = `${sourceId}:${occurrence}`;
           const texts = scheduleEvidence.get(key) ?? (scopedSources.has(sourceId) ? [] : [event.description || event.summary]);
           if (!texts.length) return;
-          const known = { start: event.start, end: event.end };
+          const known = { start: event.start, end: event.end, timePrecision: event.timePrecision };
           const range = await chooseSchedule({ title: event.title, timeZone: event.timeZone, known, texts }, jev.ask, assessment => {
             if (assessment.outcome !== 'unavailable') jevReport.timeAssessments.push({ sourceId, occurrence, ...assessment });
           });

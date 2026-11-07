@@ -217,6 +217,30 @@ test('rows name the date where days mix and show ranges already underway as ongo
   assert.deepEqual(when({ ...talk, start: '2025-12-02', end: '2027-01-01', allDay: true, endExclusive: true, timePrecision: 'all-day' }), { main: 'Until Dec 31', sub: 'Since Dec 2' });
 });
 
+test('an all-day flag and description clock are explained as conflicting source fields', () => {
+  const app = application(async () => ({}));
+  const original = { id: 'conflict', title: 'Published competition', start: '2027-01-12', end: '2027-01-13',
+    allDay: true, timePrecision: 'all-day', description: 'Published competition, 1:00 p.m.' };
+  const card = cheerio.load(app.run(`eventCard(${JSON.stringify(original)}, 0)`));
+  assert.equal(card('.event-when-main').text(), 'Check time');
+  assert.equal(card('.event-when-sub').text(), 'All-day/time conflict');
+  assert.equal(app.run(`isTimed(${JSON.stringify(original)})`), false);
+  assert.match(app.run(`eventTime(${JSON.stringify(original)})`), /All-day calendar flag conflicts with the description/);
+  const resolved = { ...original, allDay: false, timePrecision: 'time', start: '2027-01-12T18:00:00Z', end: '2027-01-12T18:00:00Z' };
+  const timedCard = cheerio.load(app.run(`eventCard(${JSON.stringify(resolved)}, 0)`));
+  assert.equal(timedCard('.event-when-main').text(), '1:00 PM');
+  assert.equal(timedCard('.event-when-sub').length, 0);
+  assert.equal(app.run(`eventPhase(${JSON.stringify(resolved)}, Date.parse("2027-01-12T18:01:00Z"))`), 'past');
+  app.run('openDialog = () => {}');
+  app.run(`openEvent(${JSON.stringify({ ...resolved, sourceVariants: [
+    { ...original, description: undefined, descriptionMatchesCanonical: true, sourceIds: [], urls: [] },
+  ] })})`);
+  const detail = cheerio.load(app.elements.get('detail-content').innerHTML);
+  assert.match(detail('.detail-facts').text(), /1:00 PM/);
+  assert.match(detail('.source-version').text(), /All-day calendar flag conflicts with the description/);
+  assert.doesNotMatch(detail.root().text(), /Sources disagree|Source times disagree/);
+});
+
 test('a long day lists every section up front and links to it', () => {
   const app = application(async () => ({}));
   app.run('state.eventView = "day"; state.day = "2027-01-12"');
