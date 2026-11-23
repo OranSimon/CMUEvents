@@ -5,12 +5,20 @@ import { fetchEvents, parseHtml, explicitTextDate } from '../src/adapters/index.
 
 const base = { id: 'source', url: 'https://example.edu/events', adapter: 'html', options: { timezone: 'America/New_York' } };
 const ics = 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nUID:public-event\r\nDTSTART:20261023T130000Z\r\nSUMMARY:Club session [members only]\r\nEND:VEVENT\r\nEND:VCALENDAR';
+const icsWindow = { windowStart: '2026-10-23T00:00:00Z', windowEnd: '2026-10-24T00:00:00Z' };
 
 test('independent verified endpoint contracts retain original feed and survive a primary outage', async () => {
   const plan = { ...base, options: { ...base.options, eventSelector: '.old-card',
     additionalEndpoints: [{ url: 'https://calendar.google.com/public.ics', adapter: 'ics', publicURL: 'https://example.edu/calendar', options: {} }] } };
   const requested = [];
-  const result = await fetchEvents(plan, { fetchText: async url => { requested.push(url); if (url === base.url) throw Error('upstream unavailable'); return ics; } });
+  const result = await fetchEvents(plan, {
+    ...icsWindow,
+    fetchText: async url => {
+      requested.push(url);
+      if (url === base.url) throw Error('upstream unavailable');
+      return ics;
+    }
+  });
   assert.deepEqual(requested, [base.url, 'https://calendar.google.com/public.ics']);
   assert.equal(result.events.length, 1);
   assert.equal(result.events[0].url, 'https://example.edu/calendar');
@@ -92,7 +100,10 @@ test('Chabad public monthly calendar whitelists RSVP fields and keeps valid unas
 test('an unrecognized primary page remains partial when a secondary endpoint succeeds', async () => {
   const plan = { ...base, options: { ...base.options,
     additionalEndpoints: [{ url: 'https://example.edu/calendar.ics', adapter: 'ics' }] } };
-  const result = await fetchEvents(plan, { fetchText: async url => url.endsWith('.ics') ? ics : '<main>The event page structure changed</main>' });
+  const result = await fetchEvents(plan, {
+    ...icsWindow,
+    fetchText: async url => url.endsWith('.ics') ? ics : '<main>The event page structure changed</main>'
+  });
   assert.equal(result.events.length, 1);
   assert.equal(result.partial, true);
   assert.equal(result.unsupported, undefined);
